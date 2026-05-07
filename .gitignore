@@ -1,0 +1,16 @@
+node_modules
+.output
+.vinxi
+.vercel
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.turbo
+dist
+coverage
+playwright-report
+test-results
+# Generated Supabase types
+packages/web/src/lib/supabase/types.ts

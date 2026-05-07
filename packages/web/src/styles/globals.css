@@ -1,0 +1,209 @@
+/* Tailwind v4 — CSS-first config. No tailwind.config.ts needed. */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./fonts.css";
+
+/* Dark mode via .dark class (next-themes toggles this on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * @theme — Kyle design tokens
+ * Hex values from docs/kyle/EXTRACTED_EXACT_VALUES.md (Figma-extracted, exact).
+ * These override the older estimates in lib/theme/kyle_design/app_colors.dart.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+@theme {
+  /* Brand colors — raw palette */
+  --color-blackberry: #381633;
+  --color-blackberry-light: #4a2854;
+  --color-blackberry-dark: #2d1535;
+  --color-blackberry-input: #5a3366;
+
+  --color-cream: #f8f6eb;
+  --color-cream-dark: #e8e6e0;
+  --color-off-cream: #c6c3b2;
+
+  --color-orange: #f78b14;
+  --color-orange-light: #f9a042;
+  --color-orange-dark: #e57d0c;
+
+  --color-electrolyte: #1cf9cf;
+  --color-electrolyte-light: #4ffbd9;
+  --color-electrolyte-dark: #00e7ba;
+
+  --color-dragonfruit: #dc2597;
+  --color-dragonfruit-light: #e952ae;
+  --color-dragonfruit-dark: #c31b7f;
+
+  /* Semantic shadcn slots — driven by :root / .dark CSS vars below */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  /* Font families — vars defined in fonts.css */
+  --font-family-sansita: var(--font-sansita);
+  --font-family-compadre: var(--font-compadre);
+  --font-family-apercu: var(--font-apercu);
+  --font-family-apercu-mono: var(--font-apercu-mono);
+  --font-family-sans: var(--font-apercu);
+
+  /* Kyle typography scale
+   * Names from app_text_styles.dart and docs/kyle/DESIGN_TOKENS.md */
+  --font-size-data-xl: 3rem;       /* 48px — dataNumberLarge */
+  --font-size-data: 2rem;          /* 32px — dataNumber */
+  --font-size-page-title: 1.75rem; /* 28px — pageTitle */
+  --font-size-date-time: 1.5rem;   /* 24px — dateTime */
+  --font-size-section: 1.25rem;    /* 20px — sectionTitle */
+  --font-size-activity: 1.125rem;  /* 18px */
+  --font-size-body-lg: 1rem;       /* 16px */
+  --font-size-subtitle: 1rem;      /* 16px */
+  --font-size-btn: 1rem;           /* 16px — buttonPrimary */
+  --font-size-body: 0.875rem;      /* 14px — bodyMedium */
+  --font-size-descriptor: 0.875rem;/* 14px */
+  --font-size-input: 0.875rem;     /* 14px */
+  --font-size-label: 0.75rem;      /* 12px */
+  --font-size-segment: 0.75rem;    /* 12px — segmentedControl */
+  --font-size-caption: 0.625rem;   /* 10px — macroLabel / nutritionFact */
+  --font-size-unit: 0.4375rem;     /* 7px — unit labels */
+
+  /* Kyle radii */
+  --radius: 0.9375rem;   /* 15px — card/input radius */
+  --radius-card: 0.9375rem;
+  --radius-input: 0.9375rem;
+  --radius-pill: 9999px; /* fully rounded buttons */
+
+  /* Kyle shadows */
+  --shadow-kyle-card: 0 2px 8px 0 rgb(0 0 0 / 0.08);
+  --shadow-kyle-elevated: 0 4px 16px 0 rgb(0 0 0 / 0.12);
+  --shadow-kyle-elevated-dark: 0 4px 12px 0 rgb(0 0 0 / 0.30);
+
+  /* Kyle custom spacing (app_spacing.dart:185-215) */
+  --spacing-input-h: 2.875rem;   /* 46px — text-input height */
+  --spacing-btn-h: 3.5rem;       /* 56px — primary button height */
+  --spacing-control: 2.25rem;    /* 36px — plus/minus container, icon */
+  --spacing-icon-btn: 3rem;      /* 48px — circular icon button */
+  --spacing-act-sel-w: 3.875rem; /* 62px — activity type selector width */
+  --spacing-act-sel-h: 4.625rem; /* 74px — activity type selector height */
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * shadcn semantic CSS variables — HSL triplets (no hsl() wrapper)
+ * Maps Kyle brand → shadcn slot conventions.
+ * Source: 03_kyle_design_for_web.md §2.3
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+:root {
+  /* ── Light mode (Cream theme) ── */
+
+  /* Background = cream, Foreground = blackberry */
+  --background: 50 47% 95%;         /* #F8F6EB cream */
+  --foreground: 314 44% 15%;        /* #381633 blackberry */
+
+  /* Cards: in light mode, white panels on cream */
+  --card: 0 0% 100%;                 /* #FFFFFF */
+  --card-foreground: 314 44% 15%;    /* #381633 */
+
+  --popover: 0 0% 100%;              /* #FFFFFF */
+  --popover-foreground: 314 44% 15%; /* #381633 */
+
+  /* Primary = Orange CTA. Text on orange = blackberry */
+  --primary: 30 94% 53%;             /* #F78B14 orange */
+  --primary-foreground: 314 44% 15%; /* #381633 blackberry */
+
+  /* Secondary = Blackberry surface (selected pills, activity selectors) */
+  --secondary: 314 44% 15%;          /* #381633 */
+  --secondary-foreground: 50 47% 95%;/* #F8F6EB */
+
+  /* Accent = Electrolyte cyan. Icons on cyan always blackberry */
+  --accent: 169 95% 54%;             /* #1CF9CF */
+  --accent-foreground: 314 44% 15%;  /* #381633 */
+
+  /* Muted = off-cream / cream-dark */
+  --muted: 49 14% 89%;               /* #E8E6E0 cream-dark */
+  --muted-foreground: 51 12% 73%;    /* #C6C3B2 off-cream */
+
+  /* Destructive = Dragonfruit (also used for tertiary text buttons, Edit links) */
+  --destructive: 325 73% 50%;        /* #DC2597 */
+  --destructive-foreground: 50 47% 95%; /* #F8F6EB */
+
+  /* Borders */
+  --border: 0 0% 88%;                /* #E0E0E0 */
+  --input: 0 0% 88%;                 /* #E0E0E0 */
+  --ring: 30 94% 53%;                /* #F78B14 orange — focus ring */
+
+  /* Brand non-semantic raw tokens */
+  --brand-orange: 30 94% 53%;
+  --brand-electrolyte: 169 95% 54%;
+  --brand-dragonfruit: 325 73% 50%;
+  --brand-blackberry: 314 44% 15%;
+  --brand-cream: 50 47% 95%;
+}
+
+.dark {
+  /* ── Dark mode (Blackberry theme) ── */
+
+  --background: 314 44% 15%;          /* #381633 */
+  --foreground: 50 47% 95%;           /* #F8F6EB */
+
+  /* Dark cards = blackberry-light (one step up from background) */
+  --card: 297 36% 24%;                /* #4A2854 blackberry-light */
+  --card-foreground: 50 47% 95%;      /* #F8F6EB */
+
+  --popover: 297 36% 24%;
+  --popover-foreground: 50 47% 95%;
+
+  /* Primary stays orange in dark */
+  --primary: 30 94% 53%;              /* #F78B14 */
+  --primary-foreground: 314 44% 15%;  /* #381633 — blackberry text on orange */
+
+  /* Secondary = one-step-up surface */
+  --secondary: 297 36% 24%;           /* #4A2854 */
+  --secondary-foreground: 50 47% 95%; /* #F8F6EB */
+
+  /* Accent = Electrolyte cyan — same in both modes */
+  --accent: 169 95% 54%;              /* #1CF9CF */
+  --accent-foreground: 314 44% 15%;   /* #381633 — blackberry on cyan */
+
+  --muted: 314 44% 22%;               /* between blackberry and blackberry-light */
+  --muted-foreground: 50 25% 80%;     /* ~#CCCCCC */
+
+  --destructive: 325 73% 50%;         /* #DC2597 */
+  --destructive-foreground: 50 47% 95%;
+
+  /* Borders in dark — cream at low alpha */
+  --border: 50 47% 95%;               /* used with /10 alpha utilities */
+  --input: 297 36% 30%;               /* #5A3366 blackberry-input */
+  --ring: 30 94% 53%;                 /* orange focus ring */
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Base layer resets
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-apercu);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}

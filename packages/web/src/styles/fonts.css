@@ -1,0 +1,106 @@
+/*
+ * Font loading for the Mealvana prototype.
+ *
+ * BRAND FONTS (licensed, NOT included in this repo):
+ *   - Compadre Wide  — commercial (Type Department). License needed for web.
+ *     Place files at: public/fonts/Compadre-Regular.woff2, Compadre-Wide.woff2
+ *   - Apercu          — commercial (Colophon Foundry). License needed for web.
+ *     Place files at: public/fonts/Apercu-Regular.woff2, Apercu-Medium.woff2,
+ *                     Apercu-Semibold.woff2, Apercu-Bold.woff2,
+ *                     Apercu-Mono-Regular.woff2, Apercu-Mono-Medium.woff2
+ *
+ * Once licensed, replace the Google Font imports below with @font-face blocks
+ * pointing to the local files, and update the CSS vars accordingly.
+ *
+ * MANUAL STEPS DOC: See mealvana_endurance/docs/mealplanning_prototype/
+ * 03_kyle_design_for_web.md §10 open question 1 for licensing instructions.
+ */
+
+/* Web-safe fallbacks (used until licensing is confirmed) */
+@import url('https://fonts.googleapis.com/css2?family=Sansita:wght@700;800&family=Work+Sans:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/*
+ * Licensed Compadre Wide (uncomment and fill in paths when licensed):
+ *
+ * @font-face {
+ *   font-family: "Compadre";
+ *   font-style: normal;
+ *   font-weight: 400;
+ *   font-display: swap;
+ *   src: url("/fonts/Compadre-Regular.woff2") format("woff2");
+ * }
+ *
+ * @font-face {
+ *   font-family: "Compadre";
+ *   font-style: normal;
+ *   font-weight: 500;
+ *   font-display: swap;
+ *   src: url("/fonts/Compadre-Wide.woff2") format("woff2");
+ * }
+ */
+
+/*
+ * Licensed Apercu (uncomment and fill in paths when licensed):
+ *
+ * @font-face {
+ *   font-family: "Apercu";
+ *   font-style: normal;
+ *   font-weight: 400;
+ *   font-display: swap;
+ *   src: url("/fonts/Apercu-Regular.woff2") format("woff2");
+ * }
+ *
+ * @font-face {
+ *   font-family: "Apercu";
+ *   font-style: normal;
+ *   font-weight: 500;
+ *   font-display: swap;
+ *   src: url("/fonts/Apercu-Medium.woff2") format("woff2");
+ * }
+ *
+ * @font-face {
+ *   font-family: "Apercu";
+ *   font-style: normal;
+ *   font-weight: 600;
+ *   font-display: swap;
+ *   src: url("/fonts/Apercu-Semibold.woff2") format("woff2");
+ * }
+ *
+ * @font-face {
+ *   font-family: "Apercu";
+ *   font-style: normal;
+ *   font-weight: 700;
+ *   font-display: swap;
+ *   src: url("/fonts/Apercu-Bold.woff2") format("woff2");
+ * }
+ *
+ * @font-face {
+ *   font-family: "Apercu Mono";
+ *   font-style: normal;
+ *   font-weight: 400;
+ *   font-display: swap;
+ *   src: url("/fonts/Apercu-Mono-Regular.woff2") format("woff2");
+ * }
+ *
+ * @font-face {
+ *   font-family: "Apercu Mono";
+ *   font-style: normal;
+ *   font-weight: 500;
+ *   font-display: swap;
+ *   src: url("/fonts/Apercu-Mono-Medium.woff2") format("woff2");
+ * }
+ */
+
+:root {
+  /* Sansita is free via Google Fonts — used directly */
+  --font-sansita: "Sansita", ui-serif, Georgia, serif;
+
+  /* Compadre Wide fallback: Work Sans + tracking-wider + uppercase in usage */
+  --font-compadre: "Work Sans", ui-sans-serif, system-ui, sans-serif;
+
+  /* Apercu fallback: Inter */
+  --font-apercu: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Apercu Mono fallback: JetBrains Mono */
+  --font-apercu-mono: "JetBrains Mono", ui-monospace, monospace;
+}

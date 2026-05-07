@@ -1,0 +1,43 @@
+{
+  "name": "mealplanning-prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @mealplanning/web dev",
+    "build": "pnpm --filter @mealplanning/web build",
+    "start": "pnpm --filter @mealplanning/web start",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "test:e2e": "pnpm --filter @mealplanning/web test:e2e",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write .",
+    "supabase:types": "pnpm dlx supabase gen types typescript --project-id $SUPABASE_PROJECT_ID > packages/web/src/lib/supabase/types.ts"
+  },
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^16.0.0",
+    "prettier": "^3.3.0",
+    "prettier-plugin-tailwindcss": "^0.6.0",
+    "turbo": "^2.0.0",
+    "typescript": "^5.9.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
+  }
+}
