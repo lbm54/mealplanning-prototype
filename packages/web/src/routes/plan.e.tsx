@@ -27,6 +27,7 @@ import { JadeShell } from "@/components/variant-e/jade-shell";
 import { MessageList } from "@/components/variant-e/message-list";
 import { JadeComposer } from "@/components/variant-e/jade-composer";
 import { ViewAsPlanSheet } from "@/components/variant-e/view-as-plan-sheet";
+import { ErrorState } from "@/components/shared/error-state";
 import { useCoachChat } from "@/lib/hooks/use-coach-chat";
 import type { WeekDataE } from "@/lib/queries/week-data.e";
 import type { WeekPlan, MealAssembly } from "@/server/jade/schema";
@@ -77,6 +78,7 @@ function VariantECoach() {
   const weekData = Route.useLoaderData() as WeekDataE | null;
   const isAiConfigured = useIsAiConfigured();
   const [isPlanSheetOpen, setIsPlanSheetOpen] = useState(false);
+  const [errorKind, setErrorKind] = useState<"jade-failed" | null>(null);
 
   const {
     messages,
@@ -89,6 +91,7 @@ function VariantECoach() {
   // ── Handlers ──────────────────────────────────────────────
 
   const handleSend = useCallback((text: string) => {
+    setErrorKind(null);
     send(text);
   }, [send]);
 
@@ -106,6 +109,7 @@ function VariantECoach() {
       toast.error("Save failed", {
         description: "Try again in a moment.",
       });
+      setErrorKind("jade-failed");
     }
   }, [savePlan]);
 
@@ -136,6 +140,17 @@ function VariantECoach() {
         onViewAsPlan={() => setIsPlanSheetOpen(true)}
         hasPlan={latestPlan !== null}
       >
+        {/* Error state — shown inline above the input when Jade fails */}
+        {errorKind && (
+          <div className="shrink-0 px-4 pb-2">
+            <ErrorState
+              kind={errorKind}
+              onRetry={() => setErrorKind(null)}
+              className="py-0"
+            />
+          </div>
+        )}
+
         <MessageList
           messages={messages}
           isThinking={isThinking}

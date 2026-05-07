@@ -16,7 +16,7 @@ Last updated: 2026-05-06
 | B — Stack | `variant/b` | `../mealplanning_prototype-b` | 3002 | ⏳ Stub only | 2026-05-06 | |
 | C — Columns | `variant/c` | `../mealplanning_prototype-c` | 3003 | ⏳ Stub only | 2026-05-06 | |
 | D — Hybrid | `variant/d` | `../mealplanning_prototype-d` | 3004 | ⏳ Stub only | 2026-05-06 | |
-| E — Coach | `variant/e` | `../mealplanning_prototype-e` | 3005 | ⏳ Stub only | 2026-05-06 | |
+| E — Coach | `variant/e` | `../mealplanning_prototype-e` | 3005 | ✅ Phase 1.E complete | 2026-05-06 | 8 sub-phases done; react-markdown installed; dev server 500 is pre-existing Phase 0 infra issue (getRouter) |
 
 ---
 
