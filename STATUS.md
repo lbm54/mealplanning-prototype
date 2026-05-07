@@ -1,6 +1,6 @@
 # Mealplanning Prototype — Build Status
 
-Last updated: 2026-05-06
+Last updated: 2026-05-07
 
 ## Phase 0 — Shared Scaffold
 
@@ -61,9 +61,9 @@ Last updated: 2026-05-06
 - [ ] /api/jade/object with kind='week' returns a streamed WeekPlan
 - [ ] meal_plans + meal_plan_meals + jade_calls migrations applied to dev Supabase
 - [x] / renders the five-card landing; /plan/a..e are reachable as stubs
-- [ ] pnpm lint, pnpm typecheck, pnpm test all green
+- [x] pnpm lint, pnpm typecheck, pnpm test all green
 - [ ] Vercel preview deploy from main is up
-- [x] Variant worktrees can be created from main without issues
+- [x] Variant worktrees created and deps installed (a–e on ports 3001–3005)
 
 ---
 
