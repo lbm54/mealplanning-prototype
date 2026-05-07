@@ -86,7 +86,6 @@ export const ServerRoute = createServerFileRoute("/api/jade/variant-b/persist").
   },
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Route = createFileRoute("/api/jade/variant-b/persist" as any)({
+export const Route = createFileRoute("/api/jade/variant-b/persist")({
   component: () => null,
 });
