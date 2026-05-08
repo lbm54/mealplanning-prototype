@@ -12,11 +12,12 @@
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
-import { DndContext, DragOverlay, closestCenter } from "@dnd-kit/core";
+import { DndContext, DragOverlay, closestCenter, type DragEndEvent } from "@dnd-kit/core";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
+import { KyleButton } from "@/components/shared/kyle-button";
 
 import { HybridShell } from "@/components/variant-d/hybrid-shell";
 import { HybridHeader } from "@/components/variant-d/hybrid-header";
@@ -37,6 +38,8 @@ import type { WeekDataD } from "@/lib/queries/week-data.d";
 import type { DayPlanData } from "@/components/shared/day-column";
 import type { MealAssembly } from "@/components/shared/meal-cell";
 import type { DraggableMeal } from "@/components/variant-d/jade-side";
+import type { MealPlanCardOutput } from "@/components/shared/widgets/meal-plan-card";
+import type { MealAlt } from "@/components/shared/widgets/meal-alternatives";
 
 // ---------------------------------------------------------------------------
 // Server loader
@@ -144,6 +147,48 @@ function MobileTabBar({
 // Main component
 // ---------------------------------------------------------------------------
 
+// ─────────────────────────────────────────────────────────────────────────────
+// "Apply week plan?" confirmation pill — shown after week-plan drag drop
+// ─────────────────────────────────────────────────────────────────────────────
+
+interface ApplyWeekConfirmPillProps {
+  onApply: () => void;
+  onDismiss: () => void;
+}
+
+function ApplyWeekConfirmPill({ onApply, onDismiss }: ApplyWeekConfirmPillProps) {
+  return (
+    <div
+      className={cn(
+        "fixed bottom-24 left-1/2 -translate-x-1/2 z-50",
+        "flex items-center gap-3 rounded-[var(--radius-pill)] border px-4 py-2.5",
+        "border-[var(--color-orange)]/40 bg-card shadow-[var(--shadow-card-elevated)]",
+        "animate-in fade-in-0 slide-in-from-bottom-3 duration-200",
+        "min-w-max",
+      )}
+    >
+      <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground">
+        Apply this week plan to the grid?
+      </span>
+      <KyleButton
+        size="sm"
+        onClick={onApply}
+        className="h-7 rounded-[var(--radius-pill)] px-3"
+      >
+        Apply
+      </KyleButton>
+      <button
+        onClick={onDismiss}
+        className="text-muted-foreground/60 hover:text-muted-foreground transition-colors text-sm"
+        aria-label="Dismiss"
+        type="button"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
+
 function VariantDHybrid() {
   const loaderData = Route.useLoaderData() as WeekDataD | null;
 
@@ -166,6 +211,11 @@ function VariantDHybrid() {
   const [isDragging, setIsDragging] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
   const [mobileTab, setMobileTab] = useState<MobileTab>("jade");
+
+  // Pending week-plan from drag-drop onto grid — set by extended onDragEnd handler
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [droppedWeekPlanOutput, setDroppedWeekPlanOutput] = useState<any>(null);
+
   // isGenerating doubles as "jade thinking" for the header indicator
   const flashTimerRef = useRef<Map<string, ReturnType<typeof setTimeout>>>(new Map());
 
@@ -175,7 +225,18 @@ function VariantDHybrid() {
     }
   }, [loaderData]);
 
-  // Dropped meal → grid
+  // Callback for onWeekPlanToolResult from JadeSide
+  // JadeSide handles its own inline pill; plan.d.tsx stores for drag-to-grid use.
+  const handleWeekPlanToolResult = useCallback(
+    (_toolCallId: string, _planOutput: unknown) => {
+      // No-op at route level — JadeSide shows the inline "Apply this week?" pill.
+      // If the user drags a MealPlanCard widget onto the grid, the drag handler
+      // captures the planOutput from the drag data directly (see handleDragEnd).
+    },
+    [],
+  );
+
+  // Dropped meal-card / meal-alt → grid cell
   const handleDrop = useCallback(
     ({ date, slot, meal }: { date: string; slot: string; meal: DraggableMeal }) => {
       const mealAssembly: MealAssembly = {
@@ -196,7 +257,48 @@ function VariantDHybrid() {
     [replaceMeal],
   );
 
-  const { sensors, handleDragEnd } = useDragMeal(handleDrop);
+  const { sensors, handleDragEnd: baseDragEnd } = useDragMeal(handleDrop);
+
+  // Extended drag-end handler: also handles week-plan and meal-alt drag types
+  const handleDragEnd = useCallback(
+    (event: DragEndEvent) => {
+      const dragData = event.active.data?.current as Record<string, unknown> | undefined;
+      const dropData = event.over?.data?.current as Record<string, unknown> | undefined;
+
+      // meal-alt drop onto a day cell → apply just that meal to that slot
+      if (dragData?.type === "meal-alt" && dropData?.type === "day-cell") {
+        const alt = dragData.alt as MealAlt;
+        const date = dropData.date as string;
+        const slot = dropData.slot as string;
+        if (alt && date && slot) {
+          const mealAssembly: MealAssembly = {
+            id: alt.id,
+            title: alt.title,
+            components: [],
+            carbG: alt.carbG,
+            protG: alt.proteinG,
+            fatG: alt.fatG,
+          };
+          replaceMeal(date, slot, mealAssembly);
+          toast.success(`${alt.title} → ${slot.replace(/_/g, " ")}`, { duration: 2500 });
+          return;
+        }
+      }
+
+      // week-plan drop onto any day cell → show confirmation pill
+      if (dragData?.type === "week-plan" && dropData?.type === "day-cell") {
+        const planOutput = dragData.planOutput as MealPlanCardOutput;
+        if (planOutput) {
+          setDroppedWeekPlanOutput(planOutput);
+          return;
+        }
+      }
+
+      // Default: meal-card handling via useDragMeal
+      baseDragEnd(event);
+    },
+    [baseDragEnd, replaceMeal],
+  );
 
   const handleMealUse = useCallback((_meal: DraggableMeal) => {
     toast.info("Tap a cell on the grid to place this meal, or drag the card.", {
@@ -208,6 +310,21 @@ function VariantDHybrid() {
     async (planJson: string) => {
       await applyWeekPlan(planJson);
       toast.success("Week plan applied from Jade.", { duration: 2500 });
+    },
+    [applyWeekPlan],
+  );
+
+  // Apply a week-plan output object (from tool-result drag or drop confirm pill)
+  const handleApplyWeekPlanOutput = useCallback(
+    async (planOutput: unknown) => {
+      try {
+        const planJson = JSON.stringify(planOutput);
+        await applyWeekPlan(planJson);
+        toast.success("Week plan applied.", { duration: 2500 });
+      } catch {
+        toast.error("Could not apply week plan — check the plan format.");
+      }
+      setDroppedWeekPlanOutput(null);
     },
     [applyWeekPlan],
   );
@@ -319,6 +436,7 @@ function VariantDHybrid() {
       onToggleCollapse={toggleChatCollapse}
       onMealUse={handleMealUse}
       onWeekPlanReceived={handleWeekPlanReceived}
+      onWeekPlanToolResult={handleWeekPlanToolResult}
       weekContext={weekContext}
       className="h-full"
     />
@@ -330,6 +448,7 @@ function VariantDHybrid() {
       onToggleCollapse={toggleChatCollapse}
       onMealUse={handleMealUse}
       onWeekPlanReceived={handleWeekPlanReceived}
+      onWeekPlanToolResult={handleWeekPlanToolResult}
     />
   );
 
@@ -341,9 +460,19 @@ function VariantDHybrid() {
         const dragId = String(event.active.id);
         setActiveDragId(dragId);
         setIsDragging(true);
-        // Extract meal title from drag data for overlay
-        const data = event.active.data?.current as { type: string; meal?: DraggableMeal } | undefined;
-        setActiveMealTitle(data?.meal?.title);
+        // Extract meal title from drag data for overlay (handles all drag types)
+        const data = event.active.data?.current as
+          | { type: string; meal?: DraggableMeal; alt?: MealAlt; planOutput?: MealPlanCardOutput }
+          | undefined;
+        if (data?.type === "meal-card") {
+          setActiveMealTitle(data.meal?.title);
+        } else if (data?.type === "meal-alt") {
+          setActiveMealTitle(data.alt?.title);
+        } else if (data?.type === "week-plan") {
+          setActiveMealTitle(
+            (data.planOutput as MealPlanCardOutput | undefined)?.title ?? "Week Plan",
+          );
+        }
         // Mark onboarding hint as dismissed on first drag
         localStorage.setItem("jade-d-dnd-hint-shown", "true");
       }}
@@ -400,6 +529,7 @@ function VariantDHybrid() {
                   onToggleCollapse={() => {}}
                   onMealUse={handleMealUse}
                   onWeekPlanReceived={handleWeekPlanReceived}
+                  onWeekPlanToolResult={handleWeekPlanToolResult}
                   weekContext={weekContext}
                   className="h-full"
                 />
@@ -448,6 +578,14 @@ function VariantDHybrid() {
 
       {/* Drag ghost overlay */}
       <ActiveDragOverlay activeId={activeDragId} activeMealTitle={activeMealTitle} />
+
+      {/* Week-plan drag-drop confirm pill */}
+      {droppedWeekPlanOutput && (
+        <ApplyWeekConfirmPill
+          onApply={() => handleApplyWeekPlanOutput(droppedWeekPlanOutput)}
+          onDismiss={() => setDroppedWeekPlanOutput(null)}
+        />
+      )}
 
       {/* First-time DnD tooltip */}
       <OnboardingTooltip />

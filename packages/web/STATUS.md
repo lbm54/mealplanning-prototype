@@ -1,3 +1,37 @@
+# Variant D — Generative UI Integration (2026-05-08)
+
+## Variant D — Hybrid — Generative UI Widgets Integrated
+
+### New files
+- `src/components/variant-d/draggable-widget-wrapper.tsx` — Three dnd-kit wrapper components:
+  - `DraggableMealPlanCardWidget` — wraps `<MealPlanCard>` with a GripVertical handle; drag payload `{ type: "week-plan", planOutput }` → drop on grid triggers `ApplyWeekConfirmPill`.
+  - `DraggableMealAltCard` — wraps a single `MealAlt` row with a drag handle; payload `{ type: "meal-alt", alt }` → drop on day cell applies that meal to that slot.
+  - `DraggableMealCarouselCard` — wraps the active `<MealPlanCard>` inside the carousel; same week-plan payload as above.
+- `src/components/variant-d/jade-message-renderer-d.tsx` — Variant-D-specific message renderer. All Jade messages (text + all 30 widget types) are rendered via `JadeMessageRendererD`. The three draggable widget types are rendered with their wrappers; all other tool results fall through to `WIDGET_REGISTRY`.
+
+### Modified files
+- `src/components/variant-d/jade-side.tsx` — Full generative-UI upgrade:
+  - Custom `%%MEAL_CARDS%%` / `%%WEEK_PLAN%%` protocol replaced by `<JadeMessageRendererD>`.
+  - `CategoryPicker` rendered persistently at the top before the first user message (replaces ad-hoc chip row). Selecting a category sends it as a user message.
+  - `+` button in composer opens a `QuickActionPopover` with "📅 Pick week range" (injects `WeekRangePicker`) and "📷 Snap fridge" (injects `PhotoUploadPrompt`) inline in the chat thread.
+  - `onFinish` watches for `proposeWeekPlan`/`showMealPlanCard` tool-result parts and shows an inline `ApplyWeekPill` after the last Jade message.
+  - `addToolResult` wired for input-widget selections via `onUserResponse` prop on `JadeMessageRendererD`.
+  - New `onWeekPlanToolResult` prop on `JadeSideProps`.
+- `src/routes/plan.d.tsx` — Extended drag-end handler handles `week-plan` and `meal-alt` drag types alongside legacy `meal-card`. `ApplyWeekConfirmPill` shown when a week-plan widget is dropped on any grid cell. `onWeekPlanToolResult` prop forwarded to all `JadeSide` instances (desktop/mobile).
+
+### Checks
+- `pnpm typecheck` — 0 errors in variant-d files (pre-existing errors in variant-c/use-coach-chat remain)
+- `pnpm lint` — 0 errors/warnings in variant-d files
+- `/plan/d` — HTTP 200 confirmed
+
+### TODOs
+- [ ] `addToolResult` uses `any` cast to bypass AI SDK generic constraint — same issue as variant-a; clean fix requires renderer to pass tool name as third arg.
+- [ ] `DraggableMealCarouselCard` renders all cards stacked vertically (not a horizontal scroll carousel) — full carousel navigation deferred; the active card is draggable and pagination dots work.
+- [ ] `WeekRangePicker` injected widget: after user picks a week, the widget disappears and the selection is sent as a text message. A future version could keep the widget in the thread as a "chosen" confirmation card.
+- [ ] `applyWeekPlan` in `useHybridState` expects the AI SDK streaming format; when called from the generative-UI path (tool output JSON), the raw `planOutput` object is JSON-stringified before passing — if the schema is incompatible with `WeekPlanSchema.parse`, the plan silently fails. Consider adding an error toast in `handleApplyWeekPlanOutput`.
+
+---
+
 # Variant A — Generative UI Integration (2026-05-08)
 
 ## Variant A — Calendar — Generative UI Widgets Integrated

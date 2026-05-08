@@ -1,33 +1,42 @@
 /**
  * JadeSide — the right 40% chat panel for Variant D.
  *
- * 2026 facelift:
- * - Refined header: JadeAvatar (online + glow when thinking), "JADE" Sansita,
- *   Apercu Mono status line, settings gear
- * - Chip row: JadeChip with electrolyte hover tint, wrapped
- * - Chat thread:
- *   - User bubbles: right-aligned, Mango primary color, 8px radius
- *   - Jade bubbles: left-aligned with 24px avatar, subtle border + inner highlight
- *   - react-markdown rendering of Jade text
- *   - Inline code in Apercu Mono styling
- *   - Streaming dots indicator when AI is generating
- * - Meal cards: DraggableMealCard (KyleCard elevated) with slotLabel
- * - Composer: KyleCard variant="glass" + borderless textarea + Mango send button
- *   Electrolyte focus ring on textarea; shimmer status row when AI thinking
- * - Collapsed strip: Jade avatar + unread badge + expand chevron
+ * 2026 generative-UI upgrade:
+ * - JadeMessageRendererD renders ALL Jade messages (text + every widget type)
+ *   via the shared WIDGET_REGISTRY; MealPlanCard, MealAlternatives, and
+ *   MealCarousel widgets gain dnd-kit drag handles automatically.
+ * - CategoryPicker shown persistently above the first user message (replaces
+ *   the ad-hoc SUGGESTED_PROMPTS chip row).  After the user picks a category
+ *   the picker collapses and normal chips take over for refinement.
+ * - Composer `+` button opens a quick-actions popover:
+ *     📅 Pick week range  → injects WeekRangePicker into the thread
+ *     📷 Snap fridge       → injects PhotoUploadPrompt into the thread
+ * - onFinish scans tool-result parts for proposeWeekPlan/showMealPlanCard so
+ *   plan.d.tsx can show "Apply this week?" pill.
+ * - addToolResult wires input-widget responses back to useChat.
+ *
+ * Original bubble styling, streaming dots, glass composer, and collapse strip
+ * are preserved unchanged.
  */
 import { useRef, useEffect, useCallback, useState, type FormEvent } from "react";
-import { useChat } from "@ai-sdk/react";
+import { useChat, type UIMessage } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { cn } from "@/lib/utils";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
-import { DraggableMealCard } from "./draggable-meal-card";
 import { JadeChip } from "./jade-chip";
 import { KyleCard } from "@/components/shared/kyle-card";
 import { KyleButton } from "@/components/shared/kyle-button";
-import { Send, ChevronLeft, Settings2 } from "lucide-react";
+import { Send, ChevronLeft, Settings2, Plus, CalendarDays, Camera } from "lucide-react";
 import { toast } from "sonner";
 import ReactMarkdown from "react-markdown";
+import { JadeMessageRendererD } from "./jade-message-renderer-d";
+import CategoryPicker from "@/components/shared/widgets/category-picker";
+import WeekRangePicker from "@/components/shared/widgets/week-range-picker";
+import PhotoUploadPrompt from "@/components/shared/widgets/photo-upload-prompt";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Types
+// ─────────────────────────────────────────────────────────────────────────────
 
 export interface DraggableMeal {
   id?: string;
@@ -44,56 +53,41 @@ export interface JadeSideProps {
   onToggleCollapse: () => void;
   onMealUse: (meal: DraggableMeal, date?: string, slot?: string) => void;
   onWeekPlanReceived?: (planJson: string) => void;
+  /** Called when a proposeWeekPlan / showMealPlanCard tool-result arrives in
+   *  onFinish so plan.d.tsx can show the "Apply this week?" pill. */
+  onWeekPlanToolResult?: (toolCallId: string, planOutput: unknown) => void;
   weekContext?: string;
   className?: string;
 }
 
-const SUGGESTED_PROMPTS = [
-  "Build me a week",
-  "Vegetarian week",
-  "More protein",
-  "Simpler dinners",
-  "No fish",
-];
+// ─────────────────────────────────────────────────────────────────────────────
+// Refinement chips shown after first Jade reply that has meal cards
+// ─────────────────────────────────────────────────────────────────────────────
 
-function parseMealCards(text: string): { displayText: string; cards: DraggableMeal[] } {
-  const cardRegex = /%%MEAL_CARDS%%([\s\S]*?)%%END_MEAL_CARDS%%/g;
-  const cards: DraggableMeal[] = [];
-  let displayText = text;
+const REFINEMENT_PROMPTS = ["More protein", "No fish", "Simpler dinners", "Vegetarian"];
 
-  let match;
-  while ((match = cardRegex.exec(text)) !== null) {
-    try {
-      const parsed = JSON.parse(match[1]);
-      if (Array.isArray(parsed)) {
-        for (const item of parsed) {
-          cards.push({
-            id: item.id ?? item.title,
-            title: item.title ?? "",
-            methodTag: item.method_tag,
-            components: Array.isArray(item.components) ? item.components : [],
-            carbG: item.totals?.carb_g ?? item.carbG ?? 0,
-            protG: item.totals?.protein_g ?? item.protG ?? 0,
-            fatG: item.totals?.fat_g ?? item.fatG ?? 0,
-          });
-        }
-      }
-    } catch {
-      // Malformed JSON — skip
-    }
-  }
-  displayText = text.replace(cardRegex, "").trim();
-  return { displayText, cards };
-}
+// ─────────────────────────────────────────────────────────────────────────────
+// Default CategoryPicker output rendered at top of empty chat
+// ─────────────────────────────────────────────────────────────────────────────
 
-function parseWeekPlan(text: string): { displayText: string; weekPlanJson: string | null } {
-  const weekPlanRegex = /%%WEEK_PLAN%%([\s\S]*?)%%END_WEEK_PLAN%%/;
-  const match = weekPlanRegex.exec(text);
-  if (!match) return { displayText: text, weekPlanJson: null };
-  return { displayText: text.replace(weekPlanRegex, "").trim(), weekPlanJson: match[1] };
-}
+const DEFAULT_CATEGORY_PICKER_OUTPUT = {
+  title: "What kind of week are we planning?",
+  categories: [
+    { id: "athletic", label: "Athletic Performance", tone: "accent" as const },
+    { id: "race", label: "Race Prep", tone: "primary" as const },
+    { id: "recovery", label: "Recovery Week", tone: "accent" as const },
+    { id: "budget", label: "Budget Constraints", tone: "warning" as const },
+    { id: "dietary", label: "Specific Dietary", tone: "muted" as const },
+    { id: "weight", label: "Weight Loss", tone: "muted" as const },
+    { id: "family", label: "Family-Friendly", tone: "muted" as const },
+    { id: "pantry", label: "Ingredients on Hand", tone: "warning" as const },
+  ],
+};
 
-/** Three animated dots — streaming indicator */
+// ─────────────────────────────────────────────────────────────────────────────
+// Sub-components (unchanged from original facelift)
+// ─────────────────────────────────────────────────────────────────────────────
+
 function StreamingDots() {
   return (
     <span className="inline-flex items-center gap-0.5 ml-1" aria-label="Jade is thinking">
@@ -111,7 +105,6 @@ function StreamingDots() {
   );
 }
 
-/** Jade message bubble — left-aligned with avatar prefix */
 function JadeBubble({
   text,
   isThinking,
@@ -135,7 +128,6 @@ function JadeBubble({
           "flex-1 min-w-0 rounded-[var(--radius-card)] rounded-tl-sm px-3 py-2",
           "border border-border/60 bg-card",
           "dark:ring-1 dark:ring-white/[0.04]",
-          // Subtle inner highlight in dark mode (from KyleCard elevated)
           "dark:shadow-[var(--shadow-card-elevated-dark)]",
           "max-w-[88%]",
         )}
@@ -149,7 +141,6 @@ function JadeBubble({
           <div
             className={cn(
               "font-[var(--font-apercu)] text-[var(--font-size-body)] leading-relaxed",
-              // Markdown prose overrides
               "[&_p]:mb-1.5 [&_p:last-child]:mb-0",
               "[&_ul]:list-disc [&_ul]:pl-4 [&_ul]:mb-1.5 [&_li]:mb-0.5",
               "[&_ol]:list-decimal [&_ol]:pl-4 [&_ol]:mb-1.5",
@@ -171,7 +162,6 @@ function JadeBubble({
   );
 }
 
-/** User message bubble — right-aligned, Mango-tinted */
 function UserBubble({ text }: { text: string }) {
   return (
     <div className="flex justify-end">
@@ -190,110 +180,297 @@ function UserBubble({ text }: { text: string }) {
   );
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// + Button quick-action popover
+// ─────────────────────────────────────────────────────────────────────────────
+
+interface QuickAction {
+  id: "week-range" | "fridge-photo";
+  icon: React.ReactNode;
+  label: string;
+}
+
+const QUICK_ACTIONS: QuickAction[] = [
+  { id: "week-range", icon: <CalendarDays size={13} />, label: "Pick week range" },
+  { id: "fridge-photo", icon: <Camera size={13} />, label: "Snap fridge" },
+];
+
+interface QuickActionPopoverProps {
+  onAction: (id: QuickAction["id"]) => void;
+  onClose: () => void;
+}
+
+function QuickActionPopover({ onAction, onClose }: QuickActionPopoverProps) {
+  return (
+    <div
+      className={cn(
+        "absolute bottom-full left-0 mb-2 z-50",
+        "rounded-[var(--radius-card)] border border-border/60 bg-card shadow-md",
+        "min-w-[180px] overflow-hidden",
+        "animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-2 duration-150",
+      )}
+    >
+      {QUICK_ACTIONS.map((action) => (
+        <button
+          key={action.id}
+          onClick={() => {
+            onAction(action.id);
+            onClose();
+          }}
+          className={cn(
+            "flex w-full items-center gap-2.5 px-3.5 py-2.5",
+            "font-[var(--font-apercu)] text-[var(--font-size-caption)] text-left",
+            "hover:bg-[var(--color-electrolyte)]/8 hover:text-[var(--color-electrolyte-dark)]",
+            "transition-colors duration-100",
+          )}
+          type="button"
+        >
+          <span className="text-muted-foreground">{action.icon}</span>
+          {action.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// "Apply this week?" inline pill — shown inside the chat thread
+// ─────────────────────────────────────────────────────────────────────────────
+
+interface ApplyWeekPillProps {
+  onApply: () => void;
+  onDismiss: () => void;
+}
+
+function ApplyWeekPill({ onApply, onDismiss }: ApplyWeekPillProps) {
+  return (
+    <div
+      className={cn(
+        "flex items-center gap-2 rounded-[var(--radius-pill)] border px-3 py-2",
+        "border-[var(--color-orange)]/40 bg-[var(--color-orange)]/8",
+        "animate-in fade-in-0 slide-in-from-bottom-1 duration-200",
+      )}
+    >
+      <span className="flex-1 font-[var(--font-apercu)] text-[var(--font-size-caption)] text-[var(--color-orange)]">
+        Apply this week to the plan?
+      </span>
+      <button
+        onClick={onApply}
+        className={cn(
+          "rounded-[var(--radius-pill)] bg-[var(--color-orange)] px-3 py-1",
+          "font-[var(--font-sansita)] text-[var(--font-size-caption)] uppercase tracking-wider text-[var(--color-blackberry)]",
+          "hover:bg-[var(--color-orange-light)] transition-colors duration-150",
+        )}
+        type="button"
+      >
+        Apply
+      </button>
+      <button
+        onClick={onDismiss}
+        className="text-muted-foreground/60 hover:text-muted-foreground transition-colors"
+        aria-label="Dismiss"
+        type="button"
+      >
+        ✕
+      </button>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Inline widget injections (WeekRangePicker / PhotoUploadPrompt)
+// ─────────────────────────────────────────────────────────────────────────────
+
+interface InjectedWidget {
+  id: string;
+  type: "week-range" | "fridge-photo";
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Helper: extract pure text from a v6 UIMessage (ignores tool parts)
+// ─────────────────────────────────────────────────────────────────────────────
+
+function extractTextFromMessage(msg: UIMessage): string {
+  return (msg.parts ?? [])
+    .filter((p): p is { type: "text"; text: string } => p.type === "text")
+    .map((p) => p.text)
+    .join("");
+}
+
+/** Returns true when the message has at least one completed tool-result part. */
+function messageHasToolResults(msg: UIMessage): boolean {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (msg.parts ?? []).some((p: any) => p.type === "dynamic-tool" && p.state === "result");
+}
+
+/** True when the message has tool results that look like meal plans. */
+function messageHasMealPlanResult(msg: UIMessage): boolean {
+  const PLAN_TOOLS = new Set(["showMealPlanCard", "proposeWeekPlan", "showMealCarousel", "showMealOptions"]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (msg.parts ?? []).some((p: any) => {
+    if (p.type !== "dynamic-tool" || p.state !== "result") return false;
+    return PLAN_TOOLS.has(p.toolName ?? "");
+  });
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Main component
+// ─────────────────────────────────────────────────────────────────────────────
+
 export function JadeSide({
   isCollapsed,
   onToggleCollapse,
-  onMealUse,
+  onMealUse: _onMealUse,
   onWeekPlanReceived,
+  onWeekPlanToolResult,
   weekContext,
   className,
 }: JadeSideProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  // AI SDK v6 — manage input locally; useChat returns sendMessage/status only
   const [input, setInput] = useState("");
-  const { messages, sendMessage, status } = useChat({
+  const [categoryChosen, setCategoryChosen] = useState(false);
+  const [showQuickActions, setShowQuickActions] = useState(false);
+  const [injectedWidgets, setInjectedWidgets] = useState<InjectedWidget[]>([]);
+  const [pendingWeekPlan, setPendingWeekPlan] = useState<{
+    toolCallId: string;
+    planOutput: unknown;
+  } | null>(null);
+
+  const { messages, sendMessage, addToolResult, status } = useChat({
     transport: new DefaultChatTransport({ api: "/api/jade/chat?surface=d" }),
     onError: () => {
       toast.error("Jade's having trouble — try again in a moment.");
     },
     onFinish: ({ message }) => {
-      // v6 message has parts: [{type:'text', text:'...'}]
-      const text = (message.parts ?? [])
-        .filter((p): p is { type: "text"; text: string } => p.type === "text")
-        .map((p) => p.text)
-        .join("");
-      const { weekPlanJson } = parseWeekPlan(text);
-      if (weekPlanJson && onWeekPlanReceived) {
-        onWeekPlanReceived(weekPlanJson);
+      // ── Legacy %%WEEK_PLAN%% protocol (kept for backward compat) ──
+      const text = extractTextFromMessage(message);
+      const weekPlanMatch = /%%WEEK_PLAN%%([\s\S]*?)%%END_WEEK_PLAN%%/.exec(text);
+      if (weekPlanMatch && onWeekPlanReceived) {
+        onWeekPlanReceived(weekPlanMatch[1]);
+      }
+
+      // ── Generative-UI proposeWeekPlan / showMealPlanCard tool result ──
+      if (messageHasMealPlanResult(message)) {
+        // Find first plan tool result in parts
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const planPart = (message.parts ?? []).find((p: any) => {
+          const PLAN_TOOLS = new Set(["showMealPlanCard", "proposeWeekPlan"]);
+          return p.type === "dynamic-tool" && p.state === "result" && PLAN_TOOLS.has(p.toolName ?? "");
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        }) as any;
+
+        if (planPart) {
+          const toolCallId = planPart.toolCallId as string;
+          const planOutput = planPart.output as unknown;
+          // Notify plan.d.tsx
+          onWeekPlanToolResult?.(toolCallId, planOutput);
+          // Show inline "Apply this week?" pill
+          setPendingWeekPlan({ toolCallId, planOutput });
+        }
       }
     },
   });
-  const isLoading = status === "streaming" || status === "submitted";
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setInput(e.target.value);
-  const handleSubmit = (e?: FormEvent | React.KeyboardEvent) => {
-    e?.preventDefault?.();
-    if (!input.trim() || isLoading) return;
-    sendMessage({ text: input });
-    setInput("");
-  };
-  const append = useCallback(
-    (msg: { role: "user"; content: string }) => sendMessage({ text: msg.content }),
-    [sendMessage],
-  );
 
-  // Auto-scroll to latest message
+  const isLoading = status === "streaming" || status === "submitted";
+  const userMessageCount = messages.filter((m) => m.role === "user").length;
+  const hasJadeReplied = messages.some((m) => m.role === "assistant");
+
+  // Auto-scroll
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, injectedWidgets]);
 
-  const handleSuggestedPrompt = useCallback(
-    (prompt: string) => {
-      append({ role: "user", content: prompt });
+  const handleSubmit = useCallback(
+    (text: string) => {
+      if (!text.trim() || isLoading) return;
+      sendMessage({ text });
     },
-    [append],
+    [sendMessage, isLoading],
   );
 
   const onSubmit = useCallback(
     (e: FormEvent) => {
       e.preventDefault();
       if (!input.trim()) return;
-      handleSubmit(e);
-      // Clear and refocus after submit
+      handleSubmit(input);
+      setInput("");
       setTimeout(() => textareaRef.current?.focus(), 50);
     },
     [handleSubmit, input],
   );
 
-  // Auto-resize textarea
-  const handleTextareaChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      handleInputChange(e as unknown as React.ChangeEvent<HTMLInputElement>);
-      const el = e.target;
-      el.style.height = "auto";
-      el.style.height = `${Math.min(el.scrollHeight, 120)}px`;
-    },
-    [handleInputChange],
-  );
+  const handleTextareaChange = useCallback((e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setInput(e.target.value);
+    const el = e.target;
+    el.style.height = "auto";
+    el.style.height = `${Math.min(el.scrollHeight, 120)}px`;
+  }, []);
 
-  // Cmd/Ctrl+Enter submits
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
         e.preventDefault();
         if (input.trim() && !isLoading) {
-          handleSubmit(e as unknown as FormEvent);
+          handleSubmit(input);
+          setInput("");
         }
       }
     },
     [handleSubmit, input, isLoading],
   );
 
-  const userMessageCount = messages.filter((m) => m.role === "user").length;
+  const handleCategoryPick = useCallback(
+    (response: { id: string; label: string }) => {
+      setCategoryChosen(true);
+      handleSubmit(`${response.label} — build my week`);
+    },
+    [handleSubmit],
+  );
 
-  // --- Collapsed strip ---
+  const handleSuggestedPrompt = useCallback(
+    (prompt: string) => {
+      handleSubmit(prompt);
+    },
+    [handleSubmit],
+  );
+
+  const handleQuickAction = useCallback((id: QuickAction["id"]) => {
+    const widgetId = `injected-${id}-${Date.now()}`;
+    setInjectedWidgets((prev) => [...prev, { id: widgetId, type: id }]);
+  }, []);
+
+  const handleUserResponse = useCallback(
+    (toolCallId: string, response: unknown) => {
+      // AI SDK v6 requires `tool` + `toolCallId` + `output`; cast via any for now
+      // (same pattern as variant-a/jade-drawer.tsx)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (addToolResult as any)({ toolCallId, output: response });
+    },
+    [addToolResult],
+  );
+
+  const handleApplyWeekPlan = useCallback(async () => {
+    if (!pendingWeekPlan) return;
+    const planOutput = pendingWeekPlan.planOutput;
+    setPendingWeekPlan(null);
+    // Attempt JSON stringify for legacy onWeekPlanReceived path
+    try {
+      const planJson = JSON.stringify(planOutput);
+      if (onWeekPlanReceived) {
+        await onWeekPlanReceived(planJson);
+        toast.success("Week plan applied from Jade.", { duration: 2500 });
+      }
+    } catch {
+      toast.error("Could not apply week plan.");
+    }
+  }, [pendingWeekPlan, onWeekPlanReceived]);
+
+  // ── Collapsed strip ──────────────────────────────────────────────────────
   if (isCollapsed) {
     const unreadCount = messages.filter((m) => m.role === "assistant").length;
     return (
-      <div
-        className={cn(
-          "flex flex-col items-center justify-between py-4 w-12 h-full",
-          className,
-        )}
-      >
-        {/* Jade avatar — click to expand */}
+      <div className={cn("flex flex-col items-center justify-between py-4 w-12 h-full", className)}>
         <button
           onClick={onToggleCollapse}
           className="relative focus:outline-none focus:ring-2 focus:ring-ring rounded-full"
@@ -302,7 +479,6 @@ export function JadeSide({
           type="button"
         >
           <JadeAvatar size={36} state={isLoading ? "thinking" : "idle"} online={!isLoading} />
-          {/* Unread badge */}
           {unreadCount > 0 && (
             <span
               className={cn(
@@ -315,8 +491,6 @@ export function JadeSide({
             </span>
           )}
         </button>
-
-        {/* Expand arrow */}
         <button
           onClick={onToggleCollapse}
           className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-muted text-muted-foreground/50 hover:text-muted-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
@@ -329,9 +503,10 @@ export function JadeSide({
     );
   }
 
-  // --- Full panel ---
+  // ── Full panel ───────────────────────────────────────────────────────────
   return (
     <div className={cn("flex flex-col h-full bg-card", className)}>
+
       {/* Panel header */}
       <div className="flex items-center justify-between gap-3 border-b border-border/60 px-4 py-3 shrink-0">
         <div className="flex items-center gap-3 min-w-0">
@@ -348,18 +523,14 @@ export function JadeSide({
             <p
               className={cn(
                 "font-[var(--font-apercu-mono)] text-[var(--font-size-caption)] mt-0.5 leading-none",
-                isLoading
-                  ? "text-[var(--color-electrolyte-dark)]/80"
-                  : "text-muted-foreground/60",
+                isLoading ? "text-[var(--color-electrolyte-dark)]/80" : "text-muted-foreground/60",
               )}
             >
               {isLoading ? "Thinking…" : "Online · ready to plan"}
             </p>
           </div>
         </div>
-
         <div className="flex items-center gap-1">
-          {/* Settings */}
           <button
             className="flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground/40 hover:text-muted-foreground hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
             aria-label="Jade settings"
@@ -367,13 +538,10 @@ export function JadeSide({
           >
             <Settings2 size={13} />
           </button>
-
-          {/* Collapse */}
           <button
             onClick={onToggleCollapse}
             className="flex h-7 w-7 items-center justify-center rounded-full text-muted-foreground/40 hover:text-muted-foreground hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-ring"
             aria-label="Collapse chat panel"
-            title="Collapse"
             type="button"
           >
             <ChevronLeft size={14} />
@@ -381,71 +549,76 @@ export function JadeSide({
         </div>
       </div>
 
-      {/* Chip row — show before first user message */}
-      {userMessageCount === 0 && (
-        <div className="flex flex-wrap gap-1.5 px-4 pt-3 pb-2.5 shrink-0 border-b border-border/40">
-          {SUGGESTED_PROMPTS.map((prompt) => (
-            <JadeChip
-              key={prompt}
-              label={prompt}
-              onClick={() => handleSuggestedPrompt(prompt)}
-            />
-          ))}
+      {/* CategoryPicker — persistent at top until user has chosen */}
+      {!categoryChosen && userMessageCount === 0 && (
+        <div className="border-b border-border/40 px-4 pt-3 pb-3 shrink-0">
+          <CategoryPicker
+            output={DEFAULT_CATEGORY_PICKER_OUTPUT}
+            onUserResponse={handleCategoryPick}
+          />
         </div>
       )}
 
       {/* Messages scroll area */}
       <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
-        {/* Initial greeting — shown when no messages */}
+
+        {/* Initial greeting */}
         {messages.length === 0 && !isLoading && (
-          <JadeBubble text="Hey — ask me to build your week, swap a meal, or tweak anything. You can also drag my meal suggestions onto the grid." />
+          <JadeBubble text="Hey — pick a category above or type what you need. You can drag my meal cards straight onto the grid." />
         )}
 
         {messages.map((msg, i) => {
-          // v6: text lives in parts: [{type:'text', text}], not content
-          const text = (msg.parts ?? [])
-            .filter((p): p is { type: "text"; text: string } => p.type === "text")
-            .map((p) => p.text)
-            .join("");
-
           if (msg.role === "user") {
+            const text = extractTextFromMessage(msg);
             return <UserBubble key={i} text={text} />;
           }
 
-          // Jade reply
-          const { displayText, cards } = parseMealCards(text);
-          const { displayText: finalText } = parseWeekPlan(displayText);
+          // Jade assistant message — use JadeMessageRendererD for generative UI
           const isLast = i === messages.length - 1;
           const isCurrentlyStreaming = isLast && isLoading;
+          const text = extractTextFromMessage(msg);
 
           return (
             <div key={i} className="space-y-2.5">
-              {/* Text bubble */}
-              {(finalText || isCurrentlyStreaming) && (
-                <JadeBubble
-                  text={finalText}
-                  isStreaming={isCurrentlyStreaming && Boolean(finalText)}
-                  isThinking={isCurrentlyStreaming && !finalText}
-                />
+              {/* Streaming / thinking indicator before text arrives */}
+              {isCurrentlyStreaming && !text && !messageHasToolResults(msg) && (
+                <JadeBubble text="" isThinking />
               )}
 
-              {/* Meal cards — draggable, indented */}
-              {cards.length > 0 && (
-                <div className="space-y-1.5 pl-8">
-                  {cards.map((card, ci) => (
-                    <DraggableMealCard
-                      key={ci}
-                      meal={card}
-                      onUse={(meal) => onMealUse(meal)}
+              {/* Render via generative-UI renderer (handles text + all widgets) */}
+              {(text || messageHasToolResults(msg)) && (
+                <div className="flex items-start gap-2.5">
+                  <JadeAvatar
+                    size={24}
+                    state={isCurrentlyStreaming ? "thinking" : "idle"}
+                    online={!isCurrentlyStreaming}
+                    glow={isCurrentlyStreaming}
+                    className="shrink-0 mt-0.5"
+                  />
+                  <div className="flex-1 min-w-0 max-w-[88%]">
+                    <JadeMessageRendererD
+                      message={msg}
+                      onUserResponse={handleUserResponse}
                     />
-                  ))}
+                    {isCurrentlyStreaming && text && <StreamingDots />}
+                  </div>
                 </div>
               )}
 
-              {/* Refinement chips after meal cards */}
-              {isLast && !isLoading && cards.length > 0 && userMessageCount <= 2 && (
+              {/* "Apply this week?" pill after last Jade message with a plan */}
+              {isLast && !isLoading && pendingWeekPlan && (
+                <div className="pl-8">
+                  <ApplyWeekPill
+                    onApply={handleApplyWeekPlan}
+                    onDismiss={() => setPendingWeekPlan(null)}
+                  />
+                </div>
+              )}
+
+              {/* Refinement chips after the first Jade plan reply */}
+              {isLast && !isLoading && messageHasMealPlanResult(msg) && userMessageCount <= 2 && (
                 <div className="pl-8 flex flex-wrap gap-1.5">
-                  {["More protein", "No fish", "Simpler dinners"].map((p) => (
+                  {REFINEMENT_PROMPTS.map((p) => (
                     <JadeChip key={p} label={p} onClick={() => handleSuggestedPrompt(p)} />
                   ))}
                 </div>
@@ -454,9 +627,53 @@ export function JadeSide({
           );
         })}
 
-        {/* Loading indicator — standalone thinking state when Jade hasn't replied yet */}
+        {/* Injected widgets (WeekRangePicker / PhotoUploadPrompt from + button) */}
+        {injectedWidgets.map((w) => (
+          <div key={w.id} className="space-y-2">
+            <div className="flex items-start gap-2.5">
+              <JadeAvatar size={24} state="idle" online className="shrink-0 mt-0.5" />
+              <div className="flex-1 min-w-0 max-w-[88%] rounded-[var(--radius-card)] rounded-tl-sm border border-border/60 bg-card px-3 py-3">
+                {w.type === "week-range" && (
+                  <WeekRangePicker
+                    output={{ label: "Pick a week to plan" }}
+                    onUserResponse={(resp) => {
+                      handleSubmit(
+                        `Plan the week of ${resp.weekStart} (${resp.weekStart} – ${resp.weekEnd})`,
+                      );
+                      setInjectedWidgets((prev) => prev.filter((x) => x.id !== w.id));
+                    }}
+                  />
+                )}
+                {w.type === "fridge-photo" && (
+                  <PhotoUploadPrompt
+                    output={{ label: "Snap your fridge", subLabel: "I'll plan around what you have." }}
+                    onUserResponse={(resp) => {
+                      handleSubmit(
+                        typeof resp === "string"
+                          ? `Here's what I have: ${resp}`
+                          : "I uploaded a fridge photo — plan around what you can see.",
+                      );
+                      setInjectedWidgets((prev) => prev.filter((x) => x.id !== w.id));
+                    }}
+                  />
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+
+        {/* Standalone thinking state when Jade hasn't started streaming yet */}
         {isLoading && messages.length > 0 && messages[messages.length - 1].role === "user" && (
           <JadeBubble text="" isThinking />
+        )}
+
+        {/* Refinement chips — shown if category was chosen but no messages yet */}
+        {categoryChosen && !hasJadeReplied && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {REFINEMENT_PROMPTS.map((p) => (
+              <JadeChip key={p} label={p} onClick={() => handleSuggestedPrompt(p)} />
+            ))}
+          </div>
         )}
 
         <div ref={messagesEndRef} />
@@ -471,11 +688,10 @@ export function JadeSide({
         </div>
       )}
 
-      {/* Composer — glass card */}
+      {/* Composer */}
       <div className="shrink-0 p-3 border-t border-border/50">
         <KyleCard variant="glass" className="overflow-hidden">
           <form onSubmit={onSubmit}>
-            {/* Textarea */}
             <textarea
               ref={textareaRef}
               value={input}
@@ -492,18 +708,43 @@ export function JadeSide({
                 "disabled:opacity-50",
                 "min-h-[2.5rem] max-h-[7.5rem]",
                 "transition-colors duration-150",
-                // Electrolyte focus ring via parent card
               )}
               style={{ fieldSizing: "content" } as React.CSSProperties}
               aria-label="Message Jade"
             />
 
-            {/* Footer: status row + send button */}
+            {/* Footer: + button + status + send */}
             <div className="flex items-center justify-between px-3 pb-2.5 gap-2">
-              {/* Status / hint */}
+              {/* + quick actions */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setShowQuickActions((v) => !v)}
+                  className={cn(
+                    "flex h-7 w-7 items-center justify-center rounded-full",
+                    "text-muted-foreground/50 hover:text-[var(--color-electrolyte-dark)]",
+                    "hover:bg-[var(--color-electrolyte)]/8 transition-colors duration-150",
+                    "focus:outline-none focus:ring-2 focus:ring-ring",
+                    showQuickActions && "text-[var(--color-electrolyte-dark)] bg-[var(--color-electrolyte)]/8",
+                  )}
+                  aria-label="Quick actions"
+                  aria-expanded={showQuickActions}
+                >
+                  <Plus size={14} />
+                </button>
+
+                {showQuickActions && (
+                  <QuickActionPopover
+                    onAction={handleQuickAction}
+                    onClose={() => setShowQuickActions(false)}
+                  />
+                )}
+              </div>
+
+              {/* Status hint */}
               <p
                 className={cn(
-                  "font-[var(--font-apercu)] text-[var(--font-size-caption)] italic transition-all duration-300",
+                  "flex-1 font-[var(--font-apercu)] text-[var(--font-size-caption)] italic transition-all duration-300",
                   isLoading
                     ? "text-[var(--color-electrolyte-dark)]/70 opacity-100"
                     : "text-muted-foreground/30 opacity-100",
@@ -518,12 +759,10 @@ export function JadeSide({
                   animation: isLoading ? "shimmer 1.8s linear infinite" : undefined,
                 }}
               >
-                {isLoading
-                  ? "Jade is reading your training schedule…"
-                  : "⌘↵ to send"}
+                {isLoading ? "Jade is reading your training schedule…" : "⌘↵ to send"}
               </p>
 
-              {/* Send button — Mango circle icon */}
+              {/* Send */}
               <KyleButton
                 type="submit"
                 size="icon"
