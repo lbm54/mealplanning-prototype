@@ -383,34 +383,38 @@ GENERATIVE UI — TOOL USE RULES (follow exactly):
               // tool calls. Variants that need real food IDs do their own
               // resolution against the foods catalog client-side.
               const LooseFoodComponent = z.object({
-                food_id: z.string().optional(),
-                name: z.string(),
-                portion: z.string().optional(),
-                carb_g: z.number().optional(),
-                protein_g: z.number().optional(),
-                fat_g: z.number().optional(),
+                name: z.string().describe("food name, e.g. 'jasmine rice'"),
+                portion: z.string().describe("e.g. '1 cup', '6 oz'"),
+                carb_g: z.number().describe("grams of carbs in this portion"),
+                protein_g: z.number().describe("grams of protein in this portion"),
+                fat_g: z.number().describe("grams of fat in this portion"),
               });
               const LooseMealAssembly = z.object({
-                id: z.string().optional(),
-                title: z.string(),
-                method_tag: z.string().optional(),
-                components: z.array(LooseFoodComponent),
+                title: z.string().describe("descriptive ingredient list, e.g. 'grilled chicken + rice + broccoli'"),
+                components: z.array(LooseFoodComponent).min(2).max(8).describe("2-8 components per meal"),
                 totals: z.object({
-                  carb_g: z.number().optional(),
-                  protein_g: z.number().optional(),
-                  fat_g: z.number().optional(),
-                }).optional(),
+                  carb_g: z.number(),
+                  protein_g: z.number(),
+                  fat_g: z.number(),
+                }).describe("rolled-up macro totals — sum of components"),
               });
+              // Each day's `meals` MUST have breakfast/lunch/dinner. Snack optional.
+              // Keeping it nested as `meals` so existing Object.entries(day.meals)
+              // consumers keep working.
               const LooseDayPlan = z.object({
-                date: z.string(),
-                meals: z.record(z.string(), LooseMealAssembly.nullable()).optional(),
+                date: z.string().describe("ISO date YYYY-MM-DD"),
+                meals: z.object({
+                  breakfast: LooseMealAssembly,
+                  lunch: LooseMealAssembly,
+                  dinner: LooseMealAssembly,
+                  snack: LooseMealAssembly.optional(),
+                }),
                 day_note: z.string().optional(),
               });
               const LooseWeekPlan = z.object({
                 week_start: z.string(),
-                coach_strip: z.string().optional(),
-                rationale: z.string().optional(),
-                days: z.array(LooseDayPlan).min(7).max(7),
+                coach_strip: z.string().describe("1-sentence summary of the week's character"),
+                days: z.array(LooseDayPlan).length(7),
               });
               const LooseSwapResult = z.object({
                 alternatives: z.array(LooseMealAssembly).min(3).max(3),
@@ -435,6 +439,8 @@ GENERATIVE UI — TOOL USE RULES (follow exactly):
                   model: model as any,
                   schema: LooseWeekPlan,
                   system: SYSTEM_PROMPT,
+                  // 7 days × ~4 meals × ~5 components × macro fields needs lots of room
+                  maxOutputTokens: 8000,
                   prompt: `Generate a complete 7-day meal plan.
 
 Output rules — follow exactly:
