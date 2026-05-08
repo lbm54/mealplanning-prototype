@@ -86,6 +86,32 @@ Variant E "Coach" redesigned as a premium AI companion — the feel of a $20/mo 
 
 ---
 
+# Variant C — Generative UI Widget Integration (2026-05-08)
+
+## Summary
+Integrated the generative UI widget library into Variant C "Columns". Four spec items delivered: 3-step Jade fill sheet, InsightTile in popovers, MacroProgressRings in footer, WorkoutTimeline on workout days.
+
+### New files added
+- `jade-fill-sheet.tsx` — 3-step bottom Sheet: Step 1 CategoryPicker (pick intent), Step 2 MacroSlider (adjust carb/protein/fat split), Step 3 skeleton state while AI fills. POST to `/api/jade/chat?surface=c`. Resets cleanly on close. JadeAvatar thinking-state in header during fill.
+
+### Modified files
+- `column-grid.tsx` — WorkoutTimeline (PRE/DURING/POST fuel windows) replaces thin WorkoutBanner on workout days. Rule-based estimates (no AI call). InsightTile rationale wired into each FoodPickerCell via `rationale` prop from `cols.rationale`.
+- `food-picker-cell.tsx` — Added `rationale?: string` prop. InsightTile rendered at top of popover with `tone: "info"` and "Why these?" title. Zero breaking changes to existing behaviour.
+- `footer-totals-bar.tsx` — MacroTotalsRail replaced with MacroProgressRings (3 SVG circular rings). Added `weeklyTargets?: CellTotals` prop; falls back to 250/150/70g defaults. Rings show current week totals vs daily target × 7.
+- `plan.c.tsx` — `useJadeFill` hook removed; replaced with `JadeFillSheet` + `sheetOpen` state. `weeklyTargets` + `defaultMacroSplit` useMemos hoisted above early return (rules-of-hooks). `CellTotals` import added. `/plan/c` HTTP 200 confirmed.
+
+### Previous new files (2026-05-07 facelift — unchanged)
+- `control-bar.tsx`, `day-rail.tsx`, `slot-cell.tsx`, `row-macro-bar.tsx`, `workout-banner.tsx`, `table-header-row.tsx`
+
+### TODOs / Follow-ups
+- [ ] Progressive Jade fill animation (stream cells 50ms apart) — requires streaming from fillWeek hook
+- [ ] Filter sheet per food column (placeholder filter icon exists, no implementation yet)
+- [ ] Week navigation (prev/next week nav buttons are stubbed `disabled`)
+- [ ] `jadeFilled` is a ref (doesn't trigger re-render); convert to state if JADE badge needs to appear reactively post-fill
+- [ ] `workout-banner.tsx` is now superseded by WorkoutTimeline in column-grid.tsx; safe to delete in a future cleanup pass
+
+---
+
 # Variant C — 2026 Facelift (2026-05-07)
 
 ## Summary
@@ -106,13 +132,6 @@ Variant C "Columns" redesigned from a utility grid into a high-end planning tabl
 - `empty-state-c.tsx` — Large Jade avatar, italic italic copy, Mango CTA pill
 - `mobile-stepper.tsx` — Progress beads (filled=electrolyte, current=mango pill), slot tab buttons, RowMacroBar, orange gradient Next/Done CTA
 - `plan.c.tsx` — ControlBar + FooterTotalsBar wired; jadeFilled ref tracks Jade-picked cells; no raw SnackBar/Button
-
-### TODOs / Follow-ups
-- [ ] Progressive Jade fill animation (stream cells 50ms apart) — requires streaming from fillWeek hook
-- [ ] Filter sheet per food column (placeholder filter icon exists, no implementation yet)
-- [ ] Week navigation (prev/next week nav buttons are stubbed `disabled`)
-- [ ] MacroTotalsRail `targets` prop — need weekly target data from loader to show ring fill %
-- [ ] `jadeFilled` is a ref (doesn't trigger re-render); convert to state if JADE badge needs to appear reactively post-fill
 
 ---
 
