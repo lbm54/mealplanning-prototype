@@ -25,11 +25,11 @@ import { ColumnGrid } from "@/components/variant-c/column-grid";
 import { MobileStepper } from "@/components/variant-c/mobile-stepper";
 import { EmptyStateC } from "@/components/variant-c/empty-state-c";
 import { FooterTotalsBar } from "@/components/variant-c/footer-totals-bar";
+import { JadeFillSheet } from "@/components/variant-c/jade-fill-sheet";
 import { useColumnPicks } from "@/lib/hooks/use-column-picks";
-import { useJadeFill } from "@/lib/hooks/use-jade-fill";
 import { cn } from "@/lib/utils";
 import type { WeekColumnsData, FoodOption, MealSlot } from "@/lib/queries/columns-data.c";
-import type { PickMap } from "@/lib/hooks/use-column-picks";
+import type { PickMap, CellTotals } from "@/lib/hooks/use-column-picks";
 
 // ─── Route ───────────────────────────────────────────────────────────────────
 
@@ -120,8 +120,8 @@ function VariantCColumns() {
     markSaved,
   } = useColumnPicks(loaderData?.savedPlan?.meals, recommended);
 
-  const { isLoading: jadeFillLoading, fillWeek } = useJadeFill();
   const [isSaving, setIsSaving] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
 
   // Track which keys Jade filled (for JADE badge display)
   const jadeFilled = useRef<Set<string>>(new Set());
@@ -134,6 +134,33 @@ function VariantCColumns() {
 
   const filledCount = useMemo(() => countFilled(picks, allSlotKeys), [picks, allSlotKeys]);
   const totalMeals  = allSlotKeys.length;
+
+  // Weekly macro targets: sum of daily targets across the 7 loaded days.
+  // Hoisted before the early return to satisfy rules-of-hooks.
+  const weeklyTargets: CellTotals = useMemo(() => {
+    const days = loaderData?.days ?? [];
+    let carb_g = 0, protein_g = 0, fat_g = 0;
+    for (const day of days) {
+      carb_g    += day.carb_g;
+      protein_g += day.protein_g;
+      fat_g     += day.fat_g;
+    }
+    return { carb_g, protein_g, fat_g };
+  }, [loaderData?.days]);
+
+  // Default macro split for the sheet — derive from the first day's targets.
+  // Hoisted before the early return to satisfy rules-of-hooks.
+  const defaultMacroSplit = useMemo(() => {
+    const d = loaderData?.days[0];
+    if (!d) return { carb: 50, protein: 25, fat: 25 };
+    const total = d.carb_g + d.protein_g + d.fat_g;
+    if (total === 0) return { carb: 50, protein: 25, fat: 25 };
+    return {
+      carb:    Math.round((d.carb_g    / total) * 100),
+      protein: Math.round((d.protein_g / total) * 100),
+      fat:     Math.round((d.fat_g     / total) * 100),
+    };
+  }, [loaderData?.days]);
 
   // ─── Handlers ──────────────────────────────────────────────────────────────
 
@@ -156,25 +183,26 @@ function VariantCColumns() {
     [toggleLock],
   );
 
-  const handleJadeFill = useCallback(async () => {
+  /** Step 1 of 3: open the Jade fill sheet (CategoryPicker → MacroSlider → AI fill). */
+  const handleJadeFill = useCallback(() => {
     if (!loaderData) return;
-    const map = await fillWeek(weekStart, loaderData.columns);
-    if (map) {
-      // Record which keys Jade filled
-      const newJadeFilled = new Set<string>();
-      for (const key of Object.keys(map as PickMap)) {
-        const pick = (map as PickMap)[key];
-        if (pick?.proteinId) newJadeFilled.add(`${key}:protein`);
-        if (pick?.carbId)    newJadeFilled.add(`${key}:carb`);
-        if (pick?.vegId)     newJadeFilled.add(`${key}:veg`);
-      }
-      jadeFilled.current = newJadeFilled;
-      bulkSetPicks(map as PickMap);
-      toast.success("Jade has filled your week!");
-    } else {
-      toast.error("Jade couldn't fill the week right now. Check your AI config.");
+    setSheetOpen(true);
+  }, [loaderData]);
+
+  /** Called by JadeFillSheet when the AI fill completes successfully. */
+  const handleJadeComplete = useCallback((map: PickMap) => {
+    // Record which keys Jade filled (for JADE badge display)
+    const newJadeFilled = new Set<string>();
+    for (const key of Object.keys(map)) {
+      const pick = map[key];
+      if (pick?.proteinId) newJadeFilled.add(`${key}:protein`);
+      if (pick?.carbId)    newJadeFilled.add(`${key}:carb`);
+      if (pick?.vegId)     newJadeFilled.add(`${key}:veg`);
     }
-  }, [loaderData, weekStart, fillWeek, bulkSetPicks]);
+    jadeFilled.current = newJadeFilled;
+    bulkSetPicks(map);
+    toast.success("Jade has filled your week!");
+  }, [bulkSetPicks]);
 
   const handleSave = useCallback(async () => {
     if (!loaderData || isSaving) return;
@@ -286,8 +314,19 @@ function VariantCColumns() {
         weekLabel={weekRangeLabel}
         totalMeals={totalMeals}
         filledMeals={filledCount}
-        isLoading={jadeFillLoading}
+        isLoading={false}
         onFillWeek={handleJadeFill}
+      />
+
+      {/* ── Jade fill 3-step sheet (CategoryPicker → MacroSlider → AI fill) ── */}
+      <JadeFillSheet
+        open={sheetOpen}
+        onOpenChange={setSheetOpen}
+        onComplete={handleJadeComplete}
+        weekStart={weekStart}
+        allColumns={columns}
+        defaultMacroSplit={defaultMacroSplit}
+        unfilledCount={totalMeals - filledCount}
       />
 
       {/* ── Desktop column grid ── */}
@@ -322,6 +361,7 @@ function VariantCColumns() {
       {/* ── Sticky footer totals bar ── */}
       <FooterTotalsBar
         weekTotals={wt}
+        weeklyTargets={weeklyTargets}
         filledCount={filledCount}
         totalCount={totalMeals}
         isSaving={isSaving}

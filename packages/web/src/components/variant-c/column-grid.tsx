@@ -19,12 +19,46 @@ import { DayRail } from "./day-rail";
 import { SlotCell } from "./slot-cell";
 import { FoodPickerCell } from "./food-picker-cell";
 import { RowMacroBar } from "./row-macro-bar";
-import { WorkoutBanner } from "./workout-banner";
+import WorkoutTimeline from "@/components/shared/widgets/workout-timeline";
 import { cn } from "@/lib/utils";
 import type { DayMacroRow, ColumnOptions, MealSlot, FoodOption } from "@/lib/queries/columns-data.c";
 import type { CellPick, CellTotals } from "@/lib/hooks/use-column-picks";
+import type { WorkoutTimelineOutput } from "@/components/shared/widgets/workout-timeline";
 
 const MAIN_SLOTS: MealSlot[] = ["breakfast", "lunch", "dinner"];
+
+/**
+ * Build a static WorkoutTimelineOutput for a given day's macro targets.
+ * Uses rule-based estimates for pre/during/post windows — no AI call needed.
+ */
+function buildWorkoutTimeline(workoutNote: string, carbG: number): WorkoutTimelineOutput {
+  const isHighCarb = carbG >= 250;
+  return {
+    workoutTitle: workoutNote,
+    windows: [
+      {
+        phase: "pre",
+        windowLabel: "60–90 min before",
+        carbG: isHighCarb ? 60 : 40,
+        notes: "Fast-digesting carbs, minimal fat.",
+      },
+      {
+        phase: "during",
+        windowLabel: "Every 30–45 min",
+        carbG: 30,
+        sodiumMg: 300,
+        notes: "Gel or chews if effort > 75 min.",
+      },
+      {
+        phase: "post",
+        windowLabel: "Within 30 min",
+        carbG: isHighCarb ? 80 : 50,
+        proteinG: 25,
+        notes: "Replenish glycogen + kick-start recovery.",
+      },
+    ],
+  };
+}
 
 export interface ColumnGridProps {
   days:        DayMacroRow[];
@@ -83,11 +117,11 @@ export function ColumnGrid({
         {days.map((day) => {
           return (
             <div key={day.date} className="space-y-[2px]">
-              {/* Workout banner — above breakfast on workout days */}
+              {/* Workout timeline — above breakfast on workout days (replaces thin banner) */}
               {day.isWorkoutDay && day.workoutNote && (
-                <WorkoutBanner
-                  workoutNote={day.workoutNote}
-                  className="mb-1"
+                <WorkoutTimeline
+                  output={buildWorkoutTimeline(day.workoutNote, day.carb_g)}
+                  className="mb-2 rounded-[var(--radius-card)] border border-[var(--color-electrolyte)]/20 bg-[var(--color-electrolyte)]/5 px-3 py-2"
                 />
               )}
 
@@ -147,6 +181,7 @@ export function ColumnGrid({
                           options={cols.protein}
                           selectedId={pick.proteinId}
                           isJadePick={jadeFilled?.has(`${key}:protein`)}
+                          rationale={cols.rationale.protein}
                           date={day.date}
                           slot={slot}
                           onSelect={(id) => onPickCol(day.date, slot, "protein", id)}
@@ -164,6 +199,7 @@ export function ColumnGrid({
                           options={cols.carb}
                           selectedId={pick.carbId}
                           isJadePick={jadeFilled?.has(`${key}:carb`)}
+                          rationale={cols.rationale.carb}
                           date={day.date}
                           slot={slot}
                           onSelect={(id) => onPickCol(day.date, slot, "carb", id)}
@@ -181,6 +217,7 @@ export function ColumnGrid({
                           options={cols.veg}
                           selectedId={pick.vegId}
                           isJadePick={jadeFilled?.has(`${key}:veg`)}
+                          rationale={cols.rationale.veg}
                           date={day.date}
                           slot={slot}
                           onSelect={(id) => onPickCol(day.date, slot, "veg", id)}

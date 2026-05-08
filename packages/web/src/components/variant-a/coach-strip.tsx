@@ -4,17 +4,41 @@
  *
  * Variant A 2026 facelift: KyleCard variant="glass" + backdrop-blur,
  * Electrolyte left-border, shimmer skeleton while generating.
+ *
+ * 2026 generative-UI upgrade:
+ * - Accepts an optional `insightTile` prop.
+ * - When an InsightTile is provided (emitted by Jade via showInsightTile tool),
+ *   it renders the InsightTile widget above the plain text strip.
+ * - When no tile is present, falls back to the original italic Apercu strip.
  */
 import { cn } from "@/lib/utils";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
+import InsightTile from "@/components/shared/widgets/insight-tile";
+import type { InsightTileOutput } from "@/components/shared/widgets/insight-tile";
 
 export interface CoachStripProps {
   text: string | null;
   isLoading?: boolean;
+  /** Optional InsightTile payload from Jade's `showInsightTile` tool call. */
+  insightTile?: InsightTileOutput | null;
   className?: string;
 }
 
-export function CoachStrip({ text, isLoading, className }: CoachStripProps) {
+export function CoachStrip({
+  text,
+  isLoading,
+  insightTile,
+  className,
+}: CoachStripProps) {
+  // When we have an InsightTile, render it in place of plain text
+  if (insightTile && !isLoading) {
+    return (
+      <div className={cn("space-y-2", className)}>
+        <InsightTile output={insightTile} />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(
@@ -67,7 +91,8 @@ export function CoachStrip({ text, isLoading, className }: CoachStripProps) {
             text ? "text-foreground" : "text-muted-foreground",
           )}
         >
-          {text ?? "Click 'Plan my week' to generate your training-aware meal plan."}
+          {text ??
+            "Click 'Plan my week' to generate your training-aware meal plan."}
         </p>
       )}
     </div>

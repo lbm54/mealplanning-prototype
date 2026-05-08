@@ -1,3 +1,29 @@
+# Variant A — Generative UI Integration (2026-05-08)
+
+## Variant A — Calendar — Generative UI Widgets Integrated
+
+### New files
+- `src/components/variant-a/morning-briefing-sheet.tsx` — MorningBriefingPill button + MorningBriefingSheet (right-side Sheet) + useMorningBriefingVisible hook + useMorningBriefingOpen hook. Sends "Give me my morning briefing" to `/api/jade/chat?surface=a-morning` on first click; caches response in localStorage keyed by date. Renders MorningGreetingCard + WorkoutTimeline + WeatherCard via JadeMessageRenderer.
+
+### Modified files
+- `src/components/variant-a/jade-drawer.tsx` — Full generative-UI upgrade. Now uses `useChat` + `DefaultChatTransport` → `/api/jade/chat?surface=a`. On open with empty thread, auto-sends a greeting message so the system-prompt fires `showCategoryPicker`. All Jade responses rendered via `JadeMessageRenderer`. Input widgets echo selections back via `addToolResult`. Falls back to stub card when AI not configured.
+- `src/components/variant-a/swap-sheet.tsx` — Alternatives list replaced with `<MealAlternatives>` widget. `onUserResponse` callback from the widget wired to `onAccept` + toast + sheet close. "Compare 2" toggle at bottom reveals `<ComparisonCard>` for first two alternatives. Skeleton shimmer preserved during load.
+- `src/components/variant-a/coach-strip.tsx` — New `insightTile?: InsightTileOutput` prop. When present and not loading, renders `<InsightTile>` in place of the italic Apercu strip. Otherwise keeps existing glass card behaviour.
+- `src/routes/plan.a.tsx` — Wired all four integration points: insightTile state (cleared on regenerate), morning briefing hooks, `showMorningPill` derived value (5am–10am + hasActivityToday), `MorningBriefingPill` in header right section, `CoachStrip` receives `insightTile` prop, `MorningBriefingSheet` mounted at bottom of render tree.
+
+### Checks
+- `npx eslint src/components/variant-a/ src/routes/plan.a.tsx --max-warnings 0` — 0 errors
+- `pnpm typecheck` — 0 errors in variant-a files (pre-existing errors in variant-c/d/use-coach-chat remain)
+- `/plan/a` — HTTP 200 confirmed
+
+### TODOs
+- [ ] `insightTile` state is initialised but never populated from a Jade response — requires hooking into JadeDrawer's `onFinish` callback or a shared Jade context to pluck `showInsightTile` output from the last Jade message and set it in plan.a.tsx. Wiring deferred to shared-context layer.
+- [ ] `useMorningBriefingVisible` uses `hasActivityToday` from loader data; if loader's activities only carry ISO timestamps without timezone context, the `startsWith(todayStr)` check may miss events on UTC midnight boundary — add tz-aware check if needed.
+- [ ] Morning briefing sends to `/api/jade/chat?surface=a-morning` — the server endpoint should have a system prompt variant for brief morning cards; currently falls through to the default surface=a prompt.
+- [ ] `addToolResult` in jade-drawer uses `any` cast to bypass AI SDK generic constraint (tool name is unknown at the JadeMessageRenderer onUserResponse level). A clean fix would require the renderer to pass the tool name as a third argument to onUserResponse.
+
+---
+
 # Variant D + E — 2026 Facelift (2026-05-07)
 
 ## Variant D — Hybrid (Plan + Jade) — COMPLETE

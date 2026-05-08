@@ -1,26 +1,31 @@
 /**
  * FooterTotalsBar — sticky bottom bar.
  *
- * Left:   MacroTotalsRail rings (compact mode)
+ * Left:   MacroProgressRings (c/p/f current vs weekly target)
  * Center: "X of 21 meals filled" with Mango progress bar
  * Right:  KyleButton "SAVE WEEK"
+ *
+ * weeklyTargets is optional — if not provided the rings render without target
+ * fill (shows current only, rings appear at 0% fill).
  */
 
 import { Save } from "lucide-react";
 import { KyleCard } from "@/components/shared/kyle-card";
 import { KyleButton } from "@/components/shared/kyle-button";
-import { MacroTotalsRail } from "@/components/shared/macro-totals-rail";
+import MacroProgressRings from "@/components/shared/widgets/macro-progress-rings";
 import { cn } from "@/lib/utils";
 import type { CellTotals } from "@/lib/hooks/use-column-picks";
 
 export interface FooterTotalsBarProps {
-  weekTotals:   CellTotals;
-  filledCount:  number;
-  totalCount:   number;
-  isSaving:     boolean;
-  isDirty:      boolean;
-  onSave:       () => void;
-  className?:   string;
+  weekTotals:    CellTotals;
+  filledCount:   number;
+  totalCount:    number;
+  isSaving:      boolean;
+  isDirty:       boolean;
+  onSave:        () => void;
+  /** Weekly macro targets (daily target × 7). Optional — rings show 0 fill if omitted. */
+  weeklyTargets?: CellTotals;
+  className?:    string;
 }
 
 export function FooterTotalsBar({
@@ -30,9 +35,17 @@ export function FooterTotalsBar({
   isSaving,
   isDirty,
   onSave,
+  weeklyTargets,
   className,
 }: FooterTotalsBarProps) {
   const progressPct = totalCount > 0 ? (filledCount / totalCount) * 100 : 0;
+
+  // Derive sensible targets: fall back to a generous default so rings render
+  const targets: CellTotals = weeklyTargets ?? {
+    carb_g:    250 * 7,
+    protein_g: 150 * 7,
+    fat_g:     70  * 7,
+  };
 
   return (
     <KyleCard
@@ -40,18 +53,16 @@ export function FooterTotalsBar({
       className={cn("sticky bottom-0 z-30 px-4 py-3", className)}
     >
       <div className="flex items-center justify-between gap-4 min-w-0">
-        {/* Left — macro rings */}
+        {/* Left — MacroProgressRings: week totals vs weekly target */}
         <div className="hidden sm:block shrink-0">
-          <MacroTotalsRail
-            weekTotals={{
-              carbG:  weekTotals.carb_g,
-              protG:  weekTotals.protein_g,
-              fatG:   weekTotals.fat_g,
+          <MacroProgressRings
+            output={{
+              label: "Week totals",
+              carb:    { currentG: weekTotals.carb_g,    targetG: targets.carb_g    },
+              protein: { currentG: weekTotals.protein_g, targetG: targets.protein_g },
+              fat:     { currentG: weekTotals.fat_g,     targetG: targets.fat_g     },
             }}
-            daysPlanned={Math.ceil(filledCount / 3)}
-            daysLocked={0}
-            compact
-            className="border-0 shadow-none bg-transparent p-0"
+            size="compact"
           />
         </div>
 

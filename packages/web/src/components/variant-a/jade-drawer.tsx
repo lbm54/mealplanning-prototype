@@ -5,18 +5,25 @@
  *   "Click → a right-side Sheet opens with a small chat that's scoped to the
  *    current week."
  *
- * Uses /api/jade/chat?surface=a with useChat from @ai-sdk/react when configured.
- * Falls back to a static stub with helpful chips when AI is not configured.
- *
- * TODO: Wire real useChat once AI_GATEWAY_API_KEY is set in .env.local.
- * The endpoint /api/jade/chat is already implemented in server/jade/chat.tsx.
+ * 2026 generative-UI upgrade:
+ *   - Uses useChat from @ai-sdk/react + DefaultChatTransport → /api/jade/chat?surface=a
+ *   - On open with empty thread: sends a greeting message so the system prompt
+ *     fires showCategoryPicker automatically.
+ *   - All Jade responses are rendered via JadeMessageRenderer (tool widgets +
+ *     text parts).
+ *   - Input widgets (CategoryPicker, FollowUpQuestion, YesNoChips, etc.) reply
+ *     via addToolResult → Jade continues the conversation.
+ *   - Falls back to stub card when AI is not configured.
  */
-import { useCallback, useRef, useEffect } from "react";
+import { useCallback, useRef, useEffect, useState } from "react";
 import type React from "react";
+import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
 import { cn } from "@/lib/utils";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
 import { JadeMessageCard } from "@/components/shared/jade-message-card";
-import { X } from "lucide-react";
+import { JadeMessageRenderer } from "@/components/shared/jade-message-renderer";
+import { X, Send } from "lucide-react";
 
 export interface JadeDrawerProps {
   isOpen: boolean;
@@ -28,15 +35,243 @@ export interface JadeDrawerProps {
   className?: string;
 }
 
-export function JadeDrawer({ isOpen, onClose, weekContext, className }: JadeDrawerProps) {
-  const inputRef = useRef<HTMLInputElement>(null);
+// ─── Stub mode ────────────────────────────────────────────────────────────────
+// Rendered when AI_GATEWAY_API_KEY / OPENAI_API_KEY is absent
 
-  // Focus the input when the drawer opens
+function StubContent({
+  weekContext,
+}: {
+  weekContext?: JadeDrawerProps["weekContext"];
+}) {
+  return (
+    <>
+      <JadeMessageCard
+        text={
+          weekContext?.coachStrip
+            ? weekContext.coachStrip
+            : "Hey — I'm Jade. I'm your nutrition coach for this week."
+        }
+        chips={[
+          { label: "why this week's carbs?", onClick: () => {} },
+          { label: "make it simpler", onClick: () => {} },
+          { label: "more protein", onClick: () => {} },
+        ]}
+      />
+      <div className="rounded-[var(--radius-card)] border border-dashed border-border bg-muted/30 p-3">
+        <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
+          To enable live chat, add{" "}
+          <code className="font-mono bg-muted px-1 rounded">
+            AI_GATEWAY_API_KEY
+          </code>{" "}
+          or{" "}
+          <code className="font-mono bg-muted px-1 rounded">
+            OPENAI_API_KEY
+          </code>{" "}
+          to{" "}
+          <code className="font-mono bg-muted px-1 rounded">.env.local</code>.
+        </p>
+      </div>
+    </>
+  );
+}
+
+// ─── Live chat content ────────────────────────────────────────────────────────
+
+interface LiveChatProps {
+  weekContext?: JadeDrawerProps["weekContext"];
+  scrollRef: React.RefObject<HTMLDivElement | null>;
+}
+
+function LiveChat({ weekContext, scrollRef }: LiveChatProps) {
+  const greetingSent = useRef(false);
+
+  const { messages, sendMessage, status, addToolResult } = useChat({
+    id: "variant-a-drawer",
+    transport: new DefaultChatTransport({
+      api: "/api/jade/chat?surface=a",
+      body: {
+        weekContext: weekContext
+          ? {
+              weekStart: weekContext.weekStart,
+              coachStrip: weekContext.coachStrip,
+            }
+          : undefined,
+      },
+    }),
+    onError: (err) => {
+      console.error("[JadeDrawer] stream error:", err);
+    },
+  });
+
+  const isLoading = status === "streaming" || status === "submitted";
+
+  // On first mount with no messages, send a greeting so the system prompt fires
+  // showCategoryPicker automatically.
   useEffect(() => {
-    if (isOpen) {
-      setTimeout(() => inputRef.current?.focus(), 100);
+    if (!greetingSent.current && messages.length === 0) {
+      greetingSent.current = true;
+      sendMessage({ text: "hi" });
     }
-  }, [isOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Scroll to bottom when messages change
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages, scrollRef]);
+
+  const [inputText, setInputText] = useState("");
+
+  const handleSend = useCallback(() => {
+    const text = inputText.trim();
+    if (!text || isLoading) return;
+    setInputText("");
+    sendMessage({ text });
+  }, [inputText, isLoading, sendMessage]);
+
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        handleSend();
+      }
+    },
+    [handleSend],
+  );
+
+  return (
+    <>
+      {/* Message list */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-4" ref={scrollRef}>
+        {messages.length === 0 && !isLoading && (
+          <div className="flex items-center justify-center py-8">
+            <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/50 italic">
+              Starting conversation…
+            </p>
+          </div>
+        )}
+
+        {messages.map((msg) => {
+          if (msg.role === "user") {
+            // Extract text from parts (AI SDK v6)
+            const rawMsg = msg as unknown as {
+              parts?: Array<{ type: string; text?: string }>;
+              content?: string;
+            };
+            const parts = rawMsg.parts ?? [];
+            const text =
+              parts
+                .filter((p) => p.type === "text")
+                .map((p) => p.text ?? "")
+                .join("") ||
+              rawMsg.content ||
+              "";
+
+            if (!text || text === "hi") return null;
+
+            return (
+              <div key={msg.id} className="flex justify-end">
+                <div
+                  className={cn(
+                    "max-w-[80%] rounded-[var(--radius-card)] rounded-br-[4px] px-3 py-2",
+                    "font-[var(--font-apercu)] text-[var(--font-size-body)]",
+                    "bg-[rgba(247,139,20,0.13)] border border-[var(--color-orange)]/20",
+                  )}
+                >
+                  {text}
+                </div>
+              </div>
+            );
+          }
+
+          return (
+            <JadeMessageRenderer
+              key={msg.id}
+              message={msg}
+              onUserResponse={(toolCallId, response) =>
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (addToolResult as any)({ toolCallId, output: response })
+              }
+            />
+          );
+        })}
+
+        {/* Thinking indicator */}
+        {isLoading && (
+          <div className="flex items-center gap-2 py-1">
+            <JadeAvatar size={24} state="thinking" glow />
+            <div className="flex gap-1">
+              {[0, 1, 2].map((i) => (
+                <span
+                  key={i}
+                  className="h-1.5 w-1.5 rounded-full bg-[var(--color-electrolyte)]"
+                  style={{
+                    animation: "bounce 1.4s ease-in-out infinite",
+                    animationDelay: `${i * 0.16}s`,
+                  }}
+                  aria-hidden
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Input */}
+      <div className="border-t border-border p-4">
+        <div className="flex gap-2">
+          <input
+            type="text"
+            value={inputText}
+            onChange={(e) => setInputText(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Ask Jade anything…"
+            disabled={isLoading}
+            className={cn(
+              "flex-1 rounded-[var(--radius-input)] border border-input bg-background px-3 py-2",
+              "font-[var(--font-apercu)] text-[var(--font-size-input)]",
+              "placeholder:text-muted-foreground",
+              "focus:outline-none focus:ring-2 focus:ring-[var(--color-electrolyte)]/40",
+              "focus-within:border-[var(--color-electrolyte)]/40",
+              "disabled:opacity-50",
+              "h-[var(--spacing-input-h)]",
+              "transition-shadow duration-150",
+            )}
+          />
+          <button
+            onClick={handleSend}
+            disabled={!inputText.trim() || isLoading}
+            aria-label="Send message"
+            className={cn(
+              "flex items-center justify-center rounded-[var(--radius-pill)]",
+              "bg-gradient-to-b from-[#F8A53A] to-[#F78B14] text-white",
+              "h-[var(--spacing-input-h)] px-4",
+              "font-[var(--font-sansita)] text-[var(--font-size-caption)] uppercase tracking-wider font-bold",
+              "disabled:opacity-50 disabled:cursor-not-allowed",
+              "hover:shadow-[var(--shadow-glow-orange)] hover:-translate-y-0.5",
+              "active:translate-y-0",
+              "transition-all duration-150",
+            )}
+          >
+            <Send size={14} />
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ─── Main JadeDrawer ──────────────────────────────────────────────────────────
+
+export function JadeDrawer({
+  isOpen,
+  onClose,
+  weekContext,
+  className,
+}: JadeDrawerProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   // Close on Escape
   const handleKeyDown = useCallback(
@@ -50,7 +285,10 @@ export function JadeDrawer({ isOpen, onClose, weekContext, className }: JadeDraw
 
   const isAiConfigured =
     typeof window !== "undefined"
-      ? Boolean((window as Window & { __AI_CONFIGURED__?: boolean }).__AI_CONFIGURED__)
+      ? Boolean(
+          (window as Window & { __AI_CONFIGURED__?: boolean })
+            .__AI_CONFIGURED__,
+        )
       : false;
 
   return (
@@ -76,8 +314,8 @@ export function JadeDrawer({ isOpen, onClose, weekContext, className }: JadeDraw
         )}
       >
         {/* Header */}
-        <div className="flex items-center gap-3 border-b border-border p-4">
-          <JadeAvatar size={36} state="idle" />
+        <div className="flex items-center gap-3 border-b border-border p-4 shrink-0">
+          <JadeAvatar size={36} state="idle" online={isAiConfigured} glow={isAiConfigured} />
           <div className="flex-1">
             <p className="font-[var(--font-sansita)] text-[var(--font-size-body)] font-bold uppercase tracking-wider">
               Jade
@@ -86,99 +324,61 @@ export function JadeDrawer({ isOpen, onClose, weekContext, className }: JadeDraw
               your nutrition coach
             </p>
           </div>
+          {isAiConfigured && (
+            <span className="inline-flex items-center gap-1 rounded-[var(--radius-pill)] border border-[var(--color-electrolyte)]/30 bg-[var(--color-electrolyte)]/10 px-2 py-0.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-electrolyte)] animate-status-pulse" />
+              <span className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest text-[var(--color-electrolyte)]">
+                Online
+              </span>
+            </span>
+          )}
           <button
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-muted transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-muted transition-colors ml-1"
             aria-label="Close Ask Jade"
           >
             <X size={18} />
           </button>
         </div>
 
-        {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {!isAiConfigured ? (
-            <>
-              <JadeMessageCard
-                text={
-                  weekContext?.coachStrip
-                    ? weekContext.coachStrip
-                    : "Hey — I'm Jade. I'm your nutrition coach for this week."
-                }
-                chips={[
-                  {
-                    label: "why this week's carbs?",
-                    onClick: () => {},
-                  },
-                  {
-                    label: "make it simpler",
-                    onClick: () => {},
-                  },
-                  {
-                    label: "more protein",
-                    onClick: () => {},
-                  },
-                ]}
-              />
-              <div className="rounded-[var(--radius-card)] border border-dashed border-border bg-muted/30 p-3">
-                <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
-                  To enable live chat, add{" "}
-                  <code className="font-mono bg-muted px-1 rounded">AI_GATEWAY_API_KEY</code>{" "}
-                  or{" "}
-                  <code className="font-mono bg-muted px-1 rounded">OPENAI_API_KEY</code>{" "}
-                  to{" "}
-                  <code className="font-mono bg-muted px-1 rounded">.env.local</code>.
-                </p>
+        {/* Body: stub or live chat */}
+        {isAiConfigured ? (
+          <LiveChat weekContext={weekContext} scrollRef={scrollRef} />
+        ) : (
+          <>
+            <div className="flex-1 overflow-y-auto p-4 space-y-4">
+              <StubContent weekContext={weekContext} />
+            </div>
+            <div className="border-t border-border p-4 shrink-0">
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="AI not configured yet"
+                  disabled
+                  className={cn(
+                    "flex-1 rounded-[var(--radius-input)] border border-input bg-background px-3 py-2",
+                    "font-[var(--font-apercu)] text-[var(--font-size-input)]",
+                    "placeholder:text-muted-foreground",
+                    "disabled:opacity-50",
+                    "h-[var(--spacing-input-h)]",
+                  )}
+                />
+                <button
+                  disabled
+                  className={cn(
+                    "flex items-center justify-center rounded-[var(--radius-pill)]",
+                    "bg-accent text-accent-foreground",
+                    "h-[var(--spacing-input-h)] px-4",
+                    "font-[var(--font-sansita)] text-[var(--font-size-caption)] uppercase tracking-wider font-bold",
+                    "disabled:opacity-50",
+                  )}
+                >
+                  Send
+                </button>
               </div>
-            </>
-          ) : (
-            <JadeMessageCard
-              text={
-                weekContext?.coachStrip ??
-                "Hey — ready to help with your week. What do you want to know?"
-              }
-              chips={[
-                { label: "why this week's carbs?", onClick: () => {} },
-                { label: "make it simpler", onClick: () => {} },
-                { label: "more protein", onClick: () => {} },
-                { label: "I'm traveling Friday", onClick: () => {} },
-              ]}
-            />
-          )}
-        </div>
-
-        {/* Input */}
-        <div className="border-t border-border p-4">
-          <div className="flex gap-2">
-            <input
-              ref={inputRef}
-              type="text"
-              placeholder={isAiConfigured ? "Ask Jade anything…" : "AI not configured yet"}
-              disabled={!isAiConfigured}
-              className={cn(
-                "flex-1 rounded-[var(--radius-input)] border border-input bg-background px-3 py-2",
-                "font-[var(--font-apercu)] text-[var(--font-size-input)]",
-                "placeholder:text-muted-foreground",
-                "focus:outline-none focus:ring-2 focus:ring-ring",
-                "disabled:opacity-50",
-                "h-[var(--spacing-input-h)]",
-              )}
-            />
-            <button
-              disabled={!isAiConfigured}
-              className={cn(
-                "flex items-center justify-center rounded-[var(--radius-pill)]",
-                "bg-accent text-accent-foreground",
-                "h-[var(--spacing-input-h)] px-4",
-                "font-[var(--font-sansita)] text-[var(--font-size-caption)] uppercase tracking-wider font-bold",
-                "disabled:opacity-50 hover:bg-[var(--color-electrolyte-dark)]",
-                "transition-colors",
-              )}
-            >
-              Send
-            </button>
-          </div>
-        </div>
+            </div>
+          </>
+        )}
       </div>
     </>
   );

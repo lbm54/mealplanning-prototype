@@ -33,6 +33,7 @@ import { toast } from "sonner";
 import dayjs from "dayjs";
 import isoWeek from "dayjs/plugin/isoWeek";
 import { Sparkles, ChevronDown } from "lucide-react";
+import type { InsightTileOutput } from "@/components/shared/widgets/insight-tile";
 
 // Shared primitives
 import { MacroTotalsRail } from "@/components/shared/macro-totals-rail";
@@ -46,6 +47,12 @@ import { JadePill } from "@/components/variant-a/jade-pill";
 import { JadeDrawer } from "@/components/variant-a/jade-drawer";
 import { SwapSheet } from "@/components/variant-a/swap-sheet";
 import { TweakBar } from "@/components/variant-a/tweak-bar";
+import {
+  MorningBriefingPill,
+  MorningBriefingSheet,
+  useMorningBriefingVisible,
+  useMorningBriefingOpen,
+} from "@/components/variant-a/morning-briefing-sheet";
 
 // Helpers
 import {
@@ -137,6 +144,20 @@ function VariantACalendar() {
 
   const [isApplyingTweak, setIsApplyingTweak] = useState(false);
 
+  /**
+   * InsightTile from Jade's showInsightTile tool call.
+   * When set, CoachStrip renders the InsightTile instead of plain text.
+   * Cleared on each regenerate.
+   */
+  const [insightTile, setInsightTile] = useState<InsightTileOutput | null>(null);
+
+  // Morning briefing pill + sheet
+  const {
+    isOpen: isMorningOpen,
+    open: openMorning,
+    close: closeMorning,
+  } = useMorningBriefingOpen();
+
   const abortRef = useRef<AbortController | null>(null);
 
   // ── Keyboard navigation ────────────────────────────────────────────────────
@@ -227,6 +248,7 @@ function VariantACalendar() {
 
     setIsGenerating(true);
     setCoachStrip(null);
+    setInsightTile(null);
 
     setDays(
       buildEmptyDays(
@@ -423,6 +445,16 @@ function VariantACalendar() {
   // Swap day for macro targets
   const swapDay = swapTarget ? days.find((d) => d.date === swapTarget.date) : null;
 
+  // Morning briefing pill: visible 5am–10am when user has an activity today
+  const todayStr = dayjs().format("YYYY-MM-DD");
+  const hasActivityToday = loaderData.activities.some(
+    (a) =>
+      typeof a.scheduled_date_time === "string"
+        ? a.scheduled_date_time.startsWith(todayStr)
+        : false,
+  );
+  const showMorningPill = useMorningBriefingVisible(hasActivityToday);
+
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
@@ -462,8 +494,12 @@ function VariantACalendar() {
             </Badge>
           )}
 
-          {/* Right: PLAN MY WEEK button */}
+          {/* Right: Morning briefing pill + PLAN MY WEEK button */}
           <div className="flex items-center gap-3 ml-auto">
+            {/* Morning briefing pill — shown 5am–10am when user has a workout today */}
+            {showMorningPill && (
+              <MorningBriefingPill onClick={openMorning} />
+            )}
             {loaderData.hasSupabase ? (
               <span className="hidden sm:inline font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/60 font-mono">
                 {daysPlanned} of 7 · {daysLocked} locked
@@ -513,8 +549,14 @@ function VariantACalendar() {
       </header>
 
       {/* ── Coach strip ───────────────────────────────────────────────────── */}
+      {/* When Jade has emitted a showInsightTile for this week, the InsightTile
+          is rendered here instead of the plain italic strip. */}
       <div className="px-5 pt-3">
-        <CoachStrip text={coachStrip} isLoading={isGenerating} />
+        <CoachStrip
+          text={coachStrip}
+          isLoading={isGenerating}
+          insightTile={insightTile}
+        />
       </div>
 
       {/* ── Main content ──────────────────────────────────────────────────── */}
@@ -601,6 +643,16 @@ function VariantACalendar() {
           setSwapTarget(null);
         }}
         isOpen={isJadeOpen}
+      />
+
+      {/* ── Morning briefing sheet ────────────────────────────────────────── */}
+      <MorningBriefingSheet
+        isOpen={isMorningOpen}
+        onClose={closeMorning}
+        weekContext={{
+          weekStart: loaderData.weekStart,
+          coachStrip,
+        }}
       />
     </div>
   );

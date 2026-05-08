@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/popover";
 import { Badge } from "@/components/ui/badge";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
+import InsightTile from "@/components/shared/widgets/insight-tile";
 import { useAddMore } from "@/lib/hooks/use-add-more";
 import { cn } from "@/lib/utils";
 import type { FoodOption } from "@/lib/queries/columns-data.c";
@@ -28,6 +29,8 @@ export interface FoodPickerCellProps {
   selectedId:  string | null;
   /** Whether this pick was made by Jade (true if it came from bulkSetPicks) */
   isJadePick?: boolean;
+  /** Jade's pre-canned reasoning for this column + slot (shown as InsightTile in popover). */
+  rationale?:  string;
   date:        string;
   slot:        string;
   onSelect:    (foodId: string) => void;
@@ -45,6 +48,7 @@ export function FoodPickerCell({
   options,
   selectedId,
   isJadePick,
+  rationale,
   date,
   slot,
   onSelect,
@@ -181,6 +185,20 @@ export function FoodPickerCell({
             </button>
           </form>
         </div>
+
+        {/* Jade insight tile — pre-canned reasoning for this column */}
+        {rationale && (
+          <div className="px-2 pt-2">
+            <InsightTile
+              output={{
+                tone: "info",
+                title: "Why these?",
+                body: rationale,
+              }}
+              className="text-[var(--font-size-caption)]"
+            />
+          </div>
+        )}
 
         {/* Option tiles grid */}
         <div className="p-2 flex flex-col gap-1 max-h-[320px] overflow-y-auto">
