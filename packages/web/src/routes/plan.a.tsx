@@ -8,41 +8,22 @@
  * Build order: 07_parallel_build_plans.md §2 (sub-phases 1.A.1 → 1.A.8)
  *
  * ─────────────────────────────────────────────────────────────────────────
- * Sub-phases implemented:
+ * 2026 facelift applied:
  *
- * 1.A.1 Layout shell — 7-col grid, header, Regenerate pill, macro rail,
- *        Ask-Jade pill. All rendered without data.
- *
- * 1.A.2 Read-only week — server loader pulls activities + daily_macro_targets
- *        + existing meal_plan; renders cells with real/stub data.
- *
- * 1.A.3 Carb-tier dots + training overlay — color-coded via CarbTierBadge
- *        on DayColumn headers; cyan TrainingDayDot on key workout day;
- *        extended PRE/DURING/POST rows on workout days.
- *
- * 1.A.4 Regenerate Week — Mango pill calls /api/jade/object?kind=week,
- *        streams a WeekPlan and persists to meal_plans. Falls back to
- *        getMockWeekPlan() when AI is not configured.
- *        TODO: Replace mock fallback once AI_GATEWAY_API_KEY is set.
- *
- * 1.A.5 Per-cell swap — clicking a cell opens SwapSheet with 3 alternatives
- *        from /api/jade/object?kind=swap; accepting one updates the cell +
- *        persists to meal_plan_meals.
- *        TODO: Persist swap to DB once planId is available from 1.A.4.
- *
- * 1.A.6 Coach strip — italic AI explanation from WeekPlan.coach_strip,
- *        pulled from planPageData.existingPlan or freshly generated WeekPlan.
- *
- * 1.A.7 Ask Jade drawer — floating JadePill pill (bottom-right), JadeDrawer
- *        right-side sheet with chat via /api/jade/chat?surface=a.
- *        TODO: Wire real useChat once AI_GATEWAY_API_KEY is set.
- *
- * 1.A.8 Polish — loading skeletons, empty/error states, keyboard nav (Esc
- *        closes drawers, arrow keys navigate days on mobile), sonner toasts.
- * ─────────────────────────────────────────────────────────────────────────
- *
- * TODO (shared file changes needed — cannot edit without main PR):
- * - None currently. All shared primitives used as-is.
+ * - Hero header: Sansita Bold date range, ISO week, training-day Badge,
+ *   KyleButton pill with glow
+ * - Glass coach strip: KyleCard variant="glass" with Electrolyte left-border
+ *   and shimmer skeleton while generating
+ * - Glass week-grid surface: KyleCard variant="elevated" with inner highlight
+ * - Day column headers: Mango glow on today, CarbTierBadge withLabel,
+ *   TrainingDayDot with pulse on key workout day
+ * - Meal cells: dashed empty with hover Electrolyte tint, filled with macro
+ *   Badge ai-active chip, lift on hover
+ * - Workout slot grouping: FUEL header + Electrolyte left-border
+ * - SwapSheet: uses shadcn Sheet, staggered alternative cards, macro chips
+ * - Empty state: radial-gradient + JadeAvatar size=96 + glow
+ * - Loading skeletons: shimmer stagger per cell
+ * - Floating Ask Jade pill: circle expanding on hover
  * ─────────────────────────────────────────────────────────────────────────
  */
 
@@ -51,10 +32,11 @@ import { useState, useCallback, useEffect, useRef } from "react";
 import { toast } from "sonner";
 import dayjs from "dayjs";
 import isoWeek from "dayjs/plugin/isoWeek";
+import { Sparkles, ChevronDown } from "lucide-react";
 
 // Shared primitives
-import { Button } from "@/components/ui/button";
 import { MacroTotalsRail } from "@/components/shared/macro-totals-rail";
+import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
 // Variant-A-specific components
@@ -76,6 +58,7 @@ import {
   findKeyWorkoutDate,
 } from "@/components/variant-a/plan-helpers";
 import { getMockWeekPlan } from "@/components/variant-a/mock-week-plan";
+import { JadeAvatar } from "@/components/shared/jade-avatar";
 
 // Server-side data types
 import type { PlanPageData } from "@/server/variant-a/plan-data";
@@ -86,19 +69,17 @@ import type { SwapSheetMeal } from "@/components/variant-a/swap-sheet";
 dayjs.extend(isoWeek);
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Route definition + server loader (sub-phase 1.A.2)
+// Route definition + server loader
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const Route = createFileRoute("/plan/a")({
   loader: async (): Promise<PlanPageData> => {
-    // Dynamic import so the server module is only evaluated server-side
     try {
       const { fetchPlanPageData } = await import(
         "@/server/variant-a/plan-data"
       );
       return await fetchPlanPageData();
     } catch {
-      // Graceful fallback when server deps aren't available (e.g., browser-only build)
       const today = dayjs();
       const weekStart = today.isoWeekday(1).format("YYYY-MM-DD");
       const weekEnd = today.isoWeekday(7).format("YYYY-MM-DD");
@@ -127,7 +108,6 @@ function VariantACalendar() {
 
   // ── State ─────────────────────────────────────────────────────────────────
 
-  // Days displayed in the grid
   const [days, setDays] = useState<DayPlanData[]>(() => {
     const empty = buildEmptyDays(
       loaderData.weekStart,
@@ -137,33 +117,26 @@ function VariantACalendar() {
     return applyMealRows(empty, loaderData.existingMeals);
   });
 
-  // Coach strip text
   const [coachStrip, setCoachStrip] = useState<string | null>(
     loaderData.existingPlan?.coach_strip ?? null,
   );
 
-  // Current plan ID (for persistence)
   const [planId, setPlanId] = useState<string | null>(
     loaderData.existingPlan?.id ?? null,
   );
 
-  // Generation state
   const [isGenerating, setIsGenerating] = useState(false);
 
-  // Swap sheet state
   const [swapTarget, setSwapTarget] = useState<{
     date: string;
     slot: string;
     meal: SwapSheetMeal | null;
   } | null>(null);
 
-  // Ask-Jade drawer state
   const [isJadeOpen, setIsJadeOpen] = useState(false);
 
-  // Tweak applying state
   const [isApplyingTweak, setIsApplyingTweak] = useState(false);
 
-  // Abort controller ref for stream cancellation
   const abortRef = useRef<AbortController | null>(null);
 
   // ── Keyboard navigation ────────────────────────────────────────────────────
@@ -181,7 +154,6 @@ function VariantACalendar() {
 
   // ── Handlers ──────────────────────────────────────────────────────────────
 
-  /** Open swap sheet for a specific meal cell. */
   const handleMealClick = useCallback(
     (date: string, slot: string) => {
       const day = days.find((d) => d.date === date);
@@ -206,12 +178,10 @@ function VariantACalendar() {
     [days],
   );
 
-  /** Accept a swap — update the cell and persist. */
   const handleSwapAccept = useCallback(
     (meal: SwapSheetMeal) => {
       if (!swapTarget) return;
 
-      // Optimistic update
       setDays((prev) =>
         prev.map((day) => {
           if (day.date !== swapTarget.date) return day;
@@ -232,29 +202,23 @@ function VariantACalendar() {
         }),
       );
 
-      toast.success("Meal swapped", {
-        description: `${swapTarget.slot.replace(/_/g, " ")} on ${dayjs(swapTarget.date).format("ddd MMM D")} updated.`,
-      });
-
-      // Persist to DB if we have a plan
       if (planId) {
-        import("@/server/variant-a/plan-data").then(({ updateMealCell }) => {
-          updateMealCell(planId, swapTarget.date, swapTarget.slot, {
-            title: meal.title,
-            method_tag: meal.methodTag,
-            carb_g: meal.carbG,
-            prot_g: meal.protG,
-            fat_g: meal.fatG,
-          }).catch(() => {
-            // Fail silently — optimistic update already shown
-          });
-        }).catch(() => {});
+        import("@/server/variant-a/plan-data")
+          .then(({ updateMealCell }) => {
+            updateMealCell(planId, swapTarget.date, swapTarget.slot, {
+              title: meal.title,
+              method_tag: meal.methodTag,
+              carb_g: meal.carbG,
+              prot_g: meal.protG,
+              fat_g: meal.fatG,
+            }).catch(() => {});
+          })
+          .catch(() => {});
       }
     },
     [swapTarget, planId],
   );
 
-  /** Regenerate the whole week via Jade (sub-phase 1.A.4). */
   const handleRegenerate = useCallback(async () => {
     if (isGenerating) {
       abortRef.current?.abort();
@@ -264,7 +228,6 @@ function VariantACalendar() {
     setIsGenerating(true);
     setCoachStrip(null);
 
-    // Show skeleton immediately
     setDays(
       buildEmptyDays(
         loaderData.weekStart,
@@ -294,11 +257,8 @@ function VariantACalendar() {
       let weekPlan: WeekPlan | null = null;
 
       if (res.ok) {
-        // Try to parse a streamed WeekPlan response
         try {
           const text = await res.text();
-          // The streamObject endpoint emits partial JSON chunks —
-          // find the last complete JSON-parseable object
           const lines = text.split("\n").filter(Boolean);
           for (let i = lines.length - 1; i >= 0; i--) {
             const line = lines[i];
@@ -316,7 +276,6 @@ function VariantACalendar() {
               // try previous line
             }
           }
-          // Also try whole text as JSON
           if (!weekPlan) {
             try {
               const whole = JSON.parse(text) as unknown;
@@ -332,12 +291,10 @@ function VariantACalendar() {
         }
       }
 
-      // Use mock if real endpoint failed or returned no parseable WeekPlan
       if (!weekPlan) {
         weekPlan = getMockWeekPlan(loaderData.weekStart);
       }
 
-      // Apply the plan to the grid
       const baseDays = buildEmptyDays(
         loaderData.weekStart,
         loaderData.activities,
@@ -352,7 +309,6 @@ function VariantACalendar() {
       setDays(filledDays);
       setCoachStrip(weekPlan.coach_strip ?? null);
 
-      // Persist to DB
       try {
         const { persistWeekPlan } = await import("@/server/variant-a/plan-data");
         const meals: Parameters<typeof persistWeekPlan>[4] = [];
@@ -392,14 +348,20 @@ function VariantACalendar() {
     } catch (err) {
       if (err instanceof Error && err.name === "AbortError") return;
 
-      // On any error, fall back to mock
       const mockPlan = getMockWeekPlan(loaderData.weekStart);
       const baseDays = buildEmptyDays(
         loaderData.weekStart,
         loaderData.activities,
         loaderData.macroTargets,
       );
-      setDays(applyWeekPlan(baseDays, mockPlan, loaderData.activities, loaderData.macroTargets));
+      setDays(
+        applyWeekPlan(
+          baseDays,
+          mockPlan,
+          loaderData.activities,
+          loaderData.macroTargets,
+        ),
+      );
       setCoachStrip(mockPlan.coach_strip ?? null);
 
       toast.info("Using demo data", {
@@ -410,7 +372,6 @@ function VariantACalendar() {
     }
   }, [isGenerating, loaderData]);
 
-  /** Apply a week-level tweak (sub-phase 1.A.8 polish). */
   const handleApplyTweak = useCallback(
     async (tweak: string) => {
       setIsApplyingTweak(true);
@@ -450,81 +411,123 @@ function VariantACalendar() {
   const hasPlan = daysPlanned > 0;
   const keyWorkoutDate = findKeyWorkoutDate(loaderData.activities);
 
-  const weekLabel = `${dayjs(loaderData.weekStart).format("MMM D")} – ${dayjs(loaderData.weekEnd).format("MMM D, YYYY")}`;
+  // Hero header labels
+  const weekLabel = `${dayjs(loaderData.weekStart).format("MMM D").toUpperCase()} — ${dayjs(loaderData.weekEnd).format("MMM D").toUpperCase()}`;
   const isoLabel = `ISO-${loaderData.isoWeek} · ${loaderData.isoYear}`;
 
-  // Find the active swap day for passing macro targets
+  // Key workout badge — find the day with the most duration
+  const keyWorkoutDay = keyWorkoutDate
+    ? days.find((d) => d.date === keyWorkoutDate)
+    : null;
+
+  // Swap day for macro targets
   const swapDay = swapTarget ? days.find((d) => d.date === swapTarget.date) : null;
 
   // ── Render ────────────────────────────────────────────────────────────────
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      {/* ── Top bar ─────────────────────────────────────────────────────── */}
-      <div className="border-b border-border bg-background px-4 py-3 flex items-center gap-4 flex-wrap">
-        {/* Week navigation */}
-        <div className="flex items-center gap-2 min-w-0">
-          <p className="font-[var(--font-compadre)] text-[var(--font-size-body)] uppercase tracking-wider truncate">
-            {weekLabel}
-          </p>
-          <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground hidden sm:block shrink-0">
-            {isoLabel}
-          </p>
-        </div>
+      {/* ── Hero Header ───────────────────────────────────────────────────── */}
+      <header
+        className={cn(
+          "border-b border-border/60 px-5 py-4",
+          "bg-background/95 backdrop-blur-[8px]",
+          "sticky top-0 z-20",
+        )}
+      >
+        <div className="flex items-center gap-4 flex-wrap">
+          {/* Left: date range + ISO week */}
+          <div className="flex items-baseline gap-2.5 min-w-0">
+            <h1
+              className={cn(
+                "font-[var(--font-sansita)] font-bold leading-none tracking-wider",
+                "text-[var(--font-size-section)] sm:text-[var(--font-size-date-time)]",
+              )}
+            >
+              {weekLabel}
+            </h1>
+            <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/70 hidden sm:inline font-mono tracking-wider shrink-0">
+              {isoLabel}
+            </span>
+          </div>
 
-        {/* Status indicators */}
-        <div className="flex items-center gap-3 ml-auto">
-          {loaderData.hasSupabase ? (
-            <span className="hidden sm:inline font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
-              {daysPlanned} of 7 days planned
-              {daysLocked > 0 && ` · ${daysLocked} locked`}
-            </span>
-          ) : (
-            <span className="hidden sm:inline font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
-              demo mode — no Supabase connection
-            </span>
+          {/* Center: key workout badge */}
+          {keyWorkoutDay?.activity && (
+            <Badge variant="training-day" className="hidden md:inline-flex gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-electrolyte)] animate-status-pulse" />
+              {keyWorkoutDay.activity.type}
+              {keyWorkoutDay.activity.durationMinutes
+                ? ` · ${keyWorkoutDay.activity.durationMinutes}m`
+                : ""}
+            </Badge>
           )}
 
-          {/* Regenerate Week pill — Mango orange per spec */}
-          <Button
-            onClick={handleRegenerate}
-            disabled={isGenerating}
-            className={cn(
-              "rounded-[var(--radius-pill)] gap-2",
-              "bg-[var(--color-orange)] text-white",
-              "hover:bg-[var(--color-orange-dark)]",
-              "font-[var(--font-sansita)] text-[var(--font-size-caption)] uppercase tracking-wider font-bold",
-              "h-9 px-4",
+          {/* Right: PLAN MY WEEK button */}
+          <div className="flex items-center gap-3 ml-auto">
+            {loaderData.hasSupabase ? (
+              <span className="hidden sm:inline font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/60 font-mono">
+                {daysPlanned} of 7 · {daysLocked} locked
+              </span>
+            ) : (
+              <span className="hidden sm:inline font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/50">
+                demo mode
+              </span>
             )}
-          >
-            <span
-              className={cn(
-                "inline-block",
-                isGenerating ? "animate-spin" : "",
-              )}
-              aria-hidden
-            >
-              ⟳
-            </span>
-            {isGenerating ? "Generating…" : hasPlan ? "Regenerate Week" : "Plan my week"}
-          </Button>
-        </div>
-      </div>
 
-      {/* ── Coach strip (sub-phase 1.A.6) ────────────────────────────────── */}
-      <div className="px-4 pt-3">
+            <button
+              onClick={handleRegenerate}
+              disabled={isGenerating}
+              className={cn(
+                "group flex items-center gap-2 rounded-[var(--radius-pill)]",
+                "h-9 px-4",
+                "font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest font-bold",
+                // Inner gradient: top lighter orange → bottom darker orange
+                "text-white",
+                "transition-all duration-200",
+                "hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow-orange)]",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "disabled:opacity-60 disabled:cursor-not-allowed",
+              )}
+              style={{
+                background: isGenerating
+                  ? "var(--color-orange-dark)"
+                  : "linear-gradient(180deg, var(--color-orange-light) 0%, var(--color-orange) 100%)",
+              }}
+            >
+              {isGenerating ? (
+                <span className="h-3.5 w-3.5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+              ) : (
+                <Sparkles size={12} className="opacity-80 group-hover:opacity-100" />
+              )}
+              {isGenerating
+                ? "Generating…"
+                : hasPlan
+                  ? "Regenerate Week"
+                  : "Plan My Week"}
+              {!isGenerating && (
+                <ChevronDown size={12} className="opacity-60" />
+              )}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* ── Coach strip ───────────────────────────────────────────────────── */}
+      <div className="px-5 pt-3">
         <CoachStrip text={coachStrip} isLoading={isGenerating} />
       </div>
 
-      {/* ── Main content area ─────────────────────────────────────────────── */}
-      <div className="flex flex-1 gap-4 p-4 overflow-hidden">
-        {/* Week grid (sub-phases 1.A.1 + 1.A.2 + 1.A.3) */}
+      {/* ── Main content ──────────────────────────────────────────────────── */}
+      <div className="flex flex-1 gap-4 p-4 lg:p-5 overflow-hidden">
+        {/* Week grid */}
         <div className="flex-1 min-w-0">
           {loaderData.activities.length === 0 &&
           !loaderData.hasSupabase &&
           !hasPlan ? (
-            // Empty state — show prompt to generate
-            <EmptyPlanState onGenerate={handleRegenerate} isGenerating={isGenerating} />
+            <EmptyPlanState
+              onGenerate={handleRegenerate}
+              isGenerating={isGenerating}
+            />
           ) : (
             <WeekGrid
               days={days}
@@ -535,7 +538,7 @@ function VariantACalendar() {
           )}
         </div>
 
-        {/* Macro totals rail — sticky right (sub-phase 1.A.1) */}
+        {/* Right rail */}
         <MacroTotalsRail
           weekTotals={weekTotals}
           daysPlanned={daysPlanned}
@@ -544,7 +547,7 @@ function VariantACalendar() {
         />
       </div>
 
-      {/* ── Tweak bar (sub-phase 1.A.8) ──────────────────────────────────── */}
+      {/* ── Tweak bar ─────────────────────────────────────────────────────── */}
       {hasPlan && (
         <TweakBar
           onApplyTweak={handleApplyTweak}
@@ -552,32 +555,34 @@ function VariantACalendar() {
         />
       )}
 
-      {/* ── Key workout day callout ───────────────────────────────────────── */}
+      {/* ── Key workout callout ───────────────────────────────────────────── */}
       {keyWorkoutDate && !isGenerating && (
-        <div className="px-4 pb-3 flex items-center gap-2">
-          <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden />
-          <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
-            Key workout: {dayjs(keyWorkoutDate).format("dddd MMM D")} — extended PRE / DURING / POST slots shown
+        <div className="px-5 pb-3 flex items-center gap-2">
+          <span
+            className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-electrolyte)]"
+            aria-hidden
+          />
+          <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/60">
+            Key workout: {dayjs(keyWorkoutDate).format("dddd MMM D")} — PRE /
+            DURING / POST slots shown
           </p>
         </div>
       )}
 
-      {/* ── Per-cell swap sheet (sub-phase 1.A.5) ─────────────────────────── */}
-      {swapTarget && (
-        <SwapSheet
-          isOpen={true}
-          onClose={() => setSwapTarget(null)}
-          date={swapTarget.date}
-          slot={swapTarget.slot}
-          currentMeal={swapTarget.meal}
-          targetCarb={swapDay?.carbG}
-          targetProt={swapDay?.protG}
-          targetFat={swapDay?.fatG}
-          onAccept={handleSwapAccept}
-        />
-      )}
+      {/* ── Swap sheet ────────────────────────────────────────────────────── */}
+      <SwapSheet
+        isOpen={Boolean(swapTarget)}
+        onClose={() => setSwapTarget(null)}
+        date={swapTarget?.date ?? ""}
+        slot={swapTarget?.slot ?? ""}
+        currentMeal={swapTarget?.meal ?? null}
+        targetCarb={swapDay?.carbG}
+        targetProt={swapDay?.protG}
+        targetFat={swapDay?.fatG}
+        onAccept={handleSwapAccept}
+      />
 
-      {/* ── Ask Jade drawer (sub-phase 1.A.7) ─────────────────────────────── */}
+      {/* ── Ask Jade drawer ───────────────────────────────────────────────── */}
       {isJadeOpen && (
         <JadeDrawer
           isOpen={isJadeOpen}
@@ -589,11 +594,11 @@ function VariantACalendar() {
         />
       )}
 
-      {/* ── Floating Ask Jade pill (sub-phase 1.A.7) ─────────────────────── */}
+      {/* ── Floating Ask Jade pill ────────────────────────────────────────── */}
       <JadePill
         onClick={() => {
           setIsJadeOpen((open) => !open);
-          setSwapTarget(null); // close swap if open
+          setSwapTarget(null);
         }}
         isOpen={isJadeOpen}
       />
@@ -602,7 +607,7 @@ function VariantACalendar() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Empty plan state
+// Empty plan state — 2026 facelift
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface EmptyPlanStateProps {
@@ -612,50 +617,68 @@ interface EmptyPlanStateProps {
 
 function EmptyPlanState({ onGenerate, isGenerating }: EmptyPlanStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center h-full min-h-[400px] gap-6 p-8 text-center">
-      {/* Large "A" brand marker */}
-      <p
-        className="font-[var(--font-sansita)] font-bold leading-none select-none"
-        style={{
-          fontSize: "clamp(4rem, 15vw, 10rem)",
-          color: "var(--color-electrolyte)",
-          opacity: 0.15,
-        }}
-        aria-hidden
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center h-full min-h-[400px] gap-6 p-8 text-center",
+        "rounded-[var(--radius-card)]",
+        "relative overflow-hidden",
+      )}
+      style={{
+        background:
+          "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(28,249,207,0.06) 0%, transparent 70%)",
+      }}
+    >
+      {/* Jade avatar — large, glowing */}
+      <div
+        className="animate-breathe"
+        style={{ animation: "breathe 3s ease-in-out infinite" }}
       >
-        A
-      </p>
+        <JadeAvatar size={96} state="idle" glow online />
+      </div>
 
-      <div className="space-y-3 -mt-8 relative z-10">
-        <p className="font-[var(--font-sansita)] text-[var(--font-size-page-title)] font-bold uppercase tracking-wider">
-          Calendar
-        </p>
-        <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground max-w-sm">
-          The whole week, one screen, one tap to build it. Generate your
-          training-aware meal plan below.
+      <div className="space-y-3 relative z-10 max-w-sm">
+        <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] italic text-muted-foreground leading-relaxed">
+          Click &ldquo;Plan my week&rdquo; to build your training-aware nutrition plan.
         </p>
 
-        <Button
+        <button
           onClick={onGenerate}
           disabled={isGenerating}
           className={cn(
-            "rounded-[var(--radius-pill)] gap-2 h-[var(--spacing-btn-h)] px-8",
-            "bg-[var(--color-orange)] text-white hover:bg-[var(--color-orange-dark)]",
-            "font-[var(--font-sansita)] text-[var(--font-size-btn)] uppercase tracking-wider font-bold",
+            "group flex items-center gap-2 mx-auto rounded-[var(--radius-pill)]",
+            "h-[var(--spacing-btn-h)] px-8",
+            "font-[var(--font-compadre)] text-[var(--font-size-btn)] uppercase tracking-widest font-bold",
+            "text-white",
+            "transition-all duration-200",
+            "hover:-translate-y-1 hover:shadow-[var(--shadow-glow-orange)]",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+            "disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none",
           )}
+          style={{
+            background: isGenerating
+              ? "var(--color-orange-dark)"
+              : "linear-gradient(180deg, var(--color-orange-light) 0%, var(--color-orange) 100%)",
+          }}
         >
-          <span className={isGenerating ? "animate-spin" : ""} aria-hidden>⟳</span>
-          {isGenerating ? "Building your week…" : "Plan my week"}
-        </Button>
+          {isGenerating ? (
+            <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+          ) : (
+            <Sparkles size={16} className="opacity-80" />
+          )}
+          {isGenerating ? "Building your week…" : "Plan My Week"}
+        </button>
 
-        <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
-          <Link to="/" className="underline underline-offset-2 hover:text-foreground">
+        <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/50">
+          <Link
+            to="/"
+            className="underline underline-offset-2 hover:text-foreground transition-colors"
+          >
             Back to hub
           </Link>
           {" · "}
           <a
             href="/settings"
-            className="underline underline-offset-2 hover:text-foreground"
+            className="underline underline-offset-2 hover:text-foreground transition-colors"
           >
             Settings
           </a>

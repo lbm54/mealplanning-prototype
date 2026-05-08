@@ -1,6 +1,6 @@
 # Mealplanning Prototype — Build Status
 
-Last updated: 2026-05-07
+Last updated: 2026-05-07 (Variant A facelift)
 
 ## Repo
 
@@ -19,7 +19,7 @@ Last updated: 2026-05-07
 
 | Variant | Tagline | AI level | Route | Status |
 |---|---|---|---|---|
-| A — Calendar | The whole week, one screen, one tap to build it | ★★☆☆☆ | `/plan/a` | ✅ Built |
+| A — Calendar | The whole week, one screen, one tap to build it | ★★☆☆☆ | `/plan/a` | ✅ Built + 2026 facelift |
 | B — Stack | Swipe through your week, one meal at a time | ★★★☆☆ | `/plan/b` | ✅ Built |
 | C — Columns | Pick a protein, pick a carb, pick a veg. Done | ★★★☆☆ | `/plan/c` | ✅ Built |
 | D — Hybrid | Plan on the left. Talk to Jade on the right | ★★★★☆ | `/plan/d` | ✅ Built |

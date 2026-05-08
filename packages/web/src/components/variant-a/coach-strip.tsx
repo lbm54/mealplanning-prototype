@@ -1,11 +1,9 @@
 /**
- * CoachStrip — the single italic line above the calendar grid.
+ * CoachStrip — glass card with Jade avatar, italic coach text, and shimmer
+ * loading state.
  *
- * Design source: 06_five_uiux_approaches.md §1.A — "Single-line Coach strip
- * above the grid (passive italic text from Jade)".
- *
- * Passive, non-interactive. Shows Jade's one-liner explanation for the week.
- * Animated when Jade is generating (pulse on JadeAvatar).
+ * Variant A 2026 facelift: KyleCard variant="glass" + backdrop-blur,
+ * Electrolyte left-border, shimmer skeleton while generating.
  */
 import { cn } from "@/lib/utils";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
@@ -20,25 +18,58 @@ export function CoachStrip({ text, isLoading, className }: CoachStripProps) {
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded-[var(--radius-card)] border border-border bg-card px-4 py-3",
+        "relative flex items-center gap-3 overflow-hidden",
+        "rounded-[var(--radius-card)] border border-white/10",
+        "bg-card/70 backdrop-blur-[12px]",
+        "shadow-[var(--shadow-card-elevated-light)] dark:shadow-[var(--shadow-card-elevated-dark)]",
+        "px-4 py-3",
+        // Electrolyte left accent border
+        "before:absolute before:inset-y-0 before:left-0 before:w-0.5",
+        "before:rounded-full before:bg-[var(--color-electrolyte)]",
         className,
       )}
       aria-live="polite"
       aria-label="Jade's weekly coaching note"
     >
-      <JadeAvatar size={24} state={isLoading ? "thinking" : "idle"} />
-      <p
-        className={cn(
-          "font-[var(--font-apercu)] text-[var(--font-size-body)] italic",
-          isLoading
-            ? "text-muted-foreground animate-pulse"
-            : "text-foreground",
-        )}
-      >
-        {isLoading
-          ? "Jade is building your week…"
-          : (text ?? "Click 'Plan my week' to generate your training-aware meal plan.")}
-      </p>
+      <JadeAvatar
+        size={24}
+        state={isLoading ? "thinking" : "idle"}
+        online={!isLoading}
+        glow={isLoading}
+      />
+
+      {isLoading ? (
+        /* Shimmer skeleton */
+        <div className="flex-1 flex flex-col gap-1.5 py-0.5">
+          <div
+            className="h-3 w-3/4 rounded-full"
+            style={{
+              background:
+                "linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--border)) 50%, hsl(var(--muted)) 75%)",
+              backgroundSize: "200% 100%",
+              animation: "shimmer 1.5s ease-in-out infinite",
+            }}
+          />
+          <div
+            className="h-3 w-1/2 rounded-full"
+            style={{
+              background:
+                "linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--border)) 50%, hsl(var(--muted)) 75%)",
+              backgroundSize: "200% 100%",
+              animation: "shimmer 1.5s ease-in-out infinite 0.2s",
+            }}
+          />
+        </div>
+      ) : (
+        <p
+          className={cn(
+            "font-[var(--font-apercu)] text-[var(--font-size-body)] italic",
+            text ? "text-foreground" : "text-muted-foreground",
+          )}
+        >
+          {text ?? "Click 'Plan my week' to generate your training-aware meal plan."}
+        </p>
+      )}
     </div>
   );
 }
