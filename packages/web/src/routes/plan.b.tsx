@@ -7,37 +7,126 @@
  * Design ref: 06_five_uiux_approaches.md §1.B
  * Build order: 07_parallel_build_plans.md §3
  *
- * Sub-phases implemented in this file:
- *   1.B.1  Layout shell — card, gestures wired
- *   1.B.2  Read-only week — server loader pulls activities + macro targets
- *   1.B.3  Swipe interactions — right=keep, left=swap, up=lock with motion
- *   1.B.4  Jade narrator — bottom-of-card line updates per swipe
- *   1.B.5  Swap call — left swipe calls /api/jade/swap; pre-fetch 2 alternatives
- *   1.B.6  Progress bar + animation
- *   1.B.7  Success screen + "View as plan" Sheet + persist to Supabase
- *   1.B.8  Polish + empty/error states
+ * 2026 facelift — polished swipe deck:
+ * - Apple Watch depth-stacked card physics (3 cards visible)
+ * - Tinder-style drag overlays (proportional opacity, ±5° rotation)
+ * - Granola card surfaces (elevated variant, carb-tier border accents)
+ * - Whoop-style macro chips + stacked bar
+ * - Dot-pattern idle screen with gesture legend
+ * - Skeleton loading card
+ * - Mini-stat badges on progress bar (locked/swapped/kept)
+ * - Confetti dots on done screen
+ * - Day accordion on done summary
  *
  * TODO (shared change needed): If JadeNarrator chat proves useful for E,
  * propose moving it to components/shared/jade-narrator.tsx via a PR to main.
  * For now it lives in components/variant-b/jade-narrator.tsx.
  */
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link as RouterLink } from "@tanstack/react-router";
-import { ArrowLeft, RefreshCw, AlertCircle } from "lucide-react";
+import { RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { MealStack } from "@/components/variant-b/meal-stack";
 import { SwipeActions } from "@/components/variant-b/swipe-actions";
 import { JadeNarrator } from "@/components/variant-b/jade-narrator";
 import { StackProgress } from "@/components/variant-b/stack-progress";
 import { DoneSummary } from "@/components/variant-b/done-summary";
+import { IdleScreen } from "@/components/variant-b/idle-screen";
 import { useStack } from "@/components/variant-b/use-stack";
 
 export const Route = createFileRoute("/plan/b")({
   component: VariantBStack,
 });
+
+/** Skeleton shimmer card shown while loading */
+function SkeletonCard() {
+  return (
+    <div
+      className="w-full rounded-[var(--radius-card)] border border-border/40 bg-card overflow-hidden"
+      style={{ height: "min(calc(100vw * 1.3), 520px)" }}
+    >
+      <div className="p-5 space-y-4 h-full flex flex-col">
+        {/* Header skeleton */}
+        <div className="flex items-center justify-between">
+          <div className="space-y-1.5">
+            <div
+              className="h-3 w-20 rounded-full"
+              style={{
+                background: "linear-gradient(90deg, var(--color-muted,#e8e6e0) 25%, rgba(255,255,255,0.3) 50%, var(--color-muted,#e8e6e0) 75%)",
+                backgroundSize: "200% 100%",
+                animation: "shimmer 1.6s ease-in-out infinite",
+              }}
+            />
+            <div
+              className="h-2 w-14 rounded-full"
+              style={{
+                background: "linear-gradient(90deg, var(--color-muted,#e8e6e0) 25%, rgba(255,255,255,0.3) 50%, var(--color-muted,#e8e6e0) 75%)",
+                backgroundSize: "200% 100%",
+                animation: "shimmer 1.6s ease-in-out 0.1s infinite",
+              }}
+            />
+          </div>
+          <div
+            className="h-5 w-20 rounded-full"
+            style={{
+              background: "linear-gradient(90deg, var(--color-muted,#e8e6e0) 25%, rgba(255,255,255,0.3) 50%, var(--color-muted,#e8e6e0) 75%)",
+              backgroundSize: "200% 100%",
+              animation: "shimmer 1.6s ease-in-out 0.05s infinite",
+            }}
+          />
+        </div>
+
+        {/* Title skeleton */}
+        <div
+          className="h-6 w-3/4 rounded-full"
+          style={{
+            background: "linear-gradient(90deg, var(--color-muted,#e8e6e0) 25%, rgba(255,255,255,0.3) 50%, var(--color-muted,#e8e6e0) 75%)",
+            backgroundSize: "200% 100%",
+            animation: "shimmer 1.6s ease-in-out 0.15s infinite",
+          }}
+        />
+        <div
+          className="h-3 w-1/2 rounded-full"
+          style={{
+            background: "linear-gradient(90deg, var(--color-muted,#e8e6e0) 25%, rgba(255,255,255,0.3) 50%, var(--color-muted,#e8e6e0) 75%)",
+            backgroundSize: "200% 100%",
+            animation: "shimmer 1.6s ease-in-out 0.2s infinite",
+          }}
+        />
+
+        {/* Ingredient list skeleton */}
+        <div className="flex-1 space-y-2">
+          {[0.9, 0.75, 0.85, 0.7].map((w, i) => (
+            <div
+              key={i}
+              className="h-3 rounded-full"
+              style={{
+                width: `${w * 100}%`,
+                background: "linear-gradient(90deg, var(--color-muted,#e8e6e0) 25%, rgba(255,255,255,0.3) 50%, var(--color-muted,#e8e6e0) 75%)",
+                backgroundSize: "200% 100%",
+                animation: `shimmer 1.6s ease-in-out ${0.1 * i}s infinite`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Macro bar skeleton */}
+        <div className="pt-2 border-t border-border/30 space-y-2">
+          <div
+            className="h-2 w-full rounded-full"
+            style={{
+              background: "linear-gradient(90deg, var(--color-muted,#e8e6e0) 25%, rgba(255,255,255,0.3) 50%, var(--color-muted,#e8e6e0) 75%)",
+              backgroundSize: "200% 100%",
+              animation: "shimmer 1.6s ease-in-out 0.3s infinite",
+            }}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function VariantBStack() {
   const [stackPaused, setStackPaused] = useState(false);
@@ -59,98 +148,44 @@ function VariantBStack() {
 
   // ── Idle state (not started) ──────────────────────────────────────────────
   if (state.status === "idle") {
-    return (
-      <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-background p-4">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="w-full max-w-sm"
-        >
-          <Card className="w-full">
-            <CardContent className="pt-8 pb-6 text-center space-y-6">
-              {/* Error state */}
-              {state.error && (
-                <div className="flex items-center gap-2 text-destructive bg-destructive/10 rounded-[var(--radius-card)] p-3">
-                  <AlertCircle className="w-4 h-4 shrink-0" />
-                  <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-left">
-                    {state.error}
-                  </p>
-                </div>
-              )}
-
-              {/* Jade avatar illustration */}
-              <div className="flex justify-center">
-                <div className="w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg">
-                  <span className="font-[var(--font-sansita)] text-5xl font-bold text-accent-foreground leading-none">
-                    J
-                  </span>
-                </div>
-              </div>
-
-              <div>
-                <h1 className="font-[var(--font-sansita)] text-[var(--font-size-page-title)] font-bold uppercase tracking-wider">
-                  Build Your Week
-                </h1>
-                <p className="mt-2 font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
-                  Swipe through your week, one meal at a time. Keep what works, swap
-                  what doesn&apos;t, lock what you love.
-                </p>
-              </div>
-
-              {/* Gesture hints */}
-              <div className="grid grid-cols-3 gap-2 text-center">
-                {[
-                  { icon: "✕", label: "Swap", color: "text-muted-foreground" },
-                  { icon: "▲", label: "Lock", color: "text-accent" },
-                  { icon: "✓", label: "Keep", color: "text-primary" },
-                ].map((hint) => (
-                  <div key={hint.label} className="space-y-1">
-                    <p className={`font-[var(--font-sansita)] text-2xl font-bold ${hint.color}`}>
-                      {hint.icon}
-                    </p>
-                    <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider">
-                      {hint.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              <Button className="w-full" onClick={startBuild}>
-                Plan my week
-              </Button>
-
-              <Link to="/">
-                <Button variant="ghost" className="w-full text-muted-foreground">
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to hub
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    );
+    return <IdleScreen onStart={startBuild} error={state.error} />;
   }
 
   // ── Loading state ──────────────────────────────────────────────────────────
   if (state.status === "loading") {
     return (
-      <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-background">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex flex-col items-center gap-4"
-        >
-          <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center animate-pulse">
-            <span className="font-[var(--font-sansita)] text-3xl font-bold text-accent-foreground leading-none">
-              J
-            </span>
+      <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center bg-background px-4">
+        <div className="w-full max-w-sm space-y-6">
+          {/* Loading progress mock */}
+          <div className="text-center space-y-2">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-col items-center gap-3"
+            >
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div
+                  className="w-16 h-16 rounded-full flex items-center justify-center"
+                  style={{
+                    background: "var(--color-electrolyte)",
+                    boxShadow: "var(--shadow-glow-electrolyte)",
+                  }}
+                >
+                  <span className="font-[var(--font-sansita)] text-3xl font-bold text-[#381633] leading-none">
+                    J
+                  </span>
+                </div>
+              </motion.div>
+              <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
+                Building your week…
+              </p>
+            </motion.div>
           </div>
-          <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
-            Building your week…
-          </p>
-        </motion.div>
+          <SkeletonCard />
+        </div>
       </div>
     );
   }
@@ -162,9 +197,7 @@ function VariantBStack() {
         <DoneSummary
           weekPlan={state.weekPlan}
           decisions={decisions}
-          onRebuild={() => {
-            rebuild();
-          }}
+          onRebuild={() => rebuild()}
         />
       </div>
     );
@@ -174,39 +207,51 @@ function VariantBStack() {
   const currentCard = state.deck[state.currentIndex];
 
   return (
-    <div className="flex flex-col min-h-[calc(100vh-4rem)] bg-background">
-      {/* Top: progress bar + week label */}
-      <div className="shrink-0 px-4 pt-4 pb-2 space-y-2">
+    <div
+      className="flex flex-col min-h-[calc(100vh-4rem)] bg-background"
+      style={{
+        background: `
+          radial-gradient(ellipse at 0% 100%, rgba(28,249,207,0.025) 0%, transparent 55%),
+          radial-gradient(ellipse at 100% 0%, rgba(247,139,20,0.025) 0%, transparent 55%)
+        `,
+      }}
+    >
+      {/* Top: progress strip + nav */}
+      <div className="shrink-0 px-4 pt-4 pb-2 space-y-3">
         <div className="flex items-center justify-between">
           <RouterLink to="/">
-            <Button variant="ghost" size="sm" className="text-muted-foreground -ml-2">
-              <ArrowLeft className="w-4 h-4 mr-1" />
-              <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] uppercase tracking-wider">
-                Stack
-              </span>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-muted-foreground -ml-2 normal-case font-[var(--font-apercu)]"
+            >
+              <span className="text-lg mr-1 leading-none">←</span>
+              Stack
             </Button>
           </RouterLink>
-          <Button
-            variant="ghost"
-            size="sm"
-            className="text-muted-foreground -mr-2"
-            onClick={() => {
-              rebuild();
-            }}
-            title="Rebuild stack"
-          >
-            <RefreshCw className="w-4 h-4" />
-          </Button>
+
+          <div className="flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-muted-foreground -mr-2 w-9 h-9 rounded-full"
+              onClick={() => rebuild()}
+              title="Rebuild stack"
+            >
+              <RefreshCw className="w-3.5 h-3.5" />
+            </Button>
+          </div>
         </div>
 
         <StackProgress
           current={decidedCount}
           total={totalCards}
+          decisions={decisions}
         />
       </div>
 
-      {/* Center: card stack — flex-1 so it fills available height */}
-      <div className="flex-1 px-4 min-h-0 flex flex-col justify-center py-3">
+      {/* Center: card deck — flex-1 fills available height */}
+      <div className="flex-1 px-4 min-h-0 flex flex-col justify-center py-2">
         <AnimatePresence mode="wait">
           {currentCard ? (
             <motion.div
@@ -215,7 +260,7 @@ function VariantBStack() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="relative w-full"
-              style={{ height: "min(calc(100vw * 1.3), 520px)" }}
+              style={{ height: "min(calc(90vw * 1.25), 500px)" }}
             >
               <MealStack
                 deck={state.deck}
@@ -236,7 +281,7 @@ function VariantBStack() {
       </div>
 
       {/* Bottom: action buttons + Jade narrator */}
-      <div className="shrink-0 px-4 pb-6 space-y-4">
+      <div className="shrink-0 px-4 pb-6 space-y-4 pt-2">
         <SwipeActions
           onKeep={() => handleSwipe("keep")}
           onSwap={() => handleSwipe("swap")}

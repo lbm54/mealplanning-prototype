@@ -1,21 +1,19 @@
 /**
- * Variant B — DoneSummary.
+ * Variant B — DoneSummary (2026 facelift).
  *
- * Success screen shown after all cards are decided.
+ * Celebratory full-card layout when all 21 cards are decided.
  *
- * Shows:
- * - Jade avatar (large 96px) + "YOUR WEEK IS BUILT."
- * - Jade's summary line (from weekPlan.coach_strip)
- * - Week stats: total meals, locked count, week macro totals
- * - "View as plan" button → opens WeekGrid Sheet
- * - "Save plan" pill → persists to Supabase (already done on done-state entry)
- * - "Rebuild stack" → calls rebuild callback
- *
- * Design ref: 06_five_uiux_approaches.md §1.B — "Done state" wireframe
+ * - Big "WEEK BUILT" headline (Sansita Bold) + week range subtitle
+ * - Coach strip line
+ * - Stats row: total meals / locked / flexible
+ * - Week macro bar
+ * - Collapsible day accordion (7 days × their meals)
+ * - Two CTA buttons: SAVE WEEK (Mango pill) + VIEW AS GRID (outline → Sheet)
+ * - CSS-only confetti on entry
  */
 import { useState } from "react";
-import { motion } from "motion/react";
-import { LayoutGrid, RotateCcw, Save } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { ChevronDown, LayoutGrid, RotateCcw, Save, Check } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -36,6 +34,8 @@ const SLOT_LABELS_SHORT: Record<string, string> = {
   post_workout: "Post",
 };
 
+const DAY_NAMES_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
 function computeWeekTotals(weekPlan: WeekPlan) {
   let carbG = 0, protG = 0, fatG = 0;
   for (const day of weekPlan.days) {
@@ -49,7 +49,14 @@ function computeWeekTotals(weekPlan: WeekPlan) {
   return { carbG: Math.round(carbG), protG: Math.round(protG), fatG: Math.round(fatG) };
 }
 
-const DAY_NAMES_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+function formatWeekRange(weekStart: string): string {
+  const start = new Date(weekStart + "T12:00:00");
+  const end = new Date(weekStart + "T12:00:00");
+  end.setDate(start.getDate() + 6);
+  const fmt = (d: Date) =>
+    d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return `${fmt(start)} – ${fmt(end)}`;
+}
 
 export interface DoneSummaryProps {
   weekPlan: WeekPlan;
@@ -57,6 +64,135 @@ export interface DoneSummaryProps {
   onRebuild: () => void;
   onSave?: () => void;
   className?: string;
+}
+
+/** Tiny CSS-only confetti burst — purely visual, no library needed */
+function ConfettiDots() {
+  const dots = [
+    { x: "10%", y: "8%", color: "var(--color-orange)", size: 8, delay: 0 },
+    { x: "85%", y: "5%", color: "var(--color-electrolyte)", size: 6, delay: 0.1 },
+    { x: "50%", y: "3%", color: "var(--color-dragonfruit)", size: 7, delay: 0.2 },
+    { x: "25%", y: "12%", color: "var(--color-orange-light)", size: 5, delay: 0.05 },
+    { x: "72%", y: "10%", color: "var(--color-electrolyte-light)", size: 6, delay: 0.15 },
+    { x: "92%", y: "18%", color: "var(--color-orange)", size: 4, delay: 0.3 },
+    { x: "8%", y: "22%", color: "var(--color-dragonfruit-light)", size: 5, delay: 0.08 },
+  ];
+
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      {dots.map((dot, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full"
+          style={{
+            left: dot.x,
+            top: dot.y,
+            width: dot.size,
+            height: dot.size,
+            background: dot.color,
+          }}
+          initial={{ opacity: 0, scale: 0, y: 0 }}
+          animate={{ opacity: [0, 1, 1, 0], scale: [0, 1, 1, 0], y: [0, -20, -30, -50] }}
+          transition={{
+            duration: 1.2,
+            delay: dot.delay,
+            ease: [0.16, 1, 0.3, 1],
+            times: [0, 0.15, 0.6, 1],
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/** Accordion day row */
+function DayAccordion({
+  dayIndex,
+  day,
+  decisions,
+}: {
+  dayIndex: number;
+  day: WeekPlan["days"][number];
+  decisions: SlotDecision[];
+}) {
+  const [open, setOpen] = useState(false);
+  const dayDecisions = decisions.filter((d) => d.date === day.date);
+  const lockedCount = dayDecisions.filter((d) => d.decision === "lock").length;
+  const meals = Object.entries(day.meals ?? {});
+
+  return (
+    <div className="border border-border/40 rounded-[var(--radius-card)] overflow-hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="w-full flex items-center justify-between px-4 py-3 bg-card hover:bg-muted/30 transition-colors"
+      >
+        <div className="flex items-center gap-3">
+          <span className="font-[var(--font-compadre)] text-[var(--font-size-label)] uppercase tracking-widest text-foreground font-bold">
+            {DAY_NAMES_SHORT[dayIndex]}
+          </span>
+          {lockedCount > 0 && (
+            <Badge variant="training-day" className="text-[8px] px-1.5 py-0.5">
+              {lockedCount} locked
+            </Badge>
+          )}
+          <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
+            {meals.length} meals
+          </span>
+        </div>
+        <motion.div
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <ChevronDown className="w-4 h-4 text-muted-foreground" />
+        </motion.div>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-4 pb-3 pt-1 space-y-2 bg-muted/10">
+              {meals.map(([slot, meal]) => {
+                if (!meal) return null;
+                const decision = dayDecisions.find((d) => d.slot === slot);
+                const isLocked = decision?.decision === "lock";
+                return (
+                  <div
+                    key={slot}
+                    className={cn(
+                      "flex items-center justify-between gap-2 rounded-lg px-3 py-2",
+                      "border border-border/30 bg-card",
+                      isLocked && "border-accent/40",
+                    )}
+                  >
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span className="font-[var(--font-compadre)] text-[9px] uppercase tracking-[0.15em] text-muted-foreground shrink-0">
+                        {SLOT_LABELS_SHORT[slot]}
+                      </span>
+                      <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground truncate">
+                        {meal.title}
+                      </span>
+                    </div>
+                    {isLocked && (
+                      <span className="text-accent shrink-0" style={{ fontSize: "10px" }}>
+                        🔒
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
 }
 
 export function DoneSummary({
@@ -71,7 +207,9 @@ export function DoneSummary({
 
   const totalMeals = decisions.length;
   const lockedCount = decisions.filter((d) => d.decision === "lock").length;
+  const flexibleCount = totalMeals - lockedCount;
   const weekTotals = computeWeekTotals(weekPlan);
+  const weekRange = formatWeekRange(weekPlan.week_start);
 
   const handleSave = () => {
     setSaved(true);
@@ -81,106 +219,162 @@ export function DoneSummary({
   return (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className={cn("flex flex-col items-center gap-6 px-4 py-8 max-w-md w-full mx-auto", className)}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className={cn("relative flex flex-col gap-5 px-4 py-8 max-w-md w-full mx-auto", className)}
       >
-        {/* Jade avatar */}
-        <JadeAvatar size={96} state="idle" />
+        {/* Confetti */}
+        <ConfettiDots />
 
-        {/* Headline */}
-        <div className="text-center">
-          <h1 className="font-[var(--font-sansita)] text-[var(--font-size-page-title)] font-bold uppercase tracking-wider">
-            Your week is built.
-          </h1>
-          {weekPlan.coach_strip && (
-            <p className="mt-2 font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground leading-relaxed max-w-sm">
-              {weekPlan.coach_strip}
+        {/* Headline block */}
+        <div className="text-center space-y-3 relative">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.15, type: "spring", stiffness: 300, damping: 24 }}
+            className="flex justify-center"
+          >
+            <JadeAvatar size={96} state="idle" glow />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.25, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h1
+              className="font-[var(--font-sansita)] font-bold uppercase tracking-wide text-foreground"
+              style={{ fontSize: "clamp(1.6rem, 5vw, 2rem)" }}
+            >
+              WEEK BUILT
+            </h1>
+            <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground mt-1">
+              {weekRange}
             </p>
+          </motion.div>
+
+          {weekPlan.coach_strip && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.35, duration: 0.4 }}
+              className="flex items-center justify-center gap-2"
+            >
+              <div
+                className="px-3 py-1.5 rounded-full font-[var(--font-apercu)] italic text-[var(--font-size-caption)] text-muted-foreground"
+                style={{
+                  background: "rgba(28,249,207,0.08)",
+                  border: "1px solid rgba(28,249,207,0.2)",
+                }}
+              >
+                {weekPlan.coach_strip}
+              </div>
+            </motion.div>
           )}
         </div>
 
-        {/* Stats card */}
-        <div className="w-full rounded-[var(--radius-card)] border bg-card shadow-kyle-card p-5 space-y-4">
-          <h2 className="font-[var(--font-compadre)] text-[var(--font-size-label)] uppercase tracking-wider text-muted-foreground">
-            Week Summary
-          </h2>
-
-          <div className="flex gap-4">
-            <div className="flex-1 text-center">
-              <p className="font-[var(--font-apercu-mono)] text-[var(--font-size-data)] font-bold text-foreground">
-                {totalMeals}
-              </p>
-              <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider">
-                meals
-              </p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="font-[var(--font-apercu-mono)] text-[var(--font-size-data)] font-bold text-accent">
-                {lockedCount}
-              </p>
-              <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider">
-                locked
-              </p>
-            </div>
-            <div className="flex-1 text-center">
-              <p className="font-[var(--font-apercu-mono)] text-[var(--font-size-data)] font-bold text-muted-foreground">
-                {totalMeals - lockedCount}
-              </p>
-              <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider">
-                flexible
-              </p>
-            </div>
+        {/* Stats row */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-[var(--radius-card)] border border-border/40 bg-card p-4 space-y-4"
+          style={{ boxShadow: "var(--shadow-card-elevated-light)" }}
+        >
+          <div className="flex gap-0 divide-x divide-border/40">
+            {[
+              { value: totalMeals, label: "meals", color: "text-foreground" },
+              { value: lockedCount, label: "locked", color: "text-[var(--color-electrolyte)]" },
+              { value: flexibleCount, label: "flexible", color: "text-muted-foreground" },
+            ].map(({ value, label, color }) => (
+              <div key={label} className="flex-1 text-center px-3">
+                <p className={cn("font-[var(--font-apercu-mono)] text-2xl font-bold tabular-nums", color)}>
+                  {value}
+                </p>
+                <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider mt-0.5">
+                  {label}
+                </p>
+              </div>
+            ))}
           </div>
 
-          <Separator />
+          <Separator className="opacity-40" />
 
+          {/* Week macro bar */}
           <MacroBar
             carbG={weekTotals.carbG}
             protG={weekTotals.protG}
             fatG={weekTotals.fatG}
-            className="text-center justify-center font-[var(--font-apercu-mono)] text-[var(--font-size-body)]"
           />
-        </div>
+        </motion.div>
 
-        {/* Actions */}
-        <div className="w-full space-y-3">
+        {/* Day accordion list */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-2"
+        >
+          <p className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest text-muted-foreground px-1">
+            Your week
+          </p>
+          {weekPlan.days.map((day, i) => (
+            <DayAccordion
+              key={day.date}
+              dayIndex={i}
+              day={day}
+              decisions={decisions}
+            />
+          ))}
+        </motion.div>
+
+        {/* CTA buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="space-y-3"
+        >
           <Button
             className="w-full"
-            onClick={() => setSheetOpen(true)}
+            onClick={handleSave}
+            disabled={saved}
           >
-            <LayoutGrid className="w-4 h-4 mr-2" />
-            View week grid
+            {saved ? (
+              <>
+                <Check className="w-4 h-4 mr-2" />
+                Saved
+              </>
+            ) : (
+              <>
+                <Save className="w-4 h-4 mr-2" />
+                Save week
+              </>
+            )}
           </Button>
 
           <Button
             variant="outline"
             className="w-full"
-            onClick={handleSave}
-            disabled={saved}
+            onClick={() => setSheetOpen(true)}
           >
-            <Save className="w-4 h-4 mr-2" />
-            {saved ? "Saved" : "Save plan"}
+            <LayoutGrid className="w-4 h-4 mr-2" />
+            View as grid
           </Button>
 
           <Button
             variant="ghost"
-            className="w-full text-muted-foreground"
+            className="w-full text-muted-foreground normal-case"
             onClick={onRebuild}
           >
             <RotateCcw className="w-4 h-4 mr-2" />
             Rebuild stack
           </Button>
-        </div>
-
-        {/* Jade follow-up */}
-        <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground text-center">
-          Tap the Jade avatar anytime to ask about your week.
-        </p>
+        </motion.div>
       </motion.div>
 
-      {/* Week grid Sheet */}
+      {/* View-as-grid Sheet */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
         <SheetContent side="bottom" className="h-[85vh] flex flex-col">
           <SheetHeader className="shrink-0">
@@ -189,7 +383,6 @@ export function DoneSummary({
             </SheetTitle>
           </SheetHeader>
 
-          {/* Read-only grid summary */}
           <div className="flex-1 overflow-y-auto">
             <div className="grid grid-cols-7 gap-1 text-center mb-2">
               {DAY_NAMES_SHORT.map((d) => (
@@ -209,10 +402,7 @@ export function DoneSummary({
                   {Array.from({ length: 7 }).map((_, col) => {
                     if (col !== i) return <div key={col} />;
                     return (
-                      <div
-                        key={`${day.date}-${col}`}
-                        className="col-span-1 space-y-0.5"
-                      >
+                      <div key={`${day.date}-${col}`} className="col-span-1 space-y-0.5">
                         {slots.map((slot) => {
                           const meal = day.meals?.[slot as keyof typeof day.meals];
                           if (!meal) return null;
@@ -224,18 +414,13 @@ export function DoneSummary({
                               key={slot}
                               className={cn(
                                 "rounded px-1 py-0.5 text-[9px] font-[var(--font-apercu)]",
-                                "border border-border/50 bg-card truncate",
+                                "border border-border/40 bg-card truncate",
                                 isLocked && "border-accent/50",
                               )}
                             >
                               <span className="text-muted-foreground">{SLOT_LABELS_SHORT[slot]}</span>
                               {" "}
                               <span className="truncate">{meal.title.split(" + ")[0]}</span>
-                              {isLocked && (
-                                <Badge variant="outline" className="ml-1 text-[7px] px-0.5 border-accent text-accent">
-                                  L
-                                </Badge>
-                              )}
                             </div>
                           );
                         })}

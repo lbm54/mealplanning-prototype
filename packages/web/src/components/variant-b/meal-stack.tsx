@@ -1,14 +1,20 @@
 /**
- * Variant B — MealStack.
+ * Variant B — MealStack (2026 facelift).
  *
- * The central card deck container. Renders the top 3 visible cards in a
- * z-layered stack with the active card on top.
+ * The central card deck container. Renders 3 visually stacked cards:
+ * - Current card  → scale 1.0, no blur, full opacity (top of stack)
+ * - Next card     → scale 0.94, blur 1.5px, opacity 0.85, y -10px
+ * - After-next    → scale 0.88, blur 3px, opacity 0.55, y -20px
  *
- * Handles:
- * - Card exit animations (fly off left/right/up) after swipe decision
- * - Card entrance (next card rises to top)
- * - Keyboard shortcut support (← → ↑)
- * - Touch/pointer event forwarding
+ * Stack shift: when the top card exits, the next card springs up via a
+ * motion spring transition (stiffness 320, damping 30).
+ *
+ * Exit animations:
+ * - right (keep)  → flies off-right with clockwise rotation
+ * - left (swap)   → flies off-left with counter-clockwise rotation
+ * - up (lock)     → scales down and rises off the top
+ *
+ * Keyboard support: ← → ↑
  */
 import { useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "motion/react";
@@ -24,11 +30,25 @@ export interface MealStackProps {
   className?: string;
 }
 
-/** Exit variants keyed by swipe direction */
 const exitVariants = {
-  keep:  { x: 320, opacity: 0, rotate: 14, transition: { duration: 0.32, ease: "easeIn" as const } },
-  swap:  { x: -320, opacity: 0, rotate: -14, transition: { duration: 0.32, ease: "easeIn" as const } },
-  lock:  { y: -200, opacity: 0, scale: 0.88, transition: { duration: 0.28, ease: "easeIn" as const } },
+  keep: {
+    x: 380,
+    opacity: 0,
+    rotate: 18,
+    transition: { duration: 0.30, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+  },
+  swap: {
+    x: -380,
+    opacity: 0,
+    rotate: -18,
+    transition: { duration: 0.30, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+  },
+  lock: {
+    y: -240,
+    opacity: 0,
+    scale: 0.84,
+    transition: { duration: 0.26, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+  },
 };
 
 export function MealStack({
@@ -38,7 +58,6 @@ export function MealStack({
   isPaused = false,
   className,
 }: MealStackProps) {
-  // Track last swipe direction so AnimatePresence exit animation matches
   const lastSwipeRef = useRef<"keep" | "swap" | "lock">("keep");
 
   const handleSwipe = useCallback(
@@ -49,7 +68,6 @@ export function MealStack({
     [onSwipe],
   );
 
-  // Keyboard shortcuts
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
       if (isPaused) return;
@@ -65,7 +83,7 @@ export function MealStack({
     return () => window.removeEventListener("keydown", handleKey);
   }, [handleKey]);
 
-  // Render visible window: current + 2 behind
+  // Show current + next 2 in the visual stack
   const visibleCards = deck.slice(currentIndex, currentIndex + 3);
 
   if (visibleCards.length === 0) return null;
@@ -83,16 +101,24 @@ export function MealStack({
               className="absolute inset-0"
               initial={
                 isActive
-                  ? { x: 60, opacity: 0, scale: 0.95 }
-                  : { scale: 1 - (stackOffset + 1) * 0.04, y: (stackOffset + 1) * 10 }
+                  ? { x: 50, opacity: 0, scale: 0.96 }
+                  : {
+                      scale: 1 - (stackOffset + 1) * 0.06,
+                      y: -((stackOffset + 1) * 12),
+                      opacity: stackOffset === 0 ? 0.85 : 0.55,
+                    }
               }
               animate={
                 isActive
-                  ? { x: 0, opacity: 1, scale: 1 }
-                  : { scale: 1 - stackOffset * 0.04, y: stackOffset * 10, opacity: 1 }
+                  ? { x: 0, opacity: 1, scale: 1, y: 0 }
+                  : {
+                      scale: 1 - stackOffset * 0.06,
+                      y: -(stackOffset * 12),
+                      opacity: stackOffset === 1 ? 0.85 : 0.55,
+                    }
               }
               exit={exitTarget}
-              transition={{ type: "spring", stiffness: 300, damping: 28 }}
+              transition={{ type: "spring", stiffness: 320, damping: 30 }}
               style={{ zIndex: 10 - stackOffset }}
             >
               <StackCard
