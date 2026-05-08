@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { AlertTriangle } from "lucide-react";
 
 /**
  * ErrorState — four shared error states all variants must use.
@@ -12,6 +13,8 @@ import { Card, CardContent } from "@/components/ui/card";
  *   rls-denied         — Supabase 401/403 (stale token)
  *   no-macro-targets   — daily_macro_targets empty for requested week
  *   no-activities      — activities empty for requested week
+ *
+ * Refined: Dragonfruit icon accent, card variant="elevated", consistent typography.
  */
 export type ErrorKind =
   | "jade-failed"
@@ -62,8 +65,15 @@ export function ErrorState({ kind, onRetry, className }: ErrorStateProps) {
 
   return (
     <div className={cn("flex items-center justify-center p-8", className)}>
-      <Card className="max-w-sm w-full">
+      <Card variant="elevated" className="max-w-sm w-full">
         <CardContent className="pt-6 text-center space-y-4">
+          {/* Dragonfruit icon disk */}
+          <div className="flex justify-center">
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-destructive/10 text-destructive">
+              <AlertTriangle size={22} />
+            </span>
+          </div>
+
           <p className="font-[var(--font-sansita)] text-[var(--font-size-section)] uppercase tracking-wider">
             {config.heading}
           </p>

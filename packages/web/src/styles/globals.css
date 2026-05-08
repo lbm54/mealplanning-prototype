@@ -95,6 +95,22 @@
   --shadow-kyle-elevated: 0 4px 16px 0 rgb(0 0 0 / 0.12);
   --shadow-kyle-elevated-dark: 0 4px 12px 0 rgb(0 0 0 / 0.30);
 
+  /* Glow shadows — for hover/active states */
+  --shadow-glow-orange: 0 0 24px -4px rgba(247, 139, 20, 0.35);
+  --shadow-glow-electrolyte: 0 0 24px -4px rgba(28, 249, 207, 0.35);
+  --shadow-glow-dragonfruit: 0 0 24px -4px rgba(220, 37, 151, 0.30);
+
+  /* Card elevated surface overlays */
+  --shadow-card-elevated-dark: 0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 0 0 1px rgb(255 255 255 / 0.06);
+  --shadow-card-elevated-light: 0 1px 2px 0 rgb(0 0 0 / 0.04), 0 8px 16px -8px rgb(0 0 0 / 0.08);
+
+  /* Glass surfaces */
+  --backdrop-blur-glass: 12px;
+
+  /* Easings */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
   /* Kyle custom spacing (app_spacing.dart:185-215) */
   --spacing-input-h: 2.875rem;   /* 46px — text-input height */
   --spacing-btn-h: 3.5rem;       /* 56px — primary button height */
@@ -208,4 +224,62 @@
     font-family: var(--font-apercu);
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+ * Keyframe animations
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(28, 249, 207, 0.4);
+  }
+  50% {
+    opacity: 0.85;
+    box-shadow: 0 0 0 8px rgba(28, 249, 207, 0);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utility classes for animations */
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+.animate-status-pulse {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }

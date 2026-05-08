@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
  *
  * Toggles class="dark" on <html> via next-themes.
  * next-themes' ThemeProvider must wrap the root.
+ * Refined: consistent 36px circular icon-button with transition.
  */
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -21,9 +22,13 @@ export function ThemeToggle() {
       size="icon"
       onClick={() => setTheme(next)}
       aria-label={`Switch to ${next} mode`}
-      className="rounded-full text-foreground hover:bg-muted"
+      className="h-9 w-9 rounded-full text-muted-foreground hover:bg-muted hover:text-foreground transition-all duration-150"
     >
-      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+      {theme === "dark" ? (
+        <Sun size={16} className="transition-transform duration-150 hover:rotate-12" />
+      ) : (
+        <Moon size={16} className="transition-transform duration-150 hover:-rotate-12" />
+      )}
     </Button>
   );
 }

@@ -7,10 +7,10 @@ import { JadeAvatar } from "./jade-avatar";
  * Design source: 06_five_uiux_approaches.md §0.3, §1.D, §1.E
  *
  * Renders:
- * - Jade's avatar (36px) on the left
+ * - Jade's avatar (36px, with online dot when not thinking) on the left
  * - Text message in Apercu body
  * - Optional embedded card slot (for inline meal cards)
- * - Optional action chips
+ * - Optional action chips (pill-style, Electrolyte hover tint)
  */
 export interface JadeChip {
   label: string;
@@ -36,7 +36,11 @@ export function JadeMessageCard({
 }: JadeMessageCardProps) {
   return (
     <div className={cn("flex gap-3", className)}>
-      <JadeAvatar size={36} state={isThinking ? "thinking" : "idle"} />
+      <JadeAvatar
+        size={36}
+        state={isThinking ? "thinking" : "idle"}
+        online={!isThinking}
+      />
 
       <div className="flex-1 min-w-0">
         {/* Message text */}
@@ -62,8 +66,10 @@ export function JadeMessageCard({
                 className={cn(
                   "rounded-[var(--radius-pill)] border border-border px-3 py-1",
                   "font-[var(--font-apercu)] text-[var(--font-size-caption)]",
-                  "text-foreground transition-colors hover:bg-accent hover:text-accent-foreground",
-                  "hover:border-accent",
+                  "text-foreground transition-all duration-150",
+                  "hover:bg-[var(--color-electrolyte)]/10 hover:text-[var(--color-electrolyte)]",
+                  "hover:border-[var(--color-electrolyte)]/40",
+                  "hover:-translate-y-0.5",
                 )}
               >
                 {chip.label}

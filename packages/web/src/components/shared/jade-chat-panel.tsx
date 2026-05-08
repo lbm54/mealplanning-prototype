@@ -17,6 +17,9 @@ import { JadeMessageCard } from "./jade-message-card";
  *
  * This is a stub: renders "AI not configured" if env var is missing.
  * Variants will wire real useChat + endpoint calls.
+ *
+ * Refined: glass header, Electrolyte-accented input send button,
+ * online avatar indicator.
  */
 
 export interface JadeChatPanelProps {
@@ -33,7 +36,7 @@ export function JadeChatPanel({
   const isConfigured = Boolean(
     typeof window !== "undefined"
       ? (window as Window & { __AI_CONFIGURED__?: boolean }).__AI_CONFIGURED__
-      : true, // assume configured on server
+      : true,
   );
 
   return (
@@ -46,9 +49,14 @@ export function JadeChatPanel({
         className,
       )}
     >
-      {/* Header */}
-      <div className="flex items-center gap-3 border-b border-border p-4">
-        <JadeAvatar size={36} />
+      {/* Header — glass-tinted */}
+      <div
+        className={cn(
+          "flex items-center gap-3 border-b border-border/70 p-4",
+          "bg-card/80 backdrop-blur-sm",
+        )}
+      >
+        <JadeAvatar size={36} online={isConfigured} glow={isConfigured} />
         <div>
           <p className="font-[var(--font-sansita)] text-[var(--font-size-body)] font-bold uppercase tracking-wider">
             Jade
@@ -57,6 +65,16 @@ export function JadeChatPanel({
             your nutrition coach
           </p>
         </div>
+        {isConfigured && (
+          <span
+            className="ml-auto inline-flex items-center gap-1 rounded-[var(--radius-pill)] border border-[var(--color-electrolyte)]/30 bg-[var(--color-electrolyte)]/10 px-2 py-0.5"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-electrolyte)] animate-status-pulse" />
+            <span className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest text-[var(--color-electrolyte)]">
+              Online
+            </span>
+          </span>
+        )}
       </div>
 
       {/* Messages area */}
@@ -77,7 +95,7 @@ export function JadeChatPanel({
       </div>
 
       {/* Input */}
-      <div className="border-t border-border p-4">
+      <div className="border-t border-border/70 p-4">
         <div className="flex gap-2">
           <input
             type="text"
@@ -90,17 +108,20 @@ export function JadeChatPanel({
               "focus:outline-none focus:ring-2 focus:ring-ring",
               "disabled:opacity-50",
               "h-[var(--spacing-input-h)]",
+              "transition-shadow duration-150",
             )}
           />
           <button
             disabled={!isConfigured}
             className={cn(
               "flex items-center justify-center rounded-[var(--radius-pill)]",
-              "bg-primary text-primary-foreground",
+              "bg-gradient-to-b from-[#F8A53A] to-[#F78B14] text-primary-foreground",
               "h-[var(--spacing-input-h)] px-4",
               "font-[var(--font-sansita)] text-[var(--font-size-btn)] uppercase tracking-wider",
-              "disabled:opacity-50 hover:bg-[var(--color-orange-light)]",
-              "transition-colors",
+              "disabled:opacity-50",
+              "transition-all duration-150",
+              "hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow-orange)]",
+              "active:translate-y-0 active:shadow-none",
             )}
           >
             Send

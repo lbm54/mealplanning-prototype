@@ -8,15 +8,45 @@ import { cn } from "@/lib/utils";
  *
  * - 15px radius (card radius)
  * - White on cream (light), blackberry-light surface (dark)
- * - Subtle shadow in light; no shadow in dark (depth = lighter surface + 1px border)
+ * - Subtle shadow in light; depth through border + inner highlight in dark
+ *
+ * Added variants:
+ * - "elevated" — outer glow ring (Electrolyte tint)
+ * - "glass" — backdrop-blur + translucent surface
+ * - "outlined" — 1px border, transparent fill
  */
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: "default" | "elevated" | "glass" | "outlined";
+}
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className, variant = "default", ...props }, ref) => (
     <div
       ref={ref}
       className={cn(
-        "rounded-[var(--radius-card)] border bg-card text-card-foreground shadow-[var(--shadow-kyle-card)] dark:shadow-none",
+        "rounded-[var(--radius-card)] text-card-foreground transition-all duration-200",
+        // Default
+        variant === "default" && [
+          "border bg-card",
+          "shadow-[var(--shadow-kyle-card)] dark:shadow-none",
+          "dark:shadow-[var(--shadow-card-elevated-dark)]",
+        ],
+        // Elevated — faint outer glow + inner highlight
+        variant === "elevated" && [
+          "border border-white/10 bg-card",
+          "shadow-[var(--shadow-card-elevated-light)] dark:shadow-[var(--shadow-card-elevated-dark)]",
+          "dark:ring-1 dark:ring-white/[0.06]",
+        ],
+        // Glass — backdrop blur, translucent surface
+        variant === "glass" && [
+          "border border-white/10 bg-card/70 backdrop-blur-[12px]",
+          "shadow-[var(--shadow-card-elevated-light)] dark:shadow-[var(--shadow-card-elevated-dark)]",
+        ],
+        // Outlined — clean border, no fill
+        variant === "outlined" && [
+          "border border-border bg-transparent",
+        ],
         className,
       )}
       {...props}

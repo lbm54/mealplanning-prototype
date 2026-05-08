@@ -10,7 +10,7 @@ import { X } from "lucide-react";
  * Used by Approach A, D (shared).
  *
  * Shows: current meal + 3 alternatives from Jade.
- * This is a stub — variants wire the actual Jade swap call.
+ * Refined: glass header, Electrolyte loading shimmer, polish.
  */
 export interface SwapDrawerProps {
   isOpen: boolean;
@@ -45,8 +45,13 @@ export function SwapDrawer({
         className,
       )}
     >
-      {/* Header */}
-      <div className="flex items-center justify-between border-b border-border p-4">
+      {/* Header — glass tint */}
+      <div
+        className={cn(
+          "flex items-center justify-between border-b border-border/70 p-4",
+          "bg-background/90 backdrop-blur-sm",
+        )}
+      >
         <div>
           <p className="font-[var(--font-sansita)] text-[var(--font-size-section)] uppercase tracking-wider">
             Swap Meal
@@ -57,7 +62,10 @@ export function SwapDrawer({
         </div>
         <button
           onClick={onClose}
-          className="flex h-9 w-9 items-center justify-center rounded-full hover:bg-muted"
+          className={cn(
+            "flex h-9 w-9 items-center justify-center rounded-full",
+            "hover:bg-muted transition-colors duration-150",
+          )}
           aria-label="Close swap drawer"
         >
           <X size={18} />
@@ -69,7 +77,7 @@ export function SwapDrawer({
         {/* Current meal */}
         {currentMeal && (
           <div>
-            <p className="mb-2 font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground">
+            <p className="mb-2 font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest text-muted-foreground">
               Current
             </p>
             <MealCell meal={currentMeal} slot={slot} />
@@ -78,7 +86,7 @@ export function SwapDrawer({
 
         {/* Alternatives */}
         <div>
-          <p className="mb-2 font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground">
+          <p className="mb-2 font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest text-muted-foreground">
             {isLoading ? "Jade is finding alternatives…" : "Alternatives"}
           </p>
 
@@ -87,7 +95,13 @@ export function SwapDrawer({
               {[1, 2, 3].map((i) => (
                 <div
                   key={i}
-                  className="h-24 animate-pulse rounded-[var(--radius-card)] bg-muted"
+                  className={cn(
+                    "h-24 rounded-[var(--radius-card)] bg-muted overflow-hidden",
+                    "relative before:absolute before:inset-0",
+                    "before:bg-gradient-to-r before:from-transparent before:via-white/5 before:to-transparent",
+                    "before:animate-[shimmer_1.5s_infinite]",
+                    "before:bg-[length:200%_100%]",
+                  )}
                 />
               ))}
             </div>
@@ -117,7 +131,7 @@ export function SwapDrawer({
       </div>
 
       {/* Footer */}
-      <div className="border-t border-border p-4">
+      <div className="border-t border-border/70 p-4">
         <input
           type="text"
           placeholder="Custom: 'I have leftover salmon' or 'make it vegetarian'"
@@ -127,6 +141,7 @@ export function SwapDrawer({
             "placeholder:text-muted-foreground",
             "focus:outline-none focus:ring-2 focus:ring-ring",
             "h-[var(--spacing-input-h)]",
+            "transition-shadow duration-150",
           )}
         />
       </div>
