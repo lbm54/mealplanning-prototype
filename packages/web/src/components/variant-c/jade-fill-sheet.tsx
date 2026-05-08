@@ -27,6 +27,7 @@ import MacroSlider from "@/components/shared/widgets/macro-slider";
 import { cn } from "@/lib/utils";
 import type { ColumnOptions } from "@/lib/queries/columns-data.c";
 import type { PickMap } from "@/lib/hooks/use-column-picks";
+import type { DerivedWeekCharacter } from "@/lib/derive-week-character";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -43,6 +44,8 @@ export interface JadeFillSheetProps {
   defaultMacroSplit?: { carb: number; protein: number; fat: number };
   /** Total unfilled meals — shown in header for context. */
   unfilledCount?: number;
+  /** When present and workouts are scheduled, skip the category step entirely. */
+  derived?: DerivedWeekCharacter | null;
 }
 
 type Step = "category" | "macros" | "filling";
@@ -133,18 +136,29 @@ export function JadeFillSheet({
   allColumns,
   defaultMacroSplit = { carb: 50, protein: 25, fat: 25 },
   unfilledCount,
+  derived,
 }: JadeFillSheetProps) {
-  const [step, setStep] = useState<Step>("category");
-  const [category, setCategory] = useState<CategoryChoice | null>(null);
+  // Skip the category step when we have a meaningful inferred week character.
+  const hasInferredContext = !!derived && derived.workoutDays > 0;
+  const inferredCategory: CategoryChoice | null = hasInferredContext
+    ? derived!.isRaceWeek
+      ? { id: "race", label: "Race Prep" }
+      : derived!.weekCharacter === "high-load training" || derived!.weekCharacter === "moderate training"
+        ? { id: "athletic", label: "Athletic Performance" }
+        : { id: "recovery", label: "Recovery Week" }
+    : null;
+  const initialStep: Step = hasInferredContext ? "macros" : "category";
+
+  const [step, setStep] = useState<Step>(initialStep);
+  const [category, setCategory] = useState<CategoryChoice | null>(inferredCategory);
   const [error, setError] = useState<string | null>(null);
 
   // Reset internal state when sheet opens/closes
   function handleOpenChange(next: boolean) {
     if (!next) {
-      // Reset to start so re-open is fresh — but only when not mid-fill
       if (step !== "filling") {
-        setStep("category");
-        setCategory(null);
+        setStep(initialStep);
+        setCategory(inferredCategory);
         setError(null);
       }
     }

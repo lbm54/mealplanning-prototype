@@ -37,7 +37,37 @@ export const Route = createFileRoute("/plan/c")({
   loader: async () => {
     try {
       const { loadWeekColumns } = await import("@/lib/queries/columns-data.c");
-      return await loadWeekColumns();
+      const { deriveWeekCharacter } = await import("@/lib/derive-week-character");
+      const { getServerSupabase } = await import("@/lib/supabase/server");
+      const data = await loadWeekColumns();
+
+      // Pull activities for character derivation (cheap — same project, separate query)
+      let derived = null;
+      try {
+        const supabase = await getServerSupabase();
+        const today = new Date().toISOString().slice(0, 10);
+        const weekFromNow = new Date(Date.now() + 14 * 86400_000).toISOString().slice(0, 10);
+        const [actsRes, macrosRes] = await Promise.all([
+          supabase.from("activities")
+            .select("title, scheduled_date_time, activity_type, status, duration_minutes, intensity_level, distance_miles, distance_meters")
+            .gte("scheduled_date_time", today)
+            .lte("scheduled_date_time", weekFromNow + "T23:59:59")
+            .order("scheduled_date_time")
+            .limit(20),
+          supabase.from("daily_macro_targets")
+            .select("target_date, carb_g")
+            .gte("target_date", today)
+            .lte("target_date", weekFromNow)
+            .order("target_date"),
+        ]);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const acts = (actsRes.data ?? []) as any[];
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const macros = (macrosRes.data ?? []) as any[];
+        derived = deriveWeekCharacter(acts, macros);
+      } catch { /* derived stays null */ }
+
+      return Object.assign(data, { derived });
     } catch (err) {
       console.error("[plan.c] loader error:", err);
       return null;
@@ -327,6 +357,10 @@ function VariantCColumns() {
         allColumns={columns}
         defaultMacroSplit={defaultMacroSplit}
         unfilledCount={totalMeals - filledCount}
+        derived={
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (loaderData as any)?.derived ?? null
+        }
       />
 
       {/* ── Desktop column grid ── */}

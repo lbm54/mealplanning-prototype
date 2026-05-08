@@ -17,13 +17,18 @@ import { Check, X, Lock, AlertCircle, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
+import { KyleButton } from "@/components/shared/kyle-button";
 import CategoryPicker from "@/components/shared/widgets/category-picker";
 import type { Category } from "@/components/shared/widgets/category-picker";
+import type { DerivedWeekCharacter } from "@/lib/derive-week-character";
 import { cn } from "@/lib/utils";
 
 export interface IdleScreenProps {
   onStart: (category: { id: string; label: string }) => void;
   error?: string | null;
+  /** When present and the user has scheduled activities, lead with the
+   *  inferred CTA instead of the category picker. */
+  derived?: DerivedWeekCharacter | null;
 }
 
 /** Three dummy cards behind the hero — purely decorative */
@@ -114,6 +119,17 @@ function GestureHint({
   );
 }
 
+/** Map a derived week character to a synthetic Category for downstream code */
+function derivedToCategory(d: DerivedWeekCharacter): { id: string; label: string } {
+  if (d.isRaceWeek) return { id: "race_prep", label: "Race Prep" };
+  if (d.workoutDays === 0) return { id: "recovery_week", label: "Recovery Week" };
+  if (d.weekCharacter === "high-load training")
+    return { id: "athletic_performance", label: "Athletic Performance" };
+  if (d.weekCharacter === "moderate training")
+    return { id: "athletic_performance", label: "Athletic Performance" };
+  return { id: "recovery_week", label: "Recovery Week" };
+}
+
 /** Default category set for the start screen */
 const START_CATEGORIES: Category[] = [
   { id: "athletic_performance", label: "Athletic Performance", tone: "accent" },
@@ -126,12 +142,23 @@ const START_CATEGORIES: Category[] = [
   { id: "pantry_only", label: "Ingredients on Hand", tone: "warning" },
 ];
 
-export function IdleScreen({ onStart, error }: IdleScreenProps) {
+export function IdleScreen({ onStart, error, derived }: IdleScreenProps) {
   const [picked, setPicked] = useState<{ id: string; label: string } | null>(null);
+  const [showPicker, setShowPicker] = useState(false);
+
+  // If we have derived data and the user has activities scheduled, lead with
+  // the inferred-character CTA. The picker is collapsed unless they expand it.
+  const hasContext = !!derived && derived.workoutDays > 0;
 
   function handleCategoryPick(cat: { id: string; label: string }) {
     setPicked(cat);
-    // Brief delay so the selected-state animation is visible before transition
+    setTimeout(() => onStart(cat), 320);
+  }
+
+  function handleBuildInferred() {
+    if (!derived) return;
+    const cat = derivedToCategory(derived);
+    setPicked(cat);
     setTimeout(() => onStart(cat), 320);
   }
 
@@ -204,25 +231,9 @@ export function IdleScreen({ onStart, error }: IdleScreenProps) {
               />
             </div>
 
-            {/* Category picker — replaces the plain CTA */}
+            {/* Inferred-context CTA when we have data; picker only as fallback */}
             <AnimatePresence mode="wait">
-              {!picked ? (
-                <motion.div
-                  key="picker"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  <CategoryPicker
-                    output={{
-                      title: "What kind of week are we planning?",
-                      categories: START_CATEGORIES,
-                    }}
-                    onUserResponse={handleCategoryPick}
-                  />
-                </motion.div>
-              ) : (
+              {picked ? (
                 <motion.div
                   key="loading"
                   initial={{ opacity: 0 }}
@@ -236,6 +247,52 @@ export function IdleScreen({ onStart, error }: IdleScreenProps) {
                   <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
                     Building your {picked.label.toLowerCase()} week…
                   </p>
+                </motion.div>
+              ) : hasContext && !showPicker ? (
+                <motion.div
+                  key="inferred"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                  className="space-y-3"
+                >
+                  <div className="rounded-[var(--radius-card)] border border-[var(--color-electrolyte)]/30 bg-[var(--color-electrolyte)]/5 px-4 py-3">
+                    <p className="font-[var(--font-compadre)] text-[10px] uppercase tracking-[0.2em] text-[var(--color-electrolyte-dark)] mb-1">
+                      Based on your training
+                    </p>
+                    <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-foreground leading-snug">
+                      {derived!.headline}
+                    </p>
+                  </div>
+                  <KyleButton onClick={handleBuildInferred} className="w-full">
+                    {derived!.ctaCopy}
+                  </KyleButton>
+                  <button
+                    type="button"
+                    onClick={() => setShowPicker(true)}
+                    className="w-full text-center font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/70 hover:text-foreground transition-colors"
+                  >
+                    Or pick a different angle →
+                  </button>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="picker"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <CategoryPicker
+                    output={{
+                      title: hasContext
+                        ? "Or pick a different angle"
+                        : "What kind of week are we planning?",
+                      categories: START_CATEGORIES,
+                    }}
+                    onUserResponse={handleCategoryPick}
+                  />
                 </motion.div>
               )}
             </AnimatePresence>

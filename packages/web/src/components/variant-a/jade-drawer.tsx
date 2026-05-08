@@ -105,8 +105,9 @@ function LiveChat({ weekContext, scrollRef }: LiveChatProps) {
 
   const isLoading = status === "streaming" || status === "submitted";
 
-  // On first mount with no messages, send a greeting so the system prompt fires
-  // showCategoryPicker automatically.
+  // On first mount with no messages, send a silent greeting so Jade opens with
+  // the inferred WEEK CHARACTER from the system prompt (no CategoryPicker —
+  // we already have the user's training schedule).
   useEffect(() => {
     if (!greetingSent.current && messages.length === 0) {
       greetingSent.current = true;

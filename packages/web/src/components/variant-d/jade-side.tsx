@@ -549,14 +549,24 @@ export function JadeSide({
         </div>
       </div>
 
-      {/* CategoryPicker — persistent at top until user has chosen */}
+      {/* CategoryPicker now collapsed behind a "Or pick a different angle" link.
+          Jade's first turn uses the derived week character from the system prompt,
+          so the user shouldn't need to pick — this is a fallback for when they
+          want to override the inferred direction. */}
       {!categoryChosen && userMessageCount === 0 && (
-        <div className="border-b border-border/40 px-4 pt-3 pb-3 shrink-0">
-          <CategoryPicker
-            output={DEFAULT_CATEGORY_PICKER_OUTPUT}
-            onUserResponse={handleCategoryPick}
-          />
-        </div>
+        <details className="group border-b border-border/40 px-4 py-2 shrink-0">
+          <summary className="list-none cursor-pointer select-none text-[var(--font-size-caption)] font-[var(--font-apercu)] text-muted-foreground/60 hover:text-foreground/80 transition-colors">
+            <span className="border-b border-dashed border-muted-foreground/30 group-hover:border-foreground/40">
+              Or pick a different angle →
+            </span>
+          </summary>
+          <div className="mt-3 pb-2">
+            <CategoryPicker
+              output={DEFAULT_CATEGORY_PICKER_OUTPUT}
+              onUserResponse={handleCategoryPick}
+            />
+          </div>
+        </details>
       )}
 
       {/* Messages scroll area */}
