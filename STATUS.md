@@ -13,8 +13,8 @@ Last updated: 2026-05-07
 | Variant | Branch | Worktree | Port | Status | Last update | Notes |
 |---------|--------|----------|------|--------|-------------|-------|
 | A — Calendar | `variant/a` | `../mealplanning_prototype-a` | 3001 | ⏳ Stub only | 2026-05-06 | |
-| B — Stack | `variant/b` | `../mealplanning_prototype-b` | 3002 | ✅ Phase 1B complete | 2026-05-06 | 8 commits; all sub-phases 1.B.1–1.B.8 done |
-| C — Columns | `variant/c` | `../mealplanning_prototype-c` | 3003 | ⏳ Stub only | 2026-05-06 | |
+| B — Stack | `variant/b` | `../mealplanning_prototype-b` | 3002 | ⏳ Stub only | 2026-05-06 | |
+| C — Columns | `variant/c` | `../mealplanning_prototype-c` | 3003 | ✅ Phase 1.C complete | 2026-05-06 | All 8 sub-phases shipped. pnpm lint clean (0 errors). typecheck: only 4 pre-existing scaffold errors (missing @/lib/supabase/types). |
 | D — Hybrid | `variant/d` | `../mealplanning_prototype-d` | 3004 | ⏳ Stub only | 2026-05-06 | |
 | E — Coach | `variant/e` | `../mealplanning_prototype-e` | 3005 | ⏳ Stub only | 2026-05-06 | |
 
@@ -56,3 +56,29 @@ Last updated: 2026-05-07
 2. **pnpm build** — Full Vite SSR build not run yet (takes 5+ min). See §24.
 3. **Clerk routing** — Uses `require()` dynamic import pattern to fail-soft when Clerk env vars are missing. Proper ESM import will be needed once keys are set.
 4. **AI SDK version** — Using v4 (streamText/generateObject API). When AI SDK v5 is stable, update imports per its migration guide.
+
+---
+
+## Variant C — Phase 1.C Build Notes (2026-05-06)
+
+### Sub-phases delivered
+1. **1.C.1** Layout shell: 5-column desktop grid (Day|Slot|Protein|Carb|Veg/Sauce), header pill stub, shadcn Popover/Dialog/Tooltip/Tabs wrappers.
+2. **1.C.2** Server pre-filter: `loadWeekColumns()` + `selectFoodsFor()` — deterministic SQL, allergy/diet hard constraints, macro-proximity scoring, 4–6 options per column. Zero LLM calls on page load.
+3. **1.C.3** Selection state: `useColumnPicks` hook, live macro math, color-coded `RunningTotalsBar` (green ±10% of target, amber outside).
+4. **1.C.4** Persistence + footer: POST `/api/plan-c/save`, upserts `meal_plans` (`approach_used='c'`) + `meal_plan_meals`, weekly macro totals footer.
+5. **1.C.5** Workout extras row: `WorkoutExtrasRow` banner on workout days, collapsible pre-workout fuel selection.
+6. **1.C.6** Jade fill: `useJadeFill` + `JadeFillButton` confirmation dialog, maps WeekPlan food_ids against column options (hallucinated IDs are silently dropped).
+7. **1.C.7** + show more: `AddMorePopover` + `useAddMore`, fires `kind='tweak'` to Jade, prepends ≤3 new options.
+8. **1.C.8** WhyTooltip (pre-computed rationales), MobileStepper (day+slot stepper for <768px), EmptyStateC error state.
+
+### TODOs for shared files (DO NOT EDIT — notes only)
+- `@/lib/supabase/types` is still missing from the scaffold. All variant-c files use `as unknown`/`as any` casts to work around this until the type file is generated via `supabase gen types`.
+- The `meal_plan_meals` table does not have an `approach_used` column in the Phase 0 migration. The persist layer passes it in the upsert — Supabase will silently ignore unknown columns, but the column should be added to the migration.
+- The SSR `entries.routerEntry.getRouter is not a function` error is a Phase 0 scaffold issue; it prevents dev server response from returning HTML. The route compiles and the Vite plugin picks it up correctly. See STATUS.md Known Issues §1.
+
+### Typecheck status
+- 0 errors introduced by variant-c.
+- 4 pre-existing errors: `@/lib/supabase/types` missing (affects settings-data.ts, browser.ts, server.ts, tools.ts).
+
+### Lint status
+- 0 errors, 0 warnings.
