@@ -94,7 +94,7 @@ function SignInPage() {
           />
           <KyleButton
             type="submit"
-            variant="pill"
+            variant="default"
             loading={loading}
             disabled={!email.trim() || !password || loading}
             className="w-full"

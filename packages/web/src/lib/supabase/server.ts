@@ -31,10 +31,11 @@ export async function getServerSupabase(): Promise<SupabaseClient<Database>> {
   const anonKey = requireEnv("VITE_SUPABASE_ANON_KEY");
 
   let request: Request | undefined;
-  let response: Response | undefined;
+  // getResponse() returns a partial Response-like object; we only use .headers.append
+  let response: { headers: Headers } | undefined;
   try {
     request = getRequest();
-    response = getResponse();
+    response = getResponse() as unknown as { headers: Headers };
   } catch {
     // Outside a request context — return an unauthenticated client
   }

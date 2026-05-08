@@ -11,31 +11,45 @@
  * components built by the parallel agent that only accept `output` work fine
  * when we spread `output` into them via adapter wrappers.
  *
- * WIRED UP (real components from parallel agent):
- *   showCategoryPicker, showFollowUpQuestion, showYesNoChips,
- *   showDayChips, showSlotChips, showAllergyMultiSelect,
- *   showMacroSlider, showWeekRangePicker, showPhotoUploadPrompt
- *
- * STUBS (pending parallel agent delivery):
- *   All remaining 16 UI-rendering tools
- *
- * Tool names that accept user input and need onUserResponse wired:
- *   showCategoryPicker, showFollowUpQuestion, showYesNoChips,
- *   showDayChips, showSlotChips, showAllergyMultiSelect,
- *   showMacroSlider, showWeekRangePicker, showPhotoUploadPrompt
+ * All 30 widgets are now wired. No more stubs.
  */
 import type { ComponentType } from "react";
 
-// ── Real widget imports ───────────────────────────────────────────────────────
+// ── Input widgets ─────────────────────────────────────────────────────────────
 import CategoryPicker from "./category-picker";
-import FollowUpQuestion from "./follow-up-question";
-import YesNoChips from "./yes-no-chips";
 import DayChips from "./day-chips";
 import SlotChips from "./slot-chips";
 import AllergyMultiSelect from "./allergy-multi-select";
+import DietaryToggle from "./dietary-toggle";
 import MacroSlider from "./macro-slider";
-import WeekRangePicker from "./week-range-picker";
+import PortionStepper from "./portion-stepper";
+import DurationDial from "./duration-dial";
+import YesNoChips from "./yes-no-chips";
 import PhotoUploadPrompt from "./photo-upload-prompt";
+import WeekRangePicker from "./week-range-picker";
+import FollowUpQuestion from "./follow-up-question";
+
+// ── Output widgets ────────────────────────────────────────────────────────────
+import MealPlanCard from "./meal-plan-card";
+import MealCarousel from "./meal-carousel";
+import DayBreakdownModal from "./day-breakdown-modal";
+import MealAlternatives from "./meal-alternatives";
+import MacroProgressRings from "./macro-progress-rings";
+import WeekHeatmap from "./week-heatmap";
+import WorkoutTimeline from "./workout-timeline";
+import WeatherCard from "./weather-card";
+import RaceCountdown from "./race-countdown";
+import InsightTile from "./insight-tile";
+import GroceryList from "./grocery-list";
+import HydrationTracker from "./hydration-tracker";
+import NutritionBreakdown from "./nutrition-breakdown";
+import ComparisonCard from "./comparison-card";
+import CompactMealList from "./compact-meal-list";
+
+// ── Proactive widgets ─────────────────────────────────────────────────────────
+import MorningGreetingCard from "./morning-greeting-card";
+import PreWorkoutReminderCard from "./pre-workout-reminder-card";
+import WeatherAdvisoryCard from "./weather-advisory-card";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Shared widget prop shape
@@ -51,30 +65,9 @@ export interface WidgetProps<TInput = unknown, TOutput = unknown> {
 type AnyWidgetComponent = ComponentType<WidgetProps<any, any>>;
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Stub placeholder — rendered for every unimplemented tool
-// ─────────────────────────────────────────────────────────────────────────────
-
-function makePlaceholder(toolName: string): AnyWidgetComponent {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return function PlaceholderWidget({ output }: WidgetProps<any, any>) {
-    const preview =
-      output != null ? JSON.stringify(output).slice(0, 200) : "—";
-    return (
-      <div className="rounded-md border border-[var(--color-electrolyte)]/30 bg-card p-4 text-xs font-mono text-muted-foreground">
-        <span className="font-semibold text-[var(--color-electrolyte)]">
-          {toolName}
-        </span>
-        {": "}
-        {preview}
-      </div>
-    );
-  };
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Adapter helpers — bridge WidgetProps<I,O> → parallel-agent component props
-// The parallel-agent components accept { output, onUserResponse } where
-// output is the typed payload. Since execute() is a pass-through, output === input.
+// Adapter helper — bridges WidgetProps<I,O> → widget component props
+// The widget components accept { output, onUserResponse? }.
+// Since execute() is a pass-through for UI tools, output === input.
 // ─────────────────────────────────────────────────────────────────────────────
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -86,38 +79,76 @@ function adapt<TOutput>(Component: ComponentType<{ output: TOutput; onUserRespon
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Registry
+// Registry — all 30 widgets wired
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const WIDGET_REGISTRY = {
-  // ── Wired: real components from parallel agent ────────────────────────────
+  // ── Input widgets ─────────────────────────────────────────────────────────
   showCategoryPicker: adapt(CategoryPicker),
-  showFollowUpQuestion: adapt(FollowUpQuestion),
-  showYesNoChips: adapt(YesNoChips),
+  askCategoryPicker: adapt(CategoryPicker),
   showDayChips: adapt(DayChips),
+  askDayChips: adapt(DayChips),
   showSlotChips: adapt(SlotChips),
+  askSlotChips: adapt(SlotChips),
   showAllergyMultiSelect: adapt(AllergyMultiSelect),
+  askAllergies: adapt(AllergyMultiSelect),
+  showDietaryToggle: adapt(DietaryToggle),
+  askDietaryPreference: adapt(DietaryToggle),
   showMacroSlider: adapt(MacroSlider),
-  showWeekRangePicker: adapt(WeekRangePicker),
+  askMacroSplit: adapt(MacroSlider),
+  showPortionStepper: adapt(PortionStepper),
+  askPortionSize: adapt(PortionStepper),
+  showDurationDial: adapt(DurationDial),
+  askWorkoutDuration: adapt(DurationDial),
+  showYesNoChips: adapt(YesNoChips),
+  askConfirmation: adapt(YesNoChips),
   showPhotoUploadPrompt: adapt(PhotoUploadPrompt),
+  askFridgePhoto: adapt(PhotoUploadPrompt),
+  showWeekRangePicker: adapt(WeekRangePicker),
+  askWeekRange: adapt(WeekRangePicker),
+  showFollowUpQuestion: adapt(FollowUpQuestion),
+  askFollowUp: adapt(FollowUpQuestion),
 
-  // ── Stubs: pending real component delivery ────────────────────────────────
-  showMealPlanCard: makePlaceholder("showMealPlanCard"),
-  showMealCarousel: makePlaceholder("showMealCarousel"),
-  showMealAlternatives: makePlaceholder("showMealAlternatives"),
-  showWeekHeatmap: makePlaceholder("showWeekHeatmap"),
-  showWorkoutTimeline: makePlaceholder("showWorkoutTimeline"),
-  showWeatherCard: makePlaceholder("showWeatherCard"),
-  showRaceCountdown: makePlaceholder("showRaceCountdown"),
-  showInsightTile: makePlaceholder("showInsightTile"),
-  showMacroProgressRings: makePlaceholder("showMacroProgressRings"),
-  showHydrationTracker: makePlaceholder("showHydrationTracker"),
-  showGroceryList: makePlaceholder("showGroceryList"),
-  showDayBreakdown: makePlaceholder("showDayBreakdown"),
-  showMorningGreeting: makePlaceholder("showMorningGreeting"),
-  showCompactMealList: makePlaceholder("showCompactMealList"),
-  showComparisonCard: makePlaceholder("showComparisonCard"),
-  showNutritionBreakdown: makePlaceholder("showNutritionBreakdown"),
+  // ── Output widgets ────────────────────────────────────────────────────────
+  showMealPlanCard: adapt(MealPlanCard),
+  proposeWeekPlan: adapt(MealPlanCard),
+  showMealCarousel: adapt(MealCarousel),
+  showMealOptions: adapt(MealCarousel),
+  showDayBreakdown: adapt(DayBreakdownModal),
+  showDayBreakdownModal: adapt(DayBreakdownModal),
+  expandDayBreakdown: adapt(DayBreakdownModal),
+  showMealAlternatives: adapt(MealAlternatives),
+  proposeMealSwap: adapt(MealAlternatives),
+  showMacroProgressRings: adapt(MacroProgressRings),
+  showMacroTargets: adapt(MacroProgressRings),
+  showWeekHeatmap: adapt(WeekHeatmap),
+  showCarbLoadPlan: adapt(WeekHeatmap),
+  showWorkoutTimeline: adapt(WorkoutTimeline),
+  showFuelWindows: adapt(WorkoutTimeline),
+  showWeatherCard: adapt(WeatherCard),
+  getWeather: adapt(WeatherCard),
+  showRaceCountdown: adapt(RaceCountdown),
+  showRacePrep: adapt(RaceCountdown),
+  showInsightTile: adapt(InsightTile),
+  showInsight: adapt(InsightTile),
+  showGroceryList: adapt(GroceryList),
+  buildGroceryList: adapt(GroceryList),
+  showHydrationTracker: adapt(HydrationTracker),
+  showHydration: adapt(HydrationTracker),
+  showNutritionBreakdown: adapt(NutritionBreakdown),
+  showMealNutrition: adapt(NutritionBreakdown),
+  showComparisonCard: adapt(ComparisonCard),
+  compareMeals: adapt(ComparisonCard),
+  showCompactMealList: adapt(CompactMealList),
+  summarizeMeals: adapt(CompactMealList),
+
+  // ── Proactive widgets ─────────────────────────────────────────────────────
+  showMorningGreeting: adapt(MorningGreetingCard),
+  proactiveMorningGreeting: adapt(MorningGreetingCard),
+  showPreWorkoutReminder: adapt(PreWorkoutReminderCard),
+  proactivePreWorkout: adapt(PreWorkoutReminderCard),
+  showWeatherAdvisory: adapt(WeatherAdvisoryCard),
+  proactiveWeatherAdvisory: adapt(WeatherAdvisoryCard),
 } satisfies Record<string, AnyWidgetComponent>;
 
 /** Union of all registered tool names — useful for type-safe lookups. */
