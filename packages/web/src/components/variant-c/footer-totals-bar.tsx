@@ -9,7 +9,7 @@
  * fill (shows current only, rings appear at 0% fill).
  */
 
-import { Save } from "lucide-react";
+import { Save, ShoppingCart } from "lucide-react";
 import { KyleCard } from "@/components/shared/kyle-card";
 import { KyleButton } from "@/components/shared/kyle-button";
 import MacroProgressRings from "@/components/shared/widgets/macro-progress-rings";
@@ -23,6 +23,10 @@ export interface FooterTotalsBarProps {
   isSaving:      boolean;
   isDirty:       boolean;
   onSave:        () => void;
+  /** Optional callback — when set, renders a "Grocery list" button. */
+  onShowGroceryList?: () => void;
+  /** Whether the grocery button should be enabled (typically: filledCount > 0 && !isDirty). */
+  groceryReady?: boolean;
   /** Weekly macro targets (daily target × 7). Optional — rings show 0 fill if omitted. */
   weeklyTargets?: CellTotals;
   className?:    string;
@@ -35,6 +39,8 @@ export function FooterTotalsBar({
   isSaving,
   isDirty,
   onSave,
+  onShowGroceryList,
+  groceryReady,
   weeklyTargets,
   className,
 }: FooterTotalsBarProps) {
@@ -81,17 +87,38 @@ export function FooterTotalsBar({
           </div>
         </div>
 
-        {/* Right — save */}
-        <KyleButton
-          size="sm"
-          onClick={onSave}
-          loading={isSaving}
-          disabled={isSaving || !isDirty}
-          className={cn("shrink-0 gap-1.5", !isDirty && "opacity-50")}
-        >
-          <Save size={14} />
-          {isSaving ? "Saving…" : "Save Week"}
-        </KyleButton>
+        {/* Right — actions: optional Grocery + Save */}
+        <div className="shrink-0 flex items-center gap-2">
+          {onShowGroceryList && (
+            <button
+              type="button"
+              onClick={onShowGroceryList}
+              disabled={!groceryReady}
+              title={groceryReady ? "Generate grocery list" : "Save your week first, then come back"}
+              className={cn(
+                "inline-flex items-center gap-1.5 h-9 px-3",
+                "rounded-[var(--radius-pill)] border border-border bg-background",
+                "font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest",
+                "hover:bg-muted/60 transition-colors",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "disabled:opacity-40 disabled:cursor-not-allowed",
+              )}
+            >
+              <ShoppingCart size={14} />
+              <span className="hidden sm:inline">Grocery</span>
+            </button>
+          )}
+          <KyleButton
+            size="sm"
+            onClick={onSave}
+            loading={isSaving}
+            disabled={isSaving || !isDirty}
+            className={cn("gap-1.5", !isDirty && "opacity-50")}
+          >
+            <Save size={14} />
+            {isSaving ? "Saving…" : "Save Week"}
+          </KyleButton>
+        </div>
       </div>
     </KyleCard>
   );

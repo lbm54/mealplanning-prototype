@@ -20,6 +20,7 @@ import { Route as PlanCRouteImport } from './routes/plan.c'
 import { Route as PlanBRouteImport } from './routes/plan.b'
 import { Route as PlanARouteImport } from './routes/plan.a'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
+import { Route as ApiGroceryListRouteImport } from './routes/api/grocery-list'
 import { Route as ApiPlanCSaveRouteImport } from './routes/api/plan-c/save'
 import { Route as ApiJadeSavePlanRouteImport } from './routes/api/jade/save-plan'
 import { Route as ApiJadeObjectRouteImport } from './routes/api/jade/object'
@@ -82,6 +83,11 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
   path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiGroceryListRoute = ApiGroceryListRouteImport.update({
+  id: '/api/grocery-list',
+  path: '/api/grocery-list',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPlanCSaveRoute = ApiPlanCSaveRouteImport.update({
   id: '/api/plan-c/save',
   path: '/api/plan-c/save',
@@ -119,6 +125,7 @@ export interface FileRoutesByFullPath {
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
+  '/api/grocery-list': typeof ApiGroceryListRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
   '/plan/b': typeof PlanBRoute
@@ -138,6 +145,7 @@ export interface FileRoutesByTo {
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
+  '/api/grocery-list': typeof ApiGroceryListRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
   '/plan/b': typeof PlanBRoute
@@ -158,6 +166,7 @@ export interface FileRoutesById {
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
+  '/api/grocery-list': typeof ApiGroceryListRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
   '/plan/b': typeof PlanBRoute
@@ -179,6 +188,7 @@ export interface FileRouteTypes {
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
+    | '/api/grocery-list'
     | '/auth/callback'
     | '/plan/a'
     | '/plan/b'
@@ -198,6 +208,7 @@ export interface FileRouteTypes {
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
+    | '/api/grocery-list'
     | '/auth/callback'
     | '/plan/a'
     | '/plan/b'
@@ -217,6 +228,7 @@ export interface FileRouteTypes {
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
+    | '/api/grocery-list'
     | '/auth/callback'
     | '/plan/a'
     | '/plan/b'
@@ -237,6 +249,7 @@ export interface RootRouteChildren {
   SignInRoute: typeof SignInRoute
   SignUpRoute: typeof SignUpRoute
   StyleguideRoute: typeof StyleguideRoute
+  ApiGroceryListRoute: typeof ApiGroceryListRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
   PlanARoute: typeof PlanARoute
   PlanBRoute: typeof PlanBRoute
@@ -330,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/grocery-list': {
+      id: '/api/grocery-list'
+      path: '/api/grocery-list'
+      fullPath: '/api/grocery-list'
+      preLoaderRoute: typeof ApiGroceryListRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/plan-c/save': {
       id: '/api/plan-c/save'
       path: '/api/plan-c/save'
@@ -381,6 +401,7 @@ const rootRouteChildren: RootRouteChildren = {
   SignInRoute: SignInRoute,
   SignUpRoute: SignUpRoute,
   StyleguideRoute: StyleguideRoute,
+  ApiGroceryListRoute: ApiGroceryListRoute,
   AuthCallbackRoute: AuthCallbackRoute,
   PlanARoute: PlanARoute,
   PlanBRoute: PlanBRoute,

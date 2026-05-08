@@ -26,6 +26,7 @@ import { ColumnGrid } from "@/components/variant-c/column-grid";
 import { MobileStepper } from "@/components/variant-c/mobile-stepper";
 import { EmptyStateC } from "@/components/variant-c/empty-state-c";
 import { FooterTotalsBar } from "@/components/variant-c/footer-totals-bar";
+import { GrocerySheet } from "@/components/shared/grocery-sheet";
 import { JadeFillSheet } from "@/components/variant-c/jade-fill-sheet";
 import { useColumnPicks } from "@/lib/hooks/use-column-picks";
 import { cn } from "@/lib/utils";
@@ -155,6 +156,7 @@ function VariantCColumns() {
 
   const [isSaving, setIsSaving] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const [grocerySheetOpen, setGrocerySheetOpen] = useState(false);
 
   // Track which keys Jade filled (for JADE badge display)
   const jadeFilled = useRef<Set<string>>(new Set());
@@ -404,6 +406,8 @@ function VariantCColumns() {
         isSaving={isSaving}
         isDirty={isDirty}
         onSave={handleSave}
+        onShowGroceryList={() => setGrocerySheetOpen(true)}
+        groceryReady={filledCount > 0 && !isDirty}
         className={cn(
           "fixed bottom-0 left-0 right-0",
           "max-w-7xl mx-auto",
@@ -411,6 +415,13 @@ function VariantCColumns() {
           "!static !bottom-auto !left-auto !right-auto",
           "sticky bottom-0",
         )}
+      />
+
+      <GrocerySheet
+        open={grocerySheetOpen}
+        onOpenChange={setGrocerySheetOpen}
+        weekStart={weekStart}
+        approachUsed="c"
       />
     </div>
   );

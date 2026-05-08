@@ -32,6 +32,14 @@ export interface JadeDrawerProps {
     weekStart: string;
     coachStrip?: string | null;
   };
+  /**
+   * Optional message to inject into the chat the moment the drawer opens.
+   * Used by external entry points (e.g. the "Grocery list" button) to
+   * route through Jade without typing. The parent should clear this back
+   * to null in onSeedConsumed to avoid re-sends.
+   */
+  pendingSeed?: string | null;
+  onSeedConsumed?: () => void;
   className?: string;
 }
 
@@ -80,10 +88,13 @@ function StubContent({
 interface LiveChatProps {
   weekContext?: JadeDrawerProps["weekContext"];
   scrollRef: React.RefObject<HTMLDivElement | null>;
+  pendingSeed?: string | null;
+  onSeedConsumed?: () => void;
 }
 
-function LiveChat({ weekContext, scrollRef }: LiveChatProps) {
+function LiveChat({ weekContext, scrollRef, pendingSeed, onSeedConsumed }: LiveChatProps) {
   const greetingSent = useRef(false);
+  const lastSeedSent = useRef<string | null>(null);
 
   const { messages, sendMessage, status, addToolResult } = useChat({
     id: "variant-a-drawer",
@@ -105,16 +116,34 @@ function LiveChat({ weekContext, scrollRef }: LiveChatProps) {
 
   const isLoading = status === "streaming" || status === "submitted";
 
-  // On first mount with no messages, send a silent greeting so Jade opens with
-  // the inferred WEEK CHARACTER from the system prompt (no CategoryPicker —
-  // we already have the user's training schedule).
+  // On first mount with no messages, send either the external seed (if a
+  // caller asked us to) or a silent "hi" so Jade opens with the inferred
+  // WEEK CHARACTER. With a seed, we skip the greeting — the seed plays that role.
   useEffect(() => {
-    if (!greetingSent.current && messages.length === 0) {
+    if (greetingSent.current) return;
+    if (messages.length > 0) return;
+    if (pendingSeed) {
       greetingSent.current = true;
-      sendMessage({ text: "hi" });
+      lastSeedSent.current = pendingSeed;
+      sendMessage({ text: pendingSeed });
+      onSeedConsumed?.();
+      return;
     }
+    greetingSent.current = true;
+    sendMessage({ text: "hi" });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // If a new seed arrives after mount (e.g. user clicked "Grocery list" while
+  // the drawer was already open), inject it into the existing thread.
+  useEffect(() => {
+    if (!pendingSeed) return;
+    if (lastSeedSent.current === pendingSeed) return;
+    lastSeedSent.current = pendingSeed;
+    sendMessage({ text: pendingSeed });
+    onSeedConsumed?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pendingSeed]);
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -270,6 +299,8 @@ export function JadeDrawer({
   isOpen,
   onClose,
   weekContext,
+  pendingSeed,
+  onSeedConsumed,
   className,
 }: JadeDrawerProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -341,7 +372,12 @@ export function JadeDrawer({
 
         {/* Body: stub or live chat */}
         {isAiConfigured ? (
-          <LiveChat weekContext={weekContext} scrollRef={scrollRef} />
+          <LiveChat
+            weekContext={weekContext}
+            scrollRef={scrollRef}
+            pendingSeed={pendingSeed}
+            onSeedConsumed={onSeedConsumed}
+          />
         ) : (
           <>
             <div className="flex-1 overflow-y-auto p-4 space-y-4">

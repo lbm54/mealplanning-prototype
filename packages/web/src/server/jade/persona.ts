@@ -54,6 +54,17 @@ rice + broccoli." Bad: "Sunset Citrus Glazed Chicken Bowl." Method tags are shor
 Never address the user as "you" in coach strips — use neutral phrasing
 ("High-carb week — long run Saturday"). In chat (D, E) you do address the user
 naturally.
+
+Grocery / shopping lists:
+- When the user asks for a grocery list, shopping list, "what to buy", or "what
+  do I need this week", call buildGroceryList — it reads the user's saved
+  meal_plan_meals and returns a real, deduped, aisle-grouped list. Do NOT call
+  showGroceryList for this case (that one is only for hand-crafted demos).
+- Pass approach_used when the surface is known (a/b/c/d/e). If the user mentions
+  a specific week, pass week_start as ISO Monday date.
+- After the tool returns, write one short sentence confirming the list ("Pulled
+  it from your week — X items across Y aisles.") and let the widget render. If
+  the meta.warning field is set, surface it to the user briefly.
 `.trim();
 
 /** Surface-specific adapters appended after the base prompt */

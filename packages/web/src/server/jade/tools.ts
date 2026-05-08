@@ -18,6 +18,7 @@
 import { tool } from "ai";
 import { z } from "zod";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { buildGroceryListFromPlan } from "./grocery";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Context shape passed to every data-fetching execute()
@@ -401,6 +402,33 @@ export function makeJadeTools(ctx: JadeToolContext) {
         ),
       }),
       execute: async (input) => input,
+    }),
+
+    buildGroceryList: tool({
+      description:
+        "Build a real grocery list by aggregating ingredients from the user's saved meal plan in Supabase. " +
+        "Use this whenever the user asks for a shopping/grocery list, what to buy, or 'what do I need'. " +
+        "Prefer this over showGroceryList — it reads the actual meals, dedupes ingredients across the week, " +
+        "groups them by supermarket aisle, and aggregates portions. Pass an explicit meal_plan_id when known " +
+        "(e.g., from URL or earlier context); otherwise pass week_start (Monday ISO date) and/or approach_used " +
+        "(a/b/c/d/e). With nothing passed, it falls back to the user's most recently updated plan.",
+      inputSchema: z.object({
+        meal_plan_id: z.string().uuid().optional()
+          .describe("Explicit meal_plan UUID. Use when known."),
+        week_start: z.string().optional()
+          .describe("ISO Monday date (YYYY-MM-DD) to scope to a specific week."),
+        approach_used: z.enum(["a", "b", "c", "d", "e"]).optional()
+          .describe("Constrain to a specific UI variant's plan."),
+      }),
+      execute: async ({ meal_plan_id, week_start, approach_used }) => {
+        return await buildGroceryListFromPlan({
+          supabase,
+          userId,
+          mealPlanId: meal_plan_id,
+          weekStart: week_start,
+          approachUsed: approach_used,
+        });
+      },
     }),
 
     showPhotoUploadPrompt: tool({

@@ -133,6 +133,21 @@ function VariantACalendar() {
   );
 
   const [isGenerating, setIsGenerating] = useState(false);
+  const [elapsedSec, setElapsedSec] = useState(0);
+
+  // Tick a seconds counter while a generation is in flight so the button
+  // shows progress instead of looking frozen.
+  useEffect(() => {
+    if (!isGenerating) {
+      setElapsedSec(0);
+      return;
+    }
+    const start = Date.now();
+    const id = setInterval(() => {
+      setElapsedSec(Math.floor((Date.now() - start) / 1000));
+    }, 1000);
+    return () => clearInterval(id);
+  }, [isGenerating]);
 
   const [swapTarget, setSwapTarget] = useState<{
     date: string;
@@ -141,6 +156,7 @@ function VariantACalendar() {
   } | null>(null);
 
   const [isJadeOpen, setIsJadeOpen] = useState(false);
+  const [jadePendingSeed, setJadePendingSeed] = useState<string | null>(null);
 
   const [isApplyingTweak, setIsApplyingTweak] = useState(false);
 
@@ -339,14 +355,23 @@ function VariantACalendar() {
           if (!day.meals) continue;
           for (const [slot, asm] of Object.entries(day.meals)) {
             if (!asm) continue;
+            // Defensive — loose schema may omit totals; sum components.
+            const components = asm.components ?? [];
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const sum = (k: "carb_g" | "protein_g" | "fat_g") =>
+              components.reduce(
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                (s: number, c: any) => s + Number(c?.[k] ?? 0),
+                0,
+              );
             meals.push({
               meal_date: day.date,
               meal_slot: slot,
               title: asm.title,
               method_tag: asm.method_tag,
-              carb_g: asm.totals.carb_g,
-              prot_g: asm.totals.protein_g,
-              fat_g: asm.totals.fat_g,
+              carb_g: asm.totals?.carb_g ?? sum("carb_g"),
+              prot_g: asm.totals?.protein_g ?? sum("protein_g"),
+              fat_g: asm.totals?.fat_g ?? sum("fat_g"),
               components_json: asm.components,
             });
           }
@@ -510,6 +535,33 @@ function VariantACalendar() {
               </span>
             )}
 
+            {/* Grocery list — opens Jade drawer with a pre-seeded message */}
+            <button
+              type="button"
+              disabled={!hasPlan || isGenerating}
+              onClick={() => {
+                setJadePendingSeed(
+                  `Build my grocery list for the week of ${loaderData.weekStart} (approach a, meal_plan_id ${planId ?? "unknown"}).`,
+                );
+                setIsJadeOpen(true);
+              }}
+              title={hasPlan ? "Generate grocery list for this week" : "Build a plan first"}
+              className={cn(
+                "flex items-center gap-1.5 rounded-[var(--radius-pill)]",
+                "h-9 px-3.5",
+                "font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest",
+                "border border-border bg-background text-foreground",
+                "transition-all duration-150",
+                "hover:bg-muted/60 hover:-translate-y-0.5",
+                "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0",
+              )}
+              aria-label="Generate grocery list"
+            >
+              <span aria-hidden>🛒</span>
+              <span className="hidden md:inline">Grocery</span>
+            </button>
+
             <button
               onClick={handleRegenerate}
               disabled={isGenerating}
@@ -536,7 +588,7 @@ function VariantACalendar() {
                 <Sparkles size={12} className="opacity-80 group-hover:opacity-100" />
               )}
               {isGenerating
-                ? "Generating…"
+                ? `Generating… ${elapsedSec}s`
                 : hasPlan
                   ? "Regenerate Week"
                   : "Plan My Week"}
@@ -633,6 +685,8 @@ function VariantACalendar() {
             weekStart: loaderData.weekStart,
             coachStrip,
           }}
+          pendingSeed={jadePendingSeed}
+          onSeedConsumed={() => setJadePendingSeed(null)}
         />
       )}
 

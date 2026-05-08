@@ -64,7 +64,19 @@ export interface JadeSideProps {
 // Refinement chips shown after first Jade reply that has meal cards
 // ─────────────────────────────────────────────────────────────────────────────
 
-const REFINEMENT_PROMPTS = ["More protein", "No fish", "Simpler dinners", "Vegetarian"];
+const REFINEMENT_PROMPTS = ["More protein", "No fish", "Simpler dinners", "Vegetarian", "Build grocery list"];
+
+/**
+ * Map a refinement-chip label to the actual message text Jade sees.
+ * Most prompts go through verbatim; "Build grocery list" expands so the
+ * persona reliably triggers buildGroceryList instead of free-talking.
+ */
+function expandPrompt(label: string): string {
+  if (label === "Build grocery list") {
+    return "Build my grocery list for this week's meal plan.";
+  }
+  return label;
+}
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Default CategoryPicker output rendered at top of empty chat
@@ -430,7 +442,7 @@ export function JadeSide({
 
   const handleSuggestedPrompt = useCallback(
     (prompt: string) => {
-      handleSubmit(prompt);
+      handleSubmit(expandPrompt(prompt));
     },
     [handleSubmit],
   );

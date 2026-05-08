@@ -12,7 +12,8 @@
  */
 import { useState } from "react";
 import { motion } from "motion/react";
-import { RotateCcw, Save, Check } from "lucide-react";
+import { RotateCcw, Save, Check, ShoppingCart } from "lucide-react";
+import { GrocerySheet } from "@/components/shared/grocery-sheet";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
@@ -238,6 +239,8 @@ export interface DoneSummaryProps {
   decisions: SlotDecision[];
   onRebuild: () => void;
   onSave?: () => void;
+  /** Persisted plan id — passed once the WeekPlan has been saved to Supabase. */
+  mealPlanId?: string | null;
   className?: string;
 }
 
@@ -247,10 +250,12 @@ export function DoneSummary({
   weekPlan,
   onRebuild,
   onSave,
+  mealPlanId,
   className,
 }: DoneSummaryProps) {
   const [sheetOpen, setSheetOpen] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [grocerySheetOpen, setGrocerySheetOpen] = useState(false);
 
   const weekRange = formatWeekRange(weekPlan.week_start);
   const planCardOutput = buildMealPlanCardOutput(weekPlan);
@@ -368,6 +373,15 @@ export function DoneSummary({
           </Button>
 
           <Button
+            variant="outline"
+            className="w-full"
+            onClick={() => setGrocerySheetOpen(true)}
+          >
+            <ShoppingCart className="w-4 h-4 mr-2" />
+            Get grocery list
+          </Button>
+
+          <Button
             variant="ghost"
             className="w-full text-muted-foreground normal-case"
             onClick={onRebuild}
@@ -377,6 +391,14 @@ export function DoneSummary({
           </Button>
         </motion.div>
       </motion.div>
+
+      <GrocerySheet
+        open={grocerySheetOpen}
+        onOpenChange={setGrocerySheetOpen}
+        mealPlanId={mealPlanId ?? undefined}
+        weekStart={weekPlan.week_start}
+        approachUsed="b"
+      />
 
       {/* DayBreakdownModal Sheet */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
