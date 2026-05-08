@@ -62,16 +62,17 @@ IMPORTANT — DATA ACCESS:
 - If you see a NOTE saying the user is NOT signed in, ask them to sign in at /sign-in (do NOT mention Garmin or Strava — sign-in is the only step needed).
 
 GENERATIVE UI — TOOL USE RULES (follow exactly):
-1. ON FIRST TURN: If there are no prior assistant messages in the thread, ALWAYS call showCategoryPicker BEFORE generating any plan or giving substantive advice. Wait for the user's category selection before proceeding.
+1. FIRST-TURN BEHAVIOR — DO NOT ASK FOR INFO YOU ALREADY HAVE: The ATHLETE CONTEXT block above contains the user's profile, training schedule, macro targets, food preferences, and a DERIVED WEEK CHARACTER (week_character, total training load, anchor day, avg daily carbs). USE THIS DATA. Open with a *contextual* greeting that names the inferred week character and the anchor day, then ask only ONE concrete next-step question (e.g. "Want me to build a plan around your Saturday long run?"). DO NOT call showCategoryPicker on first turn — categories are already implied by the activities. Only call showCategoryPicker if the user explicitly asks "let me pick a different angle" or if no activities exist (workoutDays === 0 AND user hasn't set goals).
 2. WORKOUT FUEL: Whenever you reference today's or a specific day's training session, ALSO call showWorkoutTimeline so the user sees the pre/during/post fuel windows inline.
 3. WEEK PLANS: When generating a week meal plan, finish your text summary THEN call showMealCarousel with 3 distinct options (different macro profiles or cuisine themes) OR call showMealPlanCard if there is only one logical plan given the constraints.
 4. INSIGHTS: Use showInsightTile proactively whenever you spot a pattern — low protein across multiple days, a recovery week opportunity, an approaching race countdown, or a macro target that won't be met.
 5. WEATHER: When the user asks about today's conditions, hydration, or heat training, call getWeather first then immediately call showWeatherCard with the result.
-6. RACE COUNTDOWN: If the user mentions an upcoming race or event within 21 days, call showRaceCountdown.
-7. CLARIFICATIONS: Prefer showFollowUpQuestion over plain text when you need to ask a clarifying question — it gives the user tap-able options.
+6. RACE COUNTDOWN: If the user mentions an upcoming race or event within 21 days, call showRaceCountdown. If DERIVED WEEK CHARACTER says "race week", lead with showRaceCountdown on first turn.
+7. CLARIFICATIONS: Prefer showFollowUpQuestion over plain text when you need to ask a clarifying question — it gives the user tap-able options. Use yes/no/maybe choices, not open-ended categories.
 8. COMPARISONS: When the user asks "which is better" about two meals, call showComparisonCard.
 9. GROCERIES: After confirming a plan, proactively offer to call showGroceryList.
-10. Never call data tools (getWeather, getUpcomingActivities, getMacroTargets, getUserProfile) more than once per turn for the same data — the ATHLETE CONTEXT block already has the most recent snapshot.`;
+10. Never call data tools (getWeather, getUpcomingActivities, getMacroTargets, getUserProfile) more than once per turn for the same data — the ATHLETE CONTEXT block already has the most recent snapshot.
+11. WHEN THE USER SAYS "PLAN MY WEEK" or similar: assume they want a plan now — don't ask clarifying questions, generate it using the DERIVED WEEK CHARACTER, then show showMealCarousel with 3 options.`;
 
         try {
           // ── /api/jade/hello — sanity check ──────────────────────────────
@@ -236,6 +237,58 @@ GENERATIVE UI — TOOL USE RULES (follow exactly):
                     if (liked.length) parts.push(`LIKES: ${liked.join(", ")}.`);
                     if (disliked.length) parts.push(`DISLIKES (avoid unless necessary): ${disliked.join(", ")}.`);
                   }
+
+                  // ── Derive WEEK CHARACTER from activities + macros ─────────
+                  const intensityWeight: Record<string, number> = {
+                    low: 1, easy: 1, moderate: 2, mod: 2,
+                    high: 3, threshold: 3.5, vo2max: 4, race: 5,
+                  };
+                  // Use the next 7 days only for "this week"
+                  const sevenDaysOut = new Date(Date.now() + 7 * 86400_000).toISOString().slice(0, 10);
+                  const thisWeekActs = acts.filter((a) =>
+                    a.scheduled_date_time && a.scheduled_date_time.slice(0, 10) <= sevenDaysOut,
+                  );
+                  const totalLoad = thisWeekActs.reduce((sum, a) => {
+                    const min = Number(a.duration_minutes ?? 0);
+                    const w = intensityWeight[String(a.intensity_level ?? "moderate").toLowerCase()] ?? 2;
+                    return sum + min * w;
+                  }, 0);
+                  const workoutDays = new Set(thisWeekActs.map((a) => a.scheduled_date_time?.slice(0, 10))).size;
+                  const restDays = 7 - workoutDays;
+                  // Find anchor: longest single activity OR named "race"/"long"
+                  const anchor = thisWeekActs
+                    .slice()
+                    .sort((a, b) => Number(b.duration_minutes ?? 0) - Number(a.duration_minutes ?? 0))[0];
+                  const isRaceWeek = thisWeekActs.some((a) =>
+                    /race|marathon|half|10k|5k|ironman|tri/i.test(`${a.title ?? ""} ${a.activity_type ?? ""}`),
+                  );
+
+                  // Macro signal — average daily carbs vs body weight as a rough check
+                  const avgCarb = macros.length
+                    ? Math.round(macros.reduce((s, m) => s + Number(m.carb_g ?? 0), 0) / macros.length)
+                    : 0;
+                  const carbsPerLb = p?.weight_pounds ? avgCarb / Number(p.weight_pounds) : 0;
+                  // Heuristic week character
+                  let weekCharacter = "training";
+                  if (isRaceWeek) weekCharacter = "race week";
+                  else if (workoutDays === 0) weekCharacter = "full rest";
+                  else if (totalLoad > 1200) weekCharacter = "high-load training";
+                  else if (totalLoad > 600) weekCharacter = "moderate training";
+                  else weekCharacter = "easy / recovery";
+
+                  const characterBits: string[] = [];
+                  characterBits.push(`Week character: ${weekCharacter}.`);
+                  characterBits.push(`Total training load score: ${Math.round(totalLoad)} (min·intensity).`);
+                  characterBits.push(`Workout days: ${workoutDays}/7. Rest days: ${restDays}/7.`);
+                  if (anchor && anchor.duration_minutes) {
+                    const date = anchor.scheduled_date_time?.slice(0, 10);
+                    const day = date ? new Date(date + "T00:00:00").toLocaleDateString("en-US", { weekday: "long" }) : "TBD";
+                    characterBits.push(`Anchor day: ${day} (${anchor.activity_type ?? "activity"}${anchor.duration_minutes ? `, ${anchor.duration_minutes} min` : ""}${anchor.distance_miles ? `, ${anchor.distance_miles} mi` : ""}).`);
+                  }
+                  if (avgCarb > 0) {
+                    characterBits.push(`Avg daily carbs: ${avgCarb}g${p?.weight_pounds ? ` (${carbsPerLb.toFixed(1)}g/lb)` : ""}.`);
+                  }
+                  parts.push(`DERIVED WEEK CHARACTER (compute once, do not ask the user about this — they already gave us their training schedule and macros):\n${characterBits.map((b) => `- ${b}`).join("\n")}`);
 
                   userContext = "\n\n=== ATHLETE CONTEXT (already loaded — do not say you can't see it) ===\n" + parts.join("\n\n") + "\n=== END CONTEXT ===\n";
                 } else {

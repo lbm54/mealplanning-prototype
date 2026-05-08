@@ -427,24 +427,42 @@ function EmptyStateHero({
 }) {
   return (
     <div className="space-y-4">
-      {/* Proactive cards */}
+      {/* Proactive cards — these already reference the user's actual schedule */}
       <ProactiveCardStack onCta={onCta} />
 
-      {/* CategoryPicker hero */}
-      <div className="px-5 pb-2 animate-fade-up" style={{ animationDelay: "160ms" }}>
-        <KyleCard variant="elevated">
-          <KyleCardContent className="p-5">
-            <CategoryPicker
-              output={STUB_CATEGORY_PICKER}
-              onUserResponse={
-                onCategoryPick
-                  ? ({ id, label }) => onCategoryPick(id, label)
-                  : undefined
-              }
-            />
-          </KyleCardContent>
-        </KyleCard>
-      </div>
+      {/* "Other goal?" — soft fallback for users who want to override the
+          inferred week character. Hidden by default; user expands if needed. */}
+      <details
+        className="group px-5 pb-2 animate-fade-up"
+        style={{ animationDelay: "240ms" }}
+      >
+        <summary
+          className={
+            "list-none cursor-pointer select-none " +
+            "font-[var(--font-apercu)] text-[var(--font-size-caption)] " +
+            "text-muted-foreground/60 hover:text-foreground/80 " +
+            "transition-colors duration-150"
+          }
+        >
+          <span className="border-b border-dashed border-muted-foreground/30 group-hover:border-foreground/40">
+            Or pick a different angle →
+          </span>
+        </summary>
+        <div className="mt-3">
+          <KyleCard variant="outlined">
+            <KyleCardContent className="p-4">
+              <CategoryPicker
+                output={STUB_CATEGORY_PICKER}
+                onUserResponse={
+                  onCategoryPick
+                    ? ({ id, label }) => onCategoryPick(id, label)
+                    : undefined
+                }
+              />
+            </KyleCardContent>
+          </KyleCard>
+        </div>
+      </details>
     </div>
   );
 }
