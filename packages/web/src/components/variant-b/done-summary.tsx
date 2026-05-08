@@ -1,40 +1,44 @@
 /**
- * Variant B — DoneSummary (2026 facelift).
+ * Variant B — DoneSummary (generative UI upgrade 2026-05-08).
  *
- * Celebratory full-card layout when all 21 cards are decided.
+ * Replaces the manual stats block with:
+ *   - InsightTile cards for any weekly imbalances (low fiber / low protein)
+ *   - MealPlanCard showing full week macros + day count
+ *   - Tap MealPlanCard expand → DayBreakdownModal in a Sheet
+ *   - WeekHeatmap showing carb-tier shading per day
+ *   - CTA buttons: Save week / Rebuild
  *
- * - Big "WEEK BUILT" headline (Sansita Bold) + week range subtitle
- * - Coach strip line
- * - Stats row: total meals / locked / flexible
- * - Week macro bar
- * - Collapsible day accordion (7 days × their meals)
- * - Two CTA buttons: SAVE WEEK (Mango pill) + VIEW AS GRID (outline → Sheet)
- * - CSS-only confetti on entry
+ * Confetti burst and coach-strip are preserved.
  */
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown, LayoutGrid, RotateCcw, Save, Check } from "lucide-react";
+import { motion } from "motion/react";
+import { RotateCcw, Save, Check } from "lucide-react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
-import { MacroBar } from "@/components/shared/macro-bar";
-import { cn } from "@/lib/utils";
+import MealPlanCard from "@/components/shared/widgets/meal-plan-card";
+import WeekHeatmap from "@/components/shared/widgets/week-heatmap";
+import DayBreakdownModal from "@/components/shared/widgets/day-breakdown-modal";
+import InsightTile from "@/components/shared/widgets/insight-tile";
+import type { MealPlanCardOutput } from "@/components/shared/widgets/meal-plan-card";
+import type { WeekHeatmapOutput, HeatmapDay } from "@/components/shared/widgets/week-heatmap";
+import type { DayBreakdownModalOutput, PlanDay, DayMealSlot } from "@/components/shared/widgets/day-breakdown-modal";
+import type { InsightTileOutput } from "@/components/shared/widgets/insight-tile";
 import type { WeekPlan } from "@/server/jade/schema";
 import type { SlotDecision } from "./types";
 
-const SLOT_LABELS_SHORT: Record<string, string> = {
-  breakfast: "B",
-  lunch: "L",
-  dinner: "D",
-  snack: "S",
-  pre_workout: "Pre",
-  during_workout: "Dur",
-  post_workout: "Post",
-};
+// ─── Helpers ────────────────────────────────────────────────────────────────
 
-const DAY_NAMES_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const DAY_LABELS_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+function formatWeekRange(weekStart: string): string {
+  const start = new Date(weekStart + "T12:00:00");
+  const end = new Date(weekStart + "T12:00:00");
+  end.setDate(start.getDate() + 6);
+  const fmt = (d: Date) =>
+    d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  return `${fmt(start)} – ${fmt(end)}`;
+}
 
 function computeWeekTotals(weekPlan: WeekPlan) {
   let carbG = 0, protG = 0, fatG = 0;
@@ -49,24 +53,125 @@ function computeWeekTotals(weekPlan: WeekPlan) {
   return { carbG: Math.round(carbG), protG: Math.round(protG), fatG: Math.round(fatG) };
 }
 
-function formatWeekRange(weekStart: string): string {
-  const start = new Date(weekStart + "T12:00:00");
-  const end = new Date(weekStart + "T12:00:00");
-  end.setDate(start.getDate() + 6);
-  const fmt = (d: Date) =>
-    d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
-  return `${fmt(start)} – ${fmt(end)}`;
+/** Derive MealPlanCard output from a WeekPlan */
+function buildMealPlanCardOutput(weekPlan: WeekPlan): MealPlanCardOutput {
+  const { carbG, protG, fatG } = computeWeekTotals(weekPlan);
+  const dayCount = weekPlan.days.length;
+  const weekKcal = Math.round((carbG * 4 + protG * 4 + fatG * 9));
+  return {
+    title: "Your week",
+    description: weekPlan.coach_strip,
+    weekKcal,
+    dayCount,
+    dailyAvg: {
+      carbG: Math.round(carbG / dayCount),
+      proteinG: Math.round(protG / dayCount),
+      fatG: Math.round(fatG / dayCount),
+      kcal: Math.round(weekKcal / dayCount),
+    },
+  };
 }
 
-export interface DoneSummaryProps {
-  weekPlan: WeekPlan;
-  decisions: SlotDecision[];
-  onRebuild: () => void;
-  onSave?: () => void;
-  className?: string;
+/** Derive WeekHeatmap output from a WeekPlan */
+function buildHeatmapOutput(weekPlan: WeekPlan): WeekHeatmapOutput {
+  const days: HeatmapDay[] = weekPlan.days.map((day, i) => {
+    const carbG = Object.values(day.meals ?? {}).reduce(
+      (sum, m) => sum + (m?.totals.carb_g ?? 0),
+      0,
+    );
+    return {
+      date: day.date,
+      label: DAY_LABELS_SHORT[i] ?? "?",
+      carbG: Math.round(carbG),
+    };
+  });
+  return { days, label: "Carb distribution" };
 }
 
-/** Tiny CSS-only confetti burst — purely visual, no library needed */
+/** Derive DayBreakdownModal output from a WeekPlan.
+ *
+ *  DayBreakdownModal uses MealCell's local MealAssembly type
+ *  (carbG/protG/fatG flat fields, not `totals`), so we map here.
+ */
+function buildDayBreakdownOutput(weekPlan: WeekPlan): DayBreakdownModalOutput {
+  const days: PlanDay[] = weekPlan.days.map((day, i) => {
+    const meals = day.meals ?? {};
+    let carbG = 0, proteinG = 0, fatG = 0;
+
+    const slots: DayMealSlot[] = Object.entries(meals).map(([slot, meal]) => {
+      if (meal) {
+        carbG += meal.totals.carb_g;
+        proteinG += meal.totals.protein_g;
+        fatG += meal.totals.fat_g;
+      }
+      return {
+        slot,
+        // Map from server MealAssembly (totals.*) → MealCell MealAssembly (carbG/protG/fatG)
+        meal: meal
+          ? {
+              id: meal.id,
+              title: meal.title,
+              methodTag: meal.method_tag,
+              components: meal.components.map((c) => ({
+                name: c.name,
+                portion: c.portion,
+              })),
+              carbG: meal.totals.carb_g,
+              protG: meal.totals.protein_g,
+              fatG: meal.totals.fat_g,
+            }
+          : null,
+      };
+    });
+
+    const kcal = Math.round(carbG * 4 + proteinG * 4 + fatG * 9);
+    return {
+      date: day.date,
+      label: DAY_LABELS_SHORT[i] ?? "Day",
+      slots,
+      carbG: Math.round(carbG),
+      proteinG: Math.round(proteinG),
+      fatG: Math.round(fatG),
+      kcal,
+    };
+  });
+
+  const weekKcal = days.reduce((s, d) => s + d.kcal, 0);
+  return { title: "Week breakdown", days, weekKcal };
+}
+
+/** Detect nutritional imbalances and return InsightTile outputs */
+function detectInsights(weekPlan: WeekPlan): InsightTileOutput[] {
+  const { carbG, protG } = computeWeekTotals(weekPlan);
+  const dayCount = weekPlan.days.length;
+  const avgCarbG = carbG / dayCount;
+  const avgProtG = protG / dayCount;
+  const insights: InsightTileOutput[] = [];
+
+  if (avgProtG < 100) {
+    insights.push({
+      tone: "warning",
+      title: "Protein is running low",
+      body: `Daily average is ${Math.round(avgProtG)}g — aim for at least 100g to support recovery.`,
+      actionLabel: "Add a protein-rich swap",
+    });
+  }
+
+  // Estimate fiber (rough: ~12% of carbs, target ~25g/day)
+  const estimatedFiberG = avgCarbG * 0.12;
+  if (estimatedFiberG < 20) {
+    insights.push({
+      tone: "info",
+      title: "Fiber looks a bit low",
+      body: `Estimated ${Math.round(estimatedFiberG)}g/day. Try adding beans, oats, or veggies to a few lunches.`,
+    });
+  }
+
+  return insights;
+}
+
+// ─── Confetti ────────────────────────────────────────────────────────────────
+
 function ConfettiDots() {
   const dots = [
     { x: "10%", y: "8%", color: "var(--color-orange)", size: 8, delay: 0 },
@@ -105,99 +210,20 @@ function ConfettiDots() {
   );
 }
 
-/** Accordion day row */
-function DayAccordion({
-  dayIndex,
-  day,
-  decisions,
-}: {
-  dayIndex: number;
-  day: WeekPlan["days"][number];
+// ─── Props ───────────────────────────────────────────────────────────────────
+
+export interface DoneSummaryProps {
+  weekPlan: WeekPlan;
   decisions: SlotDecision[];
-}) {
-  const [open, setOpen] = useState(false);
-  const dayDecisions = decisions.filter((d) => d.date === day.date);
-  const lockedCount = dayDecisions.filter((d) => d.decision === "lock").length;
-  const meals = Object.entries(day.meals ?? {});
-
-  return (
-    <div className="border border-border/40 rounded-[var(--radius-card)] overflow-hidden">
-      <button
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-card hover:bg-muted/30 transition-colors"
-      >
-        <div className="flex items-center gap-3">
-          <span className="font-[var(--font-compadre)] text-[var(--font-size-label)] uppercase tracking-widest text-foreground font-bold">
-            {DAY_NAMES_SHORT[dayIndex]}
-          </span>
-          {lockedCount > 0 && (
-            <Badge variant="training-day" className="text-[8px] px-1.5 py-0.5">
-              {lockedCount} locked
-            </Badge>
-          )}
-          <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
-            {meals.length} meals
-          </span>
-        </div>
-        <motion.div
-          animate={{ rotate: open ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <ChevronDown className="w-4 h-4 text-muted-foreground" />
-        </motion.div>
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden"
-          >
-            <div className="px-4 pb-3 pt-1 space-y-2 bg-muted/10">
-              {meals.map(([slot, meal]) => {
-                if (!meal) return null;
-                const decision = dayDecisions.find((d) => d.slot === slot);
-                const isLocked = decision?.decision === "lock";
-                return (
-                  <div
-                    key={slot}
-                    className={cn(
-                      "flex items-center justify-between gap-2 rounded-lg px-3 py-2",
-                      "border border-border/30 bg-card",
-                      isLocked && "border-accent/40",
-                    )}
-                  >
-                    <div className="flex items-center gap-2 min-w-0">
-                      <span className="font-[var(--font-compadre)] text-[9px] uppercase tracking-[0.15em] text-muted-foreground shrink-0">
-                        {SLOT_LABELS_SHORT[slot]}
-                      </span>
-                      <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground truncate">
-                        {meal.title}
-                      </span>
-                    </div>
-                    {isLocked && (
-                      <span className="text-accent shrink-0" style={{ fontSize: "10px" }}>
-                        🔒
-                      </span>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
+  onRebuild: () => void;
+  onSave?: () => void;
+  className?: string;
 }
+
+// ─── Component ───────────────────────────────────────────────────────────────
 
 export function DoneSummary({
   weekPlan,
-  decisions,
   onRebuild,
   onSave,
   className,
@@ -205,16 +231,16 @@ export function DoneSummary({
   const [sheetOpen, setSheetOpen] = useState(false);
   const [saved, setSaved] = useState(false);
 
-  const totalMeals = decisions.length;
-  const lockedCount = decisions.filter((d) => d.decision === "lock").length;
-  const flexibleCount = totalMeals - lockedCount;
-  const weekTotals = computeWeekTotals(weekPlan);
   const weekRange = formatWeekRange(weekPlan.week_start);
+  const planCardOutput = buildMealPlanCardOutput(weekPlan);
+  const heatmapOutput = buildHeatmapOutput(weekPlan);
+  const breakdownOutput = buildDayBreakdownOutput(weekPlan);
+  const insights = detectInsights(weekPlan);
 
-  const handleSave = () => {
+  function handleSave() {
     setSaved(true);
     onSave?.();
-  };
+  }
 
   return (
     <>
@@ -222,7 +248,7 @@ export function DoneSummary({
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className={cn("relative flex flex-col gap-5 px-4 py-8 max-w-md w-full mx-auto", className)}
+        className={`relative flex flex-col gap-5 px-4 py-8 max-w-md w-full mx-auto ${className ?? ""}`}
       >
         {/* Confetti */}
         <ConfettiDots />
@@ -253,80 +279,46 @@ export function DoneSummary({
               {weekRange}
             </p>
           </motion.div>
-
-          {weekPlan.coach_strip && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.35, duration: 0.4 }}
-              className="flex items-center justify-center gap-2"
-            >
-              <div
-                className="px-3 py-1.5 rounded-full font-[var(--font-apercu)] italic text-[var(--font-size-caption)] text-muted-foreground"
-                style={{
-                  background: "rgba(28,249,207,0.08)",
-                  border: "1px solid rgba(28,249,207,0.2)",
-                }}
-              >
-                {weekPlan.coach_strip}
-              </div>
-            </motion.div>
-          )}
         </div>
 
-        {/* Stats row */}
+        {/* Insight tiles — shown only when imbalances detected */}
+        {insights.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-2"
+          >
+            {insights.map((insight, i) => (
+              <InsightTile
+                key={i}
+                output={insight}
+              />
+            ))}
+          </motion.div>
+        )}
+
+        {/* MealPlanCard — tap expand arrow to open DayBreakdownModal */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-[var(--radius-card)] border border-border/40 bg-card p-4 space-y-4"
-          style={{ boxShadow: "var(--shadow-card-elevated-light)" }}
+          transition={{ delay: 0.35, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="flex gap-0 divide-x divide-border/40">
-            {[
-              { value: totalMeals, label: "meals", color: "text-foreground" },
-              { value: lockedCount, label: "locked", color: "text-[var(--color-electrolyte)]" },
-              { value: flexibleCount, label: "flexible", color: "text-muted-foreground" },
-            ].map(({ value, label, color }) => (
-              <div key={label} className="flex-1 text-center px-3">
-                <p className={cn("font-[var(--font-apercu-mono)] text-2xl font-bold tabular-nums", color)}>
-                  {value}
-                </p>
-                <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider mt-0.5">
-                  {label}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <Separator className="opacity-40" />
-
-          {/* Week macro bar */}
-          <MacroBar
-            carbG={weekTotals.carbG}
-            protG={weekTotals.protG}
-            fatG={weekTotals.fatG}
+          <MealPlanCard
+            output={planCardOutput}
+            onExpand={() => setSheetOpen(true)}
           />
         </motion.div>
 
-        {/* Day accordion list */}
+        {/* WeekHeatmap */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="space-y-2"
+          transition={{ delay: 0.42, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-[var(--radius-card)] border border-border/40 bg-card p-4"
+          style={{ boxShadow: "var(--shadow-card-elevated-light)" }}
         >
-          <p className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-widest text-muted-foreground px-1">
-            Your week
-          </p>
-          {weekPlan.days.map((day, i) => (
-            <DayAccordion
-              key={day.date}
-              dayIndex={i}
-              day={day}
-              decisions={decisions}
-            />
-          ))}
+          <WeekHeatmap output={heatmapOutput} />
         </motion.div>
 
         {/* CTA buttons */}
@@ -355,15 +347,6 @@ export function DoneSummary({
           </Button>
 
           <Button
-            variant="outline"
-            className="w-full"
-            onClick={() => setSheetOpen(true)}
-          >
-            <LayoutGrid className="w-4 h-4 mr-2" />
-            View as grid
-          </Button>
-
-          <Button
             variant="ghost"
             className="w-full text-muted-foreground normal-case"
             onClick={onRebuild}
@@ -374,68 +357,17 @@ export function DoneSummary({
         </motion.div>
       </motion.div>
 
-      {/* View-as-grid Sheet */}
+      {/* DayBreakdownModal Sheet */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
         <SheetContent side="bottom" className="h-[85vh] flex flex-col">
           <SheetHeader className="shrink-0">
             <SheetTitle className="font-[var(--font-sansita)] text-[var(--font-size-section)] uppercase tracking-wider">
-              Week Grid
+              Day breakdown
             </SheetTitle>
           </SheetHeader>
 
-          <div className="flex-1 overflow-y-auto">
-            <div className="grid grid-cols-7 gap-1 text-center mb-2">
-              {DAY_NAMES_SHORT.map((d) => (
-                <div
-                  key={d}
-                  className="font-[var(--font-compadre)] text-[10px] uppercase tracking-wider text-muted-foreground"
-                >
-                  {d}
-                </div>
-              ))}
-            </div>
-
-            {weekPlan.days.map((day, i) => {
-              const slots = Object.keys(day.meals ?? {});
-              return (
-                <div key={day.date} className="grid grid-cols-7 gap-1 mb-1">
-                  {Array.from({ length: 7 }).map((_, col) => {
-                    if (col !== i) return <div key={col} />;
-                    return (
-                      <div key={`${day.date}-${col}`} className="col-span-1 space-y-0.5">
-                        {slots.map((slot) => {
-                          const meal = day.meals?.[slot as keyof typeof day.meals];
-                          if (!meal) return null;
-                          const isLocked = decisions.find(
-                            (d) => d.date === day.date && d.slot === slot && d.decision === "lock",
-                          );
-                          return (
-                            <div
-                              key={slot}
-                              className={cn(
-                                "rounded px-1 py-0.5 text-[9px] font-[var(--font-apercu)]",
-                                "border border-border/40 bg-card truncate",
-                                isLocked && "border-accent/50",
-                              )}
-                            >
-                              <span className="text-muted-foreground">{SLOT_LABELS_SHORT[slot]}</span>
-                              {" "}
-                              <span className="truncate">{meal.title.split(" + ")[0]}</span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    );
-                  })}
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="shrink-0 pt-2 border-t border-border">
-            <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground text-center">
-              Read-only view — swap meals by rebuilding the stack.
-            </p>
+          <div className="flex-1 overflow-y-auto pr-1">
+            <DayBreakdownModal output={breakdownOutput} />
           </div>
         </SheetContent>
       </Sheet>

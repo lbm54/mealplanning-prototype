@@ -11,15 +11,18 @@
  * - KyleButton pill CTA with gradient + glow
  * - Subtle dot-pattern background (repeating radial-gradient)
  */
-import { motion } from "motion/react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import { Check, X, Lock, AlertCircle, ArrowLeft } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
+import CategoryPicker from "@/components/shared/widgets/category-picker";
+import type { Category } from "@/components/shared/widgets/category-picker";
 import { cn } from "@/lib/utils";
 
 export interface IdleScreenProps {
-  onStart: () => void;
+  onStart: (category: { id: string; label: string }) => void;
   error?: string | null;
 }
 
@@ -111,7 +114,27 @@ function GestureHint({
   );
 }
 
+/** Default category set for the start screen */
+const START_CATEGORIES: Category[] = [
+  { id: "athletic_performance", label: "Athletic Performance", tone: "accent" },
+  { id: "race_prep", label: "Race Prep", tone: "primary" },
+  { id: "recovery_week", label: "Recovery Week", tone: "accent" },
+  { id: "budget", label: "Budget", tone: "muted" },
+  { id: "dietary", label: "Specific Dietary", tone: "muted" },
+  { id: "weight", label: "Weight Loss", tone: "muted" },
+  { id: "family", label: "Family-Friendly", tone: "muted" },
+  { id: "pantry_only", label: "Ingredients on Hand", tone: "warning" },
+];
+
 export function IdleScreen({ onStart, error }: IdleScreenProps) {
+  const [picked, setPicked] = useState<{ id: string; label: string } | null>(null);
+
+  function handleCategoryPick(cat: { id: string; label: string }) {
+    setPicked(cat);
+    // Brief delay so the selected-state animation is visible before transition
+    setTimeout(() => onStart(cat), 320);
+  }
+
   return (
     <div
       className="flex min-h-[calc(100vh-4rem)] items-center justify-center p-4"
@@ -181,19 +204,41 @@ export function IdleScreen({ onStart, error }: IdleScreenProps) {
               />
             </div>
 
-            {/* CTA */}
-            <motion.div
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ type: "spring", stiffness: 400, damping: 25 }}
-            >
-              <Button
-                className="w-full"
-                onClick={onStart}
-              >
-                Plan my week
-              </Button>
-            </motion.div>
+            {/* Category picker — replaces the plain CTA */}
+            <AnimatePresence mode="wait">
+              {!picked ? (
+                <motion.div
+                  key="picker"
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <CategoryPicker
+                    output={{
+                      title: "What kind of week are we planning?",
+                      categories: START_CATEGORIES,
+                    }}
+                    onUserResponse={handleCategoryPick}
+                  />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="loading"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="flex items-center justify-center gap-2 py-2"
+                >
+                  <div
+                    className="w-4 h-4 rounded-full animate-pulse"
+                    style={{ background: "var(--color-electrolyte)" }}
+                  />
+                  <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
+                    Building your {picked.label.toLowerCase()} week…
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             <Link to="/">
               <Button

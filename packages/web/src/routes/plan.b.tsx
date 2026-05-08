@@ -23,11 +23,12 @@
  * For now it lives in components/variant-b/jade-narrator.tsx.
  */
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link as RouterLink } from "@tanstack/react-router";
 import { RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { MealStack } from "@/components/variant-b/meal-stack";
 import { SwipeActions } from "@/components/variant-b/swipe-actions";
 import { JadeNarrator } from "@/components/variant-b/jade-narrator";
@@ -35,6 +36,8 @@ import { StackProgress } from "@/components/variant-b/stack-progress";
 import { DoneSummary } from "@/components/variant-b/done-summary";
 import { IdleScreen } from "@/components/variant-b/idle-screen";
 import { useStack } from "@/components/variant-b/use-stack";
+import FollowUpQuestion from "@/components/shared/widgets/follow-up-question";
+import type { SelectedCategory } from "@/components/variant-b/types";
 
 export const Route = createFileRoute("/plan/b")({
   component: VariantBStack,
@@ -132,7 +135,7 @@ function VariantBStack() {
   const [stackPaused, setStackPaused] = useState(false);
   const swipeRef = useRef<"keep" | "swap" | "lock" | null>(null);
 
-  const { state, swipeKeep, swipeSwap, swipeLock, startBuild, rebuild, decisions } = useStack();
+  const { state, swipeKeep, swipeSwap, swipeLock, startBuild, rebuild, dismissFollowUp, decisions } = useStack();
 
   const totalCards = state.deck.length;
   const decidedCount = state.currentIndex;
@@ -146,9 +149,27 @@ function VariantBStack() {
     else swipeLock();
   };
 
+  // Pause swipe actions while the follow-up overlay is open
+  useEffect(() => {
+    if (state.followUpOverlay !== null) {
+      setStackPaused(true);
+    }
+  }, [state.followUpOverlay]);
+
+  function handleCategoryPicked(cat: SelectedCategory) {
+    startBuild(cat);
+  }
+
+  function handleFollowUpAnswer(_response: { id: string; label: string }) {
+    // v1: canned path — just dismiss. Responses are recorded but not acted on.
+    // Future: send to useChat addToolResult to let Jade adjust the remaining deck.
+    dismissFollowUp();
+    setStackPaused(false);
+  }
+
   // ── Idle state (not started) ──────────────────────────────────────────────
   if (state.status === "idle") {
-    return <IdleScreen onStart={startBuild} error={state.error} />;
+    return <IdleScreen onStart={handleCategoryPicked} error={state.error} />;
   }
 
   // ── Loading state ──────────────────────────────────────────────────────────
@@ -296,6 +317,75 @@ function VariantBStack() {
           onChatClose={() => setStackPaused(false)}
         />
       </div>
+
+      {/* Mid-deck follow-up overlay — bottom Sheet with FollowUpQuestion */}
+      <Sheet
+        open={state.followUpOverlay !== null}
+        onOpenChange={(open) => {
+          if (!open) {
+            dismissFollowUp();
+            setStackPaused(false);
+          }
+        }}
+      >
+        <SheetContent
+          side="bottom"
+          className="rounded-t-[var(--radius-card)] px-5 pt-5 pb-8 space-y-4"
+          style={{
+            background: "var(--color-card, var(--card))",
+            boxShadow: "0 -4px 32px rgba(0,0,0,0.12)",
+          }}
+        >
+          {state.followUpOverlay && (
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={state.followUpOverlay.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {/* Jade avatar header */}
+                <div className="flex items-center gap-2 mb-3">
+                  <div
+                    className="w-7 h-7 rounded-full flex items-center justify-center shrink-0"
+                    style={{
+                      background: "var(--color-electrolyte)",
+                      boxShadow: "var(--shadow-glow-electrolyte)",
+                    }}
+                  >
+                    <span className="font-[var(--font-sansita)] text-sm font-bold text-[#381633] leading-none">
+                      J
+                    </span>
+                  </div>
+                  <span className="font-[var(--font-compadre)] text-[10px] uppercase tracking-widest text-muted-foreground">
+                    Jade
+                  </span>
+                </div>
+
+                <FollowUpQuestion
+                  output={{
+                    question: state.followUpOverlay.question,
+                    chips: state.followUpOverlay.chips,
+                  }}
+                  onUserResponse={handleFollowUpAnswer}
+                />
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    dismissFollowUp();
+                    setStackPaused(false);
+                  }}
+                  className="mt-3 w-full font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Skip
+                </button>
+              </motion.div>
+            </AnimatePresence>
+          )}
+        </SheetContent>
+      </Sheet>
     </div>
   );
 }

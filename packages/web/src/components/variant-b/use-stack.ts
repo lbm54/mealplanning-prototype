@@ -8,11 +8,40 @@
  */
 import { useState, useCallback, useEffect, useRef } from "react";
 import type { MealAssembly, MealSlot, WeekPlan } from "@/server/jade/schema";
-import type { DeckCard, SlotDecision, StackState } from "./types";
+import type { DeckCard, FollowUpOverlay, SelectedCategory, SlotDecision, StackState } from "./types";
 import { buildMockWeekPlan, buildMockAlternatives } from "./mock-data";
 
 const DAY_NAMES = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** Canned follow-up overlays shown every FOLLOW_UP_INTERVAL swipes (path b) */
+const FOLLOW_UP_INTERVAL = 6; // trigger at index 6, 12, 18, …
+
+const CANNED_FOLLOW_UPS: Array<{ question: string; chips: Array<{ id: string; label: string }> }> = [
+  {
+    question: "Want to lock all proteins for the week?",
+    chips: [
+      { id: "lock_proteins", label: "Lock them all" },
+      { id: "keep_flexible", label: "Keep flexible" },
+      { id: "lock_some", label: "Lock some" },
+    ],
+  },
+  {
+    question: "Switch up tomorrow's lunch theme?",
+    chips: [
+      { id: "yes_switch", label: "Yes, switch it" },
+      { id: "no_keep", label: "No, keep it" },
+    ],
+  },
+  {
+    question: "You're on a good streak — keep the carb levels this high?",
+    chips: [
+      { id: "yes_high", label: "Keep it high" },
+      { id: "dial_back", label: "Dial it back" },
+      { id: "race_day_only", label: "Race day only" },
+    ],
+  },
+];
 
 const SLOT_ORDER: MealSlot[] = [
   "pre_workout",
@@ -223,10 +252,12 @@ export interface UseStackReturn {
   swipeSwap: () => void;
   /** Swipe the current card up (lock) */
   swipeLock: () => void;
-  /** Start building the week */
-  startBuild: () => void;
+  /** Start building the week, optionally seeded with a selected category */
+  startBuild: (category?: SelectedCategory) => void;
   /** Rebuild from scratch (locked meals persist) */
   rebuild: () => void;
+  /** Dismiss the active follow-up overlay without sending a response */
+  dismissFollowUp: () => void;
   /** All decisions made so far */
   decisions: SlotDecision[];
   /** Peek at the last N decided cards */
@@ -245,7 +276,12 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
     narratorLine: "Swipe right to keep, left to swap, up to lock.",
     narratorState: "idle",
     error: null,
+    selectedCategory: null,
+    followUpOverlay: null,
   });
+
+  // Counter tracks how many overlay prompts we've shown (cycles through CANNED_FOLLOW_UPS)
+  const followUpShownCount = useRef(0);
 
   const [decisions, setDecisions] = useState<SlotDecision[]>([]);
   // Locked meal keys that survive rebuild
@@ -274,13 +310,15 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
     [],
   );
 
-  const startBuild = useCallback(async () => {
+  const startBuild = useCallback(async (category?: SelectedCategory) => {
     setState((prev) => ({
       ...prev,
       status: "loading",
-      narratorLine: "Building your week…",
+      narratorLine: category ? `Building your ${category.label.toLowerCase()} week…` : "Building your week…",
       narratorState: "thinking",
       error: null,
+      selectedCategory: category ?? prev.selectedCategory,
+      followUpOverlay: null,
     }));
 
     try {
@@ -310,6 +348,8 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
           ? getNarratorLine({ type: "done", lockedCount: lockedKeys.current.size })
           : getNarratorLine({ type: "idle" }),
         narratorState: "idle",
+        selectedCategory: category ?? prev.selectedCategory,
+        followUpOverlay: null,
       }));
 
       // Prime pre-fetch
@@ -394,6 +434,18 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
           }
         }
 
+        // Determine whether to trigger a follow-up overlay at this index
+        // (every FOLLOW_UP_INTERVAL swipes while still in play)
+        let followUpOverlay: FollowUpOverlay | null = null;
+        if (!isDone && nextIndex > 0 && nextIndex % FOLLOW_UP_INTERVAL === 0) {
+          const template =
+            CANNED_FOLLOW_UPS[followUpShownCount.current % CANNED_FOLLOW_UPS.length];
+          if (template) {
+            followUpShownCount.current += 1;
+            followUpOverlay = { id: followUpShownCount.current, ...template };
+          }
+        }
+
         return {
           ...prev,
           deck: updatedDeck,
@@ -401,6 +453,7 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
           status: isDone ? "done" : "ready",
           narratorLine,
           narratorState,
+          followUpOverlay,
         };
       });
 
@@ -497,6 +550,7 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
 
   const rebuild = useCallback(() => {
     setDecisions([]);
+    followUpShownCount.current = 0;
     setState((prev) => ({
       ...prev,
       status: "idle",
@@ -506,8 +560,13 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
       narratorLine: "Rebuilding your week…",
       narratorState: "idle",
       error: null,
+      followUpOverlay: null,
     }));
     // startBuild will be called by user action
+  }, []);
+
+  const dismissFollowUp = useCallback(() => {
+    setState((prev) => ({ ...prev, followUpOverlay: null }));
   }, []);
 
   // Persist plan when done
@@ -529,6 +588,7 @@ export function useStack(options: UseStackOptions = {}): UseStackReturn {
     swipeLock,
     startBuild,
     rebuild,
+    dismissFollowUp,
     decisions,
     recentDecisions,
   };

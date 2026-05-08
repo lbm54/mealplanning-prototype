@@ -39,6 +39,20 @@ export interface DeckCard {
   decision?: SwipeDecision;
 }
 
+/** Category selected on the start screen */
+export interface SelectedCategory {
+  id: string;
+  label: string;
+}
+
+/** Canned follow-up question shown as mid-deck overlay */
+export interface FollowUpOverlay {
+  /** Incrementing counter — used as React key to re-mount fresh state */
+  id: number;
+  question: string;
+  chips: Array<{ id: string; label: string }>;
+}
+
 /** Full state for the stack interaction */
 export interface StackState {
   status: "idle" | "loading" | "ready" | "done";
@@ -54,6 +68,10 @@ export interface StackState {
   narratorState: "idle" | "thinking" | "speaking";
   /** Error message if generation failed */
   error: string | null;
+  /** Category the user picked on the start screen */
+  selectedCategory: SelectedCategory | null;
+  /** Active mid-deck follow-up overlay (null = hidden) */
+  followUpOverlay: FollowUpOverlay | null;
 }
 
 /** Swipe direction thresholds */
