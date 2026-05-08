@@ -44,17 +44,26 @@ export function JadeAvatar({
     <div
       title="Jade — your nutrition coach"
       className={cn(
-        "relative flex shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground select-none",
+        "relative flex shrink-0 items-center justify-center rounded-full overflow-hidden bg-[var(--color-blackberry)] text-accent-foreground select-none",
         container,
         state === "thinking" && "animate-pulse",
-        glow && "shadow-[var(--shadow-glow-electrolyte)]",
+        glow && "shadow-[var(--shadow-glow-electrolyte)] ring-2 ring-[var(--color-electrolyte)]/40",
         className,
       )}
       aria-label={`Jade — ${state === "thinking" ? "thinking" : state === "speaking" ? "speaking" : "your nutrition coach"}`}
     >
+      {/* Cute Jade portrait — staff-bearing athlete, MK-Jade-inspired */}
+      <img
+        src="/jade/jade-avatar.png"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full object-cover"
+        draggable={false}
+      />
+      {/* Letter fallback (only visible if image fails to load) */}
       <span
         className={cn(
-          "font-[var(--font-sansita)] font-bold leading-none",
+          "font-[var(--font-sansita)] font-bold leading-none opacity-0",
           text,
         )}
       >
@@ -65,7 +74,7 @@ export function JadeAvatar({
       {online && (
         <span
           className={cn(
-            "absolute rounded-full bg-[var(--color-electrolyte)] animate-status-pulse",
+            "absolute rounded-full bg-[var(--color-electrolyte)] animate-status-pulse z-10",
             dot,
           )}
           aria-hidden
