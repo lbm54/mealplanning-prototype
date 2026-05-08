@@ -1,6 +1,39 @@
-# Variant E — 2026 Facelift (2026-05-07)
+# Variant D + E — 2026 Facelift (2026-05-07)
 
-## Summary
+## Variant D — Hybrid (Plan + Jade) — COMPLETE
+
+### New files
+- `src/components/variant-d/hybrid-header.tsx` — cross-panel title strip aligned to 60/40 split
+- `src/components/variant-d/variant-d.css` — scoped keyframes: `shrink-width`, `drop-flash`
+
+### Modified files
+- `src/routes/plan.d.tsx` — HybridHeader, mobile tab toggle (PLAN|JADE + AnimatePresence), motion DragOverlay (spring + 1.5° rotation), isDragging forwarded, ref cleanup
+- `src/components/variant-d/hybrid-shell.tsx` — gradient divider, chevron on divider, ease-out-expo transitions
+- `src/components/variant-d/plan-side.tsx` — coach strip, PLAN MY WEEK pill, weekly C/P/F macro footer bars
+- `src/components/variant-d/dnd-day-column.tsx` — mango glow today, CarbTierBadge withLabel, training dot, per-day macro footer
+- `src/components/variant-d/droppable-day-cell.tsx` — electrolyte glow + scale on isOver, dotted empty-cell border during drag
+- `src/components/variant-d/draggable-meal-card.tsx` — KyleCard elevated, Sansita Bold name, electrolyte hover, 40% fade while dragging
+- `src/components/variant-d/jade-side.tsx` — JadeBubble (react-markdown, streaming dots), UserBubble (mango gradient), glass composer, Apercu Mono status, unread badge
+- `src/components/variant-d/jade-chip.tsx` — electrolyte hover tint + lift
+- `src/components/variant-d/onboarding-tooltip.tsx` — KyleCard elevated + backdrop-blur, timer progress bar
+- `src/components/variant-d/grid-sheet-mobile.tsx` — bottom sheet slide-up, handle pill, backdrop blur
+
+### Checks
+- `pnpm typecheck` — 0 errors in variant-d files
+- `pnpm lint` — 0 errors/warnings in variant-d files
+- `/plan/d` — HTTP 200
+
+### TODOs
+- [ ] `drop-flash` DOM class wiring — scaffolded, needs ref-based imperative toggle per cell
+- [ ] Lift `useChat.isLoading` from JadeSide to drive HybridHeader `isJadeThinking` precisely
+- [ ] `fieldSizing: "content"` needs Safari/Firefox fallback (scrollHeight approach in place)
+- [ ] Mobile bottom sheet: drag-to-dismiss not yet implemented
+
+---
+
+## Variant E — 2026 Facelift (2026-05-07)
+
+### Summary
 Variant E "Coach" redesigned as a premium AI companion — the feel of a $20/mo product. Jade is a character, not a chatbot. The design draws from ChatGPT 2025's typographic refinement, Replika's emotive avatar presence, Granola's polished bubble-free message surfaces, and Linear's command palette.
 
 ### New files added
