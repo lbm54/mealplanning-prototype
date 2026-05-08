@@ -169,11 +169,7 @@ export default defineConfig({
     ],
   },
   ssr: {
-    noExternal: [
-      "@clerk/tanstack-react-start",
-      "@clerk/clerk-react",
-      "@clerk/shared",
-    ],
+    noExternal: [],
   },
   resolve: {
     alias: { "@": path.resolve(__dirname, "src") },

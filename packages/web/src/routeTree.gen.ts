@@ -10,7 +10,6 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
-import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as IndexRouteImport } from './routes/index'
@@ -19,23 +18,17 @@ import { Route as PlanDRouteImport } from './routes/plan.d'
 import { Route as PlanCRouteImport } from './routes/plan.c'
 import { Route as PlanBRouteImport } from './routes/plan.b'
 import { Route as PlanARouteImport } from './routes/plan.a'
-import { Route as OnboardingBridgeRouteImport } from './routes/onboarding/bridge'
+import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
 import { Route as ApiPlanCSaveRouteImport } from './routes/api/plan-c/save'
 import { Route as ApiJadeSavePlanRouteImport } from './routes/api/jade/save-plan'
 import { Route as ApiJadeObjectRouteImport } from './routes/api/jade/object'
 import { Route as ApiJadeHelloRouteImport } from './routes/api/jade/hello'
 import { Route as ApiJadeChatRouteImport } from './routes/api/jade/chat'
-import { Route as ApiClerkWebhookRouteImport } from './routes/api/clerk.webhook'
 import { Route as ApiJadeVariantBPersistRouteImport } from './routes/api/jade/variant-b/persist'
 
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
   path: '/styleguide',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SignUpRoute = SignUpRouteImport.update({
-  id: '/sign-up',
-  path: '/sign-up',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignInRoute = SignInRouteImport.update({
@@ -78,9 +71,9 @@ const PlanARoute = PlanARouteImport.update({
   path: '/plan/a',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OnboardingBridgeRoute = OnboardingBridgeRouteImport.update({
-  id: '/onboarding/bridge',
-  path: '/onboarding/bridge',
+const AuthCallbackRoute = AuthCallbackRouteImport.update({
+  id: '/auth/callback',
+  path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPlanCSaveRoute = ApiPlanCSaveRouteImport.update({
@@ -108,11 +101,6 @@ const ApiJadeChatRoute = ApiJadeChatRouteImport.update({
   path: '/api/jade/chat',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiClerkWebhookRoute = ApiClerkWebhookRouteImport.update({
-  id: '/api/clerk/webhook',
-  path: '/api/clerk/webhook',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiJadeVariantBPersistRoute = ApiJadeVariantBPersistRouteImport.update({
   id: '/api/jade/variant-b/persist',
   path: '/api/jade/variant-b/persist',
@@ -123,15 +111,13 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
-  '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
-  '/onboarding/bridge': typeof OnboardingBridgeRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
   '/plan/b': typeof PlanBRoute
   '/plan/c': typeof PlanCRoute
   '/plan/d': typeof PlanDRoute
   '/plan/e': typeof PlanERoute
-  '/api/clerk/webhook': typeof ApiClerkWebhookRoute
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
@@ -143,15 +129,13 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
-  '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
-  '/onboarding/bridge': typeof OnboardingBridgeRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
   '/plan/b': typeof PlanBRoute
   '/plan/c': typeof PlanCRoute
   '/plan/d': typeof PlanDRoute
   '/plan/e': typeof PlanERoute
-  '/api/clerk/webhook': typeof ApiClerkWebhookRoute
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
@@ -164,15 +148,13 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
-  '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
-  '/onboarding/bridge': typeof OnboardingBridgeRoute
+  '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
   '/plan/b': typeof PlanBRoute
   '/plan/c': typeof PlanCRoute
   '/plan/d': typeof PlanDRoute
   '/plan/e': typeof PlanERoute
-  '/api/clerk/webhook': typeof ApiClerkWebhookRoute
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
@@ -186,15 +168,13 @@ export interface FileRouteTypes {
     | '/'
     | '/settings'
     | '/sign-in'
-    | '/sign-up'
     | '/styleguide'
-    | '/onboarding/bridge'
+    | '/auth/callback'
     | '/plan/a'
     | '/plan/b'
     | '/plan/c'
     | '/plan/d'
     | '/plan/e'
-    | '/api/clerk/webhook'
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
@@ -206,15 +186,13 @@ export interface FileRouteTypes {
     | '/'
     | '/settings'
     | '/sign-in'
-    | '/sign-up'
     | '/styleguide'
-    | '/onboarding/bridge'
+    | '/auth/callback'
     | '/plan/a'
     | '/plan/b'
     | '/plan/c'
     | '/plan/d'
     | '/plan/e'
-    | '/api/clerk/webhook'
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
@@ -226,15 +204,13 @@ export interface FileRouteTypes {
     | '/'
     | '/settings'
     | '/sign-in'
-    | '/sign-up'
     | '/styleguide'
-    | '/onboarding/bridge'
+    | '/auth/callback'
     | '/plan/a'
     | '/plan/b'
     | '/plan/c'
     | '/plan/d'
     | '/plan/e'
-    | '/api/clerk/webhook'
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
@@ -247,15 +223,13 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SettingsRoute: typeof SettingsRoute
   SignInRoute: typeof SignInRoute
-  SignUpRoute: typeof SignUpRoute
   StyleguideRoute: typeof StyleguideRoute
-  OnboardingBridgeRoute: typeof OnboardingBridgeRoute
+  AuthCallbackRoute: typeof AuthCallbackRoute
   PlanARoute: typeof PlanARoute
   PlanBRoute: typeof PlanBRoute
   PlanCRoute: typeof PlanCRoute
   PlanDRoute: typeof PlanDRoute
   PlanERoute: typeof PlanERoute
-  ApiClerkWebhookRoute: typeof ApiClerkWebhookRoute
   ApiJadeChatRoute: typeof ApiJadeChatRoute
   ApiJadeHelloRoute: typeof ApiJadeHelloRoute
   ApiJadeObjectRoute: typeof ApiJadeObjectRoute
@@ -271,13 +245,6 @@ declare module '@tanstack/react-router' {
       path: '/styleguide'
       fullPath: '/styleguide'
       preLoaderRoute: typeof StyleguideRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sign-up': {
-      id: '/sign-up'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof SignUpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sign-in': {
@@ -336,11 +303,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanARouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/onboarding/bridge': {
-      id: '/onboarding/bridge'
-      path: '/onboarding/bridge'
-      fullPath: '/onboarding/bridge'
-      preLoaderRoute: typeof OnboardingBridgeRouteImport
+    '/auth/callback': {
+      id: '/auth/callback'
+      path: '/auth/callback'
+      fullPath: '/auth/callback'
+      preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/plan-c/save': {
@@ -378,13 +345,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiJadeChatRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/clerk/webhook': {
-      id: '/api/clerk/webhook'
-      path: '/api/clerk/webhook'
-      fullPath: '/api/clerk/webhook'
-      preLoaderRoute: typeof ApiClerkWebhookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/jade/variant-b/persist': {
       id: '/api/jade/variant-b/persist'
       path: '/api/jade/variant-b/persist'
@@ -399,15 +359,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SettingsRoute: SettingsRoute,
   SignInRoute: SignInRoute,
-  SignUpRoute: SignUpRoute,
   StyleguideRoute: StyleguideRoute,
-  OnboardingBridgeRoute: OnboardingBridgeRoute,
+  AuthCallbackRoute: AuthCallbackRoute,
   PlanARoute: PlanARoute,
   PlanBRoute: PlanBRoute,
   PlanCRoute: PlanCRoute,
   PlanDRoute: PlanDRoute,
   PlanERoute: PlanERoute,
-  ApiClerkWebhookRoute: ApiClerkWebhookRoute,
   ApiJadeChatRoute: ApiJadeChatRoute,
   ApiJadeHelloRoute: ApiJadeHelloRoute,
   ApiJadeObjectRoute: ApiJadeObjectRoute,

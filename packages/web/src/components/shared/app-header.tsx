@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { ThemeToggle } from "./theme-toggle";
 import { Settings } from "lucide-react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { getBrowserSupabase } from "@/lib/supabase/browser";
 
 /**
  * AppHeader — the top navigation bar present on all routes.
@@ -64,25 +66,61 @@ export function AppHeader({ className }: { className?: string }) {
           <Settings size={18} />
         </Link>
 
-        {/* Clerk UserButton — rendered only when Clerk is configured */}
-        <ClerkUserButton />
+        {/* Supabase auth — sign-in link or signed-in user pill */}
+        <SupabaseAuthButton />
       </div>
     </header>
   );
 }
 
 /**
- * Lazy wrapper for Clerk UserButton.
- * Renders nothing if Clerk is not configured (no publishable key).
+ * Shows a Sign-in pill when logged out, and an email + sign-out button when logged in.
  */
-function ClerkUserButton() {
-  const publishableKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-  if (!publishableKey) return null;
+function SupabaseAuthButton() {
+  const supabase = getBrowserSupabase();
+  const [email, setEmail] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  try {
-    const { UserButton } = require("@clerk/tanstack-react-start");
-    return <UserButton afterSignOutUrl="/" />;
-  } catch {
-    return null;
+  useEffect(() => {
+    let cancelled = false;
+    supabase.auth.getUser().then(({ data }) => {
+      if (cancelled) return;
+      setEmail(data.user?.email ?? null);
+      setLoading(false);
+    });
+    const { data: sub } = supabase.auth.onAuthStateChange((_event, session) => {
+      setEmail(session?.user.email ?? null);
+    });
+    return () => { cancelled = true; sub.subscription.unsubscribe(); };
+  }, [supabase]);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    window.location.href = "/";
+  };
+
+  if (loading) return <div className="h-8 w-20" aria-hidden />;
+
+  if (!email) {
+    return (
+      <Link
+        to="/sign-in"
+        className="inline-flex h-9 items-center rounded-[var(--radius-pill)] bg-primary px-4 font-[var(--font-sansita)] text-[0.8125rem] font-bold uppercase tracking-wider text-primary-foreground hover:bg-[var(--color-orange-light)] active:bg-[var(--color-orange-dark)] transition-colors"
+      >
+        Sign in
+      </Link>
+    );
   }
+
+  return (
+    <button
+      type="button"
+      onClick={handleSignOut}
+      className="inline-flex h-9 items-center gap-2 rounded-[var(--radius-pill)] border border-border/60 bg-card px-3 font-[var(--font-apercu)] text-[0.8125rem] text-foreground hover:bg-muted transition-colors"
+      title="Click to sign out"
+    >
+      <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--color-electrolyte)]" aria-hidden />
+      <span className="max-w-[140px] truncate">{email}</span>
+    </button>
+  );
 }

@@ -1,25 +1,21 @@
 /**
- * Auth helpers for server-side use in TanStack Start loaders and actions.
+ * Auth helpers — Supabase Auth via cookie session.
  */
+import { getServerSupabase } from "./supabase/server";
 
 export type AuthState =
-  | { authenticated: true; userId: string; supabaseUserId: string | null }
+  | { authenticated: true; userId: string; email: string | null }
   | { authenticated: false };
 
 export async function getAuthState(): Promise<AuthState> {
   try {
-    const { auth } = await import("@clerk/tanstack-react-start/server");
-    const authResult = await auth();
-    if (!authResult.userId) {
-      return { authenticated: false };
-    }
-    const supabaseUserId =
-      (authResult.sessionClaims?.publicMetadata as Record<string, string>)
-        ?.supabaseUserId ?? null;
+    const supabase = await getServerSupabase();
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) return { authenticated: false };
     return {
       authenticated: true,
-      userId: authResult.userId,
-      supabaseUserId,
+      userId: data.user.id,
+      email: data.user.email ?? null,
     };
   } catch {
     return { authenticated: false };
@@ -32,12 +28,12 @@ export async function getAuthState(): Promise<AuthState> {
  */
 export async function requireAuth(): Promise<{
   userId: string;
-  supabaseUserId: string | null;
+  email: string | null;
 }> {
   const { redirect } = await import("@tanstack/react-router");
   const state = await getAuthState();
   if (!state.authenticated) {
     throw redirect({ to: "/sign-in" });
   }
-  return { userId: state.userId, supabaseUserId: state.supabaseUserId };
+  return { userId: state.userId, email: state.email };
 }

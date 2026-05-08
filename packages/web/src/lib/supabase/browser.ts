@@ -1,29 +1,19 @@
 /**
- * Browser-side Supabase client.
+ * Browser-side Supabase client (Supabase Auth via cookies).
  *
- * Used only for optional realtime subscriptions. Most data fetching happens
- * server-side via getServerSupabase() in loaders.
- *
- * The accessToken callback is supported in @supabase/supabase-js >= 2.45.
+ * Use for client-side auth flows (sign-in/sign-out) and realtime subscriptions.
+ * Most data fetching happens server-side via getServerSupabase() in loaders.
  */
-import { createClient } from "@supabase/supabase-js";
-import { useAuth } from "@clerk/tanstack-react-start";
-import { useMemo } from "react";
+import { createBrowserClient } from "@supabase/ssr";
 import type { Database } from "./types";
 
-export function useBrowserSupabase() {
-  const { getToken } = useAuth();
+let _client: ReturnType<typeof createBrowserClient<Database>> | null = null;
 
-  return useMemo(
-    () =>
-      createClient<Database>(
-        import.meta.env.VITE_SUPABASE_URL ?? "",
-        import.meta.env.VITE_SUPABASE_ANON_KEY ?? "",
-        {
-          accessToken: async () =>
-            (await getToken({ template: "supabase" })) ?? null,
-        },
-      ),
-    [getToken],
+export function getBrowserSupabase() {
+  if (_client) return _client;
+  _client = createBrowserClient<Database>(
+    import.meta.env.VITE_SUPABASE_URL ?? "",
+    import.meta.env.VITE_SUPABASE_ANON_KEY ?? "",
   );
+  return _client;
 }

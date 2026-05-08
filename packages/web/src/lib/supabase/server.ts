@@ -1,23 +1,21 @@
 /**
- * Server-side Supabase clients.
+ * Server-side Supabase clients (Supabase Auth via cookie session).
  *
- * - getServerSupabase(): uses the Clerk-issued JWT (via the "supabase" template)
- *   so RLS policies apply to the authenticated user.
- * - getServiceRoleSupabase(): bypasses RLS. Server-only. Used ONLY in the Clerk
- *   webhook handler to look up users by email before they are authenticated.
+ * - getServerSupabase(): reads sb-* cookies, returns a client where RLS
+ *   applies to the authenticated user. Use in route loaders + server fns.
+ * - getServiceRoleSupabase(): bypasses RLS. Server-only.
  *
- * MANUAL STEP: Create a Clerk JWT template named "supabase" with:
- *   Algorithm: HS256
- *   Signing key: your Supabase JWT secret
- *   Claims: { "aud": "authenticated", "role": "authenticated",
- *             "sub": "{{user.public_metadata.supabaseUserId}}",
- *             "email": "{{user.primary_email_address}}" }
+ * Auth flow:
+ *   1. /sign-in submits email → supabase.auth.signInWithOtp() → magic link
+ *   2. Email link → /auth/callback?token_hash=… → exchange for session
+ *   3. Session stored in sb-<ref>-auth-token cookie (httpOnly + signed)
+ *   4. getServerSupabase() reads that cookie → user is authenticated
  */
+import { createServerClient } from "@supabase/ssr";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
+import { getRequest, getResponse } from "@tanstack/react-start/server";
 import type { Database } from "./types";
 
-// Lazy check — fails gracefully with a descriptive error so the dev server
-// can still boot for local testing when env vars are not yet set.
 function requireEnv(key: string): string {
   const value = process.env[key];
   if (!value) {
@@ -29,28 +27,41 @@ function requireEnv(key: string): string {
 }
 
 export async function getServerSupabase(): Promise<SupabaseClient<Database>> {
-  // Dynamic import avoids import-time auth() call (safe for server routes).
-  let token: string | null = null;
+  const url = requireEnv("VITE_SUPABASE_URL");
+  const anonKey = requireEnv("VITE_SUPABASE_ANON_KEY");
+
+  let request: Request | undefined;
+  let response: Response | undefined;
   try {
-    const { auth } = await import("@clerk/tanstack-react-start/server");
-    const authState = await auth();
-    if (authState.userId) {
-      token = await authState.getToken({ template: "supabase" });
-    }
+    request = getRequest();
+    response = getResponse();
   } catch {
-    // Clerk not configured — continue with anon access (RLS will restrict data)
+    // Outside a request context — return an unauthenticated client
   }
 
-  return createClient<Database>(
-    requireEnv("SUPABASE_URL"),
-    requireEnv("SUPABASE_ANON_KEY"),
-    {
-      global: {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
+  return createServerClient<Database>(url, anonKey, {
+    cookies: {
+      getAll() {
+        const cookieHeader = request?.headers.get("cookie") ?? "";
+        if (!cookieHeader) return [];
+        return cookieHeader.split(";").map((pair) => {
+          const [name, ...rest] = pair.trim().split("=");
+          return { name, value: rest.join("=") };
+        });
       },
-      auth: { persistSession: false, autoRefreshToken: false },
+      setAll(cookiesToSet) {
+        if (!response) return;
+        for (const { name, value, options } of cookiesToSet) {
+          let cookie = `${name}=${value}; Path=${options?.path ?? "/"}`;
+          if (options?.maxAge) cookie += `; Max-Age=${options.maxAge}`;
+          if (options?.httpOnly) cookie += "; HttpOnly";
+          if (options?.secure) cookie += "; Secure";
+          if (options?.sameSite) cookie += `; SameSite=${options.sameSite}`;
+          response.headers.append("set-cookie", cookie);
+        }
+      },
     },
-  );
+  });
 }
 
 export function getServiceRoleSupabase(): SupabaseClient<Database> {
