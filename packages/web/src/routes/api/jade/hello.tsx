@@ -46,7 +46,7 @@ export const ServerRoute = createServerFileRoute("/api/jade/hello").methods({
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         model: model as any,
         prompt: "Say 'Hello from Jade.' in one short line.",
-        maxTokens: 32,
+        maxOutputTokens: 32,
       });
       return result.toTextStreamResponse();
     } catch (err) {

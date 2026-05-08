@@ -59,7 +59,19 @@ function jadeApiMiddleware(): Plugin {
 IMPORTANT — DATA ACCESS:
 - The user's profile, training schedule, macro targets, and food preferences are loaded for you in an ATHLETE CONTEXT block below the prompt when they're signed in. ALWAYS check that block before saying you don't have access.
 - If the ATHLETE CONTEXT block is present, use the exact data from it. Don't suggest connecting Garmin/Strava — that's already done; the data is right here.
-- If you see a NOTE saying the user is NOT signed in, ask them to sign in at /sign-in (do NOT mention Garmin or Strava — sign-in is the only step needed).`;
+- If you see a NOTE saying the user is NOT signed in, ask them to sign in at /sign-in (do NOT mention Garmin or Strava — sign-in is the only step needed).
+
+GENERATIVE UI — TOOL USE RULES (follow exactly):
+1. ON FIRST TURN: If there are no prior assistant messages in the thread, ALWAYS call showCategoryPicker BEFORE generating any plan or giving substantive advice. Wait for the user's category selection before proceeding.
+2. WORKOUT FUEL: Whenever you reference today's or a specific day's training session, ALSO call showWorkoutTimeline so the user sees the pre/during/post fuel windows inline.
+3. WEEK PLANS: When generating a week meal plan, finish your text summary THEN call showMealCarousel with 3 distinct options (different macro profiles or cuisine themes) OR call showMealPlanCard if there is only one logical plan given the constraints.
+4. INSIGHTS: Use showInsightTile proactively whenever you spot a pattern — low protein across multiple days, a recovery week opportunity, an approaching race countdown, or a macro target that won't be met.
+5. WEATHER: When the user asks about today's conditions, hydration, or heat training, call getWeather first then immediately call showWeatherCard with the result.
+6. RACE COUNTDOWN: If the user mentions an upcoming race or event within 21 days, call showRaceCountdown.
+7. CLARIFICATIONS: Prefer showFollowUpQuestion over plain text when you need to ask a clarifying question — it gives the user tap-able options.
+8. COMPARISONS: When the user asks "which is better" about two meals, call showComparisonCard.
+9. GROCERIES: After confirming a plan, proactively offer to call showGroceryList.
+10. Never call data tools (getWeather, getUpcomingActivities, getMacroTargets, getUserProfile) more than once per turn for the same data — the ATHLETE CONTEXT block already has the most recent snapshot.`;
 
         try {
           // ── /api/jade/hello — sanity check ──────────────────────────────
@@ -76,7 +88,7 @@ IMPORTANT — DATA ACCESS:
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               model: model as any,
               prompt: "Say 'Hello from Jade.' in one short line.",
-              maxTokens: 32,
+              maxOutputTokens: 32,
             });
             const webRes = result.toTextStreamResponse();
             res.statusCode = webRes.status;
@@ -235,12 +247,52 @@ IMPORTANT — DATA ACCESS:
               console.error("[jade-api chat] context lookup failed:", err);
             }
 
-            const { streamText } = await import("ai");
+            const { streamText, stepCountIs } = await import("ai");
+            const { makeJadeTools } = await import("./src/server/jade/tools");
+
+            // Build tools — pass supabase + userId if available so data tools
+            // have RLS-scoped access. When the user is not signed in we still
+            // create the tools (they'll 403/throw at query time, which is fine).
+            let jadeTools: ReturnType<typeof makeJadeTools> | undefined;
+            try {
+              if (process.env.VITE_SUPABASE_URL && process.env.VITE_SUPABASE_ANON_KEY) {
+                const { createServerClient } = await import("@supabase/ssr");
+                const cookieHeaderForTools = req.headers.cookie ?? "";
+                const supabaseForTools = createServerClient(
+                  process.env.VITE_SUPABASE_URL,
+                  process.env.VITE_SUPABASE_ANON_KEY,
+                  {
+                    cookies: {
+                      getAll() {
+                        return cookieHeaderForTools.split(";").map((pair) => {
+                          const [name, ...rest] = pair.trim().split("=");
+                          return { name, value: rest.join("=") };
+                        });
+                      },
+                      setAll() { /* no-op */ },
+                    },
+                  },
+                );
+                const { data: toolUserData } = await supabaseForTools.auth.getUser();
+                if (toolUserData.user) {
+                  jadeTools = makeJadeTools({
+                    supabase: supabaseForTools,
+                    userId: toolUserData.user.id,
+                  });
+                }
+              }
+            } catch (toolCtxErr) {
+              // eslint-disable-next-line no-console
+              console.error("[jade-api chat] tool context init failed:", toolCtxErr);
+            }
+
             const result = streamText({
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               model: model as any,
               system: SYSTEM_PROMPT + userContext,
               messages: modelMessages,
+              ...(jadeTools ? { tools: jadeTools } : {}),
+              stopWhen: stepCountIs(5), // allow multi-step tool calls (data fetch → UI render)
             });
             const webRes = result.toUIMessageStreamResponse();
             res.statusCode = webRes.status;

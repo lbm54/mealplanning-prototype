@@ -40,20 +40,32 @@ export const ServerRoute = createServerFileRoute("/api/jade/chat").methods({
     const { messages } = await request.json();
 
     const { getSystemPrompt } = await import("@/server/jade/persona");
-    const { jadeTools } = await import("@/server/jade/tools");
-    const { streamText } = await import("ai");
+    const { makeJadeTools } = await import("@/server/jade/tools");
+    const { streamText, stepCountIs } = await import("ai");
+    const { getServerSupabase } = await import("@/lib/supabase/server");
 
     try {
+      // Build tools with RLS-scoped supabase. Falls back to no tools if auth fails.
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let toolsArg: Record<string, any> | undefined;
+      try {
+        const supabase = await getServerSupabase();
+        const { data } = await supabase.auth.getUser();
+        if (data.user) {
+          toolsArg = makeJadeTools({ supabase, userId: data.user.id });
+        }
+      } catch { /* no tools if auth unavailable */ }
+
       const result = streamText({
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         model: model as any,
         system: getSystemPrompt(surface),
         messages,
-        tools: jadeTools,
-        maxSteps: 5, // allow tool use + response
+        ...(toolsArg ? { tools: toolsArg } : {}),
+        stopWhen: stepCountIs(5), // allow tool use + response
       });
 
-      return result.toDataStreamResponse();
+      return result.toUIMessageStreamResponse();
     } catch (err) {
       const message = err instanceof Error ? err.message : "Unknown error";
       return new Response(
