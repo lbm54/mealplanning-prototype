@@ -1,4 +1,6 @@
 /* Tailwind v4 — CSS-first config. No tailwind.config.ts needed. */
+/* External font @import MUST come first (CSS spec) */
+@import url('https://fonts.googleapis.com/css2?family=Sansita:wght@700;800&family=Work+Sans:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "./fonts.css";

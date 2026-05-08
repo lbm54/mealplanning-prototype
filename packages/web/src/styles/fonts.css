@@ -16,8 +16,7 @@
  * 03_kyle_design_for_web.md §10 open question 1 for licensing instructions.
  */
 
-/* Web-safe fallbacks (used until licensing is confirmed) */
-@import url('https://fonts.googleapis.com/css2?family=Sansita:wght@700;800&family=Work+Sans:wght@400;500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Web-safe fallbacks: see globals.css top for the @import (must precede @tailwind per CSS spec) */
 
 /*
  * Licensed Compadre Wide (uncomment and fill in paths when licensed):

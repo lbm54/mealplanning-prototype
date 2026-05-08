@@ -26,8 +26,8 @@ export default defineConfig({
     alias: { "@": path.resolve(__dirname, "src") },
   },
   plugins: [
-    tanstackStart(),
-    nitro(),
+    tanstackStart({ installDevServerMiddleware: true }),
+    nitro({ prerender: { routes: ["/"] } }),
     viteReact(),
     tailwindcss(),
   ],

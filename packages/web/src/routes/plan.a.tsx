@@ -665,4 +665,4 @@ function EmptyPlanState({ onGenerate, isGenerating }: EmptyPlanStateProps) {
   );
 }
 
-export { VariantACalendar as default };
+export default VariantACalendar;
