@@ -6,7 +6,14 @@ Everything that requires an account, a key, or a dashboard click. Anything not o
 
 ## What's already filled in for you
 
-`packages/web/.env.local` exists and contains your dev Supabase URL + anon key (copied from `mealvana_endurance/.env.dev.local`). You only need to fill the remaining 7 blanks below.
+`packages/web/.env.local` exists and contains:
+- `SUPABASE_URL` + `VITE_SUPABASE_URL` (dev: `vlmtsdzpnjnavdgytcmi.supabase.co`)
+- `SUPABASE_ANON_KEY` + `VITE_SUPABASE_ANON_KEY`
+- `SUPABASE_PROJECT_ID=vlmtsdzpnjnavdgytcmi` (derived from the URL — same dev project the Flutter app uses)
+
+All copied from `mealvana_endurance/.env.dev.local` and `.env.web.local` (same project, verified by URL fingerprint).
+
+**6 blanks remain** — Clerk (3), AI Gateway (1), and Supabase service-role + JWT secret (2). The two Supabase secrets aren't in any existing dotenv; they only live in the Supabase dashboard.
 
 ---
 
