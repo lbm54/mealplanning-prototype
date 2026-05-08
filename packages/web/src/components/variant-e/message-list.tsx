@@ -12,12 +12,17 @@
  * - Demo mode banner.
  */
 import type React from "react";
-import { useEffect, useRef } from "react";
 import type { UIMessage } from "ai";
 import { cn } from "@/lib/utils";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
 import { JadeMessageRenderer } from "@/components/shared/jade-message-renderer";
 import { KyleCard, KyleCardContent } from "@/components/shared/kyle-card";
+import {
+  Conversation,
+  ConversationContent,
+  ConversationScrollButton,
+} from "@/components/ai-elements/conversation";
+import { Message, MessageContent } from "@/components/ai-elements/message";
 import CategoryPicker from "@/components/shared/widgets/category-picker";
 import MorningGreetingCard from "@/components/shared/widgets/morning-greeting-card";
 import WorkoutTimeline from "@/components/shared/widgets/workout-timeline";
@@ -465,28 +470,18 @@ export function MessageList({
   onCategoryPick,
   className,
 }: MessageListProps) {
-  const bottomRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, rawAiMessages, isThinking]);
-
   const isInitialLoad = messages.length <= 1;
 
   return (
-    <div
-      className={cn(
-        "flex-1 overflow-y-auto",
-        "scrollbar-thin scrollbar-track-transparent scrollbar-thumb-muted-foreground/20",
-        className,
-      )}
+    <Conversation
+      className={cn("flex-1", className)}
       aria-label="Chat history"
       aria-live="polite"
     >
-      {/* Demo mode banner */}
+      {/* Demo mode banner — sits above the auto-scroll content */}
       {isDemoMode && <DemoModeBanner />}
 
-      <div className="py-4 space-y-6 pb-6">
+      <ConversationContent className="px-5 py-4 gap-6">
         {/* ── Empty-state hero: CategoryPicker + proactive cards ── */}
         {isEmptyState && (
           <EmptyStateHero
@@ -496,10 +491,16 @@ export function MessageList({
         )}
 
         {/* ── Real AI SDK message rendering ── */}
-        {useRawMessages && rawAiMessages && rawAiMessages.length > 0 && (
-          <>
-            {rawAiMessages.map((msg) => (
-              <div key={msg.id} className="px-5">
+        {useRawMessages && rawAiMessages && rawAiMessages.length > 0 &&
+          rawAiMessages.map((msg) => (
+            <Message key={msg.id} from={msg.role}>
+              <MessageContent
+                className={cn(
+                  msg.role === "user"
+                    ? "bg-gradient-to-b from-[#F8A53A] to-[#F78B14] text-[#381633]"
+                    : "bg-transparent",
+                )}
+              >
                 {msg.role === "user" ? (
                   <RawUserRow message={msg} />
                 ) : (
@@ -509,16 +510,22 @@ export function MessageList({
                     onChipClick={onChipClick}
                   />
                 )}
-              </div>
-            ))}
-          </>
-        )}
+              </MessageContent>
+            </Message>
+          ))
+        }
 
         {/* ── Legacy ChatMessage rendering (stub / fallback) ── */}
-        {!useRawMessages && (
-          <div className="px-5 space-y-6">
-            {messages.map((msg, idx) => (
-              <div key={msg.id}>
+        {!useRawMessages &&
+          messages.map((msg, idx) => (
+            <Message key={msg.id} from={msg.role}>
+              <MessageContent
+                className={cn(
+                  msg.role === "user"
+                    ? "bg-gradient-to-b from-[#F8A53A] to-[#F78B14] text-[#381633]"
+                    : "bg-transparent",
+                )}
+              >
                 {msg.role === "assistant" ? (
                   <JadeRow
                     msg={msg}
@@ -534,30 +541,34 @@ export function MessageList({
                 ) : (
                   <UserRow msg={msg} />
                 )}
-              </div>
-            ))}
-          </div>
-        )}
+              </MessageContent>
+            </Message>
+          ))
+        }
 
         {/* Thinking indicator */}
         {isThinking && (
-          <div className="px-5 flex gap-3 max-w-2xl w-full">
-            <JadeAvatar size={36} state="thinking" className="shrink-0 mt-0.5" />
-            <div className="flex items-center gap-1.5 h-9 pl-1">
-              {[0, 150, 300].map((delay) => (
-                <span
-                  key={delay}
-                  className="w-1.5 h-1.5 rounded-full bg-[var(--color-electrolyte)]/60 animate-bounce"
-                  style={{ animationDelay: `${delay}ms`, animationDuration: "900ms" }}
-                />
-              ))}
-            </div>
-          </div>
+          <Message from="assistant">
+            <MessageContent className="bg-transparent">
+              <div className="flex gap-3 items-center">
+                <JadeAvatar size={36} state="thinking" className="shrink-0" />
+                <div className="flex items-center gap-1.5 h-9">
+                  {[0, 150, 300].map((delay) => (
+                    <span
+                      key={delay}
+                      className="w-1.5 h-1.5 rounded-full bg-[var(--color-electrolyte)]/60 animate-bounce"
+                      style={{ animationDelay: `${delay}ms`, animationDuration: "900ms" }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </MessageContent>
+          </Message>
         )}
+      </ConversationContent>
 
-        {/* Scroll anchor */}
-        <div ref={bottomRef} />
-      </div>
-    </div>
+      {/* Floating scroll-to-bottom button — appears when scrolled away */}
+      <ConversationScrollButton />
+    </Conversation>
   );
 }

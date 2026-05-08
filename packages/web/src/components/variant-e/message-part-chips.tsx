@@ -8,6 +8,7 @@
  * - Onboarding chips and refinement chips use same component
  */
 import { cn } from "@/lib/utils";
+import { Suggestions, Suggestion } from "@/components/ai-elements/suggestion";
 import type { ChatChip } from "./types";
 
 export interface MessagePartChipsProps {
@@ -22,36 +23,27 @@ export function MessagePartChips({
   className,
 }: MessagePartChipsProps) {
   return (
-    <div className={cn("flex flex-wrap gap-2 mt-1", className)}>
+    <Suggestions className={cn("mt-1 flex-wrap", className)}>
       {chips.map((chip, idx) => (
-        <button
+        <Suggestion
           key={chip.label}
-          type="button"
-          onClick={() => onChipClick(chip.label)}
+          suggestion={chip.label}
+          onClick={onChipClick}
           className={cn(
-            // Base shape
-            "rounded-[var(--radius-pill)] border px-3.5 py-1.5",
-            // Typography
-            "font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground/70",
-            // Colors
+            // Kyle pill styling overlaid on AI Elements default
             "border-border/40 bg-card/40 backdrop-blur-sm",
-            // States
+            "font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground/70",
             "hover:border-[var(--color-electrolyte)]/50 hover:text-foreground",
             "hover:bg-[var(--color-electrolyte)]/8 hover:-translate-y-0.5",
-            "active:translate-y-0",
-            // Animation
-            "animate-fade-up opacity-0",
-            // Transition
-            "transition-all duration-150",
+            // Stagger fade-up
+            "animate-fade-up opacity-0 transition-all duration-150",
           )}
           style={{
             animationDelay: `${idx * 80}ms`,
             animationFillMode: "both",
           }}
-        >
-          {chip.label}
-        </button>
+        />
       ))}
-    </div>
+    </Suggestions>
   );
 }

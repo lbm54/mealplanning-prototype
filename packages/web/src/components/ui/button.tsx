@@ -54,6 +54,7 @@ const buttonVariants = cva(
         sm: "h-9 px-4 text-[var(--font-size-segment)]",
         lg: "h-14 px-8 text-[var(--font-size-btn)]",
         icon: "size-[var(--spacing-icon-btn)] rounded-full",
+        "icon-sm": "h-7 w-7 rounded-full text-sm",
       },
     },
     defaultVariants: { variant: "default", size: "default" },
