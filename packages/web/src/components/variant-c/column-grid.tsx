@@ -1,32 +1,28 @@
 /**
- * ColumnGrid — 5-column desktop table: Day | Slot | Protein | Carb | Veg/Sauce.
+ * ColumnGrid — 2026-redesigned 5-column desktop table.
  *
- * Source: 07_parallel_build_plans.md §4.3 (1.C.1), 06_five_uiux_approaches.md §1.C
+ * Layout: Day-rail | Slot | Protein | Carb | Veg/Sauce | MacroBar
  *
- * Desktop layout (≥768px):
- *   Row = one meal slot for one day (21+ rows for 7 days × 3 main slots).
- *   Each row's Protein/Carb/Veg cells contain a Column component.
- *   Workout days show a "●" dot marker and a WorkoutExtrasRow.
- *   A RunningTotalsBar sits below each row's columns.
- *
- * Mobile: delegates to MobileStepper.
+ * Design moves:
+ * - Left color rail per day encoding carb tier
+ * - Day header only on first slot of each day group
+ * - WorkoutBanner above breakfast on workout days
+ * - FoodPickerCell with popover grid (replaces stacked column tiles)
+ * - RowMacroBar far right (120px stacked bar + lock toggle)
+ * - TableHeaderRow with "Why?" tooltips + filter icon per food column
+ * - Stagger-in animation on mount (50ms per row)
  */
 
 import { useMemo } from "react";
-import { Column } from "./column";
-import { RunningTotalsBar } from "./running-totals-bar";
-import { WorkoutExtrasRow } from "./workout-extras-row";
-import { TrainingDayDot } from "@/components/shared/training-day-dot";
+import { TableHeaderRow } from "./table-header-row";
+import { DayRail } from "./day-rail";
+import { SlotCell } from "./slot-cell";
+import { FoodPickerCell } from "./food-picker-cell";
+import { RowMacroBar } from "./row-macro-bar";
+import { WorkoutBanner } from "./workout-banner";
 import { cn } from "@/lib/utils";
 import type { DayMacroRow, ColumnOptions, MealSlot, FoodOption } from "@/lib/queries/columns-data.c";
 import type { CellPick, CellTotals } from "@/lib/hooks/use-column-picks";
-
-const SLOT_LABELS: Record<string, string> = {
-  breakfast: "Breakfast",
-  lunch:     "Lunch",
-  dinner:    "Dinner",
-  snack:     "Snack",
-};
 
 const MAIN_SLOTS: MealSlot[] = ["breakfast", "lunch", "dinner"];
 
@@ -34,26 +30,30 @@ export interface ColumnGridProps {
   days:        DayMacroRow[];
   columns:     Record<string, ColumnOptions>;
   picks:       Record<string, CellPick>;
-  preOptions:  Record<string, FoodOption[]>; // keyed by date for pre-workout tiles
+  preOptions:  Record<string, FoodOption[]>;
   onPickCol:   (date: string, slot: string, col: "protein" | "carb" | "veg", foodId: string) => void;
   onPickPre:   (date: string, foodId: string) => void;
   getTotals:   (key: string, cols: ColumnOptions) => CellTotals;
   onLockToggle:(key: string) => void;
+  /** Set of keys that were filled by Jade (for JADE badge display) */
+  jadeFilled?: Set<string>;
   className?:  string;
 }
+
+// Grid layout column definition
+const GRID_COLS = "grid-cols-[88px_80px_1fr_1fr_1fr_148px]";
 
 export function ColumnGrid({
   days,
   columns,
   picks,
-  preOptions,
   onPickCol,
-  onPickPre,
   getTotals,
   onLockToggle,
+  jadeFilled,
   className,
 }: ColumnGridProps) {
-  // Compute slot target macros (approx 1/3 of daily for main slots)
+  // Slot macro targets: approx fraction of daily per slot
   const slotTargets = useMemo(() => {
     const map: Record<string, { carb_g: number; protein_g: number; fat_g: number }> = {};
     for (const day of days) {
@@ -70,145 +70,141 @@ export function ColumnGrid({
     return map;
   }, [days]);
 
+  // Global row index for stagger animation
+  let globalRowIdx = 0;
+
   return (
     <div className={cn("w-full overflow-x-auto", className)}>
-      {/* Column header row */}
-      <div className="grid grid-cols-[80px_90px_1fr_1fr_1fr] gap-0 border-b border-border pb-2 mb-2">
-        <span className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground px-2">
-          Day
-        </span>
-        <span className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground px-2">
-          Slot
-        </span>
-        <span className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground px-2">
-          Protein
-        </span>
-        <span className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground px-2">
-          Carb
-        </span>
-        <span className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground px-2">
-          Veg / Sauce
-        </span>
-      </div>
+      {/* Sticky column header row */}
+      <TableHeaderRow className="sticky top-0 z-10 bg-background/90 backdrop-blur-sm border-b border-border/60 mb-0" />
 
-      {/* Data rows — one slot per day */}
-      <div className="space-y-4">
-        {days.map((day) => (
-          <div key={day.date} className="space-y-3">
-            {MAIN_SLOTS.map((slot, slotIdx) => {
-              const key  = `${day.date}:${slot}`;
-              const cols = columns[key];
-              const pick = picks[key] ?? { proteinId: null, carbId: null, vegId: null, locked: false };
-              const totals = cols ? getTotals(key, cols) : { carb_g: 0, protein_g: 0, fat_g: 0 };
-              const target = slotTargets[key] ?? { carb_g: 80, protein_g: 40, fat_g: 20 };
-              const rowLabel = `${day.label} ${SLOT_LABELS[slot] ?? slot}`;
+      {/* Day groups */}
+      <div className="mt-1 space-y-2">
+        {days.map((day) => {
+          return (
+            <div key={day.date} className="space-y-[2px]">
+              {/* Workout banner — above breakfast on workout days */}
+              {day.isWorkoutDay && day.workoutNote && (
+                <WorkoutBanner
+                  workoutNote={day.workoutNote}
+                  className="mb-1"
+                />
+              )}
 
-              return (
-                <div
-                  key={key}
-                  className={cn(
-                    "rounded-[var(--radius-card)] border border-border bg-card overflow-hidden",
-                    pick.locked && "ring-1 ring-primary/40",
-                  )}
-                >
-                  <div className="grid grid-cols-[80px_90px_1fr_1fr_1fr] gap-3 p-3 items-start">
-                    {/* Day cell — only shown on first slot per day */}
-                    <div className="flex flex-col items-start pt-1">
-                      {slotIdx === 0 && (
-                        <>
-                          <div className="flex items-center gap-1">
-                            <span className="font-[var(--font-sansita)] text-[var(--font-size-activity)] font-bold uppercase tracking-wider">
-                              {day.label}
-                            </span>
-                            {day.isWorkoutDay && <TrainingDayDot />}
-                          </div>
-                          <span className="font-[var(--font-apercu-mono)] text-[var(--font-size-caption)] text-muted-foreground/60 uppercase">
-                            {day.carb_g}g C
-                          </span>
-                        </>
+              {/* Slot rows */}
+              {MAIN_SLOTS.map((slot, slotIdx) => {
+                const key    = `${day.date}:${slot}`;
+                const cols   = columns[key];
+                const pick   = picks[key] ?? { proteinId: null, carbId: null, vegId: null, locked: false };
+                const totals = cols ? getTotals(key, cols) : { carb_g: 0, protein_g: 0, fat_g: 0 };
+                const target = slotTargets[key] ?? { carb_g: 80, protein_g: 40, fat_g: 20 };
+                const isFirst = slotIdx === 0;
+
+                // Compute stagger index for fade-up
+                const animIdx = globalRowIdx++;
+
+                return (
+                  <div
+                    key={key}
+                    className={cn(
+                      "group relative grid items-center gap-0 overflow-hidden",
+                      GRID_COLS,
+                      // Row base — subtle hover state
+                      "rounded-[var(--radius-card)]",
+                      "border border-border/70 bg-card",
+                      "hover:border-[var(--color-electrolyte)]/25 hover:shadow-[0_0_0_1px_rgba(28,249,207,0.08)]",
+                      "transition-all duration-150",
+                      // Lock highlight
+                      pick.locked && "ring-1 ring-[var(--color-electrolyte)]/30 border-[var(--color-electrolyte)]/30",
+                      // Day group visual: top row slightly lifted
+                      isFirst && "mt-1",
+                      // Stagger fade-up on load
+                      "animate-fade-up",
+                    )}
+                    style={{
+                      animationDelay: `${animIdx * 35}ms`,
+                      animationFillMode: "both",
+                    }}
+                  >
+                    {/* Day rail — spans full height via grid */}
+                    <DayRail
+                      date={day.date}
+                      label={day.label}
+                      carbG={day.carb_g}
+                      isWorkoutDay={day.isWorkoutDay}
+                      isFirstSlot={isFirst}
+                      className="self-stretch"
+                    />
+
+                    {/* Slot label + time */}
+                    <SlotCell slot={slot} className="self-center" />
+
+                    {/* Protein */}
+                    <div className="px-1.5 py-2 self-center">
+                      {cols ? (
+                        <FoodPickerCell
+                          column="protein"
+                          options={cols.protein}
+                          selectedId={pick.proteinId}
+                          isJadePick={jadeFilled?.has(`${key}:protein`)}
+                          date={day.date}
+                          slot={slot}
+                          onSelect={(id) => onPickCol(day.date, slot, "protein", id)}
+                        />
+                      ) : (
+                        <div className="h-[52px] rounded-[var(--radius-card)] bg-muted animate-pulse" />
                       )}
                     </div>
 
-                    {/* Slot label */}
-                    <div className="flex items-start pt-1">
-                      <span className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground capitalize">
-                        {SLOT_LABELS[slot] ?? slot}
-                      </span>
+                    {/* Carb */}
+                    <div className="px-1.5 py-2 self-center">
+                      {cols ? (
+                        <FoodPickerCell
+                          column="carb"
+                          options={cols.carb}
+                          selectedId={pick.carbId}
+                          isJadePick={jadeFilled?.has(`${key}:carb`)}
+                          date={day.date}
+                          slot={slot}
+                          onSelect={(id) => onPickCol(day.date, slot, "carb", id)}
+                        />
+                      ) : (
+                        <div className="h-[52px] rounded-[var(--radius-card)] bg-muted animate-pulse" />
+                      )}
                     </div>
 
-                    {/* Protein column */}
-                    {cols ? (
-                      <Column
-                        column="protein"
-                        options={cols.protein}
-                        selectedId={pick.proteinId}
-                        rationale={cols.rationale.protein}
-                        onSelect={(id) => onPickCol(day.date, slot, "protein", id)}
-                        date={day.date}
-                        slot={slot}
-                        rowLabel={rowLabel}
-                      />
-                    ) : (
-                      <div className="h-16 animate-pulse rounded-[var(--radius-card)] bg-muted" />
-                    )}
+                    {/* Veg / Sauce */}
+                    <div className="px-1.5 py-2 self-center">
+                      {cols ? (
+                        <FoodPickerCell
+                          column="veg"
+                          options={cols.veg}
+                          selectedId={pick.vegId}
+                          isJadePick={jadeFilled?.has(`${key}:veg`)}
+                          date={day.date}
+                          slot={slot}
+                          onSelect={(id) => onPickCol(day.date, slot, "veg", id)}
+                        />
+                      ) : (
+                        <div className="h-[52px] rounded-[var(--radius-card)] bg-muted animate-pulse" />
+                      )}
+                    </div>
 
-                    {/* Carb column */}
-                    {cols ? (
-                      <Column
-                        column="carb"
-                        options={cols.carb}
-                        selectedId={pick.carbId}
-                        rationale={cols.rationale.carb}
-                        onSelect={(id) => onPickCol(day.date, slot, "carb", id)}
-                        date={day.date}
-                        slot={slot}
-                        rowLabel={rowLabel}
+                    {/* Row macro bar + lock */}
+                    <div className="pr-3 py-2 self-center">
+                      <RowMacroBar
+                        totals={totals}
+                        target={target}
+                        isLocked={pick.locked}
+                        onLockToggle={() => onLockToggle(key)}
                       />
-                    ) : (
-                      <div className="h-16 animate-pulse rounded-[var(--radius-card)] bg-muted" />
-                    )}
-
-                    {/* Veg/Sauce column */}
-                    {cols ? (
-                      <Column
-                        column="veg"
-                        options={cols.veg}
-                        selectedId={pick.vegId}
-                        rationale={cols.rationale.veg}
-                        onSelect={(id) => onPickCol(day.date, slot, "veg", id)}
-                        date={day.date}
-                        slot={slot}
-                        rowLabel={rowLabel}
-                      />
-                    ) : (
-                      <div className="h-16 animate-pulse rounded-[var(--radius-card)] bg-muted" />
-                    )}
+                    </div>
                   </div>
-
-                  {/* Running totals bar at bottom of each row */}
-                  <RunningTotalsBar
-                    totals={totals}
-                    target={target}
-                    isLocked={pick.locked}
-                    onLockToggle={() => onLockToggle(key)}
-                  />
-                </div>
-              );
-            })}
-
-            {/* Workout extras row — shown once per workout day, after all slots */}
-            {day.isWorkoutDay && day.workoutNote && (
-              <WorkoutExtrasRow
-                date={day.date}
-                dayLabel={day.label}
-                workoutNote={day.workoutNote}
-                preOptions={preOptions[day.date] ?? []}
-                selectedPreId={picks[`${day.date}:pre_workout`]?.proteinId ?? null}
-                onSelectPre={(id) => onPickPre(day.date, id)}
-              />
-            )}
-          </div>
-        ))}
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

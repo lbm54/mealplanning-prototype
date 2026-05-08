@@ -10,20 +10,21 @@
  * Architecture:
  *   - Server loader: loadWeekColumns() pre-filters foods per slot, no LLM call.
  *   - Client: useColumnPicks for selection state, live macro math.
- *   - Header pill: "Fill my week with Jade" → /api/jade/object (kind='week').
- *   - Save: POST /api/plan-c/save → upsert meal_plans + meal_plan_meals.
- *   - Mobile (<768px): MobileStepper; Desktop: ColumnGrid.
+ *   - ControlBar (sticky top): "Fill my week with Jade" pill + week label + filled count.
+ *   - TableHeaderRow: DAY / SLOT / PROTEIN / CARB / VEG/SAUCE / MACROS headers.
+ *   - ColumnGrid: day groups with left rail, slot rows, FoodPickerCell popovers, RowMacroBar.
+ *   - FooterTotalsBar (sticky bottom): MacroTotalsRail rings + progress bar + Save.
+ *   - Mobile (<768px): MobileStepper with progress beads.
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useRef } from "react";
 import { toast } from "sonner";
-import { Save, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { JadeFillButton } from "@/components/variant-c/jade-fill-button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ControlBar } from "@/components/variant-c/control-bar";
 import { ColumnGrid } from "@/components/variant-c/column-grid";
 import { MobileStepper } from "@/components/variant-c/mobile-stepper";
 import { EmptyStateC } from "@/components/variant-c/empty-state-c";
-import { MacroBar } from "@/components/shared/macro-bar";
+import { FooterTotalsBar } from "@/components/variant-c/footer-totals-bar";
 import { useColumnPicks } from "@/lib/hooks/use-column-picks";
 import { useJadeFill } from "@/lib/hooks/use-jade-fill";
 import { cn } from "@/lib/utils";
@@ -69,15 +70,15 @@ function buildRecommendedPicks(
   return map;
 }
 
-/** Count cells that have no pick yet (all three columns empty). */
-function countUnfilled(picks: PickMap, keys: string[]): number {
+/** Count cells that have at least one column filled. */
+function countFilled(picks: PickMap, keys: string[]): number {
   return keys.filter((key) => {
     const p = picks[key];
-    return !p || (!p.proteinId && !p.carbId && !p.vegId);
+    return p && (p.proteinId || p.carbId || p.vegId);
   }).length;
 }
 
-/** Format YYYY-MM-DD to display like "May 6" */
+/** Format YYYY-MM-DD like "May 4" */
 function formatDate(iso: string): string {
   const d = new Date(iso + "T00:00:00");
   return d.toLocaleDateString("en-US", { month: "short", day: "numeric" });
@@ -98,14 +99,11 @@ function VariantCColumns() {
 
   // Pre-workout options for workout days — keyed by date
   const [preOptions] = useState<Record<string, FoodOption[]>>({});
-  // prePickByDate: tracks selected pre-workout food ID per day (passed to WorkoutExtrasRow via ColumnGrid)
   const [prePickByDate, setPrePickByDate] = useState<Record<string, string>>({});
-  void prePickByDate; // consumed indirectly via ColumnGrid's onPickPre prop
+  void prePickByDate;
 
-  // Week navigation (currently only current week — stub for future)
   const weekStart = loaderData?.weekStart ?? "";
 
-  // Recommended picks seed (only used when no saved plan)
   const recommended = useMemo(
     () => (loaderData ? buildRecommendedPicks(loaderData) : {}),
     [loaderData],
@@ -125,13 +123,17 @@ function VariantCColumns() {
   const { isLoading: jadeFillLoading, fillWeek } = useJadeFill();
   const [isSaving, setIsSaving] = useState(false);
 
+  // Track which keys Jade filled (for JADE badge display)
+  const jadeFilled = useRef<Set<string>>(new Set());
+
   // All slot keys for this week
   const allSlotKeys = useMemo(() => {
     if (!loaderData) return [];
     return loaderData.days.flatMap((d) => MAIN_SLOTS.map((s) => `${d.date}:${s}`));
   }, [loaderData]);
 
-  const unfilledCount = useMemo(() => countUnfilled(picks, allSlotKeys), [picks, allSlotKeys]);
+  const filledCount = useMemo(() => countFilled(picks, allSlotKeys), [picks, allSlotKeys]);
+  const totalMeals  = allSlotKeys.length;
 
   // ─── Handlers ──────────────────────────────────────────────────────────────
 
@@ -158,6 +160,15 @@ function VariantCColumns() {
     if (!loaderData) return;
     const map = await fillWeek(weekStart, loaderData.columns);
     if (map) {
+      // Record which keys Jade filled
+      const newJadeFilled = new Set<string>();
+      for (const key of Object.keys(map as PickMap)) {
+        const pick = (map as PickMap)[key];
+        if (pick?.proteinId) newJadeFilled.add(`${key}:protein`);
+        if (pick?.carbId)    newJadeFilled.add(`${key}:carb`);
+        if (pick?.vegId)     newJadeFilled.add(`${key}:veg`);
+      }
+      jadeFilled.current = newJadeFilled;
       bulkSetPicks(map as PickMap);
       toast.success("Jade has filled your week!");
     } else {
@@ -199,15 +210,23 @@ function VariantCColumns() {
     }
   }, [loaderData, weekStart, picks, isSaving, markSaved]);
 
-  // ─── Empty / Error state ───────────────────────────────────────────────────
+  // ─── Empty / Error state ──────────────────────────────────────────────────
 
   if (!loaderData) {
     return (
       <div className="max-w-5xl mx-auto px-4 py-10">
-        <EmptyStateC message="Could not load column data. Check your Supabase connection and dietary preferences." />
+        <EmptyStateC
+          message="Could not load column data. Check your Supabase connection and dietary preferences."
+          onFillWeek={undefined}
+        />
         <div className="mt-6 flex justify-center">
           <Link to="/">
-            <Button variant="outline">Back to hub</Button>
+            <button
+              type="button"
+              className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground hover:text-foreground underline transition-colors"
+            >
+              Back to hub
+            </button>
           </Link>
         </div>
       </div>
@@ -215,108 +234,63 @@ function VariantCColumns() {
   }
 
   const { days, columns } = loaderData;
-
-  // Week totals
   const wt = weekTotals(columns);
 
-  // Date range display
+  // Week label for ControlBar: "MAY 4 — MAY 10"
   const weekEndDate = days[6]?.date ?? "";
-  const weekLabel   = weekStart
-    ? `${formatDate(weekStart)} – ${formatDate(weekEndDate)}, ${new Date(weekStart + "T00:00:00").getFullYear()}`
+  const weekRangeLabel = weekStart
+    ? `${formatDate(weekStart).toUpperCase()} — ${formatDate(weekEndDate).toUpperCase()}`
     : "";
 
-  // ─── Render ─────────────────────────────────────────────────────────────────
+  // ─── Render ──────────────────────────────────────────────────────────────
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
-      {/* ── Page header ── */}
-      <div className="flex flex-wrap items-center justify-between gap-4">
-        <div className="space-y-0.5">
-          <div className="flex items-center gap-2">
-            <Link to="/">
-              <button
-                type="button"
-                className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-accent transition-colors text-muted-foreground hover:text-foreground"
-                aria-label="Back to hub"
-              >
-                <ChevronLeft size={16} />
-              </button>
-            </Link>
-            <h1 className="font-[var(--font-sansita)] text-[var(--font-size-page-title)] font-bold uppercase tracking-wider">
-              Columns
-            </h1>
-            <span className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
-              Pick a protein, pick a carb, pick a veg. Done.
-            </span>
-          </div>
-          {weekLabel && (
-            <p className="pl-9 font-[var(--font-apercu-mono)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wide">
-              {weekLabel}
-            </p>
-          )}
-        </div>
-
-        {/* Week nav (stub — future) */}
-        <div className="flex items-center gap-2">
+    <div className="max-w-7xl mx-auto px-4 pb-24 space-y-3">
+      {/* ── Back link + title ── */}
+      <div className="flex items-center gap-2 pt-5 pb-1">
+        <Link to="/">
           <button
             type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-accent disabled:opacity-30 transition-colors"
-            disabled
-            aria-label="Previous week"
+            className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-accent transition-colors text-muted-foreground hover:text-foreground"
+            aria-label="Back to hub"
           >
             <ChevronLeft size={16} />
           </button>
+        </Link>
+        <span className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground italic">
+          Pick a protein, pick a carb, pick a veg. Done.
+        </span>
+        {/* Future week nav (stub) */}
+        <div className="ml-auto flex items-center gap-1">
           <button
             type="button"
-            className="flex h-8 w-8 items-center justify-center rounded-full hover:bg-accent disabled:opacity-30 transition-colors"
+            className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-accent disabled:opacity-25 transition-colors"
+            disabled
+            aria-label="Previous week"
+          >
+            <ChevronLeft size={14} />
+          </button>
+          <button
+            type="button"
+            className="flex h-7 w-7 items-center justify-center rounded-full hover:bg-accent disabled:opacity-25 transition-colors"
             disabled
             aria-label="Next week"
           >
-            <ChevronRight size={16} />
+            <ChevronRight size={14} />
           </button>
         </div>
       </div>
 
-      {/* ── Toolbar: Jade pill + week totals + Save button ── */}
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-[var(--radius-card)] bg-card border border-border px-4 py-3">
-        <div className="flex items-center gap-3">
-          <JadeFillButton
-            onConfirm={handleJadeFill}
-            unfilledCount={unfilledCount}
-            isLoading={jadeFillLoading}
-          />
-          {jadeFillLoading && (
-            <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground animate-pulse">
-              Jade is curating your week…
-            </span>
-          )}
-        </div>
+      {/* ── Sticky control bar ── */}
+      <ControlBar
+        weekLabel={weekRangeLabel}
+        totalMeals={totalMeals}
+        filledMeals={filledCount}
+        isLoading={jadeFillLoading}
+        onFillWeek={handleJadeFill}
+      />
 
-        <div className="flex items-center gap-4">
-          {/* Week running totals */}
-          <div className="hidden sm:block">
-            <MacroBar carbG={wt.carb_g} protG={wt.protein_g} fatG={wt.fat_g} />
-            <p className="font-[var(--font-apercu-mono)] text-[9px] text-muted-foreground/50 uppercase tracking-wide">
-              week totals
-            </p>
-          </div>
-
-          {/* Save button */}
-          <Button
-            onClick={handleSave}
-            disabled={isSaving || !isDirty}
-            size="sm"
-            className={cn("gap-1.5", !isDirty && "opacity-50")}
-          >
-            <Save size={14} />
-            {isSaving ? "Saving…" : "Save week"}
-          </Button>
-        </div>
-      </div>
-
-      {/* ── Main grid (desktop) or stepper (mobile) ── */}
-
-      {/* Desktop grid — hidden on mobile */}
+      {/* ── Desktop column grid ── */}
       <div className="hidden md:block">
         <ColumnGrid
           days={days}
@@ -327,11 +301,12 @@ function VariantCColumns() {
           onPickPre={handlePickPre}
           getTotals={(key, cols) => getTotals(key, cols)}
           onLockToggle={handleLockToggle}
+          jadeFilled={jadeFilled.current}
         />
       </div>
 
-      {/* Mobile stepper — shown only on mobile */}
-      <div className="block md:hidden">
+      {/* ── Mobile stepper ── */}
+      <div className="block md:hidden pb-6">
         <MobileStepper
           days={days}
           slots={MAIN_SLOTS}
@@ -340,36 +315,26 @@ function VariantCColumns() {
           onPickCol={handlePickCol}
           getTotals={(key, cols) => getTotals(key, cols)}
           onLockToggle={handleLockToggle}
+          jadeFilled={jadeFilled.current}
         />
       </div>
 
-      {/* ── Footer: weekly macro summary ── */}
-      <footer className="rounded-[var(--radius-card)] border border-border bg-card px-4 py-4">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <div>
-            <p className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground mb-1">
-              Weekly Macro Totals
-            </p>
-            <MacroBar carbG={wt.carb_g} protG={wt.protein_g} fatG={wt.fat_g} />
-          </div>
-
-          <div className="flex items-center gap-3">
-            {isDirty && (
-              <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-amber-500">
-                Unsaved changes
-              </span>
-            )}
-            <Button
-              onClick={handleSave}
-              disabled={isSaving || !isDirty}
-              className={cn("gap-1.5", !isDirty && "opacity-50")}
-            >
-              <Save size={14} />
-              {isSaving ? "Saving…" : "Save week"}
-            </Button>
-          </div>
-        </div>
-      </footer>
+      {/* ── Sticky footer totals bar ── */}
+      <FooterTotalsBar
+        weekTotals={wt}
+        filledCount={filledCount}
+        totalCount={totalMeals}
+        isSaving={isSaving}
+        isDirty={isDirty}
+        onSave={handleSave}
+        className={cn(
+          "fixed bottom-0 left-0 right-0",
+          "max-w-7xl mx-auto",
+          // Override fixed to apply max-width properly
+          "!static !bottom-auto !left-auto !right-auto",
+          "sticky bottom-0",
+        )}
+      />
     </div>
   );
 }

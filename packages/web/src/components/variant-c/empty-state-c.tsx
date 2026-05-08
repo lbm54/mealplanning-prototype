@@ -1,34 +1,53 @@
 /**
- * EmptyStateC — shown when there are no foods in the column catalog.
+ * EmptyStateC — centered hero shown when there are no food options.
  *
- * Source: 07_parallel_build_plans.md §4.3 (1.C.8)
+ * 2026 design: Jade avatar, italic Apercu copy, big Mango fill CTA.
  */
 
-import { TableProperties } from "lucide-react";
+import { JadeAvatar } from "@/components/shared/jade-avatar";
+import { KyleButton } from "@/components/shared/kyle-button";
+import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export interface EmptyStateCProps {
   message?: string;
+  /** When provided, renders a "Fill my week with Jade" CTA */
+  onFillWeek?: () => void;
+  isLoading?: boolean;
   className?: string;
 }
 
-export function EmptyStateC({ message, className }: EmptyStateCProps) {
+export function EmptyStateC({ message, onFillWeek, isLoading, className }: EmptyStateCProps) {
   return (
-    <div className={cn(
-      "flex flex-col items-center justify-center gap-4 py-16 text-center",
-      className,
-    )}>
-      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-accent-foreground">
-        <TableProperties size={28} />
-      </div>
-      <div className="space-y-1">
-        <p className="font-[var(--font-sansita)] text-[var(--font-size-section)] font-bold uppercase tracking-wider">
-          No options yet
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center gap-5 py-20 text-center",
+        className,
+      )}
+    >
+      <JadeAvatar size={96} state={isLoading ? "thinking" : "idle"} glow />
+
+      <div className="space-y-2 max-w-sm">
+        <p className="font-[var(--font-sansita)] text-[var(--font-size-section)] font-bold uppercase tracking-wider text-foreground">
+          {message ? "No options found" : "Start with Jade"}
         </p>
-        <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground max-w-xs">
-          {message ?? "Jade couldn't find options for this column. Check your food catalog or update your dietary preferences."}
+        <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground italic leading-relaxed">
+          {message ??
+            "Click ‘Fill my week with Jade’ to populate every column based on your training, allergies, and preferences. You can edit any cell after."}
         </p>
       </div>
+
+      {onFillWeek && (
+        <KyleButton
+          size="lg"
+          onClick={onFillWeek}
+          loading={isLoading}
+          className="gap-2"
+        >
+          <Sparkles size={16} />
+          Fill my week with Jade
+        </KyleButton>
+      )}
     </div>
   );
 }
