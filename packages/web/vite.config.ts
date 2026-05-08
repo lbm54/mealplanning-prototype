@@ -26,7 +26,10 @@ export default defineConfig({
     alias: { "@": path.resolve(__dirname, "src") },
   },
   plugins: [
-    tanstackStart({ installDevServerMiddleware: true }),
+    // installDevServerMiddleware is missing from public types but supported at runtime —
+    // forces TanStack Start's SSR middleware to install over Nitro's, otherwise Nitro
+    // tries to read a (non-existent) index.html in dev. See commit 048785d.
+    tanstackStart({ installDevServerMiddleware: true } as Parameters<typeof tanstackStart>[0]),
     nitro({ prerender: { routes: ["/"] } }),
     viteReact(),
     tailwindcss(),

@@ -33,6 +33,7 @@ export async function savePlanToSupabase(input: SavePlanInput): Promise<{ ok: bo
     const { data: planRow, error: planError } = await supabase
       .from("meal_plans")
       .upsert(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         {
           user_id: user.id,
           week_start: weekStart,
@@ -41,7 +42,7 @@ export async function savePlanToSupabase(input: SavePlanInput): Promise<{ ok: bo
           coach_strip: plan.coach_strip,
           rationale: plan.rationale ?? null,
           approach_used: approach,
-        },
+        } as any,
         { onConflict: "user_id,week_start" },
       )
       .select("id")
@@ -52,7 +53,7 @@ export async function savePlanToSupabase(input: SavePlanInput): Promise<{ ok: bo
       return { ok: false, error: planError?.message ?? "meal_plans upsert failed" };
     }
 
-    const planId = planRow.id;
+    const planId = (planRow as { id: string }).id;
 
     // Build meal rows from WeekPlan.days
     const mealRows: Array<{
@@ -94,7 +95,8 @@ export async function savePlanToSupabase(input: SavePlanInput): Promise<{ ok: bo
 
       const { error: mealsError } = await supabase
         .from("meal_plan_meals")
-        .insert(mealRows);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        .insert(mealRows as any);
 
       if (mealsError) {
         console.error("[savePlan] meal_plan_meals insert error:", mealsError);

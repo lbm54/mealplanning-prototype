@@ -91,22 +91,29 @@ export async function loadWeekDataE(): Promise<WeekDataE> {
     const { data: mealRows } = await supabase
       .from("meal_plan_meals")
       .select("date, slot, title, components, totals, locked")
-      .eq("meal_plan_id", planRow.id)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .eq("meal_plan_id", (planRow as any).id)
       .order("date")
       .order("slot");
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const pr = planRow as any;
     existingPlan = {
-      id: planRow.id,
-      coach_strip: planRow.coach_strip ?? undefined,
-      rationale: planRow.rationale ?? undefined,
-      meals: (mealRows ?? []).map((r) => ({
-        date: r.date,
-        slot: r.slot,
-        title: r.title,
-        components: (r.components as Record<string, unknown>[]) ?? [],
-        totals: (r.totals as { carb_g: number; protein_g: number; fat_g: number }) ?? { carb_g: 0, protein_g: 0, fat_g: 0 },
-        locked: r.locked ?? false,
-      })),
+      id: pr.id,
+      coach_strip: pr.coach_strip ?? undefined,
+      rationale: pr.rationale ?? undefined,
+      meals: (mealRows ?? []).map((r) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const rr = r as any;
+        return {
+          date: rr.date,
+          slot: rr.slot,
+          title: rr.title,
+          components: (rr.components as Record<string, unknown>[]) ?? [],
+          totals: (rr.totals as { carb_g: number; protein_g: number; fat_g: number }) ?? { carb_g: 0, protein_g: 0, fat_g: 0 },
+          locked: rr.locked ?? false,
+        };
+      }),
     };
   }
 
@@ -114,21 +121,29 @@ export async function loadWeekDataE(): Promise<WeekDataE> {
     weekStart,
     isoWeek: isoWeekNum,
     isoYear,
-    activities: (activities ?? []).map((a) => ({
-      id: a.id,
-      scheduled_date_time: a.scheduled_date_time ?? "",
-      activity_type: a.activity_type ?? "",
-      title: a.title ?? undefined,
-      duration_minutes: a.duration_minutes ?? undefined,
-      intensity_level: a.intensity_level ?? undefined,
-      distance_miles: a.distance_miles ?? undefined,
-    })),
-    macroTargets: (macroTargets ?? []).map((t) => ({
-      target_date: t.target_date,
-      carb_g: t.carb_g ?? 0,
-      prot_g: t.prot_g ?? 0,
-      fat_g: t.fat_g ?? 0,
-    })),
+    activities: (activities ?? []).map((a) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const aa = a as any;
+      return {
+        id: aa.id,
+        scheduled_date_time: aa.scheduled_date_time ?? "",
+        activity_type: aa.activity_type ?? "",
+        title: aa.title ?? undefined,
+        duration_minutes: aa.duration_minutes ?? undefined,
+        intensity_level: aa.intensity_level ?? undefined,
+        distance_miles: aa.distance_miles ?? undefined,
+      };
+    }),
+    macroTargets: (macroTargets ?? []).map((t) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const tt = t as any;
+      return {
+        target_date: tt.target_date,
+        carb_g: tt.carb_g ?? 0,
+        prot_g: tt.prot_g ?? 0,
+        fat_g: tt.fat_g ?? 0,
+      };
+    }),
     existingPlan,
   };
 }

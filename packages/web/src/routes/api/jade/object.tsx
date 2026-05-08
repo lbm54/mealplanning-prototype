@@ -69,7 +69,8 @@ export const ServerRoute = createServerFileRoute("/api/jade/object").methods({
         // delegate to streamObject for the structured output.
         const { streamObject } = await import("ai");
         const result = streamObject({
-          model,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          model: model as any,
           schema: WeekPlanSchema,
           system: systemPrompt,
           prompt: `Generate a complete 7-day meal plan for the week starting ${(body.input as { week_start?: string }).week_start ?? "this Monday"}. Use the user's training data, macro targets, and food preferences to build a realistic plan.`,
@@ -80,7 +81,8 @@ export const ServerRoute = createServerFileRoute("/api/jade/object").methods({
       if (body.kind === "swap") {
         const { generateObject } = await import("ai");
         const { object } = await generateObject({
-          model,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          model: model as any,
           schema: MealSwapResultSchema,
           system: systemPrompt,
           prompt: `Generate 3 alternative meals for slot=${JSON.stringify(body.input)}.`,
@@ -93,7 +95,8 @@ export const ServerRoute = createServerFileRoute("/api/jade/object").methods({
       if (body.kind === "tweak") {
         const { generateObject } = await import("ai");
         const { object } = await generateObject({
-          model,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          model: model as any,
           schema: z.object({ changes: z.array(MealChangeSchema) }),
           system: systemPrompt,
           prompt: `Apply tweak: ${JSON.stringify(body.input)}. Return only the meals that need to change.`,

@@ -43,7 +43,8 @@ export const ServerRoute = createServerFileRoute("/api/jade/hello").methods({
     try {
       const { streamText } = await import("ai");
       const result = streamText({
-        model,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        model: model as any,
         prompt: "Say 'Hello from Jade.' in one short line.",
         maxTokens: 32,
       });

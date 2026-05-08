@@ -34,7 +34,8 @@ export async function saveWeekPlan(params: SaveWeekParams): Promise<{ ok: boolea
         iso_year:     isoYear,
         approach_used: "c",
         updated_at:   new Date().toISOString(),
-      } as { week_start: string; iso_week: number; iso_year: number; approach_used: string; updated_at: string },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } as any,
       { onConflict: "user_id,week_start" },
     )
     .select("id")

@@ -45,7 +45,8 @@ export const ServerRoute = createServerFileRoute("/api/jade/chat").methods({
 
     try {
       const result = streamText({
-        model,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        model: model as any,
         system: getSystemPrompt(surface),
         messages,
         tools: jadeTools,
