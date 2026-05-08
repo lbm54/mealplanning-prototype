@@ -180,20 +180,20 @@ export function JadeFillSheet({
   async function runFill(split: { carbPct: number; proteinPct: number; fatPct: number }) {
     setError(null);
     try {
-      const response = await fetch("/api/jade/chat?surface=c", {
+      const response = await fetch("/api/jade/object", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          messages: [
-            {
-              role: "user",
-              content: [
-                `Fill my week plan with intent: ${category?.label ?? "Athletic Performance"}.`,
-                `Use macro split carbs ${split.carbPct}% / protein ${split.proteinPct}% / fat ${split.fatPct}%.`,
-                `Week starts: ${weekStart}. Approach: columns (variant C). Respond with proposeWeekPlan.`,
-              ].join(" "),
+          kind: "week",
+          input: {
+            week_start: weekStart,
+            intent: category?.label ?? "Athletic Performance",
+            macro_split: {
+              carbPct: split.carbPct,
+              proteinPct: split.proteinPct,
+              fatPct: split.fatPct,
             },
-          ],
+          },
         }),
       });
 
@@ -202,33 +202,16 @@ export function JadeFillSheet({
         throw new Error(text || `HTTP ${response.status}`);
       }
 
-      // Collect the streamed response and extract the last valid JSON object
-      const text = await response.text();
-      let weekPlan: {
+      // /api/jade/object returns the validated WeekPlan as JSON directly.
+      const weekPlan = (await response.json()) as {
         days?: Array<{
           date: string;
-          meals?: Record<string, { components?: Array<{ food_id?: string }> }>;
+          meals?: Record<
+            string,
+            { components?: Array<{ food_id?: string; name?: string }> }
+          >;
         }>;
-      } | null = null;
-
-      // Try newline-delimited JSON first (streamObject format)
-      const lines = text.split("\n").filter(Boolean).reverse();
-      for (const line of lines) {
-        try {
-          weekPlan = JSON.parse(line);
-          if (weekPlan?.days) break;
-        } catch {
-          continue;
-        }
-      }
-      // Fallback: parse the whole body
-      if (!weekPlan?.days) {
-        try {
-          weekPlan = JSON.parse(text);
-        } catch {
-          // ignore — handled below
-        }
-      }
+      };
 
       if (!weekPlan?.days) {
         throw new Error("Jade returned an incomplete plan");
@@ -250,12 +233,38 @@ export function JadeFillSheet({
           let carbId: string | null = null;
           let vegId: string | null = null;
 
+          // Match by food_id (when Jade has it) OR by case-insensitive name
+          // overlap (when she only provided names — typical with the loose
+          // schema).
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const matchByName = (col: any[], name: string) => {
+            const n = name.toLowerCase();
+            return col.find((o) =>
+              o.name?.toLowerCase().includes(n) ||
+              n.includes(String(o.name ?? "").toLowerCase()),
+            );
+          };
           for (const comp of meal.components) {
             const fid = comp.food_id;
-            if (!fid) continue;
-            if (!proteinId && cols.protein.some((o) => o.id === fid)) proteinId = fid;
-            else if (!carbId && cols.carb.some((o) => o.id === fid)) carbId = fid;
-            else if (!vegId && cols.veg.some((o) => o.id === fid)) vegId = fid;
+            const nm = comp.name ?? "";
+            if (fid) {
+              if (!proteinId && cols.protein.some((o) => o.id === fid)) proteinId = fid;
+              else if (!carbId && cols.carb.some((o) => o.id === fid)) carbId = fid;
+              else if (!vegId && cols.veg.some((o) => o.id === fid)) vegId = fid;
+            } else if (nm) {
+              if (!proteinId) {
+                const m = matchByName(cols.protein, nm);
+                if (m) { proteinId = m.id; continue; }
+              }
+              if (!carbId) {
+                const m = matchByName(cols.carb, nm);
+                if (m) { carbId = m.id; continue; }
+              }
+              if (!vegId) {
+                const m = matchByName(cols.veg, nm);
+                if (m) { vegId = m.id; continue; }
+              }
+            }
           }
 
           pickMap[key] = { proteinId, carbId, vegId, locked: false };

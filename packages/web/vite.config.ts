@@ -362,9 +362,98 @@ GENERATIVE UI — TOOL USE RULES (follow exactly):
             return res.end();
           }
 
+          // ── /api/jade/object — structured WeekPlan / swap / tweak ───────
+          if (endpoint === "object" && method === "POST") {
+            const model = await getModel();
+            if (!model) {
+              return json(503, { error: "AI not configured" });
+            }
+            const chunks: Buffer[] = [];
+            for await (const chunk of req) chunks.push(chunk as Buffer);
+            const body = JSON.parse(Buffer.concat(chunks).toString("utf-8") || "{}");
+            const kind = body.kind as "week" | "swap" | "tweak";
+            const input = body.input ?? {};
+
+            try {
+              const { generateObject } = await import("ai");
+              const { z } = await import("zod");
+
+              // Relaxed schemas for AI generation — the strict server schema
+              // requires food_id UUIDs which the model can't invent without
+              // tool calls. Variants that need real food IDs do their own
+              // resolution against the foods catalog client-side.
+              const LooseFoodComponent = z.object({
+                food_id: z.string().optional(),
+                name: z.string(),
+                portion: z.string().optional(),
+                carb_g: z.number().optional(),
+                protein_g: z.number().optional(),
+                fat_g: z.number().optional(),
+              });
+              const LooseMealAssembly = z.object({
+                id: z.string().optional(),
+                title: z.string(),
+                method_tag: z.string().optional(),
+                components: z.array(LooseFoodComponent),
+                totals: z.object({
+                  carb_g: z.number().optional(),
+                  protein_g: z.number().optional(),
+                  fat_g: z.number().optional(),
+                }).optional(),
+              });
+              const LooseDayPlan = z.object({
+                date: z.string(),
+                meals: z.record(z.string(), LooseMealAssembly.nullable()).optional(),
+                day_note: z.string().optional(),
+              });
+              const LooseWeekPlan = z.object({
+                week_start: z.string(),
+                coach_strip: z.string().optional(),
+                rationale: z.string().optional(),
+                days: z.array(LooseDayPlan).min(7).max(7),
+              });
+              const LooseSwapResult = z.object({
+                alternatives: z.array(LooseMealAssembly).min(3).max(3),
+                swap_note: z.string().optional(),
+              });
+
+              if (kind === "week") {
+                const weekStart = (input.week_start as string) ?? new Date().toISOString().slice(0, 10);
+                const intent = (input.intent as string) ?? "athletic performance";
+                const split = (input.macro_split as { carbPct?: number; proteinPct?: number; fatPct?: number }) ?? {};
+                const result = await generateObject({
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  model: model as any,
+                  schema: LooseWeekPlan,
+                  system: SYSTEM_PROMPT,
+                  prompt: `Generate a complete 7-day meal plan starting ${weekStart}. Intent: ${intent}. Macro split: ${split.carbPct ?? 50}% carbs / ${split.proteinPct ?? 25}% protein / ${split.fatPct ?? 25}% fat. Use simple ingredient assemblies (no cooking steps). 3 main slots per day (breakfast/lunch/dinner). Each component is a food name + portion + rough macros. Skip food_id fields — those are looked up client-side.`,
+                });
+                return json(200, result.object);
+              }
+
+              if (kind === "swap") {
+                const result = await generateObject({
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  model: model as any,
+                  schema: LooseSwapResult,
+                  system: SYSTEM_PROMPT,
+                  prompt: `Generate 3 alternative meals for slot=${JSON.stringify(input)}. Use ingredient assemblies (no cooking steps). Skip food_id fields.`,
+                });
+                return json(200, result.object);
+              }
+
+              return json(400, { error: `Unsupported kind: ${kind}` });
+            } catch (err) {
+              return json(500, {
+                error: "Generation failed",
+                message: err instanceof Error ? err.message : String(err),
+              });
+            }
+          }
+
           return json(404, {
             error: `Unknown endpoint /api/jade/${endpoint} (method ${method})`,
-            available: ["GET /api/jade/hello", "POST /api/jade/chat"],
+            available: ["GET /api/jade/hello", "POST /api/jade/chat", "POST /api/jade/object"],
           });
         } catch (err) {
           // eslint-disable-next-line no-console
