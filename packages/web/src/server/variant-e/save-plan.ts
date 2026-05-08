@@ -33,7 +33,6 @@ export async function savePlanToSupabase(input: SavePlanInput): Promise<{ ok: bo
     const { data: planRow, error: planError } = await supabase
       .from("meal_plans")
       .upsert(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         {
           user_id: user.id,
           week_start: weekStart,
@@ -42,6 +41,7 @@ export async function savePlanToSupabase(input: SavePlanInput): Promise<{ ok: bo
           coach_strip: plan.coach_strip,
           rationale: plan.rationale ?? null,
           approach_used: approach,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } as any,
         { onConflict: "user_id,week_start" },
       )

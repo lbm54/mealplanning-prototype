@@ -57,7 +57,7 @@ function SignUpPage() {
             Create account
           </h1>
           <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
-            New accounts won't have any training data. To use Lee's dev data, sign in instead.
+            New accounts won&apos;t have any training data. To use Lee&apos;s dev data, sign in instead.
           </p>
         </div>
 

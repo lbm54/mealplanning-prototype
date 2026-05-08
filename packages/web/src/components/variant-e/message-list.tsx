@@ -165,7 +165,7 @@ function JadeRow({
                 "transition-colors duration-200 select-none pointer-events-none",
               )}
             >
-              {formatTime(msg.timestamp)}
+              <span suppressHydrationWarning>{formatTime(msg.timestamp)}</span>
             </span>
           </div>
         )}

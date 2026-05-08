@@ -74,13 +74,13 @@ function AuthCallback() {
               Signing you in…
             </p>
             <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground">
-              Hang tight, we're verifying your link.
+              Hang tight, we&apos;re verifying your link.
             </p>
           </>
         ) : (
           <>
             <p className="font-[var(--font-sansita)] text-[var(--font-size-section)] uppercase tracking-wider">
-              Couldn't sign you in
+              Couldn&apos;t sign you in
             </p>
             <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-destructive">
               {errorMsg}
