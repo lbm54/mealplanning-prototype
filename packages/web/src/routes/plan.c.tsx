@@ -17,6 +17,7 @@
  *   - Mobile (<768px): MobileStepper with progress beads.
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { useState, useCallback, useMemo, useRef } from "react";
 import { toast } from "sonner";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -33,46 +34,48 @@ import type { PickMap, CellTotals } from "@/lib/hooks/use-column-picks";
 
 // ─── Route ───────────────────────────────────────────────────────────────────
 
-export const Route = createFileRoute("/plan/c")({
-  loader: async () => {
+// Server-only RPC — same reason as plan.b. process.env is empty client-side.
+const fetchPlanCData = createServerFn({ method: "GET" }).handler(async () => {
+  try {
+    const { loadWeekColumns } = await import("@/lib/queries/columns-data.c");
+    const { deriveWeekCharacter } = await import("@/lib/derive-week-character");
+    const { getServerSupabase } = await import("@/lib/supabase/server");
+    const data = await loadWeekColumns();
+
+    let derived = null;
     try {
-      const { loadWeekColumns } = await import("@/lib/queries/columns-data.c");
-      const { deriveWeekCharacter } = await import("@/lib/derive-week-character");
-      const { getServerSupabase } = await import("@/lib/supabase/server");
-      const data = await loadWeekColumns();
+      const supabase = await getServerSupabase();
+      const today = new Date().toISOString().slice(0, 10);
+      const weekFromNow = new Date(Date.now() + 14 * 86400_000).toISOString().slice(0, 10);
+      const [actsRes, macrosRes] = await Promise.all([
+        supabase.from("activities")
+          .select("title, scheduled_date_time, activity_type, status, duration_minutes, intensity_level, distance_miles, distance_meters")
+          .gte("scheduled_date_time", today)
+          .lte("scheduled_date_time", weekFromNow + "T23:59:59")
+          .order("scheduled_date_time")
+          .limit(20),
+        supabase.from("daily_macro_targets")
+          .select("target_date, carb_g")
+          .gte("target_date", today)
+          .lte("target_date", weekFromNow)
+          .order("target_date"),
+      ]);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const acts = (actsRes.data ?? []) as any[];
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const macros = (macrosRes.data ?? []) as any[];
+      derived = deriveWeekCharacter(acts, macros);
+    } catch { /* derived stays null */ }
 
-      // Pull activities for character derivation (cheap — same project, separate query)
-      let derived = null;
-      try {
-        const supabase = await getServerSupabase();
-        const today = new Date().toISOString().slice(0, 10);
-        const weekFromNow = new Date(Date.now() + 14 * 86400_000).toISOString().slice(0, 10);
-        const [actsRes, macrosRes] = await Promise.all([
-          supabase.from("activities")
-            .select("title, scheduled_date_time, activity_type, status, duration_minutes, intensity_level, distance_miles, distance_meters")
-            .gte("scheduled_date_time", today)
-            .lte("scheduled_date_time", weekFromNow + "T23:59:59")
-            .order("scheduled_date_time")
-            .limit(20),
-          supabase.from("daily_macro_targets")
-            .select("target_date, carb_g")
-            .gte("target_date", today)
-            .lte("target_date", weekFromNow)
-            .order("target_date"),
-        ]);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const acts = (actsRes.data ?? []) as any[];
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const macros = (macrosRes.data ?? []) as any[];
-        derived = deriveWeekCharacter(acts, macros);
-      } catch { /* derived stays null */ }
+    return Object.assign(data, { derived });
+  } catch (err) {
+    console.error("[plan.c] loader error:", err);
+    return null;
+  }
+});
 
-      return Object.assign(data, { derived });
-    } catch (err) {
-      console.error("[plan.c] loader error:", err);
-      return null;
-    }
-  },
+export const Route = createFileRoute("/plan/c")({
+  loader: async () => fetchPlanCData(),
   component: VariantCColumns,
 });
 

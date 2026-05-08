@@ -183,13 +183,9 @@ export function MorningBriefingSheet({
   onClose,
   weekContext,
 }: MorningBriefingSheetProps) {
-  const isAiConfigured =
-    typeof window !== "undefined"
-      ? Boolean(
-          (window as Window & { __AI_CONFIGURED__?: boolean })
-            .__AI_CONFIGURED__,
-        )
-      : false;
+  // Was gating on window.__AI_CONFIGURED__ which nothing populates. The
+  // chat endpoint reports its own configuration errors — let the request fly.
+  const isAiConfigured = true;
 
   const { displayMessages, isLoading } = useMorningBriefing({
     weekContext,

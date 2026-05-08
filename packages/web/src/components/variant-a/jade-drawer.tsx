@@ -284,13 +284,10 @@ export function JadeDrawer({
 
   if (!isOpen) return null;
 
-  const isAiConfigured =
-    typeof window !== "undefined"
-      ? Boolean(
-          (window as Window & { __AI_CONFIGURED__?: boolean })
-            .__AI_CONFIGURED__,
-        )
-      : false;
+  // The chat endpoint itself will respond with an error if AI is unconfigured;
+  // we don't need a client-side feature flag for the banner. Always assume
+  // configured — if it isn't, the message stream will surface the issue.
+  const isAiConfigured = true;
 
   return (
     <>

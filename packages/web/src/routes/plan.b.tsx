@@ -23,6 +23,7 @@
  * For now it lives in components/variant-b/jade-narrator.tsx.
  */
 import { createFileRoute } from "@tanstack/react-router";
+import { createServerFn } from "@tanstack/react-start";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Link as RouterLink } from "@tanstack/react-router";
@@ -39,36 +40,42 @@ import { useStack } from "@/components/variant-b/use-stack";
 import FollowUpQuestion from "@/components/shared/widgets/follow-up-question";
 import type { SelectedCategory } from "@/components/variant-b/types";
 
+// Server-only RPC — runs only on the server (initial SSR + client-nav RPC).
+// Without this wrapper the loader runs in the browser too, where
+// process.env.VITE_SUPABASE_URL is undefined and getServerSupabase crashes.
+const fetchDerivedB = createServerFn({ method: "GET" }).handler(async () => {
+  try {
+    const { getServerSupabase } = await import("@/lib/supabase/server");
+    const { deriveWeekCharacter } = await import("@/lib/derive-week-character");
+    const supabase = await getServerSupabase();
+    const today = new Date().toISOString().slice(0, 10);
+    const weekFromNow = new Date(Date.now() + 14 * 86400_000).toISOString().slice(0, 10);
+    const [actsRes, macrosRes] = await Promise.all([
+      supabase.from("activities")
+        .select("title, scheduled_date_time, activity_type, status, duration_minutes, intensity_level, distance_miles, distance_meters")
+        .gte("scheduled_date_time", today)
+        .lte("scheduled_date_time", weekFromNow + "T23:59:59")
+        .order("scheduled_date_time")
+        .limit(20),
+      supabase.from("daily_macro_targets")
+        .select("target_date, carb_g")
+        .gte("target_date", today)
+        .lte("target_date", weekFromNow)
+        .order("target_date"),
+    ]);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const acts = (actsRes.data ?? []) as any[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const macros = (macrosRes.data ?? []) as any[];
+    return { derived: deriveWeekCharacter(acts, macros) };
+  } catch (err) {
+    console.error("[plan.b] derive failed:", err);
+    return { derived: null };
+  }
+});
+
 export const Route = createFileRoute("/plan/b")({
-  loader: async () => {
-    try {
-      const { getServerSupabase } = await import("@/lib/supabase/server");
-      const { deriveWeekCharacter } = await import("@/lib/derive-week-character");
-      const supabase = await getServerSupabase();
-      const today = new Date().toISOString().slice(0, 10);
-      const weekFromNow = new Date(Date.now() + 14 * 86400_000).toISOString().slice(0, 10);
-      const [actsRes, macrosRes] = await Promise.all([
-        supabase.from("activities")
-          .select("title, scheduled_date_time, activity_type, status, duration_minutes, intensity_level, distance_miles, distance_meters")
-          .gte("scheduled_date_time", today)
-          .lte("scheduled_date_time", weekFromNow + "T23:59:59")
-          .order("scheduled_date_time")
-          .limit(20),
-        supabase.from("daily_macro_targets")
-          .select("target_date, carb_g")
-          .gte("target_date", today)
-          .lte("target_date", weekFromNow)
-          .order("target_date"),
-      ]);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const acts = (actsRes.data ?? []) as any[];
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const macros = (macrosRes.data ?? []) as any[];
-      return { derived: deriveWeekCharacter(acts, macros) };
-    } catch {
-      return { derived: null };
-    }
-  },
+  loader: async () => fetchDerivedB(),
   component: VariantBStack,
 });
 
