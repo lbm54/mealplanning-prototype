@@ -170,19 +170,35 @@ export function applyWeekPlan(
       snack: null,
     };
 
-    for (const [slot, asm] of Object.entries(planDay.meals)) {
+    for (const [rawSlot, asm] of Object.entries(planDay.meals)) {
       if (!asm) continue;
-      updatedMeals[slot as MealSlot] = {
+      // Normalize slot key — model may return "Breakfast", "BREAKFAST", or
+      // already-lowercase. Map to MealSlot enum value.
+      const slotKey = String(rawSlot).toLowerCase().replace(/[^a-z_]/g, "_") as MealSlot;
+      const allowed: MealSlot[] = [
+        "breakfast", "pre_workout", "during_workout",
+        "post_workout", "lunch", "dinner", "snack",
+      ];
+      if (!allowed.includes(slotKey)) continue;
+
+      // Sum from components when totals is missing (loose schema makes it optional)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const components = (asm.components ?? []) as any[];
+      const sumCarb = components.reduce((s, c) => s + Number(c?.carb_g ?? 0), 0);
+      const sumProt = components.reduce((s, c) => s + Number(c?.protein_g ?? 0), 0);
+      const sumFat = components.reduce((s, c) => s + Number(c?.fat_g ?? 0), 0);
+
+      updatedMeals[slotKey] = {
         id: asm.id,
-        title: asm.title,
+        title: asm.title ?? "",
         methodTag: asm.method_tag,
-        components: asm.components.map((c) => ({
-          name: c.name,
-          portion: c.portion,
+        components: components.map((c) => ({
+          name: c?.name ?? "",
+          portion: c?.portion ?? "",
         })),
-        carbG: asm.totals.carb_g,
-        protG: asm.totals.protein_g,
-        fatG: asm.totals.fat_g,
+        carbG: asm.totals?.carb_g ?? sumCarb,
+        protG: asm.totals?.protein_g ?? sumProt,
+        fatG: asm.totals?.fat_g ?? sumFat,
       };
     }
 

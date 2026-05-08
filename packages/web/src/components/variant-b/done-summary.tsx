@@ -40,14 +40,35 @@ function formatWeekRange(weekStart: string): string {
   return `${fmt(start)} – ${fmt(end)}`;
 }
 
+/** Resolve a meal's macro totals — falls back to summing components when
+ *  the loose schema omits the totals object. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function mealTotals(meal: any) {
+  if (meal?.totals?.carb_g !== undefined || meal?.totals?.protein_g !== undefined || meal?.totals?.fat_g !== undefined) {
+    return {
+      carb_g: Number(meal.totals.carb_g ?? 0),
+      protein_g: Number(meal.totals.protein_g ?? 0),
+      fat_g: Number(meal.totals.fat_g ?? 0),
+    };
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const components = (meal?.components ?? []) as any[];
+  return {
+    carb_g: components.reduce((s, c) => s + Number(c?.carb_g ?? 0), 0),
+    protein_g: components.reduce((s, c) => s + Number(c?.protein_g ?? 0), 0),
+    fat_g: components.reduce((s, c) => s + Number(c?.fat_g ?? 0), 0),
+  };
+}
+
 function computeWeekTotals(weekPlan: WeekPlan) {
   let carbG = 0, protG = 0, fatG = 0;
   for (const day of weekPlan.days) {
     for (const meal of Object.values(day.meals ?? {})) {
       if (!meal) continue;
-      carbG += meal.totals.carb_g;
-      protG += meal.totals.protein_g;
-      fatG += meal.totals.fat_g;
+      const t = mealTotals(meal);
+      carbG += t.carb_g;
+      protG += t.protein_g;
+      fatG += t.fat_g;
     }
   }
   return { carbG: Math.round(carbG), protG: Math.round(protG), fatG: Math.round(fatG) };
@@ -76,7 +97,7 @@ function buildMealPlanCardOutput(weekPlan: WeekPlan): MealPlanCardOutput {
 function buildHeatmapOutput(weekPlan: WeekPlan): WeekHeatmapOutput {
   const days: HeatmapDay[] = weekPlan.days.map((day, i) => {
     const carbG = Object.values(day.meals ?? {}).reduce(
-      (sum, m) => sum + (m?.totals.carb_g ?? 0),
+      (sum, m) => sum + (m ? mealTotals(m).carb_g : 0),
       0,
     );
     return {
@@ -99,26 +120,26 @@ function buildDayBreakdownOutput(weekPlan: WeekPlan): DayBreakdownModalOutput {
     let carbG = 0, proteinG = 0, fatG = 0;
 
     const slots: DayMealSlot[] = Object.entries(meals).map(([slot, meal]) => {
-      if (meal) {
-        carbG += meal.totals.carb_g;
-        proteinG += meal.totals.protein_g;
-        fatG += meal.totals.fat_g;
+      const t = meal ? mealTotals(meal) : null;
+      if (t) {
+        carbG += t.carb_g;
+        proteinG += t.protein_g;
+        fatG += t.fat_g;
       }
       return {
         slot,
-        // Map from server MealAssembly (totals.*) → MealCell MealAssembly (carbG/protG/fatG)
         meal: meal
           ? {
               id: meal.id,
               title: meal.title,
               methodTag: meal.method_tag,
-              components: meal.components.map((c) => ({
+              components: (meal.components ?? []).map((c) => ({
                 name: c.name,
                 portion: c.portion,
               })),
-              carbG: meal.totals.carb_g,
-              protG: meal.totals.protein_g,
-              fatG: meal.totals.fat_g,
+              carbG: t?.carb_g ?? 0,
+              protG: t?.protein_g ?? 0,
+              fatG: t?.fat_g ?? 0,
             }
           : null,
       };

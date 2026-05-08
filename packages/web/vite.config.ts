@@ -421,12 +421,38 @@ GENERATIVE UI — TOOL USE RULES (follow exactly):
                 const weekStart = (input.week_start as string) ?? new Date().toISOString().slice(0, 10);
                 const intent = (input.intent as string) ?? "athletic performance";
                 const split = (input.macro_split as { carbPct?: number; proteinPct?: number; fatPct?: number }) ?? {};
+                // Compute the 7 ISO date strings from weekStart so we can ask
+                // Jade for those exact dates (no ambiguous "Monday May 4")
+                const dates: string[] = [];
+                const start = new Date(weekStart + "T00:00:00");
+                for (let i = 0; i < 7; i++) {
+                  const d = new Date(start);
+                  d.setDate(start.getDate() + i);
+                  dates.push(d.toISOString().slice(0, 10));
+                }
                 const result = await generateObject({
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   model: model as any,
                   schema: LooseWeekPlan,
                   system: SYSTEM_PROMPT,
-                  prompt: `Generate a complete 7-day meal plan starting ${weekStart}. Intent: ${intent}. Macro split: ${split.carbPct ?? 50}% carbs / ${split.proteinPct ?? 25}% protein / ${split.fatPct ?? 25}% fat. Use simple ingredient assemblies (no cooking steps). 3 main slots per day (breakfast/lunch/dinner). Each component is a food name + portion + rough macros. Skip food_id fields — those are looked up client-side.`,
+                  prompt: `Generate a complete 7-day meal plan.
+
+Output rules — follow exactly:
+- week_start: "${weekStart}"
+- days: 7 entries with these exact ISO dates IN ORDER: ${dates.join(", ")}
+- meals: keyed by lowercase slot — must be one of "breakfast", "lunch", "dinner", "snack" (and optionally "pre_workout", "during_workout", "post_workout" on workout days).
+- Each meal:
+  - title: short descriptive ingredient list, e.g. "grilled chicken + jasmine rice + broccoli"
+  - components: array of { name, portion, carb_g, protein_g, fat_g } — REQUIRED on every component
+  - totals: { carb_g, protein_g, fat_g } — sum of components (REQUIRED)
+- coach_strip: 1-sentence summary of the week's character (max 200 chars)
+
+Plan parameters:
+- Intent: ${intent}
+- Macro split target: ${split.carbPct ?? 50}% carbs / ${split.proteinPct ?? 25}% protein / ${split.fatPct ?? 25}% fat
+- Style: simple ingredient assemblies, no cooking steps, 3 main slots per day (breakfast/lunch/dinner) plus an optional snack.
+
+Skip food_id fields entirely.`,
                 });
                 return json(200, result.object);
               }
