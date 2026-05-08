@@ -24,6 +24,7 @@ import { Route as ApiJadeObjectRouteImport } from './routes/api/jade/object'
 import { Route as ApiJadeHelloRouteImport } from './routes/api/jade/hello'
 import { Route as ApiJadeChatRouteImport } from './routes/api/jade/chat'
 import { Route as ApiClerkWebhookRouteImport } from './routes/api/clerk.webhook'
+import { Route as ApiJadeVariantBPersistRouteImport } from './routes/api/jade/variant-b/persist'
 
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
@@ -100,6 +101,11 @@ const ApiClerkWebhookRoute = ApiClerkWebhookRouteImport.update({
   path: '/api/clerk/webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiJadeVariantBPersistRoute = ApiJadeVariantBPersistRouteImport.update({
+  id: '/api/jade/variant-b/persist',
+  path: '/api/jade/variant-b/persist',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
+  '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -134,6 +141,7 @@ export interface FileRoutesByTo {
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
+  '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -152,6 +160,7 @@ export interface FileRoutesById {
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
+  '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
+    | '/api/jade/variant-b/persist'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -188,6 +198,7 @@ export interface FileRouteTypes {
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
+    | '/api/jade/variant-b/persist'
   id:
     | '__root__'
     | '/'
@@ -205,6 +216,7 @@ export interface FileRouteTypes {
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
+    | '/api/jade/variant-b/persist'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -223,6 +235,7 @@ export interface RootRouteChildren {
   ApiJadeChatRoute: typeof ApiJadeChatRoute
   ApiJadeHelloRoute: typeof ApiJadeHelloRoute
   ApiJadeObjectRoute: typeof ApiJadeObjectRoute
+  ApiJadeVariantBPersistRoute: typeof ApiJadeVariantBPersistRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -332,6 +345,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiClerkWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/jade/variant-b/persist': {
+      id: '/api/jade/variant-b/persist'
+      path: '/api/jade/variant-b/persist'
+      fullPath: '/api/jade/variant-b/persist'
+      preLoaderRoute: typeof ApiJadeVariantBPersistRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -351,6 +371,7 @@ const rootRouteChildren: RootRouteChildren = {
   ApiJadeChatRoute: ApiJadeChatRoute,
   ApiJadeHelloRoute: ApiJadeHelloRoute,
   ApiJadeObjectRoute: ApiJadeObjectRoute,
+  ApiJadeVariantBPersistRoute: ApiJadeVariantBPersistRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
