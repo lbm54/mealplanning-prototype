@@ -15,39 +15,8 @@ Last updated: 2026-05-07
 | A — Calendar | `variant/a` | `../mealplanning_prototype-a` | 3001 | ⏳ Stub only | 2026-05-06 | |
 | B — Stack | `variant/b` | `../mealplanning_prototype-b` | 3002 | ⏳ Stub only | 2026-05-06 | |
 | C — Columns | `variant/c` | `../mealplanning_prototype-c` | 3003 | ⏳ Stub only | 2026-05-06 | |
-| D — Hybrid | `variant/d` | `../mealplanning_prototype-d` | 3004 | ✅ Phase 1.D complete | 2026-05-06 | 8 commits. DnD from chat to grid, streaming chat, collapse panel, mobile sheet grid. |
-| E — Coach | `variant/e` | `../mealplanning_prototype-e` | 3005 | ⏳ Stub only | 2026-05-06 | |
-
----
-
-## Phase 1D — Variant D "Hybrid" Checklist (§5.6)
-
-- [x] `/plan/d` split layout works on desktop (60/40 with HybridShell)
-- [x] Chat panel collapses to 48px icon strip; state persists in localStorage
-- [x] Mobile: grid behind GridSheetMobile sheet trigger; chat is full-width
-- [x] Server loader: `loadWeekDataD()` fetches activities + macro targets + existing plan
-- [x] Grid renders DndDayColumn (droppable cells) with real Supabase data
-- [x] JadeSide wires `useChat` against `/api/jade/chat?surface=d`
-- [x] Streaming chat replies render in bubbles; Jade avatar shows thinking state
-- [x] Suggested prompt chips shown before first user message ("Build me a week", etc.)
-- [x] DraggableMealCard renders Jade's meal suggestions with drag handle + macro bar
-- [x] `@dnd-kit/sortable` installed; `useDragMeal` configures Mouse + Touch + Keyboard sensors
-- [x] DndContext wraps page; `handleDragEnd` calls `replaceMeal` on valid drop
-- [x] Drop target cells light up with Electrolyte cyan outline on hover
-- [x] Optimistic grid update on drop; debounced Supabase persistence
-- [x] `%%MEAL_CARDS%%` custom data protocol parsed from Jade's stream → DraggableMealCard
-- [x] `%%WEEK_PLAN%%` custom data protocol parsed → `applyWeekPlan` → grid + DB update
-- [x] Cell-click opens shared SwapDrawer (escape hatch)
-- [x] EmptyStateD shown when no plan exists (grid area overlay)
-- [x] ErrorState used for all four error kinds
-- [x] OnboardingTooltip first-time DnD hint (localStorage flag, auto-dismiss 6s)
-- [x] `pnpm lint` — 0 errors (only pre-existing Phase 0 errors excluded)
-- [x] `pnpm typecheck` — 0 new errors (4 pre-existing @/lib/supabase/types errors from Phase 0)
-
-### Known TODOs (no shared file changes needed)
-- [ ] `%%MEAL_CARDS%%` / `%%WEEK_PLAN%%` protocol requires Jade backend to emit these markers. The `/api/jade/chat` endpoint (shared Phase 0 file — NOT modified) would need a surface adapter update to actually emit these data parts. Jade's current `streamText` stream returns plain text. **Workaround in place**: the `parseMealCards` / `parseWeekPlan` functions are no-ops on plain text, so chat works fully as plain text today. When the backend is updated to emit structured data parts, the cards will auto-render.
-- [ ] `applyWeekPlan` called from `onWeekPlanReceived` also tries to call `persistWeekPlan` which uses `getServerSupabase()` — this runs client-side. **TODO**: Move this persistence call to a `createServerFn` action. For now it fails silently (DB write skipped) but the grid update still works.
-- [ ] Mobile `[Use]` button on DraggableMealCard should open the GridSheetMobile and pre-select the target slot. Currently shows a toast prompt. Low priority for prototype.
+| D — Hybrid | `variant/d` | `../mealplanning_prototype-d` | 3004 | ⏳ Stub only | 2026-05-06 | |
+| E — Coach | `variant/e` | `../mealplanning_prototype-e` | 3005 | ✅ Phase 1.E complete | 2026-05-06 | 8 sub-phases done; react-markdown installed; dev server 500 is pre-existing Phase 0 infra issue (getRouter) |
 
 ---
 
