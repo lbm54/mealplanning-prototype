@@ -1,3 +1,32 @@
+# Variant E — 2026 Facelift (2026-05-07)
+
+## Summary
+Variant E "Coach" redesigned as a premium AI companion — the feel of a $20/mo product. Jade is a character, not a chatbot. The design draws from ChatGPT 2025's typographic refinement, Replika's emotive avatar presence, Granola's polished bubble-free message surfaces, and Linear's command palette.
+
+### New files added
+- `slash-command-popover.tsx` — Command palette above the composer: appears on "/" keypress, filters in real-time, shows command + args + hint. Cursor/Linear feel. `onMouseDown` prevents textarea blur on click.
+
+### Modified files
+- `jade-shell.tsx` — Dual-blackberry radial background for depth. 96px JadeAvatar with a layered radial-gradient electrolyte glow sublayer (blur 14px, `aria-hidden`). Breathe animation wrapper. Status line in Apercu Mono tracking-widest. `KyleButton outline` ghost "View plan" on right (disabled/hidden until plan exists). `ThemeToggle` on left. Bottom-fade gradient blending header into chat.
+- `message-list.tsx` — Jade messages: NO bubble, avatar-prefixed flowing Apercu. User messages: right-aligned, `rgba(247,139,20,0.13)` Mango-tint bubble with border, `rounded-br-[4px]` tail. 24px gap between turns. Timestamps hidden, revealed on group hover via CSS transition. Thinking dots: Electrolyte-tinted bouncing with explicit animation-delay. Demo mode banner wired via `isDemoMode` prop.
+- `jade-composer.tsx` — `KyleCard variant="glass"` wrapping. Electrolyte focus ring on the card (`focus-within:border-[var(--color-electrolyte)]/40`). Auto-grow textarea (up to 100px), transparent bg. 40px Mango gradient circular send button with lift+glow. Mic stub (disabled, accessible tooltip). `SlashCommandPopover` wired: opens on "/", closes on Escape/space/send. Shortcut hint in Apercu Mono 0.6rem tracking-widest.
+- `message-part-text.tsx` — "›" custom bullet (electrolyte-tinted). Inline code: electrolyte pill (`bg-[var(--color-electrolyte)]/10`, `border-[var(--color-electrolyte)]/20`). Blockquote: italic left-border for refusal styling. Tables, headings all refined.
+- `message-part-week-card.tsx` — `KyleCard elevated`. Compadre Wide header. Dynamic week character badge (`<Badge variant="training-day|race|carb-loading|rest">`). `ai-active` badge during stream. Day rows: condensed `DOW | date | CarbTierBadge withLabel | meal summary`. Horizontal macro stacked bar (3-segment: orange/electrolyte/dragonfruit). Streaming skeletons with `animate-pulse`. `KyleButton` primary for Save, cyan ghost for View.
+- `message-part-meal-card.tsx` — Compact `KyleCard elevated` max-w-sm. Electrolyte icon accent circle. Macro inline pills (orange/electrolyte/dragonfruit dots). "›" bullet for components. `KyleButton` primary Keep, ghost Swap again/Undo.
+- `message-part-chips.tsx` — `animate-fade-up` with 80ms stagger delay per chip. Hover: Electrolyte border + lift (`-translate-y-0.5`). Backdrop-blur-sm glass surface.
+- `view-as-plan-sheet.tsx` — Replaced manual portal with shadcn `<Sheet>` (proper animate-in/out). Glass backdrop (`backdrop-blur-[20px]`). Dense day cards with `CarbTierBadge withLabel` + `TrainingDayDot`. Weekly macro stacked bar in header. "Back to chat" `KyleButton outline`. Empty state with `MessageSquare` icon.
+- `plan.e.tsx` — Added `isDemoMode` derived flag passed to `MessageList`.
+
+### TODOs / Follow-ups
+- [ ] Typewriter/typeout animation for Jade's first message (onboarding state) — requires word-by-word reveal with `requestAnimationFrame` or CSS animation-fill-mode; currently uses `animate-fade-up` per message
+- [ ] Keyboard navigation in `SlashCommandPopover` (arrow keys + Enter) — currently click-only
+- [ ] Voice input: mic button is stubbed disabled; wire to `MediaRecorder` + Whisper transcription endpoint when ready
+- [ ] `isDemoMode` detection could be improved: currently based on `isAiConfigured` only; could also detect from first assistant message content
+- [ ] Streaming text word-by-word fade-in: currently streams naturally as chunks arrive; no explicit word-level animation
+- [ ] Progressive plan streaming: WeekPlan card fills day-by-day during stream (foundation is there via `isStreaming` + skeleton rows); could enhance with row-level fade-in as each day parses
+
+---
+
 # Variant C — 2026 Facelift (2026-05-07)
 
 ## Summary
