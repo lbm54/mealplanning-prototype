@@ -16,8 +16,9 @@
  *   Electrolyte focus ring on textarea; shimmer status row when AI thinking
  * - Collapsed strip: Jade avatar + unread badge + expand chevron
  */
-import { useRef, useEffect, useCallback, type FormEvent } from "react";
+import { useRef, useEffect, useCallback, useState, type FormEvent } from "react";
 import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
 import { cn } from "@/lib/utils";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
 import { DraggableMealCard } from "./draggable-meal-card";
@@ -200,19 +201,38 @@ export function JadeSide({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading, append } = useChat({
-    api: "/api/jade/chat?surface=d",
-    initialMessages: [],
+  // AI SDK v6 — manage input locally; useChat returns sendMessage/status only
+  const [input, setInput] = useState("");
+  const { messages, sendMessage, status } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/jade/chat?surface=d" }),
     onError: () => {
       toast.error("Jade's having trouble — try again in a moment.");
     },
-    onFinish: (message) => {
-      const { weekPlanJson } = parseWeekPlan(message.content);
+    onFinish: ({ message }) => {
+      // v6 message has parts: [{type:'text', text:'...'}]
+      const text = (message.parts ?? [])
+        .filter((p): p is { type: "text"; text: string } => p.type === "text")
+        .map((p) => p.text)
+        .join("");
+      const { weekPlanJson } = parseWeekPlan(text);
       if (weekPlanJson && onWeekPlanReceived) {
         onWeekPlanReceived(weekPlanJson);
       }
     },
   });
+  const isLoading = status === "streaming" || status === "submitted";
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+    setInput(e.target.value);
+  const handleSubmit = (e?: FormEvent | React.KeyboardEvent) => {
+    e?.preventDefault?.();
+    if (!input.trim() || isLoading) return;
+    sendMessage({ text: input });
+    setInput("");
+  };
+  const append = useCallback(
+    (msg: { role: "user"; content: string }) => sendMessage({ text: msg.content }),
+    [sendMessage],
+  );
 
   // Auto-scroll to latest message
   useEffect(() => {
@@ -382,12 +402,18 @@ export function JadeSide({
         )}
 
         {messages.map((msg, i) => {
+          // v6: text lives in parts: [{type:'text', text}], not content
+          const text = (msg.parts ?? [])
+            .filter((p): p is { type: "text"; text: string } => p.type === "text")
+            .map((p) => p.text)
+            .join("");
+
           if (msg.role === "user") {
-            return <UserBubble key={i} text={msg.content} />;
+            return <UserBubble key={i} text={text} />;
           }
 
           // Jade reply
-          const { displayText, cards } = parseMealCards(msg.content);
+          const { displayText, cards } = parseMealCards(text);
           const { displayText: finalText } = parseWeekPlan(displayText);
           const isLast = i === messages.length - 1;
           const isCurrentlyStreaming = isLast && isLoading;

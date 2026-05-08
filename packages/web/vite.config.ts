@@ -97,15 +97,33 @@ function jadeApiMiddleware(): Plugin {
             const chunks: Buffer[] = [];
             for await (const chunk of req) chunks.push(chunk as Buffer);
             const body = JSON.parse(Buffer.concat(chunks).toString("utf-8") || "{}");
-            const messages = (body.messages ?? []) as Array<{ role: string; content: string }>;
+
+            // AI SDK v6 sends UI messages with parts: [{type:'text', text:'...'}].
+            // Convert to ModelMessage shape that streamText accepts.
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const uiMessages = (body.messages ?? []) as Array<any>;
+            const modelMessages = uiMessages.map((m) => {
+              if (typeof m.content === "string") {
+                return { role: m.role, content: m.content };
+              }
+              const parts = Array.isArray(m.parts) ? m.parts : [];
+              const text = parts
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                .filter((p: any) => p.type === "text")
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                .map((p: any) => p.text)
+                .join("");
+              return { role: m.role, content: text };
+            });
+
             const { streamText } = await import("ai");
             const result = streamText({
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               model: model as any,
               system: SYSTEM_PROMPT,
-              messages,
+              messages: modelMessages,
             });
-            const webRes = result.toDataStreamResponse?.() ?? result.toTextStreamResponse();
+            const webRes = result.toUIMessageStreamResponse();
             res.statusCode = webRes.status;
             webRes.headers.forEach((v, k) => { try { res.setHeader(k, v); } catch { /* ignore */ } });
             if (webRes.body) {

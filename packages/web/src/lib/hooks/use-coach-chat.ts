@@ -13,6 +13,7 @@
  * NOTE: When AI is not configured, returns stub messages so the UI is reviewable.
  */
 import { useChat } from "@ai-sdk/react";
+import { DefaultChatTransport } from "ai";
 import { useState, useCallback, useRef } from "react";
 import type { ChatMessage } from "@/components/variant-e/types";
 import { REFINEMENT_CHIPS } from "@/components/variant-e/types";
@@ -137,29 +138,37 @@ export function useCoachChat({
   const [isStubThinking, setIsStubThinking] = useState(false);
   const previousPlanRef = useRef<WeekPlan | null>(null);
 
-  // Real AI chat via useChat
-  const { messages: rawMessages, append, isLoading } = useChat({
-    api: "/api/jade/chat?surface=e",
+  // Real AI chat via useChat (AI SDK v6 — uses transport + sendMessage)
+  const { messages: rawMessages, sendMessage, status } = useChat({
     id: "variant-e",
-    // Pass week context as initial system info via body
-    body: {
-      weekContext: weekData
-        ? {
-            weekStart: weekData.weekStart,
-            activitiesCount: weekData.activities.length,
-            hasMacroTargets: weekData.macroTargets.length > 0,
-            existingPlan: weekData.existingPlan ? "yes" : "no",
-          }
-        : undefined,
-    },
+    transport: new DefaultChatTransport({
+      api: "/api/jade/chat?surface=e",
+      body: {
+        weekContext: weekData
+          ? {
+              weekStart: weekData.weekStart,
+              activitiesCount: weekData.activities.length,
+              hasMacroTargets: weekData.macroTargets.length > 0,
+              existingPlan: weekData.existingPlan ? "yes" : "no",
+            }
+          : undefined,
+      },
+    }),
     onError: (err) => {
       console.error("[CoachChat] stream error:", err);
     },
   });
+  const isLoading = status === "streaming" || status === "submitted";
 
   // Convert rawMessages from useChat into our ChatMessage shape
+  // AI SDK v6: messages have `parts: [{type:'text', text:'...'}]` instead of `content: string`
   const parsedAiMessages: ChatMessage[] = rawMessages.map((msg): ChatMessage => {
-    const text = typeof msg.content === "string" ? msg.content : "";
+    const parts = (msg as unknown as { parts?: Array<{ type: string; text?: string }> }).parts ?? [];
+    const text = parts
+      .filter((p) => p.type === "text")
+      .map((p) => p.text ?? "")
+      .join("")
+      || ((msg as unknown as { content?: string }).content ?? "");
     const isAssistant = msg.role === "assistant";
 
     if (!isAssistant) {
@@ -241,9 +250,9 @@ export function useCoachChat({
     (text: string) => {
       // Handle slash commands
       const expanded = parseSlashCommand(text) ?? text;
-      append({ role: "user", content: expanded });
+      sendMessage({ text: expanded });
     },
-    [append],
+    [sendMessage],
   );
 
   // ── Save plan to Supabase ─────────────────────────────────
