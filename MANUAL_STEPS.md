@@ -9,16 +9,27 @@ Work through the sections in order. Each one says "what to do" + "where it goes.
 ## 0. Quick state-of-the-repo
 
 ```
-/Users/leemartin/development/
-├── mealplanning_prototype/        ← main worktree (port 3000) — landing hub + shared shell
-├── mealplanning_prototype-a/      ← variant/a (port 3001) — Calendar
-├── mealplanning_prototype-b/      ← variant/b (port 3002) — Stack (swipe deck)
-├── mealplanning_prototype-c/      ← variant/c (port 3003) — Columns (RP-style picker)
-├── mealplanning_prototype-d/      ← variant/d (port 3004) — Hybrid (grid + chat + DnD)
-└── mealplanning_prototype-e/      ← variant/e (port 3005) — Coach (full chatbot)
+/Users/leemartin/development/mealplanning_prototype/
+├── packages/web/              ← TanStack Start + Vite + Nitro app
+│   ├── src/routes/
+│   │   ├── index.tsx          ← landing hub (5 cards)
+│   │   ├── plan.a.tsx         ← Calendar
+│   │   ├── plan.b.tsx         ← Stack (swipe deck)
+│   │   ├── plan.c.tsx         ← Columns (RP-style picker)
+│   │   ├── plan.d.tsx         ← Hybrid (grid + chat + DnD)
+│   │   ├── plan.e.tsx         ← Coach (full chatbot)
+│   │   ├── settings.tsx
+│   │   ├── styleguide.tsx
+│   │   └── api/jade/*         ← Jade endpoints (chat, object, swap, hello)
+│   ├── src/components/{variant-a..variant-e,shared,ui}/
+│   ├── src/server/jade/       ← system prompt + tools + AI Gateway wiring
+│   └── src/lib/{supabase,clerk,hooks,queries}/
+└── supabase/migrations/       ← meal_plans, meal_plan_meals, jade_calls
 ```
 
-Each is a git worktree on its own branch off the same repo. Run `pnpm dev` in any worktree to launch that variant on its port. The landing hub at `http://localhost:3000/` links to each preview deploy once you've shipped them to Vercel.
+**One folder, one branch (`main`), one dev server.** All 5 variants live as routes (`/plan/a`, `/plan/b`, …) on the same dev server. To preference-test, open `localhost:3000/` and click each card — or open all 5 routes in tabs.
+
+> Earlier the build used 5 git worktrees for parallel agent execution; that scaffolding has been consolidated and removed.
 
 ---
 
@@ -147,49 +158,41 @@ Variables you need to fill in (everything in `.env.example` is listed there with
 | `AI_GATEWAY_API_KEY` | §3.2 | Jade endpoints |
 | `JADE_MODEL` / `JADE_MODEL_FALLBACK` | §3.4 | Jade endpoints |
 
-The five variant worktrees (`-a` … `-e`) each need **their own** `.env.local`. Easiest:
-
-```bash
-for v in a b c d e; do
-  cp packages/web/.env.local /Users/leemartin/development/mealplanning_prototype-$v/packages/web/.env.local
-done
-```
+Only one `.env.local` to fill in. All variants read from the same packages/web/.env.local since they live in the same project now.
 
 ---
 
-## 6. Boot the prototype locally — six tabs (~30 sec)
+## 6. Boot the prototype (~30 sec)
 
 ```bash
-# Tab 1 — main / landing hub on :3000
-cd /Users/leemartin/development/mealplanning_prototype/packages/web && pnpm dev
-
-# Tabs 2-6 — each variant on its own port
-cd /Users/leemartin/development/mealplanning_prototype-a/packages/web && pnpm dev   # 3001
-cd /Users/leemartin/development/mealplanning_prototype-b/packages/web && pnpm dev   # 3002
-cd /Users/leemartin/development/mealplanning_prototype-c/packages/web && pnpm dev   # 3003
-cd /Users/leemartin/development/mealplanning_prototype-d/packages/web && pnpm dev   # 3004
-cd /Users/leemartin/development/mealplanning_prototype-e/packages/web && pnpm dev   # 3005
+cd /Users/leemartin/development/mealplanning_prototype/packages/web
+pnpm dev
 ```
 
-Open <http://localhost:3000/> in a browser. The landing hub shows 5 cards — each "Try it" pill links to `/plan/{a..e}`. **For tab-based preference testing**, open ports 3001–3005 in separate tabs (each variant is on its own dev server).
+Open <http://localhost:3000/> in a browser. The landing hub shows 5 cards — each "Try it" pill takes you to `/plan/a`, `/plan/b`, etc. **For tab-based preference testing**, open all five paths in separate tabs (`Cmd+Click` each card):
+
+- <http://localhost:3000/plan/a> — Calendar
+- <http://localhost:3000/plan/b> — Stack
+- <http://localhost:3000/plan/c> — Columns
+- <http://localhost:3000/plan/d> — Hybrid
+- <http://localhost:3000/plan/e> — Coach
 
 ---
 
-## 7. Vercel deploys — preview URLs per variant (~10 min, optional)
+## 7. Vercel deploy — one URL with all 5 variants (~10 min, optional)
 
-To get `https://*.vercel.app` URLs you can share for preference testing:
+To get a `https://*.vercel.app` URL you can share:
 
 ```bash
 cd /Users/leemartin/development/mealplanning_prototype
 pnpm dlx vercel login
-pnpm dlx vercel link        # link the main worktree first; project name "mealplanning-prototype"
+pnpm dlx vercel link        # project name "mealplanning-prototype"
 ```
 
-Push branches to GitHub (create the repo if needed), then in Vercel dashboard:
-- **Settings → Git → Branches**: enable preview deployments for `variant/a`, `variant/b`, `variant/c`, `variant/d`, `variant/e`.
+Push to GitHub (create the repo if needed), then in Vercel dashboard:
 - **Settings → Environment Variables**: paste every var from `.env.local` into both **Preview** and **Production** scopes.
 
-Each variant branch will get its own `mealplanning-prototype-git-variant-{x}-<your-team>.vercel.app` preview URL. Update the landing-hub `Try it` links to point to those URLs (currently they're local paths).
+Once deployed, share `https://mealplanning-prototype.vercel.app` — the landing hub at `/` lets reviewers click into each variant. All 5 are live on the same domain via `/plan/a` through `/plan/e`.
 
 ---
 
@@ -234,27 +237,18 @@ These are documented in `STATUS.md` too — calling out the ones that might bite
 
 ---
 
-## 11. If you want to start over
+## 11. If you want to rebuild a single variant
 
-Each variant lives in its own worktree on its own branch. Nothing is destructive:
+Each variant is isolated to `packages/web/src/components/variant-{x}/`, `packages/web/src/server/variant-{x}/` (if used), and `packages/web/src/routes/plan.{x}.tsx`. To start any one variant fresh:
 
 ```bash
-# blow away one variant and start fresh from main
 cd /Users/leemartin/development/mealplanning_prototype
-git worktree remove ../mealplanning_prototype-b --force
-git branch -D variant/b
-git branch variant/b main
-git worktree add ../mealplanning_prototype-b variant/b
+rm -rf packages/web/src/components/variant-b
+rm -rf packages/web/src/server/variant-b
+git checkout HEAD -- packages/web/src/routes/plan.b.tsx  # restores stub
 ```
 
-To kill all variants and just keep main:
-
-```bash
-for v in a b c d e; do
-  git worktree remove /Users/leemartin/development/mealplanning_prototype-$v --force 2>/dev/null
-  git branch -D variant/$v 2>/dev/null
-done
-```
+Then have Claude rebuild it from `mealvana_endurance/docs/mealplanning_prototype/06_five_uiux_approaches.md` §1.B.
 
 ---
 

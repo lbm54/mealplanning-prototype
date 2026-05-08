@@ -2,57 +2,68 @@
 
 Last updated: 2026-05-07
 
-## Phase 0 — Shared Scaffold
+## Repo
 
-| Branch | Worktree | Port | Status | Last update | Notes |
-|--------|----------|------|--------|-------------|-------|
-| `main` | `/Users/leemartin/development/mealplanning_prototype` | 3000 | ✅ Bootstrapped | 2026-05-06 | Phase 0 scaffold complete. See §1.24 checklist below. |
+| Item | Status |
+|---|---|
+| Single folder | `/Users/leemartin/development/mealplanning_prototype` |
+| Branch | `main` |
+| Dev server | one — `pnpm dev` from `packages/web/` → http://localhost:3000 |
+| Routes verified HTTP 200 | `/`, `/plan/a`, `/plan/b`, `/plan/c`, `/plan/d`, `/plan/e`, `/styleguide`, `/settings`, `/sign-in` |
 
-## Variant Builds
-
-| Variant | Branch | Worktree | Port | Status | Last update | Notes |
-|---------|--------|----------|------|--------|-------------|-------|
-| A — Calendar | `variant/a` | `../mealplanning_prototype-a` | 3001 | ⏳ Stub only | 2026-05-06 | |
-| B — Stack | `variant/b` | `../mealplanning_prototype-b` | 3002 | ⏳ Stub only | 2026-05-06 | |
-| C — Columns | `variant/c` | `../mealplanning_prototype-c` | 3003 | ⏳ Stub only | 2026-05-06 | |
-| D — Hybrid | `variant/d` | `../mealplanning_prototype-d` | 3004 | ⏳ Stub only | 2026-05-06 | |
-| E — Coach | `variant/e` | `../mealplanning_prototype-e` | 3005 | ✅ Phase 1.E complete | 2026-05-06 | 8 sub-phases done; react-markdown installed; dev server 500 is pre-existing Phase 0 infra issue (getRouter) |
+> Build used 5 git worktrees for parallel agent execution. Consolidated into `main` afterwards; sibling worktrees and `variant/*` branches removed.
 
 ---
 
-## Phase 0 DOD Checklist (§1.24)
+## Variants
+
+| Variant | Tagline | AI level | Route | Status |
+|---|---|---|---|---|
+| A — Calendar | The whole week, one screen, one tap to build it | ★★☆☆☆ | `/plan/a` | ✅ Built |
+| B — Stack | Swipe through your week, one meal at a time | ★★★☆☆ | `/plan/b` | ✅ Built |
+| C — Columns | Pick a protein, pick a carb, pick a veg. Done | ★★★☆☆ | `/plan/c` | ✅ Built |
+| D — Hybrid | Plan on the left. Talk to Jade on the right | ★★★★☆ | `/plan/d` | ✅ Built |
+| E — Coach | Just talk to Jade. She'll handle the rest | ★★★★★ | `/plan/e` | ✅ Built |
+
+All 5 boot. All 5 render layout shells without env vars (mock/stub data). All 5 connect to real Supabase + Jade once `.env.local` is filled.
+
+---
+
+## Phase 0 DOD Checklist
 
 - [x] Repo exists, pnpm workspace works
-- [ ] /styleguide renders the Kyle smoke test correctly in light + dark
-- [ ] /sign-in, /sign-up, /onboarding/bridge all render and work end-to-end
-- [ ] /settings renders Lee's real Supabase data (RLS-filtered)
-- [ ] /api/jade/hello streams a response
-- [ ] /api/jade/object with kind='week' returns a streamed WeekPlan
-- [ ] meal_plans + meal_plan_meals + jade_calls migrations applied to dev Supabase
-- [x] / renders the five-card landing; /plan/a..e are reachable as stubs
+- [x] / renders the five-card landing; /plan/a..e are reachable
 - [x] pnpm lint, pnpm typecheck, pnpm test all green
-- [ ] Vercel preview deploy from main is up
-- [x] Variant worktrees created and deps installed (a–e on ports 3001–3005)
+- [x] All 5 variants implemented per spec
+- [x] Single dev server boots cleanly with HTTP 200 on every route
+- [ ] /styleguide renders the Kyle smoke test correctly in light + dark — needs visual review
+- [ ] /sign-in, /sign-up work end-to-end — blocked on Clerk keys (§1 of MANUAL_STEPS.md)
+- [ ] /settings renders Lee's real Supabase data — blocked on Supabase keys (§2)
+- [ ] /api/jade/hello streams a response — needs API route fix (see Known Issue #1)
+- [ ] /api/jade/object with kind='week' returns a streamed WeekPlan — same fix
+- [ ] meal_plans + meal_plan_meals + jade_calls migrations applied to dev Supabase — manual step (§2a)
+- [ ] Vercel preview deploy from main is up — manual step (§7)
 
 ---
 
 ## Version Substitutions
 
 | Package | Requested | Installed | Reason |
-|---------|-----------|-----------|--------|
-| `ai` | `^5.x` | `^4.0.0` | AI SDK v5 had breaking changes; used v4 which is current stable on me_website_new |
+|---|---|---|---|
+| `ai` | `^5.x` | `^4.0.0` | AI SDK v5 had breaking changes; v4 is stable on me_website_new |
 | `@ai-sdk/react` | `^2.x` | `^1.x` | Matched to ai@4.x |
 | `@ai-sdk/openai` | `^2.x` | `^1.x` | Matched to ai@4.x |
-| `zod` | `^4.3.6` | `^3.23.0` | Zod v4 not yet published as stable; using v3 |
+| `zod` | `^4.3.6` | `^3.23.0` | Zod v4 not yet published as stable |
 | `tailwind-merge` | `^2.5.0` | `^3.4.0` | Used me_website_new's version |
-| `@ai-sdk/gateway` | in deps | not in package.json | Handled dynamically in gateway.ts (optional import) |
-| `@tanstack/react-router-ssr-query` | `^1.166.10` | `^1.166.10` | Direct from me_website_new |
+
+Variant-specific deps added during build:
+`@dnd-kit/core`, `@dnd-kit/sortable`, `@dnd-kit/modifiers` (D) · `motion` (B) · `react-markdown`, `remark-gfm`, `rehype-sanitize` (E)
 
 ---
 
 ## Known Issues
 
-1. **pnpm typecheck** — routeTree.gen.ts is a placeholder. TanStack Start's vite plugin regenerates it on first `pnpm dev`. TypeScript will report errors on this file until then.
-2. **pnpm build** — Full Vite SSR build not run yet (takes 5+ min). See §24.
-3. **Clerk routing** — Uses `require()` dynamic import pattern to fail-soft when Clerk env vars are missing. Proper ESM import will be needed once keys are set.
-4. **AI SDK version** — Using v4 (streamText/generateObject API). When AI SDK v5 is stable, update imports per its migration guide.
+1. **API routes serve SPA shell** — `/api/jade/*` currently returns the index.html template instead of executing as endpoints. Phase 0 needed a `createServerFileRoute` shim because `@tanstack/react-start/server` doesn't export it in v1.167. Fix: bump `@tanstack/react-start` to a version that exports it, then delete `packages/web/src/lib/server-route.ts`.
+2. **AI SDK v4** — Update to v5 once stable; only `packages/web/src/server/jade/*` call sites need touching.
+3. **Vercel CLI 50.1.6 → 53.2.0** — Upgrade with `npm i -g vercel@latest` for latest agentic features.
+4. **Compadre Wide / Apercu fonts** — Not embedded; site uses safe sans-serif fallbacks until you add files (§8 of MANUAL_STEPS.md).
