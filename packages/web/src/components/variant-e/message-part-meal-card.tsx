@@ -1,15 +1,16 @@
 /**
- * MessagePartMealCard — single meal swap response card in Jade's bubble.
+ * MessagePartMealCard — single meal swap response card.
  *
- * Design source: 06_five_uiux_approaches.md §1.E wireframe
- *
- * Shows:
- * - Meal title + components list
- * - Macro totals
- * - Optional swap note from Jade
- * - [keep] [undo] [swap again] buttons
+ * 2026 facelift:
+ * - KyleCard elevated, compact
+ * - Electrolyte icon accent circle
+ * - Macro line as small inline pills
+ * - [Keep] = Mango primary · [Swap again] [Undo] = ghost bordered
+ * - Smaller and lighter than the WeekPlan card — it's a detail action
  */
 import { cn } from "@/lib/utils";
+import { KyleCard } from "@/components/shared/kyle-card";
+import { KyleButton } from "@/components/shared/kyle-button";
 import type { MealAssembly } from "@/server/jade/schema";
 import { Utensils } from "lucide-react";
 
@@ -31,22 +32,24 @@ export function MessagePartMealCard({
   className,
 }: MessagePartMealCardProps) {
   return (
-    <div
-      className={cn(
-        "rounded-[var(--radius-card)] border border-border bg-card",
-        "shadow-[var(--shadow-kyle-card)] dark:shadow-none",
-        "overflow-hidden",
-        className,
-      )}
+    <KyleCard
+      variant="elevated"
+      className={cn("overflow-hidden max-w-sm", className)}
     >
       {/* Meal header */}
-      <div className="p-4 flex gap-3">
+      <div className="p-3.5 flex gap-3">
+        {/* Icon */}
         <span
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground"
+          className={cn(
+            "flex h-9 w-9 shrink-0 items-center justify-center rounded-full",
+            "bg-[var(--color-electrolyte)]/15 text-[var(--color-electrolyte)]",
+            "border border-[var(--color-electrolyte)]/25",
+          )}
           aria-hidden
         >
-          <Utensils size={18} />
+          <Utensils size={16} />
         </span>
+
         <div className="flex-1 min-w-0">
           {/* Title */}
           <p className="font-[var(--font-apercu)] font-medium text-[var(--font-size-body)] leading-snug">
@@ -55,82 +58,95 @@ export function MessagePartMealCard({
 
           {/* Method tag */}
           {meal.method_tag && (
-            <p className="mt-0.5 font-[var(--font-apercu)] text-[var(--font-size-caption)] italic text-muted-foreground/70">
+            <p className="mt-0.5 font-[var(--font-apercu)] text-[var(--font-size-caption)] italic text-muted-foreground/50">
               {meal.method_tag}
             </p>
           )}
 
-          {/* Components list */}
+          {/* Components */}
           {meal.components.length > 0 && (
-            <ul className="mt-1.5 space-y-0.5">
+            <ul className="mt-2 space-y-0.5">
               {meal.components.map((c, i) => (
                 <li
                   key={i}
-                  className="flex gap-1 font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground"
+                  className="flex gap-1.5 font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/70"
                 >
-                  <span className="shrink-0">·</span>
+                  <span className="shrink-0 text-[var(--color-electrolyte)]/50 mt-px">›</span>
                   <span>{c.portion} {c.name}</span>
                 </li>
               ))}
             </ul>
           )}
 
-          {/* Macro line */}
-          <p className="mt-2 font-[var(--font-apercu-mono)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider">
-            {Math.round(meal.totals.carb_g)}g C · {Math.round(meal.totals.protein_g)}g P · {Math.round(meal.totals.fat_g)}g F
-          </p>
+          {/* Macro pills */}
+          <div className="mt-2 flex gap-1.5 flex-wrap">
+            {[
+              { label: "C", val: meal.totals.carb_g, color: "var(--color-orange)" },
+              { label: "P", val: meal.totals.protein_g, color: "var(--color-electrolyte)" },
+              { label: "F", val: meal.totals.fat_g, color: "var(--color-dragonfruit)" },
+            ].map(({ label, val, color }) => (
+              <span
+                key={label}
+                className={cn(
+                  "inline-flex items-center gap-1 rounded-[var(--radius-pill)] px-2 py-0.5",
+                  "font-[var(--font-apercu-mono)] text-[0.6rem] tracking-wider",
+                  "bg-background/40 border border-border/50 text-muted-foreground/60",
+                )}
+              >
+                <span
+                  className="inline-block w-1 h-1 rounded-full shrink-0"
+                  style={{ background: color }}
+                />
+                {Math.round(val)}g {label}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Swap note */}
       {note && (
-        <div className="px-4 pb-3">
-          <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
+        <div className="px-3.5 pb-3">
+          <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/60 italic border-l-2 border-[var(--color-electrolyte)]/30 pl-2">
             {note}
           </p>
         </div>
       )}
 
       {/* Actions */}
-      <div className="px-4 py-3 border-t border-border flex gap-2 flex-wrap">
+      <div className="px-3.5 py-2.5 border-t border-border/30 flex gap-1.5 flex-wrap">
         {onKeep && (
+          <KyleButton size="sm" onClick={onKeep} className="h-auto py-1.5 px-3 text-[var(--font-size-caption)]">
+            Keep
+          </KyleButton>
+        )}
+        {onSwapAgain && (
           <button
-            onClick={onKeep}
+            type="button"
+            onClick={onSwapAgain}
             className={cn(
-              "rounded-[var(--radius-pill)] px-3 py-1.5",
-              "bg-primary text-primary-foreground",
-              "font-[var(--font-sansita)] text-[var(--font-size-caption)] uppercase tracking-wider",
-              "transition-colors hover:bg-[var(--color-orange-light)]",
+              "rounded-[var(--radius-pill)] border border-border/50 px-3 py-1.5",
+              "font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground/60",
+              "hover:bg-muted/40 hover:text-foreground/80 transition-all duration-150",
             )}
           >
-            keep
+            Swap again
           </button>
         )}
         {onUndo && (
           <button
+            type="button"
             onClick={onUndo}
             className={cn(
-              "rounded-[var(--radius-pill)] border border-border px-3 py-1.5",
-              "font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground",
-              "transition-colors hover:bg-muted",
+              "rounded-[var(--radius-pill)] border border-border/30 px-3 py-1.5",
+              "font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/50",
+              "hover:bg-muted/30 hover:text-muted-foreground/70 transition-all duration-150",
             )}
           >
-            undo
-          </button>
-        )}
-        {onSwapAgain && (
-          <button
-            onClick={onSwapAgain}
-            className={cn(
-              "rounded-[var(--radius-pill)] border border-border px-3 py-1.5",
-              "font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground",
-              "transition-colors hover:bg-muted",
-            )}
-          >
-            swap again
+            Undo
           </button>
         )}
       </div>
-    </div>
+    </KyleCard>
   );
 }

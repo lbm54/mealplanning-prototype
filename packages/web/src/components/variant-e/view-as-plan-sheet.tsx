@@ -1,23 +1,33 @@
 /**
- * ViewAsPlanSheet — read-only overlay showing the latest WeekPlan as a grid.
+ * ViewAsPlanSheet — Notion-style right panel showing the latest WeekPlan.
  *
- * Design source: 06_five_uiux_approaches.md §1.E "View as plan" detail wireframe
- *
- * Opens as a Sheet (full-height right panel on desktop, bottom sheet on mobile).
- * Renders each day as a card with slot → meal component list.
- * Read-only: no editing here; conversation is the source of truth.
+ * 2026 facelift:
+ * - Uses shadcn Sheet primitive for proper animate-in/out
+ * - Dense day cards with refined headers
+ * - Weekly macro rings replaced with horizontal stacked bar
+ * - Back to chat button at bottom
+ * - Read-only (conversation is source of truth)
  */
 import { cn } from "@/lib/utils";
-import { X } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+} from "@/components/ui/sheet";
 import { CarbTierBadge } from "@/components/shared/carb-tier-badge";
 import { TrainingDayDot } from "@/components/shared/training-day-dot";
+import { Badge } from "@/components/ui/badge";
 import type { WeekPlan, DayPlan } from "@/server/jade/schema";
 import dayjs from "dayjs";
+import { KyleButton } from "@/components/shared/kyle-button";
+import { MessageSquare } from "lucide-react";
 
 const SLOT_LABEL: Record<string, string> = {
   breakfast: "Breakfast",
   pre_workout: "Pre-workout",
-  during_workout: "During workout",
+  during_workout: "During",
   post_workout: "Post-workout",
   lunch: "Lunch",
   dinner: "Dinner",
@@ -30,8 +40,47 @@ const SLOT_ORDER = [
 ];
 
 const DAY_NAMES: Record<number, string> = {
-  0: "Sun", 1: "Mon", 2: "Tue", 3: "Wed", 4: "Thu", 5: "Fri", 6: "Sat",
+  0: "Sunday",
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
 };
+
+function MacroBar({ carb, prot, fat }: { carb: number; prot: number; fat: number }) {
+  const total = carb + prot + fat;
+  if (total === 0) return null;
+  const carbPct = (carb / total) * 100;
+  const protPct = (prot / total) * 100;
+  const fatPct = (fat / total) * 100;
+
+  return (
+    <div className="space-y-1.5 mt-3">
+      <div className="flex h-1.5 rounded-full overflow-hidden gap-px">
+        <div className="bg-[var(--color-orange)] rounded-l-full" style={{ width: `${carbPct}%` }} />
+        <div className="bg-[var(--color-electrolyte)]" style={{ width: `${protPct}%` }} />
+        <div className="bg-[var(--color-dragonfruit)]/60 rounded-r-full" style={{ width: `${fatPct}%` }} />
+      </div>
+      <div className="flex gap-4">
+        {[
+          { color: "var(--color-orange)", label: "Carbs", val: carb },
+          { color: "var(--color-electrolyte)", label: "Protein", val: prot },
+          { color: "var(--color-dragonfruit)", label: "Fat", val: fat },
+        ].map(({ color, label, val }) => (
+          <span
+            key={label}
+            className="flex items-center gap-1 font-[var(--font-apercu-mono)] text-[0.6rem] tracking-wider text-muted-foreground/50 uppercase"
+          >
+            <span className="inline-block w-1.5 h-1.5 rounded-full shrink-0" style={{ background: color }} />
+            {Math.round(val)}g {label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function DayCard({ day }: { day: DayPlan }) {
   const date = dayjs(day.date);
@@ -45,51 +94,63 @@ function DayCard({ day }: { day: DayPlan }) {
     (s, m) => s + (m?.totals.carb_g ?? 0), 0,
   );
 
+  const activeMeals = SLOT_ORDER.filter((slot) => day.meals?.[slot as keyof typeof day.meals]);
+
   return (
-    <div className="rounded-[var(--radius-card)] border border-border bg-card overflow-hidden">
+    <div
+      className={cn(
+        "rounded-[var(--radius-card)] border border-border/50 bg-card/60 overflow-hidden",
+        "backdrop-blur-[4px]",
+      )}
+    >
       {/* Day header */}
-      <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/30 border-b border-border">
-        <span className="font-[var(--font-compadre)] text-[var(--font-size-body)] uppercase tracking-wider">
-          {dayName}
-        </span>
-        <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground">
-          {dateLabel}
-        </span>
-        {hasWorkout && <TrainingDayDot />}
+      <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/20 border-b border-border/30">
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className="font-[var(--font-compadre)] text-[var(--font-size-body)] uppercase tracking-wider text-foreground">
+              {dayName}
+            </span>
+            <span className="font-[var(--font-apercu-mono)] text-[0.6rem] tracking-wider text-muted-foreground/50 uppercase">
+              {dateLabel}
+            </span>
+            {hasWorkout && <TrainingDayDot />}
+          </div>
+          {day.day_note && (
+            <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] italic text-muted-foreground/50 mt-0.5">
+              {day.day_note}
+            </p>
+          )}
+        </div>
         {totalCarbs > 0 && (
-          <CarbTierBadge carbG={Math.round(totalCarbs)} className="ml-auto" />
+          <CarbTierBadge carbG={Math.round(totalCarbs)} withLabel />
         )}
       </div>
 
-      {/* Meals */}
-      <div className="divide-y divide-border/50">
-        {SLOT_ORDER.map((slot) => {
+      {/* Meal slots */}
+      <div className="divide-y divide-border/25">
+        {activeMeals.map((slot) => {
           const meal = day.meals?.[slot as keyof typeof day.meals];
           if (!meal) return null;
           return (
             <div key={slot} className="px-4 py-2.5">
-              {/* Slot label */}
-              <p className="font-[var(--font-compadre)] text-[var(--font-size-caption)] uppercase tracking-wider text-muted-foreground mb-1">
+              <p className="font-[var(--font-compadre)] text-[0.6rem] uppercase tracking-widest text-muted-foreground/40 mb-1">
                 {SLOT_LABEL[slot] ?? slot}
               </p>
-              {/* Title */}
-              <p className="font-[var(--font-apercu)] font-medium text-[var(--font-size-body)] leading-snug">
+              <p className="font-[var(--font-apercu)] font-medium text-[var(--font-size-body)] leading-snug text-foreground/90">
                 {meal.title}
               </p>
-              {/* Components */}
               <ul className="mt-1 space-y-0.5">
                 {meal.components.map((c, i) => (
                   <li
                     key={i}
-                    className="flex gap-1 font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground"
+                    className="flex gap-1.5 font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/55"
                   >
-                    <span className="shrink-0">·</span>
+                    <span className="shrink-0 text-[var(--color-electrolyte)]/40 mt-px">›</span>
                     <span>{c.portion} {c.name}</span>
                   </li>
                 ))}
               </ul>
-              {/* Macro line */}
-              <p className="mt-1 font-[var(--font-apercu-mono)] text-[var(--font-size-caption)] text-muted-foreground/70 uppercase tracking-wider">
+              <p className="mt-1.5 font-[var(--font-apercu-mono)] text-[0.6rem] text-muted-foreground/40 uppercase tracking-wider">
                 {Math.round(meal.totals.carb_g)}g C · {Math.round(meal.totals.protein_g)}g P · {Math.round(meal.totals.fat_g)}g F
               </p>
             </div>
@@ -107,8 +168,6 @@ export interface ViewAsPlanSheetProps {
 }
 
 export function ViewAsPlanSheet({ plan, isOpen, onClose }: ViewAsPlanSheetProps) {
-  if (!isOpen) return null;
-
   const weekStart = plan ? dayjs(plan.week_start) : null;
   const weekEnd = weekStart ? weekStart.add(6, "day") : null;
 
@@ -125,77 +184,82 @@ export function ViewAsPlanSheet({ plan, isOpen, onClose }: ViewAsPlanSheetProps)
     : null;
 
   return (
-    <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 z-40 bg-black/50 animate-in fade-in"
-        onClick={onClose}
-        aria-hidden
-      />
-
-      {/* Sheet panel */}
-      <div
-        role="dialog"
-        aria-label="Your week plan"
+    <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <SheetContent
+        side="right"
         className={cn(
-          "fixed inset-y-0 right-0 z-50 w-full sm:max-w-md",
-          "flex flex-col bg-background border-l border-border",
-          "animate-in slide-in-from-right",
+          "sm:max-w-md flex flex-col bg-background/95 backdrop-blur-[20px]",
+          "border-l border-white/10 p-0",
         )}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-4 py-3 border-b border-border shrink-0">
-          <div>
-            <p className="font-[var(--font-compadre)] text-[var(--font-size-body)] uppercase tracking-wider">
-              {weekStart && weekEnd
-                ? `${weekStart.format("MMM D")} – ${weekEnd.format("MMM D, YYYY")}`
-                : "Your week"}
-            </p>
-            {weekTotals && (
-              <p className="font-[var(--font-apercu-mono)] text-[var(--font-size-caption)] text-muted-foreground uppercase tracking-wider">
-                {Math.round(weekTotals.carb)}g C · {Math.round(weekTotals.prot)}g P · {Math.round(weekTotals.fat)}g F
-              </p>
+        <SheetHeader className="shrink-0 px-5 pt-5 pb-4 border-b border-border/30">
+          <div className="flex items-start gap-2">
+            <div className="flex-1 min-w-0">
+              <SheetTitle
+                className={cn(
+                  "font-[var(--font-compadre)] uppercase tracking-widest",
+                  "text-[var(--font-size-body)] text-foreground",
+                )}
+              >
+                {weekStart && weekEnd
+                  ? `${weekStart.format("MMM D")} – ${weekEnd.format("MMM D, YYYY")}`
+                  : "Your week"}
+              </SheetTitle>
+              <SheetDescription className="mt-0.5 font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/60">
+                Read-only · edit by talking to Jade
+              </SheetDescription>
+            </div>
+            {plan?.coach_strip && (
+              <Badge variant="training-day" className="shrink-0 mt-0.5">
+                Plan
+              </Badge>
             )}
           </div>
-          <button
-            onClick={onClose}
-            aria-label="Close"
-            className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-full",
-              "text-muted-foreground hover:bg-muted transition-colors",
-            )}
-          >
-            <X size={18} />
-          </button>
-        </div>
+
+          {/* Macro bar summary */}
+          {weekTotals && (
+            <MacroBar
+              carb={weekTotals.carb}
+              prot={weekTotals.prot}
+              fat={weekTotals.fat}
+            />
+          )}
+        </SheetHeader>
 
         {/* Day cards */}
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
           {plan ? (
-            plan.days.map((day) => (
-              <DayCard key={day.date} day={day} />
-            ))
+            plan.days.map((day) => <DayCard key={day.date} day={day} />)
           ) : (
-            <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground text-center py-8">
-              No plan yet — ask Jade to build your week.
-            </p>
+            <div className="flex flex-col items-center justify-center h-full py-12 text-center">
+              <div className="w-12 h-12 rounded-full bg-muted/30 flex items-center justify-center mb-3">
+                <MessageSquare size={20} className="text-muted-foreground/40" />
+              </div>
+              <p className="font-[var(--font-apercu)] text-[var(--font-size-body)] text-muted-foreground/60">
+                No plan yet
+              </p>
+              <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/40 mt-1">
+                Ask Jade to build your week
+              </p>
+            </div>
           )}
         </div>
 
-        {/* Footer */}
-        <div className="shrink-0 border-t border-border px-4 py-3">
-          <button
+        {/* Footer — back to chat */}
+        <div className="shrink-0 border-t border-border/30 px-4 py-3">
+          <KyleButton
+            variant="outline"
             onClick={onClose}
             className={cn(
-              "w-full rounded-[var(--radius-pill)] border border-border py-2",
-              "font-[var(--font-apercu)] text-[var(--font-size-body)] text-foreground",
-              "transition-colors hover:bg-muted",
+              "w-full border-white/15 text-foreground/70 bg-transparent",
+              "hover:bg-white/5 hover:text-foreground",
             )}
           >
-            back to chat with Jade
-          </button>
+            Back to chat with Jade
+          </KyleButton>
         </div>
-      </div>
-    </>
+      </SheetContent>
+    </Sheet>
   );
 }

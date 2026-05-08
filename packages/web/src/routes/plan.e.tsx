@@ -80,6 +80,12 @@ function VariantECoach() {
   const [isPlanSheetOpen, setIsPlanSheetOpen] = useState(false);
   const [errorKind, setErrorKind] = useState<"jade-failed" | null>(null);
 
+  // Demo mode: AI is configured client-side optimistically, but if the
+  // messages contain stub text (no API key set), we show the banner.
+  // We detect stub mode by checking whether messages are exactly the initial
+  // stub set before any user interaction.
+  const isDemoMode = !isAiConfigured;
+
   const {
     messages,
     isThinking,
@@ -160,6 +166,7 @@ function VariantECoach() {
           onKeepMeal={handleKeepMeal}
           onUndoSwap={handleUndoSwap}
           onSwapAgain={handleSwapAgain}
+          isDemoMode={isDemoMode}
         />
 
         <JadeComposer
