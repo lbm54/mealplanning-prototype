@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
+import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as IndexRouteImport } from './routes/index'
@@ -29,6 +30,11 @@ import { Route as ApiJadeVariantBPersistRouteImport } from './routes/api/jade/va
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
   path: '/styleguide',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignUpRoute = SignUpRouteImport.update({
+  id: '/sign-up',
+  path: '/sign-up',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignInRoute = SignInRouteImport.update({
@@ -111,6 +117,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
+  '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
@@ -129,6 +136,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
+  '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
@@ -148,6 +156,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
+  '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
@@ -168,6 +177,7 @@ export interface FileRouteTypes {
     | '/'
     | '/settings'
     | '/sign-in'
+    | '/sign-up'
     | '/styleguide'
     | '/auth/callback'
     | '/plan/a'
@@ -186,6 +196,7 @@ export interface FileRouteTypes {
     | '/'
     | '/settings'
     | '/sign-in'
+    | '/sign-up'
     | '/styleguide'
     | '/auth/callback'
     | '/plan/a'
@@ -204,6 +215,7 @@ export interface FileRouteTypes {
     | '/'
     | '/settings'
     | '/sign-in'
+    | '/sign-up'
     | '/styleguide'
     | '/auth/callback'
     | '/plan/a'
@@ -223,6 +235,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SettingsRoute: typeof SettingsRoute
   SignInRoute: typeof SignInRoute
+  SignUpRoute: typeof SignUpRoute
   StyleguideRoute: typeof StyleguideRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
   PlanARoute: typeof PlanARoute
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       path: '/styleguide'
       fullPath: '/styleguide'
       preLoaderRoute: typeof StyleguideRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sign-up': {
+      id: '/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof SignUpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sign-in': {
@@ -359,6 +379,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SettingsRoute: SettingsRoute,
   SignInRoute: SignInRoute,
+  SignUpRoute: SignUpRoute,
   StyleguideRoute: StyleguideRoute,
   AuthCallbackRoute: AuthCallbackRoute,
   PlanARoute: PlanARoute,
