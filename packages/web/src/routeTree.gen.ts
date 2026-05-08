@@ -20,6 +20,8 @@ import { Route as PlanCRouteImport } from './routes/plan.c'
 import { Route as PlanBRouteImport } from './routes/plan.b'
 import { Route as PlanARouteImport } from './routes/plan.a'
 import { Route as OnboardingBridgeRouteImport } from './routes/onboarding/bridge'
+import { Route as ApiPlanCSaveRouteImport } from './routes/api/plan-c/save'
+import { Route as ApiJadeSavePlanRouteImport } from './routes/api/jade/save-plan'
 import { Route as ApiJadeObjectRouteImport } from './routes/api/jade/object'
 import { Route as ApiJadeHelloRouteImport } from './routes/api/jade/hello'
 import { Route as ApiJadeChatRouteImport } from './routes/api/jade/chat'
@@ -81,6 +83,16 @@ const OnboardingBridgeRoute = OnboardingBridgeRouteImport.update({
   path: '/onboarding/bridge',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPlanCSaveRoute = ApiPlanCSaveRouteImport.update({
+  id: '/api/plan-c/save',
+  path: '/api/plan-c/save',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiJadeSavePlanRoute = ApiJadeSavePlanRouteImport.update({
+  id: '/api/jade/save-plan',
+  path: '/api/jade/save-plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiJadeObjectRoute = ApiJadeObjectRouteImport.update({
   id: '/api/jade/object',
   path: '/api/jade/object',
@@ -123,6 +135,8 @@ export interface FileRoutesByFullPath {
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
+  '/api/jade/save-plan': typeof ApiJadeSavePlanRoute
+  '/api/plan-c/save': typeof ApiPlanCSaveRoute
   '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRoutesByTo {
@@ -141,6 +155,8 @@ export interface FileRoutesByTo {
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
+  '/api/jade/save-plan': typeof ApiJadeSavePlanRoute
+  '/api/plan-c/save': typeof ApiPlanCSaveRoute
   '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRoutesById {
@@ -160,6 +176,8 @@ export interface FileRoutesById {
   '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
+  '/api/jade/save-plan': typeof ApiJadeSavePlanRoute
+  '/api/plan-c/save': typeof ApiPlanCSaveRoute
   '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRouteTypes {
@@ -180,6 +198,8 @@ export interface FileRouteTypes {
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
+    | '/api/jade/save-plan'
+    | '/api/plan-c/save'
     | '/api/jade/variant-b/persist'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -198,6 +218,8 @@ export interface FileRouteTypes {
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
+    | '/api/jade/save-plan'
+    | '/api/plan-c/save'
     | '/api/jade/variant-b/persist'
   id:
     | '__root__'
@@ -216,6 +238,8 @@ export interface FileRouteTypes {
     | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
+    | '/api/jade/save-plan'
+    | '/api/plan-c/save'
     | '/api/jade/variant-b/persist'
   fileRoutesById: FileRoutesById
 }
@@ -235,6 +259,8 @@ export interface RootRouteChildren {
   ApiJadeChatRoute: typeof ApiJadeChatRoute
   ApiJadeHelloRoute: typeof ApiJadeHelloRoute
   ApiJadeObjectRoute: typeof ApiJadeObjectRoute
+  ApiJadeSavePlanRoute: typeof ApiJadeSavePlanRoute
+  ApiPlanCSaveRoute: typeof ApiPlanCSaveRoute
   ApiJadeVariantBPersistRoute: typeof ApiJadeVariantBPersistRoute
 }
 
@@ -317,6 +343,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof OnboardingBridgeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/plan-c/save': {
+      id: '/api/plan-c/save'
+      path: '/api/plan-c/save'
+      fullPath: '/api/plan-c/save'
+      preLoaderRoute: typeof ApiPlanCSaveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/jade/save-plan': {
+      id: '/api/jade/save-plan'
+      path: '/api/jade/save-plan'
+      fullPath: '/api/jade/save-plan'
+      preLoaderRoute: typeof ApiJadeSavePlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/jade/object': {
       id: '/api/jade/object'
       path: '/api/jade/object'
@@ -371,6 +411,8 @@ const rootRouteChildren: RootRouteChildren = {
   ApiJadeChatRoute: ApiJadeChatRoute,
   ApiJadeHelloRoute: ApiJadeHelloRoute,
   ApiJadeObjectRoute: ApiJadeObjectRoute,
+  ApiJadeSavePlanRoute: ApiJadeSavePlanRoute,
+  ApiPlanCSaveRoute: ApiPlanCSaveRoute,
   ApiJadeVariantBPersistRoute: ApiJadeVariantBPersistRoute,
 }
 export const routeTree = rootRouteImport
