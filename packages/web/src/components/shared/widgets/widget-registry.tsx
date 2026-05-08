@@ -78,6 +78,163 @@ function adapt<TOutput>(Component: ComponentType<{ output: TOutput; onUserRespon
   };
 }
 
+/**
+ * adaptWith — like `adapt` but applies a tool-output → widget-output
+ * transform first. Tool schemas (server/jade/tools.ts) use snake_case
+ * (week_kcal, avg_protein_g, …); widget components use camelCase nested
+ * shapes (weekKcal, dailyAvg.proteinG, …). Each transformer below maps
+ * one to the other so the model can fill the simpler tool schema and
+ * the widget still gets the data it expects.
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function adaptWith<TOutput>(Component: ComponentType<{ output: TOutput; onUserResponse?: any; className?: string }>, transform: (raw: any) => TOutput): AnyWidgetComponent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return function AdaptedWidget({ output, onUserResponse }: WidgetProps<any, any>) {
+    const transformed = transform(output);
+    return <Component output={transformed} onUserResponse={onUserResponse} />;
+  };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyOutput = any;
+
+// ── Tool-output → widget-output transformers ────────────────────────────────
+
+const toMealPlanCard = (raw: AnyOutput) => ({
+  id: raw?.id ?? raw?.planId,
+  title: raw?.title ?? "",
+  description: raw?.description,
+  weekKcal: raw?.weekKcal ?? raw?.week_kcal ?? raw?.kcal ?? 0,
+  dayCount: raw?.dayCount ?? raw?.day_count ?? 7,
+  dailyAvg: raw?.dailyAvg ?? {
+    proteinG: raw?.avg_protein_g ?? raw?.proteinG ?? 0,
+    carbG: raw?.avg_carbs_g ?? raw?.avg_carb_g ?? raw?.carbG ?? 0,
+    fatG: raw?.avg_fat_g ?? raw?.fatG ?? 0,
+    fiberG: raw?.avg_fiber_g ?? raw?.fiberG,
+    sugarG: raw?.avg_sugar_g ?? raw?.sugarG,
+    kcal: raw?.kcal,
+  },
+});
+
+const toMealCarousel = (raw: AnyOutput) => ({
+  label: raw?.label,
+  plans: (raw?.plans ?? []).map(toMealPlanCard),
+});
+
+const toMealAlternatives = (raw: AnyOutput) => ({
+  label: raw?.label ?? raw?.day_label,
+  slot: raw?.slot ?? raw?.slot_label,
+  alternatives: (raw?.alternatives ?? []).map((a: AnyOutput, i: number) => ({
+    id: a?.id ?? `alt-${i}`,
+    title: a?.title ?? "",
+    components: a?.components ?? [],
+    methodTag: a?.methodTag ?? a?.method_tag,
+    carbG: a?.carbG ?? a?.carb_g ?? 0,
+    proteinG: a?.proteinG ?? a?.protein_g ?? 0,
+    fatG: a?.fatG ?? a?.fat_g ?? 0,
+  })),
+});
+
+const toWeatherCard = (raw: AnyOutput) => ({
+  tempF: raw?.tempF ?? raw?.temp_f ?? 0,
+  condition: raw?.condition ?? "",
+  city: raw?.city,
+  humidity: raw?.humidity ?? raw?.humidity_pct,
+  windMph: raw?.windMph ?? raw?.wind_mph,
+  hydrationOz: raw?.hydrationOz ?? raw?.hydration_oz,
+  advisoryString: raw?.advisoryString ?? raw?.advisory,
+  date: raw?.date,
+});
+
+const toWorkoutTimeline = (raw: AnyOutput) => {
+  // Tool emits { workout_title, workout_time, pre, during, post } where each
+  // phase is { window, carbs_g, notes }. Widget wants windows: [{phase, …}]
+  if (raw?.windows) return raw;
+  const windows: AnyOutput[] = [];
+  for (const phase of ["pre", "during", "post"] as const) {
+    const p = raw?.[phase];
+    if (!p) continue;
+    windows.push({
+      phase,
+      windowLabel: p.window ?? p.windowLabel ?? "",
+      carbsG: p.carbs_g ?? p.carbsG,
+      proteinG: p.protein_g ?? p.proteinG,
+      sodiumMg: p.sodium_mg ?? p.sodiumMg,
+      notes: p.notes,
+    });
+  }
+  return {
+    workoutTitle: raw?.workoutTitle ?? raw?.workout_title,
+    workoutDate: raw?.workoutDate ?? raw?.workout_time ?? raw?.workout_date,
+    duration: raw?.duration ?? raw?.duration_min,
+    windows,
+  };
+};
+
+const toRaceCountdown = (raw: AnyOutput) => ({
+  raceName: raw?.raceName ?? raw?.race_name ?? "",
+  daysLeft: raw?.daysLeft ?? raw?.days_out ?? raw?.daysOut ?? 0,
+  tier: raw?.tier ?? "build",
+  raceDate: raw?.raceDate ?? raw?.race_date,
+  dailyCarbG: raw?.dailyCarbG ?? raw?.daily_carb_g,
+});
+
+const toInsightTile = (raw: AnyOutput) => ({
+  tone: raw?.tone ?? "info",
+  title: raw?.title ?? "",
+  body: raw?.body ?? "",
+  actionLabel: raw?.actionLabel ?? raw?.action_label,
+});
+
+const toMorningGreeting = (raw: AnyOutput) => ({
+  headline: raw?.headline ?? "",
+  body: raw?.body ?? "",
+  ctaLabel: raw?.ctaLabel ?? raw?.cta_label,
+  activitySummary: raw?.activitySummary ?? raw?.today_workout ?? raw?.activity_summary,
+});
+
+const toHydrationTracker = (raw: AnyOutput) => ({
+  currentOz: raw?.currentOz ?? raw?.current_oz ?? 0,
+  targetOz: raw?.targetOz ?? raw?.target_oz ?? 64,
+  heatAdjusted: raw?.heatAdjusted ?? raw?.heat_adjusted,
+  heatAdjustmentOz: raw?.heatAdjustmentOz ?? raw?.heat_adjustment_oz,
+  label: raw?.label,
+});
+
+const toNutritionBreakdown = (raw: AnyOutput) => {
+  const facts = raw?.facts ?? raw;
+  return {
+    label: raw?.label ?? raw?.meal_title ?? facts?.meal_title,
+    kcal: facts?.kcal ?? 0,
+    carbG: facts?.carbG ?? facts?.carb_g ?? 0,
+    proteinG: facts?.proteinG ?? facts?.prot_g ?? facts?.protein_g ?? 0,
+    fatG: facts?.fatG ?? facts?.fat_g ?? 0,
+    fiberG: facts?.fiberG ?? facts?.fiber_g,
+    sugarG: facts?.sugarG ?? facts?.sugar_g,
+    sodiumMg: facts?.sodiumMg ?? facts?.sodium_mg,
+    servingLabel: facts?.servingLabel ?? facts?.serving_label,
+  };
+};
+
+const toWeekHeatmap = (raw: AnyOutput) => ({
+  label: raw?.label,
+  days: (raw?.days ?? []).map((d: AnyOutput) => ({
+    date: d?.date ?? "",
+    label: d?.label ?? d?.day_label,
+    tier: d?.tier ?? "moderate",
+    carbG: d?.carbG ?? d?.carb_g,
+  })),
+});
+
+const toCompactMealList = (raw: AnyOutput) => ({
+  title: raw?.title,
+  meals: (raw?.meals ?? []).map((m: AnyOutput) => ({
+    slotLabel: m?.slotLabel ?? m?.slot_label ?? m?.slot ?? "",
+    title: m?.title ?? "",
+    componentsSummary: m?.componentsSummary ?? m?.components_summary ?? "",
+  })),
+});
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Registry — all 30 widgets wired
 // ─────────────────────────────────────────────────────────────────────────────
@@ -110,45 +267,65 @@ export const WIDGET_REGISTRY = {
   askFollowUp: adapt(FollowUpQuestion),
 
   // ── Output widgets ────────────────────────────────────────────────────────
-  showMealPlanCard: adapt(MealPlanCard),
-  proposeWeekPlan: adapt(MealPlanCard),
-  showMealCarousel: adapt(MealCarousel),
-  showMealOptions: adapt(MealCarousel),
+  showMealPlanCard: adaptWith(MealPlanCard, toMealPlanCard),
+  proposeWeekPlan: adaptWith(MealPlanCard, toMealPlanCard),
+  showMealCarousel: adaptWith(MealCarousel, toMealCarousel),
+  showMealOptions: adaptWith(MealCarousel, toMealCarousel),
   showDayBreakdown: adapt(DayBreakdownModal),
   showDayBreakdownModal: adapt(DayBreakdownModal),
   expandDayBreakdown: adapt(DayBreakdownModal),
-  showMealAlternatives: adapt(MealAlternatives),
-  proposeMealSwap: adapt(MealAlternatives),
+  showMealAlternatives: adaptWith(MealAlternatives, toMealAlternatives),
+  proposeMealSwap: adaptWith(MealAlternatives, toMealAlternatives),
   showMacroProgressRings: adapt(MacroProgressRings),
   showMacroTargets: adapt(MacroProgressRings),
-  showWeekHeatmap: adapt(WeekHeatmap),
-  showCarbLoadPlan: adapt(WeekHeatmap),
-  showWorkoutTimeline: adapt(WorkoutTimeline),
-  showFuelWindows: adapt(WorkoutTimeline),
-  showWeatherCard: adapt(WeatherCard),
-  getWeather: adapt(WeatherCard),
-  showRaceCountdown: adapt(RaceCountdown),
-  showRacePrep: adapt(RaceCountdown),
-  showInsightTile: adapt(InsightTile),
-  showInsight: adapt(InsightTile),
+  showWeekHeatmap: adaptWith(WeekHeatmap, toWeekHeatmap),
+  showCarbLoadPlan: adaptWith(WeekHeatmap, toWeekHeatmap),
+  showWorkoutTimeline: adaptWith(WorkoutTimeline, toWorkoutTimeline),
+  showFuelWindows: adaptWith(WorkoutTimeline, toWorkoutTimeline),
+  showWeatherCard: adaptWith(WeatherCard, toWeatherCard),
+  getWeather: adaptWith(WeatherCard, toWeatherCard),
+  showRaceCountdown: adaptWith(RaceCountdown, toRaceCountdown),
+  showRacePrep: adaptWith(RaceCountdown, toRaceCountdown),
+  showInsightTile: adaptWith(InsightTile, toInsightTile),
+  showInsight: adaptWith(InsightTile, toInsightTile),
   showGroceryList: adapt(GroceryList),
   buildGroceryList: adapt(GroceryList),
-  showHydrationTracker: adapt(HydrationTracker),
-  showHydration: adapt(HydrationTracker),
-  showNutritionBreakdown: adapt(NutritionBreakdown),
-  showMealNutrition: adapt(NutritionBreakdown),
+  showHydrationTracker: adaptWith(HydrationTracker, toHydrationTracker),
+  showHydration: adaptWith(HydrationTracker, toHydrationTracker),
+  showNutritionBreakdown: adaptWith(NutritionBreakdown, toNutritionBreakdown),
+  showMealNutrition: adaptWith(NutritionBreakdown, toNutritionBreakdown),
   showComparisonCard: adapt(ComparisonCard),
   compareMeals: adapt(ComparisonCard),
-  showCompactMealList: adapt(CompactMealList),
-  summarizeMeals: adapt(CompactMealList),
+  showCompactMealList: adaptWith(CompactMealList, toCompactMealList),
+  summarizeMeals: adaptWith(CompactMealList, toCompactMealList),
 
   // ── Proactive widgets ─────────────────────────────────────────────────────
-  showMorningGreeting: adapt(MorningGreetingCard),
-  proactiveMorningGreeting: adapt(MorningGreetingCard),
+  showMorningGreeting: adaptWith(MorningGreetingCard, toMorningGreeting),
+  proactiveMorningGreeting: adaptWith(MorningGreetingCard, toMorningGreeting),
   showPreWorkoutReminder: adapt(PreWorkoutReminderCard),
   proactivePreWorkout: adapt(PreWorkoutReminderCard),
-  showWeatherAdvisory: adapt(WeatherAdvisoryCard),
-  proactiveWeatherAdvisory: adapt(WeatherAdvisoryCard),
+  showWeatherAdvisory: adaptWith(WeatherAdvisoryCard, (raw: AnyOutput) => ({
+    tempF: raw?.tempF ?? raw?.temp_f ?? 0,
+    condition: raw?.condition ?? "",
+    city: raw?.city,
+    humidity: raw?.humidity ?? raw?.humidity_pct,
+    advisoryTitle: raw?.advisoryTitle ?? raw?.advisory_title ?? raw?.advisory ?? "Heads up",
+    advisoryBody: raw?.advisoryBody ?? raw?.advisory_body ?? raw?.advisory ?? "",
+    hydrationOz: raw?.hydrationOz ?? raw?.hydration_oz,
+    recommendations: raw?.recommendations,
+    workoutDate: raw?.workoutDate ?? raw?.workout_date,
+  })),
+  proactiveWeatherAdvisory: adaptWith(WeatherAdvisoryCard, (raw: AnyOutput) => ({
+    tempF: raw?.tempF ?? raw?.temp_f ?? 0,
+    condition: raw?.condition ?? "",
+    city: raw?.city,
+    humidity: raw?.humidity ?? raw?.humidity_pct,
+    advisoryTitle: raw?.advisoryTitle ?? raw?.advisory_title ?? raw?.advisory ?? "Heads up",
+    advisoryBody: raw?.advisoryBody ?? raw?.advisory_body ?? raw?.advisory ?? "",
+    hydrationOz: raw?.hydrationOz ?? raw?.hydration_oz,
+    recommendations: raw?.recommendations,
+    workoutDate: raw?.workoutDate ?? raw?.workout_date,
+  })),
 } satisfies Record<string, AnyWidgetComponent>;
 
 /** Union of all registered tool names — useful for type-safe lookups. */
