@@ -7,6 +7,10 @@
  *   /swap [day] [slot]   → send a structured swap request
  *   /lock [day] [slot]   → send a structured lock request
  *   /why [day]           → ask Jade to explain a specific day
+ *   /category            → open category picker
+ *   /weather             → ask for weather advisory
+ *   /grocery             → generate grocery list
+ *   /compare             → compare two meals
  *
  * Returns a structured message or null if not a slash command.
  * Parsed commands translate to natural-language messages — no extra LLM round-trip.
@@ -15,7 +19,11 @@
 export type SlashCommand =
   | { type: "swap"; day: string; slot: string }
   | { type: "lock"; day: string; slot: string }
-  | { type: "why"; day: string };
+  | { type: "why"; day: string }
+  | { type: "category" }
+  | { type: "weather" }
+  | { type: "grocery" }
+  | { type: "compare" };
 
 const DAY_ALIASES: Record<string, string> = {
   mon: "Monday", tue: "Tuesday", wed: "Wednesday", thu: "Thursday",
@@ -69,6 +77,14 @@ export function parseSlashCommand(input: string): string | null {
       const day = parts[1] ? resolveDay(parts[1]) : "today";
       return `Why did you plan ${day} this way? Explain the macro targets and training context.`;
     }
+    case "/category":
+      return "Show me the goal categories so I can tell you what kind of week I want.";
+    case "/weather":
+      return "What's the weather looking like for my training days this week? Show me the advisory.";
+    case "/grocery":
+      return "Generate a grocery list for this week's meal plan.";
+    case "/compare":
+      return "I want to compare two meal options. Show me a comparison.";
     default:
       // Unknown slash command — pass through as-is
       return null;

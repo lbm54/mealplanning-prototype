@@ -86,6 +86,34 @@ Variant E "Coach" redesigned as a premium AI companion — the feel of a $20/mo 
 
 ---
 
+# Variant E — Full Generative UI Showcase (2026-05-08)
+
+## Summary
+Variant E "Coach" is now the full generative UI showcase. Every Jade turn renders text + 0–N widgets via `JadeMessageRenderer` + `WIDGET_REGISTRY`. Proactive cards appear before the user types. The CategoryPicker replaces onboarding chips as the hero interaction. The composer has a `+` action menu and extended slash commands. The plan sheet has a `DayBreakdownModal` tab.
+
+### Modified files
+- `plan.e.tsx` — Full rework. Exposes `addToolResult`, `rawAiMessages`, `isEmptyState` from hook. Wires `useRawMessages` mode toggle (real AI path uses `JadeMessageRenderer`; stub falls back to legacy `ChatMessage` shim). Handles `onCategoryPick` → seeds natural-language message to Jade. Handles `onToolResponse` → proxies to `addToolResult` with `as any` cast (same pattern as Variant A). Passes all props down.
+- `message-list.tsx` — Full rework. Two render paths: `useRawMessages=true` renders `UIMessage[]` via `JadeMessageRenderer` per Jade turn; fallback renders legacy `ChatMessage[]` rows. Proactive card stack (`MorningGreetingCard` + `WorkoutTimeline` in `KyleCard elevated`) with stagger-fade-in. Empty-state hero: `CategoryPicker` in `KyleCard elevated` as the first interaction surface, staggered after proactive cards. `RawJadeRow` wraps `JadeMessageRenderer` with avatar + per-turn refinement chips. `RawUserRow` renders user bubbles from `UIMessage.parts`.
+- `jade-composer.tsx` — Added `+` quick-action button (left of textarea). Opens `QuickActionMenu` popover with 4 actions: "📅 Plan a different week", "📷 Snap fridge", "🍴 Compare 2 meals", "🥘 Generate grocery list". Each action either seeds a natural-language prompt or triggers a UI-action string to Jade. Slash commands expanded to 7: `/swap`, `/lock`, `/why`, `/category`, `/weather`, `/grocery`, `/compare`. Hint line updated.
+- `slash-command-parser.ts` — Added 4 new slash commands: `/category`, `/weather`, `/grocery`, `/compare`. Updated `SlashCommand` union type.
+- `types.ts` — `REFINEMENT_CHIPS` expanded to 6 entries: "Swap something", "More protein", "Simpler dinners", "Add grocery list", "What's the weather doing?", "Show me Tuesday's fuel windows".
+- `view-as-plan-sheet.tsx` — Tab toggle added: "Overview" (original dense day cards) and "Day view" (`DayBreakdownModal` widget). `adaptWeekPlan()` function converts `WeekPlan` schema shape to `DayBreakdownModalOutput` (including `adaptMeal()` for camelCase→snake-case macro field mapping). Default tab is "Day view".
+- `use-coach-chat.ts` (lib/hooks) — Added `rawAiMessages: UIMessage[]`, `addToolResult: (opts: any) => void`, and `isEmptyState: boolean` to `UseCoachChatReturn`. Stub mode returns empty `rawAiMessages=[]` and a no-op `addToolResult`. Real mode exposes the AI SDK's `rawAddToolResult` (cast to `any` to avoid SDK overload mismatch). `isEmptyState` is `rawMessages.length === 0` in real mode, `localMessages.length <= 1` in stub.
+
+### Checks
+- `pnpm typecheck` — 0 new errors (pre-existing plan.d.tsx error unchanged)
+- `pnpm lint` — 0 new errors/warnings (pre-existing auth/sign-up/plan.d/save-plan issues unchanged)
+- `/plan/e` — HTTP 200
+
+### TODOs / Follow-ups
+- [ ] `WeatherAdvisoryCard` proactive widget: currently omitted from the card stack. Wire based on weather stub (temp > 85°F or < 40°F) — currently stub temp is 72°F so no advisory shows. Add condition check to `ProactiveCardStack`.
+- [ ] `PreWorkoutReminderCard` proactive: add time-based trigger (60–120 min before workout start) using `weekData.activities`.
+- [ ] `addToolResult` tool name: the AI SDK v6 `ChatAddToolOutputFunction` requires a `tool` field that the `JadeMessageRenderer.onUserResponse` callback doesn't surface. Both Variant A and E use `as any` to work around this. Investigate whether toolName can be threaded from the renderer.
+- [ ] Keyboard nav in `QuickActionMenu` popover (arrow keys + Enter).
+- [ ] Proactive one-shot fetch: spec calls for a `/api/jade/chat` briefing prompt on first load to trigger `MorningGreetingCard`/`WorkoutTimeline`/`WeatherAdvisoryCard` via real tool calls. Currently stub data is used — can be wired as a `useEffect` on mount that sends "give me my morning briefing" when `rawAiMessages.length === 0`.
+
+---
+
 # Variant C — Generative UI Widget Integration (2026-05-08)
 
 ## Summary

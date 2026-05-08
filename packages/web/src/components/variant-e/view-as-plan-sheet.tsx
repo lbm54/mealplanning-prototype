@@ -1,14 +1,12 @@
 /**
- * ViewAsPlanSheet — Notion-style right panel showing the latest WeekPlan.
+ * ViewAsPlanSheet — right-panel plan viewer for Variant E.
  *
- * 2026 facelift:
- * - Uses shadcn Sheet primitive for proper animate-in/out
- * - Dense day cards with refined headers
- * - Weekly macro rings replaced with horizontal stacked bar
- * - Back to chat button at bottom
- * - Read-only (conversation is source of truth)
+ * Upgraded to use DayBreakdownModal widget inside the Sheet, replacing the
+ * hand-rolled dense list. Keeps the existing shadcn Sheet scaffold and header.
+ * Tab toggle: "Overview" (dense macro list) | "Day view" (DayBreakdownModal).
  */
 import { cn } from "@/lib/utils";
+import { useState } from "react";
 import {
   Sheet,
   SheetContent,
@@ -19,10 +17,26 @@ import {
 import { CarbTierBadge } from "@/components/shared/carb-tier-badge";
 import { TrainingDayDot } from "@/components/shared/training-day-dot";
 import { Badge } from "@/components/ui/badge";
-import type { WeekPlan, DayPlan } from "@/server/jade/schema";
+import DayBreakdownModal from "@/components/shared/widgets/day-breakdown-modal";
+import type {
+  DayBreakdownModalOutput,
+  PlanDay,
+  DayMealSlot,
+} from "@/components/shared/widgets/day-breakdown-modal";
+import type { MealAssembly as CellMealAssembly } from "@/components/shared/meal-cell";
+import type { WeekPlan, DayPlan, MealAssembly as SchemaMealAssembly } from "@/server/jade/schema";
 import dayjs from "dayjs";
 import { KyleButton } from "@/components/shared/kyle-button";
 import { MessageSquare } from "lucide-react";
+
+// ─────────────────────────────────────────────────────────────
+// Adapters
+// ─────────────────────────────────────────────────────────────
+
+const SLOT_ORDER = [
+  "breakfast", "pre_workout", "during_workout", "post_workout",
+  "lunch", "dinner", "snack",
+];
 
 const SLOT_LABEL: Record<string, string> = {
   breakfast: "Breakfast",
@@ -34,20 +48,84 @@ const SLOT_LABEL: Record<string, string> = {
   snack: "Snack",
 };
 
-const SLOT_ORDER = [
-  "breakfast", "pre_workout", "during_workout", "post_workout",
-  "lunch", "dinner", "snack",
-];
-
 const DAY_NAMES: Record<number, string> = {
-  0: "Sunday",
-  1: "Monday",
-  2: "Tuesday",
-  3: "Wednesday",
-  4: "Thursday",
-  5: "Friday",
-  6: "Saturday",
+  0: "Sunday", 1: "Monday", 2: "Tuesday", 3: "Wednesday",
+  4: "Thursday", 5: "Friday", 6: "Saturday",
 };
+
+/** Convert a server-schema MealAssembly to MealCell's shape. */
+function adaptMeal(meal: SchemaMealAssembly | null | undefined): CellMealAssembly | null {
+  if (!meal) return null;
+  return {
+    id: meal.id,
+    title: meal.title,
+    methodTag: meal.method_tag,
+    components: meal.components.map((c) => ({ name: c.name, portion: c.portion })),
+    carbG: meal.totals.carb_g,
+    protG: meal.totals.protein_g,
+    fatG: meal.totals.fat_g,
+  };
+}
+
+/** Convert a WeekPlan to DayBreakdownModalOutput */
+function adaptWeekPlan(plan: WeekPlan): DayBreakdownModalOutput {
+  const weekStart = dayjs(plan.week_start);
+  const weekEnd = weekStart.add(6, "day");
+  const title = `${weekStart.format("MMM D")} – ${weekEnd.format("MMM D")}`;
+
+  const weekKcal = plan.days.reduce((total, day) => {
+    const dayKcal = Object.values(day.meals ?? {}).reduce((s, m) => {
+      if (!m) return s;
+      return s + m.totals.carb_g * 4 + m.totals.protein_g * 4 + m.totals.fat_g * 9;
+    }, 0);
+    return total + dayKcal;
+  }, 0);
+
+  const days: PlanDay[] = plan.days.map((day): PlanDay => {
+    const date = dayjs(day.date);
+    const dayName = DAY_NAMES[date.day()] ?? "";
+    const dateLabel = date.format("MMM D");
+
+    const carbG = Math.round(
+      Object.values(day.meals ?? {}).reduce((s, m) => s + (m?.totals.carb_g ?? 0), 0),
+    );
+    const proteinG = Math.round(
+      Object.values(day.meals ?? {}).reduce((s, m) => s + (m?.totals.protein_g ?? 0), 0),
+    );
+    const fatG = Math.round(
+      Object.values(day.meals ?? {}).reduce((s, m) => s + (m?.totals.fat_g ?? 0), 0),
+    );
+    const kcal = Math.round(carbG * 4 + proteinG * 4 + fatG * 9);
+
+    const slots: DayMealSlot[] = SLOT_ORDER
+      .filter((slot) => day.meals?.[slot as keyof typeof day.meals] !== undefined)
+      .map((slot): DayMealSlot => ({
+        slot: SLOT_LABEL[slot] ?? slot,
+        meal: adaptMeal(day.meals?.[slot as keyof typeof day.meals]),
+      }));
+
+    return {
+      date: day.date,
+      label: `${dayName} · ${dateLabel}`,
+      slots,
+      carbG,
+      proteinG,
+      fatG,
+      kcal,
+    };
+  });
+
+  return {
+    title,
+    description: plan.coach_strip,
+    days,
+    weekKcal: Math.round(weekKcal),
+  };
+}
+
+// ─────────────────────────────────────────────────────────────
+// Overview (dense macro list — original design)
+// ─────────────────────────────────────────────────────────────
 
 function MacroBar({ carb, prot, fat }: { carb: number; prot: number; fat: number }) {
   const total = carb + prot + fat;
@@ -63,7 +141,7 @@ function MacroBar({ carb, prot, fat }: { carb: number; prot: number; fat: number
         <div className="bg-[var(--color-electrolyte)]" style={{ width: `${protPct}%` }} />
         <div className="bg-[var(--color-dragonfruit)]/60 rounded-r-full" style={{ width: `${fatPct}%` }} />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
         {[
           { color: "var(--color-orange)", label: "Carbs", val: carb },
           { color: "var(--color-electrolyte)", label: "Protein", val: prot },
@@ -89,21 +167,13 @@ function DayCard({ day }: { day: DayPlan }) {
   const hasWorkout = Object.keys(day.meals ?? {}).some(
     (s) => s === "pre_workout" || s === "during_workout" || s === "post_workout",
   );
-
   const totalCarbs = Object.values(day.meals ?? {}).reduce(
     (s, m) => s + (m?.totals.carb_g ?? 0), 0,
   );
-
   const activeMeals = SLOT_ORDER.filter((slot) => day.meals?.[slot as keyof typeof day.meals]);
 
   return (
-    <div
-      className={cn(
-        "rounded-[var(--radius-card)] border border-border/50 bg-card/60 overflow-hidden",
-        "backdrop-blur-[4px]",
-      )}
-    >
-      {/* Day header */}
+    <div className="rounded-[var(--radius-card)] border border-border/50 bg-card/60 overflow-hidden backdrop-blur-[4px]">
       <div className="flex items-center gap-2 px-4 py-2.5 bg-muted/20 border-b border-border/30">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
@@ -121,12 +191,8 @@ function DayCard({ day }: { day: DayPlan }) {
             </p>
           )}
         </div>
-        {totalCarbs > 0 && (
-          <CarbTierBadge carbG={Math.round(totalCarbs)} withLabel />
-        )}
+        {totalCarbs > 0 && <CarbTierBadge carbG={Math.round(totalCarbs)} withLabel />}
       </div>
-
-      {/* Meal slots */}
       <div className="divide-y divide-border/25">
         {activeMeals.map((slot) => {
           const meal = day.meals?.[slot as keyof typeof day.meals];
@@ -161,6 +227,45 @@ function DayCard({ day }: { day: DayPlan }) {
   );
 }
 
+// ─────────────────────────────────────────────────────────────
+// Tab toggle
+// ─────────────────────────────────────────────────────────────
+
+type ViewTab = "overview" | "day-view";
+
+function TabToggle({
+  active,
+  onChange,
+}: {
+  active: ViewTab;
+  onChange: (tab: ViewTab) => void;
+}) {
+  return (
+    <div className="flex rounded-[var(--radius-pill)] bg-muted/30 p-0.5 text-[var(--font-size-caption)]">
+      {(["overview", "day-view"] as ViewTab[]).map((tab) => (
+        <button
+          key={tab}
+          type="button"
+          onClick={() => onChange(tab)}
+          className={cn(
+            "flex-1 rounded-[var(--radius-pill)] px-3 py-1.5 transition-all duration-150",
+            "font-[var(--font-apercu)] capitalize",
+            active === tab
+              ? "bg-background text-foreground shadow-sm"
+              : "text-muted-foreground hover:text-foreground",
+          )}
+        >
+          {tab === "overview" ? "Overview" : "Day view"}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Sheet
+// ─────────────────────────────────────────────────────────────
+
 export interface ViewAsPlanSheetProps {
   plan: WeekPlan | null;
   isOpen: boolean;
@@ -168,6 +273,8 @@ export interface ViewAsPlanSheetProps {
 }
 
 export function ViewAsPlanSheet({ plan, isOpen, onClose }: ViewAsPlanSheetProps) {
+  const [activeTab, setActiveTab] = useState<ViewTab>("day-view");
+
   const weekStart = plan ? dayjs(plan.week_start) : null;
   const weekEnd = weekStart ? weekStart.add(6, "day") : null;
 
@@ -182,6 +289,8 @@ export function ViewAsPlanSheet({ plan, isOpen, onClose }: ViewAsPlanSheetProps)
         { carb: 0, prot: 0, fat: 0 },
       )
     : null;
+
+  const dayBreakdownOutput = plan ? adaptWeekPlan(plan) : null;
 
   return (
     <Sheet open={isOpen} onOpenChange={(open) => !open && onClose()}>
@@ -225,13 +334,18 @@ export function ViewAsPlanSheet({ plan, isOpen, onClose }: ViewAsPlanSheetProps)
               fat={weekTotals.fat}
             />
           )}
+
+          {/* Tab toggle */}
+          {plan && (
+            <div className="mt-3">
+              <TabToggle active={activeTab} onChange={setActiveTab} />
+            </div>
+          )}
         </SheetHeader>
 
-        {/* Day cards */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
-          {plan ? (
-            plan.days.map((day) => <DayCard key={day.date} day={day} />)
-          ) : (
+        {/* Body */}
+        <div className="flex-1 overflow-y-auto px-4 py-4">
+          {!plan ? (
             <div className="flex flex-col items-center justify-center h-full py-12 text-center">
               <div className="w-12 h-12 rounded-full bg-muted/30 flex items-center justify-center mb-3">
                 <MessageSquare size={20} className="text-muted-foreground/40" />
@@ -242,6 +356,14 @@ export function ViewAsPlanSheet({ plan, isOpen, onClose }: ViewAsPlanSheetProps)
               <p className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-muted-foreground/40 mt-1">
                 Ask Jade to build your week
               </p>
+            </div>
+          ) : activeTab === "day-view" && dayBreakdownOutput ? (
+            // DayBreakdownModal widget — the full accordion with 2×2 meal grid
+            <DayBreakdownModal output={dayBreakdownOutput} />
+          ) : (
+            // Overview — original dense day cards
+            <div className="space-y-3">
+              {plan.days.map((day) => <DayCard key={day.date} day={day} />)}
             </div>
           )}
         </div>

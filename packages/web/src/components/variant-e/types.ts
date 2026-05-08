@@ -32,10 +32,12 @@ export const ONBOARDING_CHIPS: ChatChip[] = [
   { label: "I'm sick of chicken — give me variety" },
 ];
 
-/** Post-plan refinement chips */
+/** Post-plan refinement chips — expanded for showcase */
 export const REFINEMENT_CHIPS: ChatChip[] = [
-  { label: "Swap Wed lunch" },
+  { label: "Swap something" },
   { label: "More protein" },
   { label: "Simpler dinners" },
-  { label: "Vegetarian Tuesday" },
+  { label: "Add grocery list" },
+  { label: "What's the weather doing?" },
+  { label: "Show me Tuesday's fuel windows" },
 ];

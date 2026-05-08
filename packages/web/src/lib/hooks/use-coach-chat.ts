@@ -9,11 +9,14 @@
  * 3. Persist WeekPlan to Supabase on explicit save action
  * 4. Expose the latest saved WeekPlan for the "View as plan" sheet
  * 5. Track isThinking state
+ * 6. Expose addToolResult for user-input widgets (CategoryPicker, etc.)
+ * 7. Expose rawAiMessages (UIMessage[]) for JadeMessageRenderer integration
  *
  * NOTE: When AI is not configured, returns stub messages so the UI is reviewable.
  */
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
+import type { UIMessage } from "ai";
 import { useState, useCallback, useRef } from "react";
 import type { ChatMessage } from "@/components/variant-e/types";
 import { REFINEMENT_CHIPS } from "@/components/variant-e/types";
@@ -120,11 +123,23 @@ export interface UseCoachChatOptions {
 }
 
 export interface UseCoachChatReturn {
+  /** Parsed ChatMessage[] — used by legacy MessageList (stub path + fallback) */
   messages: ChatMessage[];
+  /** Raw UIMessage[] from AI SDK — used by JadeMessageRenderer in real AI mode */
+  rawAiMessages: UIMessage[];
   isThinking: boolean;
   latestPlan: WeekPlan | null;
   send: (text: string) => void;
   savePlan: (plan: WeekPlan) => Promise<void>;
+  /**
+   * Send a tool result back to Jade after a user-input widget receives a selection.
+   * In stub mode this is a no-op.
+   * Uses the AI SDK ChatAddToolOutputFunction shape internally; callers cast as needed.
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  addToolResult: (opts: any) => void;
+  /** True when the thread is empty (no messages yet, first interaction) */
+  isEmptyState: boolean;
 }
 
 export function useCoachChat({
@@ -139,7 +154,7 @@ export function useCoachChat({
   const previousPlanRef = useRef<WeekPlan | null>(null);
 
   // Real AI chat via useChat (AI SDK v6 — uses transport + sendMessage)
-  const { messages: rawMessages, sendMessage, status } = useChat({
+  const { messages: rawMessages, sendMessage, status, addToolResult: rawAddToolResult } = useChat({
     id: "variant-e",
     transport: new DefaultChatTransport({
       api: "/api/jade/chat?surface=e",
@@ -286,22 +301,35 @@ export function useCoachChat({
     [weekData],
   );
 
+  // Stable no-op addToolResult for stub mode
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const stubAddToolResult = useCallback((_opts: any) => {
+    // no-op in stub mode — widgets can call this safely
+  }, []);
+
   if (!isAiConfigured) {
     return {
       messages: localMessages,
+      rawAiMessages: [],
       isThinking: isStubThinking,
       latestPlan,
       send: sendStub,
       savePlan,
+      addToolResult: stubAddToolResult,
+      isEmptyState: localMessages.length <= 1,
     };
   }
 
   return {
     messages:
       parsedAiMessages.length === 0 ? STUB_MESSAGES : parsedAiMessages,
+    rawAiMessages: rawMessages as UIMessage[],
     isThinking: isLoading,
     latestPlan,
     send: sendReal,
     savePlan,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    addToolResult: rawAddToolResult as any,
+    isEmptyState: rawMessages.length === 0,
   };
 }

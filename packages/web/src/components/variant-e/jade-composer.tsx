@@ -6,11 +6,18 @@
  * - Auto-grow textarea up to 5 lines, Electrolyte focus ring
  * - Circular Mango send button (40px) with lift + glow on hover
  * - Mic stub button to the left of send
+ * - "+" action menu button on the far left — opens quick-action popover
  * - Slash-command popover above the composer (keyboard-palette feel)
  * - Shortcut hint line in muted Apercu Mono
+ *
+ * Quick-action menu items:
+ *   📅 Plan a different week → opens WeekRangePicker
+ *   📷 Snap fridge           → opens PhotoUploadPrompt
+ *   🍴 Compare 2 meals       → seeds "compare two meals"
+ *   🥘 Generate grocery list → seeds "give me my grocery list"
  */
 import { cn } from "@/lib/utils";
-import { ArrowUp, Mic } from "lucide-react";
+import { ArrowUp, Mic, Plus, X } from "lucide-react";
 import { useRef, useState, useCallback, useEffect } from "react";
 import { KyleCard } from "@/components/shared/kyle-card";
 import { SlashCommandPopover } from "./slash-command-popover";
@@ -24,12 +31,116 @@ export interface JadeComposerProps {
 
 const DEBOUNCE_MS = 1500;
 
-// Slash commands registry
+// Slash commands registry — expanded
 const SLASH_COMMANDS = [
   { command: "/swap", args: "[day] [slot]", hint: "Swap a meal slot" },
-  { command: "/lock", args: "[day] [slot]", hint: "Lock a meal so Jade keeps it" },
+  { command: "/lock", args: "[day] [slot]", hint: "Lock a meal" },
   { command: "/why", args: "[day]", hint: "Explain the nutrition choice" },
+  { command: "/category", args: "", hint: "Pick a goal category" },
+  { command: "/weather", args: "", hint: "Weather advisory for workouts" },
+  { command: "/grocery", args: "", hint: "Generate grocery list" },
+  { command: "/compare", args: "", hint: "Compare two meals" },
 ] as const;
+
+interface QuickAction {
+  emoji: string;
+  label: string;
+  seed: string | null; // null = handled via special UI (week picker / photo)
+  uiAction?: "week-picker" | "photo-upload";
+}
+
+const QUICK_ACTIONS: QuickAction[] = [
+  {
+    emoji: "📅",
+    label: "Plan a different week",
+    seed: null,
+    uiAction: "week-picker",
+  },
+  {
+    emoji: "📷",
+    label: "Snap fridge",
+    seed: null,
+    uiAction: "photo-upload",
+  },
+  {
+    emoji: "🍴",
+    label: "Compare 2 meals",
+    seed: "I want to compare two meal options — show me a comparison.",
+  },
+  {
+    emoji: "🥘",
+    label: "Generate grocery list",
+    seed: "Give me a grocery list for this week's meals.",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────
+// Quick-action popover
+// ─────────────────────────────────────────────────────────────
+
+interface QuickActionMenuProps {
+  onAction: (action: QuickAction) => void;
+  onClose: () => void;
+}
+
+function QuickActionMenu({ onAction, onClose }: QuickActionMenuProps) {
+  return (
+    <div
+      className={cn(
+        "absolute bottom-full left-4 mb-2 z-50 w-64",
+        "animate-fade-up",
+      )}
+      onMouseDown={(e) => e.preventDefault()}
+    >
+      <KyleCard
+        variant="glass"
+        className="border border-white/12 overflow-hidden shadow-[0_-8px_32px_-4px_rgba(0,0,0,0.5)]"
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-3 py-2 border-b border-white/8">
+          <span className="font-[var(--font-apercu-mono)] text-[0.6rem] tracking-widest uppercase text-[var(--color-electrolyte)]/60">
+            Quick actions
+          </span>
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close quick actions"
+            className="flex h-5 w-5 items-center justify-center rounded-full text-muted-foreground/40 hover:text-muted-foreground/70 transition-colors"
+          >
+            <X size={11} />
+          </button>
+        </div>
+        {/* Actions list */}
+        <div className="py-1">
+          {QUICK_ACTIONS.map((action) => (
+            <button
+              key={action.label}
+              type="button"
+              onClick={() => onAction(action)}
+              className={cn(
+                "w-full flex items-center gap-3 px-3 py-2.5",
+                "transition-colors duration-100",
+                "hover:bg-[var(--color-electrolyte)]/8",
+                "group",
+              )}
+            >
+              <span className="text-base shrink-0 leading-none" aria-hidden>
+                {action.emoji}
+              </span>
+              <span className="font-[var(--font-apercu)] text-[var(--font-size-caption)] text-foreground/80 group-hover:text-foreground transition-colors">
+                {action.label}
+              </span>
+            </button>
+          ))}
+        </div>
+      </KyleCard>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// Main composer
+// ─────────────────────────────────────────────────────────────
 
 export function JadeComposer({
   onSend,
@@ -40,6 +151,7 @@ export function JadeComposer({
   const [value, setValue] = useState("");
   const [cooldown, setCooldown] = useState(false);
   const [showSlashPopover, setShowSlashPopover] = useState(false);
+  const [showQuickMenu, setShowQuickMenu] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const cooldownTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -50,6 +162,7 @@ export function JadeComposer({
     const msg = value.trim();
     setValue("");
     setShowSlashPopover(false);
+    setShowQuickMenu(false);
     setCooldown(true);
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto";
@@ -70,9 +183,9 @@ export function JadeComposer({
       handleSend();
       return;
     }
-    // Escape closes slash popover
-    if (e.key === "Escape" && showSlashPopover) {
-      setShowSlashPopover(false);
+    if (e.key === "Escape") {
+      if (showSlashPopover) setShowSlashPopover(false);
+      if (showQuickMenu) setShowQuickMenu(false);
     }
   };
 
@@ -81,8 +194,9 @@ export function JadeComposer({
     setValue(newValue);
 
     // Show slash popover when first char is "/"
-    if (newValue === "/" || newValue.startsWith("/") && !newValue.includes(" ")) {
+    if ((newValue === "/" || (newValue.startsWith("/") && !newValue.includes(" ")))) {
       setShowSlashPopover(true);
+      setShowQuickMenu(false);
     } else {
       setShowSlashPopover(false);
     }
@@ -99,9 +213,30 @@ export function JadeComposer({
     textareaRef.current?.focus();
   };
 
+  const handleQuickAction = useCallback(
+    (action: QuickAction) => {
+      setShowQuickMenu(false);
+      if (action.seed) {
+        onSend(action.seed);
+        setCooldown(true);
+        cooldownTimer.current = setTimeout(() => setCooldown(false), DEBOUNCE_MS);
+      } else if (action.uiAction === "week-picker") {
+        onSend("Show me the week range picker so I can plan a different week.");
+        setCooldown(true);
+        cooldownTimer.current = setTimeout(() => setCooldown(false), DEBOUNCE_MS);
+      } else if (action.uiAction === "photo-upload") {
+        onSend("I want to snap my fridge — show me the photo upload.");
+        setCooldown(true);
+        cooldownTimer.current = setTimeout(() => setCooldown(false), DEBOUNCE_MS);
+      }
+      textareaRef.current?.focus();
+    },
+    [onSend],
+  );
+
   // Filter slash commands based on current input
   const slashFilter = value.startsWith("/") ? value.toLowerCase() : "";
-  const filteredCommands = SLASH_COMMANDS.filter(
+  const filteredCommands = (SLASH_COMMANDS as ReadonlyArray<{ command: string; args: string; hint: string }>).filter(
     (c) => !slashFilter || c.command.startsWith(slashFilter),
   );
 
@@ -113,6 +248,14 @@ export function JadeComposer({
           commands={filteredCommands}
           onSelect={handleSlashSelect}
           onClose={() => setShowSlashPopover(false)}
+        />
+      )}
+
+      {/* Quick-action popover */}
+      {showQuickMenu && (
+        <QuickActionMenu
+          onAction={handleQuickAction}
+          onClose={() => setShowQuickMenu(false)}
         />
       )}
 
@@ -128,6 +271,27 @@ export function JadeComposer({
         )}
       >
         <div className="flex items-end gap-2">
+          {/* "+" quick-action button */}
+          <button
+            type="button"
+            aria-label="Quick actions"
+            title="Quick actions"
+            onClick={() => {
+              setShowQuickMenu((v) => !v);
+              setShowSlashPopover(false);
+            }}
+            className={cn(
+              "flex items-center justify-center rounded-full shrink-0",
+              "w-8 h-8 mb-0.5",
+              "transition-all duration-150",
+              showQuickMenu
+                ? "text-[var(--color-electrolyte)] bg-[var(--color-electrolyte)]/10 rotate-45"
+                : "text-muted-foreground/50 hover:text-muted-foreground/80 hover:bg-white/5",
+            )}
+          >
+            <Plus size={16} strokeWidth={2} />
+          </button>
+
           <textarea
             ref={textareaRef}
             value={value}
@@ -203,7 +367,7 @@ export function JadeComposer({
 
       {/* Shortcut hints */}
       <p className="mt-2 font-[var(--font-apercu-mono)] text-[0.6rem] tracking-widest uppercase text-muted-foreground/35 text-center select-none">
-        shortcuts: /swap [day] [slot] · /lock [day] [slot] · /why [day]
+        / commands · + actions · shift+enter for newline
       </p>
     </div>
   );
