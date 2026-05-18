@@ -13,6 +13,7 @@ import { Route as YouRouteImport } from './routes/you'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
 import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as SignInRouteImport } from './routes/sign-in'
+import { Route as ShoppingRouteImport } from './routes/shopping'
 import { Route as CookbookRouteImport } from './routes/cookbook'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlanARouteImport } from './routes/plan.a'
@@ -36,6 +37,11 @@ const SignUpRoute = SignUpRouteImport.update({
 const SignInRoute = SignInRouteImport.update({
   id: '/sign-in',
   path: '/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ShoppingRoute = ShoppingRouteImport.update({
+  id: '/shopping',
+  path: '/shopping',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookbookRoute = CookbookRouteImport.update({
@@ -62,6 +68,7 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cookbook': typeof CookbookRoute
+  '/shopping': typeof ShoppingRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
@@ -72,6 +79,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cookbook': typeof CookbookRoute
+  '/shopping': typeof ShoppingRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
@@ -83,6 +91,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cookbook': typeof CookbookRoute
+  '/shopping': typeof ShoppingRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
@@ -95,6 +104,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cookbook'
+    | '/shopping'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/cookbook'
+    | '/shopping'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/cookbook'
+    | '/shopping'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
@@ -126,6 +138,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CookbookRoute: typeof CookbookRoute
+  ShoppingRoute: typeof ShoppingRoute
   SignInRoute: typeof SignInRoute
   SignUpRoute: typeof SignUpRoute
   StyleguideRoute: typeof StyleguideRoute
@@ -164,6 +177,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignInRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/shopping': {
+      id: '/shopping'
+      path: '/shopping'
+      fullPath: '/shopping'
+      preLoaderRoute: typeof ShoppingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cookbook': {
       id: '/cookbook'
       path: '/cookbook'
@@ -198,6 +218,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CookbookRoute: CookbookRoute,
+  ShoppingRoute: ShoppingRoute,
   SignInRoute: SignInRoute,
   SignUpRoute: SignUpRoute,
   StyleguideRoute: StyleguideRoute,

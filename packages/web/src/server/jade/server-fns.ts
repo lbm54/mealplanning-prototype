@@ -275,3 +275,95 @@ export const importRecipeFn = createServerFn({ method: "POST" })
     const { importRecipeFromUrl } = await import("@/lib/data/mock-imports");
     return { recipe: importRecipeFromUrl(data.url) };
   });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Grocery list — AI-deduped, aisle-grouped shopping list from a meal set
+// ─────────────────────────────────────────────────────────────────────────────
+
+const GroceryInputMeal = z.object({
+  title: z.string(),
+  components: z.array(
+    z.object({
+      name: z.string(),
+      portion: z.string().optional(),
+    }),
+  ),
+});
+
+const GroceryInput = z.object({
+  scope: z.enum(["day", "week"]),
+  label: z.string().optional(),
+  meals: z.array(GroceryInputMeal),
+});
+
+const GrocerySchema = z.object({
+  summary: z.string().describe("1-sentence summary of the list"),
+  aisles: z
+    .array(
+      z.object({
+        name: z
+          .string()
+          .describe(
+            "aisle name — one of: Produce, Protein, Dairy, Bakery & Grains, Pantry, Frozen, Sports Nutrition, Other",
+          ),
+        items: z
+          .array(
+            z.object({
+              name: z.string().describe("consolidated item name"),
+              quantity: z
+                .string()
+                .describe("rolled-up quantity, e.g. '4 cups' or '2 lbs'"),
+              notes: z.string().optional(),
+            }),
+          )
+          .min(1),
+      }),
+    )
+    .min(1),
+});
+
+export const groceryListFn = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => GroceryInput.parse(data))
+  .handler(async ({ data }) => {
+    if (data.meals.length === 0) {
+      return {
+        summary: "No meals to shop for yet.",
+        aisles: [],
+      };
+    }
+    const model = await getModel();
+    if (!model) {
+      return { error: "AI not configured" };
+    }
+    const { generateObject } = await import("ai");
+
+    const lines = data.meals.flatMap((m) =>
+      m.components.map(
+        (c) =>
+          `- ${c.name}${c.portion ? ` (${c.portion})` : ""}  [from: ${m.title}]`,
+      ),
+    );
+
+    const scopeLabel =
+      data.scope === "day" ? data.label ?? "the day" : data.label ?? "the week";
+
+    const result = await generateObject({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      model: model as any,
+      schema: GrocerySchema,
+      system: SYSTEM_PROMPT,
+      maxOutputTokens: 2000,
+      prompt: `Build a deduplicated, aisle-grouped grocery list from these planned meal components for ${scopeLabel}.
+
+Components (one per line):
+${lines.join("\n")}
+
+Rules:
+- Consolidate duplicates across meals into a single entry with a realistic total quantity (e.g. "Rolled oats — 2 cups").
+- Group items by aisle. Use these aisle names: Produce, Protein, Dairy, Bakery & Grains, Pantry, Frozen, Sports Nutrition, Other.
+- Skip pantry staples the user almost certainly has (salt, pepper, water, ice).
+- Keep item names short and shoppable — "grilled chicken breast" → "Chicken breast".
+- summary: 1 sentence (≤120 chars) describing the list (e.g. "12 items across 4 aisles — mostly produce and protein for a high-volume week").`,
+    });
+    return result.object;
+  });

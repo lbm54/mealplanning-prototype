@@ -10,6 +10,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import {
   CalendarDays,
   ChefHat,
+  ShoppingCart,
   User,
   MessageCircle,
 } from "lucide-react";
@@ -94,6 +95,7 @@ export function PhoneFrame({ children }: { children: React.ReactNode }) {
 const NAV_ITEMS = [
   { to: "/plan/a", label: "Plan", icon: CalendarDays },
   { to: "/cookbook", label: "Cookbook", icon: ChefHat },
+  { to: "/shopping", label: "Shopping", icon: ShoppingCart },
   { to: "/you", label: "You", icon: User },
 ] as const;
 
