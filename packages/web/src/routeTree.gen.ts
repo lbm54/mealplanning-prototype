@@ -13,7 +13,6 @@ import { Route as YouRouteImport } from './routes/you'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
 import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as SignInRouteImport } from './routes/sign-in'
-import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as CookbookRouteImport } from './routes/cookbook'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlanARouteImport } from './routes/plan.a'
@@ -39,11 +38,6 @@ const SignUpRoute = SignUpRouteImport.update({
 const SignInRoute = SignInRouteImport.update({
   id: '/sign-in',
   path: '/sign-in',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SettingsRoute = SettingsRouteImport.update({
-  id: '/settings',
-  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CookbookRoute = CookbookRouteImport.update({
@@ -80,7 +74,6 @@ const ApiJadeHelloRoute = ApiJadeHelloRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cookbook': typeof CookbookRoute
-  '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
@@ -93,7 +86,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cookbook': typeof CookbookRoute
-  '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
@@ -107,7 +99,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cookbook': typeof CookbookRoute
-  '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
@@ -122,7 +113,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/cookbook'
-    | '/settings'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
@@ -135,7 +125,6 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/cookbook'
-    | '/settings'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
@@ -148,7 +137,6 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/cookbook'
-    | '/settings'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
@@ -162,7 +150,6 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CookbookRoute: typeof CookbookRoute
-  SettingsRoute: typeof SettingsRoute
   SignInRoute: typeof SignInRoute
   SignUpRoute: typeof SignUpRoute
   StyleguideRoute: typeof StyleguideRoute
@@ -201,13 +188,6 @@ declare module '@tanstack/react-router' {
       path: '/sign-in'
       fullPath: '/sign-in'
       preLoaderRoute: typeof SignInRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/settings': {
-      id: '/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cookbook': {
@@ -258,7 +238,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CookbookRoute: CookbookRoute,
-  SettingsRoute: SettingsRoute,
   SignInRoute: SignInRoute,
   SignUpRoute: SignUpRoute,
   StyleguideRoute: StyleguideRoute,

@@ -12,7 +12,7 @@
  * Uses the jade_calls table count as a lightweight proxy.
  * For production, a dedicated rate_limit_buckets table is recommended.
  */
-import { getServiceRoleSupabase } from "@/lib/supabase/server";
+import { getServiceRoleSupabase } from "@/lib/supabase/server.server";
 
 export type RateLimitBucket =
   | "regenerate-week"

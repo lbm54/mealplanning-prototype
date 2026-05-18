@@ -5,7 +5,7 @@
  *
  * Logs metadata only (no raw prompts/responses — privacy + cost).
  */
-import { getServiceRoleSupabase } from "@/lib/supabase/server";
+import { getServiceRoleSupabase } from "@/lib/supabase/server.server";
 
 export interface JadeCallLog {
   user_id?: string;
