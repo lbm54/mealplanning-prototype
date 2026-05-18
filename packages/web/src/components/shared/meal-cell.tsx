@@ -26,6 +26,10 @@ export interface MealAssembly {
   carbG: number;
   protG: number;
   fatG: number;
+  /** When this meal was sourced from a cookbook recipe */
+  recipeId?: string;
+  /** Direct image URL (recipe thumbnail or user upload) */
+  imageUrl?: string;
 }
 
 export interface MealCellProps {

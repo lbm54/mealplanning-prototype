@@ -9,25 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YouRouteImport } from './routes/you'
 import { Route as StyleguideRouteImport } from './routes/styleguide'
 import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as SignInRouteImport } from './routes/sign-in'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as CookbookRouteImport } from './routes/cookbook'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PlanERouteImport } from './routes/plan.e'
-import { Route as PlanDRouteImport } from './routes/plan.d'
-import { Route as PlanCRouteImport } from './routes/plan.c'
-import { Route as PlanBRouteImport } from './routes/plan.b'
 import { Route as PlanARouteImport } from './routes/plan.a'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
-import { Route as ApiGroceryListRouteImport } from './routes/api/grocery-list'
-import { Route as ApiPlanCSaveRouteImport } from './routes/api/plan-c/save'
-import { Route as ApiJadeSavePlanRouteImport } from './routes/api/jade/save-plan'
 import { Route as ApiJadeObjectRouteImport } from './routes/api/jade/object'
 import { Route as ApiJadeHelloRouteImport } from './routes/api/jade/hello'
-import { Route as ApiJadeChatRouteImport } from './routes/api/jade/chat'
-import { Route as ApiJadeVariantBPersistRouteImport } from './routes/api/jade/variant-b/persist'
 
+const YouRoute = YouRouteImport.update({
+  id: '/you',
+  path: '/you',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StyleguideRoute = StyleguideRouteImport.update({
   id: '/styleguide',
   path: '/styleguide',
@@ -48,29 +46,14 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CookbookRoute = CookbookRouteImport.update({
+  id: '/cookbook',
+  path: '/cookbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PlanERoute = PlanERouteImport.update({
-  id: '/plan/e',
-  path: '/plan/e',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PlanDRoute = PlanDRouteImport.update({
-  id: '/plan/d',
-  path: '/plan/d',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PlanCRoute = PlanCRouteImport.update({
-  id: '/plan/c',
-  path: '/plan/c',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PlanBRoute = PlanBRouteImport.update({
-  id: '/plan/b',
-  path: '/plan/b',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlanARoute = PlanARouteImport.update({
@@ -83,21 +66,6 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
   path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiGroceryListRoute = ApiGroceryListRouteImport.update({
-  id: '/api/grocery-list',
-  path: '/api/grocery-list',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPlanCSaveRoute = ApiPlanCSaveRouteImport.update({
-  id: '/api/plan-c/save',
-  path: '/api/plan-c/save',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiJadeSavePlanRoute = ApiJadeSavePlanRouteImport.update({
-  id: '/api/jade/save-plan',
-  path: '/api/jade/save-plan',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiJadeObjectRoute = ApiJadeObjectRouteImport.update({
   id: '/api/jade/object',
   path: '/api/jade/object',
@@ -108,164 +76,112 @@ const ApiJadeHelloRoute = ApiJadeHelloRouteImport.update({
   path: '/api/jade/hello',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiJadeChatRoute = ApiJadeChatRouteImport.update({
-  id: '/api/jade/chat',
-  path: '/api/jade/chat',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiJadeVariantBPersistRoute = ApiJadeVariantBPersistRouteImport.update({
-  id: '/api/jade/variant-b/persist',
-  path: '/api/jade/variant-b/persist',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/cookbook': typeof CookbookRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
-  '/api/grocery-list': typeof ApiGroceryListRoute
+  '/you': typeof YouRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
-  '/plan/b': typeof PlanBRoute
-  '/plan/c': typeof PlanCRoute
-  '/plan/d': typeof PlanDRoute
-  '/plan/e': typeof PlanERoute
-  '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
-  '/api/jade/save-plan': typeof ApiJadeSavePlanRoute
-  '/api/plan-c/save': typeof ApiPlanCSaveRoute
-  '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/cookbook': typeof CookbookRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
-  '/api/grocery-list': typeof ApiGroceryListRoute
+  '/you': typeof YouRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
-  '/plan/b': typeof PlanBRoute
-  '/plan/c': typeof PlanCRoute
-  '/plan/d': typeof PlanDRoute
-  '/plan/e': typeof PlanERoute
-  '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
-  '/api/jade/save-plan': typeof ApiJadeSavePlanRoute
-  '/api/plan-c/save': typeof ApiPlanCSaveRoute
-  '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/cookbook': typeof CookbookRoute
   '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
   '/styleguide': typeof StyleguideRoute
-  '/api/grocery-list': typeof ApiGroceryListRoute
+  '/you': typeof YouRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
-  '/plan/b': typeof PlanBRoute
-  '/plan/c': typeof PlanCRoute
-  '/plan/d': typeof PlanDRoute
-  '/plan/e': typeof PlanERoute
-  '/api/jade/chat': typeof ApiJadeChatRoute
   '/api/jade/hello': typeof ApiJadeHelloRoute
   '/api/jade/object': typeof ApiJadeObjectRoute
-  '/api/jade/save-plan': typeof ApiJadeSavePlanRoute
-  '/api/plan-c/save': typeof ApiPlanCSaveRoute
-  '/api/jade/variant-b/persist': typeof ApiJadeVariantBPersistRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/cookbook'
     | '/settings'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
-    | '/api/grocery-list'
+    | '/you'
     | '/auth/callback'
     | '/plan/a'
-    | '/plan/b'
-    | '/plan/c'
-    | '/plan/d'
-    | '/plan/e'
-    | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
-    | '/api/jade/save-plan'
-    | '/api/plan-c/save'
-    | '/api/jade/variant-b/persist'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/cookbook'
     | '/settings'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
-    | '/api/grocery-list'
+    | '/you'
     | '/auth/callback'
     | '/plan/a'
-    | '/plan/b'
-    | '/plan/c'
-    | '/plan/d'
-    | '/plan/e'
-    | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
-    | '/api/jade/save-plan'
-    | '/api/plan-c/save'
-    | '/api/jade/variant-b/persist'
   id:
     | '__root__'
     | '/'
+    | '/cookbook'
     | '/settings'
     | '/sign-in'
     | '/sign-up'
     | '/styleguide'
-    | '/api/grocery-list'
+    | '/you'
     | '/auth/callback'
     | '/plan/a'
-    | '/plan/b'
-    | '/plan/c'
-    | '/plan/d'
-    | '/plan/e'
-    | '/api/jade/chat'
     | '/api/jade/hello'
     | '/api/jade/object'
-    | '/api/jade/save-plan'
-    | '/api/plan-c/save'
-    | '/api/jade/variant-b/persist'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CookbookRoute: typeof CookbookRoute
   SettingsRoute: typeof SettingsRoute
   SignInRoute: typeof SignInRoute
   SignUpRoute: typeof SignUpRoute
   StyleguideRoute: typeof StyleguideRoute
-  ApiGroceryListRoute: typeof ApiGroceryListRoute
+  YouRoute: typeof YouRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
   PlanARoute: typeof PlanARoute
-  PlanBRoute: typeof PlanBRoute
-  PlanCRoute: typeof PlanCRoute
-  PlanDRoute: typeof PlanDRoute
-  PlanERoute: typeof PlanERoute
-  ApiJadeChatRoute: typeof ApiJadeChatRoute
   ApiJadeHelloRoute: typeof ApiJadeHelloRoute
   ApiJadeObjectRoute: typeof ApiJadeObjectRoute
-  ApiJadeSavePlanRoute: typeof ApiJadeSavePlanRoute
-  ApiPlanCSaveRoute: typeof ApiPlanCSaveRoute
-  ApiJadeVariantBPersistRoute: typeof ApiJadeVariantBPersistRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/you': {
+      id: '/you'
+      path: '/you'
+      fullPath: '/you'
+      preLoaderRoute: typeof YouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/styleguide': {
       id: '/styleguide'
       path: '/styleguide'
@@ -294,39 +210,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cookbook': {
+      id: '/cookbook'
+      path: '/cookbook'
+      fullPath: '/cookbook'
+      preLoaderRoute: typeof CookbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/plan/e': {
-      id: '/plan/e'
-      path: '/plan/e'
-      fullPath: '/plan/e'
-      preLoaderRoute: typeof PlanERouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/plan/d': {
-      id: '/plan/d'
-      path: '/plan/d'
-      fullPath: '/plan/d'
-      preLoaderRoute: typeof PlanDRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/plan/c': {
-      id: '/plan/c'
-      path: '/plan/c'
-      fullPath: '/plan/c'
-      preLoaderRoute: typeof PlanCRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/plan/b': {
-      id: '/plan/b'
-      path: '/plan/b'
-      fullPath: '/plan/b'
-      preLoaderRoute: typeof PlanBRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plan/a': {
@@ -343,27 +238,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/grocery-list': {
-      id: '/api/grocery-list'
-      path: '/api/grocery-list'
-      fullPath: '/api/grocery-list'
-      preLoaderRoute: typeof ApiGroceryListRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/plan-c/save': {
-      id: '/api/plan-c/save'
-      path: '/api/plan-c/save'
-      fullPath: '/api/plan-c/save'
-      preLoaderRoute: typeof ApiPlanCSaveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/jade/save-plan': {
-      id: '/api/jade/save-plan'
-      path: '/api/jade/save-plan'
-      fullPath: '/api/jade/save-plan'
-      preLoaderRoute: typeof ApiJadeSavePlanRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/jade/object': {
       id: '/api/jade/object'
       path: '/api/jade/object'
@@ -378,42 +252,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiJadeHelloRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/jade/chat': {
-      id: '/api/jade/chat'
-      path: '/api/jade/chat'
-      fullPath: '/api/jade/chat'
-      preLoaderRoute: typeof ApiJadeChatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/jade/variant-b/persist': {
-      id: '/api/jade/variant-b/persist'
-      path: '/api/jade/variant-b/persist'
-      fullPath: '/api/jade/variant-b/persist'
-      preLoaderRoute: typeof ApiJadeVariantBPersistRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CookbookRoute: CookbookRoute,
   SettingsRoute: SettingsRoute,
   SignInRoute: SignInRoute,
   SignUpRoute: SignUpRoute,
   StyleguideRoute: StyleguideRoute,
-  ApiGroceryListRoute: ApiGroceryListRoute,
+  YouRoute: YouRoute,
   AuthCallbackRoute: AuthCallbackRoute,
   PlanARoute: PlanARoute,
-  PlanBRoute: PlanBRoute,
-  PlanCRoute: PlanCRoute,
-  PlanDRoute: PlanDRoute,
-  PlanERoute: PlanERoute,
-  ApiJadeChatRoute: ApiJadeChatRoute,
   ApiJadeHelloRoute: ApiJadeHelloRoute,
   ApiJadeObjectRoute: ApiJadeObjectRoute,
-  ApiJadeSavePlanRoute: ApiJadeSavePlanRoute,
-  ApiPlanCSaveRoute: ApiPlanCSaveRoute,
-  ApiJadeVariantBPersistRoute: ApiJadeVariantBPersistRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

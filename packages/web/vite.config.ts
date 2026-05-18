@@ -371,7 +371,12 @@ GENERATIVE UI — TOOL USE RULES (follow exactly):
             const chunks: Buffer[] = [];
             for await (const chunk of req) chunks.push(chunk as Buffer);
             const body = JSON.parse(Buffer.concat(chunks).toString("utf-8") || "{}");
-            const kind = body.kind as "week" | "swap" | "tweak";
+            const kind = body.kind as
+              | "week"
+              | "day"
+              | "swap"
+              | "tweak"
+              | "build_meal";
             const input = body.input ?? {};
 
             try {
@@ -463,6 +468,54 @@ Skip food_id fields entirely.`,
                 return json(200, result.object);
               }
 
+              // ── day — single day's meals ────────────────────────────────
+              if (kind === "day") {
+                const date =
+                  (input.date as string) ?? new Date().toISOString().slice(0, 10);
+                const activity = input.activity as
+                  | { type?: string; durationMinutes?: number; intensityLevel?: string }
+                  | undefined;
+                const targets = input.targets as
+                  | { carbG?: number; protG?: number; fatG?: number }
+                  | undefined;
+                const LooseSingleDay = LooseDayPlan.extend({
+                  day_note: z
+                    .string()
+                    .max(160)
+                    .describe("1-sentence coaching note for THIS day"),
+                });
+                const activityLine = activity?.type
+                  ? `Activity: ${activity.type}${
+                      activity.durationMinutes
+                        ? ` · ${activity.durationMinutes}m`
+                        : ""
+                    }${activity.intensityLevel ? ` · ${activity.intensityLevel}` : ""}`
+                  : "Rest day — no activity scheduled.";
+                const targetLine = targets
+                  ? `Targets: ${targets.carbG ?? "?"}g C · ${targets.protG ?? "?"}g P · ${targets.fatG ?? "?"}g F`
+                  : "Targets: balanced for an endurance athlete";
+                const result = await generateObject({
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  model: model as any,
+                  schema: LooseSingleDay,
+                  system: SYSTEM_PROMPT,
+                  maxOutputTokens: 2000,
+                  prompt: `Generate a single day's meal plan for an endurance athlete.
+
+Output rules:
+- date: "${date}"
+- meals: breakfast, lunch, dinner (required) + snack (optional). Add pre_workout / during_workout / post_workout slots ONLY if the activity warrants them.
+- Each meal: { title, components[{name, portion, carb_g, protein_g, fat_g}], totals{carb_g, protein_g, fat_g} }
+- day_note: 1 sentence (≤160 chars) coaching this day's character (rest/recovery/high-carb/etc.)
+
+${activityLine}
+${targetLine}
+
+Skip food_id entirely.`,
+                });
+                return json(200, result.object);
+              }
+
               if (kind === "swap") {
                 const result = await generateObject({
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -472,6 +525,78 @@ Skip food_id fields entirely.`,
                   prompt: `Generate 3 alternative meals for slot=${JSON.stringify(input)}. Use ingredient assemblies (no cooking steps). Skip food_id fields.`,
                 });
                 return json(200, result.object);
+              }
+
+              // ── build_meal — described meal → structured recipe ─────────
+              if (kind === "build_meal") {
+                const description = String(input.description ?? "").trim();
+                const slot = String(input.slot ?? "lunch");
+                if (!description) {
+                  return json(400, { error: "description required" });
+                }
+                const BuiltMeal = LooseMealAssembly.extend({
+                  blurb: z.string().describe("1-sentence description for an athlete reader"),
+                  tags: z
+                    .array(z.string())
+                    .describe("3-5 tags from: pre-workout, post-workout, race-day, high-carb, high-protein, vegetarian, quick, breakfast, lunch, dinner, snack"),
+                  prep_minutes: z.number().int().describe("estimated prep + cook minutes"),
+                });
+                const result = await generateObject({
+                  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                  model: model as any,
+                  schema: BuiltMeal,
+                  system: SYSTEM_PROMPT,
+                  prompt: `Build a single endurance-athlete meal from this description: "${description}".
+
+Output rules:
+- title: ≤60 chars, lowercase like "grilled chicken + jasmine rice + broccoli"
+- components: 2-6 items, each with name/portion/carb_g/protein_g/fat_g
+- totals: { carb_g, protein_g, fat_g } summing the components
+- blurb: 1 sentence, why it fits an endurance athlete in slot "${slot}"
+- tags: 3-5 lower-case tags
+- prep_minutes: realistic estimate
+
+Skip food_id and image fields.`,
+                });
+                const meal = result.object;
+                const carbG = Math.round(meal.totals.carb_g);
+                const protG = Math.round(meal.totals.protein_g);
+                const fatG = Math.round(meal.totals.fat_g);
+                const recipe = {
+                  id: `ai-${Date.now()}`,
+                  title: meal.title,
+                  blurb: meal.blurb,
+                  imageUrl:
+                    "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=800&q=70",
+                  slots: [slot],
+                  tags: meal.tags,
+                  prepMinutes: meal.prep_minutes,
+                  servings: 1,
+                  carbG,
+                  protG,
+                  fatG,
+                  kcal: carbG * 4 + protG * 4 + fatG * 9,
+                  components: meal.components.map((c) => ({
+                    name: c.name,
+                    portion: c.portion,
+                    carbG: Math.round(c.carb_g),
+                    protG: Math.round(c.protein_g),
+                    fatG: Math.round(c.fat_g),
+                  })),
+                  steps: ["Prep ingredients.", "Cook to taste.", "Plate and enjoy."],
+                  badge: "From description",
+                };
+                const mealPayload = {
+                  title: meal.title,
+                  components: meal.components.map((c) => ({
+                    name: c.name,
+                    portion: c.portion,
+                  })),
+                  carbG,
+                  protG,
+                  fatG,
+                };
+                return json(200, { recipe, meal: mealPayload });
               }
 
               return json(400, { error: `Unsupported kind: ${kind}` });
@@ -503,6 +628,142 @@ Skip food_id fields entirely.`,
   };
 }
 
+/**
+ * Inline /api/grocery-list endpoint.
+ *
+ * Same reason as jadeApiMiddleware — TanStack Start v1.167 file-based
+ * ServerRoutes don't dispatch in this setup (Nitro takes over SSR), so we
+ * handle the grocery list endpoint directly. Used by variants B, C, and D
+ * which surface the list as inline UI rather than going through Jade chat.
+ */
+function groceryApiMiddleware(): Plugin {
+  return {
+    name: "grocery-api-middleware",
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = req.url?.split("?")[0] ?? "";
+        if (url !== "/api/grocery-list") return next();
+        const method = (req.method ?? "GET").toUpperCase();
+
+        const json = (status: number, body: unknown) => {
+          res.statusCode = status;
+          res.setHeader("content-type", "application/json");
+          res.end(JSON.stringify(body));
+        };
+
+        if (method !== "POST") {
+          return json(405, { error: "Method not allowed" });
+        }
+
+        try {
+          // Parse body
+          const chunks: Buffer[] = [];
+          for await (const chunk of req) chunks.push(chunk as Buffer);
+          let body: { meal_plan_id?: string; week_start?: string; approach_used?: "a"|"b"|"c"|"d"|"e" } = {};
+          try {
+            body = JSON.parse(Buffer.concat(chunks).toString("utf-8") || "{}");
+          } catch {
+            return json(400, { error: "Invalid JSON body" });
+          }
+
+          // Authenticate via Supabase cookies (same pattern as jade chat handler)
+          const cookieHeader = req.headers.cookie ?? "";
+          if (!cookieHeader || !process.env.VITE_SUPABASE_URL || !process.env.VITE_SUPABASE_ANON_KEY) {
+            return json(401, { error: "Not authenticated (no cookies / supabase env)" });
+          }
+
+          const { createServerClient } = await import("@supabase/ssr");
+          const supabase = createServerClient(
+            process.env.VITE_SUPABASE_URL,
+            process.env.VITE_SUPABASE_ANON_KEY,
+            {
+              cookies: {
+                getAll() {
+                  return cookieHeader.split(";").map((pair) => {
+                    const [name, ...rest] = pair.trim().split("=");
+                    return { name, value: rest.join("=") };
+                  });
+                },
+                setAll() { /* no-op */ },
+              },
+            },
+          );
+
+          const { data: { user } } = await supabase.auth.getUser();
+          if (!user) {
+            return json(401, { error: "Not authenticated" });
+          }
+
+          // Build the grocery list — import the helper dynamically so the dev
+          // server doesn't bundle this module up-front.
+          const { buildGroceryListFromPlan } = await import("./src/server/jade/grocery");
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const result = await buildGroceryListFromPlan({
+            supabase: supabase as any,
+            userId: user.id,
+            mealPlanId: body.meal_plan_id,
+            weekStart: body.week_start,
+            approachUsed: body.approach_used,
+          });
+
+          return json(200, result);
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.error("[grocery-api]", err);
+          return json(500, {
+            error: "Grocery endpoint crashed",
+            message: err instanceof Error ? err.message : String(err),
+          });
+        }
+      });
+    },
+  };
+}
+
+/**
+ * Stub recipe-import middleware.
+ *
+ * `POST /api/recipes/import` — body { url } → returns { recipe }.
+ * Uses domain-flavoured mock data (Instagram / Pinterest / generic) so the
+ * import feature feels real in the demo without scraping or auth-walled
+ * sources. Production would swap this for actual scraping + Claude
+ * extraction.
+ */
+function recipeImportMiddleware(): Plugin {
+  return {
+    name: "recipe-import-middleware",
+    configureServer(server: ViteDevServer) {
+      server.middlewares.use(async (req, res, next) => {
+        const url = req.url?.split("?")[0] ?? "";
+        if (url !== "/api/recipes/import") return next();
+        const method = (req.method ?? "GET").toUpperCase();
+        const json = (status: number, body: unknown) => {
+          res.statusCode = status;
+          res.setHeader("content-type", "application/json");
+          res.end(JSON.stringify(body));
+        };
+        if (method !== "POST") return json(405, { error: "Method not allowed" });
+
+        try {
+          const chunks: Buffer[] = [];
+          for await (const chunk of req) chunks.push(chunk as Buffer);
+          const body = JSON.parse(Buffer.concat(chunks).toString("utf-8") || "{}");
+          const incomingUrl = String(body.url ?? "").trim();
+          if (!incomingUrl) return json(400, { error: "url required" });
+          const { importRecipeFromUrl } = await import("./src/lib/data/mock-imports");
+          const recipe = importRecipeFromUrl(incomingUrl);
+          return json(200, { recipe });
+        } catch (err) {
+          return json(500, {
+            error: "Recipe import failed",
+            message: err instanceof Error ? err.message : String(err),
+          });
+        }
+      });
+    },
+  };
+}
+
 export default defineConfig({
   server: {
     port: Number(process.env.PORT ?? 3000),
@@ -522,6 +783,8 @@ export default defineConfig({
   plugins: [
     // Must come BEFORE tanstackStart so /api/jade/* is handled before the SSR catch-all
     jadeApiMiddleware(),
+    groceryApiMiddleware(),
+    recipeImportMiddleware(),
     // installDevServerMiddleware forces TanStack Start's SSR middleware to install
     // over Nitro's, otherwise Nitro tries to read a (non-existent) index.html. See 048785d.
     tanstackStart({ installDevServerMiddleware: true } as Parameters<typeof tanstackStart>[0]),
