@@ -1,6 +1,5 @@
 {
-  "buildCommand": "pnpm build",
+  "buildCommand": "pnpm build && rm -rf .vercel/output && mv packages/web/.vercel/output .vercel/output",
   "installCommand": "pnpm install",
-  "framework": null,
-  "outputDirectory": "packages/web/.output"
+  "framework": null
 }
