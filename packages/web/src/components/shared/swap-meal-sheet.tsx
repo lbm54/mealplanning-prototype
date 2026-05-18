@@ -22,6 +22,7 @@ import {
   type RecipeSlot,
 } from "@/lib/data/recipes";
 import { QUICK_FOODS, type QuickFood, quickFoodsForSlot } from "@/lib/data/quick-foods";
+import { jadeObjectFn } from "@/server/jade/server-fns";
 
 export interface SwapMealResult {
   title: string;
@@ -133,11 +134,8 @@ export function SwapMealSheet({
     abortRef.current?.abort();
     abortRef.current = new AbortController();
     try {
-      const res = await fetch("/api/jade/object", {
-        method: "POST",
-        signal: abortRef.current.signal,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const data = (await jadeObjectFn({
+        data: {
           kind: "swap",
           surface: "swap-meal-sheet",
           input: {
@@ -145,10 +143,9 @@ export function SwapMealSheet({
             slot,
             current_meal_title: currentMeal?.title,
           },
-        }),
-      });
-      if (!res.ok) throw new Error("swap fetch failed");
-      const data = (await res.json()) as {
+        },
+        signal: abortRef.current.signal,
+      })) as {
         alternatives?: Array<{
           title: string;
           method_tag?: string;
@@ -156,7 +153,7 @@ export function SwapMealSheet({
           totals: { carb_g: number; protein_g: number; fat_g: number };
         }>;
       };
-      if (!data.alternatives?.length) throw new Error("no alternatives");
+      if (!data?.alternatives?.length) throw new Error("no alternatives");
       setAiAlts(
         data.alternatives.map((a) => ({
           title: a.title,
@@ -520,17 +517,14 @@ function AiTab({
     if (!desc.trim() || building) return;
     setBuilding(true);
     try {
-      const res = await fetch("/api/jade/object", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const data = (await jadeObjectFn({
+        data: {
           kind: "build_meal",
           surface: "meal-picker",
           input: { description: desc.trim(), slot },
-        }),
-      });
-      const data = (await res.json()) as { meal?: SwapMealResult };
-      if (data.meal) {
+        },
+      })) as { meal?: SwapMealResult };
+      if (data?.meal) {
         onDescribed(data.meal);
         onClose();
         return;

@@ -37,6 +37,7 @@ import {
   findKeyWorkoutDate,
 } from "@/components/variant-a/plan-helpers";
 import { getMockWeekPlan } from "@/components/variant-a/mock-week-plan";
+import { jadeObjectFn } from "@/server/jade/server-fns";
 import { MobileShell } from "@/components/shared/mobile-shell";
 import {
   SwapMealSheet,
@@ -292,61 +293,25 @@ function MobilePlanScreen() {
     abortRef.current = new AbortController();
 
     try {
-      const res = await fetch("/api/jade/object", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        signal: abortRef.current.signal,
-        body: JSON.stringify({
-          kind: "week",
-          surface: "a",
-          input: {
-            week_start: loaderData.weekStart,
-            iso_week: loaderData.isoWeek,
-            iso_year: loaderData.isoYear,
-          },
-        }),
-      });
-
       let weekPlan: WeekPlan | null = null;
-      if (res.ok) {
-        try {
-          const text = await res.text();
-          const lines = text.split("\n").filter(Boolean);
-          for (let i = lines.length - 1; i >= 0; i--) {
-            const line = lines[i];
-            try {
-              const parsed = JSON.parse(
-                line.replace(/^data:\s*/, ""),
-              ) as unknown;
-              if (
-                parsed &&
-                typeof parsed === "object" &&
-                "week_start" in parsed
-              ) {
-                weekPlan = parsed as WeekPlan;
-                break;
-              }
-            } catch {
-              // try previous line
-            }
-          }
-          if (!weekPlan) {
-            try {
-              const whole = JSON.parse(text) as unknown;
-              if (
-                whole &&
-                typeof whole === "object" &&
-                "week_start" in whole
-              ) {
-                weekPlan = whole as WeekPlan;
-              }
-            } catch {
-              /* ignore */
-            }
-          }
-        } catch {
-          /* fall through to mock */
+      try {
+        const data = await jadeObjectFn({
+          data: {
+            kind: "week",
+            surface: "a",
+            input: {
+              week_start: loaderData.weekStart,
+              iso_week: loaderData.isoWeek,
+              iso_year: loaderData.isoYear,
+            },
+          },
+          signal: abortRef.current.signal,
+        });
+        if (data && typeof data === "object" && "week_start" in data) {
+          weekPlan = data as WeekPlan;
         }
+      } catch {
+        /* fall through to mock */
       }
 
       if (!weekPlan) weekPlan = getMockWeekPlan(loaderData.weekStart);
@@ -449,10 +414,8 @@ function MobilePlanScreen() {
 
       setGeneratingDay(date);
       try {
-        const res = await fetch("/api/jade/object", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
+        const data = (await jadeObjectFn({
+          data: {
             kind: "day",
             surface: "plan-day",
             input: {
@@ -470,16 +433,14 @@ function MobilePlanScreen() {
                 fatG: day.fatG,
               },
             },
-          }),
-        });
-
-        if (!res.ok) throw new Error("day fetch failed");
-        const data = (await res.json()) as {
+          },
+        })) as {
           date: string;
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           meals: Record<string, any>;
           day_note?: string;
         };
+        if (!data?.meals) throw new Error("no meals returned");
 
         // Convert the AI day payload into our DayPlanData["meals"] shape
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -565,20 +526,14 @@ function MobilePlanScreen() {
     async (tweak: string) => {
       setIsApplyingTweak(true);
       try {
-        const res = await fetch("/api/jade/object", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
+        await jadeObjectFn({
+          data: {
             kind: "tweak",
             surface: "a",
             input: { tweak, week_start: loaderData.weekStart },
-          }),
+          },
         });
-        if (res.ok) {
-          toast.success(`Tweak applied: "${tweak}"`);
-        } else {
-          throw new Error("Tweak endpoint failed");
-        }
+        toast.success(`Tweak applied: "${tweak}"`);
       } catch {
         toast.info(`Tweak noted: "${tweak}"`, {
           description: "AI not configured — would apply on next generate.",

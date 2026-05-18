@@ -23,6 +23,7 @@ import {
   type RecipeTag,
 } from "@/lib/data/recipes";
 import { importRecipeFromUrl } from "@/lib/data/mock-imports";
+import { jadeObjectFn, importRecipeFn } from "@/server/jade/server-fns";
 
 export const Route = createFileRoute("/cookbook")({
   component: CookbookScreen,
@@ -575,17 +576,13 @@ function ImportUrlForm({
     if (!url.trim() || loading) return;
     setLoading(true);
     try {
-      const res = await fetch("/api/recipes/import", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url: url.trim() }),
-      });
-      const data = (await res.json()) as { recipe?: Recipe; error?: string };
-      if (!data.recipe) throw new Error(data.error ?? "Import failed");
+      const data = (await importRecipeFn({
+        data: { url: url.trim() },
+      })) as { recipe?: Recipe };
+      if (!data?.recipe) throw new Error("Import failed");
       onAdded(data.recipe);
-    } catch (err) {
+    } catch {
       // Fall back to local stub if backend is down
-      const { importRecipeFromUrl } = await import("@/lib/data/mock-imports");
       onAdded(importRecipeFromUrl(url.trim()));
     } finally {
       setLoading(false);
@@ -643,20 +640,17 @@ function AiDescribeForm({
     if (!desc.trim() || loading) return;
     setLoading(true);
     try {
-      const res = await fetch("/api/jade/object", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const data = (await jadeObjectFn({
+        data: {
           kind: "build_meal",
           surface: "cookbook",
           input: { description: desc.trim() },
-        }),
-      });
-      const data = (await res.json()) as { recipe?: Recipe; error?: string };
-      if (data.recipe) {
+        },
+      })) as { recipe?: Recipe };
+      if (data?.recipe) {
         onAdded(data.recipe);
       } else {
-        throw new Error(data.error ?? "AI build failed");
+        throw new Error("AI build failed");
       }
     } catch {
       // Stub fallback

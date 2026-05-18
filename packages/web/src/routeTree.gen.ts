@@ -17,8 +17,6 @@ import { Route as CookbookRouteImport } from './routes/cookbook'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PlanARouteImport } from './routes/plan.a'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
-import { Route as ApiJadeObjectRouteImport } from './routes/api/jade/object'
-import { Route as ApiJadeHelloRouteImport } from './routes/api/jade/hello'
 
 const YouRoute = YouRouteImport.update({
   id: '/you',
@@ -60,16 +58,6 @@ const AuthCallbackRoute = AuthCallbackRouteImport.update({
   path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiJadeObjectRoute = ApiJadeObjectRouteImport.update({
-  id: '/api/jade/object',
-  path: '/api/jade/object',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiJadeHelloRoute = ApiJadeHelloRouteImport.update({
-  id: '/api/jade/hello',
-  path: '/api/jade/hello',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -80,8 +68,6 @@ export interface FileRoutesByFullPath {
   '/you': typeof YouRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
-  '/api/jade/hello': typeof ApiJadeHelloRoute
-  '/api/jade/object': typeof ApiJadeObjectRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -92,8 +78,6 @@ export interface FileRoutesByTo {
   '/you': typeof YouRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
-  '/api/jade/hello': typeof ApiJadeHelloRoute
-  '/api/jade/object': typeof ApiJadeObjectRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -105,8 +89,6 @@ export interface FileRoutesById {
   '/you': typeof YouRoute
   '/auth/callback': typeof AuthCallbackRoute
   '/plan/a': typeof PlanARoute
-  '/api/jade/hello': typeof ApiJadeHelloRoute
-  '/api/jade/object': typeof ApiJadeObjectRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -119,8 +101,6 @@ export interface FileRouteTypes {
     | '/you'
     | '/auth/callback'
     | '/plan/a'
-    | '/api/jade/hello'
-    | '/api/jade/object'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -131,8 +111,6 @@ export interface FileRouteTypes {
     | '/you'
     | '/auth/callback'
     | '/plan/a'
-    | '/api/jade/hello'
-    | '/api/jade/object'
   id:
     | '__root__'
     | '/'
@@ -143,8 +121,6 @@ export interface FileRouteTypes {
     | '/you'
     | '/auth/callback'
     | '/plan/a'
-    | '/api/jade/hello'
-    | '/api/jade/object'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -156,8 +132,6 @@ export interface RootRouteChildren {
   YouRoute: typeof YouRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
   PlanARoute: typeof PlanARoute
-  ApiJadeHelloRoute: typeof ApiJadeHelloRoute
-  ApiJadeObjectRoute: typeof ApiJadeObjectRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -218,20 +192,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/jade/object': {
-      id: '/api/jade/object'
-      path: '/api/jade/object'
-      fullPath: '/api/jade/object'
-      preLoaderRoute: typeof ApiJadeObjectRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/jade/hello': {
-      id: '/api/jade/hello'
-      path: '/api/jade/hello'
-      fullPath: '/api/jade/hello'
-      preLoaderRoute: typeof ApiJadeHelloRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -244,8 +204,6 @@ const rootRouteChildren: RootRouteChildren = {
   YouRoute: YouRoute,
   AuthCallbackRoute: AuthCallbackRoute,
   PlanARoute: PlanARoute,
-  ApiJadeHelloRoute: ApiJadeHelloRoute,
-  ApiJadeObjectRoute: ApiJadeObjectRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
