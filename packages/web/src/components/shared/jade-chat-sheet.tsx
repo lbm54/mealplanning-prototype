@@ -1,21 +1,16 @@
 /**
  * JadeChatSheet — full-screen chat overlay.
  *
- * Opens from the floating Jade FAB (see MobileShell). Streams messages from
- * /api/jade/chat (Vercel AI Gateway → Claude). Renders text parts plus a
- * curated subset of generative-UI widgets inline so Jade can present
- * meal alternatives, follow-up chips, etc.
+ * Single-shot conversational replies via `chatFn` (not streaming). Drops
+ * `useChat`/`DefaultChatTransport` so it works in production where the
+ * Vite-middleware streaming endpoint isn't deployed.
  */
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import type React from "react";
-import { useChat } from "@ai-sdk/react";
-import { DefaultChatTransport } from "ai";
-import type { UIMessage } from "ai";
 import { X, Send, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { JadeAvatar } from "@/components/shared/jade-avatar";
-import MealAlternatives from "@/components/shared/widgets/meal-alternatives";
-import FollowUpQuestion from "@/components/shared/widgets/follow-up-question";
+import { chatFn } from "@/server/jade/server-fns";
 
 const STARTER_CHIPS = [
   "Swap Friday's dinner for something lighter",
@@ -23,6 +18,12 @@ const STARTER_CHIPS = [
   "Make my week higher protein",
   "Plan around a Saturday race",
 ];
+
+interface ChatTurn {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+}
 
 interface JadeChatSheetProps {
   isOpen: boolean;
@@ -32,39 +33,18 @@ interface JadeChatSheetProps {
 
 export function JadeChatSheet({ isOpen, onClose, seed }: JadeChatSheetProps) {
   const [input, setInput] = useState("");
+  const [messages, setMessages] = useState<ChatTurn[]>([]);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const transport = useMemo(
-    () => new DefaultChatTransport({ api: "/api/jade/chat?surface=mobile" }),
-    [],
-  );
-
-  const { messages, sendMessage, status, error, addToolResult } = useChat({
-    transport,
-  });
-
-  const isStreaming = status === "submitted" || status === "streaming";
-
-  // Auto-scroll to newest message
+  // Auto-scroll on new messages
   useEffect(() => {
     if (!scrollRef.current) return;
     scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  }, [messages, isStreaming]);
+  }, [messages, sending]);
 
-  // Seed message on first open with a non-null seed
-  const seedSent = useRef(false);
-  useEffect(() => {
-    if (!isOpen) {
-      seedSent.current = false;
-      return;
-    }
-    if (seed && !seedSent.current) {
-      seedSent.current = true;
-      sendMessage({ text: seed });
-    }
-  }, [isOpen, seed, sendMessage]);
-
-  // ESC to close
+  // ESC closes
   useEffect(() => {
     if (!isOpen) return;
     const handler = (e: KeyboardEvent) => {
@@ -74,19 +54,72 @@ export function JadeChatSheet({ isOpen, onClose, seed }: JadeChatSheetProps) {
     return () => window.removeEventListener("keydown", handler);
   }, [isOpen, onClose]);
 
+  // Reset on close
+  useEffect(() => {
+    if (!isOpen) {
+      setError(null);
+      setSending(false);
+      setInput("");
+    }
+  }, [isOpen]);
+
+  const send = async (text: string) => {
+    if (!text.trim() || sending) return;
+    const next: ChatTurn[] = [
+      ...messages,
+      { id: `u-${Date.now()}`, role: "user", content: text },
+    ];
+    setMessages(next);
+    setSending(true);
+    setError(null);
+    try {
+      const result = (await chatFn({
+        data: {
+          messages: next.map((m) => ({ role: m.role, content: m.content })),
+        },
+      })) as { text?: string; error?: string };
+      if (!result?.text) throw new Error(result?.error ?? "no response");
+      setMessages((m) => [
+        ...m,
+        {
+          id: `a-${Date.now()}`,
+          role: "assistant",
+          content: result.text!,
+        },
+      ]);
+    } catch (e) {
+      setError(
+        e instanceof Error
+          ? e.message
+          : "Jade is offline — try again in a moment.",
+      );
+    } finally {
+      setSending(false);
+    }
+  };
+
+  // Seed message on first open
+  const seedSent = useRef(false);
+  useEffect(() => {
+    if (!isOpen) {
+      seedSent.current = false;
+      return;
+    }
+    if (seed && !seedSent.current) {
+      seedSent.current = true;
+      void send(seed);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, seed]);
+
   if (!isOpen) return null;
 
   const handleSubmit = (e?: React.FormEvent) => {
     e?.preventDefault();
     const text = input.trim();
-    if (!text || isStreaming) return;
+    if (!text || sending) return;
     setInput("");
-    sendMessage({ text });
-  };
-
-  const handleChip = (text: string) => {
-    if (isStreaming) return;
-    sendMessage({ text });
+    void send(text);
   };
 
   return (
@@ -129,25 +162,21 @@ export function JadeChatSheet({ isOpen, onClose, seed }: JadeChatSheetProps) {
           ref={scrollRef}
           className="flex-1 overflow-y-auto px-4 py-4 space-y-3"
         >
-          {messages.length === 0 && !isStreaming && (
-            <Welcome onChip={handleChip} />
-          )}
+          {messages.length === 0 && !sending && <Welcome onChip={send} />}
 
           {messages.map((m) => (
-            <MessageBubble
-              key={m.id}
-              message={m}
-              addToolResult={addToolResult}
-            />
+            <MessageBubble key={m.id} role={m.role} content={m.content} />
           ))}
 
-          {isStreaming && messages[messages.length - 1]?.role === "user" && (
-            <TypingIndicator />
+          {sending && (
+            messages[messages.length - 1]?.role === "user" && (
+              <TypingIndicator />
+            )
           )}
 
           {error && (
             <div className="rounded-2xl border border-[var(--color-dragonfruit)]/30 bg-[var(--color-dragonfruit)]/5 px-3 py-2 text-[12px] text-[var(--color-dragonfruit-dark)]">
-              {error.message ?? "Jade is offline — check AI gateway config."}
+              {error}
             </div>
           )}
         </div>
@@ -178,7 +207,7 @@ export function JadeChatSheet({ isOpen, onClose, seed }: JadeChatSheetProps) {
           />
           <button
             type="submit"
-            disabled={!input.trim() || isStreaming}
+            disabled={!input.trim() || sending}
             aria-label="Send"
             className={cn(
               "flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl",
@@ -195,8 +224,6 @@ export function JadeChatSheet({ isOpen, onClose, seed }: JadeChatSheetProps) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Welcome screen — shown when chat is empty
 // ─────────────────────────────────────────────────────────────────────────────
 
 function Welcome({ onChip }: { onChip: (text: string) => void }) {
@@ -217,8 +244,8 @@ function Welcome({ onChip }: { onChip: (text: string) => void }) {
           Hey, I'm Jade.
         </h2>
         <p className="font-[var(--font-apercu)] text-[13px] text-[var(--color-blackberry)]/65 max-w-[32ch] mx-auto leading-relaxed">
-          Tell me what's on your plate, or ask me to swap, fuel, or
-          fix anything in your week.
+          Tell me what's on your plate, or ask me to swap, fuel, or fix
+          anything in your week.
         </p>
       </div>
       <div className="flex flex-col gap-2 w-full mt-2">
@@ -244,120 +271,36 @@ function Welcome({ onChip }: { onChip: (text: string) => void }) {
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-// MessageBubble — renders one message (text parts + supported widget parts)
-// ─────────────────────────────────────────────────────────────────────────────
-
 function MessageBubble({
-  message,
-  addToolResult,
+  role,
+  content,
 }: {
-  message: UIMessage;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  addToolResult: (args: any) => void;
+  role: "user" | "assistant";
+  content: string;
 }) {
-  const isUser = message.role === "user";
-  const parts = Array.isArray(message.parts) ? message.parts : [];
-
-  if (isUser) {
-    const text = parts
-      .filter((p) => p.type === "text")
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .map((p: any) => p.text)
-      .join("");
-    if (!text) return null;
+  if (role === "user") {
     return (
       <div className="flex justify-end">
         <div className="max-w-[80%] rounded-2xl rounded-br-md bg-[var(--color-blackberry)] text-[var(--color-cream)] px-3.5 py-2.5">
           <p className="font-[var(--font-apercu)] text-[14px] leading-snug whitespace-pre-wrap break-words">
-            {text}
+            {content}
           </p>
         </div>
       </div>
     );
   }
-
-  // Assistant message — render text + widget parts in order
   return (
     <div className="flex gap-2.5">
       <div className="shrink-0 mt-1">
         <JadeAvatar size={24} state="idle" online glow={false} />
       </div>
-      <div className="flex-1 min-w-0 space-y-2">
-        {parts.map((part, i) => {
-          // Text part
-          if (part.type === "text") {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const text = (part as any).text as string;
-            if (!text) return null;
-            return (
-              <div
-                key={i}
-                className="rounded-2xl rounded-bl-md bg-white border border-black/5 px-3.5 py-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
-              >
-                <p className="font-[var(--font-apercu)] text-[14px] text-[var(--color-blackberry)] leading-snug whitespace-pre-wrap break-words">
-                  {text}
-                </p>
-              </div>
-            );
-          }
-
-          // Tool call → widget
-          // AI SDK v6: type is "tool-<toolName>"
-          if (typeof part.type === "string" && part.type.startsWith("tool-")) {
-            const toolName = part.type.slice(5);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            const p = part as any;
-            const output = p.output ?? p.input;
-            if (!output) return null;
-
-            const handleResult = (response: unknown) => {
-              addToolResult({
-                tool: toolName,
-                toolCallId: p.toolCallId,
-                output: response,
-              });
-            };
-
-            return (
-              <div key={i} className="rounded-2xl">
-                <ToolWidget
-                  toolName={toolName}
-                  output={output}
-                  onUserResponse={handleResult}
-                />
-              </div>
-            );
-          }
-
-          return null;
-        })}
+      <div className="flex-1 min-w-0">
+        <div className="rounded-2xl rounded-bl-md bg-white border border-black/5 px-3.5 py-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
+          <p className="font-[var(--font-apercu)] text-[14px] text-[var(--color-blackberry)] leading-snug whitespace-pre-wrap break-words">
+            {content}
+          </p>
+        </div>
       </div>
-    </div>
-  );
-}
-
-function ToolWidget({
-  toolName,
-  output,
-  onUserResponse,
-}: {
-  toolName: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  output: any;
-  onUserResponse: (response: unknown) => void;
-}) {
-  if (toolName === "showMealAlternatives") {
-    return <MealAlternatives output={output} onUserResponse={onUserResponse} />;
-  }
-  if (toolName === "showFollowUpQuestion") {
-    return <FollowUpQuestion output={output} onUserResponse={onUserResponse} />;
-  }
-  // Unknown widget → render a compact pill so we don't break the conversation
-  return (
-    <div className="inline-flex items-center gap-1.5 rounded-full bg-[var(--color-electrolyte)]/15 px-3 py-1 text-[10px] uppercase tracking-wider font-[var(--font-apercu)] text-[var(--color-blackberry)]/70">
-      <Sparkles size={10} />
-      {toolName.replace(/^show/, "")}
     </div>
   );
 }
@@ -366,7 +309,7 @@ function TypingIndicator() {
   return (
     <div className="flex gap-2.5">
       <div className="shrink-0 mt-1">
-        <JadeAvatar size={24} state="idle" online glow={false} />
+        <JadeAvatar size={24} state="thinking" online glow={false} />
       </div>
       <div className="rounded-2xl rounded-bl-md bg-white border border-black/5 px-4 py-3 shadow-[0_1px_2px_rgba(0,0,0,0.03)]">
         <div className="flex items-center gap-1">

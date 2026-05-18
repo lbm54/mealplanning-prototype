@@ -277,6 +277,42 @@ export const importRecipeFn = createServerFn({ method: "POST" })
   });
 
 // ─────────────────────────────────────────────────────────────────────────────
+// Jade chat — single-shot conversational reply (no streaming)
+// ─────────────────────────────────────────────────────────────────────────────
+
+const ChatMessage = z.object({
+  role: z.enum(["user", "assistant"]),
+  content: z.string(),
+});
+
+const ChatInput = z.object({
+  messages: z.array(ChatMessage).min(1),
+});
+
+export const chatFn = createServerFn({ method: "POST" })
+  .inputValidator((data: unknown) => ChatInput.parse(data))
+  .handler(async ({ data }) => {
+    const model = await getModel();
+    if (!model) {
+      return {
+        text:
+          "Jade is offline — the AI gateway key isn't configured for this deployment.",
+      };
+    }
+    const { generateText } = await import("ai");
+    const { text } = await generateText({
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      model: model as any,
+      system: `${SYSTEM_PROMPT}
+
+You are chatting one-on-one. Keep replies short (1-3 sentences) and warm. When the user asks about a meal or training detail you don't have, ask for it instead of inventing data.`,
+      messages: data.messages,
+      maxOutputTokens: 600,
+    });
+    return { text };
+  });
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Grocery list — AI-deduped, aisle-grouped shopping list from a meal set
 // ─────────────────────────────────────────────────────────────────────────────
 
