@@ -1,8 +1,11 @@
 /**
  * MobileShell — phone-frame wrapper + bottom nav + floating Jade FAB.
  *
- * Used by every primary screen (Plan, Cookbook, You) so the chrome stays
- * consistent and Jade is reachable from anywhere.
+ * Layout: fixed-height frame (h-100dvh), with a scrollable `<main>`
+ * between the header and the bottom nav. The frame's chrome (header,
+ * nav, sticky CTA) stays pinned to the viewport while only the body
+ * scrolls — the standard mobile-app pattern. Previous version let the
+ * frame grow with content and made the nav scroll out of view.
  */
 import type React from "react";
 import { useState } from "react";
@@ -20,9 +23,9 @@ import { JadeChatSheet } from "@/components/shared/jade-chat-sheet";
 
 interface MobileShellProps {
   children: React.ReactNode;
-  /** Per-screen header rendered above the scroll body. */
+  /** Per-screen header — pinned above the scroll body. */
   header?: React.ReactNode;
-  /** Optional extra content pinned above the bottom nav (e.g. a CTA). */
+  /** Optional content pinned between the scroll body and the bottom nav. */
   stickyAboveNav?: React.ReactNode;
   /** When true, renders a floating Jade chat pill. Default true. The Plan
    *  screen sets this false because it has its own inline Jade strip. */
@@ -41,26 +44,23 @@ export function MobileShell({
   const [isJadeOpen, setJadeOpen] = useState(false);
 
   return (
-    <div className="relative min-h-[100dvh] bg-[var(--color-cream)] text-[var(--color-blackberry)]">
+    <div className="bg-[var(--color-cream)] text-[var(--color-blackberry)]">
       <PhoneFrame>
-        {header}
-        <div
-          className={cn(
-            "flex flex-col gap-4 px-4 pt-3",
-            stickyAboveNav ? "pb-[160px]" : "pb-[100px]",
-          )}
-        >
-          {children}
-        </div>
+        {header && <div className="shrink-0">{header}</div>}
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex flex-col">
-          {stickyAboveNav && (
-            <div className="pointer-events-auto px-4 pb-2">
-              {stickyAboveNav}
-            </div>
-          )}
-          <BottomNav />
-        </div>
+        <main className="flex-1 min-h-0 overflow-y-auto overscroll-contain">
+          <div className="flex flex-col gap-4 px-4 pt-3 pb-6">
+            {children}
+          </div>
+        </main>
+
+        {stickyAboveNav && (
+          <div className="shrink-0 px-4 pt-2 pb-2 bg-[var(--color-cream)]/95 backdrop-blur-md border-t border-black/5">
+            {stickyAboveNav}
+          </div>
+        )}
+
+        <BottomNav />
 
         {showFab && <JadeFab onClick={() => setJadeOpen(true)} />}
       </PhoneFrame>
@@ -77,12 +77,13 @@ export function MobileShell({
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// PhoneFrame
+// PhoneFrame — fixed-height column. Children control their own flex sizing
+// (use `shrink-0` for chrome and `flex-1 overflow-y-auto` for the scroller).
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto flex min-h-[100dvh] w-full max-w-[440px] flex-col bg-[var(--color-cream)] sm:my-4 sm:min-h-[calc(100dvh-2rem)] sm:rounded-[36px] sm:border sm:border-black/10 sm:shadow-[0_24px_64px_-16px_rgba(56,22,51,0.30)] sm:overflow-hidden relative">
+    <div className="mx-auto flex h-[100dvh] w-full max-w-[440px] flex-col bg-[var(--color-cream)] sm:my-4 sm:h-[calc(100dvh-2rem)] sm:rounded-[36px] sm:border sm:border-black/10 sm:shadow-[0_24px_64px_-16px_rgba(56,22,51,0.30)] sm:overflow-hidden relative">
       {children}
     </div>
   );
@@ -106,7 +107,7 @@ function BottomNav() {
   return (
     <nav
       className={cn(
-        "pointer-events-auto flex items-center justify-around",
+        "shrink-0 flex items-center justify-around",
         "border-t border-black/5 bg-[var(--color-cream)]/95 backdrop-blur-md",
         "pt-2 pb-[max(env(safe-area-inset-bottom),10px)] px-2",
       )}
@@ -147,7 +148,7 @@ function BottomNav() {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// JadeFab — floating action button
+// JadeFab — floating action button (sits above the bottom nav)
 // ─────────────────────────────────────────────────────────────────────────────
 
 function JadeFab({ onClick }: { onClick: () => void }) {
@@ -157,7 +158,7 @@ function JadeFab({ onClick }: { onClick: () => void }) {
       onClick={onClick}
       aria-label="Chat with Jade"
       className={cn(
-        "absolute right-4 bottom-[90px] z-40",
+        "absolute right-4 bottom-[88px] z-40",
         "flex items-center gap-2 h-12 pl-1.5 pr-3.5 rounded-full",
         "bg-[var(--color-blackberry)] text-[var(--color-cream)]",
         "shadow-[0_12px_24px_-8px_rgba(56,22,51,0.55)]",
