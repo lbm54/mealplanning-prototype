@@ -80,7 +80,7 @@ function MealDetail() {
   const n = servings ?? planMeal?.servings ?? 4;
   const initials = (data.source.match(/^([A-Z])[a-z]+ ([A-Z])/) ?? [])[1] ? data.source.replace(/^([A-Z])[a-z]+ ([A-Z]).*$/, "$1$2") : "MV";
   const d = data.directions;
-  const steps = d.steps;
+  const steps = data.methodSteps;
   const myVote = data.vote ?? 0;
   const originLabel =
     d.origin === "ai_generated" ? "AI-written steps"
@@ -100,22 +100,22 @@ function MealDetail() {
           </button>
         )}
       </div>
-      {data.imageUrl && (
+      {data.image && (
         <figure style={{ margin: "0 0 4px 0" }}>
           <img
-            src={data.imageUrl} alt={m.name} loading="lazy"
+            src={data.image.url} alt={m.name} loading="lazy"
             // a third-party CDN image can 404 or be hotlink-blocked at any time — drop the figure rather than show a broken frame
             onError={(e) => { const f = e.currentTarget.closest("figure"); if (f) f.style.display = "none"; }}
             style={{ width: "100%", aspectRatio: "16 / 10", objectFit: "cover", borderRadius: 14, display: "block", background: "var(--k-blackberry-light)" }}
           />
-          {data.imageCredit && (
+          {data.image.credit && (
             // CC-BY and CC-BY-SA both require visible attribution, so the credit is not decoration —
             // it links back to the file page where the licence terms live.
             <figcaption className="v-body12 v-muted" style={{ paddingTop: 4 }}>
               Photo:{" "}
-              {data.imageSourceUrl
-                ? <a href={data.imageSourceUrl} target="_blank" rel="noreferrer noopener" style={{ color: "inherit" }}>{data.imageCredit}</a>
-                : data.imageCredit}
+              {data.image.sourceUrl
+                ? <a href={data.image.sourceUrl} target="_blank" rel="noreferrer noopener" style={{ color: "inherit" }}>{data.image.credit}</a>
+                : data.image.credit}
             </figcaption>
           )}
         </figure>

@@ -54,6 +54,23 @@ export interface MealPlan {
   dayNotesStale?: boolean;
   coverage: { lunchDinnerSlots: number; covered: number; perDay: { kcal: number; carbsG: number; proteinG: number } };
 }
+/** Meal detail — what /food/meals/:id and cooking mode need; built by the `get_meal` action for a library id or a saved uuid. */
+export interface MealIngredient { name: string; qty: string; role?: string | null }
+export type DirectionsOrigin = 'source' | 'alt_source' | 'ai_generated' | 'assembly_simple';
+export interface MealDetail {
+  meal: MealRef;
+  ingredients: MealIngredient[];             // library ingredients_json / saved items
+  methodSteps: string[];                     // meal_library.method_steps (a saved meal inherits its linked recipe's)
+  directions: { origin: DirectionsOrigin | null; sourceUrl: string | null; sourceName: string | null; verbatim: boolean };   // provenance of methodSteps
+  image: { url: string; license: string | null; creator: string | null; credit: string | null; sourceUrl: string | null } | null;
+  sourceUrl: string | null;                  // "see the original recipe"
+  source: string;                            // full attribution line (library) — '' for saved
+  swaps: string[];                           // "water→milk (+10g protein)" strings, one per swap
+  prep: string | null;
+  servings: number;
+  notes: string | null;                      // saved meals only — the athlete's own directions
+  vote: -1 | 0 | 1;
+}
 export interface Memory { id: string; kind: 'preference'|'constraint'|'pattern'|'episode'|'setting'; key: string | null; fact: string; value: unknown; confidence: number; lastConfirmedAt: string }
 
 // ---- Generative-UI parts (tool → widget). Names match the canvas notes.
@@ -73,7 +90,9 @@ export type VanaPart =
 // ---- What the UI sends back (chip taps are plain user messages; structured edits go through these)
 export interface UiAction {
   type: 'pick_meals' | 'unpick_meal' | 'swap_meal' | 'remove_meal' | 'set_servings' | 'confirm_plan' | 'toggle_shopping' | 'log_from_plan' | 'set_setting' | 'delete_memory' | 'set_day_slot' | 'clear_day_slot' | 'plan_day' | 'new_plan' | 'get_plan' | 'list_plans'
-    | 'set_session' | 'apply_swap' | 'add_comment' | 'accept_rule' | 'list_memories' | 'save_meal';
+    | 'set_session' | 'apply_swap' | 'add_comment' | 'accept_rule' | 'list_memories' | 'save_meal'
+    // app-only (the Flutter client has no server fns): get_home{date?} · get_meal{id} · recent_meals{limit?} · set_saved_meal_notes{savedMealId,notes} · set_meal_feedback{libraryMealId?|savedMealId?,vote,reason?}
+    | 'get_home' | 'get_meal' | 'recent_meals' | 'set_saved_meal_notes' | 'set_meal_feedback';
   payload: Record<string, unknown>;
 }
 

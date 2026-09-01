@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type { UiAction } from "@/lib/vana/contracts";
 import { runAction, extraAction } from "@/server/vana/actions";
 import { currentUserId } from "@/server/vana/auth";
+import { getServerSupabase } from "@/lib/supabase/server.server";
 
 /** POST { type, payload } → { parts: VanaPart[], ...extra }. No model involved. */
 export const Route = createFileRoute("/api/vana/action")({
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/api/vana/action")({
         const body = (await request.json()) as UiAction;
         try {
           const extra = await extraAction(userId, body.type, (body.payload ?? {}) as Record<string, unknown>);
-          return Response.json(extra ?? (await runAction(userId, body)));
+          return Response.json(extra ?? (await runAction(userId, body, { userDb: await getServerSupabase() })));
         } catch (e) { return Response.json({ error: (e as Error).message }, { status: 400 }); }
       },
     },

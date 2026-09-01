@@ -2,9 +2,10 @@
 import { createServerFn } from "@tanstack/react-start";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { getServerSupabase } from "@/lib/supabase/server.server";
-import type { MealPlan, MealRef, Memory, PlanMeal, ShoppingItem } from "@/lib/vana/contracts";
+import type { MealDetail, MealPlan, MealRef, Memory, PlanMeal, ShoppingItem } from "@/lib/vana/contracts";
 import { resolveMealIcon } from "@/lib/vana/meal-icon";
 import { embedText, vec } from "@/server/vana/embeddings";
+import { rowToMealRef, getMealDetail, recentMeals, setSavedMealNotes, setMealFeedback as setMealFeedbackImpl } from "@/server/vana/meals";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SB = SupabaseClient<any, "public", any>;
@@ -14,26 +15,6 @@ async function sb(): Promise<{ sb: SB; userId: string | null }> {
   return { sb: client, userId: data.user?.id ?? null };
 }
 
-/** Shorten a library `source` line to a human attribution: drop URLs, keep the first clause. */
-export function shortAttribution(src: string | null | undefined): string {
-  if (!src) return "";
-  const noUrls = src.replace(/https?:\/\/\S+/g, "").replace(/\s+/g, " ").trim();
-  const first = noUrls.split(/\s[—;(]|\s—\s|\s-\s/)[0].replace(/[\s,;:—-]+$/, "").trim();
-  return first.length > 64 ? first.slice(0, 61).trimEnd() + "…" : first;
-}
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function rowToMealRef(r: any): MealRef {
-  return {
-    source: r.source === "saved" ? "saved" : "library", id: String(r.id), name: r.name, mealType: r.meal_type, contexts: r.contexts ?? [], batch: !!r.batch,
-    prepMinutes: r.prep_minutes ?? null, kcal: r.kcal ?? null, carbsG: r.carbs_g == null ? null : Number(r.carbs_g), proteinG: r.protein_g == null ? null : Number(r.protein_g), fatG: r.fat_g == null ? null : Number(r.fat_g),
-    allergens: r.allergens ?? [], dietsOk: r.diets_ok ?? [], swaps: r.swaps ?? null, why: r.why ?? "", attribution: r.attribution === "your saved meal" || r.attribution === "from your log" ? r.attribution : shortAttribution(r.attribution ?? r.source_text ?? ""), ingredients: r.ingredients ?? "",
-    attributionShort: r.attribution === "your saved meal" || r.attribution === "from your log" ? r.attribution : shortAttribution(r.attribution ?? r.source).slice(0, 40),
-    libraryMealId: r.library_meal_id ?? null, score: Number(r.score ?? 0),
-    kind: r.kind === "assembly" ? "assembly" : r.kind === "recipe" ? "recipe" : undefined, pattern: r.pattern ?? null, frequency: r.frequency ?? null,
-    icon: resolveMealIcon(r.icon, { name: r.name, ingredients: r.ingredients ?? null, pattern: r.pattern ?? null }),
-    myVote: (r.my_vote ?? 0) as -1 | 0 | 1,
-  };
-}
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function rowToPlanMeal(r: any): PlanMeal {
   return {
@@ -95,141 +76,30 @@ export const searchMeals = createServerFn({ method: "GET" })
     return { meals, excluded, allergies };
   });
 
-/** Recents = meals logged OR planned, most recent first. The search_meals RPC ranks by score only,
- *  so this walks meal_logs + plan_meals, merges by recency, then resolves the meal rows in bulk. */
+/** Thin wrappers over server/vana/meals.ts — the same implementation the `recent_meals` / `set_saved_meal_notes` / `get_meal` /
+ *  `set_meal_feedback` actions run for the app. */
 export const getRecentMeals = createServerFn({ method: "GET" }).inputValidator((d: { limit?: number }) => d).handler(async ({ data }) => {
-  const { sb: c, userId } = await sb(); if (!userId) return [] as (MealRef & { lastUsedAt: string })[];
-  const limit = data.limit ?? 20;
-  const [{ data: logs }, { data: planned }] = await Promise.all([
-    c.from("meal_logs").select("name, saved_meal_id, plan_meal_id, eaten_at, log_date, created_at").eq("user_id", userId).eq("is_deleted", false).order("created_at", { ascending: false }).limit(200),
-    c.from("plan_meals").select("library_meal_id, saved_meal_id, name, created_at").eq("user_id", userId).order("created_at", { ascending: false }).limit(200),
-  ]);
-  // most recent touch per meal key: saved:<uuid> | lib:<id>
-  const recent = new Map<string, string>();
-  const touch = (key: string, at: string | null | undefined) => { const prev = recent.get(key); if (!prev || !at || at > prev) recent.set(key, at ?? prev ?? ""); };
-  const savedIds = new Set<string>(); const libIds = new Set<string>(); const namesOnly: { name: string; at: string }[] = [];
-  for (const l of logs ?? []) {
-    const at = (l.eaten_at ?? l.created_at ?? l.log_date) as string | null;
-    if (l.saved_meal_id) { savedIds.add(l.saved_meal_id); touch(`saved:${l.saved_meal_id}`, at); }
-    else namesOnly.push({ name: (l.name as string).trim(), at: at ?? "" });
-  }
-  for (const p of planned ?? []) {
-    const at = (p.created_at ?? "") as string;
-    if (p.saved_meal_id) { savedIds.add(p.saved_meal_id); touch(`saved:${p.saved_meal_id}`, at); }
-    else if (p.library_meal_id) { libIds.add(p.library_meal_id); touch(`lib:${p.library_meal_id}`, at); }
-    else namesOnly.push({ name: (p.name as string).trim(), at });
-  }
-  const out: (MealRef & { lastUsedAt: string })[] = [];
-  const resolveSaved = async (ids: string[]) => { if (!ids.length) return; const { data: rows } = await c.from("saved_meals").select("*").in("id", ids).eq("is_deleted", false); for (const s of rows ?? []) out.push({ ...rowToMealRef({ source: "saved", id: s.id, name: s.name, meal_type: s.meal_types?.[0] ?? "dinner", kcal: s.calories, carbs_g: s.carbs_g, protein_g: s.protein_g, fat_g: s.fat_g, library_meal_id: s.library_meal_id, icon: s.icon, batch: s.batch, ingredients: (s.items ?? []).map((i: { name?: string }) => i.name).filter(Boolean).join(", "), why: "one of your meals", attribution: "your saved meal" }), lastUsedAt: recent.get(`saved:${s.id}`) ?? "" }); };
-  const resolveLib = async (ids: string[]) => { if (!ids.length) return; const { data: rows } = await c.from("meal_library").select("*").in("id", ids).eq("is_active", true); for (const r of rows ?? []) out.push({ ...rowToMealRef({ ...r, source: "library", attribution: r.source }), lastUsedAt: recent.get(`lib:${r.id}`) ?? "" }); };
-  await Promise.all([resolveSaved([...savedIds]), resolveLib([...libIds])]);
-  // log/plan rows with no link: try an exact-ish library name match, else drop silently
-  for (const n of namesOnly.slice(0, 30)) {
-    if (out.some((m) => m.name.toLowerCase() === n.name.toLowerCase())) continue;
-    const { data: r } = await c.from("meal_library").select("*").ilike("name", n.name).eq("is_active", true).limit(1);
-    if (r?.[0]) out.push({ ...rowToMealRef({ ...r[0], attribution: r[0].source }), lastUsedAt: n.at });
-  }
-  return out.sort((a, b) => (b.lastUsedAt ?? "").localeCompare(a.lastUsedAt ?? "")).slice(0, limit);
+  const { userId } = await sb(); if (!userId) return [] as (MealRef & { lastUsedAt: string })[];
+  return recentMeals(userId, data.limit ?? 20);
 });
-
 export const updateSavedMealNotes = createServerFn({ method: "POST" }).inputValidator((d: { id: string; notes: string }) => d).handler(async ({ data }) => {
-  const { sb: c, userId } = await sb(); if (!userId) return { ok: false as const };
-  const notes = data.notes.slice(0, 2000);
-  const { error } = await c.from("saved_meals").update({ notes, updated_at: new Date().toISOString() }).eq("id", data.id).eq("user_id", userId);
-  return error ? { ok: false as const, error: error.message } : { ok: true as const, notes };
+  const { userId } = await sb(); if (!userId) return { ok: false as const };
+  const r = await setSavedMealNotes(userId, data.id, data.notes);
+  return r.ok ? { ok: true as const, notes: r.notes } : { ok: false as const, error: r.error };
 });
-
-/** Directions provenance, shared by the detail page and cooking mode. `origin` drives the
- *  "AI-written steps" badge; `verbatim` means the steps are the publisher's own words. */
-export type Directions = {
-  steps: string[];
-  origin: "source" | "alt_source" | "ai_generated" | "assembly_simple" | null;
-  sourceUrl: string | null;
-  sourceName: string | null;
-  verbatim: boolean;
-};
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const directionsOf = (r: any): Directions => ({
-  steps: (r?.method_steps ?? []) as string[],
-  origin: (r?.directions_origin ?? null) as Directions["origin"],
-  sourceUrl: r?.directions_source_url ?? null,
-  sourceName: r?.directions_source_name ?? null,
-  verbatim: !!r?.directions_verbatim,
+export const getMeal = createServerFn({ method: "GET" }).inputValidator((d: { id: string }) => d).handler(async ({ data }): Promise<MealDetail | null> => {
+  const { userId } = await sb(); if (!userId) return null;
+  return getMealDetail(userId, data.id);
 });
-
-async function myVote(c: SB, userId: string, libraryMealId: string | null, savedMealId: string | null): Promise<-1 | 0 | 1> {
-  let q = c.from("meal_feedback").select("vote").eq("user_id", userId);
-  q = libraryMealId ? q.eq("library_meal_id", libraryMealId) : q.eq("saved_meal_id", savedMealId!);
-  const { data } = await q.maybeSingle();
-  return ((data?.vote as number | undefined) ?? 0) as -1 | 0 | 1;
-}
-
-export const getMeal = createServerFn({ method: "GET" }).inputValidator((d: { id: string }) => d).handler(async ({ data }) => {
-  const { sb: c, userId } = await sb(); if (!userId) return null;
-  const isUuid = /^[0-9a-f-]{36}$/i.test(data.id);
-  if (!isUuid) {
-    const { data: r } = await c.from("meal_library").select("*").eq("id", data.id).maybeSingle();
-    if (!r) return null;
-    return {
-      meal: rowToMealRef({ ...r, source: "library", attribution: r.source }),
-      ingredients: (r.ingredients_json ?? []) as { name: string; qty: string }[],
-      swaps: String(r.swaps ?? "").split(";").map((s) => s.trim()).filter(Boolean),
-      servings: r.servings ?? 1, prep: r.prep ?? null, source: r.source ?? "",
-      methodSteps: (r.method_steps ?? []) as string[],
-      directions: directionsOf(r),
-      sourceUrl: (r.source_url ?? null) as string | null,
-      imageUrl: (r.image_url ?? null) as string | null,
-      imageCredit: (r.image_credit ?? null) as string | null,
-      imageSourceUrl: (r.image_source_url ?? null) as string | null,
-      imageLicense: (r.image_license ?? null) as string | null,
-      vote: await myVote(c, userId, r.id, null),
-      notes: null as string | null,
-    };
-  }
-  const { data: s } = await c.from("saved_meals").select("*").eq("id", data.id).maybeSingle();
-  if (!s) return null;
-  // a saved meal linked to a recipe carries that recipe's method; otherwise it's assembly-style (no method)
-  let swaps: string[] = []; let prep: string | null = null; let servings = 1;
-  let directions: Directions = { steps: [], origin: null, sourceUrl: null, sourceName: null, verbatim: false };
-  let sourceUrl: string | null = null; let imageUrl: string | null = null; let imageCredit: string | null = null;
-  let imageSourceUrl: string | null = null; let imageLicense: string | null = null;
-  const ingredientsOut: { name: string; qty: string }[] | null = null;
-  if (s.library_meal_id) {
-    const { data: r } = await c.from("meal_library").select("*").eq("id", s.library_meal_id).maybeSingle();
-    if (r) {
-      directions = directionsOf(r);
-      swaps = String(r.swaps ?? "").split(";").map((x) => x.trim()).filter(Boolean);
-      prep = r.prep ?? null; servings = r.servings ?? 1;
-      sourceUrl = r.source_url ?? null; imageUrl = r.image_url ?? null; imageCredit = r.image_credit ?? null;
-      imageSourceUrl = r.image_source_url ?? null; imageLicense = r.image_license ?? null;
-    }
-  }
-  return {
-    meal: rowToMealRef({ source: "saved", id: s.id, name: s.name, meal_type: s.meal_types?.[0] ?? "dinner", kcal: s.calories, carbs_g: s.carbs_g, protein_g: s.protein_g, fat_g: s.fat_g, library_meal_id: s.library_meal_id, icon: s.icon, why: "one of your saved meals", attribution: "your saved meal", batch: s.batch }),
-    ingredients: ingredientsOut ?? ((s.items ?? []) as { name?: string; food_name?: string; quantity?: string; serving?: string }[]).map((i) => ({ name: i.name ?? i.food_name ?? "", qty: i.quantity ?? i.serving ?? "" })),
-    swaps, servings, prep, source: "",
-    methodSteps: directions.steps, directions, sourceUrl, imageUrl, imageCredit, imageSourceUrl, imageLicense,
-    vote: await myVote(c, userId, null, s.id),
-    notes: (s.notes ?? null) as string | null,
-  };
-});
-
-/** Thumbs up / down. Tapping the lit thumb again clears the vote. A thumbs-down stops the meal
- *  being suggested (search_meals filters it) — browsing still shows it. */
+/** Thumbs up / down. Tapping the lit thumb again clears the vote. A thumbs-down stops the meal being suggested (search_meals filters it) — browsing still shows it. */
 export const setMealFeedback = createServerFn({ method: "POST" })
   .inputValidator((d: { id: string; vote: -1 | 0 | 1; reason?: string }) => d)
   .handler(async ({ data }) => {
     const { sb: c, userId } = await sb();
     if (!userId) return { ok: false as const, error: "not signed in", vote: 0 as const };
     const isUuid = /^[0-9a-f-]{36}$/i.test(data.id);
-    const { data: vote, error } = await c.rpc("set_meal_feedback", {
-      p_library_meal_id: isUuid ? null : data.id,
-      p_saved_meal_id: isUuid ? data.id : null,
-      p_vote: data.vote,
-      p_reason: data.reason ?? null,
-    });
-    if (error) return { ok: false as const, error: error.message, vote: 0 as const };
-    return { ok: true as const, vote: (vote ?? 0) as -1 | 0 | 1 };
+    try { return { ok: true as const, vote: await setMealFeedbackImpl(userId, isUuid ? { savedMealId: data.id } : { libraryMealId: data.id }, data.vote, data.reason ?? null, c) }; }
+    catch (e) { return { ok: false as const, error: (e as Error).message, vote: 0 as const }; }
   });
 
 export const getSettings = createServerFn({ method: "GET" }).handler(async () => {

@@ -4,13 +4,18 @@ import * as plan from "./plan";
 import { setSetting, forgetMemory, listMemories } from "./memory";
 import { diagnoseStaples, dayGuidance, planDayPart } from "./tools";
 import { buildAthleteContext } from "./context";
-import { getMeal, saveLibraryMeal } from "./meals";
+import { getMeal, saveLibraryMeal, getMealDetail, recentMeals, setSavedMealNotes, setMealFeedback } from "./meals";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { today } from "./env";
 import { ensureDayNotes, refreshDayNotesSoon } from "./daynotes";
 
 const shop = (items: import("@/lib/vana/contracts").ShoppingItem[]): VanaPart => ({ kind: "shopping_list", items, itemCount: items.filter((x) => !x.have).length, skipped: items.filter((x) => x.have).map((x) => x.name) });
 
-export async function runAction(userId: string, a: UiAction): Promise<{ parts: VanaPart[] } & Record<string, unknown>> {
+/** Per-request context: `userDb` is the caller's own session client (RLS + auth.uid()), needed only by the set_meal_feedback RPC. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export interface ActionCtx { userDb?: SupabaseClient<any, "public", any> }
+
+export async function runAction(userId: string, a: UiAction, ctx: ActionCtx = {}): Promise<{ parts: VanaPart[] } & Record<string, unknown>> {
   const p = a.payload as Record<string, any>; // eslint-disable-line @typescript-eslint/no-explicit-any
   // Chat actions carry the conversation (→ its own draft plan); Plan-tab actions carry nothing (→ the week's active plan).
   const scope: plan.PlanScope | null = p.planId ? { planId: String(p.planId) } : p.conversationId ? { conversationId: String(p.conversationId) } : null;
@@ -42,6 +47,12 @@ export async function runAction(userId: string, a: UiAction): Promise<{ parts: V
     // ---- plans
     case "get_plan": { const pl = p.id ? await plan.getPlanById(userId, String(p.id)) : await plan.resolvePlan(userId, scope, false); return { parts: pl ? [{ kind: "batch", plan: pl }] : [] }; }
     case "list_plans": return { parts: [], plans: await plan.listPlans(userId) };
+    // ---- app-only (the Flutter client's read/write channel for what the web does through server fns)
+    case "get_home": { const home = await homePayload(userId, p.date ? String(p.date) : undefined); return { parts: home.batch ? [home.batch] : [], home }; }
+    case "get_meal": { const meal = await getMealDetail(userId, String(p.id)); if (!meal) throw new Error(`meal not found: ${p.id}`); return { parts: [], meal }; }
+    case "recent_meals": return { parts: [], meals: await recentMeals(userId, Math.min(Number(p.limit ?? 20), 200)) };
+    case "set_saved_meal_notes": { const r = await setSavedMealNotes(userId, String(p.savedMealId ?? p.saved_meal_id), String(p.notes ?? "")); if (!r.ok) throw new Error(r.error ?? "update failed"); return { parts: [], notes: r.notes }; }
+    case "set_meal_feedback": { const vote = await setMealFeedback(userId, { libraryMealId: p.libraryMealId ?? p.library_meal_id ?? null, savedMealId: p.savedMealId ?? p.saved_meal_id ?? null }, Number(p.vote) as -1 | 0 | 1, p.reason ?? null, ctx.userDb); return { parts: [], vote }; }
     default: throw new Error(`unknown action ${a.type}`);
   }
 }

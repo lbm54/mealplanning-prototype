@@ -120,7 +120,7 @@ function CookingMode() {
   const nextTimerId = useRef(1);
   useWakeLock(phase === "cooking");
 
-  const steps = useMemo(() => data?.directions?.steps ?? [], [data]);
+  const steps = useMemo(() => data?.methodSteps ?? [], [data]);
   const durations = useMemo(() => steps.map(findDurations), [steps]);
 
   // One shared tick for every timer. Keyed on whether anything is *running*, not on `timers`
@@ -267,12 +267,12 @@ function CookingMode() {
       {/* ---------------------------------------------------------------- body */}
       {phase === "overview" && (
         <div className="v-scroll" style={{ flex: 1, padding: "0 16px 16px" }}>
-          {data.imageUrl && (
+          {data.image && (
             // the licence follows the image, so the credit shows here too — not just on the detail page
             <figure style={{ margin: "0 0 12px 0" }}>
-              <img src={data.imageUrl} alt="" onError={(e) => { const f = e.currentTarget.closest("figure"); if (f) f.style.display = "none"; }}
+              <img src={data.image.url} alt="" onError={(e) => { const f = e.currentTarget.closest("figure"); if (f) f.style.display = "none"; }}
                 style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", borderRadius: 14, display: "block" }} />
-              {data.imageCredit && <figcaption className="v-body12 v-muted" style={{ paddingTop: 4 }}>Photo: {data.imageCredit}</figcaption>}
+              {data.image.credit && <figcaption className="v-body12 v-muted" style={{ paddingTop: 4 }}>Photo: {data.image.credit}</figcaption>}
             </figure>
           )}
           <div className="v-body14" style={{ marginBottom: 8 }}>

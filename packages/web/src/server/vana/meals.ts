@@ -1,5 +1,6 @@
 /** Meal search + library access. ONE call to search_meals(): hard filters first, vector rank, saved + library together. */
-import type { MealRef, MealType, MealContext } from "@/lib/vana/contracts";
+import type { MealRef, MealType, MealContext, MealDetail, MealIngredient } from "@/lib/vana/contracts";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import { dbAny } from "./env";
 import { embedText, vec } from "./embeddings";
 import { resolveMealIcon } from "@/lib/vana/meal-icon";
@@ -81,4 +82,95 @@ export async function saveLibraryMeal(userId: string, libraryMealId: string): Pr
   const { data, error } = await d.from("saved_meals").insert({ user_id: userId, name: lib.name, items, calories: lib.kcal, carbs_g: lib.carbs_g, protein_g: lib.protein_g, fat_g: lib.fat_g, library_meal_id: lib.id, meal_types: [lib.meal_type], batch: lib.batch, icon: lib.icon ?? null, last_used_at: new Date().toISOString(), ...(embedding ? { embedding } : {}) }).select("id").single();
   if (error) throw new Error(error.message);
   return (await getMeal(userId, "saved", data.id))!;
+}
+
+// ---------------------------------------------------------------- detail / recents / notes / feedback (one implementation; routes/-server/food.ts wraps these)
+const isUuid = (id: string) => /^[0-9a-f-]{36}$/i.test(id);
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const directionsOf = (r: any): MealDetail["directions"] => ({ origin: (r?.directions_origin ?? null) as MealDetail["directions"]["origin"], sourceUrl: r?.directions_source_url ?? null, sourceName: r?.directions_source_name ?? null, verbatim: !!r?.directions_verbatim });
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const imageOf = (r: any): MealDetail["image"] => (r?.image_url ? { url: r.image_url, license: r.image_license ?? null, creator: r.image_creator ?? null, credit: r.image_credit ?? null, sourceUrl: r.image_source_url ?? null } : null);
+const splitSwaps = (s: unknown) => String(s ?? "").split(";").map((x) => x.trim()).filter(Boolean);
+/** The user's thumb on a meal (0 = none). Service role + explicit user filter. */
+export async function myVote(userId: string, target: { libraryMealId?: string | null; savedMealId?: string | null }): Promise<-1 | 0 | 1> {
+  let q = dbAny().from("meal_feedback").select("vote").eq("user_id", userId);
+  q = target.libraryMealId ? q.eq("library_meal_id", target.libraryMealId) : q.eq("saved_meal_id", target.savedMealId!);
+  const { data } = await q.maybeSingle();
+  return ((data?.vote as number | undefined) ?? 0) as -1 | 0 | 1;
+}
+/** get_meal: a library id ('D-048') or a saved_meals uuid → MealDetail. A saved meal linked to a recipe inherits that recipe's
+ *  method/media; an unlinked one is assembly-style (no method). Null when not found / not the caller's. */
+export async function getMealDetail(userId: string, id: string): Promise<MealDetail | null> {
+  const d = dbAny();
+  if (!isUuid(id)) {
+    const { data: r } = await d.from("meal_library").select("*").eq("id", id).maybeSingle();
+    if (!r) return null;
+    return { meal: rowToMealRef({ ...r, source: "library", attribution: r.source, score: 1, library_meal_id: r.id }), ingredients: (r.ingredients_json ?? []) as MealIngredient[], methodSteps: (r.method_steps ?? []) as string[], directions: directionsOf(r), image: imageOf(r), sourceUrl: r.source_url ?? null, source: r.source ?? "", swaps: splitSwaps(r.swaps), prep: r.prep ?? null, servings: r.servings ?? 1, notes: null, vote: await myVote(userId, { libraryMealId: r.id }) };
+  }
+  const { data: s } = await d.from("saved_meals").select("*").eq("id", id).eq("user_id", userId).eq("is_deleted", false).maybeSingle();
+  if (!s) return null;
+  const { data: r } = s.library_meal_id ? await d.from("meal_library").select("*").eq("id", s.library_meal_id).maybeSingle() : { data: null };
+  const items = (s.items ?? []) as { name?: string; food_name?: string; quantity?: string; serving?: string; portion?: string; role?: string | null }[];
+  return {
+    meal: rowToMealRef({ source: "saved", id: s.id, name: s.name, meal_type: s.meal_types?.[0] ?? r?.meal_type ?? "dinner", contexts: r?.contexts ?? [], batch: s.batch ?? r?.batch ?? false, prep_minutes: r?.prep_minutes ?? null, kcal: s.calories, carbs_g: s.carbs_g, protein_g: s.protein_g, fat_g: s.fat_g, allergens: r?.allergens ?? [], diets_ok: r?.diets_ok ?? [], swaps: r?.swaps ?? null, why: r?.why ?? "one of your saved meals", attribution: "your saved meal", ingredients: items.map((i) => i.name ?? i.food_name ?? "").filter(Boolean).join(", "), library_meal_id: s.library_meal_id, score: 1, kind: r?.kind, pattern: r?.pattern, icon: s.icon }),
+    ingredients: items.map((i) => ({ name: i.name ?? i.food_name ?? "", qty: i.quantity ?? i.serving ?? i.portion ?? "", role: i.role ?? null })),
+    methodSteps: (r?.method_steps ?? []) as string[], directions: directionsOf(r), image: imageOf(r), sourceUrl: r?.source_url ?? null, source: "",
+    swaps: splitSwaps(r?.swaps), prep: r?.prep ?? null, servings: r?.servings ?? 1, notes: (s.notes ?? null) as string | null, vote: await myVote(userId, { savedMealId: s.id }),
+  };
+}
+/** recent_meals: meals logged OR planned, most recent first. search_meals ranks by score only, so this walks meal_logs + plan_meals,
+ *  merges by recency, then resolves the rows in bulk. */
+export async function recentMeals(userId: string, limit = 20): Promise<(MealRef & { lastUsedAt: string })[]> {
+  const d = dbAny();
+  const [{ data: logs }, { data: planned }] = await Promise.all([
+    d.from("meal_logs").select("name, saved_meal_id, plan_meal_id, eaten_at, log_date, created_at").eq("user_id", userId).eq("is_deleted", false).order("created_at", { ascending: false }).limit(200),
+    d.from("plan_meals").select("library_meal_id, saved_meal_id, name, created_at").eq("user_id", userId).order("created_at", { ascending: false }).limit(200),
+  ]);
+  const recent = new Map<string, string>();   // saved:<uuid> | lib:<id> → most recent touch
+  const touch = (key: string, at: string | null | undefined) => { const prev = recent.get(key); if (!prev || !at || at > prev) recent.set(key, at ?? prev ?? ""); };
+  const savedIds = new Set<string>(); const libIds = new Set<string>(); const namesOnly: { name: string; at: string }[] = [];
+  for (const l of logs ?? []) { const at = (l.eaten_at ?? l.created_at ?? l.log_date) as string | null; if (l.saved_meal_id) { savedIds.add(l.saved_meal_id); touch(`saved:${l.saved_meal_id}`, at); } else namesOnly.push({ name: String(l.name).trim(), at: at ?? "" }); }
+  for (const p of planned ?? []) { const at = (p.created_at ?? "") as string; if (p.saved_meal_id) { savedIds.add(p.saved_meal_id); touch(`saved:${p.saved_meal_id}`, at); } else if (p.library_meal_id) { libIds.add(p.library_meal_id); touch(`lib:${p.library_meal_id}`, at); } else namesOnly.push({ name: String(p.name).trim(), at }); }
+  const out: (MealRef & { lastUsedAt: string })[] = [];
+  const [{ data: savedRows }, { data: libRows }] = await Promise.all([
+    savedIds.size ? d.from("saved_meals").select("*").in("id", [...savedIds]).eq("user_id", userId).eq("is_deleted", false) : Promise.resolve({ data: [] as any[] }), // eslint-disable-line @typescript-eslint/no-explicit-any
+    libIds.size ? d.from("meal_library").select("*").in("id", [...libIds]).eq("is_active", true) : Promise.resolve({ data: [] as any[] }), // eslint-disable-line @typescript-eslint/no-explicit-any
+  ]);
+  for (const s of savedRows ?? []) out.push({ ...rowToMealRef({ source: "saved", id: s.id, name: s.name, meal_type: s.meal_types?.[0] ?? "dinner", kcal: s.calories, carbs_g: s.carbs_g, protein_g: s.protein_g, fat_g: s.fat_g, library_meal_id: s.library_meal_id, icon: s.icon, batch: s.batch, ingredients: ((s.items ?? []) as { name?: string }[]).map((i) => i.name).filter(Boolean).join(", "), why: "one of your meals", attribution: "your saved meal", score: 1 }), lastUsedAt: recent.get(`saved:${s.id}`) ?? "" });
+  for (const r of libRows ?? []) out.push({ ...rowToMealRef({ ...r, source: "library", attribution: r.source, score: 1, library_meal_id: r.id }), lastUsedAt: recent.get(`lib:${r.id}`) ?? "" });
+  // log/plan rows with no link: an exact-ish library name match, else dropped silently
+  for (const n of namesOnly.slice(0, 30)) {
+    if (!n.name || out.some((m) => m.name.toLowerCase() === n.name.toLowerCase())) continue;
+    const { data: r } = await d.from("meal_library").select("*").ilike("name", n.name).eq("is_active", true).limit(1);
+    if (r?.[0]) out.push({ ...rowToMealRef({ ...r[0], source: "library", attribution: r[0].source, score: 1, library_meal_id: r[0].id }), lastUsedAt: n.at });
+  }
+  return out.sort((a, b) => (b.lastUsedAt ?? "").localeCompare(a.lastUsedAt ?? "")).slice(0, limit);
+}
+/** set_saved_meal_notes: the athlete's own directions on a saved meal (≤2000 chars). */
+export async function setSavedMealNotes(userId: string, savedMealId: string, notes: string): Promise<{ ok: boolean; notes: string; error?: string }> {
+  const clean = notes.slice(0, 2000);
+  const { error } = await dbAny().from("saved_meals").update({ notes: clean, updated_at: new Date().toISOString() }).eq("id", savedMealId).eq("user_id", userId);
+  return error ? { ok: false, notes: clean, error: error.message } : { ok: true, notes: clean };
+}
+export interface FeedbackTarget { libraryMealId?: string | null; savedMealId?: string | null }
+/** set_meal_feedback: thumbs up / down; the same vote again clears it; vote 0 clears outright. Returns the resulting vote.
+ *  With a user-session client (`userDb`) this calls the set_meal_feedback() RPC (security invoker, auth.uid()); without one
+ *  (service-role callers: tests, fixtures) it applies the same toggle semantics directly — never an upsert on the partial uniques. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function setMealFeedback(userId: string, target: FeedbackTarget, vote: -1 | 0 | 1, reason?: string | null, userDb?: SupabaseClient<any, "public", any>): Promise<-1 | 0 | 1> {
+  const lib = target.libraryMealId ?? null; const saved = target.savedMealId ?? null;
+  if ((lib ? 1 : 0) + (saved ? 1 : 0) !== 1) throw new Error("pass exactly one of libraryMealId / savedMealId");
+  if (userDb) {
+    const { data, error } = await userDb.rpc("set_meal_feedback", { p_library_meal_id: lib, p_saved_meal_id: saved, p_vote: vote, p_reason: reason ?? null });
+    if (error) throw new Error(error.message);
+    return ((data as number | null) ?? 0) as -1 | 0 | 1;
+  }
+  const d = dbAny();
+  let q = d.from("meal_feedback").select("id, vote").eq("user_id", userId); q = lib ? q.eq("library_meal_id", lib) : q.eq("saved_meal_id", saved!);
+  const { data: cur } = await q.maybeSingle();
+  if (vote === 0 || (cur && cur.vote === vote)) { if (cur) await d.from("meal_feedback").delete().eq("id", cur.id); return 0; }
+  if (cur) { const { error } = await d.from("meal_feedback").update({ vote, reason: reason ?? null, updated_at: new Date().toISOString() }).eq("id", cur.id); if (error) throw new Error(error.message); return vote; }
+  const { error } = await d.from("meal_feedback").insert({ user_id: userId, library_meal_id: lib, saved_meal_id: saved, vote, reason: reason ?? null });
+  if (error) throw new Error(error.message);
+  return vote;
 }
