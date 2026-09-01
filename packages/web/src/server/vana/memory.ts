@@ -12,14 +12,14 @@ export async function listMemories(userId: string, limit = 50): Promise<Memory[]
 }
 export async function recallMemories(userId: string, text: string, limit = 8): Promise<Memory[]> {
   try {
-    const e = vec(await embedText(text));
+    const e = vec(await embedText(text, userId));
     const { data } = await dbAny().rpc("recall_memories", { p_user_id: userId, p_embedding: e, p_limit: limit });
     return (data ?? []).map(toMemory);
   } catch { return listMemories(userId, limit); }
 }
 export async function rememberFact(userId: string, m: { kind: Memory["kind"]; fact: string; key?: string | null; value?: unknown; confidence?: number; source?: string }): Promise<Memory> {
   const d = dbAny();
-  let embedding: string | null = null; try { embedding = vec(await embedText(m.fact)); } catch { /* optional */ }
+  let embedding: string | null = null; try { embedding = vec(await embedText(m.fact, userId)); } catch { /* optional */ }
   if (m.kind === "setting" && m.key) {
     // one row per setting key
     const { data: existing } = await d.from("user_memories").select("id").eq("user_id", userId).eq("kind", "setting").eq("key", m.key).eq("is_deleted", false).maybeSingle();

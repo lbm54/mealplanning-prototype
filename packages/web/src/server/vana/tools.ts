@@ -50,7 +50,7 @@ export async function diagnoseStaples(userId: string): Promise<Extract<VanaPart,
   const top = [...counts.values()].sort((a, b) => b.n - a.n).slice(0, 5);
   // match to the library (embed names not already matched)
   const texts = top.map((t) => `${t.row.name}. ${((t.row.items ?? []) as { name?: string }[]).map((i) => i.name ?? "").join(", ")}`);
-  let vecs: number[][] = []; try { vecs = await embedTexts(texts); } catch { vecs = []; }
+  let vecs: number[][] = []; try { vecs = await embedTexts(texts, userId); } catch { vecs = []; }
   const meals: Extract<VanaPart, { kind: "staples" }>["meals"] = [];
   for (let i = 0; i < top.length; i++) {
     const t = top[i]; let ref: MealRef | null = null;

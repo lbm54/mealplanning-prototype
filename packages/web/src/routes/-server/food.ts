@@ -79,7 +79,7 @@ export const searchMeals = createServerFn({ method: "GET" })
     const { sb: c, userId } = await sb(); if (!userId) return { meals: [] as MealRef[], excluded: [] as MealRef[] };
     // Semantic search: embed the query so search_meals ranks by vector similarity (trigram text match is the fallback when embedding fails).
     const q = data.q?.trim() || null; let embedding: string | null = null;
-    if (q && q.length >= 3) { try { embedding = vec(await embedText(q)); } catch { embedding = null; } }
+    if (q && q.length >= 3) { try { embedding = vec(await embedText(q, userId)); } catch { embedding = null; } }
     const { data: rows } = await c.rpc("search_meals", { p_user_id: userId, p_query: q, p_embedding: embedding, p_meal_type: data.mealType ?? null, p_contexts: data.contexts?.length ? data.contexts : null, p_batch: data.batch ?? null, p_include_saved: data.mine !== false, p_limit: data.limit ?? 40, p_exclude_allergens: null, p_require_diet: null, p_kind: data.kind ?? null, p_include_disliked: true });   // browsing shows everything, thumb state and all — only suggestions filter dislikes
     let meals = (rows ?? []).map(rowToMealRef);
     if (data.mine) meals = meals.filter((m: any) => m.source === "saved");

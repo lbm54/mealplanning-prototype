@@ -5,7 +5,7 @@ import { chatModel, CHAT_MODEL, dbAny } from "./env";
 import { buildAthleteContext, contextBlock } from "./context";
 import { makeVanaTools, dayGuidance } from "./tools";
 import { PLANNING_PROMPT, GENERAL_PROMPT } from "./persona";
-import { checkRateLimit } from "./rate-limit";
+import { checkRateLimit, assertRateLimit } from "./rate-limit";
 import { logCall } from "./log";
 import type { VanaPart, AthleteContext, ConversationSummary, ConversationKind } from "@/lib/vana/contracts";
 import { getOrCreatePlan, setBrief, getConversationPlan } from "./plan";
@@ -193,6 +193,7 @@ function localDate(tz: string): string { try { return new Date().toLocaleDateStr
 /** Non-streaming opener for a brand-new conversation (used by POST /api/vana/conversations). */
 export async function generateOpener(userId: string, convId: string, kind: ConversationKind = "meal_planning"): Promise<UIMessage[]> {
   if (kind === "general") return [];   // general Vana starts empty — the athlete speaks first
+  await assertRateLimit(userId, "vana.opener");
   const ctx = await buildAthleteContext(userId);
   ctx.plan = { exists: false, status: "draft", mealsLeft: 0, batchCooking: ctx.plan.batchCooking };   // a new conversation starts with an empty draft
   const tools = makeVanaTools(userId, ctx, kind, { scope: { conversationId: convId } });
@@ -213,6 +214,7 @@ export async function weeklyBrief(userId: string, ctx?: AthleteContext): Promise
   const chips = plan.meals.length ? ["Show my week", "Adjust", "Not now"] : ["Yes, look", "Not now"];
   const cites = [c.week.anchor, c.race ? `${c.race.name} · ${c.race.daysOut} days` : null, c.weather.raceDay, c.profile.allergies.length ? `no ${c.profile.allergies.join(", ")}` : null].filter(Boolean) as string[];
   if (plan.brief) return { text: plan.brief, chips, cites };
+  await assertRateLimit(userId, "vana.brief");
   const dg = await dayGuidance(userId, c);
   const { text, usage } = await generateText({ model: chatModel(), system: PLANNING_PROMPT, maxOutputTokens: 120, prompt: `Write Vana's week brief: ONE or TWO sentences, max 40 words. Cite at most two concrete things from the context. No numbers you did not see in the context.\n\n${contextBlock(c)}\nTODAY: ${dg.label} — ${dg.note}` });
   const brief = clampSentences(text);

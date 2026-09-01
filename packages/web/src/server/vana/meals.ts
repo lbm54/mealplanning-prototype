@@ -32,7 +32,7 @@ export function rowToMealRef(r: any): MealRef {
 export interface SearchOpts { userId: string; query?: string; mealType?: MealType; contexts?: MealContext[]; batch?: boolean; includeSaved?: boolean; limit?: number; embed?: boolean; excludeAllergens?: string[]; requireDiet?: string; excludeIds?: string[]; kind?: "assembly" | "recipe" | null }
 export async function searchMeals(o: SearchOpts): Promise<MealRef[]> {
   let embedding: string | null = null;
-  if (o.query && o.embed !== false) { try { embedding = vec(await embedText(o.query)); } catch { embedding = null; } }
+  if (o.query && o.embed !== false) { try { embedding = vec(await embedText(o.query, o.userId)); } catch { embedding = null; } }
   const ex = new Set((o.excludeIds ?? []).map(String));
   const limit = (o.limit ?? 12) + ex.size;
   const { data, error } = await dbAny().rpc("search_meals", {
@@ -77,7 +77,7 @@ export async function saveLibraryMeal(userId: string, libraryMealId: string): Pr
   if (!lib) throw new Error(`library meal not found: ${libraryMealId}`);
   const items = ((lib.ingredients_json ?? []) as { name: string; qty?: string; role?: string }[]).map((i) => ({ name: i.name, portion: i.qty ?? "", role: i.role ?? null }));
   let embedding: string | null = null;
-  try { embedding = vec(await embedText(`${lib.meal_type}: ${lib.name}. Ingredients: ${lib.ingredients}`)); } catch { embedding = null; }
+  try { embedding = vec(await embedText(`${lib.meal_type}: ${lib.name}. Ingredients: ${lib.ingredients}`, userId)); } catch { embedding = null; }
   const { data, error } = await d.from("saved_meals").insert({ user_id: userId, name: lib.name, items, calories: lib.kcal, carbs_g: lib.carbs_g, protein_g: lib.protein_g, fat_g: lib.fat_g, library_meal_id: lib.id, meal_types: [lib.meal_type], batch: lib.batch, icon: lib.icon ?? null, last_used_at: new Date().toISOString(), ...(embedding ? { embedding } : {}) }).select("id").single();
   if (error) throw new Error(error.message);
   return (await getMeal(userId, "saved", data.id))!;

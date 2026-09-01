@@ -10,6 +10,7 @@ import { toolModel, TOOL_MODEL, dbAny, addDays } from "./env";
 import { buildAthleteContext, contextBlock } from "./context";
 import { getPlan } from "./plan";
 import { logCall } from "./log";
+import { checkRateLimit } from "./rate-limit";
 import type { MealPlan } from "@/lib/vana/contracts";
 
 const NotesZ = z.object({ notes: z.array(z.object({ date: z.string(), text: z.string() })).min(1).max(8) });
@@ -19,6 +20,9 @@ export async function generateDayNotes(userId: string, plan: MealPlan, anchorDat
   const key = `${userId}:${plan.id}`;
   const running = inflight.get(key); if (running) return running;
   const job = (async () => {
+    // Over the bucket → keep whatever notes exist (the Plan tab shows the last good ones); never queue a burst of Haiku calls.
+    const rl = await checkRateLimit(userId, "vana.daynotes");
+    if (!rl.allowed) { console.warn(`[vana] day notes rate-limited for ${userId}`); return plan.dayNotes; }
     const ctx = await buildAthleteContext(userId, undefined, anchorDate);
     const days = Array.from({ length: 7 }, (_, i) => addDays(anchorDate, i));
     const meals = plan.meals.map((m) => `- ${m.name} (${m.mealType}, ×${m.servings}, ${m.servingsLeft} left${m.session ? `, ${m.session}` : ""})`).join("\n") || "- (no meals in the plan yet)";
