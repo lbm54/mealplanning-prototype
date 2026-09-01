@@ -9,24 +9,30 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as YouRouteImport } from './routes/you'
-import { Route as StyleguideRouteImport } from './routes/styleguide'
+import { Route as VanaRouteImport } from './routes/vana'
 import { Route as SignUpRouteImport } from './routes/sign-up'
 import { Route as SignInRouteImport } from './routes/sign-in'
-import { Route as ShoppingRouteImport } from './routes/shopping'
-import { Route as CookbookRouteImport } from './routes/cookbook'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as FoodRouteImport } from './routes/food'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PlanARouteImport } from './routes/plan.a'
+import { Route as FoodIndexRouteImport } from './routes/food.index'
+import { Route as VanaConversationsRouteImport } from './routes/vana_.conversations'
+import { Route as FoodShoppingRouteImport } from './routes/food.shopping'
+import { Route as FoodPlanRouteImport } from './routes/food.plan'
+import { Route as FoodMealsRouteImport } from './routes/food.meals'
 import { Route as AuthCallbackRouteImport } from './routes/auth/callback'
+import { Route as FoodSwapPlanMealIdRouteImport } from './routes/food.swap_.$planMealId'
+import { Route as FoodMealsRecentsRouteImport } from './routes/food.meals_.recents'
+import { Route as FoodMealsIdRouteImport } from './routes/food.meals_.$id'
+import { Route as FoodCookIdRouteImport } from './routes/food.cook_.$id'
+import { Route as ApiVanaHomeRouteImport } from './routes/api.vana.home'
+import { Route as ApiVanaConversationsRouteImport } from './routes/api.vana.conversations'
+import { Route as ApiVanaChatRouteImport } from './routes/api.vana.chat'
+import { Route as ApiVanaActionRouteImport } from './routes/api.vana.action'
 
-const YouRoute = YouRouteImport.update({
-  id: '/you',
-  path: '/you',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StyleguideRoute = StyleguideRouteImport.update({
-  id: '/styleguide',
-  path: '/styleguide',
+const VanaRoute = VanaRouteImport.update({
+  id: '/vana',
+  path: '/vana',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SignUpRoute = SignUpRouteImport.update({
@@ -39,14 +45,14 @@ const SignInRoute = SignInRouteImport.update({
   path: '/sign-in',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ShoppingRoute = ShoppingRouteImport.update({
-  id: '/shopping',
-  path: '/shopping',
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CookbookRoute = CookbookRouteImport.update({
-  id: '/cookbook',
-  path: '/cookbook',
+const FoodRoute = FoodRouteImport.update({
+  id: '/food',
+  path: '/food',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -54,113 +60,233 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PlanARoute = PlanARouteImport.update({
-  id: '/plan/a',
-  path: '/plan/a',
+const FoodIndexRoute = FoodIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FoodRoute,
+} as any)
+const VanaConversationsRoute = VanaConversationsRouteImport.update({
+  id: '/vana_/conversations',
+  path: '/vana/conversations',
   getParentRoute: () => rootRouteImport,
+} as any)
+const FoodShoppingRoute = FoodShoppingRouteImport.update({
+  id: '/shopping',
+  path: '/shopping',
+  getParentRoute: () => FoodRoute,
+} as any)
+const FoodPlanRoute = FoodPlanRouteImport.update({
+  id: '/plan',
+  path: '/plan',
+  getParentRoute: () => FoodRoute,
+} as any)
+const FoodMealsRoute = FoodMealsRouteImport.update({
+  id: '/meals',
+  path: '/meals',
+  getParentRoute: () => FoodRoute,
 } as any)
 const AuthCallbackRoute = AuthCallbackRouteImport.update({
   id: '/auth/callback',
   path: '/auth/callback',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FoodSwapPlanMealIdRoute = FoodSwapPlanMealIdRouteImport.update({
+  id: '/swap_/$planMealId',
+  path: '/swap/$planMealId',
+  getParentRoute: () => FoodRoute,
+} as any)
+const FoodMealsRecentsRoute = FoodMealsRecentsRouteImport.update({
+  id: '/meals_/recents',
+  path: '/meals/recents',
+  getParentRoute: () => FoodRoute,
+} as any)
+const FoodMealsIdRoute = FoodMealsIdRouteImport.update({
+  id: '/meals_/$id',
+  path: '/meals/$id',
+  getParentRoute: () => FoodRoute,
+} as any)
+const FoodCookIdRoute = FoodCookIdRouteImport.update({
+  id: '/cook_/$id',
+  path: '/cook/$id',
+  getParentRoute: () => FoodRoute,
+} as any)
+const ApiVanaHomeRoute = ApiVanaHomeRouteImport.update({
+  id: '/api/vana/home',
+  path: '/api/vana/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVanaConversationsRoute = ApiVanaConversationsRouteImport.update({
+  id: '/api/vana/conversations',
+  path: '/api/vana/conversations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVanaChatRoute = ApiVanaChatRouteImport.update({
+  id: '/api/vana/chat',
+  path: '/api/vana/chat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVanaActionRoute = ApiVanaActionRouteImport.update({
+  id: '/api/vana/action',
+  path: '/api/vana/action',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/cookbook': typeof CookbookRoute
-  '/shopping': typeof ShoppingRoute
+  '/food': typeof FoodRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
-  '/styleguide': typeof StyleguideRoute
-  '/you': typeof YouRoute
+  '/vana': typeof VanaRoute
   '/auth/callback': typeof AuthCallbackRoute
-  '/plan/a': typeof PlanARoute
+  '/food/meals': typeof FoodMealsRoute
+  '/food/plan': typeof FoodPlanRoute
+  '/food/shopping': typeof FoodShoppingRoute
+  '/vana/conversations': typeof VanaConversationsRoute
+  '/food/': typeof FoodIndexRoute
+  '/api/vana/action': typeof ApiVanaActionRoute
+  '/api/vana/chat': typeof ApiVanaChatRoute
+  '/api/vana/conversations': typeof ApiVanaConversationsRoute
+  '/api/vana/home': typeof ApiVanaHomeRoute
+  '/food/cook/$id': typeof FoodCookIdRoute
+  '/food/meals/$id': typeof FoodMealsIdRoute
+  '/food/meals/recents': typeof FoodMealsRecentsRoute
+  '/food/swap/$planMealId': typeof FoodSwapPlanMealIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/cookbook': typeof CookbookRoute
-  '/shopping': typeof ShoppingRoute
+  '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
-  '/styleguide': typeof StyleguideRoute
-  '/you': typeof YouRoute
+  '/vana': typeof VanaRoute
   '/auth/callback': typeof AuthCallbackRoute
-  '/plan/a': typeof PlanARoute
+  '/food/meals': typeof FoodMealsRoute
+  '/food/plan': typeof FoodPlanRoute
+  '/food/shopping': typeof FoodShoppingRoute
+  '/vana/conversations': typeof VanaConversationsRoute
+  '/food': typeof FoodIndexRoute
+  '/api/vana/action': typeof ApiVanaActionRoute
+  '/api/vana/chat': typeof ApiVanaChatRoute
+  '/api/vana/conversations': typeof ApiVanaConversationsRoute
+  '/api/vana/home': typeof ApiVanaHomeRoute
+  '/food/cook/$id': typeof FoodCookIdRoute
+  '/food/meals/$id': typeof FoodMealsIdRoute
+  '/food/meals/recents': typeof FoodMealsRecentsRoute
+  '/food/swap/$planMealId': typeof FoodSwapPlanMealIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/cookbook': typeof CookbookRoute
-  '/shopping': typeof ShoppingRoute
+  '/food': typeof FoodRouteWithChildren
+  '/settings': typeof SettingsRoute
   '/sign-in': typeof SignInRoute
   '/sign-up': typeof SignUpRoute
-  '/styleguide': typeof StyleguideRoute
-  '/you': typeof YouRoute
+  '/vana': typeof VanaRoute
   '/auth/callback': typeof AuthCallbackRoute
-  '/plan/a': typeof PlanARoute
+  '/food/meals': typeof FoodMealsRoute
+  '/food/plan': typeof FoodPlanRoute
+  '/food/shopping': typeof FoodShoppingRoute
+  '/vana_/conversations': typeof VanaConversationsRoute
+  '/food/': typeof FoodIndexRoute
+  '/api/vana/action': typeof ApiVanaActionRoute
+  '/api/vana/chat': typeof ApiVanaChatRoute
+  '/api/vana/conversations': typeof ApiVanaConversationsRoute
+  '/api/vana/home': typeof ApiVanaHomeRoute
+  '/food/cook_/$id': typeof FoodCookIdRoute
+  '/food/meals_/$id': typeof FoodMealsIdRoute
+  '/food/meals_/recents': typeof FoodMealsRecentsRoute
+  '/food/swap_/$planMealId': typeof FoodSwapPlanMealIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/cookbook'
-    | '/shopping'
+    | '/food'
+    | '/settings'
     | '/sign-in'
     | '/sign-up'
-    | '/styleguide'
-    | '/you'
+    | '/vana'
     | '/auth/callback'
-    | '/plan/a'
+    | '/food/meals'
+    | '/food/plan'
+    | '/food/shopping'
+    | '/vana/conversations'
+    | '/food/'
+    | '/api/vana/action'
+    | '/api/vana/chat'
+    | '/api/vana/conversations'
+    | '/api/vana/home'
+    | '/food/cook/$id'
+    | '/food/meals/$id'
+    | '/food/meals/recents'
+    | '/food/swap/$planMealId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/cookbook'
-    | '/shopping'
+    | '/settings'
     | '/sign-in'
     | '/sign-up'
-    | '/styleguide'
-    | '/you'
+    | '/vana'
     | '/auth/callback'
-    | '/plan/a'
+    | '/food/meals'
+    | '/food/plan'
+    | '/food/shopping'
+    | '/vana/conversations'
+    | '/food'
+    | '/api/vana/action'
+    | '/api/vana/chat'
+    | '/api/vana/conversations'
+    | '/api/vana/home'
+    | '/food/cook/$id'
+    | '/food/meals/$id'
+    | '/food/meals/recents'
+    | '/food/swap/$planMealId'
   id:
     | '__root__'
     | '/'
-    | '/cookbook'
-    | '/shopping'
+    | '/food'
+    | '/settings'
     | '/sign-in'
     | '/sign-up'
-    | '/styleguide'
-    | '/you'
+    | '/vana'
     | '/auth/callback'
-    | '/plan/a'
+    | '/food/meals'
+    | '/food/plan'
+    | '/food/shopping'
+    | '/vana_/conversations'
+    | '/food/'
+    | '/api/vana/action'
+    | '/api/vana/chat'
+    | '/api/vana/conversations'
+    | '/api/vana/home'
+    | '/food/cook_/$id'
+    | '/food/meals_/$id'
+    | '/food/meals_/recents'
+    | '/food/swap_/$planMealId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  CookbookRoute: typeof CookbookRoute
-  ShoppingRoute: typeof ShoppingRoute
+  FoodRoute: typeof FoodRouteWithChildren
+  SettingsRoute: typeof SettingsRoute
   SignInRoute: typeof SignInRoute
   SignUpRoute: typeof SignUpRoute
-  StyleguideRoute: typeof StyleguideRoute
-  YouRoute: typeof YouRoute
+  VanaRoute: typeof VanaRoute
   AuthCallbackRoute: typeof AuthCallbackRoute
-  PlanARoute: typeof PlanARoute
+  VanaConversationsRoute: typeof VanaConversationsRoute
+  ApiVanaActionRoute: typeof ApiVanaActionRoute
+  ApiVanaChatRoute: typeof ApiVanaChatRoute
+  ApiVanaConversationsRoute: typeof ApiVanaConversationsRoute
+  ApiVanaHomeRoute: typeof ApiVanaHomeRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/you': {
-      id: '/you'
-      path: '/you'
-      fullPath: '/you'
-      preLoaderRoute: typeof YouRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/styleguide': {
-      id: '/styleguide'
-      path: '/styleguide'
-      fullPath: '/styleguide'
-      preLoaderRoute: typeof StyleguideRouteImport
+    '/vana': {
+      id: '/vana'
+      path: '/vana'
+      fullPath: '/vana'
+      preLoaderRoute: typeof VanaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sign-up': {
@@ -177,18 +303,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SignInRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/shopping': {
-      id: '/shopping'
-      path: '/shopping'
-      fullPath: '/shopping'
-      preLoaderRoute: typeof ShoppingRouteImport
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cookbook': {
-      id: '/cookbook'
-      path: '/cookbook'
-      fullPath: '/cookbook'
-      preLoaderRoute: typeof CookbookRouteImport
+    '/food': {
+      id: '/food'
+      path: '/food'
+      fullPath: '/food'
+      preLoaderRoute: typeof FoodRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -198,12 +324,40 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/plan/a': {
-      id: '/plan/a'
-      path: '/plan/a'
-      fullPath: '/plan/a'
-      preLoaderRoute: typeof PlanARouteImport
+    '/food/': {
+      id: '/food/'
+      path: '/'
+      fullPath: '/food/'
+      preLoaderRoute: typeof FoodIndexRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/vana_/conversations': {
+      id: '/vana_/conversations'
+      path: '/vana/conversations'
+      fullPath: '/vana/conversations'
+      preLoaderRoute: typeof VanaConversationsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/food/shopping': {
+      id: '/food/shopping'
+      path: '/shopping'
+      fullPath: '/food/shopping'
+      preLoaderRoute: typeof FoodShoppingRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/food/plan': {
+      id: '/food/plan'
+      path: '/plan'
+      fullPath: '/food/plan'
+      preLoaderRoute: typeof FoodPlanRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/food/meals': {
+      id: '/food/meals'
+      path: '/meals'
+      fullPath: '/food/meals'
+      preLoaderRoute: typeof FoodMealsRouteImport
+      parentRoute: typeof FoodRoute
     }
     '/auth/callback': {
       id: '/auth/callback'
@@ -212,19 +366,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthCallbackRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/food/swap_/$planMealId': {
+      id: '/food/swap_/$planMealId'
+      path: '/swap/$planMealId'
+      fullPath: '/food/swap/$planMealId'
+      preLoaderRoute: typeof FoodSwapPlanMealIdRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/food/meals_/recents': {
+      id: '/food/meals_/recents'
+      path: '/meals/recents'
+      fullPath: '/food/meals/recents'
+      preLoaderRoute: typeof FoodMealsRecentsRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/food/meals_/$id': {
+      id: '/food/meals_/$id'
+      path: '/meals/$id'
+      fullPath: '/food/meals/$id'
+      preLoaderRoute: typeof FoodMealsIdRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/food/cook_/$id': {
+      id: '/food/cook_/$id'
+      path: '/cook/$id'
+      fullPath: '/food/cook/$id'
+      preLoaderRoute: typeof FoodCookIdRouteImport
+      parentRoute: typeof FoodRoute
+    }
+    '/api/vana/home': {
+      id: '/api/vana/home'
+      path: '/api/vana/home'
+      fullPath: '/api/vana/home'
+      preLoaderRoute: typeof ApiVanaHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/vana/conversations': {
+      id: '/api/vana/conversations'
+      path: '/api/vana/conversations'
+      fullPath: '/api/vana/conversations'
+      preLoaderRoute: typeof ApiVanaConversationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/vana/chat': {
+      id: '/api/vana/chat'
+      path: '/api/vana/chat'
+      fullPath: '/api/vana/chat'
+      preLoaderRoute: typeof ApiVanaChatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/vana/action': {
+      id: '/api/vana/action'
+      path: '/api/vana/action'
+      fullPath: '/api/vana/action'
+      preLoaderRoute: typeof ApiVanaActionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface FoodRouteChildren {
+  FoodMealsRoute: typeof FoodMealsRoute
+  FoodPlanRoute: typeof FoodPlanRoute
+  FoodShoppingRoute: typeof FoodShoppingRoute
+  FoodIndexRoute: typeof FoodIndexRoute
+  FoodCookIdRoute: typeof FoodCookIdRoute
+  FoodMealsIdRoute: typeof FoodMealsIdRoute
+  FoodMealsRecentsRoute: typeof FoodMealsRecentsRoute
+  FoodSwapPlanMealIdRoute: typeof FoodSwapPlanMealIdRoute
+}
+
+const FoodRouteChildren: FoodRouteChildren = {
+  FoodMealsRoute: FoodMealsRoute,
+  FoodPlanRoute: FoodPlanRoute,
+  FoodShoppingRoute: FoodShoppingRoute,
+  FoodIndexRoute: FoodIndexRoute,
+  FoodCookIdRoute: FoodCookIdRoute,
+  FoodMealsIdRoute: FoodMealsIdRoute,
+  FoodMealsRecentsRoute: FoodMealsRecentsRoute,
+  FoodSwapPlanMealIdRoute: FoodSwapPlanMealIdRoute,
+}
+
+const FoodRouteWithChildren = FoodRoute._addFileChildren(FoodRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  CookbookRoute: CookbookRoute,
-  ShoppingRoute: ShoppingRoute,
+  FoodRoute: FoodRouteWithChildren,
+  SettingsRoute: SettingsRoute,
   SignInRoute: SignInRoute,
   SignUpRoute: SignUpRoute,
-  StyleguideRoute: StyleguideRoute,
-  YouRoute: YouRoute,
+  VanaRoute: VanaRoute,
   AuthCallbackRoute: AuthCallbackRoute,
-  PlanARoute: PlanARoute,
+  VanaConversationsRoute: VanaConversationsRoute,
+  ApiVanaActionRoute: ApiVanaActionRoute,
+  ApiVanaChatRoute: ApiVanaChatRoute,
+  ApiVanaConversationsRoute: ApiVanaConversationsRoute,
+  ApiVanaHomeRoute: ApiVanaHomeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

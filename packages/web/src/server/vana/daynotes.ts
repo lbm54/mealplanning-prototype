@@ -1,0 +1,54 @@
+/** Per-day "message from Vana" for the Plan tab — precomputed, never generated on read.
+ *
+ *  One Haiku call writes all seven days from the athlete context + the plan; the result lives on
+ *  meal_plans.day_notes ({date → text}). It is (re)generated when a plan is confirmed and, lazily, the first time the
+ *  Plan tab loads after an edit (every plan mutation flips day_notes_stale via refreshShopping). The numbers in the
+ *  notes come from the context (daily_macro_targets + activities), not the model. */
+import { generateObject } from "ai";
+import { z } from "zod";
+import { toolModel, TOOL_MODEL, dbAny, addDays } from "./env";
+import { buildAthleteContext, contextBlock } from "./context";
+import { getPlan } from "./plan";
+import { logCall } from "./log";
+import type { MealPlan } from "@/lib/vana/contracts";
+
+const NotesZ = z.object({ notes: z.array(z.object({ date: z.string(), text: z.string() })).min(1).max(8) });
+const inflight = new Map<string, Promise<Record<string, string>>>();
+
+export async function generateDayNotes(userId: string, plan: MealPlan, anchorDate: string): Promise<Record<string, string>> {
+  const key = `${userId}:${plan.id}`;
+  const running = inflight.get(key); if (running) return running;
+  const job = (async () => {
+    const ctx = await buildAthleteContext(userId, undefined, anchorDate);
+    const days = Array.from({ length: 7 }, (_, i) => addDays(anchorDate, i));
+    const meals = plan.meals.map((m) => `- ${m.name} (${m.mealType}, ×${m.servings}, ${m.servingsLeft} left${m.session ? `, ${m.session}` : ""})`).join("\n") || "- (no meals in the plan yet)";
+    const started = Date.now();
+    const { object, usage } = await generateObject({
+      model: toolModel(), schema: NotesZ, maxOutputTokens: 900,
+      system: `You are Vana, an endurance-nutrition assistant. Write ONE short message (max 2 sentences, ≤ 30 words) for EACH of the dates listed, telling the athlete how to use their meal plan that day given their training. Be concrete: name a plan meal when it fits (e.g. "long ride → the rice bowl at lunch, extra serving at dinner"), mention the carb target only if it matters that day, keep rest days light. Minimums framing, never weight or calorie-restriction language, no greetings, no emoji. Only use numbers that appear in the context.`,
+      prompt: `--- CONTEXT ---\n${contextBlock(ctx)}\n--- PLAN (${plan.status}, batch cooking ${plan.batchCooking ? "on" : "off"}) ---\n${meals}\n--- DATES ---\n${days.join(", ")}\nReturn one note per date, in order.`,
+    });
+    const notes: Record<string, string> = {};
+    for (const n of object.notes) if (days.includes(n.date) && n.text.trim()) notes[n.date] = n.text.trim();
+    await dbAny().from("meal_plans").update({ day_notes: { ...plan.dayNotes, ...notes }, day_notes_stale: false, day_notes_at: new Date().toISOString() }).eq("id", plan.id);
+    await logCall({ userId, functionName: "vana.daynotes", model: TOOL_MODEL, inputTokens: usage?.inputTokens, outputTokens: usage?.outputTokens });
+    console.log(`[vana] day notes for ${plan.id} in ${Date.now() - started}ms`);
+    return { ...plan.dayNotes, ...notes };
+  })().finally(() => inflight.delete(key));
+  inflight.set(key, job);
+  return job;
+}
+
+/** Notes for the plan. Fresh → stored. Stale but a note exists for the day → return it now, regenerate in the background
+ *  (`stale: true` tells the client to refetch shortly). No note at all → wait for one. Never throws. */
+export async function ensureDayNotes(userId: string, plan: MealPlan | null, anchorDate: string): Promise<{ notes: Record<string, string>; stale: boolean }> {
+  if (!plan) return { notes: {}, stale: false };
+  const have = !!plan.dayNotes[anchorDate];
+  if (!plan.dayNotesStale && have) return { notes: plan.dayNotes, stale: false };
+  if (have) { void generateDayNotes(userId, plan, anchorDate).catch((e) => console.error("[vana] day notes failed:", (e as Error).message)); return { notes: plan.dayNotes, stale: true }; }
+  try { return { notes: await generateDayNotes(userId, plan, anchorDate), stale: false }; } catch (e) { console.error("[vana] day notes failed:", (e as Error).message); return { notes: plan.dayNotes, stale: false }; }
+}
+/** After Confirm: regenerate eagerly (fire-and-forget) so the Plan tab is instant. */
+export function refreshDayNotesSoon(userId: string, anchorDate: string) {
+  void getPlan(userId).then((p) => (p ? generateDayNotes(userId, p, anchorDate) : null)).catch((e) => console.error("[vana] day notes refresh failed:", (e as Error).message));
+}

@@ -1,162 +1,45 @@
-# Mealvana — Meal Planning Prototype
+# Mealvana meal-planning prototype — Vana
 
-A training-aware meal planner for endurance athletes. Five parallel UI/UX approaches (A–E) built behind a single landing page for preference testing.
+Interactive prototype of the Mealvana Endurance meal-planning feature: the **Food** tab (Plan · Meals · Formulas ·
+Shopping), the **Vana** assistant (chat with generative UI), a weekly **batch** (meals × servings, cooking sessions
+only when batch cooking is on), a deterministic **shopping list**, and **log-from-plan**. It is the path to the
+Flutter feature: same dev Supabase project, same enums, same `jade_conversations`/`jade_messages` persistence.
 
-**Docs:** `mealvana_endurance/docs/mealplanning_prototype/` (see below)
+Design + research: `mealvana_endurance/docs/new_mealplanning/` (start at `README.md`, then `walkthrough.md`,
+`prototype-rebuild-spec.md`). Canvas: https://claude.ai/code/artifact/c776e4cd-1e7f-4f7a-8c71-a6a2d332ec21
 
----
-
-## What this is
-
-A standalone web prototype that reads from the same Supabase dev project as the Mealvana Flutter app. It uses an AI persona named Jade to build 7-day meal plans from the athlete's existing training calendar, macro targets, and food preferences.
-
-Five different UI approaches are built in parallel using git worktrees — each is a full implementation of the same underlying data and AI, with a different interaction model. User testing determines the winner.
-
-See `07_parallel_build_plans.md` for the full build spec.
-
----
-
-## Stack
-
-- **Framework:** TanStack Start v1.167 + Vite v8 + Nitro
-- **Auth:** Clerk
-- **Data:** Supabase (same dev project as mealvana_endurance)
-- **AI:** Vercel AI SDK v4 + Vercel AI Gateway (OpenAI / Anthropic)
-- **Styling:** Tailwind v4 + shadcn/ui + Kyle design tokens
-- **Language:** TypeScript + React 19
-
----
-
-## Running the prototype
-
-### Prerequisites
-
-- Node.js >= 20
-- pnpm >= 9 (`npm i -g pnpm`)
-- A `.env.local` file in `packages/web/` (copy from `.env.example`)
-
-### First run
-
-```bash
-# Install dependencies
+## Run
+```
 pnpm install
-
-# Start the dev server (default port 3000)
-pnpm dev
+cp packages/web/.env.example packages/web/.env.local   # then fill in (see below)
+pnpm --filter @mealplanning/web dev                     # http://localhost:3000 → /food/plan
 ```
+`.env.local` (gitignored): `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `SUPABASE_URL`, `SUPABASE_ANON_KEY`,
+`SUPABASE_SERVICE_ROLE_KEY` (server only), `AI_GATEWAY_API_KEY`, `VANA_CHAT_MODEL` (default
+`anthropic/claude-sonnet-4-6`), `VANA_TOOL_MODEL` (`anthropic/claude-haiku-4-5`), `VANA_EMBED_MODEL`
+(`openai/text-embedding-3-small`). Auth is Supabase email/password or magic link (`/sign-in`).
 
-The app boots cleanly without any env vars set — auth, data, and AI degrade gracefully to "not configured" states.
+Checks: `pnpm typecheck` · `pnpm test` (vitest: grocery aggregation, week character, smoke) · `pnpm build`.
+Seed / re-embed the library: `cd packages/web && node scripts/seed-meal-library.mjs`.
+Smoke the tools against dev: `node scripts/smoke-vana.mjs`.
 
-**Required env vars for full functionality:** See `.env.example` and `MANUAL_STEPS.md`.
+## Architecture (packages/web/src)
+- `server/vana/` — the ONE agent path. `route` handlers in `routes/api.vana.{chat,action,home}.ts`.
+  `context.ts` builds the small deterministic athlete context (profile, week character, race, budgets, weather,
+  logged-today, plan, memories); `tools.ts` = 19 AI SDK tools (search/diagnose/suggest/batch/rules/shopping/day
+  guidance/brief/log/memory/settings/weather/askChoice); `persona.ts` = Vana; `grocery.ts` = deterministic aisle
+  builder; `rate-limit.ts` + `log.ts` (`jade_calls`) on every model call. Algorithms select, the model talks.
+- `lib/vana/contracts.ts` — shared types: `MealRef`, `MealPlan`, `VanaPart` (tool → widget), `UiAction`, `AthleteContext`.
+- `routes/food.*`, `routes/vana.tsx`, `routes/settings.tsx` + `components/vana/` — the UI; `VanaPartRenderer`
+  switches on `VanaPart.kind`. Styling: `styles/tokens.css` + `styles/kyle.css` = the app's Kyle design system
+  with exact Dart values (also pushed to Claude Design as "Mealvana Kyle Design System").
 
-### Opening the landing page
+## Data (dev Supabase, applied via `mealvana_endurance/supabase/migrations/20260827090000_meal_planning_vana.sql`)
+`meal_library` (400 meals, pgvector embeddings) · `saved_meals` (+embedding, library match) · `meal_plans` ·
+`plan_meals` · `user_memories` (settings live here: `batch_cooking`, `show_macros`) · `meal_logs.source='plan'`.
+RPCs: `search_meals` (hard allergy/diet filters, saved + library in one ranked result), `match_library`, `recall_memories`.
 
-Visit `http://localhost:3000` — you'll see five variant cards (A–E).
-Click any to go to the stub for that variant, or work in a variant worktree.
-
----
-
-## Working with variant worktrees
-
-Each variant runs in a sibling directory on its own git branch, so multiple agents can work in parallel without interfering.
-
-### Create worktrees (one-time setup after Phase 0 commit)
-
-```bash
-cd /Users/leemartin/development/mealplanning_prototype
-
-git branch variant/a && git worktree add ../mealplanning_prototype-a variant/a
-git branch variant/b && git worktree add ../mealplanning_prototype-b variant/b
-git branch variant/c && git worktree add ../mealplanning_prototype-c variant/c
-git branch variant/d && git worktree add ../mealplanning_prototype-d variant/d
-git branch variant/e && git worktree add ../mealplanning_prototype-e variant/e
-
-# Install deps in each worktree (pnpm hardlinks so it's cheap)
-for d in mealplanning_prototype-{a,b,c,d,e}; do
-  ( cd "/Users/leemartin/development/$d" && pnpm install )
-done
-```
-
-### Start each variant on its own port
-
-Each worktree needs a `.env.local` with a `PORT` override:
-
-```bash
-# variant-a: port 3001
-echo "PORT=3001" > /Users/leemartin/development/mealplanning_prototype-a/packages/web/.env.local
-
-# variant-b: port 3002
-echo "PORT=3002" > /Users/leemartin/development/mealplanning_prototype-b/packages/web/.env.local
-
-# etc. for c (3003), d (3004), e (3005)
-```
-
-Then in each worktree:
-
-```bash
-cd /Users/leemartin/development/mealplanning_prototype-a
-pnpm dev  # → http://localhost:3001
-```
-
-### Worktree reference
-
-| Variant | Directory | Branch | Port |
-|---------|-----------|--------|------|
-| Main (Phase 0) | `mealplanning_prototype/` | `main` | 3000 |
-| A — Calendar | `mealplanning_prototype-a/` | `variant/a` | 3001 |
-| B — Stack | `mealplanning_prototype-b/` | `variant/b` | 3002 |
-| C — Columns | `mealplanning_prototype-c/` | `variant/c` | 3003 |
-| D — Hybrid | `mealplanning_prototype-d/` | `variant/d` | 3004 |
-| E — Coach | `mealplanning_prototype-e/` | `variant/e` | 3005 |
-
----
-
-## Quality checks
-
-```bash
-pnpm typecheck   # TypeScript type check across all packages
-pnpm lint        # ESLint
-pnpm format      # Prettier
-pnpm test        # Vitest unit tests
-pnpm test:e2e    # Playwright e2e (requires dev server running)
-```
-
----
-
-## Docs reference
-
-All design and build docs live in the `mealvana_endurance` repo:
-
-| Doc | Path |
-|-----|------|
-| Build plans (Phase 0 + variants) | `docs/mealplanning_prototype/07_parallel_build_plans.md` |
-| Kyle design system (web tokens) | `docs/mealplanning_prototype/03_kyle_design_for_web.md` |
-| Five UI approaches (Jade, wireframes) | `docs/mealplanning_prototype/06_five_uiux_approaches.md` |
-| Master design proposal | `docs/mealplanning_prototype/05_design_proposal.md` |
-| User data inventory (Supabase schema) | `docs/mealplanning_prototype/04_user_data_inventory.md` |
-
----
-
-## Deployment
-
-`vercel.json` is pre-configured. To deploy:
-
-```bash
-pnpm dlx vercel link   # One-time: link to Vercel project
-pnpm dlx vercel        # Preview deploy
-pnpm dlx vercel --prod # Production
-```
-
-Each variant branch auto-deploys to a separate Vercel preview URL on push.
-
----
-
-## Key manual steps before full functionality
-
-1. **Create a Clerk application** and add keys to `.env.local`
-2. **Create a Clerk JWT template** named `supabase` with the Supabase JWT secret
-3. **Add Supabase keys** to `.env.local`
-4. **Run database migrations** via `pnpm dlx supabase db push` (after `supabase link`)
-5. **Add AI Gateway key** to `.env.local` for Jade to work
-
-See `MANUAL_STEPS.md` for detailed instructions.
+## Known gaps
+Library macros are approximate (not catalog-grounded). Swaps chosen on the meal detail sheet aren't yet applied
+via `apply_swap` on add. `dayGuidance` can return a saved meal for both dinner and snack. Formulas tab is a
+placeholder that belongs to the Flutter app. No credits metering here (the app's `ai_credits` gates the real thing).
