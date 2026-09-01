@@ -81,7 +81,10 @@ export async function dayGuidance(userId: string, ctx: AthleteContext, dateIso =
   else if (!workouts.length || minutes < 45) { label = workouts.length ? "Low-load day" : "Rest day"; contexts = ["rest-day"]; note = `At least ${minCarbsG}g carbs, protein at every meal. No need to top up around training.`; }
   else if (minutes >= 120) { label = "Big session day"; contexts = ["recovery", "pre-session"]; note = `At least ${minCarbsG}g carbs; a real recovery meal within two hours of finishing.`; }
   else { label = "Training day"; contexts = ["everyday", "recovery"]; note = `At least ${minCarbsG}g carbs, protein at every meal.`; }
-  const suggestions = [...(await searchMeals({ userId, mealType: "dinner", contexts, limit: 1, embed: false })), ...(await searchMeals({ userId, mealType: "snack", contexts, limit: 1, embed: false }))];
+  // One dinner + one snack; the snack search excludes the dinner so a saved meal never fills both slots.
+  const dinner = await searchMeals({ userId, mealType: "dinner", contexts, limit: 1, embed: false });
+  const snack = await searchMeals({ userId, mealType: "snack", contexts, limit: 1, embed: false, excludeIds: dinner.map((m) => m.id) });
+  const suggestions = [...dinner, ...snack];
   return { kind: "day_guidance", date: dateIso, label, workout: workouts.map((w) => `${w.title}${w.minutes ? ` · ${w.minutes} min` : ""}`).join(", ") || null, minCarbsG, note, suggestions };
 }
 

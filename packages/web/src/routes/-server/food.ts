@@ -13,8 +13,6 @@ async function sb(): Promise<{ sb: SB; userId: string | null }> {
   const { data } = await client.auth.getUser();
   return { sb: client, userId: data.user?.id ?? null };
 }
-const iso = (d: Date) => d.toISOString().slice(0, 10);
-function weekStart(d = new Date()) { const x = new Date(d); const day = (x.getDay() + 6) % 7; x.setDate(x.getDate() - day); return iso(x); }
 
 /** Shorten a library `source` line to a human attribution: drop URLs, keep the first clause. */
 export function shortAttribution(src: string | null | undefined): string {
@@ -73,53 +71,6 @@ async function loadPlan(c: SB, userId: string): Promise<MealPlan | null> {
 
 export const getPlan = createServerFn({ method: "GET" }).handler(async () => {
   const { sb: c, userId } = await sb(); if (!userId) return null; return loadPlan(c, userId);
-});
-
-export const getFoodHome = createServerFn({ method: "GET" }).handler(async () => {
-  const { sb: c, userId } = await sb();
-  if (!userId) return null;
-  const today = new Date(); const t0 = iso(today);
-  const [{ data: acts }, { data: target }, { data: events }, plan, { data: logs }, { data: saved }, { data: settings }] = await Promise.all([
-    c.from("activities").select("title, activity_type, duration_minutes, intensity_level, scheduled_date_time").gte("scheduled_date_time", `${t0}T00:00:00`).lt("scheduled_date_time", `${t0}T23:59:59`).eq("user_id", userId),
-    c.from("daily_macro_targets").select("carb_g, prot_g, fat_g, tdee").eq("user_id", userId).eq("target_date", t0).maybeSingle(),
-    c.from("events").select("event_name, event_date, location").eq("user_id", userId).gte("event_date", t0).order("event_date").limit(1),
-    loadPlan(c, userId),
-    c.from("meal_logs").select("name, saved_meal_id, calories, carbs_g, protein_g, fat_g, items, slot").eq("user_id", userId).eq("is_deleted", false).gte("log_date", iso(new Date(Date.now() - 30 * 864e5))).limit(300),
-    c.from("saved_meals").select("id, name, calories, carbs_g, protein_g, fat_g, library_meal_id, items, meal_types, batch").eq("user_id", userId).eq("is_deleted", false).limit(20),
-    c.from("user_memories").select("key, value").eq("user_id", userId).eq("kind", "setting").eq("is_deleted", false),
-  ]);
-  const race = events?.[0] ? { name: events[0].event_name as string, date: events[0].event_date as string, daysOut: Math.round((new Date(events[0].event_date).getTime() - today.getTime()) / 864e5) } : null;
-  const minutes = (acts ?? []).reduce((a, x) => a + (x.duration_minutes ?? 0), 0);
-  const lowLoad = minutes < 60;
-  const carbTarget = target?.carb_g ? Math.round(Number(target.carb_g)) : lowLoad ? 250 : 350;
-  const contexts = race && race.daysOut <= 3 ? ["carb-load", "race-week"] : lowLoad ? ["rest-day"] : ["recovery", "pre-session"];
-  const [{ data: dinner }, { data: snack }] = await Promise.all([
-    c.rpc("search_meals", { p_user_id: userId, p_query: null, p_embedding: null, p_meal_type: "dinner", p_contexts: contexts, p_batch: null, p_include_saved: false, p_limit: 1 }),
-    c.rpc("search_meals", { p_user_id: userId, p_query: null, p_embedding: null, p_meal_type: "snack", p_contexts: contexts, p_batch: null, p_include_saved: false, p_limit: 1 }),
-  ]);
-  const workoutLine = acts?.length ? `${acts.map((a) => `${a.duration_minutes ? `${a.duration_minutes} min ` : ""}${a.title}`).join(" · ")}` : null;
-  const day = {
-    label: race && race.daysOut <= 3 ? `Today · carb-load` : lowLoad ? "Today · low-load day" : `Today · ${(acts?.[0]?.title as string) ?? "training"}`,
-    workout: workoutLine ?? (race ? `Race in ${race.daysOut} days` : null),
-    minCarbsG: carbTarget, note: lowLoad ? "protein at every meal" : "top up around the session",
-    suggestions: [...(dinner ?? []), ...(snack ?? [])].map(rowToMealRef),
-    tone: (race && race.daysOut <= 3 ? "orange" : undefined) as "orange" | undefined,
-  };
-  // staples: logged names last 30d, grouped
-  const counts = new Map<string, { name: string; n: number; kcal: number | null; c: number | null; p: number | null; f: number | null; savedId: string | null }>();
-  for (const l of logs ?? []) { const k = (l.name as string).trim().toLowerCase(); const e = counts.get(k); if (e) e.n++; else counts.set(k, { name: l.name, n: 1, kcal: l.calories, c: l.carbs_g, p: l.protein_g, f: l.fat_g, savedId: l.saved_meal_id ?? null }); }
-  const savedById = new Map((saved ?? []).map((s) => [s.id as string, s]));
-  const staples = [...counts.values()].sort((a, b) => b.n - a.n).slice(0, 5).map((s) => {
-    const sv = s.savedId ? savedById.get(s.savedId) : (saved ?? []).find((x) => (x.name as string).trim().toLowerCase() === s.name.trim().toLowerCase());
-    return { ...rowToMealRef({ source: "saved", id: sv?.id ?? s.name, name: s.name, meal_type: "dinner", kcal: s.kcal, carbs_g: s.c, protein_g: s.p, fat_g: s.f, library_meal_id: sv?.library_meal_id ?? null, why: "one of your staples", attribution: "from your log" }), timesLogged: s.n, ticked: true };
-  });
-  for (const sv of saved ?? []) if (!staples.some((x) => x.id === sv.id) && staples.length < 6) staples.push({ ...rowToMealRef({ source: "saved", id: sv.id, name: sv.name, meal_type: sv.meal_types?.[0] ?? "dinner", kcal: sv.calories, carbs_g: sv.carbs_g, protein_g: sv.protein_g, fat_g: sv.fat_g, library_meal_id: sv.library_meal_id, why: "one of your saved meals", attribution: "your saved meal", batch: sv.batch }), timesLogged: 0, ticked: true });
-  const brief = plan?.brief ? { text: plan.brief, chips: plan.status === "confirmed" ? [] : ["Show me", "Adjust", "Not this week"], cites: ["your log", "your plan", race ? race.name : "this week's training"] }
-    : { text: race && race.daysOut <= 7 ? "Race week. Want me to look at how you're eating?" : "Want me to look at how you're eating this week?", chips: ["Yes, look", "Not now"], cites: race ? [race.name, "your log"] : ["your log", "this week's training"] };
-  const raceWeek = !!race && race.daysOut <= 7;
-  const settingsMap = Object.fromEntries((settings ?? []).map((s) => [s.key, s.value]));
-  const shopping: ShoppingItem[] = plan?.shopping ?? [];
-  return { brief, day, staples, plan, race, raceWeek, batchCooking: settingsMap.batch_cooking !== false, shopping: { count: shopping.length, checked: shopping.filter((i) => i.checked).length, skipped: shopping.filter((i) => i.have).map((i) => i.name) } };
 });
 
 export const searchMeals = createServerFn({ method: "GET" })
@@ -290,4 +241,3 @@ export const getSettings = createServerFn({ method: "GET" }).handler(async () =>
   const setting = (k: string, dflt: boolean) => { const s = memories.find((m) => m.kind === "setting" && m.key === k); return s ? s.value !== false : dflt; };
   return { batchCooking: setting("batch_cooking", true), showMacros: setting("show_macros", false), memories: memories.filter((m) => m.kind !== "setting") };
 });
-export { weekStart };

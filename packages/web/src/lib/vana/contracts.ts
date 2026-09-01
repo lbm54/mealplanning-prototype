@@ -72,7 +72,8 @@ export type VanaPart =
 
 // ---- What the UI sends back (chip taps are plain user messages; structured edits go through these)
 export interface UiAction {
-  type: 'pick_meals' | 'unpick_meal' | 'swap_meal' | 'remove_meal' | 'set_servings' | 'confirm_plan' | 'toggle_shopping' | 'log_from_plan' | 'set_setting' | 'delete_memory' | 'set_day_slot' | 'clear_day_slot' | 'plan_day' | 'new_plan' | 'get_plan' | 'list_plans';
+  type: 'pick_meals' | 'unpick_meal' | 'swap_meal' | 'remove_meal' | 'set_servings' | 'confirm_plan' | 'toggle_shopping' | 'log_from_plan' | 'set_setting' | 'delete_memory' | 'set_day_slot' | 'clear_day_slot' | 'plan_day' | 'new_plan' | 'get_plan' | 'list_plans'
+    | 'set_session' | 'apply_swap' | 'add_comment' | 'accept_rule' | 'list_memories' | 'save_meal';
   payload: Record<string, unknown>;
 }
 

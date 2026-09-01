@@ -54,22 +54,6 @@ export async function ensureConversation(userId: string, conversationId?: string
   if (conversationId) { const { data } = await dbAny().from("vana_conversations").select("id, kind").eq("id", conversationId).eq("user_id", userId).eq("is_deleted", false).maybeSingle(); if (data) return { id: data.id, kind: data.kind === "general" ? "general" : "meal_planning" }; }
   return { id: await createConversation(userId, kind), kind };
 }
-/** A conversation of this kind created <24h ago with no user turn yet → reuse instead of paying for another opener. */
-export async function reuseFreshOpener(userId: string, kind: ConversationKind): Promise<string | null> {
-  let since = new Date(Date.now() - 24 * 3600_000).toISOString();
-  // A planning opener is only reusable if the current plan hasn't been replaced since it was written.
-  if (kind === "meal_planning") {
-    const { data: pl } = await dbAny().from("meal_plans").select("created_at, updated_at").eq("user_id", userId).eq("is_deleted", false).neq("status", "archived").order("created_at", { ascending: false }).limit(1).maybeSingle();
-    if (pl?.created_at && pl.created_at > since) since = pl.created_at;
-  }
-  const { data } = await dbAny().from("vana_conversations").select("id").eq("user_id", userId).eq("kind", kind).eq("is_deleted", false).gte("created_at", since).order("created_at", { ascending: false }).limit(3);
-  for (const c of data ?? []) {
-    const { count: users } = await dbAny().from("vana_messages").select("*", { count: "exact", head: true }).eq("conversation_id", c.id).eq("role", "user");
-    const { count: asst } = await dbAny().from("vana_messages").select("*", { count: "exact", head: true }).eq("conversation_id", c.id).eq("role", "assistant");
-    if ((users ?? 0) === 0 && (asst ?? 0) > 0) return c.id as string;
-  }
-  return null;
-}
 /** Stored rows → UIMessage[] (parts column preferred; legacy content + metadata.ui_parts otherwise). */
 export async function conversationMessages(userId: string, conversationId: string): Promise<{ kind: ConversationKind; messages: UIMessage[] }> {
   const [{ data }, kind] = await Promise.all([dbAny().from("vana_messages").select("id, role, content, metadata, parts, created_at").eq("conversation_id", conversationId).eq("user_id", userId).order("created_at"), conversationKind(userId, conversationId)]);

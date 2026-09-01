@@ -4,7 +4,7 @@ import * as plan from "./plan";
 import { setSetting, forgetMemory, listMemories } from "./memory";
 import { diagnoseStaples, dayGuidance, planDayPart } from "./tools";
 import { buildAthleteContext } from "./context";
-import { getMeal } from "./meals";
+import { getMeal, saveLibraryMeal } from "./meals";
 import { today } from "./env";
 import { ensureDayNotes, refreshDayNotesSoon } from "./daynotes";
 
@@ -55,6 +55,7 @@ export async function extraAction(userId: string, type: string, p: Record<string
     case "add_comment": return { parts: [{ kind: "batch", plan: await plan.addComment(userId, String(p.planMealId), p.role === "vana" ? "vana" : "user", String(p.text)) }] };
     case "accept_rule": { const pl = await plan.setRule(userId, { day: p.day, rule: String(p.rule), mealId: p.mealId, accepted: !!p.accepted }); return { parts: [{ kind: "batch", plan: pl }] }; }
     case "list_memories": return { parts: [], memories: await listMemories(userId) };
+    case "save_meal": return { parts: [], meal: await saveLibraryMeal(userId, String(p.libraryMealId)) };   // heart on the detail page
     default: return null;
   }
 }

@@ -1,11 +1,10 @@
 // Vana widgets — one component per VanaPart kind (see lib/vana/contracts.ts). Visual spec: the canvas artboards.
 import { DayWidget } from "./plan";
 import { MealIcon } from "./meal-icons";
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import type { MealRef, MealPlan, PlanMeal, PlanRule, ShoppingItem, Memory, VanaPart } from "@/lib/vana/contracts";
-import { Check, ChoiceChips, Island, MacroLine, Stepper, Tag, VanaAvatar } from "./primitives";
-import { IconBowl, IconCart, IconChevronDown, IconChevronRight, IconChevronUp, IconComment, IconFlag, IconInfo, IconSend, IconTrash, IconCheck, IconSwap } from "./icons";
+import { Check, ChoiceChips, Island, MacroLine, Tag, VanaAvatar } from "./primitives";
+import { IconCart, IconChevronRight, IconFlag, IconInfo, IconTrash, IconCheck, IconSwap } from "./icons";
 
 const prep = (m: MealRef) => (m.prepMinutes == null ? null : m.prepMinutes === 0 ? "no-cook" : `${m.prepMinutes} min`);
 const ctxTone = (m: MealRef): { label: string; tone?: "orange" | "pink" } | null => {
@@ -153,47 +152,7 @@ export function StaplesCard({ meals, onToggle, compact }: { meals: (MealRef & { 
 }
 
 // ---------------------------------------------------------------- Batch (bar + rows)
-const sessionLabel: Record<string, string> = { "cook-sun": "Cook Sunday", "topup-wed": "Top-up Wednesday", "fresh-fri": "Friday, fresh" };
 export function coverageText(plan: MealPlan) { return `Covers ${plan.coverage.covered} of ${plan.coverage.lunchDinnerSlots} lunches + dinners`; }
-function totalServings(plan: MealPlan) { return plan.meals.reduce((a, m) => a + m.servings, 0); }
-
-export function BatchBar({ plan, onServings, expandedDefault = false }: { plan: MealPlan | null; onServings?: (m: PlanMeal, v: number) => void; expandedDefault?: boolean }) {
-  const [open, setOpen] = useState(expandedDefault);
-  if (!plan || plan.meals.length === 0) {
-    return (
-      <div className="k-card v-card--outline" style={{ padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div><div className="v-display" style={{ fontSize: 16 }}>Your batch <span style={{ color: "var(--k-orange)" }}>· 0 meals</span></div><div className="v-body12 v-muted">Add meals from Vana's picks, or just say what you'd eat.</div></div>
-        <IconChevronUp />
-      </div>
-    );
-  }
-  const pct = plan.coverage.lunchDinnerSlots ? Math.min(100, Math.round((plan.coverage.covered / plan.coverage.lunchDinnerSlots) * 100)) : 0;
-  const bySession = groupBySession(plan);
-  return (
-    <div className="k-card v-card--outline" style={{ padding: "12px 16px", display: "flex", flexDirection: "column", gap: 10 }}>
-      <button type="button" className="v-row" style={{ justifyContent: "space-between", background: "transparent", border: 0, color: "inherit", padding: 0, cursor: "pointer" }} onClick={() => setOpen((v) => !v)}>
-        <div className="v-display" style={{ fontSize: 16, lineHeight: 1.2 }}>Your batch <span style={{ color: "var(--k-orange)" }}>· {plan.meals.length} meals · {totalServings(plan)} servings</span></div>
-        {open ? <IconChevronDown /> : <IconChevronUp />}
-      </button>
-      {open && bySession.map(([session, meals]) => (
-        <div key={session ?? "none"} className="v-col" style={{ gap: 6 }}>
-          {session && <div style={{ fontSize: 13 }}><b>{sessionLabel[session] ?? session}</b></div>}
-          {meals.map((m) => (
-            <div key={m.id} className="v-row" style={{ justifyContent: "space-between", fontSize: 13 }}>
-              <div style={{ flex: 1 }}>{m.name}</div>
-              {onServings ? <Stepper value={m.servings} onChange={(v) => onServings(m, v)} /> : <span>×{m.servings}</span>}
-            </div>
-          ))}
-        </div>
-      ))}
-      <div className="v-bar"><i style={{ width: `${pct}%` }} /></div>
-      <div className="v-row" style={{ justifyContent: "space-between" }}>
-        <span className="v-body12 v-muted">{coverageText(plan)}</span>
-        <Link to="/food/plan" style={{ fontSize: 12, fontWeight: 700, color: "var(--k-orange)", textDecoration: "none" }}>View plan →</Link>
-      </div>
-    </div>
-  );
-}
 
 export function groupBySession(plan: MealPlan): [string | null, PlanMeal[]][] {
   const order = ["cook-sun", "topup-wed", "fresh-fri"];
@@ -209,47 +168,6 @@ export function RuleChip({ rule, proposed }: { rule: PlanRule; proposed?: boolea
     <Island icon={proposed ? <IconInfo style={{ stroke: "var(--k-orange)" }} /> : <IconCheck />}>
       <span style={proposed ? { borderStyle: "dashed" } : undefined}>{proposed ? "Proposed · " : ""}{day} · {rule.rule}</span>
     </Island>
-  );
-}
-
-// ---------------------------------------------------------------- CoverageMeter (macros under a disclosure, with daily total)
-export interface DayTargetLite { kcal: number; carbsG: number; proteinG: number; sessionKcal: number; planningKcal: number; lunchDinnerKcal: number }
-/** Ranges: lunch + dinner ≈ 55% of the meal-planning budget (tdee − session_kcal); carbs/protein use the same share of the service's daily targets. */
-export function CoverageMeter({ plan, target }: { plan: MealPlan; target?: DayTargetLite | null }) {
-  const [open, setOpen] = useState(false);
-  const d = plan.coverage.perDay;
-  const share = 0.55;
-  const t = target ? { carbs: Math.round(target.carbsG * share), protein: Math.round(target.proteinG * share), kcal: target.lunchDinnerKcal } : { carbs: 180, protein: 85, kcal: 1350 };
-  const lo = { carbs: Math.round(t.carbs * 0.8), protein: Math.round(t.protein * 0.8), kcal: Math.round(t.kcal * 0.85) };
-  const hi = { carbs: Math.round(t.carbs * 1.2), protein: Math.round(t.protein * 1.2), kcal: Math.round(t.kcal * 1.15) };
-  const pct = plan.coverage.lunchDinnerSlots ? Math.min(100, Math.round((plan.coverage.covered / plan.coverage.lunchDinnerSlots) * 100)) : 0;
-  const Range = ({ v, lo, hi, target, color, label }: { v: number; lo: number; hi: number; target: number; color: string; label: string }) => {
-    const p = (x: number) => Math.max(0, Math.min(100, ((x - lo) / (hi - lo)) * 100));
-    return (
-      <div style={{ textAlign: "center", width: 100 }}>
-        <div style={{ fontSize: 24, fontWeight: 600, color }}>{label === "kcal / day" ? Math.round(v).toLocaleString() : `${Math.round(v)}g`}</div>
-        <div className="v-section" style={{ fontSize: 10, letterSpacing: 0.5, textTransform: "none" }}>{label}</div>
-        <div className="v-rangebar"><b style={{ left: `${p(target)}%` }} /><i style={{ left: `${p(v)}%` }} /></div>
-        <div className="v-row" style={{ justifyContent: "space-between", fontSize: 10, color: "rgba(248,246,235,0.6)" }}><span>at least {lo}</span><span>{hi}</span></div>
-      </div>
-    );
-  };
-  return (
-    <div className="k-card v-card--outline" style={{ padding: "14px 16px", display: "flex", flexDirection: "column", gap: 10 }}>
-      <div><div className="v-display" style={{ fontSize: 16 }}>{coverageText(plan)}</div><div className="v-body12 v-muted">Breakfast and workout fuel come from your formulas.</div></div>
-      <div className="v-bar"><i style={{ width: `${pct}%` }} /></div>
-      <button type="button" className="v-disc" onClick={() => setOpen((v) => !v)}><span>{open ? "Hide numbers" : "Show carbs / protein"}</span>{open ? <IconChevronUp style={{ width: 16, height: 16 }} /> : <IconChevronDown style={{ width: 16, height: 16 }} />}</button>
-      {open && (
-        <>
-          <div className="v-row" style={{ justifyContent: "space-between", alignItems: "flex-start" }}>
-            <Range v={d.carbsG} lo={lo.carbs} hi={hi.carbs} target={t.carbs} color="var(--k-carbs)" label="Carbs / day" />
-            <Range v={d.proteinG} lo={lo.protein} hi={hi.protein} target={t.protein} color="var(--k-protein)" label="Protein / day" />
-            <Range v={d.kcal} lo={lo.kcal} hi={hi.kcal} target={t.kcal} color="var(--k-cream)" label="kcal / day" />
-          </div>
-          <div className="v-body12 v-muted">{target ? <>Daily target from your macros: <b>{target.kcal.toLocaleString()} kcal · at least {target.carbsG}g carbs · {target.proteinG}g protein</b>; formulas cover {target.sessionKcal} kcal, lunch + dinner ≈ {target.lunchDinnerKcal.toLocaleString()} kcal. Minimums, not limits.</> : "No daily target for today yet. Minimums, not limits."}</div>
-        </>
-      )}
-    </div>
   );
 }
 
@@ -278,26 +196,6 @@ export function ShoppingList({ items, onToggle, compact }: { items: ShoppingItem
   );
 }
 
-// ---------------------------------------------------------------- LogRow (log from plan)
-export function LogRow({ meal, onLog }: { meal: PlanMeal; onLog?: (m: PlanMeal) => void }) {
-  const pips = Array.from({ length: meal.servings }, (_, i) => i < meal.servingsLeft);
-  const spent = meal.servingsLeft === 0;
-  return (
-    <div className="k-card v-card--outline" style={{ padding: "10px 12px", display: "flex", alignItems: "center", gap: 12, opacity: spent ? 0.5 : 1 }}>
-      <div style={{ width: 40, height: 40, borderRadius: 999, background: "var(--k-electrolyte)", color: "var(--k-blackberry)", display: "flex", alignItems: "center", justifyContent: "center" }}><IconBowl /></div>
-      <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 3, minWidth: 0 }}>
-        <div className="v-row" style={{ gap: 8 }}><div style={{ fontSize: 14, fontWeight: 600 }}>{meal.name}</div>{meal.session === "fresh-fri" && <Tag tone="orange">Race-eve</Tag>}</div>
-        <MacroLine kcal={meal.kcal} c={meal.carbsG} p={meal.proteinG} f={meal.fatG} big />
-        <div className="v-row" style={{ gap: 3 }}>
-          {pips.map((on, i) => <span key={i} style={{ width: 22, height: 4, borderRadius: 2, background: on ? "var(--k-electrolyte)" : "rgba(248,246,235,0.25)" }} />)}
-          <span className="v-body12 v-muted" style={{ marginLeft: 6 }}>{spent ? "all logged" : `${meal.servingsLeft} left`}</span>
-        </div>
-      </div>
-      {!spent && <button type="button" className="k-btn-primary k-btn-primary--small k-btn-primary--inline v-xs" onClick={() => onLog?.(meal)}>Ate it</button>}
-    </div>
-  );
-}
-
 // ---------------------------------------------------------------- MemoryDrawer ("What Vana knows")
 export function MemoryDrawer({ memories, onDelete }: { memories: Memory[]; onDelete?: (id: string) => void }) {
   if (!memories.length) return <div className="v-dashed">Vana hasn't saved anything about you yet.</div>;
@@ -311,17 +209,6 @@ export function MemoryDrawer({ memories, onDelete }: { memories: Memory[]; onDel
         </div>
       ))}
     </div>
-  );
-}
-
-// ---------------------------------------------------------------- AdjustInput (inline "Adjust with Vana")
-export function AdjustInput({ placeholder = "Adjust with Vana…", onSubmit }: { placeholder?: string; onSubmit: (text: string) => void }) {
-  const [v, setV] = useState("");
-  return (
-    <form className="v-adjust" onSubmit={(e) => { e.preventDefault(); if (v.trim()) { onSubmit(v.trim()); setV(""); } }}>
-      <input value={v} onChange={(e) => setV(e.target.value)} placeholder={placeholder} aria-label={placeholder} />
-      <button type="submit" aria-label="Send"><IconSend style={{ width: 16, height: 16 }} /></button>
-    </form>
   );
 }
 
@@ -352,15 +239,4 @@ export function VanaPartRenderer({ part, onChip, onTick, planKeys, pending, onSe
     case "day": return <DayWidget part={part} />;
     default: return null;
   }
-}
-export function CommentThread({ comments }: { comments: PlanMeal["comments"] }) {
-  if (!comments.length) return null;
-  return (
-    <div className="v-col" style={{ gap: 6, borderTop: "1px solid rgba(248,246,235,0.12)", paddingTop: 8 }}>
-      {comments.map((c, i) => c.role === "user" ? <div key={i} className="k-bubble-user" style={{ fontSize: 13, padding: "8px 12px" }}>{c.text}</div> : (
-        <div key={i} className="v-turn"><VanaAvatar size={22} /><div className="k-bubble-ai" style={{ fontSize: 13, padding: "8px 12px", maxWidth: 290 }}>{c.text}</div></div>
-      ))}
-      <span className="v-body12 v-muted" style={{ display: "flex", alignItems: "center", gap: 4 }}><IconComment style={{ width: 14, height: 14 }} />{comments.length} comment{comments.length === 1 ? "" : "s"}</span>
-    </div>
-  );
 }

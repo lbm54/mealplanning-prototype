@@ -1,10 +1,11 @@
 /* Vana / Food tab styles — Kyle exact values (lib/theme/kyle_design/*). Dark theme. */
 :root {
-  --k-blackberry: #381633; --k-blackberry-light: #4A2143; --k-blackberry-dark: #2D1535; --k-input-bg: #5A3366;
-  --k-cream: #F8F6EB; --k-orange: #F78B14; --k-electrolyte: #1CF9CF; --k-electrolyte-dark: #3FD4C0;
-  --k-dragonfruit: #DC2597; --k-dragonfruit-light: #F060A8; --k-inactive: #9B8AA3;
-  --k-carbs: #3FD4C0; --k-protein: #8E6FD8; --k-fat: #DC2597;
-  --k-sansita: "Sansita", Georgia, serif; --k-apercu: "Apercu", "Helvetica Neue", Helvetica, Arial, sans-serif; --k-compadre: "Compadre", "Archivo", "Helvetica Neue", sans-serif;
+  /* Kyle palette — aliases onto the tokens.css variables (lifted from lib/theme/kyle_design/*), never duplicated here. */
+  --k-blackberry: var(--color-blackberry); --k-blackberry-light: var(--color-blackberry-light); --k-blackberry-dark: var(--color-blackberry-dark); --k-input-bg: var(--color-input-background);
+  --k-cream: var(--color-cream); --k-orange: var(--color-orange); --k-electrolyte: var(--color-electrolyte); --k-electrolyte-dark: var(--color-electrolyte-dark);
+  --k-dragonfruit: var(--color-dragonfruit); --k-dragonfruit-light: var(--color-dragonfruit-light); --k-inactive: var(--color-inactive);
+  --k-carbs: var(--color-macro-carbs); --k-protein: var(--color-macro-protein); --k-fat: var(--color-macro-fat);
+  --k-sansita: var(--font-sansita); --k-apercu: var(--font-apercu); --k-compadre: var(--font-compadre);
 }
 .v-app { background: var(--k-blackberry); color: var(--k-cream); font-family: var(--k-apercu); -webkit-font-smoothing: antialiased; min-height: 100dvh; }
 .v-phone { position: relative; margin: 0 auto; width: 100%; max-width: 440px; min-height: 100dvh; display: flex; flex-direction: column; background: var(--k-blackberry); }

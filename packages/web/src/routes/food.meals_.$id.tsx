@@ -20,6 +20,13 @@ export const Route = createFileRoute("/food/meals_/$id")({
  *  and a raw href reads as noise in prose. */
 const proseSource = (s: string) => s.replace(/https?:\/\/\S+/g, "").replace(/\s*[;,·]\s*(?=[;,·]|$)/g, "").replace(/^[\s;,·—-]+/, "").replace(/\s+/g, " ").trim();
 
+/** "water→milk (+10g protein)" → { from, to, effect }. Notes without an arrow are advice, not substitutions — skipped. */
+function parseSwap(s: string): { from: string; to: string; effect?: string } | null {
+  const m = /^(.+?)\s*(?:→|->)\s*(.+)$/.exec(s.trim()); if (!m) return null;
+  const eff = /^(.*?)\s*\(([^)]*)\)\s*$/.exec(m[2]);
+  return { from: m[1].trim(), to: (eff ? eff[1] : m[2]).trim(), ...(eff ? { effect: eff[2].trim() } : {}) };
+}
+
 /** Bare host for a link label — "efprocycling.com". Never throws on a malformed stored URL. */
 function hostOf(u: string | null | undefined): string {
   if (!u) return "";
@@ -35,8 +42,17 @@ function MealDetail() {
   const [editNotes, setEditNotes] = useState(false);
   const [draft, setDraft] = useState("");
   const swapDone = useMutation({
-    mutationFn: async (n: number) => { await postAction({ type: "swap_meal", payload: { planMealId: swap, source: data!.meal.source, id: data!.meal.id } }); await postAction({ type: "set_servings", payload: { planMealId: swap, servings: n } }); },
+    mutationFn: async (n: number) => {
+      await postAction({ type: "swap_meal", payload: { planMealId: swap, source: data!.meal.source, id: data!.meal.id } });
+      await postAction({ type: "set_servings", payload: { planMealId: swap, servings: n } });
+      // ingredient swaps ticked on this sheet ride along with the meal (grocery builder substitutes `from` → `to`)
+      for (const sw of swaps.map(parseSwap)) if (sw) await postAction({ type: "apply_swap", payload: { planMealId: swap, ...sw } });
+    },
     onSuccess: () => { qc.invalidateQueries({ queryKey: qk.foodHome }); qc.invalidateQueries({ queryKey: qk.currentPlan }); qc.invalidateQueries({ queryKey: qk.shopping }); navigate({ to: "/food/plan" }); },
+  });
+  const save = useMutation({
+    mutationFn: () => postAction<ActionResult & { meal?: { id: string } }>({ type: "save_meal", payload: { libraryMealId: id } }),
+    onSuccess: () => { qc.invalidateQueries({ queryKey: qk.recents() }); qc.invalidateQueries({ queryKey: ["vana", "meals"] }); },
   });
   const saveNotes = useMutation({
     mutationFn: (notes: string) => updateSavedMealNotes({ data: { id, notes } }),
@@ -60,9 +76,9 @@ function MealDetail() {
   const [servings, setServings] = useState<number | null>(null);
   if (!data) return <div className="v-scroll"><div className="v-dashed">Meal not found.</div></div>;
   const m = data.meal; const cap = (s: string) => s[0].toUpperCase() + s.slice(1);
+  const isSaved = m.source === "saved";
   const n = servings ?? planMeal?.servings ?? 4;
   const initials = (data.source.match(/^([A-Z])[a-z]+ ([A-Z])/) ?? [])[1] ? data.source.replace(/^([A-Z])[a-z]+ ([A-Z]).*$/, "$1$2") : "MV";
-  const isSaved = m.source === "saved";
   const d = data.directions;
   const steps = d.steps;
   const myVote = data.vote ?? 0;
@@ -78,7 +94,11 @@ function MealDetail() {
       <div className="v-header" style={{ padding: "8px 0 0 0" }}>
         <BackButton to={swap ? "/food/swap/" + swap : "/food/meals"} />
         <span style={{ flex: 1 }} />
-        <button type="button" className="v-row" style={{ gap: 6, fontSize: 12, fontWeight: 600, background: "transparent", border: 0, color: "inherit", cursor: "pointer" }}><IconHeart style={{ width: 18, height: 18 }} />Save to mine</button>
+        {!isSaved && (
+          <button type="button" className="v-row" aria-pressed={save.isSuccess} disabled={save.isPending || save.isSuccess} style={{ gap: 6, fontSize: 12, fontWeight: 600, background: "transparent", border: 0, color: save.isSuccess ? "var(--k-electrolyte-dark)" : "inherit", cursor: "pointer" }} onClick={() => save.mutate()}>
+            <IconHeart style={{ width: 18, height: 18, fill: save.isSuccess ? "currentColor" : "none" }} />{save.isSuccess ? "Saved to mine" : save.isPending ? "Saving…" : "Save to mine"}
+          </button>
+        )}
       </div>
       {data.imageUrl && (
         <figure style={{ margin: "0 0 4px 0" }}>
@@ -202,7 +222,7 @@ function MealDetail() {
           <div className="v-row" style={{ justifyContent: "center", gap: 8 }}><span className="v-body12 v-muted">servings</span><div className="v-stepper"><button type="button" onClick={() => setServings(Math.max(1, n - 1))}>−</button><span>×{n}</span><button type="button" onClick={() => setServings(Math.min(12, n + 1))}>+</button></div></div>
         </div>
       ) : (
-        <div className="v-body12 v-muted" style={{ textAlign: "center", paddingTop: 4 }}>Tap the heart to save this to your meals.</div>
+        !isSaved && <div className="v-body12 v-muted" style={{ textAlign: "center", paddingTop: 4 }}>{save.isSuccess ? "Saved — it's in My Foods now." : "Tap the heart to save this to your meals."}</div>
       )}
     </div>
   );

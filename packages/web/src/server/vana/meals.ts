@@ -25,6 +25,7 @@ export function rowToMealRef(r: any): MealRef {
     kind: r.kind === "assembly" ? "assembly" : r.kind === "recipe" ? "recipe" : undefined,
     pattern: r.pattern ?? null, frequency: r.frequency ?? null,
     icon: resolveMealIcon(r.icon, { name: r.name, ingredients: r.ingredients ?? null, pattern: r.pattern ?? null }),
+    myVote: (r.my_vote ?? 0) as -1 | 0 | 1,
   };
 }
 
@@ -64,4 +65,20 @@ export async function getMeal(userId: string, source: "library" | "saved", id: s
 export async function libraryIngredients(id: string): Promise<{ name: string; qty: string }[]> {
   const { data } = await dbAny().from("meal_library").select("ingredients_json").eq("id", id).maybeSingle();
   return (data?.ingredients_json ?? []) as { name: string; qty: string }[];
+}
+
+/** "Save to mine": copy a library meal into saved_meals (name, items from ingredients_json, macros, link, meal type, icon).
+ *  Idempotent per (user, library_meal_id) — a second save returns the existing row. Embedding is best-effort. */
+export async function saveLibraryMeal(userId: string, libraryMealId: string): Promise<MealRef> {
+  const d = dbAny();
+  const { data: existing } = await d.from("saved_meals").select("id").eq("user_id", userId).eq("library_meal_id", libraryMealId).eq("is_deleted", false).limit(1).maybeSingle();
+  if (existing) return (await getMeal(userId, "saved", existing.id))!;
+  const { data: lib } = await d.from("meal_library").select("*").eq("id", libraryMealId).maybeSingle();
+  if (!lib) throw new Error(`library meal not found: ${libraryMealId}`);
+  const items = ((lib.ingredients_json ?? []) as { name: string; qty?: string; role?: string }[]).map((i) => ({ name: i.name, portion: i.qty ?? "", role: i.role ?? null }));
+  let embedding: string | null = null;
+  try { embedding = vec(await embedText(`${lib.meal_type}: ${lib.name}. Ingredients: ${lib.ingredients}`)); } catch { embedding = null; }
+  const { data, error } = await d.from("saved_meals").insert({ user_id: userId, name: lib.name, items, calories: lib.kcal, carbs_g: lib.carbs_g, protein_g: lib.protein_g, fat_g: lib.fat_g, library_meal_id: lib.id, meal_types: [lib.meal_type], batch: lib.batch, icon: lib.icon ?? null, last_used_at: new Date().toISOString(), ...(embedding ? { embedding } : {}) }).select("id").single();
+  if (error) throw new Error(error.message);
+  return (await getMeal(userId, "saved", data.id))!;
 }
