@@ -1,0 +1,67 @@
+{
+  "kind": "shopping_list",
+  "items": [
+    {
+      "qty": "320 g",
+      "have": false,
+      "name": "Cabbage",
+      "aisle": "Produce",
+      "checked": false,
+      "fromMealIds": [
+        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+      ]
+    },
+    {
+      "qty": "240 g",
+      "have": false,
+      "name": "Carrot",
+      "aisle": "Produce",
+      "checked": false,
+      "fromMealIds": [
+        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+      ]
+    },
+    {
+      "qty": "4 serving",
+      "have": false,
+      "name": "Egg & veggie scramble",
+      "aisle": "Protein",
+      "checked": false,
+      "fromMealIds": [
+        "a4ae8261-2d9f-438e-8bea-32fbcba7e8e9"
+      ]
+    },
+    {
+      "qty": "600 g",
+      "have": false,
+      "name": "White beans",
+      "aisle": "Pantry",
+      "checked": false,
+      "fromMealIds": [
+        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+      ]
+    },
+    {
+      "qty": "12 tbsp",
+      "have": false,
+      "name": "Hummus",
+      "aisle": "Other",
+      "checked": false,
+      "fromMealIds": [
+        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+      ]
+    },
+    {
+      "qty": "800 g",
+      "have": false,
+      "name": "Wheatberries",
+      "aisle": "Other",
+      "checked": false,
+      "fromMealIds": [
+        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+      ]
+    }
+  ],
+  "itemCount": 6,
+  "skipped": []
+}

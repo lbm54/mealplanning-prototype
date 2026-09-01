@@ -1,0 +1,611 @@
+{
+  "parts": [
+    {
+      "kind": "batch",
+      "plan": {
+        "id": "3fad2756-13e9-49cf-bff4-aff22e59c651",
+        "weekStart": "2026-08-30",
+        "status": "confirmed",
+        "batchCooking": true,
+        "conversationId": "62addf5c-5e43-4d1a-9609-ea441bd26ad3",
+        "brief": null,
+        "days": {},
+        "rules": [],
+        "meals": [
+          {
+            "id": "a4ae8261-2d9f-438e-8bea-32fbcba7e8e9",
+            "planId": "3fad2756-13e9-49cf-bff4-aff22e59c651",
+            "source": "saved",
+            "libraryMealId": null,
+            "savedMealId": "fd993bbb-a13a-43e7-a662-ea71ed2ae64a",
+            "name": "Egg & Veggie Scramble",
+            "mealType": "dinner",
+            "session": "fresh-fri",
+            "servings": 4,
+            "servingsLeft": 4,
+            "kcal": 280,
+            "carbsG": 8,
+            "proteinG": 22,
+            "fatG": 18,
+            "swapsApplied": [],
+            "comments": [],
+            "position": 0,
+            "icon": "egg"
+          },
+          {
+            "id": "8a88f890-5cba-4353-96a7-64ce6c70fbaa",
+            "planId": "3fad2756-13e9-49cf-bff4-aff22e59c651",
+            "source": "library",
+            "libraryMealId": "AD-105",
+            "savedMealId": null,
+            "name": "Wheatberries, white bean & raw cabbage-carrot bowl with hummus",
+            "mealType": "dinner",
+            "session": "cook-sun",
+            "servings": 4,
+            "servingsLeft": 4,
+            "kcal": null,
+            "carbsG": null,
+            "proteinG": null,
+            "fatG": null,
+            "swapsApplied": [],
+            "comments": [],
+            "position": 1,
+            "icon": "beans"
+          }
+        ],
+        "shopping": [
+          {
+            "qty": "320 g",
+            "have": false,
+            "name": "Cabbage",
+            "aisle": "Produce",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "240 g",
+            "have": false,
+            "name": "Carrot",
+            "aisle": "Produce",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "4 serving",
+            "have": false,
+            "name": "Egg & veggie scramble",
+            "aisle": "Protein",
+            "checked": false,
+            "fromMealIds": [
+              "a4ae8261-2d9f-438e-8bea-32fbcba7e8e9"
+            ]
+          },
+          {
+            "qty": "600 g",
+            "have": false,
+            "name": "White beans",
+            "aisle": "Pantry",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "12 tbsp",
+            "have": false,
+            "name": "Hummus",
+            "aisle": "Other",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "800 g",
+            "have": false,
+            "name": "Wheatberries",
+            "aisle": "Other",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          }
+        ],
+        "coverage": {
+          "lunchDinnerSlots": 14,
+          "covered": 8,
+          "perDay": {
+            "kcal": 160,
+            "carbsG": 5,
+            "proteinG": 13
+          }
+        },
+        "dayNotes": {
+          "2026-09-01": "Tuesday training day: pair the wheatberries bowl at dinner with extra protein side to hit 336C target.",
+          "2026-09-02": "Wednesday training day: wheatberries bowl at dinner, add the egg scramble as a second dinner serving for carbs and protein.",
+          "2026-09-03": "Thursday training day: egg scramble at dinner, wheatberries bowl as second serving to reach 336C.",
+          "2026-09-04": "Friday training day: wheatberries bowl at dinner with extra hummus for protein; egg scramble available if needed.",
+          "2026-09-05": "Saturday training day: both meals available—egg scramble and wheatberries bowl at dinner to fuel the day.",
+          "2026-09-06": "Sunday rest day: lighter approach, one meal is plenty; save the second for Monday.",
+          "2026-09-07": "Labor Day rest day: enjoy one meal casually; no need for full carb target today."
+        },
+        "dayNotesStale": true
+      }
+    }
+  ],
+  "home": {
+    "context": {
+      "profile": {
+        "firstName": null,
+        "diet": "vegetarian",
+        "allergies": [],
+        "gutTraining": "high"
+      },
+      "week": {
+        "start": "2026-08-30",
+        "character": "full rest",
+        "anchor": null,
+        "loadScore": 0,
+        "workouts": []
+      },
+      "race": null,
+      "budget": {
+        "today": {
+          "date": "2026-09-01",
+          "kcal": 2640,
+          "carbsG": 336,
+          "proteinG": 117,
+          "fatG": 92,
+          "sessionKcal": 0,
+          "planningKcal": 2640,
+          "lunchDinnerKcal": 1452,
+          "mode": "prospective"
+        },
+        "week": [
+          {
+            "date": "2026-09-01",
+            "kcal": 2640,
+            "carbsG": 336,
+            "proteinG": 117,
+            "fatG": 92,
+            "sessionKcal": 0,
+            "planningKcal": 2640,
+            "lunchDinnerKcal": 1452,
+            "mode": "prospective"
+          },
+          {
+            "date": "2026-09-02",
+            "kcal": 2640,
+            "carbsG": 336,
+            "proteinG": 117,
+            "fatG": 92,
+            "sessionKcal": 0,
+            "planningKcal": 2640,
+            "lunchDinnerKcal": 1452,
+            "mode": "prospective"
+          },
+          {
+            "date": "2026-09-03",
+            "kcal": 2640,
+            "carbsG": 336,
+            "proteinG": 117,
+            "fatG": 92,
+            "sessionKcal": 0,
+            "planningKcal": 2640,
+            "lunchDinnerKcal": 1452,
+            "mode": "prospective"
+          },
+          {
+            "date": "2026-09-04",
+            "kcal": 2640,
+            "carbsG": 336,
+            "proteinG": 117,
+            "fatG": 92,
+            "sessionKcal": 0,
+            "planningKcal": 2640,
+            "lunchDinnerKcal": 1452,
+            "mode": "prospective"
+          },
+          {
+            "date": "2026-09-05",
+            "kcal": 2640,
+            "carbsG": 336,
+            "proteinG": 117,
+            "fatG": 92,
+            "sessionKcal": 0,
+            "planningKcal": 2640,
+            "lunchDinnerKcal": 1452,
+            "mode": "prospective"
+          }
+        ],
+        "raceWeekCarbsG": null
+      },
+      "weather": {
+        "today": null,
+        "raceDay": null
+      },
+      "holidays": [
+        {
+          "date": "2026-09-07",
+          "name": "Labor Day",
+          "daysOut": 6
+        }
+      ],
+      "loggedToday": {
+        "count": 0,
+        "carbsG": 0
+      },
+      "plan": {
+        "exists": true,
+        "status": "confirmed",
+        "mealsLeft": 8,
+        "batchCooking": true
+      },
+      "memories": []
+    },
+    "brief": null,
+    "day": {
+      "kind": "day_guidance",
+      "date": "2026-09-01",
+      "label": "Rest day",
+      "workout": null,
+      "minCarbsG": 336,
+      "note": "At least 336g carbs, protein at every meal. No need to top up around training.",
+      "suggestions": [
+        {
+          "source": "saved",
+          "id": "fd993bbb-a13a-43e7-a662-ea71ed2ae64a",
+          "name": "Egg & Veggie Scramble",
+          "mealType": "dinner",
+          "contexts": [],
+          "batch": false,
+          "prepMinutes": null,
+          "kcal": 280,
+          "carbsG": 8,
+          "proteinG": 22,
+          "fatG": 18,
+          "allergens": [],
+          "dietsOk": [],
+          "swaps": null,
+          "why": "one of your saved meals",
+          "attribution": "your saved meal",
+          "attributionShort": "your saved meal",
+          "ingredients": "Egg & Veggie Scramble",
+          "libraryMealId": null,
+          "score": 0.65,
+          "kind": "assembly",
+          "pattern": null,
+          "frequency": "staple",
+          "icon": "egg",
+          "myVote": 0
+        },
+        {
+          "source": "library",
+          "id": "AS-232",
+          "name": "Hard-boiled eggs with sliced avocado",
+          "mealType": "snack",
+          "contexts": [
+            "everyday",
+            "rest-day",
+            "race-week"
+          ],
+          "batch": true,
+          "prepMinutes": 0,
+          "kcal": 250,
+          "carbsG": 5,
+          "proteinG": 14,
+          "fatG": 20,
+          "allergens": [
+            "eggs"
+          ],
+          "dietsOk": [
+            "keto",
+            "low_carb",
+            "omnivore",
+            "paleo",
+            "pescatarian",
+            "vegetarian"
+          ],
+          "swaps": "none needed for keto/paleo; not vegan",
+          "why": "Volek & Phinney identify avocados as a core fat source for low-carb athletes; Zach Bitter's diet is described as heavy in \"ground beef and eggs\"",
+          "attribution": "https://www.ketogains.com/2015/10/the-art-and-science-of-low-carbohydrate-performance-by-jeff-s-volek-and-stephen-d-phinney-a-summary/ ; Volek & Phinney, The Art and Science of Low Carbohydrate Performance (Ketogains summary)",
+          "attributionShort": "",
+          "ingredients": "hard-boiled eggs 2, avocado, sliced 1/2, sea salt pinch",
+          "libraryMealId": "AS-232",
+          "score": 0.54,
+          "kind": "assembly",
+          "pattern": "protein + fat",
+          "frequency": "staple",
+          "icon": "egg",
+          "myVote": 0
+        }
+      ]
+    },
+    "target": {
+      "date": "2026-09-01",
+      "kcal": 2640,
+      "carbsG": 336,
+      "proteinG": 117,
+      "fatG": 92,
+      "sessionKcal": 0,
+      "planningKcal": 2640,
+      "lunchDinnerKcal": 1452,
+      "mode": "prospective"
+    },
+    "weekTargets": [
+      {
+        "date": "2026-09-01",
+        "kcal": 2640,
+        "carbsG": 336,
+        "proteinG": 117,
+        "fatG": 92,
+        "sessionKcal": 0,
+        "planningKcal": 2640,
+        "lunchDinnerKcal": 1452,
+        "mode": "prospective"
+      },
+      {
+        "date": "2026-09-02",
+        "kcal": 2640,
+        "carbsG": 336,
+        "proteinG": 117,
+        "fatG": 92,
+        "sessionKcal": 0,
+        "planningKcal": 2640,
+        "lunchDinnerKcal": 1452,
+        "mode": "prospective"
+      },
+      {
+        "date": "2026-09-03",
+        "kcal": 2640,
+        "carbsG": 336,
+        "proteinG": 117,
+        "fatG": 92,
+        "sessionKcal": 0,
+        "planningKcal": 2640,
+        "lunchDinnerKcal": 1452,
+        "mode": "prospective"
+      },
+      {
+        "date": "2026-09-04",
+        "kcal": 2640,
+        "carbsG": 336,
+        "proteinG": 117,
+        "fatG": 92,
+        "sessionKcal": 0,
+        "planningKcal": 2640,
+        "lunchDinnerKcal": 1452,
+        "mode": "prospective"
+      },
+      {
+        "date": "2026-09-05",
+        "kcal": 2640,
+        "carbsG": 336,
+        "proteinG": 117,
+        "fatG": 92,
+        "sessionKcal": 0,
+        "planningKcal": 2640,
+        "lunchDinnerKcal": 1452,
+        "mode": "prospective"
+      }
+    ],
+    "staples": null,
+    "batch": {
+      "kind": "batch",
+      "plan": {
+        "id": "3fad2756-13e9-49cf-bff4-aff22e59c651",
+        "weekStart": "2026-08-30",
+        "status": "confirmed",
+        "batchCooking": true,
+        "conversationId": "62addf5c-5e43-4d1a-9609-ea441bd26ad3",
+        "brief": null,
+        "days": {},
+        "rules": [],
+        "meals": [
+          {
+            "id": "a4ae8261-2d9f-438e-8bea-32fbcba7e8e9",
+            "planId": "3fad2756-13e9-49cf-bff4-aff22e59c651",
+            "source": "saved",
+            "libraryMealId": null,
+            "savedMealId": "fd993bbb-a13a-43e7-a662-ea71ed2ae64a",
+            "name": "Egg & Veggie Scramble",
+            "mealType": "dinner",
+            "session": "fresh-fri",
+            "servings": 4,
+            "servingsLeft": 4,
+            "kcal": 280,
+            "carbsG": 8,
+            "proteinG": 22,
+            "fatG": 18,
+            "swapsApplied": [],
+            "comments": [],
+            "position": 0,
+            "icon": "egg"
+          },
+          {
+            "id": "8a88f890-5cba-4353-96a7-64ce6c70fbaa",
+            "planId": "3fad2756-13e9-49cf-bff4-aff22e59c651",
+            "source": "library",
+            "libraryMealId": "AD-105",
+            "savedMealId": null,
+            "name": "Wheatberries, white bean & raw cabbage-carrot bowl with hummus",
+            "mealType": "dinner",
+            "session": "cook-sun",
+            "servings": 4,
+            "servingsLeft": 4,
+            "kcal": null,
+            "carbsG": null,
+            "proteinG": null,
+            "fatG": null,
+            "swapsApplied": [],
+            "comments": [],
+            "position": 1,
+            "icon": "beans"
+          }
+        ],
+        "shopping": [
+          {
+            "qty": "320 g",
+            "have": false,
+            "name": "Cabbage",
+            "aisle": "Produce",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "240 g",
+            "have": false,
+            "name": "Carrot",
+            "aisle": "Produce",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "4 serving",
+            "have": false,
+            "name": "Egg & veggie scramble",
+            "aisle": "Protein",
+            "checked": false,
+            "fromMealIds": [
+              "a4ae8261-2d9f-438e-8bea-32fbcba7e8e9"
+            ]
+          },
+          {
+            "qty": "600 g",
+            "have": false,
+            "name": "White beans",
+            "aisle": "Pantry",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "12 tbsp",
+            "have": false,
+            "name": "Hummus",
+            "aisle": "Other",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          },
+          {
+            "qty": "800 g",
+            "have": false,
+            "name": "Wheatberries",
+            "aisle": "Other",
+            "checked": false,
+            "fromMealIds": [
+              "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+            ]
+          }
+        ],
+        "coverage": {
+          "lunchDinnerSlots": 14,
+          "covered": 8,
+          "perDay": {
+            "kcal": 160,
+            "carbsG": 5,
+            "proteinG": 13
+          }
+        },
+        "dayNotes": {
+          "2026-09-01": "Tuesday training day: pair the wheatberries bowl at dinner with extra protein side to hit 336C target.",
+          "2026-09-02": "Wednesday training day: wheatberries bowl at dinner, add the egg scramble as a second dinner serving for carbs and protein.",
+          "2026-09-03": "Thursday training day: egg scramble at dinner, wheatberries bowl as second serving to reach 336C.",
+          "2026-09-04": "Friday training day: wheatberries bowl at dinner with extra hummus for protein; egg scramble available if needed.",
+          "2026-09-05": "Saturday training day: both meals available—egg scramble and wheatberries bowl at dinner to fuel the day.",
+          "2026-09-06": "Sunday rest day: lighter approach, one meal is plenty; save the second for Monday.",
+          "2026-09-07": "Labor Day rest day: enjoy one meal casually; no need for full carb target today."
+        },
+        "dayNotesStale": true
+      }
+    },
+    "shopping": {
+      "kind": "shopping_list",
+      "items": [
+        {
+          "qty": "320 g",
+          "have": false,
+          "name": "Cabbage",
+          "aisle": "Produce",
+          "checked": false,
+          "fromMealIds": [
+            "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+          ]
+        },
+        {
+          "qty": "240 g",
+          "have": false,
+          "name": "Carrot",
+          "aisle": "Produce",
+          "checked": false,
+          "fromMealIds": [
+            "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+          ]
+        },
+        {
+          "qty": "4 serving",
+          "have": false,
+          "name": "Egg & veggie scramble",
+          "aisle": "Protein",
+          "checked": false,
+          "fromMealIds": [
+            "a4ae8261-2d9f-438e-8bea-32fbcba7e8e9"
+          ]
+        },
+        {
+          "qty": "600 g",
+          "have": false,
+          "name": "White beans",
+          "aisle": "Pantry",
+          "checked": false,
+          "fromMealIds": [
+            "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+          ]
+        },
+        {
+          "qty": "12 tbsp",
+          "have": false,
+          "name": "Hummus",
+          "aisle": "Other",
+          "checked": false,
+          "fromMealIds": [
+            "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+          ]
+        },
+        {
+          "qty": "800 g",
+          "have": false,
+          "name": "Wheatberries",
+          "aisle": "Other",
+          "checked": false,
+          "fromMealIds": [
+            "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+          ]
+        }
+      ],
+      "itemCount": 6,
+      "skipped": []
+    },
+    "days": {
+      "date": "2026-09-01",
+      "slots": {}
+    },
+    "vana": {
+      "date": "2026-09-01",
+      "stale": false,
+      "text": "Tuesday training day: pair the wheatberries bowl at dinner with extra protein side to hit 336C target."
+    },
+    "memories": []
+  }
+}
