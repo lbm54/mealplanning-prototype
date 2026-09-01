@@ -8,7 +8,7 @@
       "aisle": "Produce",
       "checked": false,
       "fromMealIds": [
-        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+        "27f80b00-9a1f-492f-9ac5-8bbaa67b5250"
       ]
     },
     {
@@ -18,7 +18,7 @@
       "aisle": "Produce",
       "checked": false,
       "fromMealIds": [
-        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+        "27f80b00-9a1f-492f-9ac5-8bbaa67b5250"
       ]
     },
     {
@@ -28,7 +28,7 @@
       "aisle": "Protein",
       "checked": false,
       "fromMealIds": [
-        "a4ae8261-2d9f-438e-8bea-32fbcba7e8e9"
+        "ec906825-ca28-4540-b55c-5ec6be601aec"
       ]
     },
     {
@@ -38,7 +38,7 @@
       "aisle": "Pantry",
       "checked": false,
       "fromMealIds": [
-        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+        "27f80b00-9a1f-492f-9ac5-8bbaa67b5250"
       ]
     },
     {
@@ -48,7 +48,7 @@
       "aisle": "Other",
       "checked": false,
       "fromMealIds": [
-        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+        "27f80b00-9a1f-492f-9ac5-8bbaa67b5250"
       ]
     },
     {
@@ -58,7 +58,7 @@
       "aisle": "Other",
       "checked": false,
       "fromMealIds": [
-        "8a88f890-5cba-4353-96a7-64ce6c70fbaa"
+        "27f80b00-9a1f-492f-9ac5-8bbaa67b5250"
       ]
     }
   ],

@@ -173,8 +173,10 @@ export async function vanaChatNdjson(userId: string, body: NdjsonChatBody): Prom
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
       try {
+        let textBlocks = 0;   // each step's text is its own block in the transcript; a newline keeps them apart when the client concatenates deltas
         for await (const part of run.result.fullStream) {
-          if (part.type === "text-delta") controller.enqueue(line({ type: "text", delta: part.text }));
+          if (part.type === "text-start") { if (textBlocks++ > 0) controller.enqueue(line({ type: "text", delta: "\n" })); }
+          else if (part.type === "text-delta") controller.enqueue(line({ type: "text", delta: part.text }));
           else if (part.type === "tool-input-start") controller.enqueue(line({ type: "status", tool: part.toolName }));
           else if (part.type === "tool-result") { const out = (part as { output?: unknown }).output; if (out && typeof out === "object" && "kind" in (out as object)) controller.enqueue(line({ type: "ui", part: out as VanaPart })); }
           else if (part.type === "error") controller.enqueue(line({ type: "error", message: errorMessage(part.error) }));

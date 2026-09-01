@@ -1,18 +1,18 @@
 {
   "status": 200,
   "headers": {
-    "x-conversation-id": "9b3e44e0-06ff-415e-901d-872cd01c84cb",
+    "x-conversation-id": "1a3996c2-d4fa-480f-a3dd-fb68ba6fefa5",
     "x-vana-kind": "general",
     "content-type": "application/x-ndjson; charset=utf-8"
   },
   "lines": [
     {
       "type": "text",
-      "delta": "I need"
+      "delta": "I'll pull"
     },
     {
       "type": "text",
-      "delta": " to check what you have scheduled tomorrow and your profile to give you solid guidance."
+      "delta": " together your profile, tomorrow's workout, and macro targets to give you a pre-session frame."
     },
     {
       "type": "status",
@@ -23,22 +23,34 @@
       "tool": "getWorkouts"
     },
     {
-      "type": "text",
-      "delta": "You"
+      "type": "status",
+      "tool": "getMacroTargets"
     },
     {
       "type": "text",
-      "delta": " don't have a workout scheduled for tomorrow (Sept 2). Did you mean a different day, or are you planning a session"
+      "delta": "\n"
     },
     {
       "type": "text",
-      "delta": " that hasn't been added to your calendar yet?"
+      "delta": "I"
+    },
+    {
+      "type": "text",
+      "delta": " don't see a workout logged for tomorrow (September 2). Can you tell me what session you're planning—distance, intensity, and"
+    },
+    {
+      "type": "text",
+      "delta": " how far out it is from when you'd eat? That'll help me point you to the right pre"
+    },
+    {
+      "type": "text",
+      "delta": "-session meal timing and size."
     },
     {
       "type": "done",
       "usage": {
-        "input_tokens": 6056,
-        "output_tokens": 130
+        "input_tokens": 6192,
+        "output_tokens": 220
       }
     }
   ]

@@ -1,7 +1,7 @@
 {
   "status": 200,
   "headers": {
-    "x-conversation-id": "62addf5c-5e43-4d1a-9609-ea441bd26ad3",
+    "x-conversation-id": "a73f6db2-352e-4d92-bad1-defd605d4516",
     "x-vana-kind": "meal_planning",
     "content-type": "application/x-ndjson; charset=utf-8"
   },
@@ -128,29 +128,29 @@
     },
     {
       "type": "text",
-      "delta": " week"
+      "delta": " is a"
     },
     {
       "type": "text",
-      "delta": " is full rest — you'll focus on fueling everyday meals without training stress"
+      "delta": " rest week — your body gets time to recover while you maintain your daily carbs (at"
     },
     {
       "type": "text",
-      "delta": ". All three dinners are vegetarian staples that batch well and swap easily: your saved"
+      "delta": " least 336g) and protein (at least 117g). All three dinners are batch-friendly plant-based bases you can prep once and eat"
     },
     {
       "type": "text",
-      "delta": " Egg & Veggie Scramble, a plant-based bowl formula, and David Rother's wholewheat pasta base — tap any to add it"
+      "delta": " across the week: wheatberries with white beans and hummus, wholewheat pasta with vegetables and avocado, or your saved egg and"
     },
     {
       "type": "text",
-      "delta": " to your plan."
+      "delta": " veggie scramble — tap any to add it to the plan."
     },
     {
       "type": "done",
       "usage": {
-        "input_tokens": 11736,
-        "output_tokens": 157
+        "input_tokens": 11764,
+        "output_tokens": 181
       }
     }
   ]

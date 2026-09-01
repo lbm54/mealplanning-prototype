@@ -35,7 +35,7 @@
       "frequency": "staple",
       "icon": "beans",
       "myVote": 0,
-      "lastUsedAt": "2026-09-01T12:46:35.134048+00:00"
+      "lastUsedAt": "2026-09-01T12:50:58.631888+00:00"
     },
     {
       "source": "saved",
@@ -62,7 +62,83 @@
       "frequency": null,
       "icon": "egg",
       "myVote": 0,
-      "lastUsedAt": "2026-09-01T12:46:34.529133+00:00"
+      "lastUsedAt": "2026-09-01T12:50:58.094761+00:00"
+    },
+    {
+      "source": "library",
+      "id": "AD-014",
+      "name": "Wholewheat pasta, mixed veg & avocado",
+      "mealType": "dinner",
+      "contexts": [
+        "everyday",
+        "recovery"
+      ],
+      "batch": true,
+      "prepMinutes": 20,
+      "kcal": 520,
+      "carbsG": 75,
+      "proteinG": 15,
+      "fatG": 18,
+      "allergens": [
+        "gluten"
+      ],
+      "dietsOk": [
+        "mediterranean",
+        "omnivore",
+        "pescatarian",
+        "vegan",
+        "vegetarian"
+      ],
+      "swaps": "pasta→rice or quinoa; avocado→nuts or seeds",
+      "why": "his dinner base is \"rice, quinoa or wholewheat pasta\" with vegetables \"heated in whatever way is easiest\" plus \"an avocado, nuts, or seeds\"",
+      "attribution": "David Rother, pro triathlete, \"What I Eat In A Day\" — https://www.sundried.com/blogs/nutrition/what-i-eat-in-a-day-david-rother-pro-triathlete",
+      "attributionShort": "David Rother, pro triathlete, \"What I…",
+      "ingredients": "wholewheat pasta, cooked 200 g, mixed vegetables, steamed 200 g, avocado 0.5",
+      "libraryMealId": "AD-014",
+      "score": 1,
+      "kind": "assembly",
+      "pattern": "starch + veg + fat",
+      "frequency": "staple",
+      "icon": "pasta",
+      "myVote": 0,
+      "lastUsedAt": "2026-09-01T12:48:55.907722+00:00"
+    },
+    {
+      "source": "library",
+      "id": "AD-016",
+      "name": "Rice, mixed veg & sunflower seeds",
+      "mealType": "dinner",
+      "contexts": [
+        "everyday",
+        "recovery"
+      ],
+      "batch": true,
+      "prepMinutes": 20,
+      "kcal": 520,
+      "carbsG": 80,
+      "proteinG": 12,
+      "fatG": 14,
+      "allergens": [],
+      "dietsOk": [
+        "mediterranean",
+        "omnivore",
+        "pescatarian",
+        "vegan",
+        "vegetarian"
+      ],
+      "swaps": "rice→quinoa or wholewheat pasta; seeds→avocado or nuts",
+      "why": "his dinner base is \"rice, quinoa or wholewheat pasta\" with vegetables \"heated in whatever way is easiest\" plus \"an avocado, nuts, or seeds\"",
+      "attribution": "David Rother, pro triathlete, \"What I Eat In A Day\" — https://www.sundried.com/blogs/nutrition/what-i-eat-in-a-day-david-rother-pro-triathlete",
+      "attributionShort": "David Rother, pro triathlete, \"What I…",
+      "ingredients": "white rice, cooked 250 g, mixed vegetables, steamed 200 g, sunflower seeds 20 g",
+      "libraryMealId": "AD-016",
+      "score": 1,
+      "kind": "assembly",
+      "pattern": "starch + veg + fat",
+      "frequency": "staple",
+      "icon": "bowl",
+      "myVote": 0,
+      "lastUsedAt": "2026-09-01T12:48:54.694035+00:00"
     },
     {
       "source": "library",
@@ -99,78 +175,6 @@
       "icon": "tofu",
       "myVote": 0,
       "lastUsedAt": "2026-08-31T14:28:08.179769+00:00"
-    },
-    {
-      "source": "library",
-      "id": "AL-111",
-      "name": "Rice, black beans, lentils & mixed veg plate",
-      "mealType": "lunch",
-      "contexts": [
-        "everyday"
-      ],
-      "batch": true,
-      "prepMinutes": 20,
-      "kcal": 600,
-      "carbsG": 90,
-      "proteinG": 26,
-      "fatG": 12,
-      "allergens": [],
-      "dietsOk": [
-        "omnivore",
-        "pescatarian",
-        "vegan",
-        "vegetarian"
-      ],
-      "swaps": "lentils→chickpeas; add fruit on the side",
-      "why": "diet described as \"a steady dose of fruits, vegetables, rice, beans and lentils\" that fuelled his shift to ultrarunning",
-      "attribution": "Trevor Fuchs, vegan ultrarunner, quoted at https://www.runspirited.com/single-post/2020/08/01/vegan-meals-for-ultra-runners",
-      "attributionShort": "Trevor Fuchs, vegan ultrarunner,…",
-      "ingredients": "white rice, cooked 200 g, black beans 1/2 cup, cooked green lentils 1/2 cup, steamed mixed vegetables 1.5 cups, olive oil 1 tbsp",
-      "libraryMealId": "AL-111",
-      "score": 1,
-      "kind": "assembly",
-      "pattern": "grain + bean + lentil + veg",
-      "frequency": "staple",
-      "icon": "beans",
-      "myVote": 0,
-      "lastUsedAt": "2026-08-31T14:02:26.426272+00:00"
-    },
-    {
-      "source": "library",
-      "id": "AL-101",
-      "name": "Greens, black beans, brown rice & tahini bowl",
-      "mealType": "lunch",
-      "contexts": [
-        "everyday"
-      ],
-      "batch": false,
-      "prepMinutes": 15,
-      "kcal": 560,
-      "carbsG": 68,
-      "proteinG": 22,
-      "fatG": 20,
-      "allergens": [
-        "sesame"
-      ],
-      "dietsOk": [
-        "omnivore",
-        "pescatarian",
-        "vegan",
-        "vegetarian"
-      ],
-      "swaps": "beans→chickpeas; rice→quinoa; add avocado for extra fat",
-      "why": "\"a grain, a green, and a bean\" — Frazier's stated lunch formula: big bowl of greens, beans, other veg, topped with a nut-based dressing like tahini; adds whole grains like rice, quinoa or whole wheat bread to make it filling",
-      "attribution": "Matt Frazier, No Meat Athlete — https://sharonpalmer.com/plant-chat-matt-frazier-no-meat-athlete/ ; https://www.forksoverknives.com/wellness/meet-matt-frazier-vegan-ultrarunner-behind-no-meat-athlete/",
-      "attributionShort": "Matt Frazier, No Meat Athlete",
-      "ingredients": "mixed salad greens 2 cups, black beans 1 cup, brown rice, cooked 150 g, shredded carrot 1/2 cup, tahini dressing (tahini, lemon, water) 2 tbsp",
-      "libraryMealId": "AL-101",
-      "score": 1,
-      "kind": "assembly",
-      "pattern": "green + bean + grain + sauce",
-      "frequency": "staple",
-      "icon": "beans",
-      "myVote": 0,
-      "lastUsedAt": "2026-08-31T14:02:25.716896+00:00"
     }
   ]
 }
