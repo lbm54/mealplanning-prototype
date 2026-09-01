@@ -14,5 +14,6 @@ behind the two libraries stays in `mealvana_endurance/docs/new_mealplanning/`.
 | `direction-results/` | agent runs | `apply_agent_directions.mjs` |
 | `meal-images.json` | `find_meal_images.mjs` (Wikimedia Commons) | report only |
 | `recipe-steps.json` (absent) | hand/agent-written `[{id, steps[]}]` | `backfill_recipe_steps.mjs` |
+| `meal-library.snapshot.json` | `export_meal_library.mjs` (every `meal_library` row from the env's project, all columns but `embedding`/`search_text`) | `seed_meal_library.mjs --snapshot` — the one-command seed for another project (embeds rows lacking one, refreshes `meal_library_pairs`) |
 
 Every script takes `--env <file>` (default `packages/web/.env.local`) and `--dry`.

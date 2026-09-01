@@ -5,7 +5,10 @@
 // then refresh meal_library_pairs. Idempotent (upsert on id). Embeddings (openai/text-embedding-3-small via
 // Vercel AI Gateway) are computed only for rows that don't have one yet, unless --reembed.
 //
-// Run:  node scripts/seed_meal_library.mjs [--env <file>] [--reembed] [--dry]
+// --snapshot: seed from data/meal-library.snapshot.json instead (every column as exported from dev by
+// scripts/export_meal_library.mjs — directions, images, icons and all). This is the one-command prod seed.
+//
+// Run:  node scripts/seed_meal_library.mjs [--env <file>] [--reembed] [--dry] [--snapshot [<file>]]
 // Env (from --env file or process.env): SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, AI_GATEWAY_API_KEY
 // Default --env: packages/web/.env.local.
 import fs from 'node:fs';
@@ -28,7 +31,8 @@ const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, AI_GATEWAY_API_KEY } = process.
 for (const [k, v] of Object.entries({ SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, AI_GATEWAY_API_KEY }))
   if (!v) { console.error('Missing env ' + k); process.exit(1); }
 const EMBED_MODEL = process.env.VANA_EMBED_MODEL || 'openai/text-embedding-3-small';
-const DRY = flag('--dry'), REEMBED = flag('--reembed');
+const DRY = flag('--dry'), REEMBED = flag('--reembed'), SNAPSHOT = flag('--snapshot');
+const SNAPSHOT_FILE = (() => { const i = args.indexOf('--snapshot'); const n = i >= 0 ? args[i + 1] : null; return n && !n.startsWith('--') ? n : path.join(ROOT, 'data/meal-library.snapshot.json'); })();
 const LIB400 = path.join(ROOT, 'data/meal-library-400.json');
 const LIBASM = path.join(ROOT, 'data/assembly-library.json');
 
@@ -71,6 +75,15 @@ const isAssembly = (m) => ingredientsJson(m.ingredients).length <= 6 && (prepMin
 const embedText = (r) => `${r.meal_type}: ${r.name}. ${r.why || ''} Ingredients: ${r.ingredients}. Contexts: ${(r.contexts || []).join(', ')}. Cuisine: ${r.cuisine || ''}. ${r.batch ? 'Batch-cookable.' : ''}`;
 
 // ---- build rows
+let all;
+if (SNAPSHOT) {
+  const snap = JSON.parse(fs.readFileSync(SNAPSHOT_FILE, 'utf8'));
+  const cols = snap.columns.filter((c) => c !== 'embedding' && c !== 'search_text');
+  // identical keys on every object (PostgREST batch upsert); the snapshot never carries embedding/search_text
+  all = snap.rows.map((r) => Object.fromEntries(cols.map((c) => [c, r[c] === undefined ? null : r[c]])));
+  console.log(`snapshot ${path.relative(process.cwd(), SNAPSHOT_FILE)} — exported ${snap.exported_at} from ${snap.project}: ${all.length} rows, ${cols.length} columns`);
+  if (DRY) { console.log('kinds:', all.reduce((a, r) => ((a[r.kind] = (a[r.kind] || 0) + 1), a), {})); process.exit(0); }
+} else {
 const lib400 = JSON.parse(fs.readFileSync(LIB400, 'utf8'));
 const rows400 = lib400.map((m) => ({
   id: m.id, kind: isAssembly(m) ? 'assembly' : 'recipe', name: m.name, meal_type: m.meal_type, contexts: m.context || [], cuisine: m.cuisine || null,
@@ -97,10 +110,11 @@ const rowsAsm = libAsm.map((a) => {
 
 const COLS = ['id','kind','shard_id','name','meal_type','contexts','cuisine','ingredients','ingredients_json','diets_ok','excluded_diets','allergens','swaps','kcal','carbs_g','protein_g','fat_g','prep','prep_minutes','batch','servings','source','why','pattern','frequency','evidence','reconstructed_from_snippet','is_active','updated_at'];
 const normalize = (r) => Object.fromEntries(COLS.map((c) => [c, r[c] === undefined ? (c === 'reconstructed_from_snippet' ? false : null) : r[c]]));
-const all = [...rows400, ...rowsAsm].map(normalize);  // PostgREST batch upsert requires identical keys on every object
-const ids = new Set(); for (const r of all) { if (ids.has(r.id)) { console.error('duplicate id ' + r.id); process.exit(1); } ids.add(r.id); }
+all = [...rows400, ...rowsAsm].map(normalize);  // PostgREST batch upsert requires identical keys on every object
 console.log(`400-library: ${rows400.filter((r) => r.kind === 'assembly').length} assembly / ${rows400.filter((r) => r.kind === 'recipe').length} recipe; assembly-library: ${rowsAsm.length}; total ${all.length}`);
 if (DRY) { console.log('reclassified as assembly (first 30):', rows400.filter((r) => r.kind === 'assembly').slice(0, 30).map((r) => r.name)); process.exit(0); }
+}
+const ids = new Set(); for (const r of all) { if (ids.has(r.id)) { console.error('duplicate id ' + r.id); process.exit(1); } ids.add(r.id); }
 
 // ---- embeddings: only rows without one (or all with --reembed)
 const have = new Set();
