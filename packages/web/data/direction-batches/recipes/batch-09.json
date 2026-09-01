@@ -1,0 +1,251 @@
+{
+ "batch": "R-09",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "D-077",
+   "name": "Turkey burger with sweet-potato fries",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "ground turkey 180g, burger bun 1, sweet potato 250g, olive oil 1 tbsp, lettuce, tomato (makes 4)",
+   "prep": "batch — patties and fries bake together, 4 servings",
+   "prepMinutes": null,
+   "attribution": "commonly reported weeknight athlete-household staple; sweet-potato fries widely recommended by sports dietitians as the baked \"fries upgrade\"",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-078",
+   "name": "Lentil-mushroom burgers with mashed potatoes",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "cooked lentils 200g, mushrooms 150g, breadcrumbs 50g, burger bun 1, potatoes 300g mashed with olive oil (makes 4)",
+   "prep": "batch — patties freeze well, 4 servings",
+   "prepMinutes": null,
+   "attribution": "Scott Jurek's \"Lentil Mushroom Burgers\" and \"Minnesota Mashed Potatoes\", Eat & Run http://www.scottjurek.com/eat",
+   "sourceUrl": "http://www.scottjurek.com/eat",
+   "cachedPages": [
+    {
+     "url": "http://www.scottjurek.com/eat",
+     "title": "Eat — Scott Jurek",
+     "ok": true,
+     "textFile": ".cache/source-pages/d918127e4594ce3a5b67bb464a3c5db5cdbfb6e1.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-079",
+   "name": "Beef burger with grilled corn & salad",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "beef patty 180g, burger bun 1, corn on the cob 1, mixed salad 100g, tomato, onion",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "commonly reported summer grill-night staple; Mirinda Carfrae's stated post-Kona recovery meal — \"dirty burger and wine\", si.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-081",
+   "name": "Tri-tip steak with roasted broccoli",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "tri-tip or sirloin steak 200g, broccoli 250g, olive oil 2 tbsp, garlic 2 cloves, salt",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "Zach Bitter's reported favourite dinner (100-mile American record holder, low-carb) — Men's Journal https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs",
+   "sourceUrl": "https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs",
+   "cachedPages": [
+    {
+     "url": "https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-083",
+   "name": "Cauliflower-rice chicken stir-fry",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "chicken thigh 200g, cauliflower rice 300g, mixed peppers 100g, coconut aminos 2 tbsp, sesame oil 1 tsp, garlic, ginger",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "commonly reported low-carb/paleo takeout swap (r/ketoendurance, r/paleo norm; Bob Seebohar metabolic-efficiency framing)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-084",
+   "name": "Roasted vegetable & halloumi traybake",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "halloumi 150g, courgette 1, red onion 1, bell peppers 2, cherry tomatoes 150g, olive oil 2 tbsp, oregano",
+   "prep": "30 min, mostly hands-off",
+   "prepMinutes": 30,
+   "attribution": "commonly reported Mediterranean-style rest-day dinner in endurance-nutrition blog content",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-085",
+   "name": "Steak fajita salad with avocado",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "sirloin steak 200g, mixed greens 150g, bell pepper 1, avocado ½, lime, olive oil 1 tbsp, cumin",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "commonly reported low-carb/keto athlete rest-day dinner; steak tacos with pico & guac from u/Prudent_Exercise_471, r/Ultramarathon",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-086",
+   "name": "Grilled branzino with lemon & grilled vegetables",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "whole branzino or sea bass fillet 200g, lemon 1, olive oil 1 tbsp, courgette and peppers 200g grilled",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "commonly reported Greek/Italian triathlete dinner (Mediterranean-diet-for-athletes overviews) https://www.recoveryforathletes.com/blogs/recovery-for-athletes-blog/mediterranean-diet-for-athletes-boost-performance-health-and-longevity",
+   "sourceUrl": "https://www.recoveryforathletes.com/blogs/recovery-for-athletes-blog/mediterranean-diet-for-athletes-boost-performance-health-and-longevity",
+   "cachedPages": [
+    {
+     "url": "https://www.recoveryforathletes.com/blogs/recovery-for-athletes-blog/mediterranean-diet-for-athletes-boost-performance-health-and-longevity",
+     "title": "Mediterranean Diet for Athletes: Boost Performance, Health, and Longev",
+     "ok": true,
+     "textFile": ".cache/source-pages/04611617abf21caf5872ee3f187c8bc2918121de.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-087",
+   "name": "Salmon, roasted sweet potato & asparagus",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "salmon fillet 170g, sweet potato 250g, asparagus 150g, olive oil 1 tbsp, lemon",
+   "prep": "30 min",
+   "prepMinutes": 30,
+   "attribution": "Stephanie Howe, PhD — her reported pre-100-mile dinner (salmon, rice, sweet potato) https://www.si.com/edge/2017/07/17/stephanie-howe-ultramarathoner-diet-nutrition-donuts ; Fuelin coaching template https://fuelin.com/articles/race-ready-your-nutrition-playbook-for-endurance-success",
+   "sourceUrl": "https://www.si.com/edge/2017/07/17/stephanie-howe-ultramarathoner-diet-nutrition-donuts",
+   "cachedPages": [
+    {
+     "url": "https://www.si.com/edge/2017/07/17/stephanie-howe-ultramarathoner-diet-nutrition-donuts",
+     "title": "Ultramarathoner Stephanie Howe shares her simple secrets for superb nutrition",
+     "ok": true,
+     "textFile": ".cache/source-pages/c989cb8837d699721fb07531f12e1643c8737068.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://fuelin.com/articles/race-ready-your-nutrition-playbook-for-endurance-success",
+     "title": "Fuelin",
+     "ok": true,
+     "textFile": ".cache/source-pages/d65e22691c87f03f026a3f46faab901e0585e4b9.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-088",
+   "name": "Ground beef & sweet potato bowl with greens",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "ground beef 200g, sweet potato 250g roasted, spinach or kale 100g, olive oil 1 tbsp, salt (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "\"Ground Beef Protein Bowls\" — The Paleo Diet, \"post-workout recovery\" recipes https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "sourceUrl": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+     "title": "Paleo Recipes for Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/d8282c2b8dc0ecbdfc92df439e27ee5ebd732c5f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-089",
+   "name": "Olive-oil roasted vegetables with white beans & feta",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "courgette, aubergine, bell pepper and red onion 350g, olive oil 2 tbsp, cannellini beans 200g, feta 40g (makes 4)",
+   "prep": "batch — roast a tray, 4 servings",
+   "prepMinutes": null,
+   "attribution": "commonly reported Mediterranean rest-day dinner (Mediterranean-diet-for-athletes overviews, high-plant-food pattern)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-092",
+   "name": "Brown rice, mixed pulses & steamed vegetables",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "brown rice 90g dry, lentils and chickpeas 150g cooked, steamed vegetables 200g, olive oil 1 tbsp, salt, lemon (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "Fiona Oakes' described post-race staple — \"plenty of carbs, rice, pasta and pulses\" — veganeasy.org, forksoverknives.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-093",
+   "name": "Baked sweet potato with black beans, corn & hot sauce",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "sweet potato 350g baked, black beans 200g, corn 80g, hot sauce, lime, avocado ¼",
+   "prep": "batch — bake 6 potatoes at once, top nightly",
+   "prepMinutes": null,
+   "attribution": "mattymurda, TrainerRoad forum \"Canned corn and black beans, my cheap but effective training fuel\" https://www.trainerroad.com/forum/t/canned-corn-and-black-beans-my-cheap-but-effective-training-fuel-source/13689/6",
+   "sourceUrl": "https://www.trainerroad.com/forum/t/canned-corn-and-black-beans-my-cheap-but-effective-training-fuel-source/13689/6",
+   "cachedPages": [
+    {
+     "url": "https://www.trainerroad.com/forum/t/canned-corn-and-black-beans-my-cheap-but-effective-training-fuel-source/13689/6",
+     "title": "Canned Corn and Black Beans - My Cheap, but Effective Training Fuel Source",
+     "ok": true,
+     "textFile": ".cache/source-pages/e0b76e3c67d1eb909bb9ddd07255d29be0827645.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-094",
+   "name": "Quinoa, baked tofu & roast veg bowl with avocado-lime dressing",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "quinoa 80g dry, baked tofu 150g, roasted sweet potato 150g, spinach, pepper and cucumber 150g, avocado-lime dressing 2 tbsp (makes 4)",
+   "prep": "batch — roast veg and cook quinoa ahead, 4 servings",
+   "prepMinutes": null,
+   "attribution": "Paula Findlay's 7pm dinner — triathlonmagazine.ca ; Kylee Van Horn, RDN (FlyNutrition) balsamic tempeh bowl https://flynutrition.org/about",
+   "sourceUrl": "https://flynutrition.org/about",
+   "cachedPages": [
+    {
+     "url": "https://flynutrition.org/about",
+     "title": "Kylee Van Horn, RDN - FlyNutrition's Ultra Running Dietitian",
+     "ok": true,
+     "textFile": ".cache/source-pages/f85f5d99d3f90e680d334fe480535298b18b1d25.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

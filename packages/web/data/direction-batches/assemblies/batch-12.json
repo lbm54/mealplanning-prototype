@@ -1,0 +1,1447 @@
+{
+ "batch": "A-12",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AS-189",
+   "name": "Rice crackers with string cheese",
+   "mealType": "snack",
+   "pattern": "starch + dairy",
+   "components": [
+    "rice crackers, plain (20 crackers (34g))",
+    "string cheese (1 stick (28g))"
+   ],
+   "ingredients": "rice crackers, plain 20 crackers (34g), string cheese 1 stick (28g)",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-190",
+   "name": "Orange with almonds",
+   "mealType": "snack",
+   "pattern": "fruit + fat",
+   "components": [
+    "orange (1 medium)",
+    "almonds (10 whole)"
+   ],
+   "ingredients": "orange 1 medium, almonds 10 whole",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-191",
+   "name": "Banana chips, unsweetened",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "banana chips, unsweetened (15 chips)"
+   ],
+   "ingredients": "banana chips, unsweetened 15 chips",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-192",
+   "name": "Unripe banana, plain",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "banana, slightly under-ripe (1 medium)"
+   ],
+   "ingredients": "banana, slightly under-ripe 1 medium",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-193",
+   "name": "Dried pineapple, plain",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "dried pineapple, unsweetened (40 g)"
+   ],
+   "ingredients": "dried pineapple, unsweetened 40 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-194",
+   "name": "Hard-boiled egg, plain",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "hard-boiled egg (1 large)"
+   ],
+   "ingredients": "hard-boiled egg 1 large",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-195",
+   "name": "Low-lactose cheese, plain",
+   "mealType": "snack",
+   "pattern": "dairy",
+   "components": [
+    "Swiss or Parmesan cheese (30 g)"
+   ],
+   "ingredients": "Swiss or Parmesan cheese 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-196",
+   "name": "Chocolate milk, lactose-free",
+   "mealType": "snack",
+   "pattern": "drink",
+   "components": [
+    "lactose-free chocolate milk (350 ml)"
+   ],
+   "ingredients": "lactose-free chocolate milk 350 ml",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-197",
+   "name": "Yoghurt with kiwi",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "lactose-free yoghurt (170 g)",
+    "kiwi fruit (1, sliced)"
+   ],
+   "ingredients": "lactose-free yoghurt 170 g, kiwi fruit 1, sliced",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-198",
+   "name": "Rice crackers with cheddar and marmalade",
+   "mealType": "snack",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "gluten-free rice crackers (6)",
+    "cheddar cheese (20 g)",
+    "marmalade (1 tsp)"
+   ],
+   "ingredients": "gluten-free rice crackers 6, cheddar cheese 20 g, marmalade 1 tsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-199",
+   "name": "Sweet potato chips, baked",
+   "mealType": "snack",
+   "pattern": "starch",
+   "components": [
+    "sweet potato chips, baked with olive oil (40 g)"
+   ],
+   "ingredients": "sweet potato chips, baked with olive oil 40 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-200",
+   "name": "Vegetable sticks with peanut butter dip",
+   "mealType": "snack",
+   "pattern": "veg + fat",
+   "components": [
+    "carrot and cucumber sticks (150 g)",
+    "peanut butter (1.5 tbsp)"
+   ],
+   "ingredients": "carrot and cucumber sticks 150 g, peanut butter 1.5 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-202",
+   "name": "Post-run recovery bowl, low-FODMAP",
+   "mealType": "snack",
+   "pattern": "starch + fruit + fat + dairy",
+   "components": [
+    "gluten-free oats, cooked (1/2 cup)",
+    "banana, unripe (1/2)",
+    "peanut butter (1 tbsp)",
+    "lactose-free milk (100 ml)"
+   ],
+   "ingredients": "gluten-free oats, cooked 1/2 cup, banana, unripe 1/2, peanut butter 1 tbsp, lactose-free milk 100 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-203",
+   "name": "Fody granola bar, plain",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "low-FODMAP certified granola bar (e.g. Fody) (1 bar (40g))"
+   ],
+   "ingredients": "low-FODMAP certified granola bar (e.g. Fody) 1 bar (40g)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-204",
+   "name": "Bobo's oat bar, peanut butter",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "Bobo's oat bar, peanut butter flavour (1 bar)"
+   ],
+   "ingredients": "Bobo's oat bar, peanut butter flavour 1 bar",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-205",
+   "name": "Pear with almond butter",
+   "mealType": "snack",
+   "pattern": "fruit + fat",
+   "components": [
+    "pear (1 medium)",
+    "almond butter (1.5 tbsp)"
+   ],
+   "ingredients": "pear 1 medium, almond butter 1.5 tbsp",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-206",
+   "name": "Grapes, plain, quick fuel",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "grapes (150 g)"
+   ],
+   "ingredients": "grapes 150 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-207",
+   "name": "Raisins, plain",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "raisins (40 g)"
+   ],
+   "ingredients": "raisins 40 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-208",
+   "name": "Baked sweet potato with nut butter",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "sweet potato, baked (1 small)",
+    "almond butter (1 tbsp)"
+   ],
+   "ingredients": "sweet potato, baked 1 small, almond butter 1 tbsp",
+   "prep": "5 min (or reheat)"
+  },
+  {
+   "id": "AS-209",
+   "name": "GF oat bowl with berries, walnuts & chia",
+   "mealType": "snack",
+   "pattern": "starch + fruit + fat",
+   "components": [
+    "certified gluten-free oats, cooked (1/2 cup)",
+    "mixed berries (80 g)",
+    "walnuts, chopped (1 tbsp)",
+    "chia seeds (1 tsp)"
+   ],
+   "ingredients": "certified gluten-free oats, cooked 1/2 cup, mixed berries 80 g, walnuts, chopped 1 tbsp, chia seeds 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-210",
+   "name": "Cottage cheese with mixed berries",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "cottage cheese (170 g)",
+    "mixed berries (100 g)"
+   ],
+   "ingredients": "cottage cheese 170 g, mixed berries 100 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-211",
+   "name": "Mixed nuts, unsalted, plain",
+   "mealType": "snack",
+   "pattern": "fat",
+   "components": [
+    "mixed nuts, unsalted (30 g)"
+   ],
+   "ingredients": "mixed nuts, unsalted 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-212",
+   "name": "Greek yogurt with banana & almonds",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + fat",
+   "components": [
+    "Greek yogurt (170 g)",
+    "banana (1/2)",
+    "sliced almonds (1 tbsp)"
+   ],
+   "ingredients": "Greek yogurt 170 g, banana 1/2, sliced almonds 1 tbsp",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-213",
+   "name": "Nuts stirred into yogurt",
+   "mealType": "snack",
+   "pattern": "dairy + fat",
+   "components": [
+    "plain yogurt (170 g)",
+    "mixed nuts, chopped (20 g)"
+   ],
+   "ingredients": "plain yogurt 170 g, mixed nuts, chopped 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-214",
+   "name": "Cold quinoa with dried cranberries",
+   "mealType": "snack",
+   "pattern": "starch + fruit",
+   "components": [
+    "quinoa, cooked, cold (150 g)",
+    "dried cranberries (2 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked, cold 150 g, dried cranberries 2 tbsp",
+   "prep": "0 min (batch-cooked)"
+  },
+  {
+   "id": "AS-215",
+   "name": "Gluten-free protein bar, plain",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "gluten-free protein bar (e.g. Clif, Think!, KIND) (1 bar)"
+   ],
+   "ingredients": "gluten-free protein bar (e.g. Clif, Think!, KIND) 1 bar",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-216",
+   "name": "Nairn's GF oat biscuits, plain",
+   "mealType": "snack",
+   "pattern": "starch",
+   "components": [
+    "certified gluten-free oat biscuits (e.g. Nairn's Oaties) (2 biscuits)"
+   ],
+   "ingredients": "certified gluten-free oat biscuits (e.g. Nairn's Oaties) 2 biscuits",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-217",
+   "name": "BAR50-style high-carb GF bar, plain",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "gluten-free high-carb sports bar (e.g. Styrkr BAR50) (1 bar)"
+   ],
+   "ingredients": "gluten-free high-carb sports bar (e.g. Styrkr BAR50) 1 bar",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-218",
+   "name": "Corn chips with salsa",
+   "mealType": "snack",
+   "pattern": "starch + veg",
+   "components": [
+    "organic corn tortilla chips (40 g)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "organic corn tortilla chips 40 g, salsa 3 tbsp",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-219",
+   "name": "GF pretzels with carrots and almond butter",
+   "mealType": "snack",
+   "pattern": "starch + veg + fat",
+   "components": [
+    "gluten-free pretzels (30 g)",
+    "carrot sticks (80 g)",
+    "almond butter (1 tbsp)"
+   ],
+   "ingredients": "gluten-free pretzels 30 g, carrot sticks 80 g, almond butter 1 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-220",
+   "name": "Jicama strips with lime and cayenne",
+   "mealType": "snack",
+   "pattern": "veg + other",
+   "components": [
+    "jicama, cut into strips (150 g)",
+    "lime juice (1 tbsp)",
+    "cayenne pepper (pinch)"
+   ],
+   "ingredients": "jicama, cut into strips 150 g, lime juice 1 tbsp, cayenne pepper pinch",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-221",
+   "name": "Turkey and cream cheese roll-ups",
+   "mealType": "snack",
+   "pattern": "protein + dairy",
+   "components": [
+    "sliced turkey breast (100 g)",
+    "cream cheese (2 tbsp)"
+   ],
+   "ingredients": "sliced turkey breast 100 g, cream cheese 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-222",
+   "name": "Turkey and cheese lettuce wraps",
+   "mealType": "snack",
+   "pattern": "protein + dairy + veg",
+   "components": [
+    "sliced turkey breast (100 g)",
+    "sliced cheddar (30 g)",
+    "lettuce leaves (3 large)"
+   ],
+   "ingredients": "sliced turkey breast 100 g, sliced cheddar 30 g, lettuce leaves 3 large",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-223",
+   "name": "Tuna salad with GF crackers",
+   "mealType": "snack",
+   "pattern": "protein + starch",
+   "components": [
+    "tuna, canned in water, mashed with mayo (85 g)",
+    "gluten-free crackers (8)"
+   ],
+   "ingredients": "tuna, canned in water, mashed with mayo 85 g, gluten-free crackers 8",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-224",
+   "name": "Kale chips, plain",
+   "mealType": "snack",
+   "pattern": "veg",
+   "components": [
+    "kale chips, baked with olive oil and salt (30 g)"
+   ],
+   "ingredients": "kale chips, baked with olive oil and salt 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-225",
+   "name": "Beef jerky with kale chips",
+   "mealType": "snack",
+   "pattern": "protein + veg",
+   "components": [
+    "beef jerky, plain (30 g)",
+    "kale chips, baked (20 g)"
+   ],
+   "ingredients": "beef jerky, plain 30 g, kale chips, baked 20 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-226",
+   "name": "Nut & seed GF energy bar (homemade)",
+   "mealType": "snack",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "puffed rice (20 g)",
+    "sesame seeds (1 tbsp)",
+    "hazelnuts, chopped (15 g)",
+    "dried apricots (20 g)",
+    "tahini (1 tbsp)"
+   ],
+   "ingredients": "puffed rice 20 g, sesame seeds 1 tbsp, hazelnuts, chopped 15 g, dried apricots 20 g, tahini 1 tbsp",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AS-227",
+   "name": "GF berry granola, nut-free",
+   "mealType": "snack",
+   "pattern": "starch + fruit + other",
+   "components": [
+    "pumpkin seeds (20 g)",
+    "sunflower seeds (15 g)",
+    "quinoa flakes (20 g)",
+    "dried blueberries (20 g)",
+    "dried cranberries (15 g)"
+   ],
+   "ingredients": "pumpkin seeds 20 g, sunflower seeds 15 g, quinoa flakes 20 g, dried blueberries 20 g, dried cranberries 15 g",
+   "prep": "20 min (batch bake)"
+  },
+  {
+   "id": "AS-228",
+   "name": "GF oat, honey & coconut energy balls",
+   "mealType": "snack",
+   "pattern": "starch + other + fat",
+   "components": [
+    "certified gluten-free oats (40 g)",
+    "honey (1 tbsp)",
+    "shredded coconut (1 tbsp)"
+   ],
+   "ingredients": "certified gluten-free oats 40 g, honey 1 tbsp, shredded coconut 1 tbsp",
+   "prep": "10 min (batch, no-bake)"
+  },
+  {
+   "id": "AS-229",
+   "name": "Half banana with Medjool dates",
+   "mealType": "snack",
+   "pattern": "fruit + fruit",
+   "components": [
+    "banana (1/2)",
+    "Medjool dates (2-3)"
+   ],
+   "ingredients": "banana 1/2, Medjool dates 2-3",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-230",
+   "name": "Frozen banana, peanut butter & cocoa smoothie",
+   "mealType": "snack",
+   "pattern": "fruit + fat + dairy",
+   "components": [
+    "frozen banana (1)",
+    "peanut butter (1 tbsp)",
+    "cocoa powder (1 tsp)",
+    "milk (250 ml)"
+   ],
+   "ingredients": "frozen banana 1, peanut butter 1 tbsp, cocoa powder 1 tsp, milk 250 ml",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-231",
+   "name": "Beef jerky with raw cheddar",
+   "mealType": "snack",
+   "pattern": "protein + dairy",
+   "components": [
+    "beef jerky, plain (30 g)",
+    "raw cheddar cheese (30 g)"
+   ],
+   "ingredients": "beef jerky, plain 30 g, raw cheddar cheese 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-232",
+   "name": "Hard-boiled eggs with sliced avocado",
+   "mealType": "snack",
+   "pattern": "protein + fat",
+   "components": [
+    "hard-boiled eggs (2)",
+    "avocado, sliced (1/2)",
+    "sea salt (pinch)"
+   ],
+   "ingredients": "hard-boiled eggs 2, avocado, sliced 1/2, sea salt pinch",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-233",
+   "name": "Mixed nuts with olives",
+   "mealType": "snack",
+   "pattern": "fat + fat",
+   "components": [
+    "mixed nuts, unsalted (30 g)",
+    "green or Kalamata olives (10)"
+   ],
+   "ingredients": "mixed nuts, unsalted 30 g, green or Kalamata olives 10",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-234",
+   "name": "Sunflower seeds with Kalamata olives",
+   "mealType": "snack",
+   "pattern": "fat + fat",
+   "components": [
+    "sunflower seeds, roasted (30 g)",
+    "Kalamata olives (10)"
+   ],
+   "ingredients": "sunflower seeds, roasted 30 g, Kalamata olives 10",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-235",
+   "name": "Avocado with pumpkin seeds",
+   "mealType": "snack",
+   "pattern": "fat + fat",
+   "components": [
+    "avocado (1/2)",
+    "pumpkin seeds, roasted (2 tbsp)",
+    "sea salt (pinch)"
+   ],
+   "ingredients": "avocado 1/2, pumpkin seeds, roasted 2 tbsp, sea salt pinch",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-236",
+   "name": "Cheddar cubes with walnuts",
+   "mealType": "snack",
+   "pattern": "dairy + fat",
+   "components": [
+    "cheddar cheese, cubed (40 g)",
+    "walnuts (20 g)"
+   ],
+   "ingredients": "cheddar cheese, cubed 40 g, walnuts 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-237",
+   "name": "Full-fat sour cream with raspberries",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "full-fat sour cream (3 tbsp)",
+    "fresh raspberries (60 g)"
+   ],
+   "ingredients": "full-fat sour cream 3 tbsp, fresh raspberries 60 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-238",
+   "name": "Avocado, macadamia nuts & sea salt",
+   "mealType": "snack",
+   "pattern": "fat + fat",
+   "components": [
+    "avocado (1/2)",
+    "macadamia nuts (6)",
+    "sea salt (pinch)"
+   ],
+   "ingredients": "avocado 1/2, macadamia nuts 6, sea salt pinch",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-239",
+   "name": "Kalamata olives with sharp cheddar",
+   "mealType": "snack",
+   "pattern": "fat + dairy",
+   "components": [
+    "Kalamata olives (12)",
+    "sharp cheddar, cubed (30 g)"
+   ],
+   "ingredients": "Kalamata olives 12, sharp cheddar, cubed 30 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-240",
+   "name": "Cold-smoked salmon with cucumber",
+   "mealType": "snack",
+   "pattern": "protein + veg",
+   "components": [
+    "cold-smoked salmon (60 g)",
+    "cucumber, sliced (1/2)"
+   ],
+   "ingredients": "cold-smoked salmon 60 g, cucumber, sliced 1/2",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-241",
+   "name": "Hard-boiled eggs with sautéed spinach",
+   "mealType": "snack",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "hard-boiled eggs (2)",
+    "spinach, sautéed (60 g)",
+    "olive oil (1 tsp)"
+   ],
+   "ingredients": "hard-boiled eggs 2, spinach, sautéed 60 g, olive oil 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-242",
+   "name": "Fresh melon slices, race-fuel portion",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "cantaloupe or honeydew melon (150 g)"
+   ],
+   "ingredients": "cantaloupe or honeydew melon 150 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-243",
+   "name": "Mixed berries, plain, pre-race",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "mixed berries (100 g)"
+   ],
+   "ingredients": "mixed berries 100 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-244",
+   "name": "Roasted brussels sprouts, cold",
+   "mealType": "snack",
+   "pattern": "veg + fat",
+   "components": [
+    "brussels sprouts, roasted (150 g)",
+    "olive oil (1 tsp)"
+   ],
+   "ingredients": "brussels sprouts, roasted 150 g, olive oil 1 tsp",
+   "prep": "0 min (batch-roasted)"
+  },
+  {
+   "id": "AS-245",
+   "name": "Cobb-style egg, chicken & avocado cups",
+   "mealType": "snack",
+   "pattern": "protein + fat + dairy",
+   "components": [
+    "hard-boiled egg, chopped (1)",
+    "cooked chicken, diced (60 g)",
+    "avocado, diced (1/4)",
+    "cheddar, crumbled (15 g)"
+   ],
+   "ingredients": "hard-boiled egg, chopped 1, cooked chicken, diced 60 g, avocado, diced 1/4, cheddar, crumbled 15 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-246",
+   "name": "Bacon-wrapped avocado bites",
+   "mealType": "snack",
+   "pattern": "fat + protein",
+   "components": [
+    "avocado, wedges (1/2)",
+    "bacon, cooked (2 slices)"
+   ],
+   "ingredients": "avocado, wedges 1/2, bacon, cooked 2 slices",
+   "prep": "8 min"
+  },
+  {
+   "id": "AS-247",
+   "name": "Coconut flakes with macadamia nuts",
+   "mealType": "snack",
+   "pattern": "fat + fat",
+   "components": [
+    "unsweetened coconut flakes (20 g)",
+    "macadamia nuts (20 g)"
+   ],
+   "ingredients": "unsweetened coconut flakes 20 g, macadamia nuts 20 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-248",
+   "name": "Ground beef & spinach lettuce cups",
+   "mealType": "snack",
+   "pattern": "protein + veg",
+   "components": [
+    "ground beef, cooked (80 g)",
+    "spinach leaves (handful)",
+    "lettuce leaves, as wraps (2)"
+   ],
+   "ingredients": "ground beef, cooked 80 g, spinach leaves handful, lettuce leaves, as wraps 2",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-249",
+   "name": "Carrot sticks with guacamole",
+   "mealType": "snack",
+   "pattern": "veg + fat",
+   "components": [
+    "carrot sticks (100 g)",
+    "guacamole (avocado, lime, salt) (60 g)"
+   ],
+   "ingredients": "carrot sticks 100 g, guacamole (avocado, lime, salt) 60 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-250",
+   "name": "Asparagus spears with olive oil, cold",
+   "mealType": "snack",
+   "pattern": "veg + fat",
+   "components": [
+    "asparagus, blanched, cold (150 g)",
+    "olive oil (1 tsp)",
+    "sea salt (pinch)"
+   ],
+   "ingredients": "asparagus, blanched, cold 150 g, olive oil 1 tsp, sea salt pinch",
+   "prep": "0 min (batch-blanched)"
+  },
+  {
+   "id": "AS-251",
+   "name": "Broccoli florets with cheddar",
+   "mealType": "snack",
+   "pattern": "veg + dairy",
+   "components": [
+    "broccoli florets, steamed, cold (120 g)",
+    "cheddar, shredded (20 g)"
+   ],
+   "ingredients": "broccoli florets, steamed, cold 120 g, cheddar, shredded 20 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-252",
+   "name": "Bone broth with shredded chicken & spinach",
+   "mealType": "snack",
+   "pattern": "drink + protein + veg",
+   "components": [
+    "bone broth (350 ml)",
+    "shredded chicken (80 g)",
+    "spinach, wilted in (handful)"
+   ],
+   "ingredients": "bone broth 350 ml, shredded chicken 80 g, spinach, wilted in handful",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-253",
+   "name": "Beef tri-tip strips, cold",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "tri-tip steak, cooked, sliced (90 g)"
+   ],
+   "ingredients": "tri-tip steak, cooked, sliced 90 g",
+   "prep": "0 min (batch-cooked)"
+  },
+  {
+   "id": "AS-254",
+   "name": "Berries with heavy cream",
+   "mealType": "snack",
+   "pattern": "fruit + dairy",
+   "components": [
+    "mixed berries (100 g)",
+    "heavy cream, whipped (2 tbsp)"
+   ],
+   "ingredients": "mixed berries 100 g, heavy cream, whipped 2 tbsp",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-255",
+   "name": "Prosciutto-wrapped melon",
+   "mealType": "snack",
+   "pattern": "fruit + protein",
+   "components": [
+    "cantaloupe, wedges (120 g)",
+    "prosciutto (3 slices)"
+   ],
+   "ingredients": "cantaloupe, wedges 120 g, prosciutto 3 slices",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-256",
+   "name": "Mandarin oranges, plain",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "mandarin oranges (2 small)"
+   ],
+   "ingredients": "mandarin oranges 2 small",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-257",
+   "name": "Boiled egg alone, pre-exercise",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "boiled egg (1)"
+   ],
+   "ingredients": "boiled egg 1",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-258",
+   "name": "Popcorn, plain air-popped, low-FODMAP",
+   "mealType": "snack",
+   "pattern": "starch",
+   "components": [
+    "popcorn, air-popped (3 cups)"
+   ],
+   "ingredients": "popcorn, air-popped 3 cups",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-259",
+   "name": "Plain rice biscuits, low-FODMAP",
+   "mealType": "snack",
+   "pattern": "starch",
+   "components": [
+    "plain rice biscuits (4)"
+   ],
+   "ingredients": "plain rice biscuits 4",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-260",
+   "name": "Pumpkin & sunflower seed mix, plain",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "pumpkin seeds, roasted (20 g)",
+    "sunflower seeds, roasted (20 g)"
+   ],
+   "ingredients": "pumpkin seeds, roasted 20 g, sunflower seeds, roasted 20 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-261",
+   "name": "Sunflower seed butter on rice cakes",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "plain rice cakes (2)",
+    "sunflower seed butter (1.5 tbsp)"
+   ],
+   "ingredients": "plain rice cakes 2, sunflower seed butter 1.5 tbsp",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-262",
+   "name": "Dairy-free yoghurt with strawberries",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "coconut or soy yoghurt, unsweetened (150 g)",
+    "strawberries, sliced (100 g)"
+   ],
+   "ingredients": "coconut or soy yoghurt, unsweetened 150 g, strawberries, sliced 100 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-263",
+   "name": "Rice cakes with tuna",
+   "mealType": "snack",
+   "pattern": "starch + protein",
+   "components": [
+    "plain rice cakes (2)",
+    "tuna, canned in water (85 g)"
+   ],
+   "ingredients": "plain rice cakes 2, tuna, canned in water 85 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-264",
+   "name": "Roasted chickpeas, cumin",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "roasted chickpeas (120 g)",
+    "cumin (1/2 tsp)"
+   ],
+   "ingredients": "roasted chickpeas 120 g, cumin 1/2 tsp",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-265",
+   "name": "Plain oatcakes with cheddar",
+   "mealType": "snack",
+   "pattern": "starch + dairy",
+   "components": [
+    "gluten-free oatcakes (3)",
+    "cheddar, sliced (20 g)"
+   ],
+   "ingredients": "gluten-free oatcakes 3, cheddar, sliced 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-266",
+   "name": "Sliced cucumber with hummus, GF",
+   "mealType": "snack",
+   "pattern": "veg + veg",
+   "components": [
+    "cucumber, sliced (150 g)",
+    "hummus (60 g)"
+   ],
+   "ingredients": "cucumber, sliced 150 g, hummus 60 g",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-267",
+   "name": "Plain gluten-free stroopwafel",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "gluten-free stroopwafel (1)"
+   ],
+   "ingredients": "gluten-free stroopwafel 1",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-268",
+   "name": "Salted rice crackers with avocado",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "salted rice crackers (8)",
+    "avocado, mashed (1/2)"
+   ],
+   "ingredients": "salted rice crackers 8, avocado, mashed 1/2",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-269",
+   "name": "Dried apricots, plain",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "dried apricots (6)"
+   ],
+   "ingredients": "dried apricots 6",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-270",
+   "name": "Plain white rice, cold, race-week",
+   "mealType": "snack",
+   "pattern": "starch",
+   "components": [
+    "white rice, cooked, cold (150 g)"
+   ],
+   "ingredients": "white rice, cooked, cold 150 g",
+   "prep": "0 min (batch-cooked)"
+  },
+  {
+   "id": "AS-271",
+   "name": "Mashed sweet potato, cold, race-week",
+   "mealType": "snack",
+   "pattern": "starch",
+   "components": [
+    "sweet potato, boiled, mashed, cold (150 g)"
+   ],
+   "ingredients": "sweet potato, boiled, mashed, cold 150 g",
+   "prep": "0 min (batch-cooked)"
+  },
+  {
+   "id": "AS-272",
+   "name": "GF gummy fruit snacks, plain",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "gluten-free fruit snacks / gummy candy (1 pouch (30g))"
+   ],
+   "ingredients": "gluten-free fruit snacks / gummy candy 1 pouch (30g)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-273",
+   "name": "Salted popcorn, olive oil, dairy-free",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "popcorn, air-popped (3 cups)",
+    "olive oil spray (light)",
+    "salt (pinch)"
+   ],
+   "ingredients": "popcorn, air-popped 3 cups, olive oil spray light, salt pinch",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-274",
+   "name": "GF pita chips with roasted red pepper hummus",
+   "mealType": "snack",
+   "pattern": "starch + veg",
+   "components": [
+    "gluten-free pita chips (30 g)",
+    "roasted red pepper hummus (60 g)"
+   ],
+   "ingredients": "gluten-free pita chips 30 g, roasted red pepper hummus 60 g",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-275",
+   "name": "Cottage cheese with cucumber, dairy version",
+   "mealType": "snack",
+   "pattern": "dairy + veg",
+   "components": [
+    "cottage cheese (170 g)",
+    "cucumber, sliced (100 g)"
+   ],
+   "ingredients": "cottage cheese 170 g, cucumber, sliced 100 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-276",
+   "name": "Cold roasted chicken breast, plain",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "roasted chicken breast, sliced, cold (90 g)"
+   ],
+   "ingredients": "roasted chicken breast, sliced, cold 90 g",
+   "prep": "0 min (batch-cooked)"
+  },
+  {
+   "id": "AS-277",
+   "name": "Beef jerky, plain, travel snack",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "beef jerky, plain, no soy sauce (30 g)"
+   ],
+   "ingredients": "beef jerky, plain, no soy sauce 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-278",
+   "name": "Sunflower seed butter & banana on GF toast",
+   "mealType": "snack",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "gluten-free bread, toasted (1 slice)",
+    "sunflower seed butter (1.5 tbsp)",
+    "banana, sliced (1/2)"
+   ],
+   "ingredients": "gluten-free bread, toasted 1 slice, sunflower seed butter 1.5 tbsp, banana, sliced 1/2",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-279",
+   "name": "Roasted pumpkin seeds, salted, travel",
+   "mealType": "snack",
+   "pattern": "other",
+   "components": [
+    "pumpkin seeds, roasted, salted (30 g)"
+   ],
+   "ingredients": "pumpkin seeds, roasted, salted 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-280",
+   "name": "Plain applesauce pouch, GF race fuel",
+   "mealType": "snack",
+   "pattern": "fruit",
+   "components": [
+    "unsweetened applesauce pouch (1 x 113g)"
+   ],
+   "ingredients": "unsweetened applesauce pouch 1 x 113g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-281",
+   "name": "Egg-free banana oat bites",
+   "mealType": "snack",
+   "pattern": "starch + fruit",
+   "components": [
+    "certified gluten-free oats (30 g)",
+    "mashed banana (1/2)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "certified gluten-free oats 30 g, mashed banana 1/2, honey 1 tsp",
+   "prep": "10 min (batch, no-bake)"
+  },
+  {
+   "id": "AS-282",
+   "name": "Chia pudding, coconut milk, allergen-free",
+   "mealType": "snack",
+   "pattern": "other + dairy",
+   "components": [
+    "chia seeds (3 tbsp)",
+    "coconut milk (200 ml)",
+    "maple syrup (1 tsp)"
+   ],
+   "ingredients": "chia seeds 3 tbsp, coconut milk 200 ml, maple syrup 1 tsp",
+   "prep": "5 min (chill overnight)"
+  },
+  {
+   "id": "AS-283",
+   "name": "Plain rice cakes with mashed avocado & lime",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "plain rice cakes (2)",
+    "avocado, mashed (1/2)",
+    "lime juice (1 tsp)"
+   ],
+   "ingredients": "plain rice cakes 2, avocado, mashed 1/2, lime juice 1 tsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-285",
+   "name": "Onigiri with umeboshi (pickled plum) filling",
+   "mealType": "snack",
+   "pattern": "starch + sour filling + wrap",
+   "components": [
+    "white rice, cooked, formed into triangle (1 rice ball (~120 g))",
+    "umeboshi (pickled plum) (1 whole)",
+    "nori (seaweed sheet) (1 strip)"
+   ],
+   "ingredients": "white rice, cooked, formed into triangle 1 rice ball (~120 g), umeboshi (pickled plum) 1 whole, nori (seaweed sheet) 1 strip",
+   "prep": "bought pre-made"
+  },
+  {
+   "id": "AS-286",
+   "name": "Sweet potato bun, convenience-store bought",
+   "mealType": "snack",
+   "pattern": "starch bun",
+   "components": [
+    "sweet potato bread bun (konbini) (1 bun (~90 g))"
+   ],
+   "ingredients": "sweet potato bread bun (konbini) 1 bun (~90 g)",
+   "prep": "bought"
+  },
+  {
+   "id": "AS-287",
+   "name": "Red bean roll + baguette sandwich, konbini snack pair",
+   "mealType": "snack",
+   "pattern": "sweet bread + savory bread",
+   "components": [
+    "red bean paste bread roll (1 roll)",
+    "baguette sandwich (ham or egg) (1 small sandwich)"
+   ],
+   "ingredients": "red bean paste bread roll 1 roll, baguette sandwich (ham or egg) 1 small sandwich",
+   "prep": "bought at Starbucks/konbini"
+  },
+  {
+   "id": "AS-288",
+   "name": "Chocolate-pudding-filled roll, konbini snack",
+   "mealType": "snack",
+   "pattern": "sweet filled bread",
+   "components": [
+    "bread roll filled with chocolate pudding (1 roll)"
+   ],
+   "ingredients": "bread roll filled with chocolate pudding 1 roll",
+   "prep": "bought at Family Mart"
+  },
+  {
+   "id": "AS-289",
+   "name": "Hi-Chew candy, quick sugar hit",
+   "mealType": "snack",
+   "pattern": "candy",
+   "components": [
+    "Hi-Chew fruit chews (1 small pack)"
+   ],
+   "ingredients": "Hi-Chew fruit chews 1 small pack",
+   "prep": "bought at 7-Eleven"
+  },
+  {
+   "id": "AS-290",
+   "name": "Azuki bean paste, race-course grab",
+   "mealType": "snack",
+   "pattern": "sweetened legume paste",
+   "components": [
+    "azuki (red bean) paste, single-serve (1 packet)"
+   ],
+   "ingredients": "azuki (red bean) paste, single-serve 1 packet",
+   "prep": "handed out on course"
+  },
+  {
+   "id": "AS-291",
+   "name": "Orange bun, hotel-buffet grab",
+   "mealType": "snack",
+   "pattern": "sweet bread",
+   "components": [
+    "orange-flavored sweet bun (1 bun)"
+   ],
+   "ingredients": "orange-flavored sweet bun 1 bun",
+   "prep": "bought at hotel breakfast buffet"
+  },
+  {
+   "id": "AS-292",
+   "name": "Mochi in warm broth, post-training warm-up snack",
+   "mealType": "snack",
+   "pattern": "starch + warm broth",
+   "components": [
+    "mochi (rice cake) (2 pieces)",
+    "clear broth (1 cup)"
+   ],
+   "ingredients": "mochi (rice cake) 2 pieces, clear broth 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AS-293",
+   "name": "Chai (Kenyan milky tea) + mandazi",
+   "mealType": "snack",
+   "pattern": "drink + fried bread",
+   "components": [
+    "chai (black tea, boiled with milk + sugar) (1 cup (~250 ml))",
+    "mandazi (fried Swahili bread) (1 piece)"
+   ],
+   "ingredients": "chai (black tea, boiled with milk + sugar) 1 cup (~250 ml), mandazi (fried Swahili bread) 1 piece",
+   "prep": "bought or camp kitchen"
+  },
+  {
+   "id": "AS-294",
+   "name": "Chai + white bread with margarine",
+   "mealType": "snack",
+   "pattern": "drink + bread + fat",
+   "components": [
+    "chai (black tea, boiled with milk + sugar) (1 cup (~250 ml))",
+    "white bread (2 slices)",
+    "margarine (1 tsp)"
+   ],
+   "ingredients": "chai (black tea, boiled with milk + sugar) 1 cup (~250 ml), white bread 2 slices, margarine 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-295",
+   "name": "Chai + white bread with jam",
+   "mealType": "snack",
+   "pattern": "drink + bread + spread",
+   "components": [
+    "chai (black tea, boiled with milk + sugar) (1 cup (~250 ml))",
+    "white bread (2 slices)",
+    "jam (1 tbsp)"
+   ],
+   "ingredients": "chai (black tea, boiled with milk + sugar) 1 cup (~250 ml), white bread 2 slices, jam 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-296",
+   "name": "Chai + white bread with peanut butter",
+   "mealType": "snack",
+   "pattern": "drink + bread + spread",
+   "components": [
+    "chai (black tea, boiled with milk + sugar) (1 cup (~250 ml))",
+    "white bread (2 slices)",
+    "peanut butter (1 tbsp)"
+   ],
+   "ingredients": "chai (black tea, boiled with milk + sugar) 1 cup (~250 ml), white bread 2 slices, peanut butter 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-297",
+   "name": "Chai + chapati",
+   "mealType": "snack",
+   "pattern": "drink + flatbread",
+   "components": [
+    "chai (black tea, boiled with milk + sugar) (1 cup (~250 ml))",
+    "chapati (1 piece)"
+   ],
+   "ingredients": "chai (black tea, boiled with milk + sugar) 1 cup (~250 ml), chapati 1 piece",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-298",
+   "name": "Tea with milk and sugar, multiple cups a day",
+   "mealType": "snack",
+   "pattern": "milky sweet tea",
+   "components": [
+    "black tea, boiled with milk + sugar (1 cup (~250 ml))"
+   ],
+   "ingredients": "black tea, boiled with milk + sugar 1 cup (~250 ml)",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-299",
+   "name": "Sugarcane, chewed raw",
+   "mealType": "snack",
+   "pattern": "raw cane",
+   "components": [
+    "sugarcane stick (1 stick)"
+   ],
+   "ingredients": "sugarcane stick 1 stick",
+   "prep": "none"
+  },
+  {
+   "id": "AS-300",
+   "name": "Boiled sweet potato, plain",
+   "mealType": "snack",
+   "pattern": "boiled root veg",
+   "components": [
+    "sweet potato, boiled (1 medium (~150 g))"
+   ],
+   "ingredients": "sweet potato, boiled 1 medium (~150 g)",
+   "prep": "20 min boil"
+  },
+  {
+   "id": "AS-301",
+   "name": "Green banana, boiled",
+   "mealType": "snack",
+   "pattern": "boiled starch",
+   "components": [
+    "green banana, boiled (1 medium)"
+   ],
+   "ingredients": "green banana, boiled 1 medium",
+   "prep": "15 min boil"
+  },
+  {
+   "id": "AS-302",
+   "name": "Watermelon, post-run",
+   "mealType": "snack",
+   "pattern": "fruit only",
+   "components": [
+    "watermelon, cubed (250 g)"
+   ],
+   "ingredients": "watermelon, cubed 250 g",
+   "prep": "0 min (pre-cut)"
+  },
+  {
+   "id": "AS-303",
+   "name": "Ripe banana, plain",
+   "mealType": "snack",
+   "pattern": "fruit only",
+   "components": [
+    "banana, ripe (1 medium)"
+   ],
+   "ingredients": "banana, ripe 1 medium",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-304",
+   "name": "Chapati with peanut butter, packed snack",
+   "mealType": "snack",
+   "pattern": "flatbread + spread",
+   "components": [
+    "chapati (1 piece)",
+    "peanut butter (1 tbsp)"
+   ],
+   "ingredients": "chapati 1 piece, peanut butter 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-305",
+   "name": "Rice cake, banana + peanut butter + cacao nibs",
+   "mealType": "snack",
+   "pattern": "starch + fruit + spread",
+   "components": [
+    "short-grain white rice, cooked with cream cheese (1 square (~70 g))",
+    "banana, mashed (1/2 banana)",
+    "peanut butter (1 tbsp)",
+    "cacao nibs (1 tsp)"
+   ],
+   "ingredients": "short-grain white rice, cooked with cream cheese 1 square (~70 g), banana, mashed 1/2 banana, peanut butter 1 tbsp, cacao nibs 1 tsp",
+   "prep": "made ahead, cut into squares"
+  },
+  {
+   "id": "AS-306",
+   "name": "Rice cake, blueberry + dark chocolate",
+   "mealType": "snack",
+   "pattern": "starch + fruit + chocolate",
+   "components": [
+    "short-grain white rice, cooked with cream cheese (1 square (~70 g))",
+    "blueberries (2 tbsp)",
+    "dark chocolate (72%+), chopped (1 tbsp)"
+   ],
+   "ingredients": "short-grain white rice, cooked with cream cheese 1 square (~70 g), blueberries 2 tbsp, dark chocolate (72%+), chopped 1 tbsp",
+   "prep": "made ahead, cut into squares"
+  },
+  {
+   "id": "AS-307",
+   "name": "Rice cake, bacon + maple syrup",
+   "mealType": "snack",
+   "pattern": "starch + protein + sweetener",
+   "components": [
+    "short-grain white rice, cooked with cream cheese (1 square (~70 g))",
+    "bacon, cooked and crumbled (1 slice)",
+    "maple syrup (1 tsp)"
+   ],
+   "ingredients": "short-grain white rice, cooked with cream cheese 1 square (~70 g), bacon, cooked and crumbled 1 slice, maple syrup 1 tsp",
+   "prep": "made ahead, cut into squares"
+  },
+  {
+   "id": "AS-308",
+   "name": "Rice cake, cranberry + orange zest + white chocolate",
+   "mealType": "snack",
+   "pattern": "starch + fruit + citrus + chocolate",
+   "components": [
+    "short-grain white rice, cooked with cream cheese (1 square (~70 g))",
+    "dried cranberries (1 tbsp)",
+    "orange zest (1/2 tsp)",
+    "white chocolate, chopped (1 tbsp)"
+   ],
+   "ingredients": "short-grain white rice, cooked with cream cheese 1 square (~70 g), dried cranberries 1 tbsp, orange zest 1/2 tsp, white chocolate, chopped 1 tbsp",
+   "prep": "made ahead, cut into squares"
+  },
+  {
+   "id": "AS-309",
+   "name": "Rice cake, tart cherry + lemon zest",
+   "mealType": "snack",
+   "pattern": "starch + fruit + citrus",
+   "components": [
+    "short-grain white rice, cooked with cream cheese (1 square (~70 g))",
+    "dried tart cherries (1 tbsp)",
+    "lemon zest (1/2 tsp)"
+   ],
+   "ingredients": "short-grain white rice, cooked with cream cheese 1 square (~70 g), dried tart cherries 1 tbsp, lemon zest 1/2 tsp",
+   "prep": "made ahead, cut into squares"
+  },
+  {
+   "id": "AS-310",
+   "name": "Panini: white bread, jam + cream cheese",
+   "mealType": "snack",
+   "pattern": "bread + spread + spread",
+   "components": [
+    "soft white crustless bread (2 slices)",
+    "jam (1 tbsp)",
+    "cream cheese (1 tbsp)"
+   ],
+   "ingredients": "soft white crustless bread 2 slices, jam 1 tbsp, cream cheese 1 tbsp",
+   "prep": "5 min, made by team soigneur"
+  }
+ ]
+}

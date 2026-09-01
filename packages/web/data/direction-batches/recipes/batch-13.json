@@ -1,0 +1,274 @@
+{
+ "batch": "R-13",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "L-047",
+   "name": "Jacket potato with tuna & sweetcorn",
+   "mealType": "lunch",
+   "cuisine": "british",
+   "servings": 1,
+   "ingredients": "baking potato 300g, canned tuna 120g, sweetcorn 1/2 cup, Greek yogurt 2 tbsp, chives, side salad",
+   "prep": "45 min bake or 10 min microwave — batch-bake potatoes Sunday",
+   "prepMinutes": 45,
+   "attribution": "classic British athlete lunch, commonly reported in UK triathlon and running features (220triathlon.com, tri247.com); trigirl.co.uk GF/DF recovery-meal list",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-048",
+   "name": "Jacket potato with chili & cheese",
+   "mealType": "lunch",
+   "cuisine": "british",
+   "servings": 1,
+   "ingredients": "baking potato 300g, beef or turkey chili 1 cup (from L-079), cheddar 30g, spring onion",
+   "prep": "batch — chili frozen in portions, potato baked fresh",
+   "prepMinutes": null,
+   "attribution": "jacket-potato-with-topping lunch widely reported as a UK/Ireland training-lunch staple (community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-050",
+   "name": "Baked sweet potato with black beans & avocado",
+   "mealType": "lunch",
+   "cuisine": "mexican",
+   "servings": 1,
+   "ingredients": "sweet potato 300g baked, black beans 1 cup, avocado 1/2, salsa 3 tbsp, pumpkin seeds 1 tbsp, lime, coriander",
+   "prep": "batch — bake potatoes Sunday, 5 min assembly",
+   "prepMinutes": 5,
+   "attribution": "\"stuffed sweet potatoes\" named as an allergen-safe athlete meal in FARE-adjacent roundups (gruballergy.com); ssmith1187 on TrainerRoad forum (https://www.trainerroad.com/forum/t/canned-corn-and-black-beans-my-cheap-but-effective-training-fuel-source/13689/9); 220 Triathlon vegan recipes",
+   "sourceUrl": "https://www.trainerroad.com/forum/t/canned-corn-and-black-beans-my-cheap-but-effective-training-fuel-source/13689/9",
+   "cachedPages": [
+    {
+     "url": "https://www.trainerroad.com/forum/t/canned-corn-and-black-beans-my-cheap-but-effective-training-fuel-source/13689/9",
+     "title": "Canned Corn and Black Beans - My Cheap, but Effective Training Fuel Source",
+     "ok": true,
+     "textFile": ".cache/source-pages/e621d35580b523ae3347673bb304ac826f5a8980.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-051",
+   "name": "New potato salad with poached salmon",
+   "mealType": "lunch",
+   "cuisine": "british",
+   "servings": 1,
+   "ingredients": "new potatoes 300g boiled, salmon fillet 150g poached, mixed leaves 60g, olive oil 1 tbsp, lemon, dill",
+   "prep": "25 min",
+   "prepMinutes": 25,
+   "attribution": "trigirl.co.uk GF/DF triathlete main-meal list (\"New potato salad with poached salmon\")",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-052",
+   "name": "Potato salad with olives, herbs & pumpkin seeds",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 4,
+   "ingredients": "baby potatoes 300g boiled, dill and parsley, pitted olives 8, pumpkin seeds 2 tbsp, olive oil 1 tbsp, lemon, dijon mustard 1 tsp (makes 4)",
+   "prep": "batch — 30 min, 4 servings, keeps 4 days",
+   "prepMinutes": 30,
+   "attribution": "Rich Roll & Julie Piatt, The Plantpower Way potato salad (https://www.bluezones.com/recipe/the-plantpower-way-potato-salad/); boiled potatoes as real-food endurance carbs per Precision Fuel & Hydration",
+   "sourceUrl": "https://www.bluezones.com/recipe/the-plantpower-way-potato-salad/",
+   "cachedPages": [
+    {
+     "url": "https://www.bluezones.com/recipe/the-plantpower-way-potato-salad/",
+     "title": "The Plantpower Way Potato Salad",
+     "ok": true,
+     "textFile": ".cache/source-pages/ac9106abe8f961b0f8b4a295147f313eb3687731.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-053",
+   "name": "Three-bean salad with olive oil & herbs",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 4,
+   "ingredients": "kidney beans, chickpeas, cannellini beans 1 cup each (canned), red onion 1/2, parsley, olive oil 2 tbsp, red wine vinegar 2 tbsp (makes 4)",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "bean salad widely reported as a no-cook batch lunch among endurance athletes (community-reported, r/EatCheapAndHealthy)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-054",
+   "name": "Tuna, white bean & olive oil salad",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 1,
+   "ingredients": "canned tuna 120g, cannellini beans 1 cup, red onion 1/4, parsley, olive oil 1 tbsp, lemon, crusty bread 1 slice",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "classic Mediterranean-diet athlete lunch, consistent with Precision Fuel & Hydration everyday nutrition guidance (https://www.precisionhydration.com/performance-advice/nutrition/nutrition-endurance-performance/); sardine variant via runner-lunch roundups",
+   "sourceUrl": "https://www.precisionhydration.com/performance-advice/nutrition/nutrition-endurance-performance/",
+   "cachedPages": [
+    {
+     "url": "https://www.precisionhydration.com/performance-advice/nutrition/nutrition-endurance-performance/",
+     "title": "How to get your fueling and hydration strategy right",
+     "ok": true,
+     "textFile": ".cache/source-pages/8e89cd641ce86c398f28ff8b7095c8071a9024ec.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-055",
+   "name": "Quinoa tabbouleh with chickpeas",
+   "mealType": "lunch",
+   "cuisine": "middle-eastern",
+   "servings": 4,
+   "ingredients": "quinoa 150g cooked, chickpeas 200g, parsley 1 cup, mint, tomato, cucumber, lemon 1, olive oil 2 tbsp (makes 4)",
+   "prep": "batch — 20 min, 4 servings, keeps 4 days",
+   "prepMinutes": 20,
+   "attribution": "dietitianapproved.com \"Eat Plants, Train Hard\" vegan triathlete guide; standard quinoa-for-bulgur GF swap in meal-prep content",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-056",
+   "name": "Quinoa, black bean, kale & feta recovery salad",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 6,
+   "ingredients": "quinoa 1 cup cooked, black beans 1 cup, kale 2 cups chopped, red pepper 1/2, red onion, coriander, lime 1, olive oil 1.5 tbsp, avocado 1/2, toasted pumpkin seeds 2 tbsp, feta or cotija 30g (makes 6)",
+   "prep": "batch — 30 min, 6 servings, keeps 4 days",
+   "prepMinutes": 30,
+   "attribution": "Shalane Flanagan & Elyse Kopecky, Run Fast. Eat Slow. — Flanagan's go-to post-hard-run meal (https://www.womensrunning.com/health/food/fuel-recovery-quinoa-salad/); Molly Huddle's quinoa, black bean & beet-green salad, ESPN (https://www.espn.com/espnw/life-style/story/_/id/23092614/what-athletes-eat-boston-marathoner-molly-huddle-quinoa-salad-quick-recovery)",
+   "sourceUrl": "https://www.womensrunning.com/health/food/fuel-recovery-quinoa-salad/",
+   "cachedPages": [
+    {
+     "url": "https://www.womensrunning.com/health/food/fuel-recovery-quinoa-salad/",
+     "title": "This Quinoa Salad Is Beautiful Recovery Food",
+     "ok": true,
+     "textFile": ".cache/source-pages/c56512cf2ab9fa90a024ca7f9dc731c44fe2eddb.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.espn.com/espnw/life-style/story/_/id/23092614/what-athletes-eat-boston-marathoner-molly-huddle-quinoa-salad-quick-recovery",
+     "title": null,
+     "ok": true,
+     "textFile": ".cache/source-pages/ef9a255f8c091ae84f1cf60e3f2918d3efbd1e98.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-057",
+   "name": "Thai quinoa bowl with edamame, cabbage & peanut-lime dressing",
+   "mealType": "lunch",
+   "cuisine": "thai",
+   "servings": 4,
+   "ingredients": "quinoa 1 cup cooked, red cabbage 1 cup, carrot 1, edamame 3/4 cup, coriander, peanuts 2 tbsp, dressing: peanut butter 1 tbsp, lime, tamari 1 tbsp, sesame oil 1 tsp (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "Run Fast Cook Fast Eat Slow, Shalane Flanagan & Elyse Kopecky (https://consummateathlete.com/try-this-inflammation-fighting-thai-quinoa-salad-recipe-from-run-fast-cook-fast-eat-slow/)",
+   "sourceUrl": "https://consummateathlete.com/try-this-inflammation-fighting-thai-quinoa-salad-recipe-from-run-fast-cook-fast-eat-slow/",
+   "cachedPages": [
+    {
+     "url": "https://consummateathlete.com/try-this-inflammation-fighting-thai-quinoa-salad-recipe-from-run-fast-cook-fast-eat-slow/",
+     "title": "Try This Inflammation-Fighting Thai Quinoa Salad Recipe from RUN FAST.",
+     "ok": true,
+     "textFile": ".cache/source-pages/f314d84de5301cfcc1aa9195ad5659f7fdc9bbcd.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-058",
+   "name": "Couscous, roasted veg & chickpeas with lemon-herb dressing",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 4,
+   "ingredients": "couscous 150g cooked, chickpeas 1 cup, roasted aubergine/courgette/pepper 1.5 cups, parsley, lemon 1, olive oil 1 tbsp (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "\"Greek bowls\" named as a flexible triathlete lunch base in Triathlete.com meal-prep guide (https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/); PusherMan on TrainerRoad forum, summer couscous lunch rotation (https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/13)",
+   "sourceUrl": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+     "title": "The Busy Triathlete's Guide to Meal Prepping",
+     "ok": true,
+     "textFile": ".cache/source-pages/150ccae32d31343383a7f964eef43d433c0a04b7.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/13",
+     "title": "What do you eat during any given day?",
+     "ok": true,
+     "textFile": ".cache/source-pages/186656764658d59b4ecddfee756e2ab7754c0271.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-059",
+   "name": "Chicken, quinoa & chopped veg bowl with lemon-olive oil",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 4,
+   "ingredients": "grilled chicken breast 120g, quinoa 150g cooked, cucumber, tomato, bell pepper 1.5 cups, mixed greens 1 cup, olive oil 1 tbsp, lemon (makes 4)",
+   "prep": "batch — 20 min, 4 servings",
+   "prepMinutes": 20,
+   "attribution": "u/ElderberryNo5595 \"fourth meal\" template, r/Ultramarathon (https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/); staple across r/triathlon meal-prep threads",
+   "sourceUrl": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+   "cachedPages": [
+    {
+     "url": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/e1048d3d2abe28e20a596c110352b701286dd64a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-060",
+   "name": "Falafel, quinoa & leafy greens with tahini",
+   "mealType": "lunch",
+   "cuisine": "middle-eastern",
+   "servings": 1,
+   "ingredients": "falafel 4 pieces, quinoa 100g cooked, watercress/rocket/spinach 2 cups, tomato, beetroot, cucumber, tahini dressing 2 tbsp, dark chocolate 2 squares",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Amy Kilpin (vegetarian Ironman triathlete), \"What I Eat In A Day\", Sundried (https://www.sundried.com/)",
+   "sourceUrl": "https://www.sundried.com/",
+   "cachedPages": [
+    {
+     "url": "https://www.sundried.com/",
+     "title": "Active sports apparel by Sundried | Free UK Shipping & Returns",
+     "ok": true,
+     "textFile": ".cache/source-pages/b2590dc768da02dac84d6afff3c465a56ba5e817.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-061",
+   "name": "Cobb salad with chicken",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "romaine and mixed greens 3 cups, grilled chicken 150g, hard-boiled egg 1, bacon 2 slices, avocado 1/2, blue cheese 30g, olive oil vinaigrette 2 tbsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Zach Bitter's reported low-carb lunch pattern, Men's Journal (https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs)",
+   "sourceUrl": "https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs",
+   "cachedPages": [
+    {
+     "url": "https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

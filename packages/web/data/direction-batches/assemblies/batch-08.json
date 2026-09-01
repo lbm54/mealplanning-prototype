@@ -1,0 +1,1712 @@
+{
+ "batch": "A-08",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AL-098",
+   "name": "Duck breast, egg noodles & pak choi",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "duck breast, pan-seared (150 g)",
+    "egg noodles, cooked (150 g)",
+    "pak choi, steamed (120 g)",
+    "hoisin sauce (1 tbsp)"
+   ],
+   "ingredients": "duck breast, pan-seared 150 g, egg noodles, cooked 150 g, pak choi, steamed 120 g, hoisin sauce 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-099",
+   "name": "Chicken, sweet potato & Brussels sprouts sheet-pan lunch",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken thighs, roasted (180 g)",
+    "sweet potato, roasted (180 g)",
+    "brussels sprouts, roasted (120 g)"
+   ],
+   "ingredients": "chicken thighs, roasted 180 g, sweet potato, roasted 180 g, brussels sprouts, roasted 120 g",
+   "prep": "25 min (batch)"
+  },
+  {
+   "id": "AL-100",
+   "name": "Chicken, quinoa & steamed carrots meal-prep lunch",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (170 g)",
+    "quinoa, cooked (180 g)",
+    "carrots, steamed (120 g)"
+   ],
+   "ingredients": "chicken breast, grilled 170 g, quinoa, cooked 180 g, carrots, steamed 120 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-101",
+   "name": "Greens, black beans, brown rice & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + bean + grain + sauce",
+   "components": [
+    "mixed salad greens (2 cups)",
+    "black beans (1 cup)",
+    "brown rice, cooked (150 g)",
+    "shredded carrot (1/2 cup)",
+    "tahini dressing (tahini, lemon, water) (2 tbsp)"
+   ],
+   "ingredients": "mixed salad greens 2 cups, black beans 1 cup, brown rice, cooked 150 g, shredded carrot 1/2 cup, tahini dressing (tahini, lemon, water) 2 tbsp",
+   "prep": "15 min, everyday-assembly"
+  },
+  {
+   "id": "AL-102",
+   "name": "Greens, chickpeas, quinoa & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + bean + grain + sauce",
+   "components": [
+    "mixed salad greens (2 cups)",
+    "chickpeas (1 cup)",
+    "quinoa, cooked (150 g)",
+    "cucumber, diced (1/2 cup)",
+    "tahini-garlic dressing (2 tbsp)"
+   ],
+   "ingredients": "mixed salad greens 2 cups, chickpeas 1 cup, quinoa, cooked 150 g, cucumber, diced 1/2 cup, tahini-garlic dressing 2 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-103",
+   "name": "Kale, lentils, wild rice & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + bean + grain + sauce",
+   "components": [
+    "chopped kale, massaged (2 cups)",
+    "cooked lentils (1 cup)",
+    "wild rice, cooked (150 g)",
+    "roasted beets (1/2 cup)",
+    "tahini-onion dressing (2 tbsp)"
+   ],
+   "ingredients": "chopped kale, massaged 2 cups, cooked lentils 1 cup, wild rice, cooked 150 g, roasted beets 1/2 cup, tahini-onion dressing 2 tbsp",
+   "prep": "20 min, batches well"
+  },
+  {
+   "id": "AL-104",
+   "name": "Spinach, pinto beans, farro & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + bean + grain + sauce",
+   "components": [
+    "baby spinach (2 cups)",
+    "pinto beans (1 cup)",
+    "farro, cooked (150 g)",
+    "roasted red pepper (1/2 cup)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "baby spinach 2 cups, pinto beans 1 cup, farro, cooked 150 g, roasted red pepper 1/2 cup, tahini dressing 2 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-105",
+   "name": "Arugula, edamame, brown rice & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + bean + grain + sauce",
+   "components": [
+    "arugula (2 cups)",
+    "shelled edamame (1 cup)",
+    "brown rice, cooked (150 g)",
+    "cherry tomatoes, halved (1/2 cup)",
+    "tahini-lemon dressing (2 tbsp)"
+   ],
+   "ingredients": "arugula 2 cups, shelled edamame 1 cup, brown rice, cooked 150 g, cherry tomatoes, halved 1/2 cup, tahini-lemon dressing 2 tbsp",
+   "prep": "12 min (frozen edamame)"
+  },
+  {
+   "id": "AL-106",
+   "name": "Rice, quinoa, black beans, broccoli & hot sauce bowl",
+   "mealType": "lunch",
+   "pattern": "grain + grain + bean + veg + sauce",
+   "components": [
+    "white rice, cooked (100 g)",
+    "quinoa, cooked (100 g)",
+    "black beans (1 cup)",
+    "steamed broccoli (1 cup)",
+    "hot sauce (1 tbsp)",
+    "guacamole (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 100 g, quinoa, cooked 100 g, black beans 1 cup, steamed broccoli 1 cup, hot sauce 1 tbsp, guacamole 3 tbsp",
+   "prep": "15 min (rice/quinoa pre-cooked)"
+  },
+  {
+   "id": "AL-107",
+   "name": "Rice, quinoa, black beans, asparagus & hot sauce bowl",
+   "mealType": "lunch",
+   "pattern": "grain + grain + bean + veg + sauce",
+   "components": [
+    "white rice, cooked (100 g)",
+    "quinoa, cooked (100 g)",
+    "black beans (1 cup)",
+    "steamed asparagus (1 cup)",
+    "hot sauce (1 tbsp)",
+    "guacamole (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 100 g, quinoa, cooked 100 g, black beans 1 cup, steamed asparagus 1 cup, hot sauce 1 tbsp, guacamole 3 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-108",
+   "name": "Rice, quinoa, black beans, green beans & hot sauce bowl",
+   "mealType": "lunch",
+   "pattern": "grain + grain + bean + veg + sauce",
+   "components": [
+    "white rice, cooked (100 g)",
+    "quinoa, cooked (100 g)",
+    "black beans (1 cup)",
+    "steamed green beans (1 cup)",
+    "hot sauce (1 tbsp)",
+    "guacamole (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 100 g, quinoa, cooked 100 g, black beans 1 cup, steamed green beans 1 cup, hot sauce 1 tbsp, guacamole 3 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-109",
+   "name": "Quinoa, black beans, spinach & hot sauce bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + veg + sauce",
+   "components": [
+    "quinoa, cooked (200 g)",
+    "black beans (1 cup)",
+    "baby spinach (1.5 cups)",
+    "hot sauce (1 tbsp)",
+    "guacamole (3 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 200 g, black beans 1 cup, baby spinach 1.5 cups, hot sauce 1 tbsp, guacamole 3 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-110",
+   "name": "Rice, black beans, broccoli & hot sauce bowl with kombucha",
+   "mealType": "lunch",
+   "pattern": "grain + bean + veg + sauce",
+   "components": [
+    "white rice, cooked (200 g)",
+    "black beans (1 cup)",
+    "steamed broccoli (1 cup)",
+    "hot sauce (1 tbsp)",
+    "guacamole (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 200 g, black beans 1 cup, steamed broccoli 1 cup, hot sauce 1 tbsp, guacamole 3 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-111",
+   "name": "Rice, black beans, lentils & mixed veg plate",
+   "mealType": "lunch",
+   "pattern": "grain + bean + lentil + veg",
+   "components": [
+    "white rice, cooked (200 g)",
+    "black beans (1/2 cup)",
+    "cooked green lentils (1/2 cup)",
+    "steamed mixed vegetables (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 200 g, black beans 1/2 cup, cooked green lentils 1/2 cup, steamed mixed vegetables 1.5 cups, olive oil 1 tbsp",
+   "prep": "20 min (batch lentils ahead)"
+  },
+  {
+   "id": "AL-112",
+   "name": "Brown rice, lentils, roasted carrots & orange",
+   "mealType": "lunch",
+   "pattern": "grain + lentil + veg + fruit",
+   "components": [
+    "brown rice, cooked (180 g)",
+    "cooked lentils (1 cup)",
+    "roasted carrots (1 cup)",
+    "orange, sliced (1)"
+   ],
+   "ingredients": "brown rice, cooked 180 g, cooked lentils 1 cup, roasted carrots 1 cup, orange, sliced 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-113",
+   "name": "Rice, kidney beans, lentils & steamed spinach",
+   "mealType": "lunch",
+   "pattern": "grain + bean + lentil + veg",
+   "components": [
+    "white rice, cooked (200 g)",
+    "kidney beans (1/2 cup)",
+    "cooked lentils (1/2 cup)",
+    "steamed spinach (1 cup)"
+   ],
+   "ingredients": "white rice, cooked 200 g, kidney beans 1/2 cup, cooked lentils 1/2 cup, steamed spinach 1 cup",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-114",
+   "name": "Quinoa, black beans, lentils, banana & steamed broccoli",
+   "mealType": "lunch",
+   "pattern": "grain + bean + lentil + veg + fruit",
+   "components": [
+    "quinoa, cooked (150 g)",
+    "black beans (1/2 cup)",
+    "cooked lentils (1/2 cup)",
+    "steamed broccoli (1 cup)",
+    "banana (1)"
+   ],
+   "ingredients": "quinoa, cooked 150 g, black beans 1/2 cup, cooked lentils 1/2 cup, steamed broccoli 1 cup, banana 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-115",
+   "name": "Sweet potato, rice, avocado & hummus plate",
+   "mealType": "lunch",
+   "pattern": "starch + starch + fat + protein",
+   "components": [
+    "roasted sweet potato (200 g)",
+    "white rice, cooked (150 g)",
+    "avocado (1/2)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "roasted sweet potato 200 g, white rice, cooked 150 g, avocado 1/2, hummus 3 tbsp",
+   "prep": "10 min (sweet potato + rice batch-roasted)"
+  },
+  {
+   "id": "AL-116",
+   "name": "Sweet potato, quinoa, avocado & hummus plate",
+   "mealType": "lunch",
+   "pattern": "starch + starch + fat + protein",
+   "components": [
+    "roasted sweet potato (200 g)",
+    "quinoa, cooked (150 g)",
+    "avocado (1/2)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "roasted sweet potato 200 g, quinoa, cooked 150 g, avocado 1/2, hummus 3 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-117",
+   "name": "Sweet potato, rice, avocado, hummus & leftover greens",
+   "mealType": "lunch",
+   "pattern": "starch + starch + fat + protein + veg",
+   "components": [
+    "roasted sweet potato (200 g)",
+    "white rice, cooked (150 g)",
+    "avocado (1/2)",
+    "hummus (3 tbsp)",
+    "sauteed greens (leftover) (1 cup)"
+   ],
+   "ingredients": "roasted sweet potato 200 g, white rice, cooked 150 g, avocado 1/2, hummus 3 tbsp, sauteed greens (leftover) 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-118",
+   "name": "Sweet potato, brown rice, avocado & hummus with hot sauce",
+   "mealType": "lunch",
+   "pattern": "starch + starch + fat + protein + sauce",
+   "components": [
+    "roasted sweet potato (200 g)",
+    "brown rice, cooked (150 g)",
+    "avocado (1/2)",
+    "hummus (3 tbsp)",
+    "hot sauce (1 tsp)"
+   ],
+   "ingredients": "roasted sweet potato 200 g, brown rice, cooked 150 g, avocado 1/2, hummus 3 tbsp, hot sauce 1 tsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-119",
+   "name": "Rice, plant-based meat, avocado, hummus & kimchi bowl",
+   "mealType": "lunch",
+   "pattern": "grain + plant-meat + fat + protein + ferment",
+   "components": [
+    "white rice, cooked (200 g)",
+    "plant-based ground meat, browned (120 g)",
+    "avocado (1/2)",
+    "hummus (2 tbsp)",
+    "kimchi (1/3 cup)"
+   ],
+   "ingredients": "white rice, cooked 200 g, plant-based ground meat, browned 120 g, avocado 1/2, hummus 2 tbsp, kimchi 1/3 cup",
+   "prep": "10 min (plant meat browns fast)"
+  },
+  {
+   "id": "AL-120",
+   "name": "Rice, plant-based meat, hummus & kimchi (no avocado)",
+   "mealType": "lunch",
+   "pattern": "grain + plant-meat + protein + ferment",
+   "components": [
+    "white rice, cooked (200 g)",
+    "plant-based ground meat, browned (120 g)",
+    "hummus (3 tbsp)",
+    "kimchi (1/3 cup)"
+   ],
+   "ingredients": "white rice, cooked 200 g, plant-based ground meat, browned 120 g, hummus 3 tbsp, kimchi 1/3 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-121",
+   "name": "Brown rice, plant-based meat, avocado & kimchi bowl",
+   "mealType": "lunch",
+   "pattern": "grain + plant-meat + fat + ferment",
+   "components": [
+    "brown rice, cooked (200 g)",
+    "plant-based ground meat, browned (120 g)",
+    "avocado (1/2)",
+    "kimchi (1/3 cup)"
+   ],
+   "ingredients": "brown rice, cooked 200 g, plant-based ground meat, browned 120 g, avocado 1/2, kimchi 1/3 cup",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-122",
+   "name": "Basmati rice, baked beans, tofu & nutritional yeast bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + protein + toppings",
+   "components": [
+    "basmati rice, cooked (220 g)",
+    "baked beans (1.5 cups)",
+    "extra-firm tofu, pan-seared (100 g)",
+    "nutritional yeast (1 tbsp)",
+    "olives (6)"
+   ],
+   "ingredients": "basmati rice, cooked 220 g, baked beans 1.5 cups, extra-firm tofu, pan-seared 100 g, nutritional yeast 1 tbsp, olives 6",
+   "prep": "12 min (tofu pan-seared, beans from a can)"
+  },
+  {
+   "id": "AL-123",
+   "name": "Basmati rice, black beans, tofu & nutritional yeast bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + protein + toppings",
+   "components": [
+    "basmati rice, cooked (220 g)",
+    "black beans (1.5 cups)",
+    "extra-firm tofu, pan-seared (100 g)",
+    "nutritional yeast (1 tbsp)"
+   ],
+   "ingredients": "basmati rice, cooked 220 g, black beans 1.5 cups, extra-firm tofu, pan-seared 100 g, nutritional yeast 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-124",
+   "name": "Rice, baked beans & tofu bowl (no yeast/olives)",
+   "mealType": "lunch",
+   "pattern": "grain + bean + protein",
+   "components": [
+    "basmati rice, cooked (220 g)",
+    "baked beans (1.5 cups)",
+    "extra-firm tofu, pan-seared (100 g)"
+   ],
+   "ingredients": "basmati rice, cooked 220 g, baked beans 1.5 cups, extra-firm tofu, pan-seared 100 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-125",
+   "name": "Quinoa, chickpeas, roasted sweet potato, kale & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + starch veg + green + sauce",
+   "components": [
+    "quinoa, cooked (150 g)",
+    "chickpeas (1 cup)",
+    "roasted sweet potato (150 g)",
+    "massaged kale (1.5 cups)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 150 g, chickpeas 1 cup, roasted sweet potato 150 g, massaged kale 1.5 cups, tahini dressing 2 tbsp",
+   "prep": "20 min (batch-roast sweet potato)"
+  },
+  {
+   "id": "AL-126",
+   "name": "Quinoa, chickpeas, butternut squash, kale & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + starch veg + green + sauce",
+   "components": [
+    "quinoa, cooked (150 g)",
+    "chickpeas (1 cup)",
+    "roasted butternut squash (150 g)",
+    "massaged kale (1.5 cups)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 150 g, chickpeas 1 cup, roasted butternut squash 150 g, massaged kale 1.5 cups, tahini dressing 2 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-127",
+   "name": "Farro, chickpeas, roasted sweet potato, kale & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + starch veg + green + sauce",
+   "components": [
+    "farro, cooked (150 g)",
+    "chickpeas (1 cup)",
+    "roasted sweet potato (150 g)",
+    "massaged kale (1.5 cups)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "farro, cooked 150 g, chickpeas 1 cup, roasted sweet potato 150 g, massaged kale 1.5 cups, tahini dressing 2 tbsp",
+   "prep": "22 min"
+  },
+  {
+   "id": "AL-128",
+   "name": "Quinoa, white beans, roasted sweet potato, kale & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + starch veg + green + sauce",
+   "components": [
+    "quinoa, cooked (150 g)",
+    "white beans (1 cup)",
+    "roasted sweet potato (150 g)",
+    "massaged kale (1.5 cups)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 150 g, white beans 1 cup, roasted sweet potato 150 g, massaged kale 1.5 cups, tahini dressing 2 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-129",
+   "name": "Brown rice, chickpeas, roasted sweet potato, kale & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + starch veg + green + sauce",
+   "components": [
+    "brown rice, cooked (150 g)",
+    "chickpeas (1 cup)",
+    "roasted sweet potato (150 g)",
+    "massaged kale (1.5 cups)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "brown rice, cooked 150 g, chickpeas 1 cup, roasted sweet potato 150 g, massaged kale 1.5 cups, tahini dressing 2 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-130",
+   "name": "Tofu, avocado, spinach & pickled veg sandwich",
+   "mealType": "lunch",
+   "pattern": "bread + protein + fat + green + pickle",
+   "components": [
+    "whole-grain bread (2 slices)",
+    "baked tofu, sliced (100 g)",
+    "avocado (1/2)",
+    "baby spinach (1 cup)",
+    "pickled vegetables (1/4 cup)"
+   ],
+   "ingredients": "whole-grain bread 2 slices, baked tofu, sliced 100 g, avocado 1/2, baby spinach 1 cup, pickled vegetables 1/4 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-131",
+   "name": "Tofu, avocado, basil & pickled veg wrap",
+   "mealType": "lunch",
+   "pattern": "wrap + protein + fat + herb + pickle",
+   "components": [
+    "whole-wheat tortilla (1)",
+    "baked tofu, sliced (100 g)",
+    "avocado (1/2)",
+    "fresh basil leaves (1/4 cup)",
+    "pickled vegetables (1/4 cup)"
+   ],
+   "ingredients": "whole-wheat tortilla 1, baked tofu, sliced 100 g, avocado 1/2, fresh basil leaves 1/4 cup, pickled vegetables 1/4 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-132",
+   "name": "Tofu, avocado & pickled veg sandwich with garlic aioli",
+   "mealType": "lunch",
+   "pattern": "bread + protein + fat + pickle + sauce",
+   "components": [
+    "sourdough bread (2 slices)",
+    "baked tofu, sliced (100 g)",
+    "avocado (1/2)",
+    "pickled vegetables (1/4 cup)",
+    "vegan garlic aioli (1 tbsp)"
+   ],
+   "ingredients": "sourdough bread 2 slices, baked tofu, sliced 100 g, avocado 1/2, pickled vegetables 1/4 cup, vegan garlic aioli 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-133",
+   "name": "Hummus & crunchy veg wrap",
+   "mealType": "lunch",
+   "pattern": "wrap + hummus + veg + veg",
+   "components": [
+    "whole-wheat tortilla (1)",
+    "hummus (4 tbsp)",
+    "shredded carrot (1/2 cup)",
+    "cucumber, julienned (1/2 cup)",
+    "red cabbage, shredded (1/2 cup)"
+   ],
+   "ingredients": "whole-wheat tortilla 1, hummus 4 tbsp, shredded carrot 1/2 cup, cucumber, julienned 1/2 cup, red cabbage, shredded 1/2 cup",
+   "prep": "8 min, no cooking"
+  },
+  {
+   "id": "AL-134",
+   "name": "Hummus, spinach & bell pepper wrap",
+   "mealType": "lunch",
+   "pattern": "wrap + hummus + veg + veg",
+   "components": [
+    "whole-wheat tortilla (1)",
+    "hummus (4 tbsp)",
+    "baby spinach (1 cup)",
+    "bell pepper strips (1/2 cup)"
+   ],
+   "ingredients": "whole-wheat tortilla 1, hummus 4 tbsp, baby spinach 1 cup, bell pepper strips 1/2 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-135",
+   "name": "Hummus, cucumber & sprouts wrap",
+   "mealType": "lunch",
+   "pattern": "wrap + hummus + veg + veg",
+   "components": [
+    "whole-wheat tortilla (1)",
+    "hummus (4 tbsp)",
+    "cucumber, sliced (1/2 cup)",
+    "alfalfa sprouts (1/2 cup)"
+   ],
+   "ingredients": "whole-wheat tortilla 1, hummus 4 tbsp, cucumber, sliced 1/2 cup, alfalfa sprouts 1/2 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-136",
+   "name": "Hummus, shredded carrot & red cabbage wrap with avocado",
+   "mealType": "lunch",
+   "pattern": "wrap + hummus + veg + veg + fat",
+   "components": [
+    "whole-wheat tortilla (1)",
+    "hummus (3 tbsp)",
+    "shredded carrot (1/2 cup)",
+    "red cabbage, shredded (1/2 cup)",
+    "avocado (1/4)"
+   ],
+   "ingredients": "whole-wheat tortilla 1, hummus 3 tbsp, shredded carrot 1/2 cup, red cabbage, shredded 1/2 cup, avocado 1/4",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-137",
+   "name": "Hummus & mixed veg wrap, double veg",
+   "mealType": "lunch",
+   "pattern": "wrap + hummus + veg + veg",
+   "components": [
+    "whole-wheat tortilla (1)",
+    "hummus (4 tbsp)",
+    "shredded carrot (1/3 cup)",
+    "cucumber (1/3 cup)",
+    "bell pepper (1/3 cup)",
+    "baby spinach (1/2 cup)"
+   ],
+   "ingredients": "whole-wheat tortilla 1, hummus 4 tbsp, shredded carrot 1/3 cup, cucumber 1/3 cup, bell pepper 1/3 cup, baby spinach 1/2 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-142",
+   "name": "Big salad — avocado, bell pepper, carrot, beet & tahini",
+   "mealType": "lunch",
+   "pattern": "green + fat + veg + veg + veg + sauce",
+   "components": [
+    "mixed salad greens (3 cups)",
+    "avocado (1/2)",
+    "bell pepper, sliced (1/2 cup)",
+    "shredded carrot (1/2 cup)",
+    "roasted beets (1/2 cup)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "mixed salad greens 3 cups, avocado 1/2, bell pepper, sliced 1/2 cup, shredded carrot 1/2 cup, roasted beets 1/2 cup, tahini dressing 2 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-143",
+   "name": "Greens, quinoa, black beans, seeds & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + grain + bean + seed + sauce",
+   "components": [
+    "mixed salad greens (2 cups)",
+    "quinoa, cooked (150 g)",
+    "black beans (1 cup)",
+    "pumpkin seeds (2 tbsp)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "mixed salad greens 2 cups, quinoa, cooked 150 g, black beans 1 cup, pumpkin seeds 2 tbsp, tahini dressing 2 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-144",
+   "name": "Greens, brown rice, chickpeas, walnuts & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + grain + bean + nut + sauce",
+   "components": [
+    "mixed salad greens (2 cups)",
+    "brown rice, cooked (150 g)",
+    "chickpeas (1 cup)",
+    "walnuts, chopped (2 tbsp)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "mixed salad greens 2 cups, brown rice, cooked 150 g, chickpeas 1 cup, walnuts, chopped 2 tbsp, tahini dressing 2 tbsp",
+   "prep": "14 min"
+  },
+  {
+   "id": "AL-145",
+   "name": "Rainbow salad — bell pepper, carrot, beet, onion & avocado",
+   "mealType": "lunch",
+   "pattern": "green + veg + veg + veg + veg + fat",
+   "components": [
+    "mixed salad greens (3 cups)",
+    "bell pepper, sliced (1/2 cup)",
+    "shredded carrot (1/2 cup)",
+    "roasted beets (1/2 cup)",
+    "red onion, thin-sliced (2 tbsp)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "mixed salad greens 3 cups, bell pepper, sliced 1/2 cup, shredded carrot 1/2 cup, roasted beets 1/2 cup, red onion, thin-sliced 2 tbsp, avocado 1/2",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-146",
+   "name": "Greens, farro, white beans, seeds & tahini bowl",
+   "mealType": "lunch",
+   "pattern": "green + grain + bean + seed + sauce",
+   "components": [
+    "mixed salad greens (2 cups)",
+    "farro, cooked (150 g)",
+    "white beans (1 cup)",
+    "sunflower seeds (2 tbsp)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "mixed salad greens 2 cups, farro, cooked 150 g, white beans 1 cup, sunflower seeds 2 tbsp, tahini dressing 2 tbsp",
+   "prep": "14 min"
+  },
+  {
+   "id": "AL-147",
+   "name": "Rice & hummus bowl with steamed veg",
+   "mealType": "lunch",
+   "pattern": "grain + hummus + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "hummus (4 tbsp)",
+    "steamed mixed vegetables (1.5 cups)"
+   ],
+   "ingredients": "white rice, cooked 250 g, hummus 4 tbsp, steamed mixed vegetables 1.5 cups",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-148",
+   "name": "Rice, hummus & roasted carrots (high-mileage plate)",
+   "mealType": "lunch",
+   "pattern": "grain + hummus + veg",
+   "components": [
+    "white rice, cooked (300 g)",
+    "hummus (4 tbsp)",
+    "roasted carrots (1 cup)"
+   ],
+   "ingredients": "white rice, cooked 300 g, hummus 4 tbsp, roasted carrots 1 cup",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-149",
+   "name": "Rice, hummus & steamed broccoli plate",
+   "mealType": "lunch",
+   "pattern": "grain + hummus + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "hummus (3 tbsp)",
+    "steamed broccoli (1.5 cups)"
+   ],
+   "ingredients": "white rice, cooked 250 g, hummus 3 tbsp, steamed broccoli 1.5 cups",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-150",
+   "name": "Brown rice, hummus & greens plate",
+   "mealType": "lunch",
+   "pattern": "grain + hummus + veg",
+   "components": [
+    "brown rice, cooked (250 g)",
+    "hummus (4 tbsp)",
+    "sauteed greens (1.5 cups)"
+   ],
+   "ingredients": "brown rice, cooked 250 g, hummus 4 tbsp, sauteed greens 1.5 cups",
+   "prep": "14 min"
+  },
+  {
+   "id": "AL-151",
+   "name": "Canned tuna, microwave rice & tomato plate",
+   "mealType": "lunch",
+   "pattern": "protein + grain + veg + fat",
+   "components": [
+    "canned tuna in water (1 can (140 g))",
+    "microwavable white rice packet (250 g)",
+    "tomato, sliced (1)",
+    "olive oil (1 tsp)"
+   ],
+   "ingredients": "canned tuna in water 1 can (140 g), microwavable white rice packet 250 g, tomato, sliced 1, olive oil 1 tsp",
+   "prep": "5 min, travel-friendly"
+  },
+  {
+   "id": "AL-152",
+   "name": "Canned tuna, rice & cucumber plate",
+   "mealType": "lunch",
+   "pattern": "protein + grain + veg",
+   "components": [
+    "canned tuna in water (1 can (140 g))",
+    "microwavable white rice packet (250 g)",
+    "cucumber, sliced (1/2 cup)"
+   ],
+   "ingredients": "canned tuna in water 1 can (140 g), microwavable white rice packet 250 g, cucumber, sliced 1/2 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-153",
+   "name": "Canned salmon, rice & tomato plate",
+   "mealType": "lunch",
+   "pattern": "protein + grain + veg",
+   "components": [
+    "canned salmon (1 can (130 g))",
+    "microwavable white rice packet (250 g)",
+    "tomato, sliced (1)"
+   ],
+   "ingredients": "canned salmon 1 can (130 g), microwavable white rice packet 250 g, tomato, sliced 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-154",
+   "name": "Canned tuna, rice, tomato & olive oil (race-week plate)",
+   "mealType": "lunch",
+   "pattern": "protein + grain + veg + fat",
+   "components": [
+    "canned tuna in water (1 can (140 g))",
+    "microwavable white rice packet (250 g)",
+    "tomato, sliced (1)",
+    "olive oil (1 tbsp)",
+    "salt (pinch)"
+   ],
+   "ingredients": "canned tuna in water 1 can (140 g), microwavable white rice packet 250 g, tomato, sliced 1, olive oil 1 tbsp, salt pinch",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-155",
+   "name": "Tamari-lime tempeh, brown rice & almond sauce",
+   "mealType": "lunch",
+   "pattern": "grain + protein + sauce + veg",
+   "components": [
+    "brown rice, cooked (200 g)",
+    "tempeh, crumbled & pan-fried (150 g)",
+    "red curry almond sauce (jarred/simple) (2 tbsp)",
+    "cabbage slaw (1 cup)"
+   ],
+   "ingredients": "brown rice, cooked 200 g, tempeh, crumbled & pan-fried 150 g, red curry almond sauce (jarred/simple) 2 tbsp, cabbage slaw 1 cup",
+   "prep": "15 min (with rice pre-cooked)"
+  },
+  {
+   "id": "AL-156",
+   "name": "Tamari-lime tempeh, brown rice, almond sauce & extra veg",
+   "mealType": "lunch",
+   "pattern": "grain + protein + sauce + veg",
+   "components": [
+    "brown rice, cooked (200 g)",
+    "tempeh, crumbled & pan-fried (150 g)",
+    "red curry almond sauce (2 tbsp)",
+    "steamed broccoli (1 cup)"
+   ],
+   "ingredients": "brown rice, cooked 200 g, tempeh, crumbled & pan-fried 150 g, red curry almond sauce 2 tbsp, steamed broccoli 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-157",
+   "name": "Tempeh, white rice & almond sauce bowl",
+   "mealType": "lunch",
+   "pattern": "grain + protein + sauce + veg",
+   "components": [
+    "white rice, cooked (200 g)",
+    "tempeh, crumbled & pan-fried (150 g)",
+    "red curry almond sauce (2 tbsp)",
+    "cabbage slaw (1 cup)"
+   ],
+   "ingredients": "white rice, cooked 200 g, tempeh, crumbled & pan-fried 150 g, red curry almond sauce 2 tbsp, cabbage slaw 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-158",
+   "name": "Tamari-lime tempeh, quinoa & almond sauce",
+   "mealType": "lunch",
+   "pattern": "grain + protein + sauce + veg",
+   "components": [
+    "quinoa, cooked (200 g)",
+    "tempeh, crumbled & pan-fried (150 g)",
+    "red curry almond sauce (2 tbsp)",
+    "cabbage slaw (1 cup)"
+   ],
+   "ingredients": "quinoa, cooked 200 g, tempeh, crumbled & pan-fried 150 g, red curry almond sauce 2 tbsp, cabbage slaw 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-159",
+   "name": "Tofu, broccoli, red pepper stir-fry & rice (leftover lunch)",
+   "mealType": "lunch",
+   "pattern": "grain + protein + veg + veg + sauce",
+   "components": [
+    "white rice, cooked (200 g)",
+    "firm tofu, stir-fried (150 g)",
+    "broccoli, stir-fried (1 cup)",
+    "red bell pepper, stir-fried (1/2 cup)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 200 g, firm tofu, stir-fried 150 g, broccoli, stir-fried 1 cup, red bell pepper, stir-fried 1/2 cup, tamari 1 tbsp",
+   "prep": "reheat 3 min, cooked in batch"
+  },
+  {
+   "id": "AL-160",
+   "name": "Tempeh, purple cabbage & arugula stir-fry with rice",
+   "mealType": "lunch",
+   "pattern": "grain + protein + veg + veg + sauce",
+   "components": [
+    "white rice, cooked (200 g)",
+    "tempeh, stir-fried (150 g)",
+    "purple cabbage, stir-fried (1 cup)",
+    "arugula, wilted in (1 cup)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 200 g, tempeh, stir-fried 150 g, purple cabbage, stir-fried 1 cup, arugula, wilted in 1 cup, tamari 1 tbsp",
+   "prep": "reheat 3 min"
+  },
+  {
+   "id": "AL-161",
+   "name": "Tofu, kale & broccoli stir-fry with noodles",
+   "mealType": "lunch",
+   "pattern": "noodle + protein + veg + veg + sauce",
+   "components": [
+    "rice noodles, cooked (200 g)",
+    "firm tofu, stir-fried (150 g)",
+    "kale, stir-fried (1 cup)",
+    "broccoli, stir-fried (1 cup)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "rice noodles, cooked 200 g, firm tofu, stir-fried 150 g, kale, stir-fried 1 cup, broccoli, stir-fried 1 cup, tamari 1 tbsp",
+   "prep": "reheat 3 min"
+  },
+  {
+   "id": "AL-162",
+   "name": "Tempeh, broccoli & red pepper stir-fry with rice noodles",
+   "mealType": "lunch",
+   "pattern": "noodle + protein + veg + veg + sauce",
+   "components": [
+    "rice noodles, cooked (200 g)",
+    "tempeh, stir-fried (150 g)",
+    "broccoli, stir-fried (1 cup)",
+    "red bell pepper, stir-fried (1/2 cup)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "rice noodles, cooked 200 g, tempeh, stir-fried 150 g, broccoli, stir-fried 1 cup, red bell pepper, stir-fried 1/2 cup, tamari 1 tbsp",
+   "prep": "reheat 3 min"
+  },
+  {
+   "id": "AL-163",
+   "name": "Tofu, arugula & purple cabbage stir-fry with rice",
+   "mealType": "lunch",
+   "pattern": "grain + protein + veg + veg + sauce",
+   "components": [
+    "white rice, cooked (200 g)",
+    "firm tofu, stir-fried (150 g)",
+    "arugula, wilted in (1 cup)",
+    "purple cabbage, stir-fried (1 cup)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 200 g, firm tofu, stir-fried 150 g, arugula, wilted in 1 cup, purple cabbage, stir-fried 1 cup, tamari 1 tbsp",
+   "prep": "reheat 3 min"
+  },
+  {
+   "id": "AL-164",
+   "name": "Rice, lentils, bread & fruit plate",
+   "mealType": "lunch",
+   "pattern": "grain + pulse + bread + fruit",
+   "components": [
+    "white rice, cooked (200 g)",
+    "cooked lentils (1 cup)",
+    "bread, sliced (2 slices)",
+    "apple (1)"
+   ],
+   "ingredients": "white rice, cooked 200 g, cooked lentils 1 cup, bread, sliced 2 slices, apple 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-165",
+   "name": "Rice, chickpeas, bread & nuts plate",
+   "mealType": "lunch",
+   "pattern": "grain + pulse + bread + nut",
+   "components": [
+    "white rice, cooked (200 g)",
+    "chickpeas (1 cup)",
+    "bread, sliced (2 slices)",
+    "mixed nuts (20 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, chickpeas 1 cup, bread, sliced 2 slices, mixed nuts 20 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-166",
+   "name": "Rice, black beans, bread & banana plate",
+   "mealType": "lunch",
+   "pattern": "grain + pulse + bread + fruit",
+   "components": [
+    "white rice, cooked (200 g)",
+    "black beans (1 cup)",
+    "bread, sliced (2 slices)",
+    "banana (1)"
+   ],
+   "ingredients": "white rice, cooked 200 g, black beans 1 cup, bread, sliced 2 slices, banana 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-167",
+   "name": "Rice, split peas & bread plate with grapes",
+   "mealType": "lunch",
+   "pattern": "grain + pulse + bread + fruit",
+   "components": [
+    "white rice, cooked (200 g)",
+    "cooked split peas (1 cup)",
+    "bread, sliced (2 slices)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "white rice, cooked 200 g, cooked split peas 1 cup, bread, sliced 2 slices, grapes 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-168",
+   "name": "Big leafy salad, rice & avocado",
+   "mealType": "lunch",
+   "pattern": "green + grain + fat + sauce",
+   "components": [
+    "mixed leafy greens (3 cups)",
+    "white rice, cooked (150 g)",
+    "avocado (1/2)",
+    "lemon-olive oil dressing (1 tbsp)"
+   ],
+   "ingredients": "mixed leafy greens 3 cups, white rice, cooked 150 g, avocado 1/2, lemon-olive oil dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-169",
+   "name": "Big leafy salad, quinoa & avocado",
+   "mealType": "lunch",
+   "pattern": "green + grain + fat + sauce",
+   "components": [
+    "mixed leafy greens (3 cups)",
+    "quinoa, cooked (150 g)",
+    "avocado (1/2)",
+    "lemon-olive oil dressing (1 tbsp)"
+   ],
+   "ingredients": "mixed leafy greens 3 cups, quinoa, cooked 150 g, avocado 1/2, lemon-olive oil dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-170",
+   "name": "Big leafy salad, quinoa, avocado & hemp seeds",
+   "mealType": "lunch",
+   "pattern": "green + grain + fat + seed + sauce",
+   "components": [
+    "mixed leafy greens (3 cups)",
+    "quinoa, cooked (150 g)",
+    "avocado (1/2)",
+    "hemp seeds (1 tbsp)",
+    "lemon-olive oil dressing (1 tbsp)"
+   ],
+   "ingredients": "mixed leafy greens 3 cups, quinoa, cooked 150 g, avocado 1/2, hemp seeds 1 tbsp, lemon-olive oil dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-171",
+   "name": "Big leafy salad, rice, avocado & sprouted bread",
+   "mealType": "lunch",
+   "pattern": "green + grain + fat + bread + sauce",
+   "components": [
+    "mixed leafy greens (3 cups)",
+    "white rice, cooked (100 g)",
+    "avocado (1/2)",
+    "sprouted whole-grain bread (1 slice)",
+    "lemon-olive oil dressing (1 tbsp)"
+   ],
+   "ingredients": "mixed leafy greens 3 cups, white rice, cooked 100 g, avocado 1/2, sprouted whole-grain bread 1 slice, lemon-olive oil dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-172",
+   "name": "Rice & black beans post-ride recovery bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + sauce",
+   "components": [
+    "white rice, cooked (250 g)",
+    "black beans (1.5 cups)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 250 g, black beans 1.5 cups, salsa 3 tbsp",
+   "prep": "10 min (canned beans)"
+  },
+  {
+   "id": "AL-173",
+   "name": "Rice & pinto beans post-ride recovery bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + sauce",
+   "components": [
+    "white rice, cooked (250 g)",
+    "pinto beans (1.5 cups)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 250 g, pinto beans 1.5 cups, salsa 3 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-174",
+   "name": "Brown rice & kidney beans post-ride bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + sauce",
+   "components": [
+    "brown rice, cooked (250 g)",
+    "kidney beans (1.5 cups)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "brown rice, cooked 250 g, kidney beans 1.5 cups, salsa 3 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-175",
+   "name": "Rice, black beans & corn post-ride bowl",
+   "mealType": "lunch",
+   "pattern": "grain + bean + veg + sauce",
+   "components": [
+    "white rice, cooked (250 g)",
+    "black beans (1 cup)",
+    "sweetcorn (1/2 cup)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 250 g, black beans 1 cup, sweetcorn 1/2 cup, salsa 3 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-176",
+   "name": "Tofu, quinoa, spinach & chard bowl",
+   "mealType": "lunch",
+   "pattern": "grain + protein + green + green + fat",
+   "components": [
+    "quinoa, cooked (150 g)",
+    "firm tofu, baked (150 g)",
+    "baby spinach (1 cup)",
+    "swiss chard, sauteed (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 150 g, firm tofu, baked 150 g, baby spinach 1 cup, swiss chard, sauteed 1 cup, olive oil 1 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-177",
+   "name": "Tempeh, wild rice, broccoli rabe & lentils bowl",
+   "mealType": "lunch",
+   "pattern": "grain + protein + lentil + green + fat",
+   "components": [
+    "wild rice, cooked (150 g)",
+    "tempeh, pan-fried (120 g)",
+    "cooked lentils (1/2 cup)",
+    "broccoli rabe, sauteed (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "wild rice, cooked 150 g, tempeh, pan-fried 120 g, cooked lentils 1/2 cup, broccoli rabe, sauteed 1 cup, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-178",
+   "name": "Tofu, wild rice, kale & beans bowl",
+   "mealType": "lunch",
+   "pattern": "grain + protein + green + bean + fat",
+   "components": [
+    "wild rice, cooked (150 g)",
+    "firm tofu, baked (150 g)",
+    "kale, sauteed (1 cup)",
+    "white beans (1/2 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "wild rice, cooked 150 g, firm tofu, baked 150 g, kale, sauteed 1 cup, white beans 1/2 cup, olive oil 1 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-179",
+   "name": "Tempeh, quinoa, spinach & broccoli rabe bowl",
+   "mealType": "lunch",
+   "pattern": "grain + protein + green + green + fat",
+   "components": [
+    "quinoa, cooked (150 g)",
+    "tempeh, pan-fried (120 g)",
+    "baby spinach (1 cup)",
+    "broccoli rabe, sauteed (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 150 g, tempeh, pan-fried 120 g, baby spinach 1 cup, broccoli rabe, sauteed 1 cup, olive oil 1 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-184",
+   "name": "Boiled eggs, potato salad & mixed greens",
+   "mealType": "lunch",
+   "pattern": "protein + starch + green + sauce",
+   "components": [
+    "hard-boiled eggs (2)",
+    "boiled new potatoes (250 g)",
+    "mixed salad greens (2 cups)",
+    "olive oil & vinegar dressing (1 tbsp)"
+   ],
+   "ingredients": "hard-boiled eggs 2, boiled new potatoes 250 g, mixed salad greens 2 cups, olive oil & vinegar dressing 1 tbsp",
+   "prep": "15 min (potatoes pre-boiled)"
+  },
+  {
+   "id": "AL-185",
+   "name": "Egg salad plate with potatoes & tomato",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "hard-boiled eggs (3)",
+    "boiled new potatoes (200 g)",
+    "tomato, sliced (1)",
+    "mayo or plain yogurt (1 tbsp)"
+   ],
+   "ingredients": "hard-boiled eggs 3, boiled new potatoes 200 g, tomato, sliced 1, mayo or plain yogurt 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-186",
+   "name": "Boiled eggs, potatoes & steamed green beans plate",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "hard-boiled eggs (2)",
+    "boiled new potatoes (250 g)",
+    "steamed green beans (1 cup)",
+    "olive oil (1 tsp)"
+   ],
+   "ingredients": "hard-boiled eggs 2, boiled new potatoes 250 g, steamed green beans 1 cup, olive oil 1 tsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-187",
+   "name": "Hard-boiled eggs, lentil soup & side salad",
+   "mealType": "lunch",
+   "pattern": "protein + soup + salad + sauce",
+   "components": [
+    "hard-boiled eggs (2)",
+    "lentil soup (1.5 cups)",
+    "side salad (mixed greens, tomato, cucumber) (1.5 cups)",
+    "olive oil dressing (1 tbsp)"
+   ],
+   "ingredients": "hard-boiled eggs 2, lentil soup 1.5 cups, side salad (mixed greens, tomato, cucumber) 1.5 cups, olive oil dressing 1 tbsp",
+   "prep": "10 min (soup pre-made)"
+  },
+  {
+   "id": "AL-188",
+   "name": "Boiled eggs & lentil soup with bread",
+   "mealType": "lunch",
+   "pattern": "protein + soup + bread",
+   "components": [
+    "hard-boiled eggs (2)",
+    "lentil soup (1.5 cups)",
+    "whole-grain bread (1 slice)"
+   ],
+   "ingredients": "hard-boiled eggs 2, lentil soup 1.5 cups, whole-grain bread 1 slice",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-189",
+   "name": "Egg & lentil soup lunch with roasted veg",
+   "mealType": "lunch",
+   "pattern": "protein + soup + veg",
+   "components": [
+    "hard-boiled eggs (2)",
+    "lentil soup (1.5 cups)",
+    "roasted mixed vegetables (1 cup)"
+   ],
+   "ingredients": "hard-boiled eggs 2, lentil soup 1.5 cups, roasted mixed vegetables 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-190",
+   "name": "Veggie burger, sweet potato & side salad",
+   "mealType": "lunch",
+   "pattern": "protein + bun + starch + salad",
+   "components": [
+    "veggie burger patty (1)",
+    "whole-grain bun (1)",
+    "roasted sweet potato wedges (150 g)",
+    "side salad (1.5 cups)"
+   ],
+   "ingredients": "veggie burger patty 1, whole-grain bun 1, roasted sweet potato wedges 150 g, side salad 1.5 cups",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-191",
+   "name": "Veggie burger & big salad plate",
+   "mealType": "lunch",
+   "pattern": "protein + salad + veg + sauce",
+   "components": [
+    "veggie burger patty, crumbled (1)",
+    "mixed salad greens (3 cups)",
+    "cherry tomatoes (1/2 cup)",
+    "balsamic vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "veggie burger patty, crumbled 1, mixed salad greens 3 cups, cherry tomatoes 1/2 cup, balsamic vinaigrette 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-192",
+   "name": "Sweet potato curry-style plate with rice & greens",
+   "mealType": "lunch",
+   "pattern": "starch + starch + bean + veg",
+   "components": [
+    "sweet potato, roasted (200 g)",
+    "white rice, cooked (150 g)",
+    "chickpeas (1/2 cup)",
+    "sauteed greens (1 cup)"
+   ],
+   "ingredients": "sweet potato, roasted 200 g, white rice, cooked 150 g, chickpeas 1/2 cup, sauteed greens 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-193",
+   "name": "Canned sardines, rice & steamed greens",
+   "mealType": "lunch",
+   "pattern": "protein + grain + veg",
+   "components": [
+    "canned sardines in olive oil (1 tin (100 g))",
+    "white rice, cooked (200 g)",
+    "steamed greens (spinach or chard) (1 cup)"
+   ],
+   "ingredients": "canned sardines in olive oil 1 tin (100 g), white rice, cooked 200 g, steamed greens (spinach or chard) 1 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-194",
+   "name": "Canned mackerel, quinoa & roasted veg",
+   "mealType": "lunch",
+   "pattern": "protein + grain + veg",
+   "components": [
+    "canned mackerel (1 tin (110 g))",
+    "quinoa, cooked (150 g)",
+    "roasted mixed vegetables (1 cup)"
+   ],
+   "ingredients": "canned mackerel 1 tin (110 g), quinoa, cooked 150 g, roasted mixed vegetables 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-195",
+   "name": "Canned salmon, rice & side salad",
+   "mealType": "lunch",
+   "pattern": "protein + grain + salad + sauce",
+   "components": [
+    "canned salmon (1 can (130 g))",
+    "white rice, cooked (200 g)",
+    "side salad (1.5 cups)",
+    "lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "canned salmon 1 can (130 g), white rice, cooked 200 g, side salad 1.5 cups, lemon dressing 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-196",
+   "name": "Bagel with hummus & tomato",
+   "mealType": "lunch",
+   "pattern": "bread + hummus + veg",
+   "components": [
+    "whole-wheat bagel (1)",
+    "hummus (3 tbsp)",
+    "tomato, sliced (1/2)"
+   ],
+   "ingredients": "whole-wheat bagel 1, hummus 3 tbsp, tomato, sliced 1/2",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-197",
+   "name": "Falafel, hummus, tomato, avocado & olive wrap",
+   "mealType": "lunch",
+   "pattern": "bread + protein + hummus + veg + fat",
+   "components": [
+    "whole-wheat pita (1)",
+    "falafel (4 pieces)",
+    "hummus (2 tbsp)",
+    "tomato, diced (1/2)",
+    "avocado (1/4)",
+    "olives (5)"
+   ],
+   "ingredients": "whole-wheat pita 1, falafel 4 pieces, hummus 2 tbsp, tomato, diced 1/2, avocado 1/4, olives 5",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-198",
+   "name": "Bagel, hummus & cucumber",
+   "mealType": "lunch",
+   "pattern": "bread + hummus + veg",
+   "components": [
+    "whole-wheat bagel (1)",
+    "hummus (3 tbsp)",
+    "cucumber, sliced (1/2 cup)"
+   ],
+   "ingredients": "whole-wheat bagel 1, hummus 3 tbsp, cucumber, sliced 1/2 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-199",
+   "name": "Corn tortillas, ham, cucumber & spinach with cottage cheese",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + dairy",
+   "components": [
+    "corn tortillas (2 small)",
+    "deli ham (80 g)",
+    "cucumber, sliced (1/2)",
+    "baby spinach (1 cup)",
+    "cottage cheese (100 g)"
+   ],
+   "ingredients": "corn tortillas 2 small, deli ham 80 g, cucumber, sliced 1/2, baby spinach 1 cup, cottage cheese 100 g",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-200",
+   "name": "Fish nigiri & vegetable maki with wheat-free tamari",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "sushi rice (in nigiri/maki) (250 g)",
+    "fish nigiri (salmon or tuna) (6 pieces)",
+    "cucumber maki roll (6 pieces)",
+    "wheat-free tamari (1 tbsp)"
+   ],
+   "ingredients": "sushi rice (in nigiri/maki) 250 g, fish nigiri (salmon or tuna) 6 pieces, cucumber maki roll 6 pieces, wheat-free tamari 1 tbsp",
+   "prep": "0 min (takeout)"
+  },
+  {
+   "id": "AL-201",
+   "name": "Gluten-free beef empanadas with side salad",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "GF beef empanadas (2)",
+    "mixed green salad (2 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "GF beef empanadas 2, mixed green salad 2 cups, olive oil 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-202",
+   "name": "Gluten-free baguette with ham & cheese",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "certified GF baguette (1 small)",
+    "sliced ham (80 g)",
+    "cheese slices (40 g)"
+   ],
+   "ingredients": "certified GF baguette 1 small, sliced ham 80 g, cheese slices 40 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-203",
+   "name": "White rice with fried egg & grated cheese",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "white rice, cooked (250 g)",
+    "egg, fried (2)",
+    "grated cheese (30 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, egg, fried 2, grated cheese 30 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-204",
+   "name": "Black beans & white rice",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "white rice, cooked (250 g)",
+    "black beans (1.5 cups)"
+   ],
+   "ingredients": "white rice, cooked 250 g, black beans 1.5 cups",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-205",
+   "name": "Ground beef, pineapple salsa & rice",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fruit",
+   "components": [
+    "white rice, cooked (250 g)",
+    "ground beef, cooked (150 g)",
+    "pineapple salsa (1/2 cup)"
+   ],
+   "ingredients": "white rice, cooked 250 g, ground beef, cooked 150 g, pineapple salsa 1/2 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-206",
+   "name": "Large plate of white rice, grilled chicken & olive oil",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "white rice, cooked (300 g)",
+    "chicken breast, grilled (180 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 300 g, chicken breast, grilled 180 g, olive oil 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-207",
+   "name": "Corn pasta with tomato sauce",
+   "mealType": "lunch",
+   "pattern": "starch + sauce + fat",
+   "components": [
+    "corn pasta (100 g dry)",
+    "tomato sauce, homemade (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "corn pasta 100 g dry, tomato sauce, homemade 1.5 cups, olive oil 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-208",
+   "name": "Chicken sandwich on GF bread with lettuce, carrot & capsicum",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "certified GF bread (2 slices)",
+    "chicken breast, sliced (120 g)",
+    "lettuce (1 cup)",
+    "grated carrot (1/2 cup)",
+    "capsicum, sliced (1/4)"
+   ],
+   "ingredients": "certified GF bread 2 slices, chicken breast, sliced 120 g, lettuce 1 cup, grated carrot 1/2 cup, capsicum, sliced 1/4",
+   "prep": "6 min"
+  },
+  {
+   "id": "AL-209",
+   "name": "Tinned tuna & rice cakes with mayonnaise",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "rice cakes (4)",
+    "tinned tuna in spring water (120 g)",
+    "mayonnaise (2 tbsp)"
+   ],
+   "ingredients": "rice cakes 4, tinned tuna in spring water 120 g, mayonnaise 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-210",
+   "name": "Rice cakes, roast chicken & avocado",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "rice cakes (4)",
+    "roast chicken, shredded (120 g)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "rice cakes 4, roast chicken, shredded 120 g, avocado 1/2",
+   "prep": "4 min"
+  },
+  {
+   "id": "AL-211",
+   "name": "GF pasta, tuna, corn & tomatoes with parmesan",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + dairy",
+   "components": [
+    "gluten-free pasta, cooked (250 g)",
+    "tinned tuna in spring water (95 g)",
+    "sweetcorn (35 g)",
+    "cherry tomatoes, chopped (6)",
+    "parmesan (2 tbsp)"
+   ],
+   "ingredients": "gluten-free pasta, cooked 250 g, tinned tuna in spring water 95 g, sweetcorn 35 g, cherry tomatoes, chopped 6, parmesan 2 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-212",
+   "name": "Sweet potato & black bean bowl",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "sweet potato, roasted (250 g)",
+    "black beans (1 cup)",
+    "lime (wedge)"
+   ],
+   "ingredients": "sweet potato, roasted 250 g, black beans 1 cup, lime wedge",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-213",
+   "name": "Quinoa salad with chickpeas & mustard dressing",
+   "mealType": "lunch",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "quinoa, cooked (180 g)",
+    "chickpeas (1 cup)",
+    "mustard-honey dressing (2 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 180 g, chickpeas 1 cup, mustard-honey dressing 2 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-214",
+   "name": "Corn tortilla tacos with lean beef",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "corn tortillas (3)",
+    "lean ground beef, cooked (150 g)",
+    "shredded lettuce (1 cup)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "corn tortillas 3, lean ground beef, cooked 150 g, shredded lettuce 1 cup, salsa 3 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-215",
+   "name": "Tuna salad with mustard-honey dressing",
+   "mealType": "lunch",
+   "pattern": "protein + veg + sauce",
+   "components": [
+    "tinned tuna (150 g)",
+    "mixed leaves (2 cups)",
+    "cherry tomatoes (1/2 cup)",
+    "mustard-honey dressing (2 tbsp)"
+   ],
+   "ingredients": "tinned tuna 150 g, mixed leaves 2 cups, cherry tomatoes 1/2 cup, mustard-honey dressing 2 tbsp",
+   "prep": "6 min"
+  },
+  {
+   "id": "AL-216",
+   "name": "Chicken salad with mustard-honey dressing",
+   "mealType": "lunch",
+   "pattern": "protein + veg + sauce",
+   "components": [
+    "chicken breast, grilled (150 g)",
+    "mixed leaves (2 cups)",
+    "cucumber (1/2)",
+    "mustard-honey dressing (2 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 150 g, mixed leaves 2 cups, cucumber 1/2, mustard-honey dressing 2 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-217",
+   "name": "Chicken & rice bowl",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (220 g)",
+    "chicken breast, grilled (150 g)",
+    "steamed broccoli (1 cup)"
+   ],
+   "ingredients": "white rice, cooked 220 g, chicken breast, grilled 150 g, steamed broccoli 1 cup",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-218",
+   "name": "GF oats with milk, banana & honey (savoury-free lunch bowl)",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "certified GF oats (60 g dry)",
+    "milk (250 ml)",
+    "banana, sliced (1)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "certified GF oats 60 g dry, milk 250 ml, banana, sliced 1, honey 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-219",
+   "name": "Steak & corn salad with tomatoes",
+   "mealType": "lunch",
+   "pattern": "protein + veg + veg + fat",
+   "components": [
+    "sirloin steak, grilled (150 g)",
+    "sweetcorn (1/2 cup)",
+    "cherry tomatoes (1/2 cup)",
+    "mixed leaves (2 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "sirloin steak, grilled 150 g, sweetcorn 1/2 cup, cherry tomatoes 1/2 cup, mixed leaves 2 cups, olive oil 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-220",
+   "name": "Low-FODMAP rainbow salad",
+   "mealType": "lunch",
+   "pattern": "veg + protein + sauce",
+   "components": [
+    "mixed leaves (2 cups)",
+    "carrot, grated (1/2 cup)",
+    "cucumber (1/2)",
+    "cherry tomatoes (1/2 cup)",
+    "grilled chicken (150 g)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "mixed leaves 2 cups, carrot, grated 1/2 cup, cucumber 1/2, cherry tomatoes 1/2 cup, grilled chicken 150 g, olive oil-lemon dressing 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-221",
+   "name": "Tomato soup with corn & basil",
+   "mealType": "lunch",
+   "pattern": "sauce + veg + starch",
+   "components": [
+    "tomato soup, homemade (2 cups)",
+    "sweetcorn (1/2 cup)",
+    "basil, fresh (handful)",
+    "GF crusty bread (1 slice)"
+   ],
+   "ingredients": "tomato soup, homemade 2 cups, sweetcorn 1/2 cup, basil, fresh handful, GF crusty bread 1 slice",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-222",
+   "name": "Seared salmon over salad",
+   "mealType": "lunch",
+   "pattern": "protein + veg + sauce",
+   "components": [
+    "salmon fillet, seared (150 g)",
+    "mixed leaves (2 cups)",
+    "cucumber (1/2)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "salmon fillet, seared 150 g, mixed leaves 2 cups, cucumber 1/2, olive oil-lemon dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-223",
+   "name": "Leftover turkey chili (low-FODMAP)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "ground turkey, cooked (150 g)",
+    "canned tomatoes, low-FODMAP portion (1 cup)",
+    "bell pepper (1/2)",
+    "white rice, cooked (150 g)"
+   ],
+   "ingredients": "ground turkey, cooked 150 g, canned tomatoes, low-FODMAP portion 1 cup, bell pepper 1/2, white rice, cooked 150 g",
+   "prep": "5 min (leftovers)"
+  },
+  {
+   "id": "AL-224",
+   "name": "Quinoa salad with radishes & snap peas",
+   "mealType": "lunch",
+   "pattern": "starch + veg + sauce",
+   "components": [
+    "quinoa, cooked (180 g)",
+    "radishes, sliced (4)",
+    "snap peas (1/2 cup)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 180 g, radishes, sliced 4, snap peas 1/2 cup, olive oil-lemon dressing 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-225",
+   "name": "Banana & lactose-free milk smoothie bowl with rice cakes",
+   "mealType": "lunch",
+   "pattern": "fruit + dairy + starch",
+   "components": [
+    "banana (1)",
+    "lactose-free milk (250 ml)",
+    "rice cakes (3)"
+   ],
+   "ingredients": "banana 1, lactose-free milk 250 ml, rice cakes 3",
+   "prep": "5 min"
+  }
+ ]
+}

@@ -1,0 +1,262 @@
+{
+ "batch": "R-07",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "D-043",
+   "name": "Ground beef burritos with rice, beans & cheese",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "ground beef 150g, large flour tortilla 1, black beans 100g, rice 75g dry, cheddar 30g, salsa 50g (makes 4)",
+   "prep": "batch — one protein batch Sunday, reassembled nightly, 4 servings",
+   "prepMinutes": null,
+   "attribution": "GT7, TrainerRoad forum \"What do you eat during any given day\" — \"rotate between cooking some beef or chicken and then using that over a few days\" https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/18",
+   "sourceUrl": "https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/18",
+   "cachedPages": [
+    {
+     "url": "https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/18",
+     "title": "What do you eat during any given day?",
+     "ok": true,
+     "textFile": ".cache/source-pages/2f01da8faa8c989fedb2afc62e32d484254872e8.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-045",
+   "name": "Rice, black beans, guacamole & hot sauce bowl",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "rice 100g dry (or rice + quinoa), black beans 200g, guacamole 80g, corn 80g, salsa 60g, hot sauce (makes 4)",
+   "prep": "batch — components keep 4–5 days",
+   "prepMinutes": null,
+   "attribution": "Rich Roll's reported go-to dinner \"a huge bowl of rice and quinoa with black beans, guacamole and hot sauce\" — The Chalkboard Mag https://thechalkboardmag.com/ultraman-rich-roll-vegan-athlete-daily-diet/ ; TrainingPeaks \"3 Recipes for Increased Recovery\" (rice and beans) https://www.trainingpeaks.com/blog/3-recipes-for-increased-recovery/",
+   "sourceUrl": "https://thechalkboardmag.com/ultraman-rich-roll-vegan-athlete-daily-diet/",
+   "cachedPages": [
+    {
+     "url": "https://thechalkboardmag.com/ultraman-rich-roll-vegan-athlete-daily-diet/",
+     "title": "What Vegan Athlete Rich Roll Eats Daily - The Chalkboard",
+     "ok": true,
+     "textFile": ".cache/source-pages/5c33bcc230757eb947407c3b3cba21bc8fa20fe4.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.trainingpeaks.com/blog/3-recipes-for-increased-recovery/",
+     "title": "3 Recipes for Increased Recovery",
+     "ok": true,
+     "textFile": ".cache/source-pages/70d84925ba736337759159d446e8d240f4dcb28b.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-046",
+   "name": "Sweet potato, tofu & black bean tacos",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "sweet potato 200g diced, firm tofu 150g crumbled, chipotle in adobo 1 tbsp, black beans 100g, corn tortillas 3, avocado ¼, lime (makes 4)",
+   "prep": "batch — roast sweet potato and tofu ahead, 4 servings",
+   "prepMinutes": null,
+   "attribution": "Meghann Featherstun, RD CSSD, Featherstone Nutrition \"High Protein Vegan Tacos\" https://www.featherstonenutrition.com/recipe/high-protein-vegan-tacos/",
+   "sourceUrl": "https://www.featherstonenutrition.com/recipe/high-protein-vegan-tacos/",
+   "cachedPages": [
+    {
+     "url": "https://www.featherstonenutrition.com/recipe/high-protein-vegan-tacos/",
+     "title": "High Protein Vegan Tacos — Featherstone Nutrition",
+     "ok": true,
+     "textFile": ".cache/source-pages/404fbc605c3ce072735bc9ebbd1e1d9c54c074a5.txt",
+     "schemaRecipeNames": [
+      "High Protein Vegan Tacos",
+      "High Protein Vegan Tacos"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "D-048",
+   "name": "Marathon Bolognese over pasta",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "ground beef 100g, carrot ½, celery 1 stalk, onion ¼, crushed tomatoes 200g, red wine splash, pasta 120g dry (makes 6)",
+   "prep": "batch — 45 min, 6 servings, freezes well",
+   "prepMinutes": 45,
+   "attribution": "Shalane Flanagan & Elyse Kopecky, \"Run Fast. Cook Fast. Eat Slow.\" — a favourite during Flanagan's 2017 NYC Marathon build https://justcook.butcherbox.com/the-amazing-simple-marathon-bolognese-recipe-from-the-authors-of-run-fast-cook-fast-eat-slow/ ; Jonny Brownlee's meatballs-and-pasta rotation, 220triathlon.com",
+   "sourceUrl": "https://justcook.butcherbox.com/the-amazing-simple-marathon-bolognese-recipe-from-the-authors-of-run-fast-cook-fast-eat-slow/",
+   "cachedPages": [
+    {
+     "url": "https://justcook.butcherbox.com/the-amazing-simple-marathon-bolognese-recipe-from-the-authors-of-run-fast-cook-fast-eat-slow/",
+     "title": "A Special Bolognese Recipe from the Authors of \"Run Fast. Cook Fast. Eat Slow.\" - The Cut by ButcherBox",
+     "ok": true,
+     "textFile": ".cache/source-pages/2a886e56c4629d6bbe6747d0d7212efebe761f0f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-049",
+   "name": "Lentil & mushroom \"no meat\" pasta",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "pasta 110g dry, brown lentils 150g cooked, mushrooms 100g, garlic 2 cloves, passata 200ml, olive oil 1 tbsp, basil (makes 4)",
+   "prep": "batch — 25 min, 4 servings, sauce freezes",
+   "prepMinutes": 25,
+   "attribution": "\"Lentil-Mushroom No Meat Pasta\" — The No Meat Athlete Cookbook (Matt Frazier & Stepfanie Romine) nomeatathlete.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-051",
+   "name": "Vegan lasagne with cashew ricotta",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "lasagne sheets 80g dry, cashew ricotta 80g, marinara 150g, spinach 50g, courgette ¼, lentils 60g cooked (makes 6)",
+   "prep": "batch — 60 min, 6 servings, freezes in portions",
+   "prepMinutes": 60,
+   "attribution": "Rich Roll's vegan lasagna from The Plantpower Way, reported as a large dinner — The Chalkboard Mag https://thechalkboardmag.com/ultraman-rich-roll-vegan-athlete-daily-diet/",
+   "sourceUrl": "https://thechalkboardmag.com/ultraman-rich-roll-vegan-athlete-daily-diet/",
+   "cachedPages": [
+    {
+     "url": "https://thechalkboardmag.com/ultraman-rich-roll-vegan-athlete-daily-diet/",
+     "title": "What Vegan Athlete Rich Roll Eats Daily - The Chalkboard",
+     "ok": true,
+     "textFile": ".cache/source-pages/5c33bcc230757eb947407c3b3cba21bc8fa20fe4.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-052",
+   "name": "Pesto pasta with cherry tomatoes & grilled chicken",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "pasta 120g dry, basil pesto 30g, cherry tomatoes 100g, chicken breast 150g, parmesan 15g (makes 4)",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "commonly reported staple across triathlete meal-prep blogs (practicalmealprep.substack.com) and the Feed Zone \"carb + sauce + protein\" template",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-053",
+   "name": "Butternut squash \"mac & cheese\" (GF pasta, dairy-free)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "GF pasta 110g dry, butternut squash 200g, nutritional yeast 2 tbsp, olive oil 1 tbsp, garlic 1 clove, white beans 100g (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "runtothefinish.com gluten-free meal plan for runners (\"Butternut Squash Mac and Cheese, dairy-free\")",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-055",
+   "name": "Allen Lim's fried rice with egg & vegetables",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "day-old cooked rice 300g, eggs 2, carrot, peas and scallion 100g, soy sauce 1½ tbsp, garlic 1 clove, oil 1 tbsp, diced ham or chicken 80g optional",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Allen Lim (Feed Zone Cookbook) — his mother's fried rice, \"a favorite for immediate post-race recovery\" via Velo/Outside https://velo.outsideonline.com/road/road-training/learn-to-make-allen-lims-famous-rice-cakes/ ; egg-fried-rice format also in 220triathlon.com vegetarian guides",
+   "sourceUrl": "https://velo.outsideonline.com/road/road-training/learn-to-make-allen-lims-famous-rice-cakes/",
+   "cachedPages": [
+    {
+     "url": "https://velo.outsideonline.com/road/road-training/learn-to-make-allen-lims-famous-rice-cakes/",
+     "title": "Learn to make Allen Lim's famous rice cakes, oatmeal, beet juice, and fried rice",
+     "ok": true,
+     "textFile": ".cache/source-pages/ec62b7922e1edbf96da5082c60d361ca2ddb91f5.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-056",
+   "name": "Tofu & vegetable fried rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "day-old cooked rice 300g, firm tofu 200g, peas and carrots 150g, soy sauce 2 tbsp, sesame oil 1 tsp, scallions (makes 4)",
+   "prep": "batch — 20 min, 4 servings",
+   "prepMinutes": 20,
+   "attribution": "commonly reported vegan-athlete staple — One Green Planet endurance vegan menu https://www.onegreenplanet.org/vegan-food/weekly-meal-plan-endurance-athletes-vegan-menu/ ; the single most repeated dinner shape across r/veganfitness \"day of eating\" posts",
+   "sourceUrl": "https://www.onegreenplanet.org/vegan-food/weekly-meal-plan-endurance-athletes-vegan-menu/",
+   "cachedPages": [
+    {
+     "url": "https://www.onegreenplanet.org/vegan-food/weekly-meal-plan-endurance-athletes-vegan-menu/",
+     "title": "Plant-Based Weekly Meal Plan By Diet: ENDURANCE ATHLETE MENU",
+     "ok": true,
+     "textFile": ".cache/source-pages/4215f003022cb7dfd43c471bae14818de93f2c8c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-057",
+   "name": "Tempeh stir-fry with rice noodles",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "tempeh 200g, rice noodles 100g dry, broccoli, carrot and snap peas 200g, tamari 2 tbsp, ginger, garlic",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "format consistent with Nigel Mitchell's The Plant-Based Cyclist recipes (road.cc review) and general vegan-cyclist meal content",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-058",
+   "name": "Beef & vegetable stir-fry with coconut aminos & rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "beef strips 180g, jasmine rice 100g dry, broccoli, carrot and snap peas 200g, coconut aminos 3 tbsp, garlic, ginger (makes 4)",
+   "prep": "batch — 20 min, 4 servings",
+   "prepMinutes": 20,
+   "attribution": "standard soy-free swap widely documented in allergy-cooking resources; beef & broccoli commonly reported in endurance-athlete weeknight rotations",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-059",
+   "name": "Vegetable stir-fry with rice, poached egg & avocado",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "mixed stir-fry vegetables 200g, rice 90g dry, eggs 2 poached, avocado ½, soy sauce 1 tbsp, garlic, ginger",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "Stephanie Howe, PhD — her described \"go-to dinner when lacking creativity\" https://www.si.com/edge/2017/07/17/stephanie-howe-ultramarathoner-diet-nutrition-donuts",
+   "sourceUrl": "https://www.si.com/edge/2017/07/17/stephanie-howe-ultramarathoner-diet-nutrition-donuts",
+   "cachedPages": [
+    {
+     "url": "https://www.si.com/edge/2017/07/17/stephanie-howe-ultramarathoner-diet-nutrition-donuts",
+     "title": "Ultramarathoner Stephanie Howe shares her simple secrets for superb nutrition",
+     "ok": true,
+     "textFile": ".cache/source-pages/c989cb8837d699721fb07531f12e1643c8737068.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-061",
+   "name": "Rice-noodle stir-fry with chicken & low-fibre veg (race-week)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "rice noodles 150g dry, chicken breast 150g, courgette and carrot 100g peeled, tamari 2 tbsp, sesame oil 1 tsp, ginger",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "commonly reported GF/DF race-week staple (rice noodles as the naturally-GF pasta substitute; trigirl.co.uk and Fuelin-style GF athlete guidance)",
+   "sourceUrl": null,
+   "cachedPages": []
+  }
+ ]
+}

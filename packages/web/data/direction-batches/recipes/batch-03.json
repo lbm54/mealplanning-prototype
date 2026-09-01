@@ -1,0 +1,228 @@
+{
+ "batch": "R-03",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "B-062",
+   "name": "Breakfast burrito with eggs, black beans & cheese",
+   "mealType": "breakfast",
+   "cuisine": "mexican",
+   "servings": 4,
+   "ingredients": "large flour tortilla 1, eggs 2, black beans 100g, cheddar 30g, salsa 2 tbsp, avocado ¼, pepper and onion sauté (makes 6, freeze)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "standard freezer recovery burrito (incredibleegg.org spicy black bean breakfast burrito; danawhitenutrition.com recovery burrito); r/Ultramarathon tracked-day breakfast wrap",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-063",
+   "name": "Egg & cheese English muffin",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "wholewheat English muffin 1, eggs 2, cheddar 30g, spinach, tomato slice",
+   "prep": "10 min",
+   "prepMinutes": 10,
+   "attribution": "standard vegetarian endurance-athlete breakfast sandwich (220triathlon.com vegetarian triathlete guide; therunningchannel.com)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-064",
+   "name": "Chimichurri steak & eggs",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "skirt steak 150g, eggs 2 fried, chimichurri (parsley, garlic, olive oil, vinegar) 2 tbsp, lettuce leaves or grain-free wrap",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Chimichurri Steak Breakfast Burrito, The Paleo Diet athlete recipes (https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/)",
+   "sourceUrl": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+     "title": "Paleo Recipes for Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/d8282c2b8dc0ecbdfc92df439e27ee5ebd732c5f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-065",
+   "name": "Sweet potato & sausage skillet",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "sweet potato 250g diced, breakfast sausage (GF, no fillers) 120g, red pepper ½, onion ½, olive oil 1 tbsp, paprika (makes 3)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "The Pretty Bee top-9-allergen-free meal plan, Day 7; commonly reported paleo athlete weekend breakfast (r/paleo)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-068",
+   "name": "Ground beef & sweet potato hash",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "lean ground beef 300g, sweet potato 300g diced, onion 1, red pepper 1, paprika, olive oil 1 tbsp (makes 3)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "standard paleo/Whole30-style breakfast hash, widely reported in endurance-athlete real-food rotations (Feed Zone-adjacent); commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-070",
+   "name": "Tamagoyaki, rice & miso soup",
+   "mealType": "breakfast",
+   "cuisine": "japanese",
+   "servings": 1,
+   "ingredients": "eggs 3, kombu dashi 2 tbsp, tamari 1 tsp, sugar 1 tsp, cooked rice 200g, miso soup (miso 1 tbsp, kombu dashi 250ml, tofu 50g, wakame)",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "the standard Japanese breakfast set — rice, protein, soup (https://www.justonecookbook.com/traditional-japanese-breakfast-at-home/); commonly reported",
+   "sourceUrl": "https://www.justonecookbook.com/traditional-japanese-breakfast-at-home/",
+   "cachedPages": [
+    {
+     "url": "https://www.justonecookbook.com/traditional-japanese-breakfast-at-home/",
+     "title": "Traditional Japanese Breakfast and How To Make It At Home",
+     "ok": true,
+     "textFile": ".cache/source-pages/d26ffd85e635e9918133014d5793933965d2ce74.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-071",
+   "name": "Congee with shredded chicken & scallion",
+   "mealType": "breakfast",
+   "cuisine": "chinese",
+   "servings": 4,
+   "ingredients": "white rice 80g dry, chicken stock 800ml, cooked shredded chicken 100g, ginger, scallion, tamari 1 tsp, white pepper (makes 3)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "classic Chinese breakfast and convalescence food (https://en.wikipedia.org/wiki/Congee); commonly reported gentle recovery meal among East Asian endurance athletes",
+   "sourceUrl": "https://en.wikipedia.org/wiki/Congee",
+   "cachedPages": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Congee",
+     "title": "Congee - Wikipedia",
+     "ok": true,
+     "textFile": ".cache/source-pages/3afb39232173b162be60e45fdf55af2acd187b91.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-073",
+   "name": "Kedgeree",
+   "mealType": "breakfast",
+   "cuisine": "british",
+   "servings": 4,
+   "ingredients": "basmati rice 100g dry, smoked or poached salmon 120g, hard-boiled eggs 2, curry powder 1 tsp, onion ½, olive oil 1 tbsp, rocket 30g, lemon (makes 2)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "trigirl.co.uk GF/DF triathlete recovery-meal list (\"kedgeree, made with rice, salmon, hard-boiled egg and rocket\")",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-074",
+   "name": "Chilaquiles verdes with egg",
+   "mealType": "breakfast",
+   "cuisine": "mexican",
+   "servings": 4,
+   "ingredients": "corn tortilla chips 80g, salsa verde 200ml, fried egg 1, queso fresco 30g, black beans 100g, onion, coriander (salsa makes 4)",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "everyday Mexican breakfast, popular weekend rest-day choice in athlete food-culture round-ups; commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-076",
+   "name": "Tofu & black bean breakfast burrito",
+   "mealType": "breakfast",
+   "cuisine": "mexican",
+   "servings": 4,
+   "ingredients": "corn tortillas 2 large, firm tofu 150g scrambled with turmeric, black beans 100g, avocado ¼, salsa 2 tbsp, coriander (makes 6, freeze)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "220triathlon.com vegan recipe round-up (breakfast tacos with marinated tofu, beans and avocado); standard vegan adaptation of the athlete recovery burrito",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-079",
+   "name": "Tofu scramble with roasted potatoes",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "firm tofu 200g, turmeric ½ tsp, nutritional yeast 1 tbsp, red pepper ½, spinach 1 cup, potatoes 250g roasted, olive oil 1 tbsp, black salt",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Forks Over Knives tofu veggie scramble with roasted potatoes (https://www.forksoverknives.com/); the standard egg-free breakfast protein swap",
+   "sourceUrl": "https://www.forksoverknives.com/",
+   "cachedPages": [
+    {
+     "url": "https://www.forksoverknives.com/",
+     "title": "The Leader in Plant-Based Living",
+     "ok": true,
+     "textFile": ".cache/source-pages/16634d7a4bf4fcbcbf543cc223b76dc3ca2ac9f2.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-080",
+   "name": "Chickpea flour scramble with spinach & tomato",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "chickpea (besan) flour 100g, water 150ml, nutritional yeast 1 tbsp, turmeric, black salt, tomato 1 diced, spinach 1 cup, olive oil 1 tbsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "standard vegan chickpea-flour omelette technique, cross-referenced in soy-free vegan protein guides (Nadura Foods; Vegan Richa-style); commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-082",
+   "name": "Muffin, banana & coffee",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "bran or oat muffin 1, banana 1, coffee, Greek yogurt pot 150g",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "Magali Tisseyre, 11x 70.3 champion (active.com pro-breakfast round-up)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-090",
+   "name": "Smoked salmon, avocado & spinach plate",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "smoked salmon 100g, avocado 1, baby spinach 2 cups, cucumber ½, olive oil 1 tbsp, lemon, capers",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "commonly reported low-carb rest-day breakfast pattern (Racing Weight-style lean-day guidance); Zach Bitter's bacon, eggs and spinach recovery-day breakfast (https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs)",
+   "sourceUrl": "https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs",
+   "cachedPages": [
+    {
+     "url": "https://www.mensjournal.com/health-fitness/zach-bitter-100-mile-american-record-holder-he-also-eats-almost-no-carbs",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

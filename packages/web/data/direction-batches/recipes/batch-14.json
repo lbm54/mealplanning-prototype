@@ -1,0 +1,244 @@
+{
+ "batch": "R-14",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "L-063",
+   "name": "Greek salad with grilled chicken & feta",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 1,
+   "ingredients": "cucumber 1, tomato 2, red onion 1/4, kalamata olives 8, feta 40g, grilled chicken breast 150g, olive oil 1.5 tbsp, oregano",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "commonly reported Mediterranean-athlete lunch; Mediterranean-diet-and-endurance review, PMC (https://pmc.ncbi.nlm.nih.gov/articles/PMC10375324/)",
+   "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10375324/",
+   "cachedPages": [
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10375324/",
+     "title": "Effect of a Mediterranean-style diet on the exercise performance and lactate elimination on adolescent athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/49987e551e930f633fb8902569aac64352a51951.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-064",
+   "name": "Ham & pepper omelette with side salad",
+   "mealType": "lunch",
+   "cuisine": "british",
+   "servings": 1,
+   "ingredients": "eggs 3, ham 50g, bell pepper 1/2 diced, olive oil 1 tsp, side salad (leaves, tomato, cucumber)",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Jonny Brownlee's lunch, 220triathlon.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-069",
+   "name": "Chicken thigh, roasted sweet potato & spinach with tahini",
+   "mealType": "lunch",
+   "cuisine": "middle-eastern",
+   "servings": 4,
+   "ingredients": "chicken thigh 150g roasted, sweet potato 200g roasted cubes, spinach 2 cups wilted, tahini 1 tbsp, lemon (makes 4)",
+   "prep": "batch — 35 min, 4 servings",
+   "prepMinutes": 35,
+   "attribution": "component-bowl lunch pattern across triathlete meal-prep guides (Triathlete.com https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/)",
+   "sourceUrl": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+     "title": "The Busy Triathlete's Guide to Meal Prepping",
+     "ok": true,
+     "textFile": ".cache/source-pages/150ccae32d31343383a7f964eef43d433c0a04b7.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-070",
+   "name": "Chicken shawarma bowl with rice & tahini",
+   "mealType": "lunch",
+   "cuisine": "middle-eastern",
+   "servings": 4,
+   "ingredients": "chicken thigh 150g in shawarma spices, basmati rice 180g cooked, chopped salad (tomato, cucumber, onion), pickles, tahini sauce 2 tbsp (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "shawarma-bowl format widely reported as a fast-casual training lunch (community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-071",
+   "name": "Mezze plate — hummus, falafel, tabbouleh & pita",
+   "mealType": "lunch",
+   "cuisine": "middle-eastern",
+   "servings": 1,
+   "ingredients": "hummus 1/2 cup, falafel 4 pieces, tabbouleh 1 cup (bulgur, parsley, tomato), pita 1, olives, cucumber",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "common vegetarian/vegan rest-day lunch across r/veganfitness and endurance-nutrition blogs; mezze/Greek-bowl pattern in Triathlete.com meal-prep coverage",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-072",
+   "name": "Chicken souvlaki, lemon rice & tzatziki",
+   "mealType": "lunch",
+   "cuisine": "greek",
+   "servings": 4,
+   "ingredients": "chicken skewers 150g, lemon rice 180g cooked, tzatziki 3 tbsp (yogurt, cucumber, garlic), Greek salad side (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Greek-bowl pattern named in Triathlete.com meal-prep guide (https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/); commonly reported Mediterranean athlete lunch",
+   "sourceUrl": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+     "title": "The Busy Triathlete's Guide to Meal Prepping",
+     "ok": true,
+     "textFile": ".cache/source-pages/150ccae32d31343383a7f964eef43d433c0a04b7.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-073",
+   "name": "Sheet-pan ratatouille with chickpeas",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 4,
+   "ingredients": "red onion 1/2, garlic, courgette 1/2, aubergine 1/4, red pepper 1/2, cherry tomatoes 50g, rosemary, balsamic 1 tbsp, basil, lemon, canned chickpeas 1 cup, olive oil 1 tbsp (makes 4)",
+   "prep": "batch — 40 min, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "Hannah Grant (Tour de France team chef) via BikeRadar (https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes)",
+   "sourceUrl": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+   "cachedPages": [
+    {
+     "url": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+     "title": "Fuel like Tour de France riders with these recipes from a pro cycling chef | BikeRadar",
+     "ok": true,
+     "textFile": ".cache/source-pages/1ea55f2d969b077513c61e8ba284946321d14621.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-074",
+   "name": "Quinoa, roasted beetroot, sweet potato & cottage cheese",
+   "mealType": "lunch",
+   "cuisine": "nordic",
+   "servings": 4,
+   "ingredients": "quinoa 75g dry, beetroot 75g roasted, sweet potato 1/4 large roasted, cottage cheese 50g, pistachios 6g, parsley, dill, olive oil 1 tsp (makes 4)",
+   "prep": "batch — 60 min, 4 servings",
+   "prepMinutes": 60,
+   "attribution": "Hannah Grant (Tour de France team chef) via BikeRadar (https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes)",
+   "sourceUrl": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+   "cachedPages": [
+    {
+     "url": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+     "title": "Fuel like Tour de France riders with these recipes from a pro cycling chef | BikeRadar",
+     "ok": true,
+     "textFile": ".cache/source-pages/1ea55f2d969b077513c61e8ba284946321d14621.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-075",
+   "name": "Tortilla española with bread",
+   "mealType": "lunch",
+   "cuisine": "spanish",
+   "servings": 4,
+   "ingredients": "potatoes 300g sliced, eggs 4, onion 1/2, olive oil 2 tbsp, crusty bread 1 slice (makes 4)",
+   "prep": "batch — 30 min, 4 servings, keeps 3 days",
+   "prepMinutes": 30,
+   "attribution": "staple Spanish cycling-team travel food, commonly reported in Vuelta/team-bus nutrition features; trigirl.co.uk GF/DF recovery-meal list",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-076",
+   "name": "Black bean & sweet potato tacos on corn tortillas",
+   "mealType": "lunch",
+   "cuisine": "mexican",
+   "servings": 4,
+   "ingredients": "corn tortillas 4, black beans 1 cup, roasted sweet potato 1 cup, avocado 1/2, cabbage slaw, lime, coriander, cumin (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "Bob Seebohar, Metabolic Efficiency Recipe Book vegetarian recipes (https://www.enrgperformance.com/metabolic-efficiency-training); 220 Triathlon vegan recipes",
+   "sourceUrl": "https://www.enrgperformance.com/metabolic-efficiency-training",
+   "cachedPages": [
+    {
+     "url": "https://www.enrgperformance.com/metabolic-efficiency-training",
+     "title": "Metabolic Efficiency Training™️",
+     "ok": true,
+     "textFile": ".cache/source-pages/9530c55bb416349009521e54198b46cfc131e0eb.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-077",
+   "name": "Bean & cheese quesadilla with salsa",
+   "mealType": "lunch",
+   "cuisine": "mexican",
+   "servings": 1,
+   "ingredients": "flour tortillas 2, black beans 1/2 cup mashed, cheddar 40g, salsa 3 tbsp, sour cream 1 tbsp",
+   "prep": "10 min",
+   "prepMinutes": 10,
+   "attribution": "quesadilla widely reported as a quick vegetarian training lunch (community-reported); sweet potato & black bean variant across No Meat Athlete / Forks Over Knives content",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-079",
+   "name": "Turkey chili with rice",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 6,
+   "ingredients": "turkey mince 150g, kidney beans 1 cup, diced tomatoes 1 cup, onion, garlic, chili spices, rice 150g cooked (makes 6)",
+   "prep": "batch — 40 min, 6 servings, freezes well",
+   "prepMinutes": 40,
+   "attribution": "chili as the most common batch-dinner-to-lunch staple in triathlete meal-prep guides (The Kitchn https://www.thekitchn.com/a-triathletes-sunday-meal-prep-routine-235207)",
+   "sourceUrl": "https://www.thekitchn.com/a-triathletes-sunday-meal-prep-routine-235207",
+   "cachedPages": [
+    {
+     "url": "https://www.thekitchn.com/a-triathletes-sunday-meal-prep-routine-235207",
+     "title": "A Triathlete’s Sunday Meal Prep Routine",
+     "ok": true,
+     "textFile": ".cache/source-pages/25af9dea3bb7f17560394321750d70579fe835bc.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-082",
+   "name": "Roast chicken & veg leftovers with gravy",
+   "mealType": "lunch",
+   "cuisine": "british",
+   "servings": 1,
+   "ingredients": "roast chicken 150g, roast potatoes 200g, green beans or carrots 1 cup, gravy 3 tbsp",
+   "prep": "batch — from Sunday roast, portioned",
+   "prepMinutes": null,
+   "attribution": "Sunday-roast-into-weekday-lunch widely reported as a UK/Irish batch pattern among triathletes (220triathlon.com-style coverage, community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-083",
+   "name": "Turkey, hummus & veg wrap with apple",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "whole-wheat tortilla 1, sliced turkey breast 100g, hummus 2 tbsp, spinach, tomato, cucumber, apple 1",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "Paula Findlay's 11:30am lunch, triathlonmagazine.ca",
+   "sourceUrl": null,
+   "cachedPages": []
+  }
+ ]
+}

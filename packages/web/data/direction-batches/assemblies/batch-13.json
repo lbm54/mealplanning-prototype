@@ -1,0 +1,1609 @@
+{
+ "batch": "A-13",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AS-311",
+   "name": "Panini: white bread, jam + cream cheese + ham",
+   "mealType": "snack",
+   "pattern": "bread + spread + protein",
+   "components": [
+    "soft white crustless bread (2 slices)",
+    "jam (1 tbsp)",
+    "cream cheese (1 tbsp)",
+    "ham, thin sliced (1 slice)"
+   ],
+   "ingredients": "soft white crustless bread 2 slices, jam 1 tbsp, cream cheese 1 tbsp, ham, thin sliced 1 slice",
+   "prep": "5 min, made by team soigneur"
+  },
+  {
+   "id": "AS-312",
+   "name": "Waffle sandwich, jam-filled",
+   "mealType": "snack",
+   "pattern": "waffle + spread",
+   "components": [
+    "waffle, cut in half (1 waffle)",
+    "jam (1 tbsp)"
+   ],
+   "ingredients": "waffle, cut in half 1 waffle, jam 1 tbsp",
+   "prep": "5 min, wrap in foil"
+  },
+  {
+   "id": "AS-313",
+   "name": "Waffle sandwich, Nutella-filled",
+   "mealType": "snack",
+   "pattern": "waffle + spread",
+   "components": [
+    "waffle, cut in half (1 waffle)",
+    "chocolate hazelnut spread (1 tbsp)"
+   ],
+   "ingredients": "waffle, cut in half 1 waffle, chocolate hazelnut spread 1 tbsp",
+   "prep": "5 min, wrap in foil"
+  },
+  {
+   "id": "AS-314",
+   "name": "Waffle sandwich, peanut butter-filled",
+   "mealType": "snack",
+   "pattern": "waffle + spread",
+   "components": [
+    "waffle, cut in half (1 waffle)",
+    "peanut butter (1 tbsp)"
+   ],
+   "ingredients": "waffle, cut in half 1 waffle, peanut butter 1 tbsp",
+   "prep": "5 min, wrap in foil"
+  },
+  {
+   "id": "AS-315",
+   "name": "Stroopwafel, plain",
+   "mealType": "snack",
+   "pattern": "single-component sweet",
+   "components": [
+    "stroopwafel (caramel waffle cookie) (1 waffle)"
+   ],
+   "ingredients": "stroopwafel (caramel waffle cookie) 1 waffle",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "AS-316",
+   "name": "Coconut macaroon, plain",
+   "mealType": "snack",
+   "pattern": "single-component sweet",
+   "components": [
+    "coconut macaroon (1 macaroon)"
+   ],
+   "ingredients": "coconut macaroon 1 macaroon",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "AS-317",
+   "name": "Dried fruit mix, jersey pocket",
+   "mealType": "snack",
+   "pattern": "fruit only",
+   "components": [
+    "mixed dried fruit (apricot, fig, raisin) (30 g)"
+   ],
+   "ingredients": "mixed dried fruit (apricot, fig, raisin) 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-318",
+   "name": "Rice cake, British Cycling version — savory rice + tuna",
+   "mealType": "snack",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "short-grain white rice, cooked (1 square (~80 g))",
+    "tuna, canned, flaked (40 g)",
+    "soy sauce (1 tsp)"
+   ],
+   "ingredients": "short-grain white rice, cooked 1 square (~80 g), tuna, canned, flaked 40 g, soy sauce 1 tsp",
+   "prep": "made ahead, cut into squares"
+  },
+  {
+   "id": "AS-319",
+   "name": "Musette grab: energy bar, whole",
+   "mealType": "snack",
+   "pattern": "single-component bar",
+   "components": [
+    "energy bar (1 bar)"
+   ],
+   "ingredients": "energy bar 1 bar",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "AS-320",
+   "name": "Musette grab: cookies",
+   "mealType": "snack",
+   "pattern": "single-component sweet",
+   "components": [
+    "cookies (2 cookies)"
+   ],
+   "ingredients": "cookies 2 cookies",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "AS-321",
+   "name": "Panini, jam-only (vegan)",
+   "mealType": "snack",
+   "pattern": "bread + spread",
+   "components": [
+    "soft white crustless bread (2 slices)",
+    "jam (1.5 tbsp)"
+   ],
+   "ingredients": "soft white crustless bread 2 slices, jam 1.5 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-322",
+   "name": "Rice cake, plain sugar + coconut oil (base recipe)",
+   "mealType": "snack",
+   "pattern": "starch only",
+   "components": [
+    "short-grain white rice, cooked with sugar + coconut oil (1 square (~65 g))"
+   ],
+   "ingredients": "short-grain white rice, cooked with sugar + coconut oil 1 square (~65 g)",
+   "prep": "made ahead, cut into squares"
+  },
+  {
+   "id": "AS-323",
+   "name": "Justin's nut butter packet + banana, airport carry-on",
+   "mealType": "snack",
+   "pattern": "fruit + single-serve spread",
+   "components": [
+    "banana (1 medium)",
+    "almond butter, single-serve packet (1 packet (32 g))"
+   ],
+   "ingredients": "banana 1 medium, almond butter, single-serve packet 1 packet (32 g)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-324",
+   "name": "Trail mix, nuts + seeds + dried fruit",
+   "mealType": "snack",
+   "pattern": "mixed nuts + fruit",
+   "components": [
+    "trail mix (nuts, seeds, dried fruit) (1/3 cup (~45 g))"
+   ],
+   "ingredients": "trail mix (nuts, seeds, dried fruit) 1/3 cup (~45 g)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-325",
+   "name": "Roasted chickpeas, crunchy travel snack",
+   "mealType": "snack",
+   "pattern": "single-component legume",
+   "components": [
+    "roasted chickpeas (1/2 cup (~60 g))"
+   ],
+   "ingredients": "roasted chickpeas 1/2 cup (~60 g)",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "AS-326",
+   "name": "Protein bar, whole",
+   "mealType": "snack",
+   "pattern": "single-component bar",
+   "components": [
+    "protein bar (1 bar)"
+   ],
+   "ingredients": "protein bar 1 bar",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "AS-327",
+   "name": "Hummus + crudités, packable travel snack",
+   "mealType": "snack",
+   "pattern": "dip + raw veg",
+   "components": [
+    "hummus (1/4 cup (~60 g))",
+    "carrot and celery sticks (1 cup)"
+   ],
+   "ingredients": "hummus 1/4 cup (~60 g), carrot and celery sticks 1 cup",
+   "prep": "5 min to portion"
+  },
+  {
+   "id": "AS-328",
+   "name": "Edamame, steamed and salted",
+   "mealType": "snack",
+   "pattern": "single-component legume",
+   "components": [
+    "edamame, steamed, salted (1 cup (~155 g))"
+   ],
+   "ingredients": "edamame, steamed, salted 1 cup (~155 g)",
+   "prep": "5 min steam"
+  },
+  {
+   "id": "AS-329",
+   "name": "Rice cake with tuna, packed travel snack",
+   "mealType": "snack",
+   "pattern": "starch + protein",
+   "components": [
+    "rice cake (plain) (2 cakes)",
+    "tuna, canned, flaked (60 g)"
+   ],
+   "ingredients": "rice cake (plain) 2 cakes, tuna, canned, flaked 60 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-330",
+   "name": "Rice cake with turkey, packed travel snack",
+   "mealType": "snack",
+   "pattern": "starch + protein",
+   "components": [
+    "rice cake (plain) (2 cakes)",
+    "turkey slices (60 g)"
+   ],
+   "ingredients": "rice cake (plain) 2 cakes, turkey slices 60 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-331",
+   "name": "Rice cake with hummus, packed travel snack (vegan)",
+   "mealType": "snack",
+   "pattern": "starch + spread",
+   "components": [
+    "rice cake (plain) (2 cakes)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "rice cake (plain) 2 cakes, hummus 3 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-332",
+   "name": "Rice cake with ricotta, packed travel snack",
+   "mealType": "snack",
+   "pattern": "starch + dairy",
+   "components": [
+    "rice cake (plain) (2 cakes)",
+    "ricotta cheese (1/4 cup (~60 g))"
+   ],
+   "ingredients": "rice cake (plain) 2 cakes, ricotta cheese 1/4 cup (~60 g)",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-333",
+   "name": "Toast + nut butter, quick pre-run travel snack",
+   "mealType": "snack",
+   "pattern": "toast + spread",
+   "components": [
+    "toast (white or whole-wheat) (1 slice)",
+    "nut butter (1.5 tbsp)"
+   ],
+   "ingredients": "toast (white or whole-wheat) 1 slice, nut butter 1.5 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-334",
+   "name": "Beef jerky + dried fruit, road-trip pack",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "beef jerky (30 g)",
+    "dried fruit (apricot or mango) (30 g)"
+   ],
+   "ingredients": "beef jerky 30 g, dried fruit (apricot or mango) 30 g",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-335",
+   "name": "Hard-boiled eggs, travel snack",
+   "mealType": "snack",
+   "pattern": "single-component protein",
+   "components": [
+    "hard-boiled eggs (2 eggs)"
+   ],
+   "ingredients": "hard-boiled eggs 2 eggs",
+   "prep": "10 min boil, ahead of travel"
+  },
+  {
+   "id": "AS-336",
+   "name": "Banana + nut butter, race-morning snack",
+   "mealType": "snack",
+   "pattern": "fruit + spread",
+   "components": [
+    "banana (1 medium)",
+    "nut butter (1.5 tbsp)"
+   ],
+   "ingredients": "banana 1 medium, nut butter 1.5 tbsp",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-337",
+   "name": "Toast + nut butter, race-morning snack",
+   "mealType": "snack",
+   "pattern": "toast + spread",
+   "components": [
+    "toast (1 slice)",
+    "nut butter (1.5 tbsp)"
+   ],
+   "ingredients": "toast 1 slice, nut butter 1.5 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-338",
+   "name": "Oatmeal + fruit and nuts, pre-race breakfast snack",
+   "mealType": "snack",
+   "pattern": "starch + fruit + nuts",
+   "components": [
+    "oatmeal, cooked (1/2 cup dry (~120 g cooked))",
+    "mixed berries (1/2 cup)",
+    "chopped walnuts (1 tbsp)"
+   ],
+   "ingredients": "oatmeal, cooked 1/2 cup dry (~120 g cooked), mixed berries 1/2 cup, chopped walnuts 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AS-339",
+   "name": "Rice cake with nut butter, race-morning snack",
+   "mealType": "snack",
+   "pattern": "starch + spread",
+   "components": [
+    "rice cake (plain) (2 cakes)",
+    "nut butter (2 tbsp)"
+   ],
+   "ingredients": "rice cake (plain) 2 cakes, nut butter 2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-340",
+   "name": "Banana + hard-boiled eggs + English muffin, race-morning combo",
+   "mealType": "snack",
+   "pattern": "fruit + protein + starch",
+   "components": [
+    "banana (1 medium)",
+    "hard-boiled eggs (1 egg)",
+    "whole-wheat English muffin (1 muffin)"
+   ],
+   "ingredients": "banana 1 medium, hard-boiled eggs 1 egg, whole-wheat English muffin 1 muffin",
+   "prep": "10 min"
+  },
+  {
+   "id": "AS-341",
+   "name": "Coffee + banana, pre-race morning ritual",
+   "mealType": "snack",
+   "pattern": "drink + fruit",
+   "components": [
+    "black coffee (1 cup (~250 ml))",
+    "banana (1 medium)"
+   ],
+   "ingredients": "black coffee 1 cup (~250 ml), banana 1 medium",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-342",
+   "name": "Porridge, plain, race-morning staple",
+   "mealType": "snack",
+   "pattern": "starch only",
+   "components": [
+    "porridge (oats cooked in water or milk) (1 cup)"
+   ],
+   "ingredients": "porridge (oats cooked in water or milk) 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AS-343",
+   "name": "White bread, plain, race-morning top-up",
+   "mealType": "snack",
+   "pattern": "starch only",
+   "components": [
+    "white bread (2 slices)"
+   ],
+   "ingredients": "white bread 2 slices",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-344",
+   "name": "Whole orange, race-morning snack",
+   "mealType": "snack",
+   "pattern": "fruit only",
+   "components": [
+    "orange, peeled (1 medium)"
+   ],
+   "ingredients": "orange, peeled 1 medium",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-345",
+   "name": "Fresh mango, race-morning snack",
+   "mealType": "snack",
+   "pattern": "fruit only",
+   "components": [
+    "mango, sliced (1 cup (~165 g))"
+   ],
+   "ingredients": "mango, sliced 1 cup (~165 g)",
+   "prep": "5 min to slice"
+  },
+  {
+   "id": "AS-346",
+   "name": "Yogurt, plain, race-morning buffet snack",
+   "mealType": "snack",
+   "pattern": "dairy only",
+   "components": [
+    "plain yogurt (1 cup (~245 g))"
+   ],
+   "ingredients": "plain yogurt 1 cup (~245 g)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-347",
+   "name": "Breakfast potatoes, plain, race-morning buffet snack",
+   "mealType": "snack",
+   "pattern": "starch only",
+   "components": [
+    "roasted breakfast potatoes (1 cup (~150 g))"
+   ],
+   "ingredients": "roasted breakfast potatoes 1 cup (~150 g)",
+   "prep": "0 min (buffet)"
+  },
+  {
+   "id": "AS-348",
+   "name": "Boiled potatoes with salt, aid-station snack",
+   "mealType": "snack",
+   "pattern": "starch + salt",
+   "components": [
+    "boiled potatoes, halved (1/2 cup (~90 g))",
+    "salt (1 pinch)"
+   ],
+   "ingredients": "boiled potatoes, halved 1/2 cup (~90 g), salt 1 pinch",
+   "prep": "20 min boil, ahead of race"
+  },
+  {
+   "id": "AS-349",
+   "name": "PB&J sandwich, aid-station snack",
+   "mealType": "snack",
+   "pattern": "bread + spread + spread",
+   "components": [
+    "white bread (2 slices)",
+    "peanut butter (1.5 tbsp)",
+    "jam (1.5 tbsp)"
+   ],
+   "ingredients": "white bread 2 slices, peanut butter 1.5 tbsp, jam 1.5 tbsp",
+   "prep": "5 min, made ahead"
+  },
+  {
+   "id": "AS-350",
+   "name": "Grilled cheese sandwich, ultra aid-station snack",
+   "mealType": "snack",
+   "pattern": "bread + dairy",
+   "components": [
+    "white bread, grilled (2 slices)",
+    "cheese, melted (2 slices)"
+   ],
+   "ingredients": "white bread, grilled 2 slices, cheese, melted 2 slices",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-351",
+   "name": "Gummy bears, aid-station snack",
+   "mealType": "snack",
+   "pattern": "single-component sugar",
+   "components": [
+    "gummy bears (1 handful (~40 g))"
+   ],
+   "ingredients": "gummy bears 1 handful (~40 g)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-352",
+   "name": "Dark chocolate square, aid-station snack",
+   "mealType": "snack",
+   "pattern": "single-component sweet",
+   "components": [
+    "dark chocolate (72%+) (1 square (~30 g))"
+   ],
+   "ingredients": "dark chocolate (72%+) 1 square (~30 g)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-353",
+   "name": "Cola, flat, aid-station drink-snack",
+   "mealType": "snack",
+   "pattern": "drink only",
+   "components": [
+    "cola, flat (1 cup (~240 ml))"
+   ],
+   "ingredients": "cola, flat 1 cup (~240 ml)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-354",
+   "name": "Ginger ale, aid-station drink-snack",
+   "mealType": "snack",
+   "pattern": "drink only",
+   "components": [
+    "ginger ale (1 cup (~240 ml))"
+   ],
+   "ingredients": "ginger ale 1 cup (~240 ml)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-355",
+   "name": "Pickle juice, shot, ultra aid-station snack",
+   "mealType": "snack",
+   "pattern": "drink only",
+   "components": [
+    "pickle juice (1/2 cup (~120 ml))"
+   ],
+   "ingredients": "pickle juice 1/2 cup (~120 ml)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-356",
+   "name": "Beef broth, warm cup, ultra aid-station snack",
+   "mealType": "snack",
+   "pattern": "drink only",
+   "components": [
+    "beef broth, warm (1 cup (~240 ml))"
+   ],
+   "ingredients": "beef broth, warm 1 cup (~240 ml)",
+   "prep": "5 min to warm"
+  },
+  {
+   "id": "AS-357",
+   "name": "Top Ramen noodles, cup, ultra aid-station snack",
+   "mealType": "snack",
+   "pattern": "starch (savory)",
+   "components": [
+    "instant ramen noodles, prepared (1 cup (~190 kcal))"
+   ],
+   "ingredients": "instant ramen noodles, prepared 1 cup (~190 kcal)",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-358",
+   "name": "Cottage cheese with fruit and nuts, before-bed recovery",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + nuts",
+   "components": [
+    "cottage cheese, plain (1 cup (~225 g))",
+    "mixed berries (1/2 cup)",
+    "walnuts, chopped (1 tbsp)"
+   ],
+   "ingredients": "cottage cheese, plain 1 cup (~225 g), mixed berries 1/2 cup, walnuts, chopped 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-359",
+   "name": "Cottage cheese, berries, banana + honey, before-bed recovery bowl",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + fruit + sweetener",
+   "components": [
+    "cottage cheese, plain (1 cup (~225 g))",
+    "mixed berries (1/3 cup)",
+    "banana, sliced (1/2 banana)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "cottage cheese, plain 1 cup (~225 g), mixed berries 1/3 cup, banana, sliced 1/2 banana, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-360",
+   "name": "Cottage cheese with melon, post-long-run recovery",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "cottage cheese, plain (1 cup (~225 g))",
+    "cantaloupe, cubed (1/2 cup)"
+   ],
+   "ingredients": "cottage cheese, plain 1 cup (~225 g), cantaloupe, cubed 1/2 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-361",
+   "name": "Cottage cheese, savory: cucumber, tomato + herbs",
+   "mealType": "snack",
+   "pattern": "dairy + veg + veg + herb",
+   "components": [
+    "cottage cheese, plain (1 cup (~225 g))",
+    "cucumber, chopped (1/2 cup)",
+    "tomato, chopped (1/2 cup)",
+    "fresh herbs (dill or chives) (1 tbsp)"
+   ],
+   "ingredients": "cottage cheese, plain 1 cup (~225 g), cucumber, chopped 1/2 cup, tomato, chopped 1/2 cup, fresh herbs (dill or chives) 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-362",
+   "name": "Cottage cheese with berries and honey, before-bed",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + sweetener",
+   "components": [
+    "cottage cheese, plain (1 cup (~225 g))",
+    "mixed berries (1/2 cup)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "cottage cheese, plain 1 cup (~225 g), mixed berries 1/2 cup, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-363",
+   "name": "Greek yogurt with berries, before-bed recovery",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "Greek yogurt, plain (1 cup (~245 g))",
+    "mixed berries (1/2 cup)"
+   ],
+   "ingredients": "Greek yogurt, plain 1 cup (~245 g), mixed berries 1/2 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-364",
+   "name": "Chocolate milk, before-bed recovery drink",
+   "mealType": "snack",
+   "pattern": "single-component recovery drink",
+   "components": [
+    "chocolate milk (1 cup (~240 ml))"
+   ],
+   "ingredients": "chocolate milk 1 cup (~240 ml)",
+   "prep": "0 min"
+  },
+  {
+   "id": "AS-365",
+   "name": "Hard-boiled eggs + toast, before-bed protein snack",
+   "mealType": "snack",
+   "pattern": "protein + starch",
+   "components": [
+    "hard-boiled eggs (2 eggs)",
+    "toast (1 slice)"
+   ],
+   "ingredients": "hard-boiled eggs 2 eggs, toast 1 slice",
+   "prep": "10 min"
+  },
+  {
+   "id": "AS-366",
+   "name": "Turkey + grapes, before-bed recovery snack",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "turkey slices (60 g)",
+    "grapes (1 cup (~92 g))"
+   ],
+   "ingredients": "turkey slices 60 g, grapes 1 cup (~92 g)",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-367",
+   "name": "Cottage cheese chips, savory before-bed protein snack",
+   "mealType": "snack",
+   "pattern": "single-component savory protein",
+   "components": [
+    "cottage cheese chips (baked) (1 small bag (~30 g))"
+   ],
+   "ingredients": "cottage cheese chips (baked) 1 small bag (~30 g)",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "AS-368",
+   "name": "Cottage cheese with pineapple, before-bed recovery",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "cottage cheese, plain (1 cup (~225 g))",
+    "pineapple, cubed (1/2 cup)"
+   ],
+   "ingredients": "cottage cheese, plain 1 cup (~225 g), pineapple, cubed 1/2 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-369",
+   "name": "Cottage cheese scramble-topper, before-bed protein boost",
+   "mealType": "snack",
+   "pattern": "dairy + protein",
+   "components": [
+    "cottage cheese, plain (1/2 cup (~110 g))",
+    "scrambled eggs (2 eggs)"
+   ],
+   "ingredients": "cottage cheese, plain 1/2 cup (~110 g), scrambled eggs 2 eggs",
+   "prep": "10 min"
+  },
+  {
+   "id": "AS-370",
+   "name": "Baby food pouch, ultra race-week snack",
+   "mealType": "snack",
+   "pattern": "single-component puree",
+   "components": [
+    "fruit puree baby food pouch (1 pouch (~100 g))"
+   ],
+   "ingredients": "fruit puree baby food pouch 1 pouch (~100 g)",
+   "prep": "0 min (bought)"
+  },
+  {
+   "id": "B-001",
+   "name": "Porridge with banana, peanut butter & honey",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "rolled oats (80g)",
+    "water (300ml)",
+    "banana (1)",
+    "peanut butter (1 tbsp)",
+    "honey (1 tbsp)",
+    "pinch salt"
+   ],
+   "ingredients": "rolled oats 80g, water 300ml, banana 1, peanut butter 1 tbsp, honey 1 tbsp, pinch salt",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-002",
+   "name": "Toast with peanut butter, banana & honey",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "bread (2 slices)",
+    "peanut butter (1.5 tbsp)",
+    "banana (1)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "bread 2 slices, peanut butter 1.5 tbsp, banana 1, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-003",
+   "name": "White toast with jam",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "white bread (3 slices)",
+    "jam (3 tbsp)",
+    "black coffee or tea"
+   ],
+   "ingredients": "white bread 3 slices, jam 3 tbsp, black coffee or tea",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-004",
+   "name": "Bagel with jam, banana & orange juice",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "plain bagel (1)",
+    "jam (2 tbsp)",
+    "honey (1 tbsp)",
+    "banana (1)",
+    "orange juice (250ml)"
+   ],
+   "ingredients": "plain bagel 1, jam 2 tbsp, honey 1 tbsp, banana 1, orange juice 250ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-005",
+   "name": "Bagel with almond butter & honey",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "bagel (1)",
+    "almond butter (1.5 tbsp)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "bagel 1, almond butter 1.5 tbsp, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-006",
+   "name": "Bagel with peanut butter & a protein shake",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "bagel (1)",
+    "peanut butter (2 tbsp)",
+    "protein powder (1 scoop shaken with milk 300ml)",
+    "coffee"
+   ],
+   "ingredients": "bagel 1, peanut butter 2 tbsp, protein powder 1 scoop shaken with milk 300ml, coffee",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-007",
+   "name": "Rice, banana & avocado",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked white rice (200g)",
+    "banana (1)",
+    "avocado (½)",
+    "pinch salt"
+   ],
+   "ingredients": "cooked white rice 200g, banana 1, avocado ½, pinch salt",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-008",
+   "name": "Rice with tamari & nori, onigiri-style",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked short-grain rice (200g)",
+    "tamari (1 tsp)",
+    "nori (1 sheet)",
+    "pinch salt",
+    "sesame seeds (1 tsp)"
+   ],
+   "ingredients": "cooked short-grain rice 200g, tamari 1 tsp, nori 1 sheet, pinch salt, sesame seeds 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-009",
+   "name": "Rice cereal with milk & banana",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "puffed rice cereal (70g)",
+    "milk (250ml)",
+    "banana (1)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "puffed rice cereal 70g, milk 250ml, banana 1, honey 1 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-010",
+   "name": "Cereal, milk, banana & toast with jam",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "wholegrain cereal or muesli (50g)",
+    "milk (250ml)",
+    "banana (1)",
+    "wholegrain toast (1 slice)",
+    "jam (1 tbsp)"
+   ],
+   "ingredients": "wholegrain cereal or muesli 50g, milk 250ml, banana 1, wholegrain toast 1 slice, jam 1 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-011",
+   "name": "Peanut butter & jam rice cakes with cereal",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "white rice cakes (3)",
+    "peanut butter (1.5 tbsp)",
+    "jam (1.5 tbsp)",
+    "puffed corn cereal (1 cup)",
+    "almond milk (200ml)"
+   ],
+   "ingredients": "white rice cakes 3, peanut butter 1.5 tbsp, jam 1.5 tbsp, puffed corn cereal 1 cup, almond milk 200ml",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-012",
+   "name": "Jam sandwich & a chicken sandwich",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "bread (4 slices)",
+    "jam (2 tbsp)",
+    "cooked chicken breast (80g)",
+    "coffee"
+   ],
+   "ingredients": "bread 4 slices, jam 2 tbsp, cooked chicken breast 80g, coffee",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-013",
+   "name": "Bread with cream cheese, feta & quince jelly",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "bread (2 slices)",
+    "cream cheese (2 tbsp)",
+    "feta (20g)",
+    "quince jelly or fruit jam (1 tbsp)",
+    "black coffee"
+   ],
+   "ingredients": "bread 2 slices, cream cheese 2 tbsp, feta 20g, quince jelly or fruit jam 1 tbsp, black coffee",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-016",
+   "name": "Millet porridge with dried apricots & honey",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "millet (80g)",
+    "water (300ml)",
+    "dried apricots (30g chopped)",
+    "cinnamon",
+    "honey (1 tbsp)",
+    "pinch salt"
+   ],
+   "ingredients": "millet 80g, water 300ml, dried apricots 30g chopped, cinnamon, honey 1 tbsp, pinch salt",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-018",
+   "name": "Buckwheat kasha with honey & berries",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "buckwheat groats (80g)",
+    "water (250ml)",
+    "honey (1 tbsp)",
+    "berries (80g)",
+    "pinch salt"
+   ],
+   "ingredients": "buckwheat groats 80g, water 250ml, honey 1 tbsp, berries 80g, pinch salt",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-020",
+   "name": "White rice & scrambled eggs",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked white rice (200g)",
+    "eggs (2)",
+    "olive oil (1 tsp)",
+    "salt",
+    "tamari few drops"
+   ],
+   "ingredients": "cooked white rice 200g, eggs 2, olive oil 1 tsp, salt, tamari few drops",
+   "prep": "10 min"
+  },
+  {
+   "id": "B-024",
+   "name": "Chapati & sweet chai",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "chapati (2)",
+    "chai (black tea",
+    "whole milk (200ml)",
+    "sugar (2–3 tsp))",
+    "banana (1)"
+   ],
+   "ingredients": "chapati 2, chai (black tea, whole milk 200ml, sugar 2–3 tsp), banana 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-025",
+   "name": "Uji with milk & sugar",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "millet or maize flour (80g)",
+    "water (400ml)",
+    "milk (100ml)",
+    "sugar (1–2 tbsp)",
+    "pinch salt",
+    "lemon squeeze"
+   ],
+   "ingredients": "millet or maize flour 80g, water 400ml, milk 100ml, sugar 1–2 tbsp, pinch salt, lemon squeeze",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-026",
+   "name": "Beans on toast",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "baked beans (1 tin (400g))",
+    "wholegrain toast (2 slices)",
+    "black pepper"
+   ],
+   "ingredients": "baked beans 1 tin (400g), wholegrain toast 2 slices, black pepper",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-027",
+   "name": "Weet-Bix with milk & banana",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "Weet-Bix (4)",
+    "milk (250ml)",
+    "banana (1)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "Weet-Bix 4, milk 250ml, banana 1, honey 1 tsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-029",
+   "name": "Plain porridge with stewed apple",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "rolled oats (70g)",
+    "water (300ml)",
+    "peeled stewed apple (½ cup)",
+    "cinnamon",
+    "honey (1 tsp)",
+    "pinch salt"
+   ],
+   "ingredients": "rolled oats 70g, water 300ml, peeled stewed apple ½ cup, cinnamon, honey 1 tsp, pinch salt",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-036",
+   "name": "Mango, spinach & oat-milk protein smoothie",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "frozen mango (150g)",
+    "banana (1)",
+    "oat milk (300ml)",
+    "spinach handful",
+    "plant protein (1 scoop)"
+   ],
+   "ingredients": "frozen mango 150g, banana 1, oat milk 300ml, spinach handful, plant protein 1 scoop",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-041",
+   "name": "Crunchy cereal with milk & Nutella",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "crunchy oat-cluster cereal (70g)",
+    "milk (250ml)",
+    "Nutella (1 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "crunchy oat-cluster cereal 70g, milk 250ml, Nutella 1 tbsp, banana 1",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-042",
+   "name": "Rye bread with brunost & jam",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "wholegrain rye bread (3 slices)",
+    "brunost (brown cheese) (40g thin slices)",
+    "strawberry jam (1 tbsp)",
+    "butter thin scrape",
+    "cucumber"
+   ],
+   "ingredients": "wholegrain rye bread 3 slices, brunost (brown cheese) 40g thin slices, strawberry jam 1 tbsp, butter thin scrape, cucumber",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-043",
+   "name": "Rye bread with boiled egg & smoked salmon",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "rye bread (2 slices)",
+    "boiled egg (1)",
+    "smoked salmon (60g)",
+    "dill",
+    "cucumber",
+    "lemon"
+   ],
+   "ingredients": "rye bread 2 slices, boiled egg 1, smoked salmon 60g, dill, cucumber, lemon",
+   "prep": "10 min"
+  },
+  {
+   "id": "B-044",
+   "name": "Pan con tomate y jamón",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "crusty bread (3 slices)",
+    "ripe tomato (1 grated)",
+    "olive oil (1 tbsp)",
+    "jamón serrano (40g)",
+    "salt",
+    "coffee"
+   ],
+   "ingredients": "crusty bread 3 slices, ripe tomato 1 grated, olive oil 1 tbsp, jamón serrano 40g, salt, coffee",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-045",
+   "name": "Bagel with cream cheese & lox",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "bagel (1)",
+    "cream cheese (2 tbsp)",
+    "smoked salmon (60g)",
+    "red onion",
+    "capers",
+    "lemon"
+   ],
+   "ingredients": "bagel 1, cream cheese 2 tbsp, smoked salmon 60g, red onion, capers, lemon",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-048",
+   "name": "Sourdough with cottage cheese, tomato & olive oil",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "sourdough (2 slices)",
+    "cottage cheese (200g)",
+    "tomato (1 sliced)",
+    "olive oil (1 tbsp)",
+    "black pepper",
+    "basil"
+   ],
+   "ingredients": "sourdough 2 slices, cottage cheese 200g, tomato 1 sliced, olive oil 1 tbsp, black pepper, basil",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-049",
+   "name": "Greek yogurt with honey, walnuts & figs",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "Greek yogurt (250g)",
+    "honey (1 tbsp)",
+    "walnuts (25g)",
+    "fresh figs (2 (or dried figs 3))",
+    "cinnamon"
+   ],
+   "ingredients": "Greek yogurt 250g, honey 1 tbsp, walnuts 25g, fresh figs 2 (or dried figs 3), cinnamon",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-051",
+   "name": "Full-fat Greek yogurt with chia, almonds & a few berries",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "full-fat Greek yogurt (250g)",
+    "chia seeds (1 tbsp)",
+    "almonds (25g)",
+    "blueberries (40g)",
+    "cinnamon"
+   ],
+   "ingredients": "full-fat Greek yogurt 250g, chia seeds 1 tbsp, almonds 25g, blueberries 40g, cinnamon",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-058",
+   "name": "Eggs & avocado on toast, big-breakfast style",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "toast (3 slices)",
+    "avocado (1 mashed with salt and pepper)",
+    "poached or scrambled eggs (3)",
+    "feta (20g)",
+    "spinach handful"
+   ],
+   "ingredients": "toast 3 slices, avocado 1 mashed with salt and pepper, poached or scrambled eggs 3, feta 20g, spinach handful",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-066",
+   "name": "Sweet potato \"toast\" with avocado & egg",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "sweet potato (250g sliced lengthways and roasted)",
+    "avocado (½ mashed)",
+    "fried egg (1)",
+    "everything-bagel seasoning"
+   ],
+   "ingredients": "sweet potato 250g sliced lengthways and roasted, avocado ½ mashed, fried egg 1, everything-bagel seasoning",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-067",
+   "name": "Baked sweet potato with almond butter & banana",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "sweet potato (300g baked (microwave 8 min))",
+    "almond butter (1.5 tbsp)",
+    "banana (1)",
+    "cinnamon",
+    "pinch salt"
+   ],
+   "ingredients": "sweet potato 300g baked (microwave 8 min), almond butter 1.5 tbsp, banana 1, cinnamon, pinch salt",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-069",
+   "name": "Natto gohan",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked short-grain rice (200g)",
+    "natto (1 pack (45g) with its tare)",
+    "tamari (1 tsp)",
+    "scallion (1 chopped)",
+    "nori strips"
+   ],
+   "ingredients": "cooked short-grain rice 200g, natto 1 pack (45g) with its tare, tamari 1 tsp, scallion 1 chopped, nori strips",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-072",
+   "name": "Rice, greens & fried egg bowl",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked rice (200g)",
+    "bok choy or spinach (150g sautéed)",
+    "fried egg (1)",
+    "leftover cooked chicken (80g)",
+    "tamari (1 tbsp)",
+    "sesame oil few drops"
+   ],
+   "ingredients": "cooked rice 200g, bok choy or spinach 150g sautéed, fried egg 1, leftover cooked chicken 80g, tamari 1 tbsp, sesame oil few drops",
+   "prep": "10 min"
+  },
+  {
+   "id": "B-075",
+   "name": "Frijoles, arroz & huevo",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked black beans (150g)",
+    "cooked white rice (150g)",
+    "fried egg (1)",
+    "corn tortilla (1)",
+    "salsa (2 tbsp)",
+    "avocado (¼)"
+   ],
+   "ingredients": "cooked black beans 150g, cooked white rice 150g, fried egg 1, corn tortilla 1, salsa 2 tbsp, avocado ¼",
+   "prep": "10 min"
+  },
+  {
+   "id": "B-077",
+   "name": "Arepa with cheese & eggs",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "arepa (pre-cooked corn flour (100g)",
+    "water",
+    "salt) (1 large)",
+    "mozzarella or queso fresco (40g)",
+    "scrambled eggs (2)",
+    "avocado slices"
+   ],
+   "ingredients": "arepa (pre-cooked corn flour 100g, water, salt) 1 large, mozzarella or queso fresco 40g, scrambled eggs 2, avocado slices",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-078",
+   "name": "Tapioca crepe with cheese",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "hydrated tapioca starch (goma) (80g)",
+    "mozzarella or queijo coalho (40g)",
+    "banana (½ sliced)",
+    "butter thin scrape for the pan"
+   ],
+   "ingredients": "hydrated tapioca starch (goma) 80g, mozzarella or queijo coalho 40g, banana ½ sliced, butter thin scrape for the pan",
+   "prep": "5 min"
+  },
+  {
+   "id": "B-081",
+   "name": "Tempeh, spinach & carrot pita",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "tempeh (100g pan-fried)",
+    "wholewheat pitas (2)",
+    "spinach handful",
+    "grated carrot",
+    "mustard",
+    "pickle"
+   ],
+   "ingredients": "tempeh 100g pan-fried, wholewheat pitas 2, spinach handful, grated carrot, mustard, pickle",
+   "prep": "10 min"
+  },
+  {
+   "id": "B-083",
+   "name": "Cottage cheese with pineapple & toast",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cottage cheese (250g)",
+    "pineapple chunks (150g)",
+    "wholegrain toast (2 slices)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "cottage cheese 250g, pineapple chunks 150g, wholegrain toast 2 slices, honey 1 tsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-084",
+   "name": "Rice, egg & salmon griddle cakes",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked rice (200g)",
+    "eggs (2)",
+    "tinned salmon (100g flaked)",
+    "scallion",
+    "tamari (1 tsp)",
+    "oil for the pan"
+   ],
+   "ingredients": "cooked rice 200g, eggs 2, tinned salmon 100g flaked, scallion, tamari 1 tsp, oil for the pan",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-085",
+   "name": "Gluten-free cereal with pecan butter & blueberries",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "GF sorghum or rice cereal (90g)",
+    "pecan or almond butter (1 tbsp)",
+    "blueberries handful",
+    "hazelnut or oat milk (250ml)"
+   ],
+   "ingredients": "GF sorghum or rice cereal 90g, pecan or almond butter 1 tbsp, blueberries handful, hazelnut or oat milk 250ml",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-086",
+   "name": "Hotel buffet plate: eggs, toast, porridge & banana",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "scrambled eggs (2)",
+    "white toast (2 slices)",
+    "small bowl of porridge",
+    "banana (1)",
+    "orange juice (250ml)"
+   ],
+   "ingredients": "scrambled eggs 2, white toast 2 slices, small bowl of porridge, banana 1, orange juice 250ml",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-087",
+   "name": "Peanut butter & banana tortilla wrap",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "large wholewheat tortilla (1)",
+    "peanut butter (2 tbsp)",
+    "banana (1)",
+    "honey (1 tsp)",
+    "cinnamon"
+   ],
+   "ingredients": "large wholewheat tortilla 1, peanut butter 2 tbsp, banana 1, honey 1 tsp, cinnamon",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-088",
+   "name": "Cold quinoa bowl with blueberries & oat milk",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "cooked quinoa (200g cold)",
+    "blueberries (100g)",
+    "oat milk (150ml)",
+    "chia (1 tbsp)",
+    "maple syrup (1 tbsp)",
+    "pumpkin seeds (1 tbsp (cook 4 servings))"
+   ],
+   "ingredients": "cooked quinoa 200g cold, blueberries 100g, oat milk 150ml, chia 1 tbsp, maple syrup 1 tbsp, pumpkin seeds 1 tbsp (cook 4 servings)",
+   "prep": "no-cook"
+  },
+  {
+   "id": "B-089",
+   "name": "Boiled potatoes, bread & fried eggs",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "boiled potatoes (250g)",
+    "white bread (2 slices)",
+    "eggs (2 fried)",
+    "banana (1)",
+    "sweet chai"
+   ],
+   "ingredients": "boiled potatoes 250g, white bread 2 slices, eggs 2 fried, banana 1, sweet chai",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-091",
+   "name": "Semolina porridge with honey",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "fine semolina (80g)",
+    "milk (400ml)",
+    "honey (1 tbsp)",
+    "pinch salt",
+    "butter (1 tsp)",
+    "banana (1)"
+   ],
+   "ingredients": "fine semolina 80g, milk 400ml, honey 1 tbsp, pinch salt, butter 1 tsp, banana 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-095",
+   "name": "Molletes",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "bolillo or crusty roll (1 large halved)",
+    "refried beans (200g)",
+    "cheese (40g)",
+    "pico de gallo (4 tbsp)"
+   ],
+   "ingredients": "bolillo or crusty roll 1 large halved, refried beans 200g, cheese 40g, pico de gallo 4 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "B-097",
+   "name": "Sweet potato, cottage cheese & small oats",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "roasted sweet potato (150g)",
+    "cottage cheese (150g)",
+    "rolled oats (40g cooked in water)",
+    "cinnamon",
+    "pinch salt"
+   ],
+   "ingredients": "roasted sweet potato 150g, cottage cheese 150g, rolled oats 40g cooked in water, cinnamon, pinch salt",
+   "prep": "10 min"
+  },
+  {
+   "id": "B-098",
+   "name": "Veggie cooked breakfast: beans, tomatoes, mushrooms & toast",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "baked beans (200g)",
+    "tomatoes (2 halved and grilled)",
+    "mushrooms (150g fried in olive oil)",
+    "wholegrain toast (2 slices)",
+    "spinach handful"
+   ],
+   "ingredients": "baked beans 200g, tomatoes 2 halved and grilled, mushrooms 150g fried in olive oil, wholegrain toast 2 slices, spinach handful",
+   "prep": "15 min"
+  },
+  {
+   "id": "B-099",
+   "name": "Pasta with olive oil & parmesan, pre-stage style",
+   "mealType": "breakfast",
+   "pattern": null,
+   "components": [
+    "pasta (120g dry)",
+    "olive oil (1 tbsp)",
+    "parmesan (20g)",
+    "salt",
+    "black pepper"
+   ],
+   "ingredients": "pasta 120g dry, olive oil 1 tbsp, parmesan 20g, salt, black pepper",
+   "prep": "15 min"
+  },
+  {
+   "id": "D-011",
+   "name": "Rotisserie chicken, microwave rice & bagged salad",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "store rotisserie chicken (250g)",
+    "microwave white rice pouch (250g)",
+    "pre-washed salad (100g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "store rotisserie chicken 250g, microwave white rice pouch 250g, pre-washed salad 100g, olive oil 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "D-023",
+   "name": "Ugali & beans with tomato-onion sauce",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "maize flour (150g dry)",
+    "red kidney beans (200g cooked)",
+    "onion (1)",
+    "tomato (2)",
+    "oil (1 tsp)"
+   ],
+   "ingredients": "maize flour 150g dry, red kidney beans 200g cooked, onion 1, tomato 2, oil 1 tsp (makes 4)",
+   "prep": "batch — beans ahead, ugali fresh 15 min, 4 servings"
+  },
+  {
+   "id": "D-029",
+   "name": "Abendbrot: rye bread, cheese, quark & cucumber",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "dark rye bread (3 slices)",
+    "Gouda or Emmental (40g)",
+    "quark (200g)",
+    "honey (1 tsp)",
+    "cucumber and tomato slices"
+   ],
+   "ingredients": "dark rye bread 3 slices, Gouda or Emmental 40g, quark 200g, honey 1 tsp, cucumber and tomato slices",
+   "prep": "no-cook"
+  },
+  {
+   "id": "D-033",
+   "name": "Falafel wrap with hummus & salad",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "baked falafel (6 (~150g))",
+    "whole-wheat wrap (1 large)",
+    "hummus (80g)",
+    "cucumber",
+    "tomato",
+    "lettuce"
+   ],
+   "ingredients": "baked falafel 6 (~150g), whole-wheat wrap 1 large, hummus 80g, cucumber, tomato, lettuce",
+   "prep": "15 min"
+  },
+  {
+   "id": "D-047",
+   "name": "Bean & cheese quesadillas with salsa",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "flour tortillas (2)",
+    "black or refried beans (150g)",
+    "cheddar (60g)",
+    "salsa (60g)"
+   ],
+   "ingredients": "flour tortillas 2, black or refried beans 150g, cheddar 60g, salsa 60g",
+   "prep": "15 min"
+  },
+  {
+   "id": "D-050",
+   "name": "Plain pasta with tomato sauce & parmesan (race-eve)",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "white pasta (150g dry)",
+    "passata (150g)",
+    "parmesan (20g)",
+    "olive oil (1 tbsp)",
+    "salt"
+   ],
+   "ingredients": "white pasta 150g dry, passata 150g, parmesan 20g, olive oil 1 tbsp, salt",
+   "prep": "15 min"
+  },
+  {
+   "id": "D-072",
+   "name": "Post-long-run ramen with soft egg & greens",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "fresh ramen noodles (200g)",
+    "broth (500ml)",
+    "soft-boiled egg (1)",
+    "bok choy (100g)",
+    "sliced chicken or beef (120g)",
+    "scallions"
+   ],
+   "ingredients": "fresh ramen noodles 200g, broth 500ml, soft-boiled egg 1, bok choy 100g, sliced chicken or beef 120g, scallions",
+   "prep": "15 min"
+  },
+  {
+   "id": "D-080",
+   "name": "Bunless bacon cheeseburger with side salad",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "beef patty (180g)",
+    "cheddar (1 slice)",
+    "bacon (2 rashers)",
+    "lettuce leaves",
+    "tomato",
+    "side salad (150g with olive oil)"
+   ],
+   "ingredients": "beef patty 180g, cheddar 1 slice, bacon 2 rashers, lettuce leaves, tomato, side salad 150g with olive oil",
+   "prep": "15 min"
+  },
+  {
+   "id": "D-082",
+   "name": "Ground beef with sautéed kale & garlic",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "ground beef or steak (200g)",
+    "kale or spinach (200g)",
+    "olive oil (2 tbsp)",
+    "garlic (2 cloves)",
+    "salt"
+   ],
+   "ingredients": "ground beef or steak 200g, kale or spinach 200g, olive oil 2 tbsp, garlic 2 cloves, salt",
+   "prep": "15 min"
+  }
+ ]
+}

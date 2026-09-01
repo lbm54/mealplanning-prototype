@@ -20,7 +20,7 @@ pnpm --filter @mealplanning/web dev                     # http://localhost:3000 
 (`openai/text-embedding-3-small`). Auth is Supabase email/password or magic link (`/sign-in`).
 
 Checks: `pnpm typecheck` · `pnpm test` (vitest: grocery aggregation, week character, smoke) · `pnpm build`.
-Seed / re-embed the library: `cd packages/web && node scripts/seed-meal-library.mjs`.
+Content pipeline (all one-shot, read `packages/web/.env.local`, data in `packages/web/data/`): `cd packages/web && node scripts/seed_meal_library.mjs` seeds/re-embeds `meal_library` from the two JSON libraries; `fetch_recipe_sources` → `apply_source_scrape`, `export_direction_batches` → `apply_agent_directions`, `backfill_recipe_steps`, `find_meal_images` fill directions/images. See `packages/web/data/README.md`.
 Smoke the tools against dev: `node scripts/smoke-vana.mjs`.
 
 ## Architecture (packages/web/src)

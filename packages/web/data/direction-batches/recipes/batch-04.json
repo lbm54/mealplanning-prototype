@@ -1,0 +1,273 @@
+{
+ "batch": "R-04",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "B-092",
+   "name": "Ful medames with pita",
+   "mealType": "breakfast",
+   "cuisine": "middle-eastern",
+   "servings": 1,
+   "ingredients": "tinned fava beans 400g, olive oil 2 tbsp, cumin 1 tsp, garlic, lemon, tomato 1 diced, parsley, pita 2",
+   "prep": "10 min",
+   "prepMinutes": 10,
+   "attribution": "everyday Egyptian and Levantine breakfast, eaten by millions daily; commonly reported, not tied to a named athlete",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-093",
+   "name": "Labneh, cucumber, tomato, olives & pita",
+   "mealType": "breakfast",
+   "cuisine": "middle-eastern",
+   "servings": 1,
+   "ingredients": "labneh or thick Greek yogurt 200g, olive oil 1 tbsp, za'atar, cucumber ½, tomato 1, olives 30g, wholewheat pita 2",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "standard Levantine/Turkish breakfast plate, commonly reported in Mediterranean-diet athlete content",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-094",
+   "name": "Kimchi fried rice with fried egg",
+   "mealType": "breakfast",
+   "cuisine": "korean",
+   "servings": 1,
+   "ingredients": "day-old cooked rice 200g, kimchi 100g, scallion, tamari 1 tsp, sesame oil 1 tsp, oil 1 tsp, fried egg 1, nori",
+   "prep": "10 min",
+   "prepMinutes": 10,
+   "attribution": "everyday Korean home dish, commonly reported as the leftover-rice breakfast in Korean households; not tied to a named athlete",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-096",
+   "name": "Grilled salmon, rice & miso soup",
+   "mealType": "breakfast",
+   "cuisine": "japanese",
+   "servings": 1,
+   "ingredients": "salmon fillet 120g grilled with salt, cooked rice 200g, miso soup (miso 1 tbsp, dashi 250ml, tofu, wakame), pickles, nori",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "the classic Japanese breakfast set (shiozake) — grilled salted salmon, rice, miso soup, pickles (https://www.justonecookbook.com/traditional-japanese-breakfast-at-home/); commonly reported",
+   "sourceUrl": "https://www.justonecookbook.com/traditional-japanese-breakfast-at-home/",
+   "cachedPages": [
+    {
+     "url": "https://www.justonecookbook.com/traditional-japanese-breakfast-at-home/",
+     "title": "Traditional Japanese Breakfast and How To Make It At Home",
+     "ok": true,
+     "textFile": ".cache/source-pages/d26ffd85e635e9918133014d5793933965d2ce74.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-100",
+   "name": "Pão de queijo with fruit",
+   "mealType": "breakfast",
+   "cuisine": "brazilian",
+   "servings": 4,
+   "ingredients": "pão de queijo (tapioca starch 250g, milk 120ml, oil 60ml, eggs 2, grated cheese 150g — makes 20; 5 per serving), banana 1, coffee",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "Brazilian breakfast staple, commonly reported among Brazilian endurance athletes and sold frozen in most supermarkets; not tied to a named athlete",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-001",
+   "name": "Chicken, jasmine rice & roasted broccoli with teriyaki",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken breast 200g, jasmine rice 100g dry, broccoli 200g, teriyaki sauce 2 tbsp, sesame oil 1 tsp (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Chris Lieto's stated dinner \"chicken, broccoli, rice\" — Triathlete.com \"Fuel Like a Pro\" https://www.triathlete.com/nutrition/race-fueling/fuel-like-a-pro/ ; Roadman Cycling meal-prep guide (4-minute reheat) https://roadmancycling.com/blog/cycling-weekly-meal-prep-guide",
+   "sourceUrl": "https://www.triathlete.com/nutrition/race-fueling/fuel-like-a-pro/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/race-fueling/fuel-like-a-pro/",
+     "title": "Fuel Like A Pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/d77da260a5ca41dea3d50c5cd978c1c2a6db8044.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://roadmancycling.com/blog/cycling-weekly-meal-prep-guide",
+     "title": "Weekly Meal Prep for Cyclists — Sunday System",
+     "ok": true,
+     "textFile": ".cache/source-pages/d560b9970d52d3828c83fbada036a329f493df2c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-002",
+   "name": "Chicken breast & white rice with salt (race-eve plate)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "chicken breast 180g, white rice 100g dry, olive oil 1 tsp, salt",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "Mirinda Carfrae's fixed race-eve meal (\"always has the same meal\") — si.com \"Behind the Body\"; Daniela Ryf's carb-load protocol (no fibre 3 days out) — en.triatlonnoticias.com; beyondceliac.org celiac race-day plan (\"white rice with grilled chicken and a drizzle of olive oil\")",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-003",
+   "name": "Salmon, jasmine rice & steamed greens with lemon",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "salmon fillet 170g, jasmine rice 90g dry, broccoli or spinach 150g, lemon ½, olive oil 1 tbsp, salt",
+   "prep": "25 min",
+   "prepMinutes": 25,
+   "attribution": "Hannah Grant (WorldTour team chef) & Dr Stacy Sims, Eat Race Win — post-stage salmon, rice & greens https://hannahgrant.com/ ; https://sonyalooney.com/eat-race-win-with-professional-chef-hannah-grant/",
+   "sourceUrl": "https://hannahgrant.com/",
+   "cachedPages": [
+    {
+     "url": "https://hannahgrant.com/",
+     "title": "Hannah Grant shop",
+     "ok": true,
+     "textFile": ".cache/source-pages/abe749378775f88791a19129ae0887b52c43079d.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://sonyalooney.com/eat-race-win-with-professional-chef-hannah-grant/",
+     "title": "Eat, Race, Win with Professional Chef Hannah Grant - Sonya Looney",
+     "ok": true,
+     "textFile": ".cache/source-pages/dd8b04427d7d8fa151581e7df7b6b547fe3b960f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-004",
+   "name": "Grilled chicken, sweet potato & grilled veg with cottage cheese",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "chicken breast 180g, sweet potato 250g, mixed grilled vegetables 200g, cottage cheese 100g, olive oil 1 tsp",
+   "prep": "25 min",
+   "prepMinutes": 25,
+   "attribution": "Linsey Corbin's reported smaller evening meal — Sundried \"What I Eat In A Day\" https://www.sundried.com/blogs/nutrition/",
+   "sourceUrl": "https://www.sundried.com/blogs/nutrition/",
+   "cachedPages": [
+    {
+     "url": "https://www.sundried.com/blogs/nutrition/",
+     "title": "Nutrition Guides: Optimise Your Fuel",
+     "ok": true,
+     "textFile": ".cache/source-pages/5d7248e139e636395484771e020445cd16eb85a0.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-005",
+   "name": "Ground beef, rice & roasted broccoli-carrots with taco seasoning",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "lean ground beef 150g, rice 90g dry, broccoli 100g, carrots 100g, taco seasoning 1 tbsp, olive oil 1 tbsp (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Alex Larson, RDN (Alex Larson Nutrition, Endurance Eats podcast) — \"fuel with more food, keep it simple\" rotation dinner https://alexlarsonnutrition.com/ ; https://strengthrunning.com/2024/07/alex-larson/",
+   "sourceUrl": "https://alexlarsonnutrition.com/",
+   "cachedPages": [
+    {
+     "url": "https://alexlarsonnutrition.com/",
+     "title": "Sports Dietitian Nutritionist | Alex Larson Nutrition",
+     "ok": true,
+     "textFile": ".cache/source-pages/b127b0c5b0c969405261c3853220a0886cedc8e3.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://strengthrunning.com/2024/07/alex-larson/",
+     "title": "Alex Larson, RD on Sugar Cravings, Weight Loss & Training, Salt Supplementation, and More - Strength Running",
+     "ok": true,
+     "textFile": ".cache/source-pages/fa9b7f28bcd165c17c8baa89cbd8299ee077bcb4.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-006",
+   "name": "Sheet-pan chicken thighs, sweet potato & broccoli",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken thighs 2 bone-in (~250g), sweet potato 200g, broccoli 150g, olive oil 1 tbsp, paprika 1 tsp (makes 4)",
+   "prep": "batch — 40 min, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "commonly reported sheet-pan template across sports-dietitian content (Nancy Clark's Sports Nutrition Guidebook, \"Lunch and Dinner: At Home, on the Run\") https://nancyclarkrd.com/",
+   "sourceUrl": "https://nancyclarkrd.com/",
+   "cachedPages": [
+    {
+     "url": "https://nancyclarkrd.com/",
+     "title": "Nancy Clark RD – Sports Nutritionist & Author",
+     "ok": true,
+     "textFile": ".cache/source-pages/c9e1559f3ab4b7dba44eb46c9104020d6b7b2a35.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-007",
+   "name": "Chicken thigh, new potato, pepper & courgette traybake",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken thighs 200g, new potatoes 250g, red pepper 1, courgette 1, olive oil 1 tbsp, rosemary, garlic (makes 4)",
+   "prep": "batch — 40 min, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "Renee McGregor, RD, Fast Fuel — gut-friendly traybake dinners as the backbone of a runner's week https://veloforte.com/blogs/fuel-better/renee-mcgregor-qa-gut-healthy-nutrition-tips-cycling-running-performance",
+   "sourceUrl": "https://veloforte.com/blogs/fuel-better/renee-mcgregor-qa-gut-healthy-nutrition-tips-cycling-running-performance",
+   "cachedPages": [
+    {
+     "url": "https://veloforte.com/blogs/fuel-better/renee-mcgregor-qa-gut-healthy-nutrition-tips-cycling-running-performance",
+     "title": "Renee McGregor Q&A | Nutrition & Training Tips | Veloforte",
+     "ok": true,
+     "textFile": ".cache/source-pages/1d5e84614da5faf136d3bdb2b0927932b4e0a2c4.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-008",
+   "name": "Steak, roasted baby potatoes & green beans",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "sirloin steak 200g, baby potatoes 300g, green beans 150g, olive oil 1 tbsp, garlic 2 cloves",
+   "prep": "30 min",
+   "prepMinutes": 30,
+   "attribution": "commonly reported across triathlete \"what I eat\" pieces (Triathlete.com \"Fuel Like a Pro\") https://www.triathlete.com/nutrition/race-fueling/fuel-like-a-pro/ ; u/dirtyStick84, r/AdvancedRunning \"What do YOU eat in a day?\"",
+   "sourceUrl": "https://www.triathlete.com/nutrition/race-fueling/fuel-like-a-pro/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/race-fueling/fuel-like-a-pro/",
+     "title": "Fuel Like A Pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/d77da260a5ca41dea3d50c5cd978c1c2a6db8044.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-009",
+   "name": "Roast chicken legs, dairy-free mash & gravy",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken leg 1 (~250g), potatoes 300g, oat milk 60ml, olive oil 1 tbsp, chicken stock 150ml, cornstarch 1 tsp, garlic (makes 4)",
+   "prep": "batch — 50 min, 4 servings",
+   "prepMinutes": 50,
+   "attribution": "The Pretty Bee \"Top 9 Allergen-Free Meal Plan\", Day 7 dinner",
+   "sourceUrl": null,
+   "cachedPages": []
+  }
+ ]
+}

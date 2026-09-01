@@ -1,0 +1,251 @@
+{
+ "batch": "R-17",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "S-049",
+   "name": "Scott Jurek's guacamole with corn chips",
+   "mealType": "snack",
+   "cuisine": "mexican",
+   "servings": 1,
+   "ingredients": "avocado 1, lime juice, tomato 1/2, red onion 1 tbsp, coriander, jalapeño, salt, corn tortilla chips 30g",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Scott Jurek & Steve Friedman, Eat & Run — \"Holy Moly Guacamole\" http://www.scottjurek.com/eat-run",
+   "sourceUrl": "http://www.scottjurek.com/eat-run",
+   "cachedPages": [
+    {
+     "url": "http://www.scottjurek.com/eat-run",
+     "title": "Eat&Run — Scott Jurek",
+     "ok": true,
+     "textFile": ".cache/source-pages/8664d890cc0478ae9869ad79689e36cff4d73ecc.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-052",
+   "name": "Bento box: rice, boiled egg, edamame & cucumber",
+   "mealType": "snack",
+   "cuisine": "japanese",
+   "servings": 4,
+   "ingredients": "cooked rice 100g, boiled egg 1, edamame 50g, cucumber sticks 50g, tamari drizzle",
+   "prep": "batch — 20 min, 4–5 servings",
+   "prepMinutes": 20,
+   "attribution": "commonly reported desk and travel snack format among endurance athletes in packed-lunch guides and community threads",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-053",
+   "name": "Vegetable kimbap",
+   "mealType": "snack",
+   "cuisine": "korean",
+   "servings": 4,
+   "ingredients": "cooked white rice 200g seasoned with sesame oil, nori 2 sheets, carrot, spinach, pickled radish, egg strip 1",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "Korean everyday portable food, commonly reported as a race-day travel snack among Korean runners and triathletes",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-056",
+   "name": "Mandazi & banana",
+   "mealType": "snack",
+   "cuisine": "kenyan",
+   "servings": 4,
+   "ingredients": "mandazi 2 pieces, banana 1",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "reported carb alongside chapati and sweet potato in Kenyan camps — RunnersConnect https://runnersconnect.net/diet-of-kenyan-runners/",
+   "sourceUrl": "https://runnersconnect.net/diet-of-kenyan-runners/",
+   "cachedPages": [
+    {
+     "url": "https://runnersconnect.net/diet-of-kenyan-runners/",
+     "title": "Diet of Kenyan Runners: A Scientific Look at the Diet of the World’s Fastest Runners - Runners Connect",
+     "ok": true,
+     "textFile": ".cache/source-pages/656062024f5283f57e01c5738bca8833fab7ff65.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-058",
+   "name": "Açaí bowl with granola & banana",
+   "mealType": "snack",
+   "cuisine": "brazilian",
+   "servings": 1,
+   "ingredients": "frozen açaí purée 150g, banana 1, granola 40g, agave 1 tsp",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "the Brazilian post-surf and post-training original, widely reported among Brazilian endurance athletes before the global bowl trend",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-059",
+   "name": "Coconut rice pudding with mango",
+   "mealType": "snack",
+   "cuisine": "thai",
+   "servings": 3,
+   "ingredients": "cooked white rice 150g, coconut milk 200ml, maple syrup 1 tbsp, diced mango 100g, cardamom (makes 3)",
+   "prep": "batch — 20 min, 3 servings",
+   "prepMinutes": 20,
+   "attribution": "standard dairy-free rice pudding format, cross-referenced in allergen-free snack roundups; commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-062",
+   "name": "Second breakfast: rice porridge with skyr, honey & berries",
+   "mealType": "snack",
+   "cuisine": "nordic",
+   "servings": 4,
+   "ingredients": "cooked white rice 150g, milk 100ml, skyr 150g, honey 2 tbsp, mixed berries 80g",
+   "prep": "batch — 20 min, 4–5 servings",
+   "prepMinutes": 20,
+   "attribution": "the \"second breakfast\" pattern reported as core to the Norwegian training group (Blummenfelt/Iden) and Norwegian XC-ski culture — frequent small high-carb-plus-protein sittings; commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-066",
+   "name": "Baked scotch eggs",
+   "mealType": "snack",
+   "cuisine": "british",
+   "servings": 4,
+   "ingredients": "hard-boiled egg 1, sausage meat 75g, almond flour 1 tbsp — wrapped and baked (makes 4)",
+   "prep": "batch — 40 min, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "\"Baked Scotch Eggs\", The Paleo Diet athlete recipes https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "sourceUrl": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+     "title": "Paleo Recipes for Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/d8282c2b8dc0ecbdfc92df439e27ee5ebd732c5f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-073",
+   "name": "Beef jerky, homemade or soy-free",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "lean beef 250g raw, salt, black pepper, smoked paprika, coconut aminos 2 tbsp — dehydrated (makes 4)",
+   "prep": "batch — 4 h dehydrator, 4–5 servings",
+   "prepMinutes": null,
+   "attribution": "dprimm on TrainerRoad \"made fresh at home, lower cost, easy to store\" https://www.trainerroad.com/forum/t/your-favorite-snacks/7464; ROUVY flags gluten-free jerkies https://rouvy.com/blog/snack-for-triathlon",
+   "sourceUrl": "https://www.trainerroad.com/forum/t/your-favorite-snacks/7464",
+   "cachedPages": [
+    {
+     "url": "https://www.trainerroad.com/forum/t/your-favorite-snacks/7464",
+     "title": "Your favorite snacks",
+     "ok": true,
+     "textFile": ".cache/source-pages/f84724ad5d048a351557ddfa79d5281c3ece1dc5.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://rouvy.com/blog/snack-for-triathlon",
+     "title": "Forget Energy Bars—These Snacks Are Changing the Game for Triathletes | ROUVY",
+     "ok": true,
+     "textFile": ".cache/source-pages/2b3bd8a43a4220ca465a8a3a5af28b2006af40cb.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-084",
+   "name": "Greek yogurt with granola & berries",
+   "mealType": "snack",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "Greek yogurt 200g, granola 40g, mixed berries 100g",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "Paula Findlay's pre-bed yogurt and granola, triathlonmagazine.ca; Jonny Brownlee's yogurt and muesli, 220triathlon.com; Peloton post-run list https://www.onepeloton.com/blog/what-to-eat-after-a-run",
+   "sourceUrl": "https://www.onepeloton.com/blog/what-to-eat-after-a-run",
+   "cachedPages": [
+    {
+     "url": "https://www.onepeloton.com/blog/what-to-eat-after-a-run",
+     "title": "What to Eat After a Run, According to Sports Dietitians",
+     "ok": true,
+     "textFile": ".cache/source-pages/b730f207268d03caaa3d67a5f0968f9683d4391a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-086",
+   "name": "Soy yogurt parfait with granola & berries",
+   "mealType": "snack",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "soy yogurt 250g, granola 40g, mixed berries 80g, chopped walnuts 15g",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "commonly reported vegan-athlete recovery snack format across greatveganathletes.com profiles and dietitianapproved.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-087",
+   "name": "Toaster waffles with maple syrup & Greek yogurt",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "frozen waffles 2, maple syrup 2 tbsp, Greek yogurt 100g",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "reported post-hard-session recovery treat in endurance-athlete \"day of eating\" content; commonly eaten",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-097",
+   "name": "Chia pudding jar",
+   "mealType": "snack",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chia seeds 3 tbsp, oat milk 250ml, maple syrup 1 tbsp, berries 80g (makes 4)",
+   "prep": "overnight",
+   "prepMinutes": 10,
+   "attribution": "Adub on TrainerRoad https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/15; hemp-protein version via Sunwarrior soy-free vegan protein guide",
+   "sourceUrl": "https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/15",
+   "cachedPages": [
+    {
+     "url": "https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/15",
+     "title": "Your favorite snacks",
+     "ok": true,
+     "textFile": ".cache/source-pages/ec0c6bea2b2d50e63b8668169019075221975641.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-098",
+   "name": "Overnight oats jar",
+   "mealType": "snack",
+   "cuisine": "general",
+   "servings": 5,
+   "ingredients": "rolled oats 60g, oat milk 150ml, chia seeds 1 tbsp, banana 1/2, maple syrup 1 tsp (makes 5)",
+   "prep": "overnight",
+   "prepMinutes": 10,
+   "attribution": "Triathlete.com on-the-go breakfast options https://www.triathlete.com/nutrition/race-fueling/go-breakfast-options-busy-athletes/; commonly reported desk and travel staple",
+   "sourceUrl": "https://www.triathlete.com/nutrition/race-fueling/go-breakfast-options-busy-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/race-fueling/go-breakfast-options-busy-athletes/",
+     "title": "On-The-Go Breakfast Options for the Busy Athlete",
+     "ok": true,
+     "textFile": ".cache/source-pages/31f678c66158816c2b55e48faf798adfac24b7b6.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

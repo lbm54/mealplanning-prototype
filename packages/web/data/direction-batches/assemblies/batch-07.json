@@ -1,0 +1,1603 @@
+{
+ "batch": "A-07",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AD-376",
+   "name": "Bagel with honey & banana (light race-eve option)",
+   "mealType": "dinner",
+   "pattern": "starch + sauce + fruit",
+   "components": [
+    "bagel (1)",
+    "honey (1 tbsp)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "bagel 1, honey 1 tbsp, banana 1 medium",
+   "prep": "5 min"
+  },
+  {
+   "id": "AD-377",
+   "name": "Kitchari race-week dinner (rice, dal & ghee)",
+   "mealType": "dinner",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "white rice, cooked (180 g)",
+    "moong dal, cooked (150 g)",
+    "ghee (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 180 g, moong dal, cooked 150 g, ghee 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-378",
+   "name": "Rice, grilled chicken, roasted vegetables, olive oil & grated cheese",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + fat",
+   "components": [
+    "white rice, cooked (250 g)",
+    "chicken, grilled (180 g)",
+    "roasted vegetables (120 g)",
+    "olive oil & grated mild cheese (1 tbsp + 20 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, chicken, grilled 180 g, roasted vegetables 120 g, olive oil & grated mild cheese 1 tbsp + 20 g",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-379",
+   "name": "Plain chicken and rice (Ironman champion's race-eve staple)",
+   "mealType": "dinner",
+   "pattern": "protein + starch",
+   "components": [
+    "chicken breast, plain-cooked (180 g)",
+    "white rice, cooked (250 g)"
+   ],
+   "ingredients": "chicken breast, plain-cooked 180 g, white rice, cooked 250 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-380",
+   "name": "Pasta with tomato sauce, side salad & bread roll",
+   "mealType": "dinner",
+   "pattern": "starch + sauce + veg + starch",
+   "components": [
+    "pasta, cooked (250 g)",
+    "tomato sauce (150 g)",
+    "side salad (80 g)",
+    "bread roll (1)"
+   ],
+   "ingredients": "pasta, cooked 250 g, tomato sauce 150 g, side salad 80 g, bread roll 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-381",
+   "name": "Rice or pasta with grilled chicken breast & vegetables",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "rice or pasta, cooked (220 g)",
+    "chicken breast, grilled (180 g)",
+    "steamed vegetables (120 g)"
+   ],
+   "ingredients": "rice or pasta, cooked 220 g, chicken breast, grilled 180 g, steamed vegetables 120 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-382",
+   "name": "Rice, grilled fish & steamed vegetables (race-week, low fiber)",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (220 g)",
+    "white fish, grilled (180 g)",
+    "steamed vegetables (peeled, low-fiber) (100 g)"
+   ],
+   "ingredients": "white rice, cooked 220 g, white fish, grilled 180 g, steamed vegetables (peeled, low-fiber) 100 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-383",
+   "name": "Grilled chicken, sweet potato & steamed broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "sweet potato, roasted (200 g)",
+    "steamed broccoli (120 g)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, sweet potato, roasted 200 g, steamed broccoli 120 g",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-384",
+   "name": "Shrimp tacos with corn tortillas & avocado",
+   "mealType": "dinner",
+   "pattern": "protein + starch + fat + veg",
+   "components": [
+    "shrimp, grilled (150 g)",
+    "corn tortillas (3 pieces)",
+    "avocado, sliced (1/2 medium)",
+    "cabbage slaw (80 g)"
+   ],
+   "ingredients": "shrimp, grilled 150 g, corn tortillas 3 pieces, avocado, sliced 1/2 medium, cabbage slaw 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-385",
+   "name": "Roti, dal & curd (race-week taper)",
+   "mealType": "dinner",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "roti (whole wheat flatbread) (2 pieces)",
+    "dal (lentil curry) (180 g)",
+    "curd (plain yogurt) (100 g)"
+   ],
+   "ingredients": "roti (whole wheat flatbread) 2 pieces, dal (lentil curry) 180 g, curd (plain yogurt) 100 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-386",
+   "name": "White rice, grilled chicken breast, side salad & dinner roll",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + starch",
+   "components": [
+    "white rice, cooked (200 g)",
+    "chicken breast, grilled (180 g)",
+    "side salad (80 g)",
+    "dinner roll (1)"
+   ],
+   "ingredients": "white rice, cooked 200 g, chicken breast, grilled 180 g, side salad 80 g, dinner roll 1",
+   "prep": "0 min (restaurant order)"
+  },
+  {
+   "id": "AD-387",
+   "name": "Rice, grilled salmon & roasted vegetables",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (200 g)",
+    "salmon, grilled (180 g)",
+    "roasted vegetables (carrot, zucchini) (120 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, salmon, grilled 180 g, roasted vegetables (carrot, zucchini) 120 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-388",
+   "name": "Outback Steakhouse: romaine salad, grilled chicken & sweet potato",
+   "mealType": "dinner",
+   "pattern": "veg + protein + starch + sauce",
+   "components": [
+    "romaine salad (1 side)",
+    "grilled chicken breast (180 g)",
+    "sweet potato, baked (1 (250 g))",
+    "BBQ sauce, for dipping (2 tbsp)"
+   ],
+   "ingredients": "romaine salad 1 side, grilled chicken breast 180 g, sweet potato, baked 1 (250 g), BBQ sauce, for dipping 2 tbsp",
+   "prep": "0 min (restaurant order)"
+  },
+  {
+   "id": "AD-389",
+   "name": "White rice, grilled chicken, side salad, dinner roll & water",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + starch + drink",
+   "components": [
+    "white rice, cooked (200 g)",
+    "chicken, grilled (180 g)",
+    "side salad (80 g)",
+    "dinner roll (1)",
+    "water (500 ml)"
+   ],
+   "ingredients": "white rice, cooked 200 g, chicken, grilled 180 g, side salad 80 g, dinner roll 1, water 500 ml",
+   "prep": "0 min (restaurant order)"
+  },
+  {
+   "id": "AD-390",
+   "name": "Grilled steak, mashed potato & green beans (travel order)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "steak, grilled (180 g)",
+    "mashed potato (200 g)",
+    "steamed green beans (120 g)"
+   ],
+   "ingredients": "steak, grilled 180 g, mashed potato 200 g, steamed green beans 120 g",
+   "prep": "0 min (restaurant order)"
+  },
+  {
+   "id": "AD-391",
+   "name": "Grilled steak, rice & steamed vegetables (hotel restaurant order)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "steak, grilled (180 g)",
+    "white rice, cooked (200 g)",
+    "steamed vegetables (120 g)"
+   ],
+   "ingredients": "steak, grilled 180 g, white rice, cooked 200 g, steamed vegetables 120 g",
+   "prep": "0 min (restaurant order)"
+  },
+  {
+   "id": "AD-392",
+   "name": "Sushi platter & miso soup (travel dinner)",
+   "mealType": "dinner",
+   "pattern": "protein + other + veg",
+   "components": [
+    "assorted sushi (nigiri & maki) (10 pieces)",
+    "miso soup (1 bowl)",
+    "edamame (80 g)"
+   ],
+   "ingredients": "assorted sushi (nigiri & maki) 10 pieces, miso soup 1 bowl, edamame 80 g",
+   "prep": "0 min (restaurant order)"
+  },
+  {
+   "id": "AD-393",
+   "name": "Grilled fish, rice & side salad (travel-safe order)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "white fish, grilled (180 g)",
+    "white rice, cooked (200 g)",
+    "side salad (80 g)"
+   ],
+   "ingredients": "white fish, grilled 180 g, white rice, cooked 200 g, side salad 80 g",
+   "prep": "0 min (restaurant order)"
+  },
+  {
+   "id": "AD-394",
+   "name": "Grilled chicken, rice & roasted vegetables (post-long-run recovery)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (200 g)",
+    "white rice, cooked (220 g)",
+    "roasted vegetables (carrot, zucchini, pepper) (150 g)"
+   ],
+   "ingredients": "chicken breast, grilled 200 g, white rice, cooked 220 g, roasted vegetables (carrot, zucchini, pepper) 150 g",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-395",
+   "name": "Salmon, rice & steamed broccoli (omega-3 recovery dinner)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon, grilled (180 g)",
+    "white rice, cooked (200 g)",
+    "steamed broccoli (150 g)"
+   ],
+   "ingredients": "salmon, grilled 180 g, white rice, cooked 200 g, steamed broccoli 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-396",
+   "name": "Stir-fried beef, rice & mixed vegetables (recovery)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "beef, stir-fried (180 g)",
+    "white rice, cooked (220 g)",
+    "mixed stir-fried vegetables (150 g)"
+   ],
+   "ingredients": "beef, stir-fried 180 g, white rice, cooked 220 g, mixed stir-fried vegetables 150 g",
+   "prep": "18 min"
+  },
+  {
+   "id": "AD-397",
+   "name": "Paneer, rice & curd (vegetarian recovery)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + dairy",
+   "components": [
+    "paneer, pan-seared (180 g)",
+    "white rice, cooked (200 g)",
+    "curd (plain yogurt) (100 g)"
+   ],
+   "ingredients": "paneer, pan-seared 180 g, white rice, cooked 200 g, curd (plain yogurt) 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-398",
+   "name": "Rice, grilled tofu & stir-fried greens (vegan recovery)",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (220 g)",
+    "tofu, grilled or pan-fried (200 g)",
+    "stir-fried mixed greens (150 g)"
+   ],
+   "ingredients": "white rice, cooked 220 g, tofu, grilled or pan-fried 200 g, stir-fried mixed greens 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-001",
+   "name": "Chicken, rye bread & rocket sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + bread + veg",
+   "components": [
+    "chicken breast, sliced (120 g)",
+    "rye bread (2 slices)",
+    "rocket (handful)"
+   ],
+   "ingredients": "chicken breast, sliced 120 g, rye bread 2 slices, rocket handful",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-002",
+   "name": "Tuna, spelt bread & watercress sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + bread + veg",
+   "components": [
+    "tuna, canned in spring water (1 small tin (120 g))",
+    "spelt bread (2 slices)",
+    "watercress (handful)"
+   ],
+   "ingredients": "tuna, canned in spring water 1 small tin (120 g), spelt bread 2 slices, watercress handful",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-003",
+   "name": "Salmon, wholemeal bread & grated carrot sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + bread + veg",
+   "components": [
+    "salmon, cooked & flaked (100 g)",
+    "wholemeal bread (2 slices)",
+    "carrot, grated (1 small)"
+   ],
+   "ingredients": "salmon, cooked & flaked 100 g, wholemeal bread 2 slices, carrot, grated 1 small",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-004",
+   "name": "Egg, multiseed bread & sprouting bean shoots sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + bread + veg",
+   "components": [
+    "boiled egg, sliced (2)",
+    "multiseed bread (2 slices)",
+    "sprouting bean shoots (handful)"
+   ],
+   "ingredients": "boiled egg, sliced 2, multiseed bread 2 slices, sprouting bean shoots handful",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-005",
+   "name": "Houmous, wholemeal bagel & rocket sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + bread + veg",
+   "components": [
+    "houmous (3 tbsp)",
+    "wholemeal bagel (1)",
+    "rocket (handful)"
+   ],
+   "ingredients": "houmous 3 tbsp, wholemeal bagel 1, rocket handful",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-006",
+   "name": "Lentil & root vegetable soup with a multigrain roll",
+   "mealType": "lunch",
+   "pattern": "soup + bread",
+   "components": [
+    "lentil soup (sweet potato, butternut squash, root veg) (400 ml)",
+    "multigrain roll (1)"
+   ],
+   "ingredients": "lentil soup (sweet potato, butternut squash, root veg) 400 ml, multigrain roll 1",
+   "prep": "10 min (batch-cooked)"
+  },
+  {
+   "id": "AL-007",
+   "name": "Chickpea, wholemeal pasta & chilli-lime salad",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "wholemeal pasta, cooked (50 g dry)",
+    "chickpeas (100 g)",
+    "salad leaves, lime juice, coriander, chilli (1 cup)"
+   ],
+   "ingredients": "wholemeal pasta, cooked 50 g dry, chickpeas 100 g, salad leaves, lime juice, coriander, chilli 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-008",
+   "name": "Sweet potato, feta & spring onion wrap",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + veg + wrap",
+   "components": [
+    "sweet potato, roasted (150 g)",
+    "low-fat feta (40 g)",
+    "red chilli & spring onion (to taste)",
+    "wholemeal tortilla (1)"
+   ],
+   "ingredients": "sweet potato, roasted 150 g, low-fat feta 40 g, red chilli & spring onion to taste, wholemeal tortilla 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-009",
+   "name": "Salmon & rice bowl with vegetables",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon, grilled (150 g)",
+    "white rice, cooked (200 g)",
+    "steamed mixed vegetables (150 g)"
+   ],
+   "ingredients": "salmon, grilled 150 g, white rice, cooked 200 g, steamed mixed vegetables 150 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-010",
+   "name": "Turkey deli sandwich with lettuce, tomato & mustard",
+   "mealType": "lunch",
+   "pattern": "protein + bread + veg",
+   "components": [
+    "turkey deli meat (100 g)",
+    "wholegrain bread (2 slices)",
+    "lettuce & tomato (1 cup)",
+    "mustard (1 tsp)"
+   ],
+   "ingredients": "turkey deli meat 100 g, wholegrain bread 2 slices, lettuce & tomato 1 cup, mustard 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-011",
+   "name": "Egg noodle stir-fry with protein & vegetables",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "egg noodles, cooked (150 g)",
+    "chicken or shrimp (150 g)",
+    "mixed stir-fry vegetables (150 g)",
+    "soy sauce (1 tbsp)"
+   ],
+   "ingredients": "egg noodles, cooked 150 g, chicken or shrimp 150 g, mixed stir-fry vegetables 150 g, soy sauce 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-012",
+   "name": "Quesadilla with cheese, beans & chicken",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "tortilla (1 large)",
+    "shredded chicken (100 g)",
+    "black beans & cheddar cheese (100 g / 40 g)"
+   ],
+   "ingredients": "tortilla 1 large, shredded chicken 100 g, black beans & cheddar cheese 100 g / 40 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-013",
+   "name": "Greek yogurt, granola & mixed nuts parfait",
+   "mealType": "lunch",
+   "pattern": "dairy + starch + fat",
+   "components": [
+    "greek yogurt (250 g)",
+    "granola (50 g)",
+    "mixed nuts & seeds (20 g)"
+   ],
+   "ingredients": "greek yogurt 250 g, granola 50 g, mixed nuts & seeds 20 g",
+   "prep": "2 min"
+  },
+  {
+   "id": "AL-014",
+   "name": "Turkey, cream cheese & spinach wrap",
+   "mealType": "lunch",
+   "pattern": "protein + starch + dairy + veg",
+   "components": [
+    "turkey slices (100 g)",
+    "whole wheat tortilla (1)",
+    "cream cheese (1 tbsp)",
+    "fresh spinach (1 cup)"
+   ],
+   "ingredients": "turkey slices 100 g, whole wheat tortilla 1, cream cheese 1 tbsp, fresh spinach 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-015",
+   "name": "Grilled chicken, brown rice & roasted Brussels sprouts",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (170 g)",
+    "brown rice, cooked (200 g)",
+    "brussels sprouts, roasted with lemon (150 g)"
+   ],
+   "ingredients": "chicken breast, grilled 170 g, brown rice, cooked 200 g, brussels sprouts, roasted with lemon 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-016",
+   "name": "Veggie wrap with feta, avocado, cucumber & red pepper",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + fat + veg",
+   "components": [
+    "whole wheat tortilla (1)",
+    "feta cheese (40 g)",
+    "avocado (1/2)",
+    "cucumber & red pepper (1 cup)"
+   ],
+   "ingredients": "whole wheat tortilla 1, feta cheese 40 g, avocado 1/2, cucumber & red pepper 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-017",
+   "name": "Tuna salad wrap with red onion, celery & pickles",
+   "mealType": "lunch",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tuna, canned (1 tin (140 g))",
+    "mayonnaise & dijon mustard (1.5 tbsp)",
+    "red onion, celery & sweet pickles (1/2 cup)",
+    "tortilla (1)"
+   ],
+   "ingredients": "tuna, canned 1 tin (140 g), mayonnaise & dijon mustard 1.5 tbsp, red onion, celery & sweet pickles 1/2 cup, tortilla 1",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-018",
+   "name": "Chicken, quinoa & roasted sweet potato power bowl",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + veg",
+   "components": [
+    "chicken breast, grilled (150 g)",
+    "quinoa, cooked (150 g)",
+    "sweet potato, roasted (120 g)",
+    "broccoli, steamed (100 g)",
+    "olive oil, paprika (1 tsp)"
+   ],
+   "ingredients": "chicken breast, grilled 150 g, quinoa, cooked 150 g, sweet potato, roasted 120 g, broccoli, steamed 100 g, olive oil, paprika 1 tsp",
+   "prep": "25 min (batch)"
+  },
+  {
+   "id": "AL-019",
+   "name": "Salmon, brown rice & edamame bento box",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "salmon fillet, baked (150 g)",
+    "brown rice, cooked (180 g)",
+    "edamame, steamed (80 g)",
+    "avocado (1/2)",
+    "low-sodium soy sauce (1 tbsp)"
+   ],
+   "ingredients": "salmon fillet, baked 150 g, brown rice, cooked 180 g, edamame, steamed 80 g, avocado 1/2, low-sodium soy sauce 1 tbsp",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-020",
+   "name": "Beef & sweet potato skillet with kale",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "lean ground beef (150 g)",
+    "sweet potato, diced (180 g)",
+    "kale, chopped (1 cup)",
+    "onion, olive oil (1/2)"
+   ],
+   "ingredients": "lean ground beef 150 g, sweet potato, diced 180 g, kale, chopped 1 cup, onion, olive oil 1/2",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-021",
+   "name": "Tuna-stuffed avocado with celery & greek yogurt",
+   "mealType": "lunch",
+   "pattern": "protein + fat + veg + dairy",
+   "components": [
+    "tuna, canned (1 tin (140 g))",
+    "avocado (1 whole (halved))",
+    "celery, diced (1/2 cup)",
+    "greek yogurt, lemon juice (2 tbsp)"
+   ],
+   "ingredients": "tuna, canned 1 tin (140 g), avocado 1 whole (halved), celery, diced 1/2 cup, greek yogurt, lemon juice 2 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-022",
+   "name": "Chickpea & couscous salad with cherry tomato & cucumber",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + fat",
+   "components": [
+    "couscous, cooked (150 g)",
+    "chickpeas (120 g)",
+    "cherry tomatoes & cucumber (1 cup)",
+    "olive oil & balsamic vinegar (1 tbsp)"
+   ],
+   "ingredients": "couscous, cooked 150 g, chickpeas 120 g, cherry tomatoes & cucumber 1 cup, olive oil & balsamic vinegar 1 tbsp",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-023",
+   "name": "Egg & veggie muffin cups with side salad",
+   "mealType": "lunch",
+   "pattern": "protein + veg + veg",
+   "components": [
+    "eggs, baked (3)",
+    "spinach, zucchini & bell pepper (1 cup)",
+    "side salad, olive oil (1 cup)"
+   ],
+   "ingredients": "eggs, baked 3, spinach, zucchini & bell pepper 1 cup, side salad, olive oil 1 cup",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-024",
+   "name": "Pork tenderloin, roasted Brussels sprouts & carrots",
+   "mealType": "lunch",
+   "pattern": "protein + veg + veg",
+   "components": [
+    "pork tenderloin, roasted (150 g)",
+    "brussels sprouts, roasted (120 g)",
+    "carrots, roasted (100 g)",
+    "olive oil & rosemary (1 tsp)"
+   ],
+   "ingredients": "pork tenderloin, roasted 150 g, brussels sprouts, roasted 120 g, carrots, roasted 100 g, olive oil & rosemary 1 tsp",
+   "prep": "25 min (batch)"
+  },
+  {
+   "id": "AL-025",
+   "name": "Tofu, quinoa & snap pea stir-fry",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "firm tofu, cubed (150 g)",
+    "quinoa, cooked (150 g)",
+    "snap peas & carrots (120 g)",
+    "sesame oil & soy sauce (1 tbsp)"
+   ],
+   "ingredients": "firm tofu, cubed 150 g, quinoa, cooked 150 g, snap peas & carrots 120 g, sesame oil & soy sauce 1 tbsp",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-026",
+   "name": "Lentil & vegetable stir-fry with turmeric",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "lentils, cooked (180 g)",
+    "zucchini, carrots & bell pepper (150 g)",
+    "coconut oil & turmeric (1 tsp)"
+   ],
+   "ingredients": "lentils, cooked 180 g, zucchini, carrots & bell pepper 150 g, coconut oil & turmeric 1 tsp",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-027",
+   "name": "Turkey & hummus wrap with spinach & red pepper",
+   "mealType": "lunch",
+   "pattern": "protein + starch + protein + veg",
+   "components": [
+    "turkey breast, sliced (100 g)",
+    "whole-grain tortilla (1)",
+    "hummus (2 tbsp)",
+    "spinach & sliced red pepper (1 cup)"
+   ],
+   "ingredients": "turkey breast, sliced 100 g, whole-grain tortilla 1, hummus 2 tbsp, spinach & sliced red pepper 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-028",
+   "name": "Power baked potato with ricotta, spinach & pesto",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + veg + sauce",
+   "components": [
+    "russet potato, baked (1 large (250 g))",
+    "part-skim ricotta (60 g)",
+    "baby spinach (1 cup)",
+    "pesto (1 tbsp)"
+   ],
+   "ingredients": "russet potato, baked 1 large (250 g), part-skim ricotta 60 g, baby spinach 1 cup, pesto 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-029",
+   "name": "Roasted smashed potatoes with buffalo blue cheese & Greek yogurt",
+   "mealType": "lunch",
+   "pattern": "starch + sauce",
+   "components": [
+    "petite potatoes, smashed & roasted (250 g)",
+    "buffalo sauce, greek yogurt & blue cheese (3 tbsp)",
+    "garlic & lemon (to taste)"
+   ],
+   "ingredients": "petite potatoes, smashed & roasted 250 g, buffalo sauce, greek yogurt & blue cheese 3 tbsp, garlic & lemon to taste",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-030",
+   "name": "Potato & black bean soup with cheddar",
+   "mealType": "lunch",
+   "pattern": "soup + dairy",
+   "components": [
+    "potato & black bean soup (onion, jalapeño, tomato, cumin) (400 ml)",
+    "cheddar cheese, shredded (30 g)"
+   ],
+   "ingredients": "potato & black bean soup (onion, jalapeño, tomato, cumin) 400 ml, cheddar cheese, shredded 30 g",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-031",
+   "name": "Egg & potato mini frittata with side salad",
+   "mealType": "lunch",
+   "pattern": "protein + veg",
+   "components": [
+    "eggs & egg whites, baked with potato, onion, pepper (2 servings)",
+    "side salad (1 cup)"
+   ],
+   "ingredients": "eggs & egg whites, baked with potato, onion, pepper 2 servings, side salad 1 cup",
+   "prep": "25 min (batch)"
+  },
+  {
+   "id": "AL-032",
+   "name": "Baked potato with turkey chilli",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "russet potato, baked (1 large (250 g))",
+    "turkey chilli (ground turkey, beans, tomato) (200 g)",
+    "cheddar, spring onion (30 g)"
+   ],
+   "ingredients": "russet potato, baked 1 large (250 g), turkey chilli (ground turkey, beans, tomato) 200 g, cheddar, spring onion 30 g",
+   "prep": "10 min (leftover reheat)"
+  },
+  {
+   "id": "AL-033",
+   "name": "Chicken thighs, white rice & roasted Mediterranean veg (three-container)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken thighs, bone-in roasted (200 g)",
+    "white rice, cooked (200 g)",
+    "roasted Mediterranean vegetables (courgette, pepper, aubergine) (150 g)"
+   ],
+   "ingredients": "chicken thighs, bone-in roasted 200 g, white rice, cooked 200 g, roasted Mediterranean vegetables (courgette, pepper, aubergine) 150 g",
+   "prep": "5 min (grab from batch containers)"
+  },
+  {
+   "id": "AL-034",
+   "name": "Beef mince, pasta & steamed broccoli (three-container)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "lean beef mince, cooked with garlic & onion (180 g)",
+    "pasta, cooked (200 g)",
+    "broccoli, steamed (150 g)"
+   ],
+   "ingredients": "lean beef mince, cooked with garlic & onion 180 g, pasta, cooked 200 g, broccoli, steamed 150 g",
+   "prep": "5 min (grab from batch containers)"
+  },
+  {
+   "id": "AL-035",
+   "name": "Hard-boiled eggs, baked sweet potato & spinach (three-container)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "hard-boiled eggs (3)",
+    "sweet potato, baked (1 medium)",
+    "spinach (1 cup)"
+   ],
+   "ingredients": "hard-boiled eggs 3, sweet potato, baked 1 medium, spinach 1 cup",
+   "prep": "5 min (grab from batch containers)"
+  },
+  {
+   "id": "AL-036",
+   "name": "Ham, cheese & fig jam ride sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + starch + dairy + sauce",
+   "components": [
+    "ham, sliced (80 g)",
+    "rustic bread (2 slices)",
+    "cheese (30 g)",
+    "fig jam (1 tbsp)"
+   ],
+   "ingredients": "ham, sliced 80 g, rustic bread 2 slices, cheese 30 g, fig jam 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-037",
+   "name": "Savory rice cakes with parmesan & egg",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "white rice, cooked & pressed into cakes (200 g)",
+    "egg, beaten in (1)",
+    "parmesan (20 g)"
+   ],
+   "ingredients": "white rice, cooked & pressed into cakes 200 g, egg, beaten in 1, parmesan 20 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-038",
+   "name": "Rotisserie chicken pita with cucumber, hummus, orange & crackers",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fruit + other",
+   "components": [
+    "rotisserie chicken, shredded (120 g)",
+    "whole wheat pita (1)",
+    "cucumber & light mayo/hummus (1/2 cup)",
+    "orange (1)",
+    "whole-grain crackers & cheese (30 g)"
+   ],
+   "ingredients": "rotisserie chicken, shredded 120 g, whole wheat pita 1, cucumber & light mayo/hummus 1/2 cup, orange 1, whole-grain crackers & cheese 30 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-039",
+   "name": "Leftover roast dinner plate — chicken, potatoes & veg",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "roast chicken, leftover (150 g)",
+    "roast potatoes, leftover (200 g)",
+    "leftover roast vegetables (150 g)"
+   ],
+   "ingredients": "roast chicken, leftover 150 g, roast potatoes, leftover 200 g, leftover roast vegetables 150 g",
+   "prep": "5 min (reheat)"
+  },
+  {
+   "id": "AL-040",
+   "name": "Chicken Caesar salad with parmesan & croutons",
+   "mealType": "lunch",
+   "pattern": "protein + veg + dairy",
+   "components": [
+    "chicken breast, grilled (150 g)",
+    "romaine lettuce (2 cups)",
+    "parmesan & croutons (30 g / 20 g)"
+   ],
+   "ingredients": "chicken breast, grilled 150 g, romaine lettuce 2 cups, parmesan & croutons 30 g / 20 g",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-041",
+   "name": "Turkey club sandwich with bacon, lettuce & tomato",
+   "mealType": "lunch",
+   "pattern": "protein + protein + starch + veg",
+   "components": [
+    "turkey breast, sliced (100 g)",
+    "bacon (2 rashers)",
+    "wholegrain bread (2-3 slices)",
+    "lettuce & tomato (1 cup)"
+   ],
+   "ingredients": "turkey breast, sliced 100 g, bacon 2 rashers, wholegrain bread 2-3 slices, lettuce & tomato 1 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-042",
+   "name": "BLT sandwich (bacon, lettuce & tomato)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "bacon (3 rashers)",
+    "white or wholegrain bread (2 slices)",
+    "lettuce & tomato (1 cup)",
+    "mayonnaise (1 tbsp)"
+   ],
+   "ingredients": "bacon 3 rashers, white or wholegrain bread 2 slices, lettuce & tomato 1 cup, mayonnaise 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-043",
+   "name": "Egg mayo sandwich with cress",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "boiled egg, mashed with mayo (2)",
+    "wholemeal bread (2 slices)",
+    "cress (1 tbsp)"
+   ],
+   "ingredients": "boiled egg, mashed with mayo 2, wholemeal bread 2 slices, cress 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-044",
+   "name": "Cheese & pickle sandwich",
+   "mealType": "lunch",
+   "pattern": "dairy + starch + sauce",
+   "components": [
+    "mature cheddar, sliced (50 g)",
+    "wholemeal bread (2 slices)",
+    "pickle/chutney (1 tbsp)"
+   ],
+   "ingredients": "mature cheddar, sliced 50 g, wholemeal bread 2 slices, pickle/chutney 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-045",
+   "name": "Ham salad sandwich with mustard",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "ham, sliced (80 g)",
+    "wholemeal bread (2 slices)",
+    "lettuce, tomato & cucumber (1 cup)",
+    "mustard (1 tsp)"
+   ],
+   "ingredients": "ham, sliced 80 g, wholemeal bread 2 slices, lettuce, tomato & cucumber 1 cup, mustard 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-046",
+   "name": "Chicken Caesar wrap",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "chicken breast, grilled & sliced (150 g)",
+    "tortilla (1 large)",
+    "romaine lettuce & parmesan (1 cup / 20 g)",
+    "caesar dressing (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled & sliced 150 g, tortilla 1 large, romaine lettuce & parmesan 1 cup / 20 g, caesar dressing 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-047",
+   "name": "Prawn salad sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "cooked prawns, mixed with light mayo (100 g)",
+    "granary bread (2 slices)",
+    "lettuce & lemon (1 cup)"
+   ],
+   "ingredients": "cooked prawns, mixed with light mayo 100 g, granary bread 2 slices, lettuce & lemon 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-048",
+   "name": "Coronation chicken sandwich",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken, cooked & mixed with curry mayo & sultanas (120 g)",
+    "wholemeal bread (2 slices)",
+    "lettuce (1/2 cup)"
+   ],
+   "ingredients": "chicken, cooked & mixed with curry mayo & sultanas 120 g, wholemeal bread 2 slices, lettuce 1/2 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-049",
+   "name": "Chicken salad with apple, grapes & yogurt dressing",
+   "mealType": "lunch",
+   "pattern": "protein + fruit + dairy + veg",
+   "components": [
+    "chicken, cooked & shredded (150 g)",
+    "apple & grapes, sliced (1 cup)",
+    "greek yogurt dressing (2 tbsp)",
+    "mixed greens (1 cup)"
+   ],
+   "ingredients": "chicken, cooked & shredded 150 g, apple & grapes, sliced 1 cup, greek yogurt dressing 2 tbsp, mixed greens 1 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-050",
+   "name": "Salmon burger with sweet potato fries",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "canned salmon patty (salmon, egg, herbs) (1 (130 g))",
+    "whole-grain bun (1)",
+    "sweet potato fries, baked (150 g)"
+   ],
+   "ingredients": "canned salmon patty (salmon, egg, herbs) 1 (130 g), whole-grain bun 1, sweet potato fries, baked 150 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-051",
+   "name": "Grilled cheese sandwich with roasted tomato",
+   "mealType": "lunch",
+   "pattern": "dairy + starch + veg",
+   "components": [
+    "cheddar cheese (50 g)",
+    "whole grain bread, grilled (2 slices)",
+    "tomato, roasted (1 sliced)"
+   ],
+   "ingredients": "cheddar cheese 50 g, whole grain bread, grilled 2 slices, tomato, roasted 1 sliced",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-052",
+   "name": "Quinoa sushi rolls with edamame",
+   "mealType": "lunch",
+   "pattern": "starch + veg + dairy + protein",
+   "components": [
+    "quinoa, cooked, spread on nori (150 g)",
+    "carrots, peppers, cucumber & onion (1 cup)",
+    "cream cheese (2 tbsp)",
+    "edamame, steamed (80 g)"
+   ],
+   "ingredients": "quinoa, cooked, spread on nori 150 g, carrots, peppers, cucumber & onion 1 cup, cream cheese 2 tbsp, edamame, steamed 80 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-053",
+   "name": "Black bean & quinoa salad with lime & cilantro",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "quinoa, cooked (150 g)",
+    "black beans (120 g)",
+    "red onion, cilantro & bell pepper (1 cup)",
+    "lime juice & hot sauce (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 150 g, black beans 120 g, red onion, cilantro & bell pepper 1 cup, lime juice & hot sauce 1 tbsp",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-054",
+   "name": "Lentil soup with crusty bread & an apple",
+   "mealType": "lunch",
+   "pattern": "soup + bread + fruit",
+   "components": [
+    "lentil soup (400 ml)",
+    "crusty bread (1 roll)",
+    "apple (1)"
+   ],
+   "ingredients": "lentil soup 400 ml, crusty bread 1 roll, apple 1",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-055",
+   "name": "Chicken noodle soup with a bread roll & orange",
+   "mealType": "lunch",
+   "pattern": "soup + bread + fruit",
+   "components": [
+    "chicken noodle soup (400 ml)",
+    "bread roll (1)",
+    "orange (1)"
+   ],
+   "ingredients": "chicken noodle soup 400 ml, bread roll 1, orange 1",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-056",
+   "name": "Tomato soup with grilled cheese & grapes",
+   "mealType": "lunch",
+   "pattern": "soup + starch + fruit",
+   "components": [
+    "tomato soup (400 ml)",
+    "grilled cheese sandwich (small) (1)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "tomato soup 400 ml, grilled cheese sandwich (small) 1, grapes 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-057",
+   "name": "Vegetable soup with a wholegrain roll & banana",
+   "mealType": "lunch",
+   "pattern": "soup + bread + fruit",
+   "components": [
+    "vegetable soup (400 ml)",
+    "wholegrain roll (1)",
+    "banana (1)"
+   ],
+   "ingredients": "vegetable soup 400 ml, wholegrain roll 1, banana 1",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-058",
+   "name": "Butternut squash soup with sourdough & a pear",
+   "mealType": "lunch",
+   "pattern": "soup + bread + fruit",
+   "components": [
+    "butternut squash soup (400 ml)",
+    "sourdough bread (1 slice)",
+    "pear (1)"
+   ],
+   "ingredients": "butternut squash soup 400 ml, sourdough bread 1 slice, pear 1",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-059",
+   "name": "Minestrone soup with a bread roll & clementine",
+   "mealType": "lunch",
+   "pattern": "soup + bread + fruit",
+   "components": [
+    "minestrone soup (400 ml)",
+    "bread roll (1)",
+    "clementine (1)"
+   ],
+   "ingredients": "minestrone soup 400 ml, bread roll 1, clementine 1",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-060",
+   "name": "Chicken & vegetable soup with wholemeal toast & mixed berries",
+   "mealType": "lunch",
+   "pattern": "soup + bread + fruit",
+   "components": [
+    "chicken & vegetable soup (400 ml)",
+    "wholemeal toast (1 slice)",
+    "mixed berries (1 cup)"
+   ],
+   "ingredients": "chicken & vegetable soup 400 ml, wholemeal toast 1 slice, mixed berries 1 cup",
+   "prep": "10 min (batch)"
+  },
+  {
+   "id": "AL-061",
+   "name": "Jacket potato with coleslaw & ham",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "ham, sliced (80 g)",
+    "coleslaw (100 g)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), ham, sliced 80 g, coleslaw 100 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-062",
+   "name": "Jacket potato with cottage cheese & pineapple",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "cottage cheese (150 g)",
+    "pineapple chunks (80 g)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), cottage cheese 150 g, pineapple chunks 80 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-063",
+   "name": "Jacket potato with prawns in Marie Rose sauce",
+   "mealType": "lunch",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "cooked prawns (100 g)",
+    "marie rose sauce (mayo & ketchup) (2 tbsp)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), cooked prawns 100 g, marie rose sauce (mayo & ketchup) 2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-064",
+   "name": "Jacket potato with egg mayo & cress",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "egg mayo (boiled egg, mayo) (2 eggs)",
+    "cress (1 tbsp)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), egg mayo (boiled egg, mayo) 2 eggs, cress 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-065",
+   "name": "Jacket potato with feta & roasted Mediterranean veg",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + veg",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "feta cheese (50 g)",
+    "roasted peppers, courgette & red onion (150 g)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), feta cheese 50 g, roasted peppers, courgette & red onion 150 g",
+   "prep": "15 min (batch veg)"
+  },
+  {
+   "id": "AL-066",
+   "name": "Jacket sweet potato with black bean chilli & sour cream",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "sweet potato, baked (1 large (250 g))",
+    "black bean chilli (200 g)",
+    "sour cream & spring onion (2 tbsp)"
+   ],
+   "ingredients": "sweet potato, baked 1 large (250 g), black bean chilli 200 g, sour cream & spring onion 2 tbsp",
+   "prep": "10 min (batch chilli)"
+  },
+  {
+   "id": "AL-067",
+   "name": "Jacket potato with cheese & sweetcorn",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + veg",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "cheddar cheese, grated (50 g)",
+    "sweetcorn (80 g)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), cheddar cheese, grated 50 g, sweetcorn 80 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-068",
+   "name": "Jacket potato with houmous & roasted veg",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "houmous (3 tbsp)",
+    "roasted veg (courgette, pepper, onion) (150 g)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), houmous 3 tbsp, roasted veg (courgette, pepper, onion) 150 g",
+   "prep": "15 min (batch veg)"
+  },
+  {
+   "id": "AL-069",
+   "name": "Jacket potato with baked beans & grated cheddar",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "baked beans (200 g)",
+    "cheddar, grated (40 g)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), baked beans 200 g, cheddar, grated 40 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-070",
+   "name": "Jacket potato with chicken curry & mango chutney",
+   "mealType": "lunch",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "jacket potato (1 large (250 g))",
+    "chicken curry, leftover (200 g)",
+    "mango chutney (1 tbsp)"
+   ],
+   "ingredients": "jacket potato 1 large (250 g), chicken curry, leftover 200 g, mango chutney 1 tbsp",
+   "prep": "5 min (leftover)"
+  },
+  {
+   "id": "AL-071",
+   "name": "Leftover roast turkey, mashed potato & green beans",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "roast turkey, leftover (150 g)",
+    "mashed potato, leftover (200 g)",
+    "green beans, steamed (120 g)"
+   ],
+   "ingredients": "roast turkey, leftover 150 g, mashed potato, leftover 200 g, green beans, steamed 120 g",
+   "prep": "5 min (reheat)"
+  },
+  {
+   "id": "AL-072",
+   "name": "Cod, new potatoes & peas (leftover fish supper)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "cod, baked, leftover (150 g)",
+    "new potatoes, leftover (200 g)",
+    "peas (100 g)"
+   ],
+   "ingredients": "cod, baked, leftover 150 g, new potatoes, leftover 200 g, peas 100 g",
+   "prep": "5 min (reheat)"
+  },
+  {
+   "id": "AL-073",
+   "name": "Shrimp, rice noodles & bok choy meal-prep box",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "shrimp, cooked (150 g)",
+    "rice noodles, cooked (180 g)",
+    "bok choy, stir-fried (120 g)",
+    "soy sauce & sesame oil (1 tbsp)"
+   ],
+   "ingredients": "shrimp, cooked 150 g, rice noodles, cooked 180 g, bok choy, stir-fried 120 g, soy sauce & sesame oil 1 tbsp",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-074",
+   "name": "Pork loin, rice & shredded cabbage meal-prep box",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "pork loin, roasted, sliced (150 g)",
+    "white rice, cooked (200 g)",
+    "cabbage, shredded & sautéed (120 g)"
+   ],
+   "ingredients": "pork loin, roasted, sliced 150 g, white rice, cooked 200 g, cabbage, shredded & sautéed 120 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-075",
+   "name": "Ground turkey, wild rice & green beans meal-prep box",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "ground turkey, cooked (150 g)",
+    "wild rice, cooked (180 g)",
+    "green beans, steamed (120 g)"
+   ],
+   "ingredients": "ground turkey, cooked 150 g, wild rice, cooked 180 g, green beans, steamed 120 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-076",
+   "name": "Cod, roasted potatoes & asparagus meal-prep box",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "cod fillet, baked (150 g)",
+    "potatoes, roasted (200 g)",
+    "asparagus, roasted (100 g)"
+   ],
+   "ingredients": "cod fillet, baked 150 g, potatoes, roasted 200 g, asparagus, roasted 100 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-077",
+   "name": "Beef, barley & carrots meal-prep bowl",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "lean beef, cooked & sliced (150 g)",
+    "pearl barley, cooked (180 g)",
+    "carrots, roasted (120 g)"
+   ],
+   "ingredients": "lean beef, cooked & sliced 150 g, pearl barley, cooked 180 g, carrots, roasted 120 g",
+   "prep": "25 min (batch)"
+  },
+  {
+   "id": "AL-078",
+   "name": "Chicken, farro & roasted asparagus meal-prep bowl",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (150 g)",
+    "farro, cooked (150 g)",
+    "asparagus, roasted (120 g)"
+   ],
+   "ingredients": "chicken breast, grilled 150 g, farro, cooked 150 g, asparagus, roasted 120 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-079",
+   "name": "Chicken, orzo & courgette ribbons",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (150 g)",
+    "orzo, cooked (150 g)",
+    "courgette, ribboned (120 g)",
+    "olive oil & lemon (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 150 g, orzo, cooked 150 g, courgette, ribboned 120 g, olive oil & lemon 1 tbsp",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-080",
+   "name": "Chicken, couscous & green beans",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (150 g)",
+    "couscous, cooked (150 g)",
+    "green beans, steamed (120 g)"
+   ],
+   "ingredients": "chicken breast, grilled 150 g, couscous, cooked 150 g, green beans, steamed 120 g",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-081",
+   "name": "Turkey, cheddar, grapes & crackers protein box",
+   "mealType": "lunch",
+   "pattern": "protein + dairy + fruit + starch",
+   "components": [
+    "turkey slices (80 g)",
+    "cheddar cubes (40 g)",
+    "grapes (1 cup)",
+    "whole-grain crackers (6)"
+   ],
+   "ingredients": "turkey slices 80 g, cheddar cubes 40 g, grapes 1 cup, whole-grain crackers 6",
+   "prep": "2 min (no cook)"
+  },
+  {
+   "id": "AL-082",
+   "name": "Rotisserie chicken, microwave rice pouch & steam-bag veg",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "rotisserie chicken, shredded (150 g)",
+    "pre-cooked rice pouch (1 (250 g))",
+    "steam-in-bag vegetables (150 g)"
+   ],
+   "ingredients": "rotisserie chicken, shredded 150 g, pre-cooked rice pouch 1 (250 g), steam-in-bag vegetables 150 g",
+   "prep": "3 min (microwave)"
+  },
+  {
+   "id": "AL-083",
+   "name": "Tuna, rice cakes & banana travel plate",
+   "mealType": "lunch",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "tuna, canned (1 tin (140 g))",
+    "rice cakes (4)",
+    "banana (1)"
+   ],
+   "ingredients": "tuna, canned 1 tin (140 g), rice cakes 4, banana 1",
+   "prep": "2 min (no cook)"
+  },
+  {
+   "id": "AL-084",
+   "name": "Cottage cheese, edamame & crackers desk lunch",
+   "mealType": "lunch",
+   "pattern": "dairy + protein + starch",
+   "components": [
+    "cottage cheese (200 g)",
+    "edamame, steamed (80 g)",
+    "whole-grain crackers (6)"
+   ],
+   "ingredients": "cottage cheese 200 g, edamame, steamed 80 g, whole-grain crackers 6",
+   "prep": "2 min (no cook)"
+  },
+  {
+   "id": "AL-085",
+   "name": "Ham, egg & cheese mason-jar salad",
+   "mealType": "lunch",
+   "pattern": "protein + protein + dairy + veg",
+   "components": [
+    "ham, diced (80 g)",
+    "boiled egg, sliced (1)",
+    "cheddar cheese, cubed (30 g)",
+    "mixed greens (2 cups)"
+   ],
+   "ingredients": "ham, diced 80 g, boiled egg, sliced 1, cheddar cheese, cubed 30 g, mixed greens 2 cups",
+   "prep": "5 min (batch, no cook)"
+  },
+  {
+   "id": "AL-086",
+   "name": "Chicken, snap peas & instant rice packable box",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, cooked & diced (150 g)",
+    "instant rice (1 packet)",
+    "snap peas (100 g)"
+   ],
+   "ingredients": "chicken breast, cooked & diced 150 g, instant rice 1 packet, snap peas 100 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-087",
+   "name": "Ground beef, couscous & dehydrated veg travel bowl",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "ground beef, cooked (rehydrated/dehydrated) (150 g)",
+    "couscous, instant (1 packet)",
+    "dehydrated mixed vegetables, rehydrated (100 g)"
+   ],
+   "ingredients": "ground beef, cooked (rehydrated/dehydrated) 150 g, couscous, instant 1 packet, dehydrated mixed vegetables, rehydrated 100 g",
+   "prep": "10 min (add hot water)"
+  },
+  {
+   "id": "AL-088",
+   "name": "Chicken breast, instant mashed potato & dehydrated veg travel bowl",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken, cooked (dehydrated/rehydrated) (150 g)",
+    "instant mashed potato (1 packet)",
+    "dehydrated mixed vegetables, rehydrated (100 g)"
+   ],
+   "ingredients": "chicken, cooked (dehydrated/rehydrated) 150 g, instant mashed potato 1 packet, dehydrated mixed vegetables, rehydrated 100 g",
+   "prep": "10 min (add hot water)"
+  },
+  {
+   "id": "AL-089",
+   "name": "Chicken, jasmine rice & green beans with olive oil",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (170 g)",
+    "jasmine rice, cooked (220 g)",
+    "green beans, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 170 g, jasmine rice, cooked 220 g, green beans, steamed 150 g, olive oil 1 tbsp",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-090",
+   "name": "Turkey, jasmine rice & asparagus",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "turkey breast, grilled (170 g)",
+    "jasmine rice, cooked (220 g)",
+    "asparagus, roasted (120 g)"
+   ],
+   "ingredients": "turkey breast, grilled 170 g, jasmine rice, cooked 220 g, asparagus, roasted 120 g",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-091",
+   "name": "Chicken, white rice & cauliflower with lemon",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (170 g)",
+    "white rice, cooked (220 g)",
+    "cauliflower, roasted with lemon (150 g)"
+   ],
+   "ingredients": "chicken breast, grilled 170 g, white rice, cooked 220 g, cauliflower, roasted with lemon 150 g",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-092",
+   "name": "Chicken, rice & roasted peppers with balsamic",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (170 g)",
+    "white rice, cooked (220 g)",
+    "roasted peppers, balsamic (120 g)"
+   ],
+   "ingredients": "chicken breast, grilled 170 g, white rice, cooked 220 g, roasted peppers, balsamic 120 g",
+   "prep": "15 min (batch)"
+  },
+  {
+   "id": "AL-093",
+   "name": "Salmon, wild rice & asparagus",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon fillet, baked (150 g)",
+    "wild rice, cooked (180 g)",
+    "asparagus, roasted (120 g)"
+   ],
+   "ingredients": "salmon fillet, baked 150 g, wild rice, cooked 180 g, asparagus, roasted 120 g",
+   "prep": "20 min (batch)"
+  },
+  {
+   "id": "AL-094",
+   "name": "Prawns, rice & mangetout stir-fry",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "prawns, cooked (150 g)",
+    "white rice, cooked (200 g)",
+    "mangetout, stir-fried (120 g)",
+    "soy sauce (1 tbsp)"
+   ],
+   "ingredients": "prawns, cooked 150 g, white rice, cooked 200 g, mangetout, stir-fried 120 g, soy sauce 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-095",
+   "name": "Tofu, brown rice & broccoli slaw with tahini",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "firm tofu, pan-fried (150 g)",
+    "brown rice, cooked (200 g)",
+    "broccoli slaw (120 g)",
+    "tahini dressing (1 tbsp)"
+   ],
+   "ingredients": "firm tofu, pan-fried 150 g, brown rice, cooked 200 g, broccoli slaw 120 g, tahini dressing 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-096",
+   "name": "Steak, baked potato & broccoli",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "lean steak, grilled (170 g)",
+    "baked potato (1 medium)",
+    "broccoli, steamed (150 g)"
+   ],
+   "ingredients": "lean steak, grilled 170 g, baked potato 1 medium, broccoli, steamed 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-097",
+   "name": "Chicken sausage, sweet potato mash & spinach",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken sausage, grilled (2 links (120 g))",
+    "sweet potato mash (200 g)",
+    "spinach, wilted (100 g)"
+   ],
+   "ingredients": "chicken sausage, grilled 2 links (120 g), sweet potato mash 200 g, spinach, wilted 100 g",
+   "prep": "15 min"
+  }
+ ]
+}

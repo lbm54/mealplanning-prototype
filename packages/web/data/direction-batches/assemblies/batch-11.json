@@ -1,0 +1,1544 @@
+{
+ "batch": "A-11",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AS-069",
+   "name": "Wrap with lean protein and veg",
+   "mealType": "snack",
+   "pattern": "starch + protein + veg + fat",
+   "components": [
+    "wrap (tortilla) (1)",
+    "turkey breast (60g)",
+    "spinach (1/2 cup)",
+    "avocado (1/4)"
+   ],
+   "ingredients": "wrap (tortilla) 1, turkey breast 60g, spinach 1/2 cup, avocado 1/4",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-070",
+   "name": "Hummus with pre-cut veg sticks",
+   "mealType": "snack",
+   "pattern": "dip + veg",
+   "components": [
+    "hummus (1/3 cup)",
+    "carrot sticks (1 cup)",
+    "cucumber slices (1 cup)"
+   ],
+   "ingredients": "hummus 1/3 cup, carrot sticks 1 cup, cucumber slices 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-071",
+   "name": "Hummus with crudités (carrots, cucumber, pepper, celery)",
+   "mealType": "snack",
+   "pattern": "dip + veg",
+   "components": [
+    "hummus (1/3 cup)",
+    "carrot sticks (1/2 cup)",
+    "cucumber slices (1/2 cup)",
+    "pepper strips (1/2 cup)",
+    "celery sticks (1/2 cup)"
+   ],
+   "ingredients": "hummus 1/3 cup, carrot sticks 1/2 cup, cucumber slices 1/2 cup, pepper strips 1/2 cup, celery sticks 1/2 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-072",
+   "name": "Fresh fruit with Greek yogurt dip",
+   "mealType": "snack",
+   "pattern": "fruit + dairy dip",
+   "components": [
+    "apple (1 medium, sliced)",
+    "greek yogurt (1/2 cup, as dip)"
+   ],
+   "ingredients": "apple 1 medium, sliced, greek yogurt 1/2 cup, as dip",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-073",
+   "name": "Fresh fruit with peanut butter dip",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter dip",
+   "components": [
+    "apple (1 medium, sliced)",
+    "peanut butter (2 tbsp, as dip)"
+   ],
+   "ingredients": "apple 1 medium, sliced, peanut butter 2 tbsp, as dip",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-074",
+   "name": "Savoury ham, egg and rice cake",
+   "mealType": "snack",
+   "pattern": "starch + protein + protein + sweetener",
+   "components": [
+    "cooked white rice (1/2 cup, in cake form)",
+    "hard-boiled egg (1, mixed in)",
+    "jamon serrano (20g)",
+    "maple syrup (1 tsp)"
+   ],
+   "ingredients": "cooked white rice 1/2 cup, in cake form, hard-boiled egg 1, mixed in, jamon serrano 20g, maple syrup 1 tsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-075",
+   "name": "Clif Bar and coffee",
+   "mealType": "snack",
+   "pattern": "bar + drink",
+   "components": [
+    "dates (3, sub. bar base)"
+   ],
+   "ingredients": "dates 3, sub. bar base",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-076",
+   "name": "Toast with jam and a banana",
+   "mealType": "snack",
+   "pattern": "bread + spread + fruit",
+   "components": [
+    "white toast (2 slices)",
+    "jam (2 tbsp)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "white toast 2 slices, jam 2 tbsp, banana 1 medium",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-077",
+   "name": "Applesauce with crackers",
+   "mealType": "snack",
+   "pattern": "fruit + starch",
+   "components": [
+    "applesauce (1 cup)",
+    "whole-grain crackers (6)"
+   ],
+   "ingredients": "applesauce 1 cup, whole-grain crackers 6",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-078",
+   "name": "White bread with honey",
+   "mealType": "snack",
+   "pattern": "bread + sweetener",
+   "components": [
+    "white toast (2 slices)",
+    "honey (2 tbsp)"
+   ],
+   "ingredients": "white toast 2 slices, honey 2 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-079",
+   "name": "Toast with jam, 60-90 minutes pre-run",
+   "mealType": "snack",
+   "pattern": "bread + spread",
+   "components": [
+    "white toast (1 slice)",
+    "jam (1.5 tbsp)"
+   ],
+   "ingredients": "white toast 1 slice, jam 1.5 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-080",
+   "name": "Banana alone, 90 minutes pre-run",
+   "mealType": "snack",
+   "pattern": "fruit (single)",
+   "components": [
+    "banana (1 large)"
+   ],
+   "ingredients": "banana 1 large",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-081",
+   "name": "Oatmeal with berries, 90-120 minutes pre-run",
+   "mealType": "snack",
+   "pattern": "grain + fruit",
+   "components": [
+    "rolled oats (1/2 cup dry)",
+    "mixed berries (1/2 cup)"
+   ],
+   "ingredients": "rolled oats 1/2 cup dry, mixed berries 1/2 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-082",
+   "name": "Whole-grain bread with banana, honey and peanut butter",
+   "mealType": "snack",
+   "pattern": "bread + fruit + sweetener + nut butter",
+   "components": [
+    "wholegrain toast (1 slice)",
+    "banana (1/2, sliced)",
+    "honey (1 tsp)",
+    "peanut butter (1 tbsp)"
+   ],
+   "ingredients": "wholegrain toast 1 slice, banana 1/2, sliced, honey 1 tsp, peanut butter 1 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-083",
+   "name": "Yogurt with fruit",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "greek yogurt (3/4 cup)",
+    "mango (1/2 cup, diced)"
+   ],
+   "ingredients": "greek yogurt 3/4 cup, mango 1/2 cup, diced",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-084",
+   "name": "Quinoa with fruit and honey",
+   "mealType": "snack",
+   "pattern": "grain + fruit + sweetener",
+   "components": [
+    "cooked white rice (1/2 cup, sub. quinoa)",
+    "mixed berries (1/2 cup)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "cooked white rice 1/2 cup, sub. quinoa, mixed berries 1/2 cup, honey 1 tsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-085",
+   "name": "Hummus and vegetables, everyday snack",
+   "mealType": "snack",
+   "pattern": "dip + veg",
+   "components": [
+    "hummus (1/3 cup)",
+    "carrot sticks (1 cup)"
+   ],
+   "ingredients": "hummus 1/3 cup, carrot sticks 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-086",
+   "name": "Nut butter on toast, banana or crackers",
+   "mealType": "snack",
+   "pattern": "starch + nut butter",
+   "components": [
+    "wholegrain toast (1 slice)",
+    "peanut butter (1.5 tbsp)"
+   ],
+   "ingredients": "wholegrain toast 1 slice, peanut butter 1.5 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-087",
+   "name": "Cheese and grapes plate",
+   "mealType": "snack",
+   "pattern": "cheese + fruit",
+   "components": [
+    "cheddar cheese (40g)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "cheddar cheese 40g, grapes 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-088",
+   "name": "Whole grain toast with peanut butter and avocado",
+   "mealType": "snack",
+   "pattern": "bread + nut butter + fat",
+   "components": [
+    "wholegrain toast (1 slice)",
+    "peanut butter (1 tbsp)",
+    "avocado (1/4)"
+   ],
+   "ingredients": "wholegrain toast 1 slice, peanut butter 1 tbsp, avocado 1/4",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-089",
+   "name": "Hummus and roasted vegetable snack plate",
+   "mealType": "snack",
+   "pattern": "dip + veg",
+   "components": [
+    "hummus (1/3 cup)",
+    "carrot sticks (1/2 cup)",
+    "cherry tomatoes (1/2 cup)"
+   ],
+   "ingredients": "hummus 1/3 cup, carrot sticks 1/2 cup, cherry tomatoes 1/2 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-090",
+   "name": "Boiled new potatoes with salt",
+   "mealType": "snack",
+   "pattern": "starch (single)",
+   "components": [
+    "boiled new potatoes (6 small)"
+   ],
+   "ingredients": "boiled new potatoes 6 small",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-091",
+   "name": "Greek yogurt with peanut butter",
+   "mealType": "snack",
+   "pattern": "dairy + nut butter",
+   "components": [
+    "greek yogurt (3/4 cup)",
+    "peanut butter (1.5 tbsp)"
+   ],
+   "ingredients": "greek yogurt 3/4 cup, peanut butter 1.5 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-092",
+   "name": "Oatmeal with fruit and nuts",
+   "mealType": "snack",
+   "pattern": "grain + fruit + nuts",
+   "components": [
+    "rolled oats (1/2 cup dry)",
+    "banana (1/2, sliced)",
+    "walnuts (1 tbsp, chopped)"
+   ],
+   "ingredients": "rolled oats 1/2 cup dry, banana 1/2, sliced, walnuts 1 tbsp, chopped",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-093",
+   "name": "Apple slices with sunflower seed butter",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter",
+   "components": [
+    "apple (1 medium, sliced)",
+    "sunflower seed butter (2 tbsp)"
+   ],
+   "ingredients": "apple 1 medium, sliced, sunflower seed butter 2 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-094",
+   "name": "Dates stuffed with peanut butter",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter",
+   "components": [
+    "medjool dates (4)",
+    "peanut butter (1 tbsp)"
+   ],
+   "ingredients": "medjool dates 4, peanut butter 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-095",
+   "name": "Dates with almond butter",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter",
+   "components": [
+    "medjool dates (4)",
+    "almond butter (1 tbsp)"
+   ],
+   "ingredients": "medjool dates 4, almond butter 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-096",
+   "name": "Banana \"quesadilla\" with peanut butter and coconut oil",
+   "mealType": "snack",
+   "pattern": "starch + fruit + nut butter",
+   "components": [
+    "whole wheat tortilla (1 small)",
+    "banana (1 medium, sliced)",
+    "peanut butter (1.5 tbsp)",
+    "coconut oil (1 tsp)"
+   ],
+   "ingredients": "whole wheat tortilla 1 small, banana 1 medium, sliced, peanut butter 1.5 tbsp, coconut oil 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-097",
+   "name": "Pretzels with almond butter",
+   "mealType": "snack",
+   "pattern": "starch + nut butter",
+   "components": [
+    "whole grain pretzels (30 g)",
+    "almond butter (1 tbsp)"
+   ],
+   "ingredients": "whole grain pretzels 30 g, almond butter 1 tbsp",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-098",
+   "name": "Dried tart cherries with almonds",
+   "mealType": "snack",
+   "pattern": "dried fruit + nuts",
+   "components": [
+    "dried tart cherries (30 g)",
+    "raw almonds (20 g)"
+   ],
+   "ingredients": "dried tart cherries 30 g, raw almonds 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-099",
+   "name": "Banana mash with nut butter, apple and blueberries",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter + fruit",
+   "components": [
+    "banana (1 medium, mashed)",
+    "almond butter (1 tbsp)",
+    "apple (1/2, diced)",
+    "blueberries (1/4 cup)"
+   ],
+   "ingredients": "banana 1 medium, mashed, almond butter 1 tbsp, apple 1/2, diced, blueberries 1/4 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-100",
+   "name": "Sweet potato with almond butter and cinnamon",
+   "mealType": "snack",
+   "pattern": "starch + nut butter",
+   "components": [
+    "baked sweet potato (1 medium)",
+    "almond butter (1 tbsp)",
+    "cinnamon (pinch)"
+   ],
+   "ingredients": "baked sweet potato 1 medium, almond butter 1 tbsp, cinnamon pinch",
+   "prep": "movement variable (bake ahead)"
+  },
+  {
+   "id": "AS-101",
+   "name": "Cucumber and bell pepper with hummus",
+   "mealType": "snack",
+   "pattern": "veg + veg + hummus",
+   "components": [
+    "cucumber slices (1/2 cup)",
+    "bell pepper strips (1/2 cup)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "cucumber slices 1/2 cup, bell pepper strips 1/2 cup, hummus 3 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-102",
+   "name": "Celery and grape tomatoes with hummus",
+   "mealType": "snack",
+   "pattern": "veg + veg + hummus",
+   "components": [
+    "celery sticks (1/2 cup)",
+    "grape tomatoes (1/2 cup)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "celery sticks 1/2 cup, grape tomatoes 1/2 cup, hummus 3 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-103",
+   "name": "Whole-grain crackers with hummus",
+   "mealType": "snack",
+   "pattern": "starch + hummus",
+   "components": [
+    "whole grain crackers (8)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "whole grain crackers 8, hummus 3 tbsp",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-104",
+   "name": "Whole wheat pita with hummus and mixed vegetables",
+   "mealType": "snack",
+   "pattern": "starch + hummus + veg",
+   "components": [
+    "whole wheat pita (1 small)",
+    "hummus (2 tbsp)",
+    "shredded carrot (1/4 cup)",
+    "cucumber, sliced (1/4 cup)"
+   ],
+   "ingredients": "whole wheat pita 1 small, hummus 2 tbsp, shredded carrot 1/4 cup, cucumber, sliced 1/4 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-105",
+   "name": "Whole wheat pita with red pepper hummus",
+   "mealType": "snack",
+   "pattern": "starch + hummus",
+   "components": [
+    "whole wheat pita (1 small)",
+    "red pepper hummus (3 tbsp)"
+   ],
+   "ingredients": "whole wheat pita 1 small, red pepper hummus 3 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-106",
+   "name": "Whole grain tortilla with hummus, beans, brown rice and squash",
+   "mealType": "snack",
+   "pattern": "starch + hummus + protein + starch + veg",
+   "components": [
+    "whole grain tortilla (1)",
+    "hummus (2 tbsp)",
+    "black beans (1/2 cup)",
+    "brown rice, cooked (1/3 cup)",
+    "roasted squash (1/3 cup)"
+   ],
+   "ingredients": "whole grain tortilla 1, hummus 2 tbsp, black beans 1/2 cup, brown rice, cooked 1/3 cup, roasted squash 1/3 cup",
+   "prep": "6 min"
+  },
+  {
+   "id": "AS-107",
+   "name": "Roasted cauliflower with hummus",
+   "mealType": "snack",
+   "pattern": "veg + hummus",
+   "components": [
+    "roasted cauliflower (1 cup)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "roasted cauliflower 1 cup, hummus 3 tbsp",
+   "prep": "10 min (roast ahead)"
+  },
+  {
+   "id": "AS-108",
+   "name": "Cucumber slices with edamame hummus",
+   "mealType": "snack",
+   "pattern": "veg + hummus",
+   "components": [
+    "cucumber slices (1 cup)",
+    "edamame hummus (3 tbsp)"
+   ],
+   "ingredients": "cucumber slices 1 cup, edamame hummus 3 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-109",
+   "name": "Soy yogurt with granola and fruit",
+   "mealType": "snack",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "soy yogurt, plain (3/4 cup)",
+    "granola (1/4 cup)",
+    "mixed berries (1/2 cup)"
+   ],
+   "ingredients": "soy yogurt, plain 3/4 cup, granola 1/4 cup, mixed berries 1/2 cup",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-110",
+   "name": "Soy yogurt with chia seeds and berries",
+   "mealType": "snack",
+   "pattern": "dairy + seed + fruit",
+   "components": [
+    "soy yogurt, plain (3/4 cup)",
+    "chia seeds (1 tbsp)",
+    "mixed berries (1/2 cup)"
+   ],
+   "ingredients": "soy yogurt, plain 3/4 cup, chia seeds 1 tbsp, mixed berries 1/2 cup",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-111",
+   "name": "Oat yogurt with granola and banana",
+   "mealType": "snack",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "oat yogurt, plain (3/4 cup)",
+    "granola (1/4 cup)",
+    "banana, sliced (1/2)"
+   ],
+   "ingredients": "oat yogurt, plain 3/4 cup, granola 1/4 cup, banana, sliced 1/2",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-112",
+   "name": "Vegan yogurt with berries",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "coconut yogurt, plain (3/4 cup)",
+    "mixed berries (1/2 cup)"
+   ],
+   "ingredients": "coconut yogurt, plain 3/4 cup, mixed berries 1/2 cup",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-113",
+   "name": "Vegan yogurt bark with fruit and toppings",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + starch",
+   "components": [
+    "vegan greek-style yogurt (1 cup)",
+    "mixed berries (1/2 cup)",
+    "granola (2 tbsp)"
+   ],
+   "ingredients": "vegan greek-style yogurt 1 cup, mixed berries 1/2 cup, granola 2 tbsp",
+   "prep": "10 min + freeze"
+  },
+  {
+   "id": "AS-114",
+   "name": "Vegan yogurt with granola and hemp seeds",
+   "mealType": "snack",
+   "pattern": "dairy + starch + seed",
+   "components": [
+    "vegan greek-style yogurt (3/4 cup)",
+    "granola (1/4 cup)",
+    "hemp seeds (1 tbsp)"
+   ],
+   "ingredients": "vegan greek-style yogurt 3/4 cup, granola 1/4 cup, hemp seeds 1 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-115",
+   "name": "Greek yogurt with nuts, seeds and fruit",
+   "mealType": "snack",
+   "pattern": "dairy + nuts + fruit",
+   "components": [
+    "greek yogurt, plain (3/4 cup)",
+    "walnuts (15 g)",
+    "mixed fruit (1/2 cup)"
+   ],
+   "ingredients": "greek yogurt, plain 3/4 cup, walnuts 15 g, mixed fruit 1/2 cup",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-116",
+   "name": "Oat milk chia pudding with berries",
+   "mealType": "snack",
+   "pattern": "seed + dairy + fruit",
+   "components": [
+    "chia seeds (3 tbsp)",
+    "oat milk (1 cup)",
+    "mixed berries (1/2 cup)"
+   ],
+   "ingredients": "chia seeds 3 tbsp, oat milk 1 cup, mixed berries 1/2 cup",
+   "prep": "5 min + chill overnight"
+  },
+  {
+   "id": "AS-117",
+   "name": "Roasted edamame with cucumber slices",
+   "mealType": "snack",
+   "pattern": "protein + veg",
+   "components": [
+    "roasted edamame (1/2 cup)",
+    "cucumber slices (1 cup)"
+   ],
+   "ingredients": "roasted edamame 1/2 cup, cucumber slices 1 cup",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-118",
+   "name": "Edamame with chili flakes and lime",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "edamame, steamed, in pod (1 cup)",
+    "chili flakes (pinch)",
+    "lime wedge (1)"
+   ],
+   "ingredients": "edamame, steamed, in pod 1 cup, chili flakes pinch, lime wedge 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-119",
+   "name": "Cold broccoli, wild rice and edamame salad",
+   "mealType": "snack",
+   "pattern": "veg + starch + protein",
+   "components": [
+    "broccoli, blanched (1/2 cup)",
+    "wild rice, cooked (1/2 cup)",
+    "edamame (1/3 cup)"
+   ],
+   "ingredients": "broccoli, blanched 1/2 cup, wild rice, cooked 1/2 cup, edamame 1/3 cup",
+   "prep": "10 min (batch ahead)"
+  },
+  {
+   "id": "AS-120",
+   "name": "Roasted chickpeas with apple slices",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "roasted chickpeas (1/2 cup)",
+    "apple, sliced (1)"
+   ],
+   "ingredients": "roasted chickpeas 1/2 cup, apple, sliced 1",
+   "prep": "20 min (roast ahead)"
+  },
+  {
+   "id": "AS-121",
+   "name": "Roasted chickpeas with dried fruit",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "roasted chickpeas (1/2 cup)",
+    "dried apricots (4)"
+   ],
+   "ingredients": "roasted chickpeas 1/2 cup, dried apricots 4",
+   "prep": "20 min (roast ahead)"
+  },
+  {
+   "id": "AS-122",
+   "name": "Salt-and-vinegar roasted chickpeas with banana",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "salt-and-vinegar roasted chickpeas (1/2 cup)",
+    "banana (1)"
+   ],
+   "ingredients": "salt-and-vinegar roasted chickpeas 1/2 cup, banana 1",
+   "prep": "20 min (roast ahead)"
+  },
+  {
+   "id": "AS-123",
+   "name": "Italian-seasoned roasted chickpeas with dried cherries",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "Italian-seasoned roasted chickpeas (1/2 cup)",
+    "dried tart cherries (2 tbsp)"
+   ],
+   "ingredients": "Italian-seasoned roasted chickpeas 1/2 cup, dried tart cherries 2 tbsp",
+   "prep": "20 min (roast ahead)"
+  },
+  {
+   "id": "AS-124",
+   "name": "Roasted chickpeas with orange segments",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "roasted chickpeas (1/2 cup)",
+    "orange, segmented (1)"
+   ],
+   "ingredients": "roasted chickpeas 1/2 cup, orange, segmented 1",
+   "prep": "20 min (roast ahead)"
+  },
+  {
+   "id": "AS-125",
+   "name": "Dates with tahini",
+   "mealType": "snack",
+   "pattern": "fruit + nut/seed butter",
+   "components": [
+    "medjool dates (4)",
+    "tahini (1 tbsp)"
+   ],
+   "ingredients": "medjool dates 4, tahini 1 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-126",
+   "name": "Dates with tahini and sea salt",
+   "mealType": "snack",
+   "pattern": "fruit + nut/seed butter",
+   "components": [
+    "medjool dates (4)",
+    "tahini (1 tbsp)",
+    "flaky sea salt (pinch)"
+   ],
+   "ingredients": "medjool dates 4, tahini 1 tbsp, flaky sea salt pinch",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-127",
+   "name": "Date and tahini energy bites",
+   "mealType": "snack",
+   "pattern": "fruit + nut/seed butter + starch",
+   "components": [
+    "medjool dates (6)",
+    "tahini (2 tbsp)",
+    "rolled oats (1/4 cup)"
+   ],
+   "ingredients": "medjool dates 6, tahini 2 tbsp, rolled oats 1/4 cup",
+   "prep": "10 min (batch ahead)"
+  },
+  {
+   "id": "AS-128",
+   "name": "Rice cakes with tahini and banana",
+   "mealType": "snack",
+   "pattern": "starch + nut/seed butter + fruit",
+   "components": [
+    "rice cakes (2)",
+    "tahini (1.5 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "rice cakes 2, tahini 1.5 tbsp, banana, sliced 1",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-129",
+   "name": "Dates with tahini and cinnamon",
+   "mealType": "snack",
+   "pattern": "fruit + nut/seed butter",
+   "components": [
+    "medjool dates (4)",
+    "tahini (1 tbsp)",
+    "cinnamon (pinch)"
+   ],
+   "ingredients": "medjool dates 4, tahini 1 tbsp, cinnamon pinch",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-130",
+   "name": "Dates with tahini and cacao nibs",
+   "mealType": "snack",
+   "pattern": "fruit + nut/seed butter",
+   "components": [
+    "medjool dates (4)",
+    "tahini (1 tbsp)",
+    "cacao nibs (1 tsp)"
+   ],
+   "ingredients": "medjool dates 4, tahini 1 tbsp, cacao nibs 1 tsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-131",
+   "name": "Avocado toast with lemon juice",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "whole grain bread, toasted (1 slice)",
+    "avocado, mashed (1/2)",
+    "lemon juice (squeeze)"
+   ],
+   "ingredients": "whole grain bread, toasted 1 slice, avocado, mashed 1/2, lemon juice squeeze",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-132",
+   "name": "Avocado toast with hemp seeds",
+   "mealType": "snack",
+   "pattern": "starch + fat + seed",
+   "components": [
+    "whole grain bread, toasted (1 slice)",
+    "avocado, mashed (1/2)",
+    "hemp seeds (1 tbsp)"
+   ],
+   "ingredients": "whole grain bread, toasted 1 slice, avocado, mashed 1/2, hemp seeds 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-133",
+   "name": "White bean and avocado toast",
+   "mealType": "snack",
+   "pattern": "starch + fat + protein",
+   "components": [
+    "whole grain bread, toasted (1 slice)",
+    "avocado, mashed (1/4)",
+    "white beans, mashed (1/3 cup)"
+   ],
+   "ingredients": "whole grain bread, toasted 1 slice, avocado, mashed 1/4, white beans, mashed 1/3 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-134",
+   "name": "Avocado toast with nutritional yeast and pumpkin seeds",
+   "mealType": "snack",
+   "pattern": "starch + fat + other + seed",
+   "components": [
+    "whole grain bread, toasted (1 slice)",
+    "avocado, mashed (1/2)",
+    "nutritional yeast (1 tsp)",
+    "pumpkin seeds (1 tbsp)"
+   ],
+   "ingredients": "whole grain bread, toasted 1 slice, avocado, mashed 1/2, nutritional yeast 1 tsp, pumpkin seeds 1 tbsp",
+   "prep": "4 min"
+  },
+  {
+   "id": "AS-135",
+   "name": "Whole wheat toast with avocado, piled with greens",
+   "mealType": "snack",
+   "pattern": "starch + fat + veg",
+   "components": [
+    "whole grain bread, toasted (1 slice)",
+    "avocado, mashed (1/2)",
+    "baby spinach (1/2 cup)"
+   ],
+   "ingredients": "whole grain bread, toasted 1 slice, avocado, mashed 1/2, baby spinach 1/2 cup",
+   "prep": "4 min"
+  },
+  {
+   "id": "AS-136",
+   "name": "Bagel with avocado and jam",
+   "mealType": "snack",
+   "pattern": "starch + fat + other",
+   "components": [
+    "whole wheat bagel (1/2)",
+    "avocado, mashed (1/4)",
+    "fruit jam (1 tsp)"
+   ],
+   "ingredients": "whole wheat bagel 1/2, avocado, mashed 1/4, fruit jam 1 tsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-137",
+   "name": "Plant protein shake with banana",
+   "mealType": "snack",
+   "pattern": "protein + fruit + drink",
+   "components": [
+    "vegan protein powder (1 scoop)",
+    "banana (1)",
+    "plant milk (1 cup)"
+   ],
+   "ingredients": "vegan protein powder 1 scoop, banana 1, plant milk 1 cup",
+   "prep": "3 min (blend)"
+  },
+  {
+   "id": "AS-138",
+   "name": "Plant protein shake with banana and peanut butter",
+   "mealType": "snack",
+   "pattern": "protein + fruit + fat + drink",
+   "components": [
+    "vegan protein powder (1 scoop)",
+    "banana (1)",
+    "peanut butter (1 tbsp)",
+    "soy milk (1 cup)"
+   ],
+   "ingredients": "vegan protein powder 1 scoop, banana 1, peanut butter 1 tbsp, soy milk 1 cup",
+   "prep": "3 min (blend)"
+  },
+  {
+   "id": "AS-139",
+   "name": "Berry and plant protein smoothie with hemp seeds",
+   "mealType": "snack",
+   "pattern": "protein + fruit + seed + drink",
+   "components": [
+    "vegan protein powder (1 scoop)",
+    "mixed berries (1 cup)",
+    "hemp seeds (1 tbsp)",
+    "plant milk (1 cup)"
+   ],
+   "ingredients": "vegan protein powder 1 scoop, mixed berries 1 cup, hemp seeds 1 tbsp, plant milk 1 cup",
+   "prep": "3 min (blend)"
+  },
+  {
+   "id": "AS-140",
+   "name": "Green smoothie with kale, apple and ginger",
+   "mealType": "snack",
+   "pattern": "veg + fruit + drink",
+   "components": [
+    "kale (1 cup)",
+    "apple (1)",
+    "coconut water (1 cup)",
+    "ginger (1 tsp, grated)"
+   ],
+   "ingredients": "kale 1 cup, apple 1, coconut water 1 cup, ginger 1 tsp, grated",
+   "prep": "4 min (blend)"
+  },
+  {
+   "id": "AS-141",
+   "name": "Berry and white bean protein smoothie",
+   "mealType": "snack",
+   "pattern": "fruit + protein + drink",
+   "components": [
+    "strawberries (1 cup)",
+    "white beans (1/2 cup)",
+    "plant milk (1 cup)"
+   ],
+   "ingredients": "strawberries 1 cup, white beans 1/2 cup, plant milk 1 cup",
+   "prep": "4 min (blend)"
+  },
+  {
+   "id": "AS-142",
+   "name": "Trail mix: walnuts, cashews, almonds, pumpkin seeds and dried cherries",
+   "mealType": "snack",
+   "pattern": "nuts + seeds + dried fruit",
+   "components": [
+    "raw walnuts (10 g)",
+    "raw cashews (10 g)",
+    "raw almonds (10 g)",
+    "pumpkin seeds (10 g)",
+    "vegan dark chocolate (10 g)",
+    "dried tart cherries (20 g)"
+   ],
+   "ingredients": "raw walnuts 10 g, raw cashews 10 g, raw almonds 10 g, pumpkin seeds 10 g, vegan dark chocolate 10 g, dried tart cherries 20 g",
+   "prep": "2 min (batch ahead)"
+  },
+  {
+   "id": "AS-143",
+   "name": "Homemade granola bars: oats, seeds, nuts and dried fruit",
+   "mealType": "snack",
+   "pattern": "starch + seeds + nuts + dried fruit",
+   "components": [
+    "rolled oats (1/2 cup)",
+    "chia seeds (1 tbsp)",
+    "sunflower seeds (2 tbsp)",
+    "walnuts, chopped (2 tbsp)",
+    "dried fruit (1/4 cup)"
+   ],
+   "ingredients": "rolled oats 1/2 cup, chia seeds 1 tbsp, sunflower seeds 2 tbsp, walnuts, chopped 2 tbsp, dried fruit 1/4 cup",
+   "prep": "15 min (batch ahead)"
+  },
+  {
+   "id": "AS-144",
+   "name": "Dried apricots and almonds",
+   "mealType": "snack",
+   "pattern": "dried fruit + nuts",
+   "components": [
+    "dried apricots (6)",
+    "raw almonds (20 g)"
+   ],
+   "ingredients": "dried apricots 6, raw almonds 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-145",
+   "name": "Raisins and peanuts",
+   "mealType": "snack",
+   "pattern": "dried fruit + nuts",
+   "components": [
+    "raisins (1/4 cup)",
+    "roasted peanuts (20 g)"
+   ],
+   "ingredients": "raisins 1/4 cup, roasted peanuts 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-146",
+   "name": "Almonds and pumpkin seeds mix",
+   "mealType": "snack",
+   "pattern": "nuts + seeds",
+   "components": [
+    "whole almonds (20 g)",
+    "pumpkin seeds (20 g)"
+   ],
+   "ingredients": "whole almonds 20 g, pumpkin seeds 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-147",
+   "name": "\"S'nuts\" roasted seasoned almonds",
+   "mealType": "snack",
+   "pattern": "nuts",
+   "components": [
+    "raw almonds (30 g)",
+    "maple syrup (1 tsp)",
+    "smoked paprika and salt (pinch)"
+   ],
+   "ingredients": "raw almonds 30 g, maple syrup 1 tsp, smoked paprika and salt pinch",
+   "prep": "20 min (roast ahead)"
+  },
+  {
+   "id": "AS-148",
+   "name": "Dried fruit and unsalted mixed nuts, on the go",
+   "mealType": "snack",
+   "pattern": "dried fruit + nuts",
+   "components": [
+    "dried mixed fruit (1/4 cup)",
+    "unsalted mixed nuts (20 g)"
+   ],
+   "ingredients": "dried mixed fruit 1/4 cup, unsalted mixed nuts 20 g",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-149",
+   "name": "Rice cakes with peanut butter, banana and cinnamon",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + fruit",
+   "components": [
+    "rice cakes (2)",
+    "peanut butter (1.5 tbsp)",
+    "banana, sliced (1)",
+    "cinnamon (pinch)"
+   ],
+   "ingredients": "rice cakes 2, peanut butter 1.5 tbsp, banana, sliced 1, cinnamon pinch",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-150",
+   "name": "Rice cakes with avocado",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "rice cakes (2)",
+    "avocado, mashed (1/2)"
+   ],
+   "ingredients": "rice cakes 2, avocado, mashed 1/2",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-151",
+   "name": "Rice cakes with almond butter and banana",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + fruit",
+   "components": [
+    "rice cakes (2)",
+    "almond butter (1.5 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "rice cakes 2, almond butter 1.5 tbsp, banana, sliced 1",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-152",
+   "name": "Rice cakes with sunflower seed butter and blueberries",
+   "mealType": "snack",
+   "pattern": "starch + seed butter + fruit",
+   "components": [
+    "rice cakes (2)",
+    "sunflower seed butter (1.5 tbsp)",
+    "blueberries (1/4 cup)"
+   ],
+   "ingredients": "rice cakes 2, sunflower seed butter 1.5 tbsp, blueberries 1/4 cup",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-153",
+   "name": "Whole grain cereal with oat milk",
+   "mealType": "snack",
+   "pattern": "starch + dairy",
+   "components": [
+    "whole grain cereal (1 cup)",
+    "oat milk (1 cup)"
+   ],
+   "ingredients": "whole grain cereal 1 cup, oat milk 1 cup",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-154",
+   "name": "Granola with oat milk and banana",
+   "mealType": "snack",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "granola (3/4 cup)",
+    "oat milk (1 cup)",
+    "banana, sliced (1/2)"
+   ],
+   "ingredients": "granola 3/4 cup, oat milk 1 cup, banana, sliced 1/2",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-155",
+   "name": "Muesli with oat milk and dried fruit",
+   "mealType": "snack",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "muesli (3/4 cup)",
+    "oat milk (1 cup)",
+    "dried fruit (2 tbsp)"
+   ],
+   "ingredients": "muesli 3/4 cup, oat milk 1 cup, dried fruit 2 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-156",
+   "name": "Oat milk overnight oats with nut butter and dates",
+   "mealType": "snack",
+   "pattern": "starch + dairy + nut butter + fruit",
+   "components": [
+    "rolled oats (1/2 cup)",
+    "oat milk (3/4 cup)",
+    "almond butter (1 tbsp)",
+    "medjool dates, chopped (2)"
+   ],
+   "ingredients": "rolled oats 1/2 cup, oat milk 3/4 cup, almond butter 1 tbsp, medjool dates, chopped 2",
+   "prep": "5 min + chill overnight"
+  },
+  {
+   "id": "AS-157",
+   "name": "Oats soaked in plant milk with banana and cinnamon",
+   "mealType": "snack",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rolled oats (1/2 cup)",
+    "oat milk (3/4 cup)",
+    "banana, sliced (1/2)",
+    "cinnamon (pinch)"
+   ],
+   "ingredients": "rolled oats 1/2 cup, oat milk 3/4 cup, banana, sliced 1/2, cinnamon pinch",
+   "prep": "5 min + chill overnight"
+  },
+  {
+   "id": "AS-158",
+   "name": "Peanut butter energy balls with oats",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + other",
+   "components": [
+    "rolled oats (1/2 cup)",
+    "peanut butter (1/4 cup)",
+    "maple syrup (2 tbsp)"
+   ],
+   "ingredients": "rolled oats 1/2 cup, peanut butter 1/4 cup, maple syrup 2 tbsp",
+   "prep": "15 min (batch ahead)"
+  },
+  {
+   "id": "AS-159",
+   "name": "Oat, nut and dried fruit energy bites with chocolate chips",
+   "mealType": "snack",
+   "pattern": "starch + nuts + dried fruit + other + nut butter",
+   "components": [
+    "rolled oats (1/2 cup)",
+    "mixed nuts, chopped (1/4 cup)",
+    "dried fruit (1/4 cup)",
+    "vegan chocolate chips (2 tbsp)",
+    "nut butter (2 tbsp)"
+   ],
+   "ingredients": "rolled oats 1/2 cup, mixed nuts, chopped 1/4 cup, dried fruit 1/4 cup, vegan chocolate chips 2 tbsp, nut butter 2 tbsp",
+   "prep": "15 min (batch ahead)"
+  },
+  {
+   "id": "AS-160",
+   "name": "No-bake date and oat energy balls",
+   "mealType": "snack",
+   "pattern": "fruit + starch + nut butter",
+   "components": [
+    "medjool dates (1 cup, pitted)",
+    "rolled oats (1 cup)",
+    "almond butter (1/4 cup)"
+   ],
+   "ingredients": "medjool dates 1 cup, pitted, rolled oats 1 cup, almond butter 1/4 cup",
+   "prep": "15 min (batch ahead)"
+  },
+  {
+   "id": "AS-161",
+   "name": "Chickpea cookie dough bites",
+   "mealType": "snack",
+   "pattern": "protein + nut butter + other",
+   "components": [
+    "cooked chickpeas (1 cup)",
+    "nut butter (1/4 cup)",
+    "maple syrup (2 tbsp)",
+    "vegan chocolate chips (2 tbsp)"
+   ],
+   "ingredients": "cooked chickpeas 1 cup, nut butter 1/4 cup, maple syrup 2 tbsp, vegan chocolate chips 2 tbsp",
+   "prep": "10 min (blend, batch ahead)"
+  },
+  {
+   "id": "AS-162",
+   "name": "Whole-wheat bagel with peanut butter and apple slices",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + fruit",
+   "components": [
+    "whole wheat bagel (1 small)",
+    "peanut butter (1.5 tbsp)",
+    "apple, sliced (1/2)"
+   ],
+   "ingredients": "whole wheat bagel 1 small, peanut butter 1.5 tbsp, apple, sliced 1/2",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-163",
+   "name": "Whole wheat toast with peanut butter and banana slices",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + fruit",
+   "components": [
+    "whole grain bread, toasted (1 slice)",
+    "peanut butter (1.5 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "whole grain bread, toasted 1 slice, peanut butter 1.5 tbsp, banana, sliced 1",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-164",
+   "name": "Quinoa hot cereal with apple and cinnamon",
+   "mealType": "snack",
+   "pattern": "starch + fruit + dairy",
+   "components": [
+    "cooked quinoa (3/4 cup)",
+    "apple, diced (1/2)",
+    "cinnamon (pinch)",
+    "plant milk (1/2 cup)"
+   ],
+   "ingredients": "cooked quinoa 3/4 cup, apple, diced 1/2, cinnamon pinch, plant milk 1/2 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AS-165",
+   "name": "Oatmeal with blueberries and walnuts",
+   "mealType": "snack",
+   "pattern": "starch + fruit + nuts",
+   "components": [
+    "rolled oats, cooked (3/4 cup)",
+    "blueberries (1/2 cup)",
+    "walnuts, chopped (2 tbsp)"
+   ],
+   "ingredients": "rolled oats, cooked 3/4 cup, blueberries 1/2 cup, walnuts, chopped 2 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AS-166",
+   "name": "Oatmeal with fruit, seeds and maple syrup",
+   "mealType": "snack",
+   "pattern": "starch + fruit + seed + other",
+   "components": [
+    "rolled oats, cooked (3/4 cup)",
+    "mixed fruit (1/2 cup)",
+    "chia seeds (1 tbsp)",
+    "maple syrup (1 tsp)"
+   ],
+   "ingredients": "rolled oats, cooked 3/4 cup, mixed fruit 1/2 cup, chia seeds 1 tbsp, maple syrup 1 tsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AS-167",
+   "name": "Fig bar with a glass of oat milk",
+   "mealType": "snack",
+   "pattern": "starch + dairy",
+   "components": [
+    "fig bar (1)",
+    "oat milk (1 cup)"
+   ],
+   "ingredients": "fig bar 1, oat milk 1 cup",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-168",
+   "name": "Rice cakes with a sports gel and water",
+   "mealType": "snack",
+   "pattern": "starch + other + drink",
+   "components": [
+    "rice cakes (2)",
+    "vegan energy gel (1 packet)",
+    "water (1 cup)"
+   ],
+   "ingredients": "rice cakes 2, vegan energy gel 1 packet, water 1 cup",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-169",
+   "name": "Applesauce pouch with a bagel half",
+   "mealType": "snack",
+   "pattern": "fruit + starch",
+   "components": [
+    "applesauce pouch (1)",
+    "whole wheat bagel (1/2)"
+   ],
+   "ingredients": "applesauce pouch 1, whole wheat bagel 1/2",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-170",
+   "name": "Graham crackers with almond milk",
+   "mealType": "snack",
+   "pattern": "starch + dairy",
+   "components": [
+    "graham crackers (2 sheets)",
+    "almond milk (1 cup)"
+   ],
+   "ingredients": "graham crackers 2 sheets, almond milk 1 cup",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-171",
+   "name": "Fruit snacks with water before a run",
+   "mealType": "snack",
+   "pattern": "fruit + drink",
+   "components": [
+    "fruit snacks (fruit-based) (1 pouch)",
+    "water (1 cup)"
+   ],
+   "ingredients": "fruit snacks (fruit-based) 1 pouch, water 1 cup",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-172",
+   "name": "Bean dip with fresh vegetables",
+   "mealType": "snack",
+   "pattern": "protein + veg",
+   "components": [
+    "black bean dip (1/3 cup)",
+    "mixed raw vegetables (1 cup)"
+   ],
+   "ingredients": "black bean dip 1/3 cup, mixed raw vegetables 1 cup",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-173",
+   "name": "Whole-grain bread with nut butter and hemp seeds",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + seed",
+   "components": [
+    "whole grain bread (1 slice)",
+    "peanut butter (1.5 tbsp)",
+    "hemp seeds (1 tbsp)"
+   ],
+   "ingredients": "whole grain bread 1 slice, peanut butter 1.5 tbsp, hemp seeds 1 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-174",
+   "name": "Tofu slices with vegetables and high-fiber crackers",
+   "mealType": "snack",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "baked tofu, sliced (100 g)",
+    "mixed raw vegetables (1/2 cup)",
+    "high-fiber crackers (6)"
+   ],
+   "ingredients": "baked tofu, sliced 100 g, mixed raw vegetables 1/2 cup, high-fiber crackers 6",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-175",
+   "name": "Roasted lentils with a piece of fruit",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "roasted lentils (1/2 cup)",
+    "apple (1)"
+   ],
+   "ingredients": "roasted lentils 1/2 cup, apple 1",
+   "prep": "20 min (roast ahead)"
+  },
+  {
+   "id": "AS-176",
+   "name": "Cooked chickpeas with lemon and salt",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "cooked chickpeas (1 cup)",
+    "lemon juice (squeeze)",
+    "sea salt (pinch)"
+   ],
+   "ingredients": "cooked chickpeas 1 cup, lemon juice squeeze, sea salt pinch",
+   "prep": "2 min (from cooked/canned)"
+  },
+  {
+   "id": "AS-177",
+   "name": "Quinoa crackers with guacamole and salsa",
+   "mealType": "snack",
+   "pattern": "starch + fat + sauce",
+   "components": [
+    "quinoa crackers (8)",
+    "guacamole (3 tbsp)",
+    "salsa (2 tbsp)"
+   ],
+   "ingredients": "quinoa crackers 8, guacamole 3 tbsp, salsa 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AS-178",
+   "name": "Roasted white beans, seasoned",
+   "mealType": "snack",
+   "pattern": "protein",
+   "components": [
+    "roasted white beans (1/2 cup)",
+    "smoked paprika and salt (pinch)"
+   ],
+   "ingredients": "roasted white beans 1/2 cup, smoked paprika and salt pinch",
+   "prep": "25 min (roast ahead)"
+  },
+  {
+   "id": "AS-179",
+   "name": "Beans, avocado and hemp seeds on whole-grain toast",
+   "mealType": "snack",
+   "pattern": "starch + protein + fat + seed",
+   "components": [
+    "whole grain bread, toasted (1 slice)",
+    "black beans, mashed (1/3 cup)",
+    "avocado, mashed (1/4)",
+    "hemp seeds (1 tbsp)"
+   ],
+   "ingredients": "whole grain bread, toasted 1 slice, black beans, mashed 1/3 cup, avocado, mashed 1/4, hemp seeds 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-180",
+   "name": "Baked sweet potato with vegan spread and paprika",
+   "mealType": "snack",
+   "pattern": "starch + fat",
+   "components": [
+    "baked sweet potato (1 medium)",
+    "vegan spread (1 tsp)",
+    "smoked paprika (pinch)"
+   ],
+   "ingredients": "baked sweet potato 1 medium, vegan spread 1 tsp, smoked paprika pinch",
+   "prep": "movement variable (bake ahead)"
+  },
+  {
+   "id": "AS-181",
+   "name": "Spinach leaves with a banana",
+   "mealType": "snack",
+   "pattern": "veg + fruit",
+   "components": [
+    "baby spinach (1 cup)",
+    "banana (1)"
+   ],
+   "ingredients": "baby spinach 1 cup, banana 1",
+   "prep": "1 min"
+  },
+  {
+   "id": "AS-182",
+   "name": "Romaine lettuce wraps with hummus and shredded carrot",
+   "mealType": "snack",
+   "pattern": "veg + hummus + veg",
+   "components": [
+    "romaine lettuce leaves (3)",
+    "hummus (3 tbsp)",
+    "shredded carrot (1/4 cup)"
+   ],
+   "ingredients": "romaine lettuce leaves 3, hummus 3 tbsp, shredded carrot 1/4 cup",
+   "prep": "4 min"
+  },
+  {
+   "id": "AS-183",
+   "name": "Whole grain crackers with tofu slices and vegetables",
+   "mealType": "snack",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "whole grain crackers (6)",
+    "baked tofu, sliced (80 g)",
+    "cucumber slices (1/2 cup)"
+   ],
+   "ingredients": "whole grain crackers 6, baked tofu, sliced 80 g, cucumber slices 1/2 cup",
+   "prep": "4 min"
+  },
+  {
+   "id": "AS-184",
+   "name": "Banana \"nicecream\" with nut butter and dark chocolate",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter + other",
+   "components": [
+    "frozen banana, blended (1)",
+    "peanut butter (1 tbsp)",
+    "vegan dark chocolate, shaved (1 tbsp)"
+   ],
+   "ingredients": "frozen banana, blended 1, peanut butter 1 tbsp, vegan dark chocolate, shaved 1 tbsp",
+   "prep": "5 min (freeze banana ahead)"
+  },
+  {
+   "id": "AS-185",
+   "name": "Overnight oats with soy yogurt and berries",
+   "mealType": "snack",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rolled oats (1/2 cup)",
+    "soy yogurt, plain (1/2 cup)",
+    "mixed berries (1/2 cup)"
+   ],
+   "ingredients": "rolled oats 1/2 cup, soy yogurt, plain 1/2 cup, mixed berries 1/2 cup",
+   "prep": "5 min + chill overnight"
+  },
+  {
+   "id": "AS-186",
+   "name": "Peanut butter smoothie with plant milk",
+   "mealType": "snack",
+   "pattern": "fat + drink + fruit",
+   "components": [
+    "peanut butter (2 tbsp)",
+    "plant milk (1.5 cups)",
+    "banana (1)"
+   ],
+   "ingredients": "peanut butter 2 tbsp, plant milk 1.5 cups, banana 1",
+   "prep": "4 min (blend)"
+  },
+  {
+   "id": "AS-187",
+   "name": "Whole wheat pita with almond butter",
+   "mealType": "snack",
+   "pattern": "starch + nut butter",
+   "components": [
+    "whole wheat pita (1 small)",
+    "almond butter (2 tbsp)"
+   ],
+   "ingredients": "whole wheat pita 1 small, almond butter 2 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AS-188",
+   "name": "Trail mix bag with dried mango and cashews",
+   "mealType": "snack",
+   "pattern": "dried fruit + nuts",
+   "components": [
+    "dried mango (20 g)",
+    "raw cashews (20 g)"
+   ],
+   "ingredients": "dried mango 20 g, raw cashews 20 g",
+   "prep": "1 min"
+  }
+ ]
+}

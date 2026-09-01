@@ -1,0 +1,1696 @@
+{
+ "batch": "A-05",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AD-131",
+   "name": "Quinoa, chickpeas & tofu bowl (high-calorie)",
+   "mealType": "dinner",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "quinoa, cooked (350 g)",
+    "chickpeas, canned (270 g)",
+    "tofu, cubed (150 g)"
+   ],
+   "ingredients": "quinoa, cooked 350 g, chickpeas, canned 270 g, tofu, cubed 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-132",
+   "name": "Oyster mushroom bulgogi bowl with edamame and miso-tahini",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "rice, cooked (250 g)",
+    "oyster mushroom, bulgogi-style (150 g)",
+    "beets, marinated (60 g)",
+    "cucumber, chili-pickled (60 g)",
+    "carrot, shredded (40 g)",
+    "edamame, shelled (80 g)",
+    "shallot, fried (1 tbsp)",
+    "miso-tahini sauce, jarred (2 tbsp)"
+   ],
+   "ingredients": "rice, cooked 250 g, oyster mushroom, bulgogi-style 150 g, beets, marinated 60 g, cucumber, chili-pickled 60 g, carrot, shredded 40 g, edamame, shelled 80 g, shallot, fried 1 tbsp, miso-tahini sauce, jarred 2 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-133",
+   "name": "Jackfruit taco bar with sofrito beans, Spanish rice and slaw",
+   "mealType": "dinner",
+   "pattern": "protein + protein + starch + veg + fat",
+   "components": [
+    "jackfruit carnitas, canned (150 g)",
+    "sofrito beans (150 g)",
+    "spanish rice, cooked (200 g)",
+    "cilantro-lime slaw (100 g)",
+    "guacamole (3 tbsp)",
+    "corn tortillas (2)"
+   ],
+   "ingredients": "jackfruit carnitas, canned 150 g, sofrito beans 150 g, spanish rice, cooked 200 g, cilantro-lime slaw 100 g, guacamole 3 tbsp, corn tortillas 2",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-134",
+   "name": "Lentil bolognese pasta bake with tofu ricotta",
+   "mealType": "dinner",
+   "pattern": "starch + sauce + protein + veg",
+   "components": [
+    "pasta, cooked (200 g)",
+    "lentil bolognese, jarred marinara base (200 g)",
+    "tofu ricotta (100 g)",
+    "side salad (80 g)"
+   ],
+   "ingredients": "pasta, cooked 200 g, lentil bolognese, jarred marinara base 200 g, tofu ricotta 100 g, side salad 80 g",
+   "prep": "15 min (jarred sauce, pre-cooked lentils)"
+  },
+  {
+   "id": "AD-135",
+   "name": "Tempeh & rice with steamed broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "tempeh, pan-seared (150 g)",
+    "brown rice, cooked (250 g)",
+    "broccoli, steamed (150 g)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "tempeh, pan-seared 150 g, brown rice, cooked 250 g, broccoli, steamed 150 g, tamari 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-136",
+   "name": "Brown rice, quinoa, lentils & beans bowl",
+   "mealType": "dinner",
+   "pattern": "starch + starch + protein + protein + fat",
+   "components": [
+    "brown rice, cooked (150 g)",
+    "quinoa, cooked (100 g)",
+    "green lentils, canned (120 g)",
+    "black beans, canned (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "brown rice, cooked 150 g, quinoa, cooked 100 g, green lentils, canned 120 g, black beans, canned 120 g, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-137",
+   "name": "Whole-grain pasta with white beans and greens",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + fat",
+   "components": [
+    "whole-grain pasta, cooked (200 g)",
+    "white beans, canned (180 g)",
+    "spinach, sauteed (100 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "whole-grain pasta, cooked 200 g, white beans, canned 180 g, spinach, sauteed 100 g, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-138",
+   "name": "Tempeh with brown rice and black beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + protein + sauce",
+   "components": [
+    "tempeh, pan-seared (150 g)",
+    "brown rice, cooked (200 g)",
+    "black beans, canned (150 g)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "tempeh, pan-seared 150 g, brown rice, cooked 200 g, black beans, canned 150 g, tamari 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-139",
+   "name": "Quinoa, lentils & roasted vegetables",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + fat",
+   "components": [
+    "quinoa, cooked (200 g)",
+    "green lentils, canned (150 g)",
+    "roasted mixed vegetables (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 200 g, green lentils, canned 150 g, roasted mixed vegetables 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-140",
+   "name": "Rice, quinoa, black beans, guacamole & hot sauce bowl",
+   "mealType": "dinner",
+   "pattern": "starch + starch + protein + fat + sauce",
+   "components": [
+    "white rice, cooked (150 g)",
+    "quinoa, cooked (150 g)",
+    "black beans, canned (180 g)",
+    "guacamole (3 tbsp)",
+    "hot sauce (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 150 g, quinoa, cooked 150 g, black beans, canned 180 g, guacamole 3 tbsp, hot sauce 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-141",
+   "name": "Veggie burrito with rice, beans & salsa",
+   "mealType": "dinner",
+   "pattern": "starch + starch + protein + sauce + veg",
+   "components": [
+    "flour tortilla (1 large)",
+    "white rice, cooked (150 g)",
+    "black beans, canned (150 g)",
+    "salsa (3 tbsp)",
+    "lettuce, shredded (40 g)"
+   ],
+   "ingredients": "flour tortilla 1 large, white rice, cooked 150 g, black beans, canned 150 g, salsa 3 tbsp, lettuce, shredded 40 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-142",
+   "name": "Rice & lentils with avocado",
+   "mealType": "dinner",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "white rice, cooked (200 g)",
+    "green lentils, canned (180 g)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "white rice, cooked 200 g, green lentils, canned 180 g, avocado 1/2",
+   "prep": "8 min"
+  },
+  {
+   "id": "AD-143",
+   "name": "Chickpea curry with rice",
+   "mealType": "dinner",
+   "pattern": "veg + veg + protein + sauce + starch",
+   "components": [
+    "broccoli (80 g)",
+    "bell pepper (60 g)",
+    "onion (40 g)",
+    "carrot (40 g)",
+    "chickpeas, canned (180 g)",
+    "curry sauce, jarred (150 ml)",
+    "white rice, cooked (200 g)"
+   ],
+   "ingredients": "broccoli 80 g, bell pepper 60 g, onion 40 g, carrot 40 g, chickpeas, canned 180 g, curry sauce, jarred 150 ml, white rice, cooked 200 g",
+   "prep": "15 min (jarred curry sauce)"
+  },
+  {
+   "id": "AD-144",
+   "name": "Tofu curry with rice",
+   "mealType": "dinner",
+   "pattern": "veg + veg + protein + sauce + starch",
+   "components": [
+    "broccoli (80 g)",
+    "bell pepper (60 g)",
+    "onion (40 g)",
+    "carrot (40 g)",
+    "tofu, cubed (180 g)",
+    "curry sauce, jarred (150 ml)",
+    "white rice, cooked (200 g)"
+   ],
+   "ingredients": "broccoli 80 g, bell pepper 60 g, onion 40 g, carrot 40 g, tofu, cubed 180 g, curry sauce, jarred 150 ml, white rice, cooked 200 g",
+   "prep": "15 min (jarred curry sauce)"
+  },
+  {
+   "id": "AD-145",
+   "name": "Tempeh curry with rice",
+   "mealType": "dinner",
+   "pattern": "veg + veg + protein + sauce + starch",
+   "components": [
+    "broccoli (80 g)",
+    "bell pepper (60 g)",
+    "onion (40 g)",
+    "carrot (40 g)",
+    "tempeh, cubed (180 g)",
+    "curry sauce, jarred (150 ml)",
+    "white rice, cooked (200 g)"
+   ],
+   "ingredients": "broccoli 80 g, bell pepper 60 g, onion 40 g, carrot 40 g, tempeh, cubed 180 g, curry sauce, jarred 150 ml, white rice, cooked 200 g",
+   "prep": "15 min (jarred curry sauce)"
+  },
+  {
+   "id": "AD-146",
+   "name": "Burrito bowl with rice, beans & vegetables",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + veg + sauce",
+   "components": [
+    "white rice, cooked (200 g)",
+    "black beans, canned (150 g)",
+    "bell pepper, sauteed (60 g)",
+    "onion, sauteed (40 g)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 200 g, black beans, canned 150 g, bell pepper, sauteed 60 g, onion, sauteed 40 g, salsa 3 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-147",
+   "name": "Quinoa & broccoli wrap",
+   "mealType": "dinner",
+   "pattern": "starch + starch + veg + sauce",
+   "components": [
+    "whole-wheat tortilla (1 large)",
+    "quinoa, cooked (150 g)",
+    "broccoli, steamed (100 g)",
+    "hummus (2 tbsp)"
+   ],
+   "ingredients": "whole-wheat tortilla 1 large, quinoa, cooked 150 g, broccoli, steamed 100 g, hummus 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-148",
+   "name": "Pasta with vegetables, cashew sauce & white beans",
+   "mealType": "dinner",
+   "pattern": "starch + veg + veg + sauce + protein",
+   "components": [
+    "pasta, cooked (200 g)",
+    "zucchini, sauteed (80 g)",
+    "cherry tomatoes (60 g)",
+    "cashew cream sauce, jarred (100 ml)",
+    "white beans, canned (150 g)"
+   ],
+   "ingredients": "pasta, cooked 200 g, zucchini, sauteed 80 g, cherry tomatoes 60 g, cashew cream sauce, jarred 100 ml, white beans, canned 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-149",
+   "name": "Burrito bowl with quinoa, black beans & roasted vegetables",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + veg + sauce",
+   "components": [
+    "quinoa, cooked (200 g)",
+    "black beans, canned (150 g)",
+    "bell pepper, roasted (60 g)",
+    "corn, canned (60 g)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 200 g, black beans, canned 150 g, bell pepper, roasted 60 g, corn, canned 60 g, salsa 3 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-150",
+   "name": "Plant-based burger with sweet potato fries",
+   "mealType": "dinner",
+   "pattern": "protein + starch + starch + sauce",
+   "components": [
+    "plant-based burger patty (1 (113 g))",
+    "whole-wheat bun (1)",
+    "sweet potato fries, oven-baked (150 g)",
+    "ketchup (1 tbsp)"
+   ],
+   "ingredients": "plant-based burger patty 1 (113 g), whole-wheat bun 1, sweet potato fries, oven-baked 150 g, ketchup 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AD-151",
+   "name": "Pasta with plant-based meatballs and spinach salad",
+   "mealType": "dinner",
+   "pattern": "starch + protein + sauce + veg",
+   "components": [
+    "pasta, cooked (200 g)",
+    "plant-based meatballs (6 (150 g))",
+    "marinara sauce, jarred (150 ml)",
+    "spinach salad (80 g)"
+   ],
+   "ingredients": "pasta, cooked 200 g, plant-based meatballs 6 (150 g), marinara sauce, jarred 150 ml, spinach salad 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-152",
+   "name": "Chilli non carne with kidney beans and vegetables",
+   "mealType": "dinner",
+   "pattern": "protein + veg + veg + sauce + starch",
+   "components": [
+    "kidney beans, canned (200 g)",
+    "bell pepper (60 g)",
+    "onion (40 g)",
+    "tomato, canned (150 g)",
+    "white rice, cooked (200 g)"
+   ],
+   "ingredients": "kidney beans, canned 200 g, bell pepper 60 g, onion 40 g, tomato, canned 150 g, white rice, cooked 200 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-153",
+   "name": "Chickpea curry with rice and spinach",
+   "mealType": "dinner",
+   "pattern": "protein + sauce + starch + veg",
+   "components": [
+    "chickpeas, canned (200 g)",
+    "curry sauce, jarred (150 ml)",
+    "white rice, cooked (200 g)",
+    "spinach, wilted in (60 g)"
+   ],
+   "ingredients": "chickpeas, canned 200 g, curry sauce, jarred 150 ml, white rice, cooked 200 g, spinach, wilted in 60 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-154",
+   "name": "Sweet potato & red lentil dhal with rice",
+   "mealType": "dinner",
+   "pattern": "veg + protein + sauce + starch",
+   "components": [
+    "sweet potato, cubed & simmered (150 g)",
+    "red lentils, canned (180 g)",
+    "curry sauce, jarred (100 ml)",
+    "white rice, cooked (150 g)"
+   ],
+   "ingredients": "sweet potato, cubed & simmered 150 g, red lentils, canned 180 g, curry sauce, jarred 100 ml, white rice, cooked 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-155",
+   "name": "Chickpea curry with sweet potato and rice",
+   "mealType": "dinner",
+   "pattern": "protein + veg + sauce + starch",
+   "components": [
+    "chickpeas, canned (150 g)",
+    "sweet potato, cubed & simmered (100 g)",
+    "curry sauce, jarred (150 ml)",
+    "white rice, cooked (200 g)"
+   ],
+   "ingredients": "chickpeas, canned 150 g, sweet potato, cubed & simmered 100 g, curry sauce, jarred 150 ml, white rice, cooked 200 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-156",
+   "name": "Kidney bean chilli non carne with rice and avocado",
+   "mealType": "dinner",
+   "pattern": "protein + sauce + veg + starch + fat",
+   "components": [
+    "kidney beans, canned (200 g)",
+    "tomato, canned (150 g)",
+    "bell pepper (60 g)",
+    "white rice, cooked (200 g)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "kidney beans, canned 200 g, tomato, canned 150 g, bell pepper 60 g, white rice, cooked 200 g, avocado 1/2",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-157",
+   "name": "White rice, plant-based meat, avocado, hummus & kimchi bowl",
+   "mealType": "dinner",
+   "pattern": "starch + protein + fat + sauce + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "plant-based meat crumble (150 g)",
+    "avocado (1/2)",
+    "hummus (3 tbsp)",
+    "kimchi (80 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, plant-based meat crumble 150 g, avocado 1/2, hummus 3 tbsp, kimchi 80 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-158",
+   "name": "Sweet potato, rice, avocado & hummus bowl with leftovers",
+   "mealType": "dinner",
+   "pattern": "veg + starch + fat + sauce + veg",
+   "components": [
+    "sweet potato, roasted (150 g)",
+    "white rice, cooked (200 g)",
+    "avocado (1/2)",
+    "hummus (3 tbsp)",
+    "leftover roasted vegetables (80 g)"
+   ],
+   "ingredients": "sweet potato, roasted 150 g, white rice, cooked 200 g, avocado 1/2, hummus 3 tbsp, leftover roasted vegetables 80 g",
+   "prep": "10 min (reheat)"
+  },
+  {
+   "id": "AD-159",
+   "name": "Miso-tahini ramen with tofu and greens",
+   "mealType": "dinner",
+   "pattern": "starch + sauce + protein + veg",
+   "components": [
+    "ramen noodles, cooked (200 g)",
+    "miso-tahini broth, jarred paste + water (400 ml)",
+    "tofu, cubed (150 g)",
+    "bok choy, wilted in broth (80 g)"
+   ],
+   "ingredients": "ramen noodles, cooked 200 g, miso-tahini broth, jarred paste + water 400 ml, tofu, cubed 150 g, bok choy, wilted in broth 80 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-160",
+   "name": "Peanut tempeh Thai salad",
+   "mealType": "dinner",
+   "pattern": "protein + veg + veg + sauce + starch",
+   "components": [
+    "tempeh, pan-seared (150 g)",
+    "cabbage, shredded (100 g)",
+    "carrot, shredded (60 g)",
+    "peanut sauce, jarred (3 tbsp)",
+    "rice noodles, cooked (150 g)"
+   ],
+   "ingredients": "tempeh, pan-seared 150 g, cabbage, shredded 100 g, carrot, shredded 60 g, peanut sauce, jarred 3 tbsp, rice noodles, cooked 150 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AD-161",
+   "name": "Falafel burger with mashed potatoes",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "falafel patty, pre-made (3 (150 g))",
+    "mashed potatoes (200 g)",
+    "side salad (80 g)",
+    "tahini sauce, jarred (2 tbsp)"
+   ],
+   "ingredients": "falafel patty, pre-made 3 (150 g), mashed potatoes 200 g, side salad 80 g, tahini sauce, jarred 2 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AD-162",
+   "name": "Herb-rubbed tofu with jasmine rice",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "tofu, herb-rubbed & pan-seared (180 g)",
+    "jasmine rice, cooked (250 g)",
+    "steamed green beans (100 g)"
+   ],
+   "ingredients": "tofu, herb-rubbed & pan-seared 180 g, jasmine rice, cooked 250 g, steamed green beans 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-163",
+   "name": "Baked sweet potato with chickpeas and sesame",
+   "mealType": "dinner",
+   "pattern": "veg + protein + sauce + fat",
+   "components": [
+    "sweet potato, baked (200 g)",
+    "chickpeas, canned (180 g)",
+    "tahini sauce, jarred (2 tbsp)",
+    "sesame seeds (1 tsp)"
+   ],
+   "ingredients": "sweet potato, baked 200 g, chickpeas, canned 180 g, tahini sauce, jarred 2 tbsp, sesame seeds 1 tsp",
+   "prep": "10 min (pre-baked potato)"
+  },
+  {
+   "id": "AD-164",
+   "name": "Chipotle sweet potato and black bean bowl",
+   "mealType": "dinner",
+   "pattern": "veg + protein + sauce + starch",
+   "components": [
+    "sweet potato, roasted (150 g)",
+    "black beans, canned (180 g)",
+    "chipotle sauce, jarred (2 tbsp)",
+    "white rice, cooked (150 g)"
+   ],
+   "ingredients": "sweet potato, roasted 150 g, black beans, canned 180 g, chipotle sauce, jarred 2 tbsp, white rice, cooked 150 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AD-165",
+   "name": "Roasted vegetables with white beans and spinach salad",
+   "mealType": "dinner",
+   "pattern": "veg + protein + veg + fat",
+   "components": [
+    "roasted mixed vegetables (200 g)",
+    "white beans, canned (180 g)",
+    "spinach salad (80 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "roasted mixed vegetables 200 g, white beans, canned 180 g, spinach salad 80 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-166",
+   "name": "Stir-fried tofu with broccoli, carrots & brown rice",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tofu, stir-fried (180 g)",
+    "broccoli, stir-fried (100 g)",
+    "carrot, stir-fried (60 g)",
+    "brown rice, cooked (200 g)"
+   ],
+   "ingredients": "tofu, stir-fried 180 g, broccoli, stir-fried 100 g, carrot, stir-fried 60 g, brown rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-167",
+   "name": "Baked sweet potato stuffed with black beans, peppers & avocado",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "sweet potato, baked (200 g)",
+    "black beans, canned (150 g)",
+    "bell pepper, diced (60 g)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "sweet potato, baked 200 g, black beans, canned 150 g, bell pepper, diced 60 g, avocado 1/2",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-168",
+   "name": "Tempeh stir-fry with peppers, broccoli & brown rice",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tempeh, stir-fried (180 g)",
+    "bell pepper, stir-fried (60 g)",
+    "broccoli, stir-fried (100 g)",
+    "brown rice, cooked (200 g)"
+   ],
+   "ingredients": "tempeh, stir-fried 180 g, bell pepper, stir-fried 60 g, broccoli, stir-fried 100 g, brown rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-169",
+   "name": "Baked tofu with sweet potato & steamed broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tofu, baked (180 g)",
+    "sweet potato, baked (150 g)",
+    "broccoli, steamed (100 g)"
+   ],
+   "ingredients": "tofu, baked 180 g, sweet potato, baked 150 g, broccoli, steamed 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-170",
+   "name": "Lentil stew with carrots, spinach & brown rice",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "green lentils, canned (200 g)",
+    "carrot, simmered (60 g)",
+    "spinach, wilted (60 g)",
+    "brown rice, cooked (200 g)"
+   ],
+   "ingredients": "green lentils, canned 200 g, carrot, simmered 60 g, spinach, wilted 60 g, brown rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-171",
+   "name": "Tempeh tacos with black beans & peppers",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tempeh, crumbled & seasoned (150 g)",
+    "whole-grain tortillas (2)",
+    "black beans, canned (120 g)",
+    "bell pepper, diced (60 g)"
+   ],
+   "ingredients": "tempeh, crumbled & seasoned 150 g, whole-grain tortillas 2, black beans, canned 120 g, bell pepper, diced 60 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-172",
+   "name": "Tofu stir-fry with mushrooms, peppers & brown rice",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tofu, stir-fried (180 g)",
+    "mushroom, stir-fried (80 g)",
+    "bell pepper, stir-fried (60 g)",
+    "brown rice, cooked (200 g)"
+   ],
+   "ingredients": "tofu, stir-fried 180 g, mushroom, stir-fried 80 g, bell pepper, stir-fried 60 g, brown rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-173",
+   "name": "Baked tofu with steamed broccoli & brown rice",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tofu, baked (180 g)",
+    "broccoli, steamed (100 g)",
+    "brown rice, cooked (200 g)"
+   ],
+   "ingredients": "tofu, baked 180 g, broccoli, steamed 100 g, brown rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-174",
+   "name": "Tempeh stir-fry with kale, peppers & quinoa",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tempeh, stir-fried (180 g)",
+    "kale, stir-fried (60 g)",
+    "bell pepper, stir-fried (60 g)",
+    "quinoa, cooked (200 g)"
+   ],
+   "ingredients": "tempeh, stir-fried 180 g, kale, stir-fried 60 g, bell pepper, stir-fried 60 g, quinoa, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-175",
+   "name": "Tofu & vegetable curry with brown rice",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "tofu, cubed (180 g)",
+    "mixed vegetables, simmered in curry (150 g)",
+    "curry sauce, jarred (150 ml)",
+    "brown rice, cooked (200 g)"
+   ],
+   "ingredients": "tofu, cubed 180 g, mixed vegetables, simmered in curry 150 g, curry sauce, jarred 150 ml, brown rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-176",
+   "name": "Vegan chilli with quinoa",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "kidney beans, canned (150 g)",
+    "black beans, canned (100 g)",
+    "tomato, canned (150 g)",
+    "quinoa, cooked (200 g)"
+   ],
+   "ingredients": "kidney beans, canned 150 g, black beans, canned 100 g, tomato, canned 150 g, quinoa, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-177",
+   "name": "Stuffed peppers with quinoa, black beans & vegetables",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "bell pepper, halved & baked (2)",
+    "quinoa, cooked (150 g)",
+    "black beans, canned (120 g)",
+    "corn, canned (60 g)"
+   ],
+   "ingredients": "bell pepper, halved & baked 2, quinoa, cooked 150 g, black beans, canned 120 g, corn, canned 60 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-178",
+   "name": "Grilled shrimp with brown rice & steamed kale",
+   "mealType": "dinner",
+   "pattern": "protein + veg/starch + veg",
+   "components": [
+    "shrimp, grilled (180 g)",
+    "brown rice, cooked (200 g)",
+    "kale, steamed (80 g)"
+   ],
+   "ingredients": "shrimp, grilled 180 g, brown rice, cooked 200 g, kale, steamed 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-179",
+   "name": "Grilled shrimp with quinoa & steamed broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + veg/starch + veg",
+   "components": [
+    "shrimp, grilled (180 g)",
+    "quinoa, cooked (200 g)",
+    "broccoli, steamed (100 g)"
+   ],
+   "ingredients": "shrimp, grilled 180 g, quinoa, cooked 200 g, broccoli, steamed 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-180",
+   "name": "Grilled tuna with sweet potato & steamed kale",
+   "mealType": "dinner",
+   "pattern": "protein + veg/starch + veg",
+   "components": [
+    "tuna steak, grilled (180 g)",
+    "sweet potato, roasted (150 g)",
+    "kale, steamed (80 g)"
+   ],
+   "ingredients": "tuna steak, grilled 180 g, sweet potato, roasted 150 g, kale, steamed 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-181",
+   "name": "Grilled tuna with brown rice & steamed broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "tuna steak, grilled (180 g)",
+    "brown rice, cooked (200 g)",
+    "broccoli, steamed (100 g)"
+   ],
+   "ingredients": "tuna steak, grilled 180 g, brown rice, cooked 200 g, broccoli, steamed 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-182",
+   "name": "Grilled salmon with quinoa & steamed kale",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon, grilled (180 g)",
+    "quinoa, cooked (200 g)",
+    "kale, steamed (80 g)"
+   ],
+   "ingredients": "salmon, grilled 180 g, quinoa, cooked 200 g, kale, steamed 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-183",
+   "name": "Salmon, brown rice, roasted carrots & broccoli rabe with Asian sauce",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + veg + sauce",
+   "components": [
+    "salmon, baked (180 g)",
+    "brown rice, cooked (200 g)",
+    "carrot, roasted (60 g)",
+    "broccoli rabe, roasted (80 g)",
+    "Asian-style sauce, bottled (2 tbsp)"
+   ],
+   "ingredients": "salmon, baked 180 g, brown rice, cooked 200 g, carrot, roasted 60 g, broccoli rabe, roasted 80 g, Asian-style sauce, bottled 2 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-184",
+   "name": "Salmon, quinoa & roasted vegetables bowl",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon, baked (180 g)",
+    "quinoa, cooked (200 g)",
+    "roasted mixed vegetables (150 g)"
+   ],
+   "ingredients": "salmon, baked 180 g, quinoa, cooked 200 g, roasted mixed vegetables 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-185",
+   "name": "Salmon, brown rice & roasted asparagus with teriyaki",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "salmon, baked (180 g)",
+    "brown rice, cooked (200 g)",
+    "asparagus, roasted (100 g)",
+    "teriyaki sauce, bottled (2 tbsp)"
+   ],
+   "ingredients": "salmon, baked 180 g, brown rice, cooked 200 g, asparagus, roasted 100 g, teriyaki sauce, bottled 2 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AD-186",
+   "name": "Salmon, quinoa & roasted carrots with Asian sauce",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "salmon, baked (180 g)",
+    "quinoa, cooked (200 g)",
+    "carrot, roasted (80 g)",
+    "Asian-style sauce, bottled (2 tbsp)"
+   ],
+   "ingredients": "salmon, baked 180 g, quinoa, cooked 200 g, carrot, roasted 80 g, Asian-style sauce, bottled 2 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AD-187",
+   "name": "Salmon, brown rice & roasted broccoli bowl",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon, baked (180 g)",
+    "brown rice, cooked (200 g)",
+    "broccoli, roasted (120 g)"
+   ],
+   "ingredients": "salmon, baked 180 g, brown rice, cooked 200 g, broccoli, roasted 120 g",
+   "prep": "18 min"
+  },
+  {
+   "id": "AD-188",
+   "name": "Mediterranean salmon with rice, chickpeas, tomatoes & olives",
+   "mealType": "dinner",
+   "pattern": "protein + starch + protein + veg + fat + dairy",
+   "components": [
+    "salmon, baked (180 g)",
+    "white rice, cooked (200 g)",
+    "chickpeas, canned (100 g)",
+    "cherry tomatoes (80 g)",
+    "olives (30 g)",
+    "feta cheese (30 g)",
+    "lemon (1 wedge)"
+   ],
+   "ingredients": "salmon, baked 180 g, white rice, cooked 200 g, chickpeas, canned 100 g, cherry tomatoes 80 g, olives 30 g, feta cheese 30 g, lemon 1 wedge",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-189",
+   "name": "Mediterranean salmon with rice, chickpeas & olives (no feta)",
+   "mealType": "dinner",
+   "pattern": "protein + starch + protein + fat",
+   "components": [
+    "salmon, baked (180 g)",
+    "white rice, cooked (200 g)",
+    "chickpeas, canned (100 g)",
+    "olives (30 g)",
+    "lemon (1 wedge)"
+   ],
+   "ingredients": "salmon, baked 180 g, white rice, cooked 200 g, chickpeas, canned 100 g, olives 30 g, lemon 1 wedge",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-191",
+   "name": "Turmeric sweet potato, green beans & crispy chickpeas",
+   "mealType": "dinner",
+   "pattern": "veg + veg + protein",
+   "components": [
+    "sweet potato, roasted with turmeric (150 g)",
+    "green beans, roasted (100 g)",
+    "chickpeas, roasted crispy (150 g)"
+   ],
+   "ingredients": "sweet potato, roasted with turmeric 150 g, green beans, roasted 100 g, chickpeas, roasted crispy 150 g",
+   "prep": "25 min (sheet pan)"
+  },
+  {
+   "id": "AD-194",
+   "name": "Southwestern potato bowl with beans, vegetables & hot sauce",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + veg + sauce",
+   "components": [
+    "potato, boiled & cooled (200 g)",
+    "black beans, canned (150 g)",
+    "corn, canned (60 g)",
+    "bell pepper, diced (40 g)",
+    "hot sauce (1 tbsp)"
+   ],
+   "ingredients": "potato, boiled & cooled 200 g, black beans, canned 150 g, corn, canned 60 g, bell pepper, diced 40 g, hot sauce 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-195",
+   "name": "Couscous, chickpea & salad bowl with tahini",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "couscous, cooked (200 g)",
+    "chickpeas, canned (180 g)",
+    "mixed salad vegetables (100 g)",
+    "tahini sauce, jarred (2 tbsp)"
+   ],
+   "ingredients": "couscous, cooked 200 g, chickpeas, canned 180 g, mixed salad vegetables 100 g, tahini sauce, jarred 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AD-196",
+   "name": "Couscous, canned lentil & salad bowl with tahini",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "couscous, cooked (200 g)",
+    "green lentils, canned (180 g)",
+    "mixed salad vegetables (100 g)",
+    "tahini sauce, jarred (2 tbsp)"
+   ],
+   "ingredients": "couscous, cooked 200 g, green lentils, canned 180 g, mixed salad vegetables 100 g, tahini sauce, jarred 2 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AD-197",
+   "name": "Wheatberries, chickpea & roasted brussels sprouts bowl with vinaigrette",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "wheatberries, cooked (200 g)",
+    "chickpeas, canned (150 g)",
+    "brussels sprouts, roasted (120 g)",
+    "balsamic vinaigrette, bottled (2 tbsp)"
+   ],
+   "ingredients": "wheatberries, cooked 200 g, chickpeas, canned 150 g, brussels sprouts, roasted 120 g, balsamic vinaigrette, bottled 2 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-198",
+   "name": "Quinoa, white bean & roasted carrot bowl with tzatziki",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "quinoa, cooked (200 g)",
+    "white beans, canned (150 g)",
+    "carrot, roasted (120 g)",
+    "dairy-free tzatziki, jarred (2 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 200 g, white beans, canned 150 g, carrot, roasted 120 g, dairy-free tzatziki, jarred 2 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-199",
+   "name": "Rice, tempeh & roasted cauliflower bowl with hummus",
+   "mealType": "dinner",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "brown rice, cooked (250 g)",
+    "tempeh, pan-seared (150 g)",
+    "cauliflower, roasted (150 g)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "brown rice, cooked 250 g, tempeh, pan-seared 150 g, cauliflower, roasted 150 g, hummus 3 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-200",
+   "name": "Chicken breast, basmati rice & roasted carrots",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (200 g)",
+    "basmati rice, cooked (200 g)",
+    "carrots, roasted (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 200 g, basmati rice, cooked 200 g, carrots, roasted 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-201",
+   "name": "Turkey breast, red rice & zucchini",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "turkey breast, roasted (200 g)",
+    "red rice, cooked (180 g)",
+    "zucchini, sautéed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "turkey breast, roasted 200 g, red rice, cooked 180 g, zucchini, sautéed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-202",
+   "name": "Pork tenderloin, white potato & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "pork tenderloin, roasted (180 g)",
+    "white potato, boiled (250 g)",
+    "green beans, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork tenderloin, roasted 180 g, white potato, boiled 250 g, green beans, steamed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-203",
+   "name": "Lean ground beef, quinoa & spinach",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "ground beef, 90/10, cooked (180 g)",
+    "quinoa, cooked (180 g)",
+    "spinach, sautéed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "ground beef, 90/10, cooked 180 g, quinoa, cooked 180 g, spinach, sautéed 120 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-204",
+   "name": "Chicken thigh, sweet potato & bok choy",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken thigh, roasted, skinless (200 g)",
+    "sweet potato, roasted (220 g)",
+    "bok choy, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken thigh, roasted, skinless 200 g, sweet potato, roasted 220 g, bok choy, steamed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-205",
+   "name": "Pork loin chops, brown rice & snow peas",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "pork loin chop, grilled (180 g)",
+    "brown rice, cooked (180 g)",
+    "snow peas, stir-steamed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork loin chop, grilled 180 g, brown rice, cooked 180 g, snow peas, stir-steamed 120 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-206",
+   "name": "Sirloin steak, white rice & cherry tomatoes",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "sirloin steak, grilled (180 g)",
+    "white rice, cooked (200 g)",
+    "cherry tomatoes, roasted (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "sirloin steak, grilled 180 g, white rice, cooked 200 g, cherry tomatoes, roasted 120 g, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-207",
+   "name": "Ground turkey, jasmine rice & snap peas",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "ground turkey, cooked (180 g)",
+    "jasmine rice, cooked (200 g)",
+    "sugar snap peas, steamed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "ground turkey, cooked 180 g, jasmine rice, cooked 200 g, sugar snap peas, steamed 120 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-208",
+   "name": "Chicken breast, white potato & carrots",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, baked (200 g)",
+    "white potato, roasted (250 g)",
+    "carrots, roasted (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, baked 200 g, white potato, roasted 250 g, carrots, roasted 150 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-209",
+   "name": "Beef mince, basmati rice & courgette",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "lean beef mince, cooked (180 g)",
+    "basmati rice, cooked (200 g)",
+    "courgette (zucchini), sautéed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean beef mince, cooked 180 g, basmati rice, cooked 200 g, courgette (zucchini), sautéed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-210",
+   "name": "Chicken thigh, red rice & broccoli florets",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken thigh, grilled, skinless (200 g)",
+    "red rice, cooked (180 g)",
+    "broccoli florets, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken thigh, grilled, skinless 200 g, red rice, cooked 180 g, broccoli florets, steamed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-211",
+   "name": "Turkey breast, quinoa & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "turkey breast, sliced (180 g)",
+    "quinoa, cooked (180 g)",
+    "green beans, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "turkey breast, sliced 180 g, quinoa, cooked 180 g, green beans, steamed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-212",
+   "name": "Pork tenderloin, sweet potato & carrots",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "pork tenderloin, roasted (180 g)",
+    "sweet potato, mashed (220 g)",
+    "carrots, roasted (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork tenderloin, roasted 180 g, sweet potato, mashed 220 g, carrots, roasted 150 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-213",
+   "name": "Chicken breast, white rice & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (200 g)",
+    "white rice, cooked (200 g)",
+    "green beans, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 200 g, white rice, cooked 200 g, green beans, steamed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-214",
+   "name": "Sirloin steak, baked potato & cherry tomatoes",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "sirloin steak, grilled (180 g)",
+    "baked potato (250 g)",
+    "cherry tomatoes, roasted (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "sirloin steak, grilled 180 g, baked potato 250 g, cherry tomatoes, roasted 120 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-215",
+   "name": "Ground beef, white rice & carrots",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "lean ground beef, cooked (180 g)",
+    "white rice, cooked (200 g)",
+    "carrots, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean ground beef, cooked 180 g, white rice, cooked 200 g, carrots, steamed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-216",
+   "name": "Chicken breast, brown rice & bok choy",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (200 g)",
+    "brown rice, cooked (180 g)",
+    "bok choy, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 200 g, brown rice, cooked 180 g, bok choy, steamed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-217",
+   "name": "Turkey mince, jasmine rice & spinach",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "turkey mince, cooked (180 g)",
+    "jasmine rice, cooked (200 g)",
+    "spinach, sautéed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "turkey mince, cooked 180 g, jasmine rice, cooked 200 g, spinach, sautéed 120 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-218",
+   "name": "Pork loin, white rice & courgette",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "pork loin, roasted (180 g)",
+    "white rice, cooked (200 g)",
+    "courgette, sautéed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork loin, roasted 180 g, white rice, cooked 200 g, courgette, sautéed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-219",
+   "name": "Chicken thigh, quinoa & carrots",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken thigh, roasted, skinless (200 g)",
+    "quinoa, cooked (180 g)",
+    "carrots, roasted (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken thigh, roasted, skinless 200 g, quinoa, cooked 180 g, carrots, roasted 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-220",
+   "name": "Beef mince, sweet potato & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "lean beef mince, cooked (180 g)",
+    "sweet potato, roasted (220 g)",
+    "green beans, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean beef mince, cooked 180 g, sweet potato, roasted 220 g, green beans, steamed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-221",
+   "name": "Chicken breast, red rice & cucumber salad",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (200 g)",
+    "red rice, cooked (180 g)",
+    "cucumber, sliced (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 200 g, red rice, cooked 180 g, cucumber, sliced 120 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-222",
+   "name": "Turkey breast, white potato & broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "turkey breast, roasted (180 g)",
+    "white potato, boiled (250 g)",
+    "broccoli florets, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "turkey breast, roasted 180 g, white potato, boiled 250 g, broccoli florets, steamed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-223",
+   "name": "Pork tenderloin, quinoa & zucchini",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "pork tenderloin, roasted (180 g)",
+    "quinoa, cooked (180 g)",
+    "zucchini, sautéed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork tenderloin, roasted 180 g, quinoa, cooked 180 g, zucchini, sautéed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-224",
+   "name": "Chicken breast, basmati rice & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (200 g)",
+    "basmati rice, cooked (200 g)",
+    "green beans, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 200 g, basmati rice, cooked 200 g, green beans, steamed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-225",
+   "name": "Sirloin steak, sweet potato & spinach",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "sirloin steak, grilled (180 g)",
+    "sweet potato, roasted (220 g)",
+    "spinach, sautéed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "sirloin steak, grilled 180 g, sweet potato, roasted 220 g, spinach, sautéed 120 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-226",
+   "name": "Ground turkey, white rice & bell pepper",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "ground turkey, cooked (180 g)",
+    "white rice, cooked (200 g)",
+    "green bell pepper, sautéed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "ground turkey, cooked 180 g, white rice, cooked 200 g, green bell pepper, sautéed 120 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-227",
+   "name": "Chicken thigh, brown rice & carrots",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken thigh, roasted, skinless (200 g)",
+    "brown rice, cooked (180 g)",
+    "carrots, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken thigh, roasted, skinless 200 g, brown rice, cooked 180 g, carrots, steamed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-228",
+   "name": "Pork loin chop, red rice & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "pork loin chop, grilled (180 g)",
+    "red rice, cooked (180 g)",
+    "green beans, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork loin chop, grilled 180 g, red rice, cooked 180 g, green beans, steamed 150 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-229",
+   "name": "Beef mince, quinoa & broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "lean beef mince, cooked (180 g)",
+    "quinoa, cooked (180 g)",
+    "broccoli florets, steamed (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean beef mince, cooked 180 g, quinoa, cooked 180 g, broccoli florets, steamed 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-230",
+   "name": "Grilled sirloin, baked sweet potato fries & olive oil",
+   "mealType": "dinner",
+   "pattern": "protein + starch + fat + other",
+   "components": [
+    "sirloin steak, grilled (180 g)",
+    "sweet potato fries, baked (200 g)",
+    "olive oil (1 tbsp)",
+    "sea salt (pinch)"
+   ],
+   "ingredients": "sirloin steak, grilled 180 g, sweet potato fries, baked 200 g, olive oil 1 tbsp, sea salt pinch",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-231",
+   "name": "Baked sweet potato with sautéed greens, chicken & avocado",
+   "mealType": "dinner",
+   "pattern": "starch + veg + protein + fat",
+   "components": [
+    "sweet potato, baked (250 g)",
+    "kale, sautéed (120 g)",
+    "chicken breast, grilled (180 g)",
+    "avocado, sliced (1/2 fruit)"
+   ],
+   "ingredients": "sweet potato, baked 250 g, kale, sautéed 120 g, chicken breast, grilled 180 g, avocado, sliced 1/2 fruit",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-232",
+   "name": "Chicken and veggie skewers with spinach salad",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "chicken breast, cubed & grilled on skewers (200 g)",
+    "bell pepper & courgette, skewered & grilled (150 g)",
+    "spinach, fresh, with tomato (100 g)",
+    "walnut oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, cubed & grilled on skewers 200 g, bell pepper & courgette, skewered & grilled 150 g, spinach, fresh, with tomato 100 g, walnut oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-233",
+   "name": "Roast pork tenderloin, roasted root veg & olive oil",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "pork tenderloin, roasted (180 g)",
+    "carrots & parsnip, roasted (200 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork tenderloin, roasted 180 g, carrots & parsnip, roasted 200 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-234",
+   "name": "Grilled chicken thigh, roasted butternut squash & broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "chicken thigh, grilled, skinless (200 g)",
+    "butternut squash, roasted (180 g)",
+    "broccoli florets, steamed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken thigh, grilled, skinless 200 g, butternut squash, roasted 180 g, broccoli florets, steamed 120 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-235",
+   "name": "Ground beef & sweet potato skillet with spinach",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "lean ground beef, cooked (180 g)",
+    "sweet potato, diced & pan-seared (200 g)",
+    "spinach, wilted in (100 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean ground beef, cooked 180 g, sweet potato, diced & pan-seared 200 g, spinach, wilted in 100 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-236",
+   "name": "Turkey burger patties, roasted carrots & courgette (no bun)",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "turkey burger patty, grilled (180 g)",
+    "carrots, roasted (150 g)",
+    "courgette, roasted (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "turkey burger patty, grilled 180 g, carrots, roasted 150 g, courgette, roasted 120 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-237",
+   "name": "Roast chicken leg, mashed sweet potato & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken leg, roasted, skin on (200 g)",
+    "sweet potato, mashed (220 g)",
+    "green beans, steamed (150 g)"
+   ],
+   "ingredients": "chicken leg, roasted, skin on 200 g, sweet potato, mashed 220 g, green beans, steamed 150 g",
+   "prep": "35 min"
+  },
+  {
+   "id": "AD-238",
+   "name": "Grilled pork chop, roasted beetroot & rocket",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "pork loin chop, grilled (180 g)",
+    "beetroot, roasted (180 g)",
+    "rocket (arugula), fresh (60 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork loin chop, grilled 180 g, beetroot, roasted 180 g, rocket (arugula), fresh 60 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-239",
+   "name": "Sirloin steak, roasted sweet potato & sautéed kale",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "sirloin steak, grilled (180 g)",
+    "sweet potato, roasted (200 g)",
+    "kale, sautéed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "sirloin steak, grilled 180 g, sweet potato, roasted 200 g, kale, sautéed 120 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-240",
+   "name": "Chicken breast, roasted beets & steamed green beans",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "chicken breast, grilled (200 g)",
+    "beetroot, roasted (180 g)",
+    "green beans, steamed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 200 g, beetroot, roasted 180 g, green beans, steamed 120 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-241",
+   "name": "Roast turkey breast, roasted parsnip & broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "turkey breast, roasted (180 g)",
+    "parsnip, roasted (180 g)",
+    "broccoli florets, steamed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "turkey breast, roasted 180 g, parsnip, roasted 180 g, broccoli florets, steamed 120 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-242",
+   "name": "Pork tenderloin, roasted squash & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "pork tenderloin, roasted (180 g)",
+    "acorn squash, roasted (180 g)",
+    "green beans, steamed (120 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "pork tenderloin, roasted 180 g, acorn squash, roasted 180 g, green beans, steamed 120 g, olive oil 1 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AD-243",
+   "name": "Grilled chicken thigh, roasted radish & spinach",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "chicken thigh, grilled, skinless (200 g)",
+    "radish, roasted (150 g)",
+    "spinach, sautéed (100 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken thigh, grilled, skinless 200 g, radish, roasted 150 g, spinach, sautéed 100 g, olive oil 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-244",
+   "name": "Beef mince & courgette skillet, no starch",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "lean ground beef, cooked (180 g)",
+    "courgette, sautéed (180 g)",
+    "tomato, diced, fresh (100 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean ground beef, cooked 180 g, courgette, sautéed 180 g, tomato, diced, fresh 100 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-245",
+   "name": "Tri-tip steak, mixed salad & avocado",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "tri-tip steak, grilled (200 g)",
+    "mixed salad greens (100 g)",
+    "avocado, sliced (1/2 fruit)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "tri-tip steak, grilled 200 g, mixed salad greens 100 g, avocado, sliced 1/2 fruit, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-246",
+   "name": "Ribeye steak, roasted broccoli & butter",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "ribeye steak, pan-seared (200 g)",
+    "broccoli florets, roasted (150 g)",
+    "grass-fed butter, melted (1 tbsp)"
+   ],
+   "ingredients": "ribeye steak, pan-seared 200 g, broccoli florets, roasted 150 g, grass-fed butter, melted 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-247",
+   "name": "Grilled chicken thighs, sautéed spinach & olive oil",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "chicken thigh, grilled, skin on (200 g)",
+    "spinach, sautéed (150 g)",
+    "olive oil (2 tbsp)"
+   ],
+   "ingredients": "chicken thigh, grilled, skin on 200 g, spinach, sautéed 150 g, olive oil 2 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-248",
+   "name": "Pork chop, roasted cauliflower & avocado",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "pork loin chop, grilled (180 g)",
+    "cauliflower, roasted (180 g)",
+    "avocado, sliced (1/2 fruit)"
+   ],
+   "ingredients": "pork loin chop, grilled 180 g, cauliflower, roasted 180 g, avocado, sliced 1/2 fruit",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-249",
+   "name": "Ground beef & courgette \"noodle\" skillet",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "lean ground beef, cooked (180 g)",
+    "courgette, spiralised & sautéed (200 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean ground beef, cooked 180 g, courgette, spiralised & sautéed 200 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-250",
+   "name": "Sirloin steak, green beans & olive oil",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "sirloin steak, grilled (200 g)",
+    "green beans, sautéed (150 g)",
+    "olive oil (1.5 tbsp)"
+   ],
+   "ingredients": "sirloin steak, grilled 200 g, green beans, sautéed 150 g, olive oil 1.5 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-251",
+   "name": "Chicken thigh, roasted brussels sprouts & bacon fat",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "chicken thigh, roasted, skin on (200 g)",
+    "brussels sprouts, roasted (150 g)",
+    "bacon fat, for roasting (1 tbsp)"
+   ],
+   "ingredients": "chicken thigh, roasted, skin on 200 g, brussels sprouts, roasted 150 g, bacon fat, for roasting 1 tbsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-252",
+   "name": "Beef mince lettuce cups with avocado",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "lean ground beef, cooked (180 g)",
+    "iceberg lettuce leaves (6 leaves)",
+    "avocado, diced (1/2 fruit)",
+    "tomato, diced (80 g)"
+   ],
+   "ingredients": "lean ground beef, cooked 180 g, iceberg lettuce leaves 6 leaves, avocado, diced 1/2 fruit, tomato, diced 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AD-253",
+   "name": "Turkey burger patty, roasted asparagus & olive oil",
+   "mealType": "dinner",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "turkey burger patty, grilled (180 g)",
+    "asparagus, roasted (150 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "turkey burger patty, grilled 180 g, asparagus, roasted 150 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  }
+ ]
+}

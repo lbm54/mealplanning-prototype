@@ -1,0 +1,1570 @@
+{
+ "batch": "A-01",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AB-001",
+   "name": "Steel-cut oats with peanut butter & blueberries",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "steel-cut oats, cooked (60 g dry)",
+    "peanut butter (1 tbsp)",
+    "blueberries (100 g)"
+   ],
+   "ingredients": "steel-cut oats, cooked 60 g dry, peanut butter 1 tbsp, blueberries 100 g",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-002",
+   "name": "Oatmeal with banana, maple syrup & oat milk",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + sauce + drink",
+   "components": [
+    "rolled oats, cooked in oat milk (70 g dry)",
+    "banana (1 medium)",
+    "maple syrup (1 tsp)",
+    "orange juice, glass (200 ml)"
+   ],
+   "ingredients": "rolled oats, cooked in oat milk 70 g dry, banana 1 medium, maple syrup 1 tsp, orange juice, glass 200 ml",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-003",
+   "name": "Overnight oats, plain",
+   "mealType": "breakfast",
+   "pattern": "starch",
+   "components": [
+    "rolled oats soaked overnight in milk (60 g dry)"
+   ],
+   "ingredients": "rolled oats soaked overnight in milk 60 g dry",
+   "prep": "5 min (prepped night before)"
+  },
+  {
+   "id": "AB-004",
+   "name": "Gluten-free oats with almond butter",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "gluten-free oats, cooked (60 g dry)",
+    "almond butter (1 tbsp)"
+   ],
+   "ingredients": "gluten-free oats, cooked 60 g dry, almond butter 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-005",
+   "name": "Oatmeal, egg whites, raisins & soy milk",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + fruit",
+   "components": [
+    "steel-cut oats, cooked in soy milk (70 g dry)",
+    "egg whites, cooked (3)",
+    "raisins (30 g)"
+   ],
+   "ingredients": "steel-cut oats, cooked in soy milk 70 g dry, egg whites, cooked 3, raisins 30 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-006",
+   "name": "Cream of Wheat with fruit",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit",
+   "components": [
+    "cream of wheat / farina, cooked (200 g)",
+    "banana, sliced (1 medium)"
+   ],
+   "ingredients": "cream of wheat / farina, cooked 200 g, banana, sliced 1 medium",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-007",
+   "name": "Oats, bread, orange & black coffee (training-day plate)",
+   "mealType": "breakfast",
+   "pattern": "starch + starch + fruit + drink",
+   "components": [
+    "rolled oats, cooked (65 g dry)",
+    "bread (1 slice)",
+    "orange (1 medium)",
+    "black coffee (1 cup)"
+   ],
+   "ingredients": "rolled oats, cooked 65 g dry, bread 1 slice, orange 1 medium, black coffee 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-008",
+   "name": "Bircher-style oats with peach, cherries & coconut",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fruit + other",
+   "components": [
+    "oats soaked overnight in coconut water (60 g dry)",
+    "cherries (80 g)",
+    "peach, sliced (1 small)",
+    "desiccated coconut (1 tbsp)"
+   ],
+   "ingredients": "oats soaked overnight in coconut water 60 g dry, cherries 80 g, peach, sliced 1 small, desiccated coconut 1 tbsp",
+   "prep": "5 min (prepped night before)"
+  },
+  {
+   "id": "AB-009",
+   "name": "High-protein oatmeal with berries & Greek yogurt",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + dairy",
+   "components": [
+    "rolled oats, cooked (60 g dry)",
+    "mixed berries (100 g)",
+    "Greek yogurt (150 g)"
+   ],
+   "ingredients": "rolled oats, cooked 60 g dry, mixed berries 100 g, Greek yogurt 150 g",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-010",
+   "name": "Porridge with brown sugar & chia",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce + other",
+   "components": [
+    "rolled oats, cooked (60 g dry)",
+    "brown sugar (1 tsp)",
+    "chia seeds (1 tbsp)"
+   ],
+   "ingredients": "rolled oats, cooked 60 g dry, brown sugar 1 tsp, chia seeds 1 tbsp",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-011",
+   "name": "Oatmeal with nuts (20g protein target)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "rolled oats, cooked in milk (1 cup milk)",
+    "mixed nuts, chopped (60 g (¼ cup))"
+   ],
+   "ingredients": "rolled oats, cooked in milk 1 cup milk, mixed nuts, chopped 60 g (¼ cup)",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-012",
+   "name": "Buckwheat porridge with dried apricots",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit",
+   "components": [
+    "buckwheat groats, cooked (60 g dry)",
+    "dried apricots, chopped (30 g)"
+   ],
+   "ingredients": "buckwheat groats, cooked 60 g dry, dried apricots, chopped 30 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-013",
+   "name": "Toast with peanut butter & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + sauce",
+   "components": [
+    "wholemeal toast (2 slices)",
+    "peanut butter (1 tbsp)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "wholemeal toast 2 slices, peanut butter 1 tbsp, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-014",
+   "name": "Gluten-free cinnamon-raisin toast with peanut butter",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "gluten-free cinnamon-raisin bread, toasted (2-3 slices)",
+    "peanut butter (1-2 tbsp)"
+   ],
+   "ingredients": "gluten-free cinnamon-raisin bread, toasted 2-3 slices, peanut butter 1-2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-015",
+   "name": "Toast with almond butter & coffee",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + drink",
+   "components": [
+    "toast (2 slices)",
+    "almond butter (1 tbsp)",
+    "coffee (1 cup)"
+   ],
+   "ingredients": "toast 2 slices, almond butter 1 tbsp, coffee 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-016",
+   "name": "Nut butter on toast",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "toast (2 slices)",
+    "nut butter (almond or cashew) (2 tbsp)"
+   ],
+   "ingredients": "toast 2 slices, nut butter (almond or cashew) 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-017",
+   "name": "Two toasts: jerky-topped & jam-topped, with black coffee",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + starch + sauce + drink",
+   "components": [
+    "toast (1 slice)",
+    "beef jerky or cured ham (30 g)",
+    "toast (1 slice)",
+    "jam (1 tbsp)",
+    "black coffee, double (1 cup)"
+   ],
+   "ingredients": "toast 1 slice, beef jerky or cured ham 30 g, toast 1 slice, jam 1 tbsp, black coffee, double 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-018",
+   "name": "Sourdough toast with eggs & jam",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "sourdough toast (2 slices)",
+    "eggs, fried or scrambled (2)",
+    "jam (1 tsp)"
+   ],
+   "ingredients": "sourdough toast 2 slices, eggs, fried or scrambled 2, jam 1 tsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-019",
+   "name": "Toast with jam or honey & a banana",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce + fruit",
+   "components": [
+    "toast (2 slices)",
+    "jam or honey (1 tbsp)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "toast 2 slices, jam or honey 1 tbsp, banana 1 medium",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-020",
+   "name": "Quick slice of toast with banana & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + sauce",
+   "components": [
+    "toast (1 slice)",
+    "banana, sliced (1 medium)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "toast 1 slice, banana, sliced 1 medium, honey 1 tsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-021",
+   "name": "Bagel with light cream cheese & jam",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + sauce",
+   "components": [
+    "bagel (1)",
+    "light cream cheese (1 tbsp)",
+    "jam (1 tbsp)"
+   ],
+   "ingredients": "bagel 1, light cream cheese 1 tbsp, jam 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-022",
+   "name": "English muffin with peanut butter",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "english muffin, toasted (1)",
+    "peanut butter (1-2 tbsp)"
+   ],
+   "ingredients": "english muffin, toasted 1, peanut butter 1-2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-023",
+   "name": "Toast with butter & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + sauce",
+   "components": [
+    "toast (2 slices)",
+    "butter (1 tsp)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "toast 2 slices, butter 1 tsp, honey 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-024",
+   "name": "Avocado, toast, cheddar/feta & poached eggs",
+   "mealType": "breakfast",
+   "pattern": "fat + starch + dairy + protein",
+   "components": [
+    "avocado (1 whole, smashed)",
+    "toast (3 slices)",
+    "cheddar & feta cheese (40 g)",
+    "eggs, poached (2)"
+   ],
+   "ingredients": "avocado 1 whole, smashed, toast 3 slices, cheddar & feta cheese 40 g, eggs, poached 2",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-025",
+   "name": "Eggs, avocado & tomato on toast",
+   "mealType": "breakfast",
+   "pattern": "protein + fat + veg + starch",
+   "components": [
+    "eggs, cooked (2)",
+    "avocado (½)",
+    "tomato, sliced (1 small)",
+    "bread, toasted (2 slices)"
+   ],
+   "ingredients": "eggs, cooked 2, avocado ½, tomato, sliced 1 small, bread, toasted 2 slices",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-026",
+   "name": "Bread with avocado & eggs",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + protein",
+   "components": [
+    "bread (2 slices)",
+    "avocado (½)",
+    "eggs, cooked (2)"
+   ],
+   "ingredients": "bread 2 slices, avocado ½, eggs, cooked 2",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-027",
+   "name": "Bread with avocado, yogurt & oatmeal (hard-day breakfast)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + dairy + starch",
+   "components": [
+    "bread (2 slices)",
+    "avocado (½)",
+    "yogurt (150 g)",
+    "oats, cooked (40 g dry)"
+   ],
+   "ingredients": "bread 2 slices, avocado ½, yogurt 150 g, oats, cooked 40 g dry",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-028",
+   "name": "Egg sandwich with mayo & mustard",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + sauce",
+   "components": [
+    "egg, fried or boiled (1)",
+    "white bread (2 slices)",
+    "mayonnaise (1 tsp)",
+    "mustard (1 tsp)"
+   ],
+   "ingredients": "egg, fried or boiled 1, white bread 2 slices, mayonnaise 1 tsp, mustard 1 tsp",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-029",
+   "name": "Bagel with egg, ham & cheese",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein + dairy",
+   "components": [
+    "bagel (1)",
+    "egg, fried (1)",
+    "ham (30 g)",
+    "cheese slice (1)"
+   ],
+   "ingredients": "bagel 1, egg, fried 1, ham 30 g, cheese slice 1",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-030",
+   "name": "Low-sugar cereal with milk & fruit",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "cereal (Cheerios/Chex/Kix) (60 g)",
+    "milk (200 ml)",
+    "fruit, sliced (1 serving)"
+   ],
+   "ingredients": "cereal (Cheerios/Chex/Kix) 60 g, milk 200 ml, fruit, sliced 1 serving",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-031",
+   "name": "Granola cereal with milk (long-race breakfast)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy",
+   "components": [
+    "granola (70 g)",
+    "milk (200 ml)"
+   ],
+   "ingredients": "granola 70 g, milk 200 ml",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-032",
+   "name": "Low-fibre cereal with apple juice (no milk)",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "cornflakes (60 g)",
+    "apple juice, clear (200 ml)"
+   ],
+   "ingredients": "cornflakes 60 g, apple juice, clear 200 ml",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-033",
+   "name": "Gorilla Munch cereal with almond milk & an energy bar",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + other",
+   "components": [
+    "corn puff cereal (Gorilla Munch) (60 g)",
+    "almond milk (200 ml)",
+    "energy bar (Picky Bar) (1)"
+   ],
+   "ingredients": "corn puff cereal (Gorilla Munch) 60 g, almond milk 200 ml, energy bar (Picky Bar) 1",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-034",
+   "name": "Aussie Crunch cereal with milk, plus Nutella toast",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + starch",
+   "components": [
+    "Aussie Crunch cereal (60 g)",
+    "milk (200 ml)",
+    "toast with Nutella (1 slice)"
+   ],
+   "ingredients": "Aussie Crunch cereal 60 g, milk 200 ml, toast with Nutella 1 slice",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-035",
+   "name": "Fruit Loops / Lucky Charms with milk, coffee & a banana",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + drink + fruit",
+   "components": [
+    "sweetened cereal (Fruit Loops/Lucky Charms) (60 g)",
+    "milk (200 ml)",
+    "coffee (1 cup)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "sweetened cereal (Fruit Loops/Lucky Charms) 60 g, milk 200 ml, coffee 1 cup, banana 1 medium",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-036",
+   "name": "Rice cereal with orange juice",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "rice cereal (Rice Krispies) (50 g)",
+    "orange juice (200 ml)"
+   ],
+   "ingredients": "rice cereal (Rice Krispies) 50 g, orange juice 200 ml",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-037",
+   "name": "Yogurt & granola",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch",
+   "components": [
+    "yogurt (200 g)",
+    "granola (50 g)"
+   ],
+   "ingredients": "yogurt 200 g, granola 50 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-038",
+   "name": "Greek yogurt, chia & mixed nuts",
+   "mealType": "breakfast",
+   "pattern": "dairy + other + fat",
+   "components": [
+    "Greek yogurt (200 g)",
+    "chia seeds (1 tbsp)",
+    "mixed nuts (20 g)"
+   ],
+   "ingredients": "Greek yogurt 200 g, chia seeds 1 tbsp, mixed nuts 20 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-039",
+   "name": "Cottage cheese with pineapple",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit",
+   "components": [
+    "cottage cheese (150 g)",
+    "pineapple, chunks (100 g)"
+   ],
+   "ingredients": "cottage cheese 150 g, pineapple, chunks 100 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-040",
+   "name": "Smoothie bowl with oats, coconut & bee pollen",
+   "mealType": "breakfast",
+   "pattern": "fruit + starch + other + other",
+   "components": [
+    "berry-banana-date smoothie base (1 bowl)",
+    "rolled oats (2 tbsp)",
+    "coconut flakes (1 tbsp)",
+    "bee pollen (1 tsp)"
+   ],
+   "ingredients": "berry-banana-date smoothie base 1 bowl, rolled oats 2 tbsp, coconut flakes 1 tbsp, bee pollen 1 tsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-041",
+   "name": "Egg, bread & protein shake",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + drink",
+   "components": [
+    "egg, cooked (2)",
+    "white bread (1 slice)",
+    "protein shake (1 serving)"
+   ],
+   "ingredients": "egg, cooked 2, white bread 1 slice, protein shake 1 serving",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-042",
+   "name": "Omelet with cheese & ham",
+   "mealType": "breakfast",
+   "pattern": "protein + dairy + protein",
+   "components": [
+    "eggs, whisked into omelet (2)",
+    "American cheese (2 slices)",
+    "ham (40 g)"
+   ],
+   "ingredients": "eggs, whisked into omelet 2, American cheese 2 slices, ham 40 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-043",
+   "name": "Scrambled eggs with fried potatoes",
+   "mealType": "breakfast",
+   "pattern": "protein + starch",
+   "components": [
+    "eggs, scrambled (2)",
+    "potatoes, diced & fried (150 g)"
+   ],
+   "ingredients": "eggs, scrambled 2, potatoes, diced & fried 150 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-044",
+   "name": "Smoked salmon omelette with mascarpone",
+   "mealType": "breakfast",
+   "pattern": "protein + protein + dairy",
+   "components": [
+    "eggs, whisked into omelette (3)",
+    "smoked salmon (50 g)",
+    "mascarpone cheese (1 tbsp)"
+   ],
+   "ingredients": "eggs, whisked into omelette 3, smoked salmon 50 g, mascarpone cheese 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-045",
+   "name": "Hard-boiled eggs with cheddar cheese",
+   "mealType": "breakfast",
+   "pattern": "protein + dairy",
+   "components": [
+    "eggs, hard-boiled (2)",
+    "cheddar cheese (30 g)"
+   ],
+   "ingredients": "eggs, hard-boiled 2, cheddar cheese 30 g",
+   "prep": "10 min (can prep ahead)"
+  },
+  {
+   "id": "AB-046",
+   "name": "Rice, scrambled eggs, turkey & orange (race-day plate)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein + fruit + fruit",
+   "components": [
+    "white rice, cooked (150 g)",
+    "eggs, scrambled (2)",
+    "turkey, sliced (50 g)",
+    "orange (1)",
+    "banana (1)"
+   ],
+   "ingredients": "white rice, cooked 150 g, eggs, scrambled 2, turkey, sliced 50 g, orange 1, banana 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-047",
+   "name": "Rice, egg & jamón bites with maple syrup",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein + sauce",
+   "components": [
+    "paella rice, cooked (150 g)",
+    "eggs, scrambled through rice (2)",
+    "jamón serrano (cured ham) (40 g)",
+    "maple syrup (1 tsp, drizzled)"
+   ],
+   "ingredients": "paella rice, cooked 150 g, eggs, scrambled through rice 2, jamón serrano (cured ham) 40 g, maple syrup 1 tsp, drizzled",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-048",
+   "name": "Breakfast bowl: rice, eggs & greens",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (180 g)",
+    "eggs, fried (2)",
+    "leafy greens, sautéed (80 g)"
+   ],
+   "ingredients": "white rice, cooked 180 g, eggs, fried 2, leafy greens, sautéed 80 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-049",
+   "name": "Toast, eggs & fruit (classic runner combo)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + fruit",
+   "components": [
+    "toast (2 slices)",
+    "eggs, cooked to preference (2)",
+    "fruit, sliced (1 serving)"
+   ],
+   "ingredients": "toast 2 slices, eggs, cooked to preference 2, fruit, sliced 1 serving",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-050",
+   "name": "Bagel with cream cheese & smoked salmon",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + protein",
+   "components": [
+    "bagel (1)",
+    "cream cheese (2 tbsp)",
+    "smoked salmon (60 g)"
+   ],
+   "ingredients": "bagel 1, cream cheese 2 tbsp, smoked salmon 60 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-051",
+   "name": "English breakfast plate: eggs, beans on toast & tomato",
+   "mealType": "breakfast",
+   "pattern": "protein + protein + starch + veg",
+   "components": [
+    "eggs, fried (2)",
+    "baked beans (150 g)",
+    "toast (2 slices)",
+    "grilled tomato (1)"
+   ],
+   "ingredients": "eggs, fried 2, baked beans 150 g, toast 2 slices, grilled tomato 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-052",
+   "name": "Two-bowl porridge with 2-4 eggs (team-camp breakfast)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + protein",
+   "components": [
+    "porridge (oats), cooked (1-2 bowls)",
+    "blueberries (80 g)",
+    "eggs, cooked (2-4)"
+   ],
+   "ingredients": "porridge (oats), cooked 1-2 bowls, blueberries 80 g, eggs, cooked 2-4",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-053",
+   "name": "Eggs & turkey bacon on toast",
+   "mealType": "breakfast",
+   "pattern": "protein + protein + starch",
+   "components": [
+    "eggs, cooked (2)",
+    "turkey bacon, cooked (3 strips)",
+    "toast (2 slices)"
+   ],
+   "ingredients": "eggs, cooked 2, turkey bacon, cooked 3 strips, toast 2 slices",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-054",
+   "name": "Egg & cheese on English muffin",
+   "mealType": "breakfast",
+   "pattern": "protein + dairy + starch",
+   "components": [
+    "egg, fried (1)",
+    "cheese slice (1)",
+    "english muffin (1)"
+   ],
+   "ingredients": "egg, fried 1, cheese slice 1, english muffin 1",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-055",
+   "name": "White rice with fructose & jam",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce",
+   "components": [
+    "white rice, cooked (150 g)",
+    "jam (2 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 150 g, jam 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-056",
+   "name": "Semolina porridge with jam",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce",
+   "components": [
+    "semolina, cooked (200 g)",
+    "jam (1 tbsp)"
+   ],
+   "ingredients": "semolina, cooked 200 g, jam 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-057",
+   "name": "Rice pudding with cinnamon",
+   "mealType": "breakfast",
+   "pattern": "starch + other",
+   "components": [
+    "white rice, cooked in milk (180 g)",
+    "cinnamon (pinch)"
+   ],
+   "ingredients": "white rice, cooked in milk 180 g, cinnamon pinch",
+   "prep": "10 min (or prepped overnight)"
+  },
+  {
+   "id": "AB-058",
+   "name": "Banana, oat & blueberry protein smoothie",
+   "mealType": "breakfast",
+   "pattern": "fruit + starch + fruit + protein + fat",
+   "components": [
+    "banana (1)",
+    "quick oats (20 g)",
+    "blueberries (60 g)",
+    "protein powder (⅓ scoop)",
+    "peanut butter (1 tbsp)"
+   ],
+   "ingredients": "banana 1, quick oats 20 g, blueberries 60 g, protein powder ⅓ scoop, peanut butter 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-059",
+   "name": "Spinach, banana, strawberry & peanut butter smoothie",
+   "mealType": "breakfast",
+   "pattern": "veg + fruit + fruit + drink + fat + protein",
+   "components": [
+    "spinach (1 handful)",
+    "banana (1)",
+    "strawberries (80 g)",
+    "almond milk (250 ml)",
+    "peanut butter (1 tbsp)",
+    "protein powder (1 scoop)"
+   ],
+   "ingredients": "spinach 1 handful, banana 1, strawberries 80 g, almond milk 250 ml, peanut butter 1 tbsp, protein powder 1 scoop",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-060",
+   "name": "Almond, strawberry & banana smoothie",
+   "mealType": "breakfast",
+   "pattern": "drink + fat + fruit + fruit + sauce",
+   "components": [
+    "almond milk (250 ml)",
+    "almond butter (1 tbsp)",
+    "strawberries (80 g)",
+    "banana (1)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "almond milk 250 ml, almond butter 1 tbsp, strawberries 80 g, banana 1, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-061",
+   "name": "Green smoothie with oat milk & protein",
+   "mealType": "breakfast",
+   "pattern": "veg + fruit + drink + protein",
+   "components": [
+    "spinach or kale (1 handful)",
+    "banana (1)",
+    "oat milk (250 ml)",
+    "protein powder (1 scoop)"
+   ],
+   "ingredients": "spinach or kale 1 handful, banana 1, oat milk 250 ml, protein powder 1 scoop",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-062",
+   "name": "PB&J rice cakes",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + sauce",
+   "components": [
+    "rice cakes (3)",
+    "peanut butter (2 tbsp)",
+    "jam (1 tbsp)"
+   ],
+   "ingredients": "rice cakes 3, peanut butter 2 tbsp, jam 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-063",
+   "name": "White bread & jam",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce",
+   "components": [
+    "white bread (3 slices)",
+    "jam (2 tbsp)"
+   ],
+   "ingredients": "white bread 3 slices, jam 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-064",
+   "name": "Jelly donut",
+   "mealType": "breakfast",
+   "pattern": "starch",
+   "components": [
+    "jelly donut (1-2)"
+   ],
+   "ingredients": "jelly donut 1-2",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-065",
+   "name": "Fruit Pop-Tarts",
+   "mealType": "breakfast",
+   "pattern": "starch",
+   "components": [
+    "fruit Pop-Tarts (2)"
+   ],
+   "ingredients": "fruit Pop-Tarts 2",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-066",
+   "name": "Soft pretzel with fruit juice",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "soft pretzel (1)",
+    "fruit juice (250 ml)"
+   ],
+   "ingredients": "soft pretzel 1, fruit juice 250 ml",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-067",
+   "name": "Saltine crackers with clear juice",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "saltine crackers (10)",
+    "clear fruit juice (250 ml)"
+   ],
+   "ingredients": "saltine crackers 10, clear fruit juice 250 ml",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-068",
+   "name": "Instant mashed potato, plain",
+   "mealType": "breakfast",
+   "pattern": "starch",
+   "components": [
+    "instant mashed potato (200 g prepared)"
+   ],
+   "ingredients": "instant mashed potato 200 g prepared",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-069",
+   "name": "Broth with toast",
+   "mealType": "breakfast",
+   "pattern": "drink + starch",
+   "components": [
+    "low-fat broth (1 cup)",
+    "toast (2 slices)"
+   ],
+   "ingredients": "low-fat broth 1 cup, toast 2 slices",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-070",
+   "name": "Wafer cookies",
+   "mealType": "breakfast",
+   "pattern": "starch",
+   "components": [
+    "wafer cookies (no butter cream) (6-8)"
+   ],
+   "ingredients": "wafer cookies (no butter cream) 6-8",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-071",
+   "name": "Energy bar, whole",
+   "mealType": "breakfast",
+   "pattern": "other",
+   "components": [
+    "energy/breakfast bar (1-2)"
+   ],
+   "ingredients": "energy/breakfast bar 1-2",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-072",
+   "name": "Banana with an energy gel",
+   "mealType": "breakfast",
+   "pattern": "fruit + other",
+   "components": [
+    "banana (1)",
+    "energy gel (1)"
+   ],
+   "ingredients": "banana 1, energy gel 1",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-073",
+   "name": "Dry cereal, straight from the box, with coffee",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "dry cereal, low-sugar (40 g)",
+    "coffee (1 cup)"
+   ],
+   "ingredients": "dry cereal, low-sugar 40 g, coffee 1 cup",
+   "prep": "1 min"
+  },
+  {
+   "id": "AB-074",
+   "name": "Bran & sesame granola with oats",
+   "mealType": "breakfast",
+   "pattern": "starch + other + fat + dairy",
+   "components": [
+    "oats (50 g)",
+    "toasted sesame seeds (1 tbsp)",
+    "walnuts, chopped (20 g)",
+    "milk (150 ml)"
+   ],
+   "ingredients": "oats 50 g, toasted sesame seeds 1 tbsp, walnuts, chopped 20 g, milk 150 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-075",
+   "name": "Honey granola with dried fruit & coconut",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + other + dairy",
+   "components": [
+    "oats-based honey granola (70 g)",
+    "dried fruit mix (30 g)",
+    "coconut flakes (1 tbsp)",
+    "milk (200 ml)"
+   ],
+   "ingredients": "oats-based honey granola 70 g, dried fruit mix 30 g, coconut flakes 1 tbsp, milk 200 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-076",
+   "name": "Oatmeal with maple syrup, oat milk & fruit juice on the side",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce + drink",
+   "components": [
+    "rolled oats, cooked in oat milk (65 g dry)",
+    "maple syrup (1 tbsp)",
+    "fruit juice, glass (200 ml)"
+   ],
+   "ingredients": "rolled oats, cooked in oat milk 65 g dry, maple syrup 1 tbsp, fruit juice, glass 200 ml",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-077",
+   "name": "Toast with jam, banana & orange juice",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce + fruit + drink",
+   "components": [
+    "toast (2 slices)",
+    "jam (1 tbsp)",
+    "banana (1)",
+    "orange juice (200 ml)"
+   ],
+   "ingredients": "toast 2 slices, jam 1 tbsp, banana 1, orange juice 200 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-078",
+   "name": "Congee with pickled vegetables",
+   "mealType": "breakfast",
+   "pattern": "starch + veg",
+   "components": [
+    "congee (rice porridge) (300 g)",
+    "pickled vegetables (40 g)"
+   ],
+   "ingredients": "congee (rice porridge) 300 g, pickled vegetables 40 g",
+   "prep": "20 min (or reheated)"
+  },
+  {
+   "id": "AB-079",
+   "name": "Oat & seed porridge with pumpkin seeds",
+   "mealType": "breakfast",
+   "pattern": "starch + other + other",
+   "components": [
+    "rolled oats, cooked (60 g dry)",
+    "pumpkin seeds (1 tbsp)",
+    "sunflower seeds (1 tbsp)"
+   ],
+   "ingredients": "rolled oats, cooked 60 g dry, pumpkin seeds 1 tbsp, sunflower seeds 1 tbsp",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-080",
+   "name": "Toast with tahini & sliced banana",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "toast (2 slices)",
+    "tahini (1 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "toast 2 slices, tahini 1 tbsp, banana, sliced 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-081",
+   "name": "Muesli with milk & apple",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "muesli (70 g)",
+    "milk (200 ml)",
+    "apple, grated (1 small)"
+   ],
+   "ingredients": "muesli 70 g, milk 200 ml, apple, grated 1 small",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-082",
+   "name": "Toast with cream cheese & cucumber",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + veg",
+   "components": [
+    "toast (2 slices)",
+    "cream cheese (2 tbsp)",
+    "cucumber, sliced (½)"
+   ],
+   "ingredients": "toast 2 slices, cream cheese 2 tbsp, cucumber, sliced ½",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-083",
+   "name": "Overnight oats with protein powder & cinnamon",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + other",
+   "components": [
+    "rolled oats, soaked overnight in milk (60 g dry)",
+    "protein powder (1 scoop)",
+    "cinnamon (pinch)"
+   ],
+   "ingredients": "rolled oats, soaked overnight in milk 60 g dry, protein powder 1 scoop, cinnamon pinch",
+   "prep": "5 min (prepped night before)"
+  },
+  {
+   "id": "AB-084",
+   "name": "Overnight oats with cocoa & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + other + fruit",
+   "components": [
+    "rolled oats, soaked overnight in milk (60 g dry)",
+    "cocoa powder (1 tsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "rolled oats, soaked overnight in milk 60 g dry, cocoa powder 1 tsp, banana, sliced 1",
+   "prep": "5 min (prepped night before)"
+  },
+  {
+   "id": "AB-085",
+   "name": "Bagel with almond butter & sliced apple",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "bagel (1)",
+    "almond butter (1-2 tbsp)",
+    "apple, sliced (1 small)"
+   ],
+   "ingredients": "bagel 1, almond butter 1-2 tbsp, apple, sliced 1 small",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-086",
+   "name": "Toast with honey & sliced strawberries",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce + fruit",
+   "components": [
+    "toast (2 slices)",
+    "honey (1 tbsp)",
+    "strawberries, sliced (80 g)"
+   ],
+   "ingredients": "toast 2 slices, honey 1 tbsp, strawberries, sliced 80 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-087",
+   "name": "Rice cakes with peanut butter & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "rice cakes (3)",
+    "peanut butter (2 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "rice cakes 3, peanut butter 2 tbsp, banana, sliced 1",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-088",
+   "name": "Boiled eggs, toast & orange juice",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + drink",
+   "components": [
+    "eggs, boiled (2)",
+    "toast (2 slices)",
+    "orange juice (200 ml)"
+   ],
+   "ingredients": "eggs, boiled 2, toast 2 slices, orange juice 200 ml",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-089",
+   "name": "Greek yogurt with honey, pecans & dates",
+   "mealType": "breakfast",
+   "pattern": "dairy + sauce + fat + fruit",
+   "components": [
+    "Greek yogurt (200 g)",
+    "honey (1 tbsp)",
+    "pecans, chopped (20 g)",
+    "dates, chopped (2)"
+   ],
+   "ingredients": "Greek yogurt 200 g, honey 1 tbsp, pecans, chopped 20 g, dates, chopped 2",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-090",
+   "name": "Toast with mashed avocado & poached egg",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + protein",
+   "components": [
+    "whole-grain toast (2 slices)",
+    "avocado, mashed (½)",
+    "egg, poached (1)"
+   ],
+   "ingredients": "whole-grain toast 2 slices, avocado, mashed ½, egg, poached 1",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-091",
+   "name": "Cereal with milk & sliced strawberries",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "low-sugar cereal (60 g)",
+    "milk (200 ml)",
+    "strawberries, sliced (100 g)"
+   ],
+   "ingredients": "low-sugar cereal 60 g, milk 200 ml, strawberries, sliced 100 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-092",
+   "name": "Toast with peanut butter & sliced apple",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "toast (2 slices)",
+    "peanut butter (1-2 tbsp)",
+    "apple, sliced (1 small)"
+   ],
+   "ingredients": "toast 2 slices, peanut butter 1-2 tbsp, apple, sliced 1 small",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-093",
+   "name": "Cottage cheese with berries & honey",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit + sauce",
+   "components": [
+    "cottage cheese (150 g)",
+    "mixed berries (100 g)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "cottage cheese 150 g, mixed berries 100 g, honey 1 tsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-094",
+   "name": "Muesli with yogurt & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "muesli (60 g)",
+    "yogurt (150 g)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "muesli 60 g, yogurt 150 g, banana, sliced 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-095",
+   "name": "Toast with scrambled eggs & spinach",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "toast (2 slices)",
+    "eggs, scrambled (2)",
+    "spinach, wilted (50 g)"
+   ],
+   "ingredients": "toast 2 slices, eggs, scrambled 2, spinach, wilted 50 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-096",
+   "name": "Plain porridge with stewed pear",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit",
+   "components": [
+    "rolled oats, cooked (60 g dry)",
+    "pear, stewed (1 small)"
+   ],
+   "ingredients": "rolled oats, cooked 60 g dry, pear, stewed 1 small",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-097",
+   "name": "Toast with Nutella & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce + fruit",
+   "components": [
+    "toast (2 slices)",
+    "chocolate-hazelnut spread (1 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "toast 2 slices, chocolate-hazelnut spread 1 tbsp, banana, sliced 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-098",
+   "name": "Boiled potatoes with fried eggs & bread",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + starch",
+   "components": [
+    "potatoes, boiled (200 g)",
+    "eggs, fried (2)",
+    "bread (1 slice)"
+   ],
+   "ingredients": "potatoes, boiled 200 g, eggs, fried 2, bread 1 slice",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-099",
+   "name": "Overnight oats with peanut butter & cacao nibs",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + other",
+   "components": [
+    "rolled oats, soaked overnight in milk (60 g dry)",
+    "peanut butter (1 tbsp)",
+    "cacao nibs (1 tsp)"
+   ],
+   "ingredients": "rolled oats, soaked overnight in milk 60 g dry, peanut butter 1 tbsp, cacao nibs 1 tsp",
+   "prep": "5 min (prepped night before)"
+  },
+  {
+   "id": "AB-100",
+   "name": "Yogurt, granola & sliced peach",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "yogurt (200 g)",
+    "granola (40 g)",
+    "peach, sliced (1)"
+   ],
+   "ingredients": "yogurt 200 g, granola 40 g, peach, sliced 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-101",
+   "name": "Green smoothie with berries (Rich Roll's daily start)",
+   "mealType": "breakfast",
+   "pattern": "veg + fruit + drink",
+   "components": [
+    "spinach or kale (2 cups)",
+    "banana (1)",
+    "mixed blackberries/blueberries (1/2 cup)",
+    "coconut water (300 ml)"
+   ],
+   "ingredients": "spinach or kale 2 cups, banana 1, mixed blackberries/blueberries 1/2 cup, coconut water 300 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-102",
+   "name": "Cold quinoa with berries & coconut milk (Rich Roll's cereal swap)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + dairy",
+   "components": [
+    "quinoa, cooked & chilled (200 g)",
+    "mixed berries (100 g)",
+    "coconut milk (100 ml)"
+   ],
+   "ingredients": "quinoa, cooked & chilled 200 g, mixed berries 100 g, coconut milk 100 ml",
+   "prep": "3 min (quinoa pre-cooked)"
+  },
+  {
+   "id": "AB-103",
+   "name": "Gluten-free toast with almond butter (Rich Roll's go-to)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "almond butter (2 tbsp)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, almond butter 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-104",
+   "name": "Avocado on gluten-free toast (Rich Roll)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "avocado (1)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, avocado 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-105",
+   "name": "Green smoothie with pineapple, mango & pea protein (Scott Jurek)",
+   "mealType": "breakfast",
+   "pattern": "veg + fruit + starch + protein",
+   "components": [
+    "mixed greens or barley grass (2 cups)",
+    "banana (1)",
+    "frozen pineapple & mango (1 cup)",
+    "mixed berries (1/2 cup)",
+    "cooked brown rice (1/2 cup)",
+    "pea protein powder (1 scoop)"
+   ],
+   "ingredients": "mixed greens or barley grass 2 cups, banana 1, frozen pineapple & mango 1 cup, mixed berries 1/2 cup, cooked brown rice 1/2 cup, pea protein powder 1 scoop",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-106",
+   "name": "Sprouted-grain toast with nut butter (Scott Jurek)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "sprouted whole-grain bread, toasted (2 slices)",
+    "almond butter (2 tbsp)"
+   ],
+   "ingredients": "sprouted whole-grain bread, toasted 2 slices, almond butter 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-107",
+   "name": "Sprouted multigrain porridge (Scott Jurek)",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "sprouted multigrain cereal, cooked as porridge (80 g dry)",
+    "water or plant milk (300 ml)"
+   ],
+   "ingredients": "sprouted multigrain cereal, cooked as porridge 80 g dry, water or plant milk 300 ml",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-108",
+   "name": "Ultra Power Smoothie (Scott Jurek, peak training)",
+   "mealType": "breakfast",
+   "pattern": "protein + fruit",
+   "components": [
+    "soaked almonds (1/4 cup)",
+    "dates (3)",
+    "banana (1)",
+    "blueberries (1/2 cup)",
+    "vegan protein powder (1 scoop)"
+   ],
+   "ingredients": "soaked almonds 1/4 cup, dates 3, banana 1, blueberries 1/2 cup, vegan protein powder 1 scoop",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-109",
+   "name": "Soy yogurt with hemp protein & banana (Scott Jurek)",
+   "mealType": "breakfast",
+   "pattern": "dairy + protein + fruit",
+   "components": [
+    "soy or coconut yogurt (200 g)",
+    "hemp protein powder (2 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "soy or coconut yogurt 200 g, hemp protein powder 2 tbsp, banana 1",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-110",
+   "name": "JUST Egg on toast (Scott Jurek)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein",
+   "components": [
+    "toast (2 slices)",
+    "JUST Egg (mung-bean egg substitute), folded (1 serving)"
+   ],
+   "ingredients": "toast 2 slices, JUST Egg (mung-bean egg substitute), folded 1 serving",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-111",
+   "name": "Dried dates & pine nuts (Fiona Oakes race-day carry)",
+   "mealType": "breakfast",
+   "pattern": "fruit + fat + other",
+   "components": [
+    "dried dates (6)",
+    "pine nuts (30 g)",
+    "flapjack bar (1)"
+   ],
+   "ingredients": "dried dates 6, pine nuts 30 g, flapjack bar 1",
+   "prep": "0 min (pre-packed)"
+  },
+  {
+   "id": "AB-112",
+   "name": "Daily green smoothie (Matt Frazier / No Meat Athlete)",
+   "mealType": "breakfast",
+   "pattern": "fruit + veg + fat",
+   "components": [
+    "mixed frozen berries (2 handfuls)",
+    "banana (1)",
+    "spinach (2 handfuls)",
+    "walnuts (1/3 cup)",
+    "ground flaxseed (2 tbsp)"
+   ],
+   "ingredients": "mixed frozen berries 2 handfuls, banana 1, spinach 2 handfuls, walnuts 1/3 cup, ground flaxseed 2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-113",
+   "name": "Bagel with hummus or nut butter (No Meat Athlete)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "whole wheat bagel or English muffin (1)",
+    "hummus or nut butter (2 tbsp)"
+   ],
+   "ingredients": "whole wheat bagel or English muffin 1, hummus or nut butter 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-114",
+   "name": "Berry-mango-kale smoothie (Matt Frazier, maintenance training)",
+   "mealType": "breakfast",
+   "pattern": "fruit + veg + fat",
+   "components": [
+    "banana (1)",
+    "frozen berries (1 cup)",
+    "frozen mango (1/2 cup)",
+    "kale (1 cup)",
+    "ground flaxseed & walnuts (2 tbsp)"
+   ],
+   "ingredients": "banana 1, frozen berries 1 cup, frozen mango 1/2 cup, kale 1 cup, ground flaxseed & walnuts 2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-115",
+   "name": "Oatmeal with flax, seeds & soy milk (No Meat Athlete)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fat + dairy",
+   "components": [
+    "rolled oats (1 cup cooked)",
+    "mixed berries (1/2 cup)",
+    "banana (1/2)",
+    "ground flaxseed (1 tbsp)",
+    "pumpkin or sunflower seeds (1 tbsp)",
+    "soy milk (1/2 cup)"
+   ],
+   "ingredients": "rolled oats 1 cup cooked, mixed berries 1/2 cup, banana 1/2, ground flaxseed 1 tbsp, pumpkin or sunflower seeds 1 tbsp, soy milk 1/2 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-116",
+   "name": "Marathon-training smoothie (No Meat Athlete Marathon Roadmap)",
+   "mealType": "breakfast",
+   "pattern": "fruit + drink + protein + fat",
+   "components": [
+    "banana (1)",
+    "strawberries (1 cup)",
+    "almond-cashew milk (1.5 cups)",
+    "hemp protein powder (1 scoop)",
+    "sunflower seed butter (1 tbsp)"
+   ],
+   "ingredients": "banana 1, strawberries 1 cup, almond-cashew milk 1.5 cups, hemp protein powder 1 scoop, sunflower seed butter 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-117",
+   "name": "Overnight oats with vegan yogurt, fruit & granola (No Meat Athlete, post-run)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit + other",
+   "components": [
+    "rolled oats, soaked overnight (1/2 cup)",
+    "vegan yogurt (1/2 cup)",
+    "fresh fruit (1/2 cup)",
+    "granola (1/4 cup)"
+   ],
+   "ingredients": "rolled oats, soaked overnight 1/2 cup, vegan yogurt 1/2 cup, fresh fruit 1/2 cup, granola 1/4 cup",
+   "prep": "5 min (prepped ahead)"
+  },
+  {
+   "id": "AB-118",
+   "name": "Oatmeal with banana, blueberries & brown sugar (Heather McDougall)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + dairy",
+   "components": [
+    "rolled oats, cooked (1 cup)",
+    "banana (1)",
+    "blueberries (1/2 cup)",
+    "brown sugar (1 tsp)",
+    "plant milk (1/2 cup)"
+   ],
+   "ingredients": "rolled oats, cooked 1 cup, banana 1, blueberries 1/2 cup, brown sugar 1 tsp, plant milk 1/2 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-119",
+   "name": "Hash browns with salsa (Heather McDougall)",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce",
+   "components": [
+    "hash browns, pan-cooked oil-free (200 g)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "hash browns, pan-cooked oil-free 200 g, salsa 3 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-120",
+   "name": "Fruit bowl breakfast (Robert Cheeke)",
+   "mealType": "breakfast",
+   "pattern": "fruit + fruit + fruit",
+   "components": [
+    "banana (1)",
+    "raspberries (1/2 cup)",
+    "blueberries (1/2 cup)",
+    "grapes (1/2 cup)",
+    "applesauce (1/2 cup)"
+   ],
+   "ingredients": "banana 1, raspberries 1/2 cup, blueberries 1/2 cup, grapes 1/2 cup, applesauce 1/2 cup",
+   "prep": "5 min"
+  }
+ ]
+}

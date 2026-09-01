@@ -1,0 +1,212 @@
+{
+ "batch": "R-06",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "D-027",
+   "name": "Bibimbap (rice, bulgogi beef, veg & fried egg)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "cooked rice 250g, bulgogi beef 150g, spinach 50g, carrot 50g, bean sprouts 50g, egg 1, gochujang 1 tbsp, sesame oil 1 tsp",
+   "prep": "30 min",
+   "prepMinutes": 30,
+   "attribution": "recipe developed as a post-training recovery dinner by Katie Kirk, two-time Commonwealth Games athlete — Fast Running https://fastrunning.com/nutrition/recipes/korean-rice-bowl-bibimbap-by-katie-kirk/8434",
+   "sourceUrl": "https://fastrunning.com/nutrition/recipes/korean-rice-bowl-bibimbap-by-katie-kirk/8434",
+   "cachedPages": [
+    {
+     "url": "https://fastrunning.com/nutrition/recipes/korean-rice-bowl-bibimbap-by-katie-kirk/8434",
+     "title": "Korean Rice Bowl (Bibimbap) by Katie Kirk | Fast Running",
+     "ok": true,
+     "textFile": ".cache/source-pages/386c1cf8b83739c9ce8176d0899c8f196efa0081.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-028",
+   "name": "Hainan-style poached chicken & jasmine rice with cucumber",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "chicken breast 180g, jasmine rice 90g dry cooked in the poaching broth, cucumber 80g, ginger, scallion greens, salt",
+   "prep": "30 min",
+   "prepMinutes": 30,
+   "attribution": "commonly reported gut-friendly race-week dinner pattern aligned with Kate Scarlata RDN low-FODMAP athlete guidance and the Frontiers in Nutrition FODMAP/endurance review",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-030",
+   "name": "Käsespätzle with side salad",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "spätzle 250g cooked, Emmental 70g, fried onions 2 tbsp, mixed salad 100g, vinaigrette 1 tbsp (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "classic South German/Swiss carb-load dinner, commonly reported as a training-camp and cycling-club staple in German-speaking Europe",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-031",
+   "name": "Mushroom risotto with parmesan",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "arborio rice 120g dry, mushrooms 150g, vegetable stock 500ml, parmesan 25g, butter 1 tsp, onion ½ (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "classic Italian pro-cycling team-hotel carb source, commonly reported in \"what pros eat\" team-chef features; trigirl.co.uk GF/DF list (\"risotto with chicken or prawns, no cheese\")",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-032",
+   "name": "Chickpea & vegetable tagine with couscous",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chickpeas 200g canned, carrot 1, courgette 1, dried apricots 30g, chopped tomatoes 200g, ras el hanout 1 tsp, couscous 90g dry (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "commonly reported North African plant-based batch dinner in endurance-nutrition \"global cuisine\" content",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-034",
+   "name": "Red lentil dal with basmati rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "red lentils 120g dry, basmati rice 90g dry, onion 1, garlic 2 cloves, turmeric 1 tsp, cumin 1 tsp, tomato 1, spinach 100g (makes 4)",
+   "prep": "batch — 30 min, 4 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "everyday Indian household staple and reported base diet of Indian marathoners (Indian running-community nutrition features); The Pretty Bee top-9-free plan (slow-cooker lentil curry); nutritional.asia \"Endurance Fuel with Asian Foods\"",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-035",
+   "name": "Chana masala with basmati rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chickpeas 250g canned, onion 1, chopped tomatoes 200g, garlic 2 cloves, ginger 1 tbsp, garam masala 2 tsp, basmati rice 90g dry (makes 4)",
+   "prep": "batch — 25 min, 4 servings, freezes well",
+   "prepMinutes": 25,
+   "attribution": "commonly reported plant-based endurance-athlete staple — ZONE3 \"Vegan recipes for triathletes\" https://zone3.com/blogs/inside-zone3/vegan-recipes-for-triathletes ; Taryn Richardson, Dietitian Approved \"Eat Plants, Train Hard\"",
+   "sourceUrl": "https://zone3.com/blogs/inside-zone3/vegan-recipes-for-triathletes",
+   "cachedPages": [
+    {
+     "url": "https://zone3.com/blogs/inside-zone3/vegan-recipes-for-triathletes",
+     "title": "Vegan recipes for triathletes | ZONE3",
+     "ok": true,
+     "textFile": ".cache/source-pages/3ba0c4e78121c76fe3525ba9e2c23f30198507ab.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-036",
+   "name": "Paneer & vegetable curry with rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "paneer 150g, mixed vegetables 200g, onion 1, chopped tomatoes 200g, curry spices 2 tsp, basmati rice 90g dry (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "common lacto-vegetarian endurance-athlete dinner across South Asian vegetarian sports-nutrition content and 220triathlon.com vegetarian guides",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-037",
+   "name": "Chicken tikka masala with basmati rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken breast 200g, tomato sauce 200g, yogurt 2 tbsp, garam masala 2 tsp, garlic, ginger, basmati rice 90g dry (makes 4)",
+   "prep": "batch — 35 min, 4–6 servings, freezes well",
+   "prepMinutes": 35,
+   "attribution": "commonly reported UK-endurance-athlete \"curry night\" staple (220triathlon/tri247 readership); runtothefinish.com GF meal plan (tikka masala)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-038",
+   "name": "Thai green curry chicken with jasmine rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken thigh 180g, green curry paste 2 tbsp, coconut milk 150ml, green beans and pepper 150g, fish sauce 1 tsp, jasmine rice 90g dry (makes 4)",
+   "prep": "batch — 25 min, 4 servings, sauce freezes",
+   "prepMinutes": 25,
+   "attribution": "commonly reported weeknight favourite among endurance athletes for its carb+protein+fat balance (GCN/GTN \"what pros eat\" style content); r/MealPrepSunday triathlete prep (beef with Thai curry sauce over rice)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-039",
+   "name": "Sushi selection with tamari & pickled ginger",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "sushi rolls 10–12 pieces (salmon, tuna, cucumber, avocado), tamari 1 tbsp, pickled ginger, edamame 80g",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "trigirl.co.uk GF/DF triathlete main-meal list (\"Sushi selection, 6-8 pieces\"), sized up for an athlete",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-040",
+   "name": "Tacos de pollo with rice & black beans",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "corn tortillas 4, grilled chicken breast 150g, black beans 100g, white rice 75g dry, salsa, lime, avocado ¼ (makes 4)",
+   "prep": "batch — chicken, beans and rice ahead, 4 servings",
+   "prepMinutes": null,
+   "attribution": "everyday Mexican/Latin-American plate, commonly reported in \"what triathletes eat\" threads; The Pretty Bee top-9-free plan (turkey tacos, corn tortillas)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-041",
+   "name": "Shrimp tacos with cabbage slaw",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "shrimp 200g, cumin 1 tsp, chilli powder 1 tsp, corn tortillas 4, cabbage slaw 150g, avocado ½, lime, plain yogurt 2 tbsp",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "pro triathlete Beth Gerdes' weeknight rotation — ESPNW \"What Athletes Eat\" https://www.espn.com/espnw/life-style/article/15447798/what-athletes-eat-triathlete-beth-gerdes-training-friendly-shrimp-tacos",
+   "sourceUrl": "https://www.espn.com/espnw/life-style/article/15447798/what-athletes-eat-triathlete-beth-gerdes-training-friendly-shrimp-tacos",
+   "cachedPages": [
+    {
+     "url": "https://www.espn.com/espnw/life-style/article/15447798/what-athletes-eat-triathlete-beth-gerdes-training-friendly-shrimp-tacos",
+     "title": null,
+     "ok": true,
+     "textFile": ".cache/source-pages/9d0bf0c9105a08455cc01d1a66d29d59f240cd10.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-042",
+   "name": "Chicken fajitas with peppers, onions & tortillas",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken breast 170g sliced, fajita seasoning 1 tbsp, bell peppers 2, onion 1, flour tortillas 3, salsa, side salad (makes 4)",
+   "prep": "batch — chicken and peppers ahead, 4 servings",
+   "prepMinutes": null,
+   "attribution": "Jonny Brownlee's dinner rotation (alternates with meatballs and pasta) — 220triathlon.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  }
+ ]
+}

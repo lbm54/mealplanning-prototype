@@ -1,0 +1,268 @@
+{
+ "batch": "R-11",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "L-011",
+   "name": "Rice, black beans, guac & hot sauce",
+   "mealType": "lunch",
+   "cuisine": "mexican",
+   "servings": 5,
+   "ingredients": "brown rice 200g cooked (or half quinoa), black beans 1 cup, guacamole 3 tbsp, salsa 2 tbsp, hot sauce, nutritional yeast 1 tbsp (makes 5)",
+   "prep": "batch — 30 min, 5 servings",
+   "prepMinutes": 30,
+   "attribution": "Rich Roll's \"One Bowl\", The Plantpower Way (https://www.livekindly.com/what-vegan-ultra-endurance-athlete-rich-roll-eats/); Sangamon on TrainerRoad forum, weekly Sunday-prep work lunch (https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/5)",
+   "sourceUrl": "https://www.livekindly.com/what-vegan-ultra-endurance-athlete-rich-roll-eats/",
+   "cachedPages": [
+    {
+     "url": "https://www.livekindly.com/what-vegan-ultra-endurance-athlete-rich-roll-eats/",
+     "title": "What Vegan Ultra-Endurance Athlete Rich Roll Eats in a Day",
+     "ok": true,
+     "textFile": ".cache/source-pages/ea89314229a43a638331892814fb60766dfafc2f.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/5",
+     "title": "What do you eat during any given day?",
+     "ok": true,
+     "textFile": ".cache/source-pages/76e7a30ff8c8621b53f3ede6e54d32ac8fa5b165.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-012",
+   "name": "Rice, black beans & roasted plantain",
+   "mealType": "lunch",
+   "cuisine": "colombian",
+   "servings": 4,
+   "ingredients": "white rice 200g cooked, black or red beans 1 cup, ripe plantain 1 roasted, avocado 1/4, lime, coriander (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "the everyday plate of Latin American and Colombian cyclists, commonly reported as the cultural food base of the Bernal/Quintana generation; standard rice-and-beans component lunch across allergen-safe meal-prep content",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-013",
+   "name": "Sweet potato, black bean & quinoa bowl with cumin-lime dressing",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "roasted sweet potato 200g, black beans 150g, quinoa 100g cooked, avocado 1/4, cumin-lime dressing 2 tbsp (olive oil, lime, cumin) (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Forks Over Knives \"How to Make a Buddha Bowl\" component format (https://www.forksoverknives.com/); FARE-adjacent allergen-safe athlete roundups (lentil/quinoa bowls)",
+   "sourceUrl": "https://www.forksoverknives.com/",
+   "cachedPages": [
+    {
+     "url": "https://www.forksoverknives.com/",
+     "title": "The Leader in Plant-Based Living",
+     "ok": true,
+     "textFile": ".cache/source-pages/16634d7a4bf4fcbcbf543cc223b76dc3ca2ac9f2.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-014",
+   "name": "Sweet potato, roasted tofu, veg & avocado bowl",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "sweet potato 200g roasted, firm tofu 150g roasted, mixed roasted veg 1 cup, avocado 1/2, tamari 1 tbsp (makes 4)",
+   "prep": "batch — 35 min, 4 servings",
+   "prepMinutes": 35,
+   "attribution": "r/veganfitness \"Full day of eating on a Vegan Diet\", u/ConsciouslivwithALI (707 pts) (https://old.reddit.com/r/veganfitness/); tempeh stir-fry from 220 Triathlon \"best vegan recipes for triathletes\" (https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes)",
+   "sourceUrl": "https://old.reddit.com/r/veganfitness/",
+   "cachedPages": [
+    {
+     "url": "https://old.reddit.com/r/veganfitness/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/6d17c3af93e2542614e60c5b1298e56a8f3fce82.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes",
+     "title": "Best vegan recipes for triathletes | 220 Triathlon",
+     "ok": true,
+     "textFile": ".cache/source-pages/93abbf48ac8adf8cce6142ddd53a4b412abecd8e.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-016",
+   "name": "Bibimbap — rice, namul veg, beef & fried egg with gochujang",
+   "mealType": "lunch",
+   "cuisine": "korean",
+   "servings": 4,
+   "ingredients": "white rice 250g cooked, sautéed spinach, carrot, bean sprouts, mushroom 200g total, lean beef strips 120g, fried egg 1, gochujang 1 tbsp, sesame oil 1 tsp (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Korean national dish (https://en.wikipedia.org/wiki/Bibimbap); bibimbap called out as holding up well as a make-ahead bento lunch (https://www.jansfoodsteps.com/simple-korean-bibimbap-bento-lunch-box-recipe/)",
+   "sourceUrl": "https://en.wikipedia.org/wiki/Bibimbap",
+   "cachedPages": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Bibimbap",
+     "title": "Bibimbap - Wikipedia",
+     "ok": true,
+     "textFile": ".cache/source-pages/d8ace3ddf8f5e28d9273bee923ef7462b7c41db4.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.jansfoodsteps.com/simple-korean-bibimbap-bento-lunch-box-recipe/",
+     "title": "Simple Korean Bibimbap Bento Lunch Box Recipe | Jan's Food Steps",
+     "ok": true,
+     "textFile": ".cache/source-pages/6dffc63fb017ddd6938de8d00c11afd87218500a.txt",
+     "schemaRecipeNames": [
+      "Simple Korean Bibimbap Recipe",
+      "Simple Korean Bibimbap Recipe"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L-017",
+   "name": "Soba noodles, baked tofu & edamame with sesame-ginger dressing",
+   "mealType": "lunch",
+   "cuisine": "japanese",
+   "servings": 4,
+   "ingredients": "soba noodles 100g dry, baked tofu 150g, edamame 1/2 cup, shredded carrot and cabbage, spring onion, sesame-ginger-tamari dressing 3 tbsp (makes 4)",
+   "prep": "batch — 20 min, 4 servings",
+   "prepMinutes": 20,
+   "attribution": "common vegan endurance-athlete packed lunch across greenletes.com and r/veganfitness meal-prep content; 220 Triathlon vegan recipes (https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes)",
+   "sourceUrl": "https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes",
+   "cachedPages": [
+    {
+     "url": "https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes",
+     "title": "Best vegan recipes for triathletes | 220 Triathlon",
+     "ok": true,
+     "textFile": ".cache/source-pages/93abbf48ac8adf8cce6142ddd53a4b412abecd8e.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-018",
+   "name": "Chicken, rice vermicelli & herbs with lime-ginger dressing",
+   "mealType": "lunch",
+   "cuisine": "vietnamese",
+   "servings": 4,
+   "ingredients": "poached chicken 150g shredded, rice vermicelli 100g dry, shredded carrot, cucumber, mint, coriander, dressing: lime 1, ginger, olive oil 1 tbsp, salt (makes 4)",
+   "prep": "batch — 20 min, 4 servings",
+   "prepMinutes": 20,
+   "attribution": "standard nut-free version of the Vietnamese noodle salad, widely reported as a warm-weather training lunch (community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-019",
+   "name": "Rice-paper rolls with shrimp, vermicelli & veg",
+   "mealType": "lunch",
+   "cuisine": "vietnamese",
+   "servings": 1,
+   "ingredients": "rice paper wrappers 6, cooked shrimp 120g, rice vermicelli 60g, carrot and cucumber julienne, lettuce, mint, tamari-lime dip 2 tbsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "rice-paper and rice-vermicelli cited as naturally GF carb bases across GF endurance-athlete guidance; nut-allergy blogs' standard \"skip the peanut sauce\" swap (commonly reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-020",
+   "name": "Beef & broccoli stir-fry with rice",
+   "mealType": "lunch",
+   "cuisine": "chinese",
+   "servings": 4,
+   "ingredients": "beef strips 150g, broccoli 1.5 cups, garlic, ginger, tamari 2 tbsp, jasmine rice 180g cooked (makes 4)",
+   "prep": "batch — 20 min, 4 servings",
+   "prepMinutes": 20,
+   "attribution": "stir-fry-with-rice is the most common dinner-to-lunch carry-over reported in triathlete meal-prep guides; T_Field on TrainerRoad forum (leftover shrimp stir-fry) (https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/15)",
+   "sourceUrl": "https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/15",
+   "cachedPages": [
+    {
+     "url": "https://www.trainerroad.com/forum/t/what-do-you-eat-during-any-given-day/19629/15",
+     "title": "What do you eat during any given day?",
+     "ok": true,
+     "textFile": ".cache/source-pages/3d117fb8c1004a9122144f3f47fbc34d73ac1388.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-021",
+   "name": "Egg fried rice with veg",
+   "mealType": "lunch",
+   "cuisine": "chinese",
+   "servings": 1,
+   "ingredients": "day-old rice 250g cooked, eggs 2, frozen peas/carrots 1 cup, tamari 2 tbsp, spring onion, sesame oil 1 tsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Eat For Endurance RD \"5 Easy Make-Ahead Lunch Recipes\" fried-rice bowl (https://www.eatforendurance.com/post/make-ahead-lunch-recipes); commonly cited post-long-run and carb-load meal in triathlete \"what I eat\" content",
+   "sourceUrl": "https://www.eatforendurance.com/post/make-ahead-lunch-recipes",
+   "cachedPages": [
+    {
+     "url": "https://www.eatforendurance.com/post/make-ahead-lunch-recipes",
+     "title": "5 Easy Make Ahead Lunch Recipes for Busy Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/f3bd5a53e476b65b8bc341da544429cee7e3027b.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-022",
+   "name": "Tofu & broccoli pad see ew",
+   "mealType": "lunch",
+   "cuisine": "thai",
+   "servings": 4,
+   "ingredients": "wide rice noodles 100g dry, firm tofu 150g, broccoli 1.5 cups, tamari 2 tbsp, garlic, a little sugar (makes 4)",
+   "prep": "batch — 20 min, 4 servings",
+   "prepMinutes": 20,
+   "attribution": "Thai takeout turned batch cook, widely reported among endurance athletes (community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-023",
+   "name": "Beef pho",
+   "mealType": "lunch",
+   "cuisine": "vietnamese",
+   "servings": 6,
+   "ingredients": "beef broth 500ml (batch-made), rice noodles 100g dry, thin-sliced beef 100g, bean sprouts, basil, lime, chilli (makes 6 broth)",
+   "prep": "batch — 60 min broth, 6 servings; 10 min to assemble",
+   "prepMinutes": 60,
+   "attribution": "pho widely reported as a batch-broth lunch among endurance athletes who freeze broth in portions (community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-024",
+   "name": "Dal, rice & spinach",
+   "mealType": "lunch",
+   "cuisine": "indian",
+   "servings": 6,
+   "ingredients": "red lentil dal 1.5 cups (red lentils, onion, tomato, cumin, turmeric, oil 1 tsp), basmati rice 180g cooked, sautéed spinach 1 cup (makes 6)",
+   "prep": "batch — 30 min, 6 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "widely reported endurance-athlete staple among South Asian and vegetarian/vegan runners (community-reported, r/AdvancedRunning, r/veganfitness)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-025",
+   "name": "Chana masala with rice",
+   "mealType": "lunch",
+   "cuisine": "indian",
+   "servings": 5,
+   "ingredients": "chickpeas 1.5 cups, tomato-onion masala (onion, tomato, garlic, ginger, garam masala, oil 1 tsp), basmati rice 180g cooked, coriander (makes 5)",
+   "prep": "batch — 30 min, 5 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "widely reported South Asian vegetarian/vegan endurance-athlete lunch staple (community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  }
+ ]
+}

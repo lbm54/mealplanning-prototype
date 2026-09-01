@@ -1,0 +1,220 @@
+{
+ "batch": "R-01",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "B-014",
+   "name": "Sweet rice cake with jam",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "cooked short-grain rice 200g, egg 1, milk 50ml, strawberry jam 2 tbsp, sugar 1 tsp, pinch salt (makes 4)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "Allen Lim / Feed Zone Portables sweet rice cake, EF Pro Cycling team recipe (https://efprocycling.com/tips-recipes/team-recipe-on-the-bike-rice-cakes/); \"honey on rice cakes\" as pre-ride breakfast (styrkr.com)",
+   "sourceUrl": "https://efprocycling.com/tips-recipes/team-recipe-on-the-bike-rice-cakes/",
+   "cachedPages": [
+    {
+     "url": "https://efprocycling.com/tips-recipes/team-recipe-on-the-bike-rice-cakes/",
+     "title": "Team recipe: On-the-bike rice cakes | EF Pro Cycling",
+     "ok": true,
+     "textFile": ".cache/source-pages/63d5d52500829a1232b2585503aeeea3c18008b4.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-017",
+   "name": "Quinoa porridge with berries & banana",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "quinoa 80g dry, water or oat milk 300ml, banana 1, mixed berries 80g, maple syrup 1 tbsp, cinnamon",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "Luke Mathews, age-group Ironman, 4am pre-ride breakfast (gulfnews.com \"I burn 8,000 calories\"); triathlete.com quinoa breakfast cereal",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-019",
+   "name": "Overnight rice pudding with cinnamon & berries",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 3,
+   "ingredients": "cooked white rice 200g, milk 300ml, honey 2 tbsp, cinnamon, mixed berries 80g (makes 3)",
+   "prep": "overnight",
+   "prepMinutes": 10,
+   "attribution": "reported carb-loading breakfast in Feed Zone-adjacent content and r/AdvancedRunning / r/triathlon carb-load threads (commonly reported); The Pretty Bee-style oat-free rice pudding",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-021",
+   "name": "Idli with sambar & coconut chutney",
+   "mealType": "breakfast",
+   "cuisine": "indian",
+   "servings": 4,
+   "ingredients": "idli (steamed rice-lentil cakes) 4, sambar (lentil-vegetable stew) 250ml, coconut chutney 2 tbsp (makes 4)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "South Indian breakfast staple, reported as a favoured light pre-training breakfast among Indian runners (commonly reported; https://en.wikipedia.org/wiki/Idli)",
+   "sourceUrl": "https://en.wikipedia.org/wiki/Idli",
+   "cachedPages": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Idli",
+     "title": "Idli - Wikipedia",
+     "ok": true,
+     "textFile": ".cache/source-pages/be44611c605b0d74c41b10c697fdc32fc6df474b.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-022",
+   "name": "Poha with peanuts & peas",
+   "mealType": "breakfast",
+   "cuisine": "indian",
+   "servings": 1,
+   "ingredients": "poha (flattened rice) 100g, peanuts 1 tbsp, onion ½, peas 50g, mustard seeds, curry leaves, turmeric, oil 1 tsp, lime",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "everyday North/Central Indian breakfast, commonly reported as a light pre-run breakfast in Indian running-community write-ups",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-023",
+   "name": "Upma with vegetables",
+   "mealType": "breakfast",
+   "cuisine": "indian",
+   "servings": 1,
+   "ingredients": "semolina (rava) 100g, oil 1 tbsp, mustard seeds, onion ½, carrot ½, peas 50g, green chilli, curry leaves, water 300ml",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "South Indian breakfast staple, commonly reported among Indian endurance athletes in \"what I eat\" threads",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-028",
+   "name": "Bircher muesli",
+   "mealType": "breakfast",
+   "cuisine": "swiss",
+   "servings": 1,
+   "ingredients": "rolled oats 80g, apple juice or milk 150ml, plain yogurt 150g, apple 1 grated, sultanas 20g, cinnamon, honey 1 tbsp",
+   "prep": "overnight",
+   "prepMinutes": 10,
+   "attribution": "Jonny Brownlee's winter routine, made the night before and taken to morning swim sessions (220triathlon.com); Hannah Grant, Eat Race Win, WorldTour travel-breakfast staple (https://hannahgrant.com/)",
+   "sourceUrl": "https://hannahgrant.com/",
+   "cachedPages": [
+    {
+     "url": "https://hannahgrant.com/",
+     "title": "Hannah Grant shop",
+     "ok": true,
+     "textFile": ".cache/source-pages/abe749378775f88791a19129ae0887b52c43079d.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-030",
+   "name": "High-protein overnight oats",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 5,
+   "ingredients": "rolled oats 80g, Greek yogurt 150g, milk 150ml, protein powder ½ scoop, honey 1 tbsp, berries 80g (makes 5 jars)",
+   "prep": "overnight",
+   "prepMinutes": 10,
+   "attribution": "Alex Larson RDN (alexlarsonnutrition.com); Jan Frodeno's race-day \"big bowl of overnight oats\"; Kristian Blummenfelt preps overnight oats with yogurt and nuts the day before (vo2master.com Norwegian Method interview)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-031",
+   "name": "Gluten-free pancakes with maple syrup",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 8,
+   "ingredients": "GF pancake mix 120g (or rice flour 50g + oat flour 50g), eggs 2, milk 200ml, maple syrup 3 tbsp, butter 1 tsp, banana 1 (makes 8 pancakes)",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Luke McKenzie, 6x Ironman champion — gluten-free pancakes and syrup as his go-to (active.com); Hannah Grant's GF pancakes with fruit salad for pro cycling teams (bikeradar.com Tour de France recipes)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-032",
+   "name": "Buckwheat pancakes with honey & berries",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "100% buckwheat flour 100g, eggs 2, rice milk 150ml, honey 2 tbsp, mixed berries 100g, baking powder ½ tsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "trigirl.co.uk GF/DF triathlete breakfast list (\"buckwheat pancakes with honey and berries\")",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-033",
+   "name": "Banana-oat pancakes, egg-free",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "certified GF rolled oats 100g blended to flour, banana 2 mashed, oat milk 120ml, baking powder 1 tsp, cinnamon, plant protein 1 scoop optional",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "standard flourless banana-oat pancake, widely cross-referenced in egg-free breakfast round-ups (Healthy Green Kitchen); vegan protein-pancake format from plant-based endurance content (veganeasy.org)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-034",
+   "name": "Freezer waffles with Greek yogurt & berries",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "waffle batter (flour 150g, eggs 2, buttermilk 200ml, baking powder 1 tsp — makes 6), Greek yogurt 150g, mixed berries 100g, maple syrup 2 tbsp",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "commonly reported weekend recovery breakfast among endurance athletes (marathonhandbook.com); \"waffles with eggs, OJ and toast\" post-workout in an age-group triathlete Substack (triplethreatlife.substack.com)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-035",
+   "name": "Gluten-free French toast with maple & berries",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 2,
+   "ingredients": "GF bread 3 slices, eggs 2, rice milk 100ml, cinnamon, maple syrup 2 tbsp, berries 80g, oil for the pan (makes 2)",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "runtothefinish.com gluten-free runner meal plan (\"GF French toast, freezer-friendly\"); studentathletenutrition.com GF recovery breakfast",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-037",
+   "name": "Rich Roll's green smoothie",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "kale or spinach 2 cups, beetroot 1 small, banana 2, mixed berries ½ cup, coconut water 300ml, chia 1 tbsp, hemp seeds 1 tbsp, flax 1 tbsp",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "Rich Roll, vegan ultra-endurance athlete — his standard pre-workout green smoothie (https://www.richroll.com/blog/morning-pre-race-nutrition/; livekindly.com)",
+   "sourceUrl": "https://www.richroll.com/blog/morning-pre-race-nutrition/",
+   "cachedPages": [
+    {
+     "url": "https://www.richroll.com/blog/morning-pre-race-nutrition/",
+     "title": "Morning & Pre-Race Nutrition",
+     "ok": true,
+     "textFile": ".cache/source-pages/db43bdfe236ae58d05493aeac47852bb9e61a33a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

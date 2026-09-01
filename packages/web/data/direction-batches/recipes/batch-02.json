@@ -1,0 +1,244 @@
+{
+ "batch": "R-02",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "B-038",
+   "name": "Scott Jurek's blueberry smoothie",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "banana 1, frozen blueberries 1 cup, soaked almonds ¼ cup, dates 2, vegan protein 1 scoop, flax or omega oil 1 tbsp, pinch salt, water 300ml",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "Scott Jurek, Eat & Run — his training smoothie during Western States/Badwater prep (https://runningmagazine.ca/health-nutrition/nutrition-get-real-whole-foods-for-runners/)",
+   "sourceUrl": "https://runningmagazine.ca/health-nutrition/nutrition-get-real-whole-foods-for-runners/",
+   "cachedPages": [
+    {
+     "url": "https://runningmagazine.ca/health-nutrition/nutrition-get-real-whole-foods-for-runners/",
+     "title": "Scott Jurek talks whole foods for runners - Canadian Running Magazine",
+     "ok": true,
+     "textFile": ".cache/source-pages/a7a5c92b636e3ee8a05a8ff2a26da46c8b01ced5.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-039",
+   "name": "Smoothie bowl with hemp seeds & seed granola",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "frozen banana 2, frozen berries 100g, oat milk 150ml, hemp seeds 3 tbsp, seed-based GF granola 40g, sliced fruit to top",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "commonly reported recovery-breakfast format (220triathlon.com energy-breakfast recipes); hemp as a soy-free, nut-free complete protein (Sunwarrior)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-040",
+   "name": "Açaí bowl with banana & granola",
+   "mealType": "breakfast",
+   "cuisine": "brazilian",
+   "servings": 1,
+   "ingredients": "frozen açaí packs 2 (200g), banana 2 (1 blended, 1 sliced), guaraná syrup or honey 1 tbsp, seed-based GF granola 40g",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "Brazilian everyday breakfast/post-training staple, commonly reported among Brazilian triathletes and surfers (frozen açaí packs are sold in most supermarkets)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-046",
+   "name": "Avocado toast with chilli & lime",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "wholegrain or sourdough toast 2 slices, avocado 1, lime, chilli flakes, sea salt, olive oil drizzle",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "commonly reported athlete rest-day breakfast (marathonhandbook.com); r/cycling pre-ride pantry list",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-047",
+   "name": "Chickpea & avocado toast",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "wholegrain toast 2 slices, chickpeas 150g mashed, avocado ½, lemon, chilli flakes, olive oil 1 tsp, salt",
+   "prep": "5 min",
+   "prepMinutes": 5,
+   "attribution": "eatthis.com \"28 High-Protein Breakfast Recipes Without Eggs\" — eggless avocado toast with chickpeas",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-050",
+   "name": "Greek yogurt, granola & berries jar",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 5,
+   "ingredients": "Greek yogurt 250g, granola 60g, mixed berries 100g, honey 1 tbsp (makes 5 jars)",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "Fuelin post-workout Greek yogurt bowl (fuelin.com); the 13-year desk-worker post-swim staple on r/triathlon; \"best performances off Greek yogurt and coffee\" on r/AdvancedRunning; Taylor Knibb's daily oats + Greek yogurt (tri247.com)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-052",
+   "name": "Coconut yogurt with seed granola & mango",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "coconut yogurt 250g, certified GF seed-based granola 50g, mango 120g, chia 1 tbsp, maple syrup 1 tsp",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "The Pretty Bee top-9-allergen-free meal plan, Day 2 (https://theprettybee.com/top-9-allergen-free-meal-plan/); trigirl.co.uk GF/DF breakfasts",
+   "sourceUrl": "https://theprettybee.com/top-9-allergen-free-meal-plan/",
+   "cachedPages": [
+    {
+     "url": "https://theprettybee.com/top-9-allergen-free-meal-plan/",
+     "title": "Top 9 Allergen Free Meal Plan.",
+     "ok": true,
+     "textFile": ".cache/source-pages/fca025c3d31c1aaffdffa0515162ab9636ef0862.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-053",
+   "name": "Amaranth bowl with berries & seeds",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "amaranth 70g dry, water 250ml, mixed berries 100g, chia 1 tbsp, hemp seeds 2 tbsp, pumpkin seeds 1 tbsp, maple syrup 1 tbsp",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "r/veganfitness meal breakdown (https://old.reddit.com/r/veganfitness/); commonly reported",
+   "sourceUrl": "https://old.reddit.com/r/veganfitness/",
+   "cachedPages": [
+    {
+     "url": "https://old.reddit.com/r/veganfitness/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/6d17c3af93e2542614e60c5b1298e56a8f3fce82.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-054",
+   "name": "Superhero muffins",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "almond meal 200g, rolled oats 60g, walnuts 60g, currants 60g, eggs 3, grated zucchini 1 cup, grated carrot 1 cup, butter 4 tbsp, maple syrup ½ cup, cinnamon (makes 12; 2 muffins + a banana per serving)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "Shalane Flanagan & Elyse Kopecky, Run Fast Eat Slow — the cookbook's signature recipe (https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/)",
+   "sourceUrl": "https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/",
+   "cachedPages": [
+    {
+     "url": "https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/",
+     "title": "Shalane Flanagan’s “Superhero” Muffin Recipe",
+     "ok": true,
+     "textFile": ".cache/source-pages/bc7506d285a937293c3fdf96e2f64e13298fa670.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-055",
+   "name": "Chia pudding with mango",
+   "mealType": "breakfast",
+   "cuisine": "general",
+   "servings": 3,
+   "ingredients": "chia seeds 40g, coconut or oat milk 300ml, mango 120g, maple syrup 1 tbsp, vanilla (makes 3)",
+   "prep": "overnight",
+   "prepMinutes": 10,
+   "attribution": "The Pretty Bee top-9-allergen-free meal plan; staple no-cook breakfast in vegan-athlete meal-prep guides (Great Vegan Athletes)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-057",
+   "name": "Savoury oats with fried egg & avocado",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "rolled oats 70g, chicken or veg stock 300ml, fried egg 1, avocado ¼, olive oil 1 tsp, everything-bagel seasoning, hot sauce",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Stephanie Howe PhD, Western States champion and sports nutritionist (https://www.outsideonline.com/health/nutrition/oatmeal-recipe-stephanie-howe-runner/); Bob Seebohar's savoury lower-glycemic easy-day breakfast approach",
+   "sourceUrl": "https://www.outsideonline.com/health/nutrition/oatmeal-recipe-stephanie-howe-runner/",
+   "cachedPages": [
+    {
+     "url": "https://www.outsideonline.com/health/nutrition/oatmeal-recipe-stephanie-howe-runner/",
+     "title": "Upgrade Your Oatmeal Like a Pro Athlete",
+     "ok": true,
+     "textFile": ".cache/source-pages/86412ec5dd1d61f82b431714d5f85b92cf29dbf3.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-059",
+   "name": "Mushroom & spinach omelette with orange juice",
+   "mealType": "breakfast",
+   "cuisine": "british",
+   "servings": 1,
+   "ingredients": "eggs 3, mushrooms 80g, spinach handful, olive oil 1 tsp, salt, orange juice 250ml",
+   "prep": "10 min",
+   "prepMinutes": 10,
+   "attribution": "r/triathlon \"What's your go-to breakfast before a race?\" OP, 112-comment thread; Henrik Orre's Team Sky ham & cheese omelette (https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success)",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+     "title": "Team Sky Recipes for cycling success",
+     "ok": true,
+     "textFile": ".cache/source-pages/0f0cdb295d10107e137b9bda530aeec6ce24bb7a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "B-060",
+   "name": "Shakshuka with bread",
+   "mealType": "breakfast",
+   "cuisine": "middle-eastern",
+   "servings": 4,
+   "ingredients": "eggs 3, tinned tomatoes 400g, onion ½, red pepper ½, garlic, cumin 1 tsp, paprika 1 tsp, feta 30g, olive oil 1 tbsp, crusty bread 2 slices (sauce makes 4)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "commonly eaten North African/Middle Eastern breakfast in Mediterranean-diet athlete plans (nutritionheartbeat.com); make the sauce Sunday, poach eggs fresh",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "B-061",
+   "name": "Sausage & spinach egg muffins",
+   "mealType": "breakfast",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "eggs 8, breakfast sausage 150g cooked and crumbled, spinach 1 cup, salt, pepper (makes 12; 3 per serving)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "commonly reported keto/paleo meal-prep staple (r/ketoendurance); Sweet Potato & Kale Egg Muffins, The Paleo Diet athlete recipes (https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/)",
+   "sourceUrl": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+     "title": "Paleo Recipes for Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/d8282c2b8dc0ecbdfc92df439e27ee5ebd732c5f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1617 @@
+{
+ "batch": "A-09",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AL-226",
+   "name": "Firm tofu, rice & steamed carrots",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "firm tofu, pan-fried (150 g)",
+    "white rice, cooked (220 g)",
+    "carrots, steamed (1 cup)"
+   ],
+   "ingredients": "firm tofu, pan-fried 150 g, white rice, cooked 220 g, carrots, steamed 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-227",
+   "name": "GF toast with jam & fresh orange juice",
+   "mealType": "lunch",
+   "pattern": "starch + fruit + drink",
+   "components": [
+    "gluten-free toast (2 slices)",
+    "strawberry jam (2 tbsp)",
+    "orange juice (250 ml)"
+   ],
+   "ingredients": "gluten-free toast 2 slices, strawberry jam 2 tbsp, orange juice 250 ml",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-228",
+   "name": "Rice, chicken & courgette with olive oil (low-FODMAP travel plate)",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + fat",
+   "components": [
+    "white rice, cooked (250 g)",
+    "chicken breast, grilled (150 g)",
+    "courgette, sliced & sauteed (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 250 g, chicken breast, grilled 150 g, courgette, sliced & sauteed 1 cup, olive oil 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-229",
+   "name": "Canned tuna, rice & avocado (dairy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + fat",
+   "components": [
+    "tinned tuna in olive oil (120 g)",
+    "white rice, cooked (220 g)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "tinned tuna in olive oil 120 g, white rice, cooked 220 g, avocado 1/2",
+   "prep": "6 min"
+  },
+  {
+   "id": "AL-230",
+   "name": "Coconut yogurt, rice cakes & berries (dairy-free)",
+   "mealType": "lunch",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "coconut yogurt (200 g)",
+    "rice cakes (3)",
+    "mixed berries (1 cup)"
+   ],
+   "ingredients": "coconut yogurt 200 g, rice cakes 3, mixed berries 1 cup",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-231",
+   "name": "Chicken, rice & steamed veg with coconut aminos (dairy-free, soy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "white rice, cooked (250 g)",
+    "steamed broccoli & carrot (1.5 cups)",
+    "coconut aminos (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, white rice, cooked 250 g, steamed broccoli & carrot 1.5 cups, coconut aminos 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-232",
+   "name": "Lactose-free yogurt, GF granola & kiwifruit",
+   "mealType": "lunch",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "lactose-free yogurt (250 g)",
+    "certified GF granola (1/2 cup)",
+    "kiwifruit, sliced (2)"
+   ],
+   "ingredients": "lactose-free yogurt 250 g, certified GF granola 1/2 cup, kiwifruit, sliced 2",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-233",
+   "name": "Grilled salmon, sweet potato & spinach (dairy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon fillet, grilled (150 g)",
+    "sweet potato, roasted (200 g)",
+    "spinach, wilted (2 cups)"
+   ],
+   "ingredients": "salmon fillet, grilled 150 g, sweet potato, roasted 200 g, spinach, wilted 2 cups",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-234",
+   "name": "Chicken salad lettuce wraps (egg-free alternative to egg salad)",
+   "mealType": "lunch",
+   "pattern": "protein + fat + veg",
+   "components": [
+    "chicken breast, poached & shredded (150 g)",
+    "mayonnaise (2 tbsp)",
+    "celery, diced (1 stalk)",
+    "lettuce leaves (6)"
+   ],
+   "ingredients": "chicken breast, poached & shredded 150 g, mayonnaise 2 tbsp, celery, diced 1 stalk, lettuce leaves 6",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-235",
+   "name": "Turkey, hummus & veg wrap on GF wrap (egg-free, gluten-free)",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fat + veg",
+   "components": [
+    "GF tortilla wrap (1)",
+    "sliced turkey breast (100 g)",
+    "hummus (2 tbsp)",
+    "spinach & tomato (1 cup)"
+   ],
+   "ingredients": "GF tortilla wrap 1, sliced turkey breast 100 g, hummus 2 tbsp, spinach & tomato 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-236",
+   "name": "Tofu stir-fry with brown rice, broccoli & peppers (egg-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "firm tofu, pan-fried (150 g)",
+    "brown rice, cooked (200 g)",
+    "broccoli (1 cup)",
+    "bell peppers (1 cup)",
+    "GF soy sauce or coconut aminos (1 tbsp)"
+   ],
+   "ingredients": "firm tofu, pan-fried 150 g, brown rice, cooked 200 g, broccoli 1 cup, bell peppers 1 cup, GF soy sauce or coconut aminos 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-237",
+   "name": "Lentil salad with sun-dried tomatoes (egg-free, gluten-free)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + dairy + fat",
+   "components": [
+    "green lentils, cooked (1.5 cups)",
+    "sun-dried tomatoes (1/4 cup)",
+    "feta (40 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "green lentils, cooked 1.5 cups, sun-dried tomatoes 1/4 cup, feta 40 g, olive oil 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-238",
+   "name": "Rice cakes with sunflower seed butter & banana (nut-free)",
+   "mealType": "lunch",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "rice cakes (4)",
+    "sunflower seed butter (3 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "rice cakes 4, sunflower seed butter 3 tbsp, banana, sliced 1",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-239",
+   "name": "Turkey sandwich with sunflower seed butter swap-free of nuts",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "whole-grain bread (2 slices)",
+    "sliced turkey breast (100 g)",
+    "lettuce & tomato (1 cup)"
+   ],
+   "ingredients": "whole-grain bread 2 slices, sliced turkey breast 100 g, lettuce & tomato 1 cup",
+   "prep": "4 min"
+  },
+  {
+   "id": "AL-240",
+   "name": "Oatmeal with banana & sunflower seeds (nut-free)",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rolled oats (70 g dry)",
+    "milk (250 ml)",
+    "banana, sliced (1)",
+    "sunflower seeds (1 tbsp)"
+   ],
+   "ingredients": "rolled oats 70 g dry, milk 250 ml, banana, sliced 1, sunflower seeds 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-241",
+   "name": "Rice, black beans & avocado (naturally nut-free & multi-allergen-safe)",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "white rice, cooked (250 g)",
+    "black beans (1 cup)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "white rice, cooked 250 g, black beans 1 cup, avocado 1/2",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-242",
+   "name": "Grilled chicken, quinoa & roasted veg (multi-allergen-safe: no gluten, dairy, egg, soy, nuts)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "quinoa, cooked (150 g)",
+    "roasted courgette, pepper & carrot (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, quinoa, cooked 150 g, roasted courgette, pepper & carrot 1.5 cups, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-243",
+   "name": "Grilled chicken, sauteed asparagus & apple",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat + fruit",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "asparagus, sauteed (150 g)",
+    "olive oil (1 tbsp)",
+    "apple (1)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, asparagus, sauteed 150 g, olive oil 1 tbsp, apple 1",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-244",
+   "name": "Mixed green salad, grilled chicken, avocado & grapes",
+   "mealType": "lunch",
+   "pattern": "veg + protein + fat + fruit + sauce",
+   "components": [
+    "mixed greens (3 cups)",
+    "chicken breast, grilled (150 g)",
+    "avocado (1/2)",
+    "grapes (1 cup)",
+    "olive oil-lime dressing (1 tbsp)"
+   ],
+   "ingredients": "mixed greens 3 cups, chicken breast, grilled 150 g, avocado 1/2, grapes 1 cup, olive oil-lime dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-245",
+   "name": "Sliced turkey & pear lettuce wraps",
+   "mealType": "lunch",
+   "pattern": "protein + fruit + veg",
+   "components": [
+    "sliced turkey breast (150 g)",
+    "pear, sliced (1)",
+    "lettuce leaves (6)"
+   ],
+   "ingredients": "sliced turkey breast 150 g, pear, sliced 1, lettuce leaves 6",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-246",
+   "name": "Big salad with steak & avocado (paleo/keto rest-day plate)",
+   "mealType": "lunch",
+   "pattern": "veg + protein + fat + sauce",
+   "components": [
+    "mixed greens & raw veg (3 cups)",
+    "sirloin steak, grilled (180 g)",
+    "avocado (1/2)",
+    "olive oil vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "mixed greens & raw veg 3 cups, sirloin steak, grilled 180 g, avocado 1/2, olive oil vinaigrette 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-247",
+   "name": "Big salad with grilled salmon & root veg",
+   "mealType": "lunch",
+   "pattern": "veg + protein + veg + sauce",
+   "components": [
+    "mixed greens (3 cups)",
+    "salmon fillet, grilled (150 g)",
+    "roasted beetroot (100 g)",
+    "olive oil vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "mixed greens 3 cups, salmon fillet, grilled 150 g, roasted beetroot 100 g, olive oil vinaigrette 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-248",
+   "name": "Stir-fry beef, broccoli & carrot (paleo, grain-free)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + veg + sauce + fat",
+   "components": [
+    "beef strips, stir-fried (180 g)",
+    "broccoli (1.5 cups)",
+    "carrot, julienned (1 cup)",
+    "coconut aminos (1 tbsp)",
+    "sesame oil (1 tsp)"
+   ],
+   "ingredients": "beef strips, stir-fried 180 g, broccoli 1.5 cups, carrot, julienned 1 cup, coconut aminos 1 tbsp, sesame oil 1 tsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-249",
+   "name": "Eggs & sauteed greens (keto rest-day plate)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "eggs, fried in butter (3)",
+    "spinach, sauteed (2 cups)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "eggs, fried in butter 3, spinach, sauteed 2 cups, avocado 1/2",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-250",
+   "name": "Steak, eggs & sauteed spinach (keto)",
+   "mealType": "lunch",
+   "pattern": "protein + protein + veg + fat",
+   "components": [
+    "sirloin steak, grilled (150 g)",
+    "eggs, fried (2)",
+    "spinach, sauteed (2 cups)",
+    "butter (1 tbsp)"
+   ],
+   "ingredients": "sirloin steak, grilled 150 g, eggs, fried 2, spinach, sauteed 2 cups, butter 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-251",
+   "name": "Ground beef, avocado & sauteed peppers (keto)",
+   "mealType": "lunch",
+   "pattern": "protein + fat + veg",
+   "components": [
+    "ground beef, cooked (180 g)",
+    "avocado (1/2)",
+    "bell peppers, sauteed (1.5 cups)"
+   ],
+   "ingredients": "ground beef, cooked 180 g, avocado 1/2, bell peppers, sauteed 1.5 cups",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-252",
+   "name": "Chicken thighs, roasted zucchini & avocado (low-carb)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "chicken thighs, roasted (180 g)",
+    "zucchini, roasted (1.5 cups)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "chicken thighs, roasted 180 g, zucchini, roasted 1.5 cups, avocado 1/2",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-253",
+   "name": "Shrimp, avocado & big salad (paleo, shellfish)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat + sauce",
+   "components": [
+    "shrimp, grilled (150 g)",
+    "mixed greens (3 cups)",
+    "avocado (1/2)",
+    "olive oil vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "shrimp, grilled 150 g, mixed greens 3 cups, avocado 1/2, olive oil vinaigrette 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-254",
+   "name": "Turkey burger patties, big salad & avocado (bunless, paleo)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "turkey burger patties, grilled (2 (180 g))",
+    "mixed greens & tomato (3 cups)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "turkey burger patties, grilled 2 (180 g), mixed greens & tomato 3 cups, avocado 1/2",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-255",
+   "name": "Roast pork, cabbage slaw & avocado (paleo)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat + sauce",
+   "components": [
+    "roast pork loin, sliced (180 g)",
+    "cabbage slaw, no dressing added sugar (1.5 cups)",
+    "avocado (1/2)",
+    "apple cider vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "roast pork loin, sliced 180 g, cabbage slaw, no dressing added sugar 1.5 cups, avocado 1/2, apple cider vinaigrette 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-256",
+   "name": "Tuna, avocado & cucumber salad (keto, no grain)",
+   "mealType": "lunch",
+   "pattern": "protein + fat + veg + sauce",
+   "components": [
+    "tinned tuna in olive oil (150 g)",
+    "avocado (1/2)",
+    "cucumber, diced (1)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "tinned tuna in olive oil 150 g, avocado 1/2, cucumber, diced 1, olive oil-lemon dressing 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-257",
+   "name": "Roast chicken, big salad, olives & avocado (Mediterranean-paleo)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat + fat + fat",
+   "components": [
+    "roast chicken, shredded (150 g)",
+    "mixed greens & tomato (3 cups)",
+    "kalamata olives (8)",
+    "avocado (1/2)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "roast chicken, shredded 150 g, mixed greens & tomato 3 cups, kalamata olives 8, avocado 1/2, olive oil 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-258",
+   "name": "Bison burger patty, big salad & avocado (paleo)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat + sauce",
+   "components": [
+    "bison patty, grilled (180 g)",
+    "mixed greens (3 cups)",
+    "avocado (1/2)",
+    "olive oil vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "bison patty, grilled 180 g, mixed greens 3 cups, avocado 1/2, olive oil vinaigrette 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-259",
+   "name": "Grilled chicken, roasted sweet potato & big salad (low-carb, not keto)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "sweet potato, roasted (150 g)",
+    "mixed greens (2 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, sweet potato, roasted 150 g, mixed greens 2 cups, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-260",
+   "name": "Baked cod, roasted veg & olive oil (low-carb, dairy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "cod fillet, baked (180 g)",
+    "roasted courgette, pepper & carrot (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "cod fillet, baked 180 g, roasted courgette, pepper & carrot 1.5 cups, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-261",
+   "name": "Lamb chops, sauteed greens & avocado (paleo)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "lamb chops, grilled (180 g)",
+    "sauteed kale & spinach (2 cups)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "lamb chops, grilled 180 g, sauteed kale & spinach 2 cups, avocado 1/2",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-262",
+   "name": "Grass-fed beef, roasted broccoli & avocado (keto)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "grass-fed ground beef, cooked (180 g)",
+    "broccoli, roasted (1.5 cups)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "grass-fed ground beef, cooked 180 g, broccoli, roasted 1.5 cups, avocado 1/2",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-263",
+   "name": "Egg & avocado salad in lettuce cups (keto, no bread)",
+   "mealType": "lunch",
+   "pattern": "protein + fat + veg",
+   "components": [
+    "eggs, hard-boiled & chopped (3)",
+    "avocado, mashed (1/2)",
+    "lettuce cups (4)",
+    "olive oil (1 tsp)"
+   ],
+   "ingredients": "eggs, hard-boiled & chopped 3, avocado, mashed 1/2, lettuce cups 4, olive oil 1 tsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-264",
+   "name": "Rotisserie chicken, big salad & pumpkin seeds (paleo, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + other + sauce",
+   "components": [
+    "rotisserie chicken, shredded (150 g)",
+    "mixed greens & tomato (3 cups)",
+    "pumpkin seeds (2 tbsp)",
+    "olive oil vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "rotisserie chicken, shredded 150 g, mixed greens & tomato 3 cups, pumpkin seeds 2 tbsp, olive oil vinaigrette 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-265",
+   "name": "Pan-seared duck breast, wilted greens & avocado (paleo)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "duck breast, pan-seared (150 g)",
+    "wilted spinach & kale (2 cups)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "duck breast, pan-seared 150 g, wilted spinach & kale 2 cups, avocado 1/2",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-266",
+   "name": "Canned salmon, avocado & big salad (keto, dairy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + fat + veg + sauce",
+   "components": [
+    "canned salmon (150 g)",
+    "avocado (1/2)",
+    "mixed greens & cucumber (3 cups)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "canned salmon 150 g, avocado 1/2, mixed greens & cucumber 3 cups, olive oil-lemon dressing 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-267",
+   "name": "Poached chicken, rice noodles & shredded veg (gluten-free, dairy-free)",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "rice vermicelli, cooked (100 g dry)",
+    "poached chicken, shredded (150 g)",
+    "shredded carrot & cucumber (1.5 cups)",
+    "lime-fish sauce dressing (2 tbsp)"
+   ],
+   "ingredients": "rice vermicelli, cooked 100 g dry, poached chicken, shredded 150 g, shredded carrot & cucumber 1.5 cups, lime-fish sauce dressing 2 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-268",
+   "name": "Grilled prawns, rice & steamed bok choy (gluten-free, dairy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "prawns, grilled (150 g)",
+    "white rice, cooked (220 g)",
+    "bok choy, steamed (1.5 cups)"
+   ],
+   "ingredients": "prawns, grilled 150 g, white rice, cooked 220 g, bok choy, steamed 1.5 cups",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-269",
+   "name": "Grilled chicken, quinoa tabbouleh-style & olive oil (gluten-free)",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "quinoa, cooked (180 g)",
+    "grilled chicken, sliced (150 g)",
+    "parsley, tomato & cucumber, chopped (1.5 cups)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 180 g, grilled chicken, sliced 150 g, parsley, tomato & cucumber, chopped 1.5 cups, olive oil-lemon dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-270",
+   "name": "Grilled shrimp, rice & steamed asparagus (gluten-free, dairy-free, shellfish)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "shrimp, grilled (150 g)",
+    "white rice, cooked (220 g)",
+    "asparagus, steamed (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "shrimp, grilled 150 g, white rice, cooked 220 g, asparagus, steamed 1.5 cups, olive oil 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-271",
+   "name": "Quinoa, chickpea & roasted pepper Buddha bowl (gluten-free, dairy-free, egg-free, nut-free)",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "quinoa, cooked (180 g)",
+    "chickpeas (1 cup)",
+    "roasted bell peppers (1 cup)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 180 g, chickpeas 1 cup, roasted bell peppers 1 cup, olive oil-lemon dressing 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-272",
+   "name": "Roasted chicken thighs, cauliflower rice & steamed green beans (keto, low-FODMAP)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken thighs, roasted (180 g)",
+    "cauliflower rice, cooked (1.5 cups)",
+    "green beans, steamed (1 cup)"
+   ],
+   "ingredients": "chicken thighs, roasted 180 g, cauliflower rice, cooked 1.5 cups, green beans, steamed 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-273",
+   "name": "Grilled halloumi-free chicken skewers, rice & cucumber-tomato salad (gluten-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken skewers, grilled (180 g)",
+    "white rice, cooked (220 g)",
+    "cucumber & tomato salad (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken skewers, grilled 180 g, white rice, cooked 220 g, cucumber & tomato salad 1.5 cups, olive oil 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-274",
+   "name": "Turkey mince lettuce cups with rice & lime (gluten-free, dairy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "turkey mince, cooked with ginger & garlic (150 g)",
+    "white rice, cooked (200 g)",
+    "lettuce cups (6)",
+    "lime wedge (1)"
+   ],
+   "ingredients": "turkey mince, cooked with ginger & garlic 150 g, white rice, cooked 200 g, lettuce cups 6, lime wedge 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-275",
+   "name": "Canned chickpeas, roasted veg & tahini (gluten-free, dairy-free, egg-free)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + sauce",
+   "components": [
+    "chickpeas (1.5 cups)",
+    "roasted courgette & pepper (1.5 cups)",
+    "tahini dressing (2 tbsp)"
+   ],
+   "ingredients": "chickpeas 1.5 cups, roasted courgette & pepper 1.5 cups, tahini dressing 2 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AL-276",
+   "name": "Chickpea & tuna salad with olive oil (gluten-free, dairy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + protein + veg + fat",
+   "components": [
+    "chickpeas (1 cup)",
+    "tinned tuna (120 g)",
+    "cherry tomatoes & red onion (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chickpeas 1 cup, tinned tuna 120 g, cherry tomatoes & red onion 1 cup, olive oil 1 tbsp",
+   "prep": "6 min"
+  },
+  {
+   "id": "AL-277",
+   "name": "Grilled chicken, roasted potato & green beans (gluten-free, dairy-free, egg-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "baby potatoes, roasted (250 g)",
+    "green beans, steamed (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, baby potatoes, roasted 250 g, green beans, steamed 1 cup, olive oil 1 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-278",
+   "name": "Baked white fish, rice & courgette (gluten-free, dairy-free, egg-free, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "white fish fillet, baked (180 g)",
+    "white rice, cooked (220 g)",
+    "courgette, sauteed (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "white fish fillet, baked 180 g, white rice, cooked 220 g, courgette, sauteed 1 cup, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-279",
+   "name": "Beef mince, rice & steamed carrots (gluten-free, dairy-free, egg-free, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "beef mince, cooked plain (150 g)",
+    "white rice, cooked (220 g)",
+    "carrots, steamed (1 cup)"
+   ],
+   "ingredients": "beef mince, cooked plain 150 g, white rice, cooked 220 g, carrots, steamed 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-280",
+   "name": "Chicken, rice & steamed spinach with lactose-free yogurt sauce (gluten-free, low-FODMAP dairy)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "white rice, cooked (220 g)",
+    "spinach, steamed (1.5 cups)",
+    "lactose-free yogurt sauce (2 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, white rice, cooked 220 g, spinach, steamed 1.5 cups, lactose-free yogurt sauce 2 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-281",
+   "name": "Grilled tofu, quinoa & roasted carrots (vegan, gluten-free, dairy-free, egg-free, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "firm tofu, grilled (150 g)",
+    "quinoa, cooked (150 g)",
+    "carrots, roasted (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "firm tofu, grilled 150 g, quinoa, cooked 150 g, carrots, roasted 1 cup, olive oil 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-282",
+   "name": "Roast chicken, GF pasta salad & pesto (gluten-free, egg-free)",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "gluten-free pasta, cooked (200 g)",
+    "roast chicken, shredded (150 g)",
+    "cherry tomatoes (1 cup)",
+    "basil pesto, dairy-free (2 tbsp)"
+   ],
+   "ingredients": "gluten-free pasta, cooked 200 g, roast chicken, shredded 150 g, cherry tomatoes 1 cup, basil pesto, dairy-free 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-283",
+   "name": "Grilled chicken, rice & pineapple salsa (low-FODMAP, gluten-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "white rice, cooked (220 g)",
+    "pineapple salsa (1/2 cup)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, white rice, cooked 220 g, pineapple salsa 1/2 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-284",
+   "name": "Salmon, rice & steamed bok choy (gluten-free, dairy-free, egg-free, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "salmon fillet, baked (150 g)",
+    "white rice, cooked (220 g)",
+    "bok choy, steamed (1.5 cups)"
+   ],
+   "ingredients": "salmon fillet, baked 150 g, white rice, cooked 220 g, bok choy, steamed 1.5 cups",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-285",
+   "name": "Turkey chili (low-FODMAP) with white rice",
+   "mealType": "lunch",
+   "pattern": "protein + veg + veg + starch",
+   "components": [
+    "turkey mince, cooked (150 g)",
+    "canned tomatoes, no onion/garlic (1 cup)",
+    "bell pepper, diced (1/2)",
+    "white rice, cooked (200 g)"
+   ],
+   "ingredients": "turkey mince, cooked 150 g, canned tomatoes, no onion/garlic 1 cup, bell pepper, diced 1/2, white rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-286",
+   "name": "Grilled chicken, rice & roasted bell peppers (gluten-free, low-FODMAP, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "white rice, cooked (220 g)",
+    "bell peppers, roasted (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, white rice, cooked 220 g, bell peppers, roasted 1.5 cups, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-287",
+   "name": "Herb-baked cod, quinoa & steamed courgette (gluten-free, dairy-free, egg-free, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "cod fillet, baked with herbs (180 g)",
+    "quinoa, cooked (150 g)",
+    "courgette, steamed (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "cod fillet, baked with herbs 180 g, quinoa, cooked 150 g, courgette, steamed 1.5 cups, olive oil 1 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-288",
+   "name": "Beef stir-fry, rice & bok choy with coconut aminos (gluten-free, soy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "beef strips, stir-fried (180 g)",
+    "white rice, cooked (220 g)",
+    "bok choy, stir-fried (1.5 cups)",
+    "coconut aminos (1 tbsp)"
+   ],
+   "ingredients": "beef strips, stir-fried 180 g, white rice, cooked 220 g, bok choy, stir-fried 1.5 cups, coconut aminos 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-289",
+   "name": "Chicken tenders (GF-breaded), rice & steamed broccoli (gluten-free, egg-free option)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken tenders, GF-breaded & baked (180 g)",
+    "white rice, cooked (220 g)",
+    "broccoli, steamed (1.5 cups)"
+   ],
+   "ingredients": "chicken tenders, GF-breaded & baked 180 g, white rice, cooked 220 g, broccoli, steamed 1.5 cups",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-290",
+   "name": "Ham, GF crackers, apple & cucumber snack-plate lunch (gluten-free, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + fruit + veg",
+   "components": [
+    "sliced ham (80 g)",
+    "GF crackers (10)",
+    "apple, sliced (1)",
+    "cucumber, sliced (1/2)"
+   ],
+   "ingredients": "sliced ham 80 g, GF crackers 10, apple, sliced 1, cucumber, sliced 1/2",
+   "prep": "3 min"
+  },
+  {
+   "id": "AL-291",
+   "name": "Egg-free chicken caesar-style salad with GF croutons (gluten-free, egg-free)",
+   "mealType": "lunch",
+   "pattern": "veg + protein + starch + dairy + sauce",
+   "components": [
+    "romaine lettuce (3 cups)",
+    "grilled chicken, sliced (150 g)",
+    "GF croutons (1/2 cup)",
+    "parmesan (2 tbsp)",
+    "egg-free caesar dressing (2 tbsp)"
+   ],
+   "ingredients": "romaine lettuce 3 cups, grilled chicken, sliced 150 g, GF croutons 1/2 cup, parmesan 2 tbsp, egg-free caesar dressing 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-292",
+   "name": "Grilled chicken, roasted sweet potato & sesame-free tahini-swap dressing (gluten-free, sesame-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + sauce",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "sweet potato, roasted (200 g)",
+    "mixed greens (2 cups)",
+    "olive oil-lemon dressing (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, sweet potato, roasted 200 g, mixed greens 2 cups, olive oil-lemon dressing 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-293",
+   "name": "Rotisserie chicken, rice & steamed green beans (gluten-free, dairy-free, egg-free, nut-free, soy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "rotisserie chicken, shredded (150 g)",
+    "white rice, cooked (220 g)",
+    "green beans, steamed (1.5 cups)"
+   ],
+   "ingredients": "rotisserie chicken, shredded 150 g, white rice, cooked 220 g, green beans, steamed 1.5 cups",
+   "prep": "5 min (store-bought chicken)"
+  },
+  {
+   "id": "AL-294",
+   "name": "Grilled chicken thighs, roasted potatoes & steamed carrots (gluten-free, dairy-free, egg-free, nut-free, soy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken thighs, grilled (180 g)",
+    "baby potatoes, roasted (250 g)",
+    "carrots, steamed (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken thighs, grilled 180 g, baby potatoes, roasted 250 g, carrots, steamed 1 cup, olive oil 1 tbsp",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-295",
+   "name": "Baked salmon, quinoa & roasted courgette (gluten-free, dairy-free, egg-free, nut-free, soy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "salmon fillet, baked (150 g)",
+    "quinoa, cooked (150 g)",
+    "courgette, roasted (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "salmon fillet, baked 150 g, quinoa, cooked 150 g, courgette, roasted 1.5 cups, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-296",
+   "name": "Beef & sweet potato hash with sauteed peppers (paleo, whole30-style)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "beef, diced & pan-fried (180 g)",
+    "sweet potato, diced & pan-fried (200 g)",
+    "bell peppers, sauteed (1 cup)"
+   ],
+   "ingredients": "beef, diced & pan-fried 180 g, sweet potato, diced & pan-fried 200 g, bell peppers, sauteed 1 cup",
+   "prep": "18 min"
+  },
+  {
+   "id": "AL-297",
+   "name": "Grilled chicken, wild rice & roasted zucchini (gluten-free, dairy-free, egg-free, nut-free, soy-free)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "wild rice, cooked (200 g)",
+    "zucchini, roasted (1.5 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, wild rice, cooked 200 g, zucchini, roasted 1.5 cups, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-298",
+   "name": "Grilled flank steak, big salad, avocado & pumpkin seeds (paleo, keto, nut-free)",
+   "mealType": "lunch",
+   "pattern": "protein + veg + fat + other + sauce",
+   "components": [
+    "flank steak, grilled (180 g)",
+    "mixed greens & tomato (3 cups)",
+    "avocado (1/2)",
+    "pumpkin seeds (2 tbsp)",
+    "olive oil vinaigrette (1 tbsp)"
+   ],
+   "ingredients": "flank steak, grilled 180 g, mixed greens & tomato 3 cups, avocado 1/2, pumpkin seeds 2 tbsp, olive oil vinaigrette 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AL-299",
+   "name": "Ugali, sukuma wiki & beef stew",
+   "mealType": "lunch",
+   "pattern": "starch + veg + protein",
+   "components": [
+    "ugali (maize meal) (300 g)",
+    "sukuma wiki (collard greens, sautéed with tomato & onion) (150 g)",
+    "beef stew (component, lean beef in tomato broth) (150 g)"
+   ],
+   "ingredients": "ugali (maize meal) 300 g, sukuma wiki (collard greens, sautéed with tomato & onion) 150 g, beef stew (component, lean beef in tomato broth) 150 g",
+   "prep": "25 min (stew ahead)"
+  },
+  {
+   "id": "AL-300",
+   "name": "Ugali, sukuma wiki & beans",
+   "mealType": "lunch",
+   "pattern": "starch + veg + protein",
+   "components": [
+    "ugali (maize meal) (300 g)",
+    "sukuma wiki (collard greens) (150 g)",
+    "cooked beans (150 g)"
+   ],
+   "ingredients": "ugali (maize meal) 300 g, sukuma wiki (collard greens) 150 g, cooked beans 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-301",
+   "name": "Chapati & beans",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "chapati (wheat flatbread) (2 pieces (~120 g))",
+    "cooked beans (stewed with tomato) (200 g)"
+   ],
+   "ingredients": "chapati (wheat flatbread) 2 pieces (~120 g), cooked beans (stewed with tomato) 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-302",
+   "name": "Rice, beef stew & greens",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (300 g)",
+    "beef stew (component) (150 g)",
+    "sukuma wiki or cabbage, sautéed (120 g)"
+   ],
+   "ingredients": "white rice, cooked 300 g, beef stew (component) 150 g, sukuma wiki or cabbage, sautéed 120 g",
+   "prep": "25 min"
+  },
+  {
+   "id": "AL-303",
+   "name": "Ugali, sukuma wiki & fried egg",
+   "mealType": "lunch",
+   "pattern": "starch + veg + protein",
+   "components": [
+    "ugali (maize meal) (250 g)",
+    "sukuma wiki (collard greens) (120 g)",
+    "fried egg (2 eggs)"
+   ],
+   "ingredients": "ugali (maize meal) 250 g, sukuma wiki (collard greens) 120 g, fried egg 2 eggs",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-304",
+   "name": "Boiled potatoes, sukuma wiki & beans",
+   "mealType": "lunch",
+   "pattern": "starch + veg + protein",
+   "components": [
+    "boiled potatoes (300 g)",
+    "sukuma wiki (collard greens) (120 g)",
+    "cooked beans (150 g)"
+   ],
+   "ingredients": "boiled potatoes 300 g, sukuma wiki (collard greens) 120 g, cooked beans 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-305",
+   "name": "Pasta, beef & sukuma wiki",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "pasta, plain, cooked (250 g)",
+    "minced beef (sautéed, unsauced) (120 g)",
+    "sukuma wiki (collard greens) (100 g)"
+   ],
+   "ingredients": "pasta, plain, cooked 250 g, minced beef (sautéed, unsauced) 120 g, sukuma wiki (collard greens) 100 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-306",
+   "name": "Ugali, terere (amaranth greens) & minced beef",
+   "mealType": "lunch",
+   "pattern": "starch + veg + protein",
+   "components": [
+    "ugali (maize meal) (280 g)",
+    "terere (amaranth greens), sautéed (120 g)",
+    "minced beef, sautéed (120 g)"
+   ],
+   "ingredients": "ugali (maize meal) 280 g, terere (amaranth greens), sautéed 120 g, minced beef, sautéed 120 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-307",
+   "name": "Injera & shiro",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "injera (teff flatbread) (1 large round (~150 g))",
+    "shiro (spiced chickpea-flour stew, component) (200 g)"
+   ],
+   "ingredients": "injera (teff flatbread) 1 large round (~150 g), shiro (spiced chickpea-flour stew, component) 200 g",
+   "prep": "10 min (shiro made ahead)"
+  },
+  {
+   "id": "AL-308",
+   "name": "Injera with gomen (collard greens)",
+   "mealType": "lunch",
+   "pattern": "starch + veg",
+   "components": [
+    "injera (teff flatbread) (1 large round (~150 g))",
+    "gomen (collard greens, sautéed with garlic & ginger) (150 g)"
+   ],
+   "ingredients": "injera (teff flatbread) 1 large round (~150 g), gomen (collard greens, sautéed with garlic & ginger) 150 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-309",
+   "name": "Potato, onion, tomato & spinach sauté with injera",
+   "mealType": "lunch",
+   "pattern": "starch + starch + veg",
+   "components": [
+    "injera (teff flatbread) (1 round (~150 g))",
+    "potato, diced & sautéed (150 g)",
+    "onion, tomato & spinach sauté (component) (150 g)"
+   ],
+   "ingredients": "injera (teff flatbread) 1 round (~150 g), potato, diced & sautéed 150 g, onion, tomato & spinach sauté (component) 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-310",
+   "name": "Injera with kitfo (seared lean beef)",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "injera (teff flatbread) (1 round (~150 g))",
+    "kitfo (finely minced lean beef, seared) (150 g)"
+   ],
+   "ingredients": "injera (teff flatbread) 1 round (~150 g), kitfo (finely minced lean beef, seared) 150 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-311",
+   "name": "Beso drink with injera",
+   "mealType": "lunch",
+   "pattern": "drink + starch",
+   "components": [
+    "beso (roasted barley flour, honey & water) (400 ml)",
+    "injera (teff flatbread) (1 round (~150 g))"
+   ],
+   "ingredients": "beso (roasted barley flour, honey & water) 400 ml, injera (teff flatbread) 1 round (~150 g)",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-312",
+   "name": "Injera with kolo (roasted barley) & boiled egg",
+   "mealType": "lunch",
+   "pattern": "starch + other + protein",
+   "components": [
+    "injera (teff flatbread) (1 round (~150 g))",
+    "kolo (roasted barley & chickpeas, component) (80 g)",
+    "boiled egg (2 eggs)"
+   ],
+   "ingredients": "injera (teff flatbread) 1 round (~150 g), kolo (roasted barley & chickpeas, component) 80 g, boiled egg 2 eggs",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-313",
+   "name": "Grilled mackerel, rice & miso soup",
+   "mealType": "lunch",
+   "pattern": "protein + starch + soup",
+   "components": [
+    "grilled mackerel (150 g)",
+    "white rice, cooked (250 g)",
+    "miso soup (component) (1 bowl (~250 ml))"
+   ],
+   "ingredients": "grilled mackerel 150 g, white rice, cooked 250 g, miso soup (component) 1 bowl (~250 ml)",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-314",
+   "name": "Grilled salmon, rice, pickled daikon & miso soup",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg + soup",
+   "components": [
+    "grilled salmon (150 g)",
+    "white rice, cooked (250 g)",
+    "pickled daikon (tsukemono) (40 g)",
+    "miso soup (component) (1 bowl)"
+   ],
+   "ingredients": "grilled salmon 150 g, white rice, cooked 250 g, pickled daikon (tsukemono) 40 g, miso soup (component) 1 bowl",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-315",
+   "name": "Onigiri, boiled egg & pickles",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "onigiri (rice ball) with umeboshi (2 pieces (~200 g))",
+    "boiled egg (1 egg)",
+    "pickled vegetables (tsukemono) (30 g)"
+   ],
+   "ingredients": "onigiri (rice ball) with umeboshi 2 pieces (~200 g), boiled egg 1 egg, pickled vegetables (tsukemono) 30 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-316",
+   "name": "Grilled sardines, rice & pickled cucumber",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "grilled sardines (150 g)",
+    "white rice, cooked (250 g)",
+    "pickled cucumber (sunomono) (50 g)"
+   ],
+   "ingredients": "grilled sardines 150 g, white rice, cooked 250 g, pickled cucumber (sunomono) 50 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-317",
+   "name": "Rice, natto & pickled plum",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other",
+   "components": [
+    "white rice, cooked (250 g)",
+    "natto (fermented soybeans) (1 pack (~50 g))",
+    "umeboshi (pickled plum) (1 piece)"
+   ],
+   "ingredients": "white rice, cooked 250 g, natto (fermented soybeans) 1 pack (~50 g), umeboshi (pickled plum) 1 piece",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-318",
+   "name": "Rice, tamagoyaki (rolled omelette) & pickled vegetables",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "tamagoyaki (rolled omelette) (2 eggs' worth)",
+    "pickled vegetables (tsukemono) (40 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, tamagoyaki (rolled omelette) 2 eggs' worth, pickled vegetables (tsukemono) 40 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-319",
+   "name": "Rice, grilled salmon, spinach ohitashi & miso soup",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + soup",
+   "components": [
+    "white rice, cooked (250 g)",
+    "grilled salmon (150 g)",
+    "spinach ohitashi (blanched spinach with dashi) (80 g)",
+    "miso soup (component) (1 bowl)"
+   ],
+   "ingredients": "white rice, cooked 250 g, grilled salmon 150 g, spinach ohitashi (blanched spinach with dashi) 80 g, miso soup (component) 1 bowl",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-320",
+   "name": "Cold soba noodles, boiled egg & nori",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other",
+   "components": [
+    "soba noodles, cold, plain (200 g)",
+    "boiled egg (1 egg)",
+    "nori (dried seaweed), shredded (1 sheet)"
+   ],
+   "ingredients": "soba noodles, cold, plain 200 g, boiled egg 1 egg, nori (dried seaweed), shredded 1 sheet",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-321",
+   "name": "Onigiri with salmon, edamame & orange",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fruit",
+   "components": [
+    "onigiri (rice ball) with grilled salmon filling (2 pieces (~220 g))",
+    "edamame, steamed & salted (100 g)",
+    "orange (1 medium)"
+   ],
+   "ingredients": "onigiri (rice ball) with grilled salmon filling 2 pieces (~220 g), edamame, steamed & salted 100 g, orange 1 medium",
+   "prep": "10 min (packable)"
+  },
+  {
+   "id": "AL-323",
+   "name": "Rice, bulgogi & kimchi",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "bulgogi (marinated grilled beef) (150 g)",
+    "kimchi (60 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, bulgogi (marinated grilled beef) 150 g, kimchi 60 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-324",
+   "name": "Rice, galbi & assorted banchan",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "galbi (grilled marinated short rib) (150 g)",
+    "assorted banchan (seasoned vegetable side dishes) (3 small dishes (~120 g total))"
+   ],
+   "ingredients": "white rice, cooked 250 g, galbi (grilled marinated short rib) 150 g, assorted banchan (seasoned vegetable side dishes) 3 small dishes (~120 g total)",
+   "prep": "20 min (banchan made ahead)"
+  },
+  {
+   "id": "AL-325",
+   "name": "Rice, gyeran mari (rolled omelette) & kimchi",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "gyeran mari (rolled omelette with vegetables) (2 eggs' worth)",
+    "kimchi (60 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, gyeran mari (rolled omelette with vegetables) 2 eggs' worth, kimchi 60 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-326",
+   "name": "Rice, mayak eggs & spinach namul",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "mayak eggs (soy-marinated soft-boiled eggs) (2 eggs)",
+    "spinach namul (seasoned blanched spinach) (80 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, mayak eggs (soy-marinated soft-boiled eggs) 2 eggs, spinach namul (seasoned blanched spinach) 80 g",
+   "prep": "10 min (eggs marinated ahead)"
+  },
+  {
+   "id": "AL-327",
+   "name": "Rice, japchae & kimchi",
+   "mealType": "lunch",
+   "pattern": "starch + starch + veg",
+   "components": [
+    "white rice, cooked (200 g)",
+    "japchae (stir-fried glass noodles with beef & vegetables, component) (150 g)",
+    "kimchi (60 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, japchae (stir-fried glass noodles with beef & vegetables, component) 150 g, kimchi 60 g",
+   "prep": "15 min (japchae made ahead)"
+  },
+  {
+   "id": "AL-328",
+   "name": "Rice, seasoned spinach & bean sprout namul with grilled mackerel",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "grilled mackerel (130 g)",
+    "spinach namul & bean sprout namul (component) (100 g total)"
+   ],
+   "ingredients": "white rice, cooked 250 g, grilled mackerel 130 g, spinach namul & bean sprout namul (component) 100 g total",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-329",
+   "name": "Rice, pan-fried tofu & kimchi",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "pan-fried tofu, plain (150 g)",
+    "kimchi (70 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, pan-fried tofu, plain 150 g, kimchi 70 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-330",
+   "name": "Rice, stir-fried tomato & eggs",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "white rice, cooked (250 g)",
+    "stir-fried tomato and eggs (component) (200 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, stir-fried tomato and eggs (component) 200 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-331",
+   "name": "Rice, three-cup chicken & choy sum",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "three-cup chicken (component) (180 g)",
+    "choy sum, stir-fried (100 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, three-cup chicken (component) 180 g, choy sum, stir-fried 100 g",
+   "prep": "20 min (chicken made ahead)"
+  },
+  {
+   "id": "AL-332",
+   "name": "Congee with preserved duck egg & pork",
+   "mealType": "lunch",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "congee (plain rice porridge, component) (350 g)",
+    "preserved (century) duck egg, sliced (1 egg)",
+    "shredded pork (component) (80 g)"
+   ],
+   "ingredients": "congee (plain rice porridge, component) 350 g, preserved (century) duck egg, sliced 1 egg, shredded pork (component) 80 g",
+   "prep": "10 min (congee made ahead)"
+  },
+  {
+   "id": "AL-333",
+   "name": "Rice, soy-braised tofu & mixed mushrooms",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "soy-braised tofu (component) (150 g)",
+    "mixed mushrooms, sautéed (100 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, soy-braised tofu (component) 150 g, mixed mushrooms, sautéed 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-334",
+   "name": "Rice, stir-fried lamb & bok choy",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "lamb, thinly sliced & stir-fried (150 g)",
+    "bok choy, stir-fried (120 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, lamb, thinly sliced & stir-fried 150 g, bok choy, stir-fried 120 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-335",
+   "name": "Rice or pasta with pan-fried fish",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "white rice or pasta, cooked (250 g)",
+    "pan-fried white fish (150 g)"
+   ],
+   "ingredients": "white rice or pasta, cooked 250 g, pan-fried white fish 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-336",
+   "name": "Wheat noodles with pork dumplings & bok choy",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "wheat noodles in light broth (200 g)",
+    "pork dumplings (6 pieces)",
+    "bok choy, blanched (100 g)"
+   ],
+   "ingredients": "wheat noodles in light broth 200 g, pork dumplings 6 pieces, bok choy, blanched 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-337",
+   "name": "Rice, stir-fried chicken, tofu & mixed vegetables",
+   "mealType": "lunch",
+   "pattern": "starch + protein + protein + veg",
+   "components": [
+    "white rice, cooked (250 g)",
+    "chicken, stir-fried (100 g)",
+    "tofu, cubed & stir-fried (80 g)",
+    "mixed colourful vegetables, stir-fried (120 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, chicken, stir-fried 100 g, tofu, cubed & stir-fried 80 g, mixed colourful vegetables, stir-fried 120 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-338",
+   "name": "Rice, dal & mixed-vegetable sabzi with curd",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + dairy",
+   "components": [
+    "white rice, cooked (250 g)",
+    "dal (lentil, component) (200 g)",
+    "mixed-vegetable sabzi (component) (120 g)",
+    "curd (plain yogurt) (100 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, dal (lentil, component) 200 g, mixed-vegetable sabzi (component) 120 g, curd (plain yogurt) 100 g",
+   "prep": "10 min (dal & sabzi made ahead)"
+  },
+  {
+   "id": "AL-339",
+   "name": "Roti, dal & sabzi",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "roti (whole wheat flatbread) (3 pieces)",
+    "dal (lentil, component) (180 g)",
+    "sabzi (dry-cooked seasonal vegetable, component) (120 g)"
+   ],
+   "ingredients": "roti (whole wheat flatbread) 3 pieces, dal (lentil, component) 180 g, sabzi (dry-cooked seasonal vegetable, component) 120 g",
+   "prep": "10 min (dal & sabzi made ahead)"
+  },
+  {
+   "id": "AL-340",
+   "name": "Roti, paneer sabzi & curd",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "roti (whole wheat flatbread) (2 pieces)",
+    "paneer sabzi (component) (150 g)",
+    "curd (plain yogurt) (100 g)"
+   ],
+   "ingredients": "roti (whole wheat flatbread) 2 pieces, paneer sabzi (component) 150 g, curd (plain yogurt) 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-341",
+   "name": "Rice, egg curry (component) & curd",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "white rice, cooked (250 g)",
+    "egg curry (component) (2 eggs in sauce)",
+    "curd (plain yogurt) (100 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, egg curry (component) 2 eggs in sauce, curd (plain yogurt) 100 g",
+   "prep": "10 min (curry made ahead)"
+  },
+  {
+   "id": "AL-342",
+   "name": "Two rotis, chana dal & lassi",
+   "mealType": "lunch",
+   "pattern": "starch + protein + drink",
+   "components": [
+    "roti (whole wheat flatbread) (2 pieces)",
+    "chana dal (split chickpea lentil, component) (180 g)",
+    "lassi (yogurt drink) (250 ml)"
+   ],
+   "ingredients": "roti (whole wheat flatbread) 2 pieces, chana dal (split chickpea lentil, component) 180 g, lassi (yogurt drink) 250 ml",
+   "prep": "10 min (dal made ahead)"
+  },
+  {
+   "id": "AL-343",
+   "name": "Rice, rajma (kidney bean curry) & curd",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "white rice, cooked (250 g)",
+    "rajma (kidney bean curry, component) (200 g)",
+    "curd (plain yogurt) (100 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, rajma (kidney bean curry, component) 200 g, curd (plain yogurt) 100 g",
+   "prep": "10 min (rajma made ahead)"
+  },
+  {
+   "id": "AL-344",
+   "name": "Khichdi (rice & lentils) with curd",
+   "mealType": "lunch",
+   "pattern": "starch + dairy",
+   "components": [
+    "khichdi (rice & lentils cooked together, component) (350 g)",
+    "curd (plain yogurt) (100 g)"
+   ],
+   "ingredients": "khichdi (rice & lentils cooked together, component) 350 g, curd (plain yogurt) 100 g",
+   "prep": "5 min (khichdi made ahead)"
+  },
+  {
+   "id": "AL-345",
+   "name": "Roti, mixed dal, sabzi, curd & pickle",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + dairy + other",
+   "components": [
+    "roti (whole wheat flatbread) (2 pieces)",
+    "mixed dal (component) (180 g)",
+    "sabzi (dry-cooked vegetable, component) (100 g)",
+    "curd (plain yogurt) (80 g)",
+    "pickle (achar) (1 tbsp)"
+   ],
+   "ingredients": "roti (whole wheat flatbread) 2 pieces, mixed dal (component) 180 g, sabzi (dry-cooked vegetable, component) 100 g, curd (plain yogurt) 80 g, pickle (achar) 1 tbsp",
+   "prep": "10 min (components made ahead)"
+  },
+  {
+   "id": "AL-346",
+   "name": "Bandeja paisa components — rice, frijoles, avocado & fried egg",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fat + protein",
+   "components": [
+    "white rice, cooked (200 g)",
+    "frijoles (Colombian stewed pinto beans, component) (180 g)",
+    "avocado, sliced (1/2 avocado)",
+    "fried egg (1 egg)"
+   ],
+   "ingredients": "white rice, cooked 200 g, frijoles (Colombian stewed pinto beans, component) 180 g, avocado, sliced 1/2 avocado, fried egg 1 egg",
+   "prep": "15 min (beans made ahead)"
+  }
+ ]
+}

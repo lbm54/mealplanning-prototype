@@ -1,0 +1,1630 @@
+{
+ "batch": "A-02",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AB-121",
+   "name": "Overnight oats with flaxseed & seasonal fruit (Ashley Madden)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rolled oats, soaked overnight (1/2 cup)",
+    "dairy-free milk (1/2 cup)",
+    "ground flaxseed (1 tbsp)",
+    "seasonal fruit (1/2 cup)"
+   ],
+   "ingredients": "rolled oats, soaked overnight 1/2 cup, dairy-free milk 1/2 cup, ground flaxseed 1 tbsp, seasonal fruit 1/2 cup",
+   "prep": "5 min (prepped ahead)"
+  },
+  {
+   "id": "AB-122",
+   "name": "Avocado toast with tomato & balsamic (Dr. Will Bulsiewicz)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + veg + sauce",
+   "components": [
+    "whole-grain toast (2 slices)",
+    "avocado (1)",
+    "tomato or sprouts (1/2 cup)",
+    "balsamic vinegar & spices (1 tsp)"
+   ],
+   "ingredients": "whole-grain toast 2 slices, avocado 1, tomato or sprouts 1/2 cup, balsamic vinegar & spices 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-123",
+   "name": "Beans & tempeh bacon over toast (Cleodia Martinez)",
+   "mealType": "breakfast",
+   "pattern": "protein + protein + starch",
+   "components": [
+    "cooked beans (200 g)",
+    "tempeh bacon, pan-fried (50 g)",
+    "toast (2 slices)"
+   ],
+   "ingredients": "cooked beans 200 g, tempeh bacon, pan-fried 50 g, toast 2 slices",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-124",
+   "name": "Bagel with peanut butter, jelly & tofu scramble (PCRM ultra-athlete plan)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit + protein + dairy",
+   "components": [
+    "whole-wheat bagel (1)",
+    "peanut butter (2 tbsp)",
+    "jelly (2 tbsp)",
+    "scrambled tofu (150 g)",
+    "soy milk (8 oz)"
+   ],
+   "ingredients": "whole-wheat bagel 1, peanut butter 2 tbsp, jelly 2 tbsp, scrambled tofu 150 g, soy milk 8 oz",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-125",
+   "name": "Tofu scramble with broccoli & brown rice (David Goldman, RD)",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "firm tofu, scrambled (200 g)",
+    "broccoli, steamed (150 g)",
+    "brown rice, cooked (200 g)"
+   ],
+   "ingredients": "firm tofu, scrambled 200 g, broccoli, steamed 150 g, brown rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-126",
+   "name": "Overnight oats with vanilla protein & banana (Nutritional Revolution)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + fruit",
+   "components": [
+    "rolled oats, soaked overnight (1/2 cup)",
+    "vanilla plant protein powder (1 scoop)",
+    "banana (1)"
+   ],
+   "ingredients": "rolled oats, soaked overnight 1/2 cup, vanilla plant protein powder 1 scoop, banana 1",
+   "prep": "5 min (prepped ahead)"
+  },
+  {
+   "id": "AB-127",
+   "name": "Blueberry protein smoothie with rice cakes & almond butter (Nutritional Revolution)",
+   "mealType": "breakfast",
+   "pattern": "drink + starch + fat + fruit",
+   "components": [
+    "blueberry protein smoothie (400 ml)",
+    "rice cakes (3)",
+    "almond butter (1.5 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "blueberry protein smoothie 400 ml, rice cakes 3, almond butter 1.5 tbsp, banana 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-128",
+   "name": "Sweet potato, kale & tofu scramble bowl (Natalie Rizzo, RD)",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + protein",
+   "components": [
+    "sweet potato, roasted (200 g)",
+    "kale, sauteed (100 g)",
+    "firm tofu, scrambled (150 g)"
+   ],
+   "ingredients": "sweet potato, roasted 200 g, kale, sauteed 100 g, firm tofu, scrambled 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-129",
+   "name": "Super seed avocado toast (Natalie Rizzo, RD)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fat",
+   "components": [
+    "whole-grain toast (2 slices)",
+    "avocado (1)",
+    "mixed seeds (chia, hemp, sesame) (1 tbsp)"
+   ],
+   "ingredients": "whole-grain toast 2 slices, avocado 1, mixed seeds (chia, hemp, sesame) 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-130",
+   "name": "Tropical smoothie bowl (Natalie Rizzo, RD)",
+   "mealType": "breakfast",
+   "pattern": "fruit + fruit + dairy",
+   "components": [
+    "frozen mango (1 cup)",
+    "banana (1)",
+    "plant milk (1/2 cup)"
+   ],
+   "ingredients": "frozen mango 1 cup, banana 1, plant milk 1/2 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-131",
+   "name": "Turmeric-cumin tofu scramble over rice (Melissa Sundermann)",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + starch",
+   "components": [
+    "firm tofu, scrambled (200 g)",
+    "spinach & bell peppers (100 g)",
+    "white rice, cooked (200 g)"
+   ],
+   "ingredients": "firm tofu, scrambled 200 g, spinach & bell peppers 100 g, white rice, cooked 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-132",
+   "name": "Oatmeal with cinnamon, berries & banana (Gwen Jorgensen)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fruit",
+   "components": [
+    "rolled oats, cooked in water (1 cup)",
+    "cinnamon (1 tsp)",
+    "fresh berries (1/2 cup)",
+    "banana (1)"
+   ],
+   "ingredients": "rolled oats, cooked in water 1 cup, cinnamon 1 tsp, fresh berries 1/2 cup, banana 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-133",
+   "name": "Rolled oats with banana, blueberries & walnuts (Gwen Jorgensen, sweet version)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fruit + fat",
+   "components": [
+    "rolled oats, cooked in water (1 cup)",
+    "banana, sliced (1)",
+    "blueberries (1/4 cup)",
+    "walnuts (2 tbsp)"
+   ],
+   "ingredients": "rolled oats, cooked in water 1 cup, banana, sliced 1, blueberries 1/4 cup, walnuts 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-134",
+   "name": "Overnight oats with orange juice & milk (Gwen Jorgensen, cold version)",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + dairy",
+   "components": [
+    "rolled oats, soaked overnight (1 cup)",
+    "orange juice (1.5 cups)",
+    "milk (1/4 cup)"
+   ],
+   "ingredients": "rolled oats, soaked overnight 1 cup, orange juice 1.5 cups, milk 1/4 cup",
+   "prep": "5 min (prepped ahead)"
+  },
+  {
+   "id": "AB-135",
+   "name": "Oats with coconut oil, fruit & nuts (Gwen Jorgensen, training camp)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit + fat",
+   "components": [
+    "rolled oats, cooked (1 cup)",
+    "coconut oil (1 tsp)",
+    "fresh fruit (1/2 cup)",
+    "mixed nuts (2 tbsp)"
+   ],
+   "ingredients": "rolled oats, cooked 1 cup, coconut oil 1 tsp, fresh fruit 1/2 cup, mixed nuts 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-136",
+   "name": "Race-morning oats with berries & peanut butter (Gwen Jorgensen)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fat",
+   "components": [
+    "rolled oats, cooked (1 cup)",
+    "berries (1/2 cup)",
+    "peanut butter (1.5 tbsp)",
+    "coconut oil (1 tsp)"
+   ],
+   "ingredients": "rolled oats, cooked 1 cup, berries 1/2 cup, peanut butter 1.5 tbsp, coconut oil 1 tsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-137",
+   "name": "Rice cake with yogurt (Gwen Jorgensen pre-workout snack)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy",
+   "components": [
+    "rice cake (1)",
+    "plain yogurt (100 g)"
+   ],
+   "ingredients": "rice cake 1, plain yogurt 100 g",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-138",
+   "name": "Oatmeal with poached egg (Gwen Jorgensen, savory version)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + protein",
+   "components": [
+    "rolled oats, cooked in water (1 cup)",
+    "banana (1)",
+    "poached egg (1)"
+   ],
+   "ingredients": "rolled oats, cooked in water 1 cup, banana 1, poached egg 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-139",
+   "name": "Sweet potato with almond butter (Timothy Olson)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "sweet potato, cooked (250 g)",
+    "almond butter (1.5 tbsp)"
+   ],
+   "ingredients": "sweet potato, cooked 250 g, almond butter 1.5 tbsp",
+   "prep": "8 min (microwave)"
+  },
+  {
+   "id": "AB-140",
+   "name": "Vega shake with pear, banana & soaked almonds (Brendan Brazier, Thrive Diet)",
+   "mealType": "breakfast",
+   "pattern": "protein + fruit + fat + drink",
+   "components": [
+    "chocolate Vega plant protein shake (1/2 serving)",
+    "pear (1/2)",
+    "banana (1/2)",
+    "soaked almonds (1/4 cup)",
+    "water (450 ml)"
+   ],
+   "ingredients": "chocolate Vega plant protein shake 1/2 serving, pear 1/2, banana 1/2, soaked almonds 1/4 cup, water 450 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-141",
+   "name": "Chickpea or tofu scramble with potatoes (Dotsie Bausch)",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + drink",
+   "components": [
+    "chickpeas or firm tofu, scrambled (200 g)",
+    "roasted potatoes (200 g)",
+    "coffee with plant creamer (1 cup)"
+   ],
+   "ingredients": "chickpeas or firm tofu, scrambled 200 g, roasted potatoes 200 g, coffee with plant creamer 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-142",
+   "name": "Savory tofu scramble bowl (vegan pre-workout breakfast)",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + veg",
+   "components": [
+    "firm tofu, crumbled & scrambled (200 g)",
+    "onion & bell pepper (100 g)",
+    "spinach (50 g)",
+    "nutritional yeast (1 tbsp)"
+   ],
+   "ingredients": "firm tofu, crumbled & scrambled 200 g, onion & bell pepper 100 g, spinach 50 g, nutritional yeast 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-143",
+   "name": "Overnight oats with peanut butter & banana (vegan, high-protein)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit + dairy",
+   "components": [
+    "rolled oats, soaked overnight (1/2 cup)",
+    "peanut butter (2 tbsp)",
+    "banana (1)",
+    "plant milk (1/2 cup)"
+   ],
+   "ingredients": "rolled oats, soaked overnight 1/2 cup, peanut butter 2 tbsp, banana 1, plant milk 1/2 cup",
+   "prep": "5 min (prepped ahead)"
+  },
+  {
+   "id": "AB-144",
+   "name": "Raspberry-nectarine smoothie (Daniela Ryf)",
+   "mealType": "breakfast",
+   "pattern": "fruit + fruit + dairy + protein",
+   "components": [
+    "frozen raspberries (1 cup)",
+    "nectarine (1)",
+    "vanilla yogurt (1 cup)",
+    "sesame seeds (2 tbsp)",
+    "lupine protein powder (2 tbsp)"
+   ],
+   "ingredients": "frozen raspberries 1 cup, nectarine 1, vanilla yogurt 1 cup, sesame seeds 2 tbsp, lupine protein powder 2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-145",
+   "name": "Berry-banana smoothie with granola & chia (vegan athlete meal plan, Day 1)",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit + protein + other",
+   "components": [
+    "plant milk (1.5 cups)",
+    "frozen banana (1)",
+    "frozen blueberries (1/2 cup)",
+    "vegan protein powder (1 scoop)",
+    "granola (2 tbsp)",
+    "chia seeds (1 tsp)"
+   ],
+   "ingredients": "plant milk 1.5 cups, frozen banana 1, frozen blueberries 1/2 cup, vegan protein powder 1 scoop, granola 2 tbsp, chia seeds 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-146",
+   "name": "Warm oatmeal with almond butter & banana (vegan athlete meal plan, Day 2)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit + fruit",
+   "components": [
+    "rolled oats, cooked in water or plant milk (1 cup)",
+    "almond butter (1.5 tbsp)",
+    "banana, mashed (1)",
+    "mixed berries & chia (1/2 cup)"
+   ],
+   "ingredients": "rolled oats, cooked in water or plant milk 1 cup, almond butter 1.5 tbsp, banana, mashed 1, mixed berries & chia 1/2 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-147",
+   "name": "Tofu scramble with toast & jam (vegan athlete meal plan, Day 3)",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + starch + sauce",
+   "components": [
+    "firm tofu, crumbled & scrambled (200 g)",
+    "onion & garlic (50 g)",
+    "whole-wheat toast (2 slices)",
+    "vegan butter or jam (1 tbsp)"
+   ],
+   "ingredients": "firm tofu, crumbled & scrambled 200 g, onion & garlic 50 g, whole-wheat toast 2 slices, vegan butter or jam 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-148",
+   "name": "Avocado toast with tofu scramble & berries (vegan athlete meal plan, Day 5)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + protein + fruit",
+   "components": [
+    "whole-wheat bread, toasted (2 slices)",
+    "avocado, mashed (1)",
+    "firm tofu, scrambled with nutritional yeast (100 g)",
+    "fresh berries (1/2 cup)"
+   ],
+   "ingredients": "whole-wheat bread, toasted 2 slices, avocado, mashed 1, firm tofu, scrambled with nutritional yeast 100 g, fresh berries 1/2 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-149",
+   "name": "Granola with vegan yogurt, berries & nuts (vegan athlete meal plan, Day 6)",
+   "mealType": "breakfast",
+   "pattern": "other + dairy + fruit + fat",
+   "components": [
+    "granola (1/2 cup)",
+    "vegan yogurt (200 g)",
+    "fresh or frozen berries (1/2 cup)",
+    "almonds & walnuts (2 tbsp)",
+    "sunflower seeds (1 tbsp)"
+   ],
+   "ingredients": "granola 1/2 cup, vegan yogurt 200 g, fresh or frozen berries 1/2 cup, almonds & walnuts 2 tbsp, sunflower seeds 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-150",
+   "name": "Oatmeal with fruit & nuts (pre-competition, plant-based pro)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fat",
+   "components": [
+    "rolled oats, cooked (1 cup)",
+    "mixed fruit (1/2 cup)",
+    "mixed nuts (2 tbsp)"
+   ],
+   "ingredients": "rolled oats, cooked 1 cup, mixed fruit 1/2 cup, mixed nuts 2 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-151",
+   "name": "Porridge with soya milk & yogurt (Danny Webber, performance nutritionist)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rolled oats, cooked in soya milk (1 cup)",
+    "plant-based yogurt (100 g)",
+    "mixed fruit, nuts & seeds (1/2 cup)"
+   ],
+   "ingredients": "rolled oats, cooked in soya milk 1 cup, plant-based yogurt 100 g, mixed fruit, nuts & seeds 1/2 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-152",
+   "name": "Turmeric tofu scramble on granary toast with cherry tomatoes (Danny Webber)",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + starch + veg",
+   "components": [
+    "firm tofu, scrambled with turmeric (200 g)",
+    "spinach (50 g)",
+    "granary toast (2 slices)",
+    "cherry tomatoes (100 g)"
+   ],
+   "ingredients": "firm tofu, scrambled with turmeric 200 g, spinach 50 g, granary toast 2 slices, cherry tomatoes 100 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-153",
+   "name": "Yogurt-based smoothie bowl (Danny Webber)",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit + other",
+   "components": [
+    "plant-based yogurt (200 g)",
+    "mixed fruit (1/2 cup)",
+    "granola (2 tbsp)"
+   ],
+   "ingredients": "plant-based yogurt 200 g, mixed fruit 1/2 cup, granola 2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-154",
+   "name": "Rice pudding with plant milk (Trek-Segafredo pre-ride)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy",
+   "components": [
+    "white rice, cooked (200 g)",
+    "plant-based milk (300 ml)"
+   ],
+   "ingredients": "white rice, cooked 200 g, plant-based milk 300 ml",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-155",
+   "name": "Plain oats, pre-ride (Trek-Segafredo)",
+   "mealType": "breakfast",
+   "pattern": "starch",
+   "components": [
+    "rolled oats, cooked in water (1 cup)"
+   ],
+   "ingredients": "rolled oats, cooked in water 1 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-156",
+   "name": "Rice with tofu & beans (Trek-Segafredo, post-ride)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "white rice, cooked (200 g)",
+    "firm tofu (150 g)",
+    "beans (100 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, firm tofu 150 g, beans 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-157",
+   "name": "Homemade porridge with blueberries & strawberries (cyclist nutritionist)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fruit",
+   "components": [
+    "rolled oats, cooked (1 cup)",
+    "blueberries (1/4 cup)",
+    "strawberries (1/4 cup)"
+   ],
+   "ingredients": "rolled oats, cooked 1 cup, blueberries 1/4 cup, strawberries 1/4 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-158",
+   "name": "Rice cakes, PB&J & almond-milk Gorilla Munch cereal",
+   "mealType": "breakfast",
+   "pattern": "starch + spread + fruit + cereal + drink",
+   "components": [
+    "rice cakes (3)",
+    "peanut butter (1.5 tbsp)",
+    "jam (1 tbsp)",
+    "puffed corn cereal (Gorilla Munch) (1 cup)",
+    "almond milk (200 ml)"
+   ],
+   "ingredients": "rice cakes 3, peanut butter 1.5 tbsp, jam 1 tbsp, puffed corn cereal (Gorilla Munch) 1 cup, almond milk 200 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-159",
+   "name": "Gluten-free oats with almond butter & coffee",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + drink",
+   "components": [
+    "certified gluten-free rolled oats (70 g)",
+    "almond butter (1.5 tbsp)",
+    "water (250 ml)",
+    "black coffee (1 cup)"
+   ],
+   "ingredients": "certified gluten-free rolled oats 70 g, almond butter 1.5 tbsp, water 250 ml, black coffee 1 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-160",
+   "name": "Rudi's gluten-free cinnamon raisin toast with peanut butter",
+   "mealType": "breakfast",
+   "pattern": "bread + spread",
+   "components": [
+    "Rudi's gluten-free cinnamon raisin bread (2 slices)",
+    "peanut butter (1.5 tbsp)"
+   ],
+   "ingredients": "Rudi's gluten-free cinnamon raisin bread 2 slices, peanut butter 1.5 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-161",
+   "name": "Rice cereal with banana",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "puffed rice cereal (70 g)",
+    "oat milk (200 ml)",
+    "banana (1)"
+   ],
+   "ingredients": "puffed rice cereal 70 g, oat milk 200 ml, banana 1",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-162",
+   "name": "Toasted PopTart, gluten-free-ish toast with almond butter & coffee",
+   "mealType": "breakfast",
+   "pattern": "starch + starch + fat + drink",
+   "components": [
+    "toaster pastry (1)",
+    "bread, toasted (1 slice)",
+    "almond butter (1 tbsp)",
+    "black coffee (1 cup)"
+   ],
+   "ingredients": "toaster pastry 1, bread, toasted 1 slice, almond butter 1 tbsp, black coffee 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-163",
+   "name": "Justin's nut butter & honey on toast",
+   "mealType": "breakfast",
+   "pattern": "bread + spread + sweetener",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "almond butter (1.5 tbsp)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, almond butter 1.5 tbsp, honey 1 tsp",
+   "prep": "4 min"
+  },
+  {
+   "id": "AB-164",
+   "name": "Nut butter on toast",
+   "mealType": "breakfast",
+   "pattern": "bread + spread",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "almond or cashew butter (2 tbsp)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, almond or cashew butter 2 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-165",
+   "name": "Gluten-free toast with almond butter & banana",
+   "mealType": "breakfast",
+   "pattern": "bread + spread + fruit",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "almond butter (1.5 tbsp)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, almond butter 1.5 tbsp, banana, sliced 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-166",
+   "name": "Gluten-free toast with mashed banana & honey",
+   "mealType": "breakfast",
+   "pattern": "bread + fruit + sweetener",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "banana, mashed (1)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, banana, mashed 1, honey 1 tsp",
+   "prep": "4 min"
+  },
+  {
+   "id": "AB-167",
+   "name": "Gluten-free porridge oats with almond milk",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit",
+   "components": [
+    "certified gluten-free porridge oats (70 g)",
+    "almond milk (300 ml)",
+    "berries (80 g)"
+   ],
+   "ingredients": "certified gluten-free porridge oats 70 g, almond milk 300 ml, berries 80 g",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-168",
+   "name": "Gluten-free quinoa flake porridge with soya milk",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit",
+   "components": [
+    "quinoa flakes (70 g)",
+    "soya milk (300 ml)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "quinoa flakes 70 g, soya milk 300 ml, banana, sliced 1",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-169",
+   "name": "Plain white rice with a poached egg",
+   "mealType": "breakfast",
+   "pattern": "starch + protein",
+   "components": [
+    "white rice, cooked (200 g)",
+    "poached egg (1)",
+    "salt & pepper (to taste)"
+   ],
+   "ingredients": "white rice, cooked 200 g, poached egg 1, salt & pepper to taste",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-170",
+   "name": "Eggs with cottage cheese & fruit",
+   "mealType": "breakfast",
+   "pattern": "protein + dairy + fruit",
+   "components": [
+    "scrambled eggs (2)",
+    "cottage cheese (150 g)",
+    "mixed fruit (1 cup)"
+   ],
+   "ingredients": "scrambled eggs 2, cottage cheese 150 g, mixed fruit 1 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-171",
+   "name": "Eggs with avocado & fruit",
+   "mealType": "breakfast",
+   "pattern": "protein + fat + fruit",
+   "components": [
+    "scrambled eggs (2)",
+    "avocado (1/2)",
+    "mixed fruit (1 cup)"
+   ],
+   "ingredients": "scrambled eggs 2, avocado 1/2, mixed fruit 1 cup",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-172",
+   "name": "White rice, sliced banana & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + sweetener",
+   "components": [
+    "white rice, cooked (200 g)",
+    "banana, sliced (1)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "white rice, cooked 200 g, banana, sliced 1, honey 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-173",
+   "name": "Bacon, eggs & sautéed spinach",
+   "mealType": "breakfast",
+   "pattern": "protein + protein + veg",
+   "components": [
+    "bacon (3 rashers)",
+    "eggs, fried (2)",
+    "spinach, sautéed (1 cup)"
+   ],
+   "ingredients": "bacon 3 rashers, eggs, fried 2, spinach, sautéed 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-174",
+   "name": "Classic bacon and eggs",
+   "mealType": "breakfast",
+   "pattern": "protein + protein",
+   "components": [
+    "bacon (3 rashers)",
+    "eggs, fried (2)"
+   ],
+   "ingredients": "bacon 3 rashers, eggs, fried 2",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-175",
+   "name": "Scrambled eggs with spinach & smoked salmon",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + protein",
+   "components": [
+    "eggs, scrambled (3)",
+    "spinach (1 cup)",
+    "smoked salmon (60 g)"
+   ],
+   "ingredients": "eggs, scrambled 3, spinach 1 cup, smoked salmon 60 g",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-176",
+   "name": "Boiled eggs with mayonnaise & avocado",
+   "mealType": "breakfast",
+   "pattern": "protein + sauce + fat",
+   "components": [
+    "boiled eggs (2)",
+    "mayonnaise (1 tbsp)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "boiled eggs 2, mayonnaise 1 tbsp, avocado 1/2",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-177",
+   "name": "Fried eggs with tomato & cheese",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + dairy",
+   "components": [
+    "eggs, fried (2)",
+    "tomato, sliced (1)",
+    "cheddar cheese (30 g)"
+   ],
+   "ingredients": "eggs, fried 2, tomato, sliced 1, cheddar cheese 30 g",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-178",
+   "name": "Mexican scrambled eggs with jalapeños",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + fat",
+   "components": [
+    "eggs, scrambled (3)",
+    "pickled jalapeños (2 tbsp)",
+    "avocado (1/2)"
+   ],
+   "ingredients": "eggs, scrambled 3, pickled jalapeños 2 tbsp, avocado 1/2",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-179",
+   "name": "Coffee with bacon",
+   "mealType": "breakfast",
+   "pattern": "drink + protein",
+   "components": [
+    "black coffee (1 cup)",
+    "bacon (4 rashers)"
+   ],
+   "ingredients": "black coffee 1 cup, bacon 4 rashers",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-180",
+   "name": "Coffee with breakfast sausage",
+   "mealType": "breakfast",
+   "pattern": "drink + protein",
+   "components": [
+    "black coffee (1 cup)",
+    "breakfast sausage (3 links)"
+   ],
+   "ingredients": "black coffee 1 cup, breakfast sausage 3 links",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-181",
+   "name": "Shrimp & avocado boat",
+   "mealType": "breakfast",
+   "pattern": "protein + fat + sauce",
+   "components": [
+    "cooked shrimp (150 g)",
+    "avocado (1)",
+    "lime juice (1 tsp)"
+   ],
+   "ingredients": "cooked shrimp 150 g, avocado 1, lime juice 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-182",
+   "name": "Tuna stuffed avocado",
+   "mealType": "breakfast",
+   "pattern": "protein + fat + sauce",
+   "components": [
+    "tuna, drained (1 can (140 g))",
+    "avocado (1)",
+    "lemon juice (1 tsp)"
+   ],
+   "ingredients": "tuna, drained 1 can (140 g), avocado 1, lemon juice 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-183",
+   "name": "Cottage cheese bowl with berries",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit",
+   "components": [
+    "cottage cheese (200 g)",
+    "mixed berries (100 g)"
+   ],
+   "ingredients": "cottage cheese 200 g, mixed berries 100 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-184",
+   "name": "Salmon-filled avocado",
+   "mealType": "breakfast",
+   "pattern": "protein + fat",
+   "components": [
+    "cooked salmon, flaked (120 g)",
+    "avocado (1)",
+    "dill (1 tsp)"
+   ],
+   "ingredients": "cooked salmon, flaked 120 g, avocado 1, dill 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-185",
+   "name": "Leftover burger patty with mayo & avocado",
+   "mealType": "breakfast",
+   "pattern": "protein + sauce + fat",
+   "components": [
+    "beef patty, cooked (leftover) (150 g)",
+    "mayonnaise (1 tbsp)",
+    "avocado, sliced (1/2)"
+   ],
+   "ingredients": "beef patty, cooked (leftover) 150 g, mayonnaise 1 tbsp, avocado, sliced 1/2",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-186",
+   "name": "Keto vegan tofu scramble",
+   "mealType": "breakfast",
+   "pattern": "protein + veg",
+   "components": [
+    "firm tofu, crumbled (200 g)",
+    "turmeric (1/2 tsp)",
+    "spinach (1 cup)"
+   ],
+   "ingredients": "firm tofu, crumbled 200 g, turmeric 1/2 tsp, spinach 1 cup",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-187",
+   "name": "Baked yam, hard-boiled egg whites, olive oil & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + fat + fruit",
+   "components": [
+    "baked yam (200 g)",
+    "hard-boiled egg whites (4)",
+    "olive oil (1 tsp)",
+    "banana (1)"
+   ],
+   "ingredients": "baked yam 200 g, hard-boiled egg whites 4, olive oil 1 tsp, banana 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-188",
+   "name": "Baked sweet potato, applesauce, turkey breast & olive oil",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + protein + fat",
+   "components": [
+    "baked sweet potato (250 g)",
+    "unsweetened applesauce (1/2 cup)",
+    "sliced turkey breast (100 g)",
+    "olive oil (1 tsp)"
+   ],
+   "ingredients": "baked sweet potato 250 g, unsweetened applesauce 1/2 cup, sliced turkey breast 100 g, olive oil 1 tsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-189",
+   "name": "Poached cod on sautéed spinach with berries",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + fat + fruit",
+   "components": [
+    "poached cod (150 g)",
+    "spinach, sautéed (1 cup)",
+    "garlic (1 clove)",
+    "olive oil (1 tbsp)",
+    "fresh berries (1/2 cup)"
+   ],
+   "ingredients": "poached cod 150 g, spinach, sautéed 1 cup, garlic 1 clove, olive oil 1 tbsp, fresh berries 1/2 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-190",
+   "name": "Green tea smoothie with egg white protein, almond butter & sweet potato",
+   "mealType": "breakfast",
+   "pattern": "drink + fruit + protein + fat + starch",
+   "components": [
+    "chilled decaf green tea (8 oz)",
+    "banana (1)",
+    "egg white protein powder (1 scoop)",
+    "almond butter (1 tbsp)",
+    "baked sweet potato (1 medium)"
+   ],
+   "ingredients": "chilled decaf green tea 8 oz, banana 1, egg white protein powder 1 scoop, almond butter 1 tbsp, baked sweet potato 1 medium",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-191",
+   "name": "Ground beef, sweet potato & kale hash",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "lean ground beef (250 g)",
+    "sweet potato, diced (250 g)",
+    "kale, chopped (1 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "lean ground beef 250 g, sweet potato, diced 250 g, kale, chopped 1 cup, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-192",
+   "name": "Eggs, bacon & roasted sweet potato",
+   "mealType": "breakfast",
+   "pattern": "protein + protein + starch",
+   "components": [
+    "eggs, scrambled (2)",
+    "bacon (2 rashers)",
+    "sweet potato, roasted (150 g)"
+   ],
+   "ingredients": "eggs, scrambled 2, bacon 2 rashers, sweet potato, roasted 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-193",
+   "name": "Chicken sausage, crispy potatoes & jammy eggs with salsa verde",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + protein + sauce",
+   "components": [
+    "chicken sausage (2 links)",
+    "potatoes, crisped (200 g)",
+    "jammy soft-boiled eggs (2)",
+    "salsa verde (2 tbsp)"
+   ],
+   "ingredients": "chicken sausage 2 links, potatoes, crisped 200 g, jammy soft-boiled eggs 2, salsa verde 2 tbsp",
+   "prep": "30 min"
+  },
+  {
+   "id": "AB-194",
+   "name": "Sunflower seed butter & apple slices with gluten-free granola",
+   "mealType": "breakfast",
+   "pattern": "fruit + fat + starch",
+   "components": [
+    "apple, sliced (1)",
+    "sunflower seed butter (2 tbsp)",
+    "certified gluten-free granola (30 g)"
+   ],
+   "ingredients": "apple, sliced 1, sunflower seed butter 2 tbsp, certified gluten-free granola 30 g",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-195",
+   "name": "Gluten-free oat & sunflower-butter energy bites with dried fruit",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + sweetener + fruit",
+   "components": [
+    "certified gluten-free rolled oats (1 cup)",
+    "sunflower seed butter (1/2 cup)",
+    "maple syrup (1/4 cup)",
+    "dried fruit (1/4 cup)"
+   ],
+   "ingredients": "certified gluten-free rolled oats 1 cup, sunflower seed butter 1/2 cup, maple syrup 1/4 cup, dried fruit 1/4 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-196",
+   "name": "Rice cakes with sunflower seed butter, banana & cinnamon",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "gluten-free rice cakes (3)",
+    "sunflower seed butter (2 tbsp)",
+    "banana, sliced (1)",
+    "cinnamon (to taste)"
+   ],
+   "ingredients": "gluten-free rice cakes 3, sunflower seed butter 2 tbsp, banana, sliced 1, cinnamon to taste",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-197",
+   "name": "Roasted chickpeas with banana",
+   "mealType": "breakfast",
+   "pattern": "protein + fruit",
+   "components": [
+    "roasted chickpeas (1/2 cup)",
+    "banana (1)"
+   ],
+   "ingredients": "roasted chickpeas 1/2 cup, banana 1",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-198",
+   "name": "Sunflower seed butter avocado toast",
+   "mealType": "breakfast",
+   "pattern": "bread + fat + topping",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "avocado, mashed (1/2)",
+    "sunflower seeds (1 tbsp)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, avocado, mashed 1/2, sunflower seeds 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-199",
+   "name": "Pumpkin-seed & GF pretzel snack mix with dried cherries",
+   "mealType": "breakfast",
+   "pattern": "fat + starch + fruit",
+   "components": [
+    "pumpkin seeds (1/4 cup)",
+    "gluten-free pretzels (1/2 cup)",
+    "dried cherries (1/4 cup)",
+    "dark chocolate chips (1 tbsp)"
+   ],
+   "ingredients": "pumpkin seeds 1/4 cup, gluten-free pretzels 1/2 cup, dried cherries 1/4 cup, dark chocolate chips 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-200",
+   "name": "Green detox smoothie with plant protein & almond milk",
+   "mealType": "breakfast",
+   "pattern": "veg + veg + fruit + protein + drink",
+   "components": [
+    "spinach (2 cups)",
+    "cucumber (1/2)",
+    "green apple (1)",
+    "lemon juice (1 tbsp)",
+    "plant protein powder (1 scoop)",
+    "unsweetened almond milk (300 ml)"
+   ],
+   "ingredients": "spinach 2 cups, cucumber 1/2, green apple 1, lemon juice 1 tbsp, plant protein powder 1 scoop, unsweetened almond milk 300 ml",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-201",
+   "name": "Berry protein shake with dairy-free protein & chia",
+   "mealType": "breakfast",
+   "pattern": "fruit + fruit + drink + protein",
+   "components": [
+    "mixed berries (1 cup)",
+    "banana (1)",
+    "unsweetened almond milk (300 ml)",
+    "dairy-free protein powder (1 scoop)",
+    "chia seeds (1 tbsp)"
+   ],
+   "ingredients": "mixed berries 1 cup, banana 1, unsweetened almond milk 300 ml, dairy-free protein powder 1 scoop, chia seeds 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-202",
+   "name": "Quinoa breakfast bowl with almond butter & hemp seeds",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fruit + fat",
+   "components": [
+    "cooked quinoa (200 g)",
+    "banana, sliced (1)",
+    "mixed berries (80 g)",
+    "almond butter (1 tbsp)",
+    "hemp seeds (1 tbsp)"
+   ],
+   "ingredients": "cooked quinoa 200 g, banana, sliced 1, mixed berries 80 g, almond butter 1 tbsp, hemp seeds 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-203",
+   "name": "Chia pudding with mango & coconut",
+   "mealType": "breakfast",
+   "pattern": "pudding base + fruit",
+   "components": [
+    "chia seeds (3 tbsp)",
+    "coconut milk (300 ml)",
+    "mango, diced (120 g)",
+    "shredded coconut (1 tbsp)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "chia seeds 3 tbsp, coconut milk 300 ml, mango, diced 120 g, shredded coconut 1 tbsp, honey 1 tbsp",
+   "prep": "5 min + overnight"
+  },
+  {
+   "id": "AB-204",
+   "name": "Sweet potato hash with peppers & onion",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + veg + fat",
+   "components": [
+    "sweet potato, diced (250 g)",
+    "bell peppers, diced (1)",
+    "onion, diced (1/2)",
+    "olive oil (1 tbsp)",
+    "smoked paprika (1/2 tsp)"
+   ],
+   "ingredients": "sweet potato, diced 250 g, bell peppers, diced 1, onion, diced 1/2, olive oil 1 tbsp, smoked paprika 1/2 tsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-205",
+   "name": "Veggie egg scramble with mushrooms & tomatoes",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + veg + veg",
+   "components": [
+    "eggs, scrambled (3)",
+    "spinach (1 cup)",
+    "mushrooms, sautéed (80 g)",
+    "cherry tomatoes (100 g)"
+   ],
+   "ingredients": "eggs, scrambled 3, spinach 1 cup, mushrooms, sautéed 80 g, cherry tomatoes 100 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-206",
+   "name": "Vanilla oat-milk smoothie with plant protein",
+   "mealType": "breakfast",
+   "pattern": "drink + fruit + protein + starch",
+   "components": [
+    "oat milk (300 ml)",
+    "banana (1)",
+    "plant protein powder (1 scoop)",
+    "certified gluten-free rolled oats (30 g)"
+   ],
+   "ingredients": "oat milk 300 ml, banana 1, plant protein powder 1 scoop, certified gluten-free rolled oats 30 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-207",
+   "name": "Snickerdoodle oat-milk smoothie with peanut butter",
+   "mealType": "breakfast",
+   "pattern": "drink + fruit + fat",
+   "components": [
+    "oat milk (300 ml)",
+    "banana (1)",
+    "peanut butter (1 tbsp)",
+    "cinnamon (1/2 tsp)"
+   ],
+   "ingredients": "oat milk 300 ml, banana 1, peanut butter 1 tbsp, cinnamon 1/2 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-208",
+   "name": "Low-FODMAP overnight oats with strawberry & chia",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + dairy + fruit",
+   "components": [
+    "rolled oats (1/2 cup)",
+    "lactose-free milk (1/2 cup)",
+    "lactose-free yogurt (1/4 cup)",
+    "strawberry jam (1.5 tbsp)",
+    "chia seeds (1 tbsp)"
+   ],
+   "ingredients": "rolled oats 1/2 cup, lactose-free milk 1/2 cup, lactose-free yogurt 1/4 cup, strawberry jam 1.5 tbsp, chia seeds 1 tbsp",
+   "prep": "5 min + overnight"
+  },
+  {
+   "id": "AB-209",
+   "name": "Low-FODMAP oatmeal with banana & peanut butter",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + protein + dairy",
+   "components": [
+    "certified gluten-free rolled oats (1/4 cup dry)",
+    "water (1/2 cup)",
+    "banana, unripe, half (1/2)",
+    "peanut butter (1 tbsp)",
+    "lactose-free milk (100 ml)"
+   ],
+   "ingredients": "certified gluten-free rolled oats 1/4 cup dry, water 1/2 cup, banana, unripe, half 1/2, peanut butter 1 tbsp, lactose-free milk 100 ml",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-210",
+   "name": "Lactose-free Greek yogurt parfait with GF granola & pomegranate",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "lactose-free Greek yogurt (3/4 cup)",
+    "certified gluten-free oats (1/3 cup)",
+    "pomegranate seeds (1/3 cup)",
+    "chia seeds (1 tbsp)",
+    "maple syrup (1 tsp)"
+   ],
+   "ingredients": "lactose-free Greek yogurt 3/4 cup, certified gluten-free oats 1/3 cup, pomegranate seeds 1/3 cup, chia seeds 1 tbsp, maple syrup 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-211",
+   "name": "Low-FODMAP rice cereal with lactose-free milk & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rice cereal (e.g. Rice Krispies) (1 cup)",
+    "lactose-free milk (250 ml)",
+    "banana, half (1/2)"
+   ],
+   "ingredients": "rice cereal (e.g. Rice Krispies) 1 cup, lactose-free milk 250 ml, banana, half 1/2",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-212",
+   "name": "Hard-boiled egg, GF toast & unripe banana",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "hard-boiled egg (1)",
+    "gluten-free bread, toasted (1 slice)",
+    "banana, unripe (1)"
+   ],
+   "ingredients": "hard-boiled egg 1, gluten-free bread, toasted 1 slice, banana, unripe 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-213",
+   "name": "Low-fat cheddar on gluten-free toast with grapes",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "gluten-free bread, toasted (2 slices)",
+    "low-fat cheddar cheese (30 g)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "gluten-free bread, toasted 2 slices, low-fat cheddar cheese 30 g, grapes 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-214",
+   "name": "Low-FODMAP chocolate chia pudding with berries",
+   "mealType": "breakfast",
+   "pattern": "pudding base + fruit + fruit",
+   "components": [
+    "chia seeds (2 tbsp)",
+    "lactose-free milk (1/2 cup)",
+    "cocoa powder (1/2 tsp)",
+    "banana, unripe (1/3)",
+    "strawberries (1/2 cup)"
+   ],
+   "ingredients": "chia seeds 2 tbsp, lactose-free milk 1/2 cup, cocoa powder 1/2 tsp, banana, unripe 1/3, strawberries 1/2 cup",
+   "prep": "5 min + 4h chill"
+  },
+  {
+   "id": "AB-215",
+   "name": "Low-FODMAP quinoa porridge with banana & lactose-free yogurt",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + dairy",
+   "components": [
+    "quinoa, cooked (80 g dry)",
+    "banana (1)",
+    "lactose-free plain yogurt (150 g)"
+   ],
+   "ingredients": "quinoa, cooked 80 g dry, banana 1, lactose-free plain yogurt 150 g",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-216",
+   "name": "Cottage cheese with pineapple (low-FODMAP)",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit",
+   "components": [
+    "lactose-free cottage cheese (200 g)",
+    "pineapple chunks (150 g)"
+   ],
+   "ingredients": "lactose-free cottage cheese 200 g, pineapple chunks 150 g",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-217",
+   "name": "Low-FODMAP breakfast tacos with eggs & bacon",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein + dairy + veg",
+   "components": [
+    "corn tortillas (2)",
+    "eggs, scrambled (2)",
+    "bacon (2 rashers)",
+    "cheddar cheese (20 g)",
+    "bell peppers, diced (1/2)"
+   ],
+   "ingredients": "corn tortillas 2, eggs, scrambled 2, bacon 2 rashers, cheddar cheese 20 g, bell peppers, diced 1/2",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-218",
+   "name": "Low-FODMAP eggs with potatoes & ham",
+   "mealType": "breakfast",
+   "pattern": "protein + dairy + protein + veg + starch",
+   "components": [
+    "eggs (2)",
+    "aged cheese (20 g)",
+    "ham, sliced (60 g)",
+    "bell peppers, diced (1/2)",
+    "gluten-free bread (1 slice)"
+   ],
+   "ingredients": "eggs 2, aged cheese 20 g, ham, sliced 60 g, bell peppers, diced 1/2, gluten-free bread 1 slice",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-219",
+   "name": "Cream of rice cereal with dairy-free milk & fruit",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit",
+   "components": [
+    "cream of rice cereal (1 cup cooked)",
+    "oat milk (200 ml)",
+    "mixed fresh fruit (1 cup)"
+   ],
+   "ingredients": "cream of rice cereal 1 cup cooked, oat milk 200 ml, mixed fresh fruit 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-220",
+   "name": "Allergy-friendly Chex cereal with dairy-free milk",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit",
+   "components": [
+    "rice or corn Chex cereal (1.5 cups)",
+    "oat milk (250 ml)",
+    "banana, sliced (1)"
+   ],
+   "ingredients": "rice or corn Chex cereal 1.5 cups, oat milk 250 ml, banana, sliced 1",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-221",
+   "name": "Bacon, hash browns & fresh fruit (allergen-free plate)",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "bacon (3 rashers)",
+    "hash browns (150 g)",
+    "fresh fruit (1 cup)"
+   ],
+   "ingredients": "bacon 3 rashers, hash browns 150 g, fresh fruit 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-222",
+   "name": "Avocado toast, allergy-friendly",
+   "mealType": "breakfast",
+   "pattern": "bread + fat + fat",
+   "components": [
+    "allergen-friendly gluten-free bread, toasted (2 slices)",
+    "avocado, mashed (1)",
+    "dairy-free spread (1 tsp)"
+   ],
+   "ingredients": "allergen-friendly gluten-free bread, toasted 2 slices, avocado, mashed 1, dairy-free spread 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-223",
+   "name": "Overnight chia oats, dairy-free",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit",
+   "components": [
+    "certified gluten-free rolled oats (3/4 cup)",
+    "chia seeds (3 tbsp)",
+    "dairy-free milk (1.25 cups)",
+    "maple syrup (1 tbsp)",
+    "fresh fruit (1/2 cup)"
+   ],
+   "ingredients": "certified gluten-free rolled oats 3/4 cup, chia seeds 3 tbsp, dairy-free milk 1.25 cups, maple syrup 1 tbsp, fresh fruit 1/2 cup",
+   "prep": "5 min + overnight"
+  },
+  {
+   "id": "AB-224",
+   "name": "Sweet potato & butternut squash puree with fruit and syrup (allergy-friendly)",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit + sweetener",
+   "components": [
+    "sweet potato/butternut squash puree (3/4 cup)",
+    "rice milk (1/2 cup)",
+    "fresh fruit (1/2 cup)",
+    "maple syrup (1 tbsp)"
+   ],
+   "ingredients": "sweet potato/butternut squash puree 3/4 cup, rice milk 1/2 cup, fresh fruit 1/2 cup, maple syrup 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-225",
+   "name": "Mixed berry chia pudding with oat milk & protein",
+   "mealType": "breakfast",
+   "pattern": "pudding base + protein + fruit",
+   "components": [
+    "chia seeds (3 tbsp)",
+    "oat milk (300 ml)",
+    "allergen-safe protein powder (1 scoop)",
+    "blueberries (1/2 cup)"
+   ],
+   "ingredients": "chia seeds 3 tbsp, oat milk 300 ml, allergen-safe protein powder 1 scoop, blueberries 1/2 cup",
+   "prep": "5 min + overnight"
+  },
+  {
+   "id": "AB-226",
+   "name": "Sweet potato hash with spinach, egg-free",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + fat",
+   "components": [
+    "sweet potato, diced (250 g)",
+    "spinach (1 cup)",
+    "paprika (1/2 tsp)",
+    "avocado oil (1 tbsp)"
+   ],
+   "ingredients": "sweet potato, diced 250 g, spinach 1 cup, paprika 1/2 tsp, avocado oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-227",
+   "name": "Quinoa bowl with mushrooms & tahini, egg-free",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + sauce",
+   "components": [
+    "cooked quinoa (200 g)",
+    "mushrooms, sautéed (100 g)",
+    "tahini (1 tbsp)"
+   ],
+   "ingredients": "cooked quinoa 200 g, mushrooms, sautéed 100 g, tahini 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-228",
+   "name": "Turkey sausage patties with sweet potato",
+   "mealType": "breakfast",
+   "pattern": "protein + starch",
+   "components": [
+    "turkey sausage patties (2)",
+    "sweet potato, roasted (150 g)"
+   ],
+   "ingredients": "turkey sausage patties 2, sweet potato, roasted 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-229",
+   "name": "Lentil patties with roasted vegetables, egg-free",
+   "mealType": "breakfast",
+   "pattern": "protein + veg",
+   "components": [
+    "spiced lentil patties (2)",
+    "roasted mixed vegetables (1 cup)"
+   ],
+   "ingredients": "spiced lentil patties 2, roasted mixed vegetables 1 cup",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-230",
+   "name": "Low-carb blueberry protein smoothie",
+   "mealType": "breakfast",
+   "pattern": "drink + fruit + protein",
+   "components": [
+    "unsweetened almond milk (300 ml)",
+    "blueberries (1/2 cup)",
+    "whey or plant protein powder (1 scoop)",
+    "ice (1 cup)"
+   ],
+   "ingredients": "unsweetened almond milk 300 ml, blueberries 1/2 cup, whey or plant protein powder 1 scoop, ice 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-231",
+   "name": "Low-carb vegan vanilla protein shake",
+   "mealType": "breakfast",
+   "pattern": "drink + protein",
+   "components": [
+    "unsweetened coconut milk (300 ml)",
+    "vanilla plant protein powder (1 scoop)",
+    "ice (1 cup)"
+   ],
+   "ingredients": "unsweetened coconut milk 300 ml, vanilla plant protein powder 1 scoop, ice 1 cup",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-232",
+   "name": "Protein-packed scrambled eggs with gluten-free toast & fruit",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "eggs, scrambled (3)",
+    "gluten-free bread, toasted (2 slices)",
+    "mixed fruit (1 cup)"
+   ],
+   "ingredients": "eggs, scrambled 3, gluten-free bread, toasted 2 slices, mixed fruit 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-233",
+   "name": "Purition protein shake with dairy yogurt & GF granola",
+   "mealType": "breakfast",
+   "pattern": "protein + dairy + starch",
+   "components": [
+    "Purition protein blend (1 sachet)",
+    "plain yogurt (150 g)",
+    "certified gluten-free granola (30 g)"
+   ],
+   "ingredients": "Purition protein blend 1 sachet, plain yogurt 150 g, certified gluten-free granola 30 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-234",
+   "name": "Buckwheat flake bircher with grated carrot & raisins",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + fruit + dairy",
+   "components": [
+    "buckwheat flakes (60 g)",
+    "grated carrot (1/2 cup)",
+    "raisins (2 tbsp)",
+    "milk (150 ml)",
+    "cinnamon (1/2 tsp)"
+   ],
+   "ingredients": "buckwheat flakes 60 g, grated carrot 1/2 cup, raisins 2 tbsp, milk 150 ml, cinnamon 1/2 tsp",
+   "prep": "5 min + soak"
+  },
+  {
+   "id": "AB-235",
+   "name": "Nut-free overnight oats with oat milk & chopped fruit",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit",
+   "components": [
+    "certified gluten-free rolled oats (1/2 cup)",
+    "oat milk (1/2 cup)",
+    "chia seeds (1 tbsp)",
+    "chopped fruit (1/2 cup)"
+   ],
+   "ingredients": "certified gluten-free rolled oats 1/2 cup, oat milk 1/2 cup, chia seeds 1 tbsp, chopped fruit 1/2 cup",
+   "prep": "5 min + overnight"
+  },
+  {
+   "id": "AB-236",
+   "name": "Scrambled eggs with spinach & tomatoes, nut-free",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + veg + fat",
+   "components": [
+    "eggs, scrambled (2)",
+    "spinach (1/2 cup)",
+    "tomatoes, diced (1/4 cup)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "eggs, scrambled 2, spinach 1/2 cup, tomatoes, diced 1/4 cup, olive oil 1 tbsp",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-237",
+   "name": "Apple-cinnamon oatmeal with oat milk, nut-free",
+   "mealType": "breakfast",
+   "pattern": "starch + drink + fruit",
+   "components": [
+    "certified gluten-free rolled oats (1/2 cup)",
+    "oat milk (1 cup)",
+    "apple, diced (1/2)",
+    "cinnamon (1 tsp)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "certified gluten-free rolled oats 1/2 cup, oat milk 1 cup, apple, diced 1/2, cinnamon 1 tsp, honey 1 tbsp",
+   "prep": "6 min"
+  },
+  {
+   "id": "AB-238",
+   "name": "Sunflower seed butter & jelly on toast",
+   "mealType": "breakfast",
+   "pattern": "bread + fat + fruit",
+   "components": [
+    "bread, toasted (2 slices)",
+    "sunflower seed butter (1 tbsp)",
+    "fruit jam (1 tbsp)"
+   ],
+   "ingredients": "bread, toasted 2 slices, sunflower seed butter 1 tbsp, fruit jam 1 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-239",
+   "name": "Berry smoothie with oat milk & flaxseed, nut-free",
+   "mealType": "breakfast",
+   "pattern": "fruit + fruit + drink",
+   "components": [
+    "banana (1)",
+    "frozen mixed berries (1/2 cup)",
+    "oat milk (1 cup)",
+    "flaxseeds, ground (1 tbsp)"
+   ],
+   "ingredients": "banana 1, frozen mixed berries 1/2 cup, oat milk 1 cup, flaxseeds, ground 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-240",
+   "name": "Lactose-free yogurt parfait with berries & maple syrup",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "lactose-free plain yogurt (1 cup)",
+    "low-FODMAP granola (1/2 cup)",
+    "strawberries (1/2 cup)",
+    "maple syrup (1 tsp)"
+   ],
+   "ingredients": "lactose-free plain yogurt 1 cup, low-FODMAP granola 1/2 cup, strawberries 1/2 cup, maple syrup 1 tsp",
+   "prep": "5 min"
+  }
+ ]
+}

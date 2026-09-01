@@ -1,0 +1,314 @@
+{
+ "batch": "R-15",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "L-088",
+   "name": "Bean, rice & cheese freezer burrito",
+   "mealType": "lunch",
+   "cuisine": "mexican",
+   "servings": 8,
+   "ingredients": "large flour tortilla 1, refried or black beans 1/2 cup, rice 1/2 cup cooked, cheddar 30g, salsa 2 tbsp (makes 8)",
+   "prep": "batch — 30 min, 8 burritos frozen, reheat 3 min",
+   "prepMinutes": 30,
+   "attribution": "CTS TrainRight \"The 4-in-1 Burrito Recipe to Fuel Your Training Day\" (https://trainright.com/weekend-reading-the-4-in-1-burrito-recipe-to-fuel-your-training-day/); Scott Jurek's staple bean-and-rice burrito, Sierra Club",
+   "sourceUrl": "https://trainright.com/weekend-reading-the-4-in-1-burrito-recipe-to-fuel-your-training-day/",
+   "cachedPages": [
+    {
+     "url": "https://trainright.com/weekend-reading-the-4-in-1-burrito-recipe-to-fuel-your-training-day/",
+     "title": "Weekend Reading: The 4-in-1 Burrito Recipe to Fuel Your Training Day - CTS",
+     "ok": true,
+     "textFile": ".cache/source-pages/a89c1965d5d43baff4d545052fdc3356691ce35a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-091",
+   "name": "Tofu, sweet potato & veg wrap",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "whole-wheat tortilla 1, quinoa 60g cooked, tofu 100g roasted, sweet potato 100g roasted, sweetcorn, peppers, onion (makes 4)",
+   "prep": "batch — roast Sunday, assemble night before, 4 servings",
+   "prepMinutes": null,
+   "attribution": "u/whammywombat (WFPB, fuelling like an ultra athlete), r/Ultramarathon \"What do you eat day-to-day?\" (https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/)",
+   "sourceUrl": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+   "cachedPages": [
+    {
+     "url": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/e1048d3d2abe28e20a596c110352b701286dd64a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-093",
+   "name": "Greek yogurt, granola & berries",
+   "mealType": "lunch",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "Greek yogurt 300g, granola 1/2 cup, mixed berries 1 cup, honey 1 tbsp",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "yogurt-bowl-as-lunch widely reported among busy training athletes; NBC News fitness-experts lunch roundup (https://www.nbcnews.com/better/lifestyle/what-7-fitness-experts-eat-lunch-ncna1120251)",
+   "sourceUrl": "https://www.nbcnews.com/better/lifestyle/what-7-fitness-experts-eat-lunch-ncna1120251",
+   "cachedPages": [
+    {
+     "url": "https://www.nbcnews.com/better/lifestyle/what-7-fitness-experts-eat-lunch-ncna1120251",
+     "title": "Need some lunch inspiration? 7 fitness experts dish on their go-to meals",
+     "ok": true,
+     "textFile": ".cache/source-pages/98523a482ce7961baf501dd1ccc9496ab5fa307e.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-094",
+   "name": "Superhero muffins, Greek yogurt & berries",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 1,
+   "ingredients": "superhero muffins 2 (almond meal, oats, carrot, egg, honey), Greek yogurt 200g, mixed berries 1 cup",
+   "prep": "batch — muffins baked ahead and frozen, 2 min assembly",
+   "prepMinutes": 2,
+   "attribution": "Shalane Flanagan & Elyse Kopecky, Run Fast. Eat Slow. Superhero Muffins (https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/)",
+   "sourceUrl": "https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/",
+   "cachedPages": [
+    {
+     "url": "https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/",
+     "title": "Shalane Flanagan’s “Superhero” Muffin Recipe",
+     "ok": true,
+     "textFile": ".cache/source-pages/bc7506d285a937293c3fdf96e2f64e13298fa670.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-095",
+   "name": "Snack-plate lunch — eggs, cheese, edamame, crackers, fruit & hummus",
+   "mealType": "lunch",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "hard-boiled eggs 2, cheese 40g, edamame 1/2 cup, whole-grain crackers 8, apple 1, carrot sticks, hummus 2 tbsp",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "Eat For Endurance RD \"adult lunchable\" (https://www.eatforendurance.com/post/make-ahead-lunch-recipes)",
+   "sourceUrl": "https://www.eatforendurance.com/post/make-ahead-lunch-recipes",
+   "cachedPages": [
+    {
+     "url": "https://www.eatforendurance.com/post/make-ahead-lunch-recipes",
+     "title": "5 Easy Make Ahead Lunch Recipes for Busy Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/f3bd5a53e476b65b8bc341da544429cee7e3027b.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-099",
+   "name": "Feed Zone rice cakes",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 6,
+   "ingredients": "sticky white rice 2 cups cooked, eggs 2 scrambled, parmesan 1/4 cup, ham or bacon 60g, tamari 1 tsp, wrapped in foil (makes 6)",
+   "prep": "batch — 30 min, 6 servings, wrap individually",
+   "prepMinutes": 30,
+   "attribution": "Allen Lim & Biju Thomas, The Feed Zone Cookbook / Feed Zone Portables (https://www.velopress.com/books/the-feed-zone-cookbook/)",
+   "sourceUrl": "https://www.velopress.com/books/the-feed-zone-cookbook/",
+   "cachedPages": [
+    {
+     "url": "https://www.velopress.com/books/the-feed-zone-cookbook/",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-022",
+   "name": "Allen Lim's savoury rice cakes",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 8,
+   "ingredients": "cooked sushi rice 90g, egg 1/2 scrambled, grated parmesan 1 tbsp, salt pinch, olive oil 1 tsp (makes 8)",
+   "prep": "batch — 30 min, 8 servings",
+   "prepMinutes": 30,
+   "attribution": "Allen Lim & Biju Thomas, The Feed Zone Cookbook / Feed Zone Portables https://feedzonecookbook.com/; Velo walkthrough https://velo.outsideonline.com/road/road-training/learn-to-make-allen-lims-famous-rice-cakes/; Sarah Groff's adaptation, ESPNW",
+   "sourceUrl": "https://feedzonecookbook.com/",
+   "cachedPages": [
+    {
+     "url": "https://feedzonecookbook.com/",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://velo.outsideonline.com/road/road-training/learn-to-make-allen-lims-famous-rice-cakes/",
+     "title": "Learn to make Allen Lim's famous rice cakes, oatmeal, beet juice, and fried rice",
+     "ok": true,
+     "textFile": ".cache/source-pages/ec62b7922e1edbf96da5082c60d361ca2ddb91f5.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-023",
+   "name": "Cinnamon apple rice cakes",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 8,
+   "ingredients": "cooked sushi rice 90g, grated apple 1/4, cinnamon pinch, brown sugar 1 tsp, egg 1/4 as binder (makes 8)",
+   "prep": "batch — 30 min, 8 servings",
+   "prepMinutes": 30,
+   "attribution": "Allen Lim & Biju Thomas, Feed Zone Portables, excerpted on Triathlete.com https://www.triathlete.com/nutrition/recipes/feed-zone-portables-cinnamon-apple-rice-cakes/",
+   "sourceUrl": "https://www.triathlete.com/nutrition/recipes/feed-zone-portables-cinnamon-apple-rice-cakes/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/recipes/feed-zone-portables-cinnamon-apple-rice-cakes/",
+     "title": "Feed Zone Portables: Cinnamon Apple Rice Cakes",
+     "ok": true,
+     "textFile": ".cache/source-pages/5c8a8723d9b55b709feda7d0cabd29cb22780d2f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-024",
+   "name": "Denver rice cakes",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 8,
+   "ingredients": "cooked sushi rice 90g, diced ham 25g, bell pepper 15g, onion 10g, egg 1/2, cheddar 15g (makes 8)",
+   "prep": "batch — 30 min, 8 servings",
+   "prepMinutes": 30,
+   "attribution": "Allen Lim & Biju Thomas, Feed Zone Portables, excerpted on Triathlete.com https://www.triathlete.com/nutrition/recipes/feed-zone-portables-denver-rice-cake/",
+   "sourceUrl": "https://www.triathlete.com/nutrition/recipes/feed-zone-portables-denver-rice-cake/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/recipes/feed-zone-portables-denver-rice-cake/",
+     "title": "Feed Zone Portables: Denver Rice Cakes",
+     "ok": true,
+     "textFile": ".cache/source-pages/486836da6b2b4df9e6963890b29e4634c0487baa.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-025",
+   "name": "Maple rice cakes, EF Pro Cycling style",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 8,
+   "ingredients": "cooked white rice 90g, maple syrup 1 tbsp, egg 1/4 as binder, salt pinch, chopped dark chocolate 10g (makes 8)",
+   "prep": "batch — 30 min, 8 servings",
+   "prepMinutes": 30,
+   "attribution": "EF Pro Cycling team recipe https://www.efprocycling.com/tips-recipes/team-recipe-on-the-bike-rice-cakes/; Team Sky blueberry version via Henrik Orre reported at https://www.welovecycling.com/wide/2017/08/17/famous-cyclists-recipes-rice-cakes/",
+   "sourceUrl": "https://www.efprocycling.com/tips-recipes/team-recipe-on-the-bike-rice-cakes/",
+   "cachedPages": [
+    {
+     "url": "https://www.efprocycling.com/tips-recipes/team-recipe-on-the-bike-rice-cakes/",
+     "title": "Team recipe: On-the-bike rice cakes | EF Pro Cycling",
+     "ok": true,
+     "textFile": ".cache/source-pages/266c6e087a873773a41859c35c0511626c3b9d3e.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.welovecycling.com/wide/2017/08/17/famous-cyclists-recipes-rice-cakes/",
+     "title": "Famous Cyclist’s Recipes – Rice Cakes",
+     "ok": true,
+     "textFile": ".cache/source-pages/0cde8b2785843d23b20836a584b7deec8080941b.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-026",
+   "name": "Team Sky in-ride rice bar",
+   "mealType": "snack",
+   "cuisine": "british",
+   "servings": 20,
+   "ingredients": "cooked risotto rice 60g, coconut oil 1 tsp, coconut palm sugar 1 tbsp, cream cheese 1 tsp, agave syrup 1 tsp, cinnamon (makes 20)",
+   "prep": "batch — 30 min, 20 servings",
+   "prepMinutes": 30,
+   "attribution": "Henrik Orre, Team Sky chef, Vélochef — https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+     "title": "Team Sky Recipes for cycling success",
+     "ok": true,
+     "textFile": ".cache/source-pages/0f0cdb295d10107e137b9bda530aeec6ce24bb7a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-027",
+   "name": "Coconut rice cakes",
+   "mealType": "snack",
+   "cuisine": "general",
+   "servings": 8,
+   "ingredients": "pudding rice 100g, coconut milk 200ml, brown sugar 2 tbsp, cinnamon — baked and cut into squares (makes 8)",
+   "prep": "batch — 40 min, 8 servings",
+   "prepMinutes": 40,
+   "attribution": "reported pro-cyclist on-bike snack, Cyclist.co.uk https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+     "title": "Best food for cycling: How to eat like a pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/86d3808dc3e234e882dc82aa946a98e3f8c9727c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-028",
+   "name": "Hannah Grant's race cakes with cherries",
+   "mealType": "snack",
+   "cuisine": "nordic",
+   "servings": 12,
+   "ingredients": "baked sweet potato 25g, egg 1/3, oats 5g, almond flour 1 tsp, dates 1/2, honey 1/2 tsp, melted butter 6g, cherries 5g, cardamom, lemon zest, baking soda (makes 12)",
+   "prep": "batch — 40 min, 12 servings",
+   "prepMinutes": 40,
+   "attribution": "Hannah Grant, Grand Tour team chef, via BikeRadar https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+   "sourceUrl": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+   "cachedPages": [
+    {
+     "url": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+     "title": "Fuel like Tour de France riders with these recipes from a pro cycling chef | BikeRadar",
+     "ok": true,
+     "textFile": ".cache/source-pages/1ea55f2d969b077513c61e8ba284946321d14621.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-029",
+   "name": "Sticky bites (peanut butter oat balls)",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "rolled oats 25g, peanut butter 2 tbsp, honey 1 tbsp, ground flax 1 tsp, dried fruit 1 tbsp (makes 4 x 2 balls)",
+   "prep": "batch — 15 min, 4–5 servings",
+   "prepMinutes": 15,
+   "attribution": "Feed Zone Portables \"sticky bites\" chapter, Allen Lim & Biju Thomas https://www.skratchlabs.com/products/feed-zone-portables; same no-bake template on r/EatCheapAndHealthy athlete threads",
+   "sourceUrl": "https://www.skratchlabs.com/products/feed-zone-portables",
+   "cachedPages": [
+    {
+     "url": "https://www.skratchlabs.com/products/feed-zone-portables",
+     "title": "Feed Zone Portables Cookbook\n      -\n      Skratch Labs",
+     "ok": true,
+     "textFile": ".cache/source-pages/c388d720db77defe20e8426f1d0da34879d5cd4d.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

@@ -19,3 +19,6 @@ packages/web/src/lib/supabase/types.ts
 .env.local
 .env.*.local
 *.local
+
+# scraped source pages (regenerate with packages/web/scripts/fetch_recipe_sources.mjs)
+.cache/

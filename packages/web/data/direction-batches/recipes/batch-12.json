@@ -1,0 +1,259 @@
+{
+ "batch": "R-12",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "L-026",
+   "name": "Chickpea & sweet potato coconut curry with rice",
+   "mealType": "lunch",
+   "cuisine": "indian",
+   "servings": 5,
+   "ingredients": "chickpeas 1.5 cups, sweet potato 200g cubed, coconut milk 1/2 cup, curry paste or powder 1 tbsp, spinach 1 cup, basmati rice 180g cooked (makes 5)",
+   "prep": "batch — 35 min, 5 servings, freezes well",
+   "prepMinutes": 35,
+   "attribution": "220 Triathlon \"best vegan recipes for triathletes\" (https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes)",
+   "sourceUrl": "https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes",
+   "cachedPages": [
+    {
+     "url": "https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes",
+     "title": "Best vegan recipes for triathletes | 220 Triathlon",
+     "ok": true,
+     "textFile": ".cache/source-pages/93abbf48ac8adf8cce6142ddd53a4b412abecd8e.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-027",
+   "name": "Chicken tikka masala with rice",
+   "mealType": "lunch",
+   "cuisine": "indian",
+   "servings": 4,
+   "ingredients": "chicken breast 150g, tikka masala sauce 1 cup (tomato, cream, spices), basmati rice 180g cooked, coriander (makes 4)",
+   "prep": "batch — 35 min, 4 servings",
+   "prepMinutes": 35,
+   "attribution": "widely reported UK/US takeout-turned-batch-cook staple among endurance athletes (community-reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-029",
+   "name": "Curd rice",
+   "mealType": "lunch",
+   "cuisine": "indian",
+   "servings": 1,
+   "ingredients": "white rice 250g cooked, plain yogurt 150g, tempering: mustard seeds, curry leaves, ginger, oil 1 tsp, pomegranate or grapes 1/2 cup",
+   "prep": "10 min",
+   "prepMinutes": 10,
+   "attribution": "South Indian everyday comfort food, commonly reported as a race-eve and travel meal among South Indian endurance athletes for its gentleness on digestion",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-030",
+   "name": "Injera with misir wat & boiled egg",
+   "mealType": "lunch",
+   "cuisine": "ethiopian",
+   "servings": 4,
+   "ingredients": "teff injera 150g, red lentil stew (misir wat) 200g, hard-boiled egg 1, cooked cabbage and carrot side (makes 4 stew)",
+   "prep": "batch — 40 min stew, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "staple pattern of Ethiopian training-camp meals associated with the Bekele/Gebrselassie generation of distance runners (commonly reported cultural staple)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-031",
+   "name": "Githeri — maize & bean stew",
+   "mealType": "lunch",
+   "cuisine": "kenyan",
+   "servings": 4,
+   "ingredients": "boiled maize kernels 150g, cooked beans 150g, tomato 1, onion 1/2, bell pepper 1/2, oil 1 tsp (makes 4)",
+   "prep": "batch — 40 min, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "traditional Kenyan running-camp dish — RunnersConnect (https://runnersconnect.net/diet-of-kenyan-runners/), Enda (https://www.endasportswear.com/blogs/news/eat-like-a-kenyan-to-run-like-a-kenyan)",
+   "sourceUrl": "https://runnersconnect.net/diet-of-kenyan-runners/",
+   "cachedPages": [
+    {
+     "url": "https://runnersconnect.net/diet-of-kenyan-runners/",
+     "title": "Diet of Kenyan Runners: A Scientific Look at the Diet of the World’s Fastest Runners - Runners Connect",
+     "ok": true,
+     "textFile": ".cache/source-pages/656062024f5283f57e01c5738bca8833fab7ff65.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.endasportswear.com/blogs/news/eat-like-a-kenyan-to-run-like-a-kenyan",
+     "title": "Eat Like a Kenyan to Run Like a Kenyan",
+     "ok": true,
+     "textFile": ".cache/source-pages/896eef2d2b77423460ee8e123d5be2b390fc877f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-032",
+   "name": "Ugali, lean beef stew & managu",
+   "mealType": "lunch",
+   "cuisine": "kenyan",
+   "servings": 4,
+   "ingredients": "ugali (maize meal) 200g, lean beef stew 120g (beef, tomato, onion), managu or spinach/collard greens 1 cup (makes 4 stew)",
+   "prep": "batch — stew ahead, ugali fresh 15 min",
+   "prepMinutes": 15,
+   "attribution": "Eliud Kipchoge's reported everyday lunch/dinner — Olympics.com (https://www.olympics.com/en/news/what-olympic-marathon-hero-eliud-kipchoge-eats)",
+   "sourceUrl": "https://www.olympics.com/en/news/what-olympic-marathon-hero-eliud-kipchoge-eats",
+   "cachedPages": [
+    {
+     "url": "https://www.olympics.com/en/news/what-olympic-marathon-hero-eliud-kipchoge-eats",
+     "title": "A champion's diet: What marathon legend Eliud Kipchoge eats",
+     "ok": true,
+     "textFile": ".cache/source-pages/629647230f769454207e832c4136d705dec35c68.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-036",
+   "name": "Spaghetti bolognese (leftover portion)",
+   "mealType": "lunch",
+   "cuisine": "italian",
+   "servings": 4,
+   "ingredients": "spaghetti 100g dry, lean beef or turkey mince 120g, tomato sauce 1 cup, onion, carrot, celery, parmesan 1 tbsp (makes 4 sauce)",
+   "prep": "batch — 40 min sauce, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "pasta named repeatedly as a training-table staple by pro cyclists and ultrarunners (Cyclist.co.uk https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro; Outside on Rob Krar)",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+     "title": "Best food for cycling: How to eat like a pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/86d3808dc3e234e882dc82aa946a98e3f8c9727c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-037",
+   "name": "Lentil bolognese with gluten-free pasta",
+   "mealType": "lunch",
+   "cuisine": "italian",
+   "servings": 5,
+   "ingredients": "brown lentils 1.5 cups cooked, marinara 1.5 cups, GF pasta 100g dry, nutritional yeast 1 tbsp, basil (makes 5)",
+   "prep": "batch — 30 min, 5 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "220 Triathlon \"best vegan recipes for triathletes\" (https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes)",
+   "sourceUrl": "https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes",
+   "cachedPages": [
+    {
+     "url": "https://www.220triathlon.com/news/best-vegan-recipes-for-triathletes",
+     "title": "Best vegan recipes for triathletes | 220 Triathlon",
+     "ok": true,
+     "textFile": ".cache/source-pages/93abbf48ac8adf8cce6142ddd53a4b412abecd8e.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-038",
+   "name": "Baked ziti (leftover portion)",
+   "mealType": "lunch",
+   "cuisine": "italian",
+   "servings": 6,
+   "ingredients": "ziti 100g dry, marinara 1 cup, ricotta 1/4 cup, mozzarella 30g, turkey mince 100g optional (makes 6 tray)",
+   "prep": "batch — 50 min, 6 servings",
+   "prepMinutes": 50,
+   "attribution": "pasta bakes widely reported as a carb-load and everyday batch dish among endurance athletes (community-reported; consistent with pasta-forward pro-cycling pattern, GCN https://www.globalcyclingnetwork.com/video/pro-cycling-nutrition-what-do-riders-eat-in-a-race)",
+   "sourceUrl": "https://www.globalcyclingnetwork.com/video/pro-cycling-nutrition-what-do-riders-eat-in-a-race",
+   "cachedPages": [
+    {
+     "url": "https://www.globalcyclingnetwork.com/video/pro-cycling-nutrition-what-do-riders-eat-in-a-race",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-040",
+   "name": "Chicken & cherry tomato pasta salad",
+   "mealType": "lunch",
+   "cuisine": "italian",
+   "servings": 4,
+   "ingredients": "fusilli 100g dry, grilled chicken 120g, cherry tomatoes 1 cup, cucumber, olive oil 1 tbsp, parmesan 2 tbsp, basil (makes 4)",
+   "prep": "batch — 15 min, 4 servings",
+   "prepMinutes": 15,
+   "attribution": "pasta salad named as the standard post-race team-bus lunch in GCN \"Pro Cycling Nutrition\" (https://www.globalcyclingnetwork.com/video/pro-cycling-nutrition-what-do-riders-eat-in-a-race); commonly made the night before for race-trip drives (r/triathlon)",
+   "sourceUrl": "https://www.globalcyclingnetwork.com/video/pro-cycling-nutrition-what-do-riders-eat-in-a-race",
+   "cachedPages": [
+    {
+     "url": "https://www.globalcyclingnetwork.com/video/pro-cycling-nutrition-what-do-riders-eat-in-a-race",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-043",
+   "name": "Minestrone with parmesan & bread",
+   "mealType": "lunch",
+   "cuisine": "italian",
+   "servings": 6,
+   "ingredients": "mixed veg (carrot, celery, courgette, tomato) 2 cups, cannellini beans 1 cup, small pasta 50g dry, vegetable stock, parmesan 15g, bread 1 slice (makes 6)",
+   "prep": "batch — 40 min, 6 servings, freezes well",
+   "prepMinutes": 40,
+   "attribution": "classic Italian training-table soup, commonly reported rest-day staple in Mediterranean-diet-for-athletes coverage (Cyclist.co.uk https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro)",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+     "title": "Best food for cycling: How to eat like a pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/86d3808dc3e234e882dc82aa946a98e3f8c9727c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-044",
+   "name": "Lentil & vegetable soup with bread",
+   "mealType": "lunch",
+   "cuisine": "mediterranean",
+   "servings": 6,
+   "ingredients": "red or green lentils 100g dry, carrot, celery, onion, tomato, vegetable stock, olive oil 1 tbsp, wholegrain bread 2 slices (makes 6)",
+   "prep": "batch — 30 min, 6 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "staple batch-cook rest-day lunch across r/triathlon and r/AdvancedRunning meal-prep threads; dietitianapproved.com \"Eat Plants, Train Hard\" vegan triathlete guide",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-045",
+   "name": "Butternut squash & chickpea soup",
+   "mealType": "lunch",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "butternut squash 400g, canned chickpeas 200g, vegetable stock, coconut milk 100ml, ginger, cumin, rice 100g cooked on the side (makes 4)",
+   "prep": "batch — 30 min, 4 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "allergen-safe soup format cited in FARE-adjacent recipe roundups (gruballergy.com \"Allergen-Free Recipes & Meal Ideas\"); commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-046",
+   "name": "Chicken, rice & vegetable soup",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "roast chicken 150g shredded, rice 60g dry, carrot, celery, onion, chicken stock 500ml, parsley (makes 4)",
+   "prep": "batch — 30 min, 4 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "classic chicken-and-rice soup, documented as allergen-safe comfort food across allergy-cooking resources; Nancy Clark-style \"rest and recover\" comfort meal guidance (commonly reported)",
+   "sourceUrl": null,
+   "cachedPages": []
+  }
+ ]
+}

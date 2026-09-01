@@ -1,0 +1,290 @@
+{
+ "batch": "R-16",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "S-032",
+   "name": "Pumpkin seed & date energy bites (nut-free)",
+   "mealType": "snack",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "pitted dates 40g, pumpkin seeds 20g, sunflower seeds 10g, cocoa powder 1 tsp, salt pinch (makes 6 x 2 bites)",
+   "prep": "batch — 15 min, 6 servings",
+   "prepMinutes": 15,
+   "attribution": "nut-free date-ball template from gononuts.com and The Dizzy Cook, cross-referenced with smnutritionrd.com \"Allergy Friendly Snacks for Athletes\"; commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-033",
+   "name": "Oat flapjack",
+   "mealType": "snack",
+   "cuisine": "british",
+   "servings": 12,
+   "ingredients": "rolled oats 35g, butter 15g, golden syrup 15g, brown sugar 8g (makes 12)",
+   "prep": "batch — 30 min, 12 servings",
+   "prepMinutes": 30,
+   "attribution": "\"flapjacks\" named as classic musette real food alongside rice cakes, Cyclist.co.uk https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+     "title": "Best food for cycling: How to eat like a pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/86d3808dc3e234e882dc82aa946a98e3f8c9727c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-035",
+   "name": "Carrot cake energy balls",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 6,
+   "ingredients": "grated carrot 2 tbsp, dates 2, walnuts 2 tbsp, shredded coconut 1 tbsp, cinnamon — blended and rolled (makes 6 x 2 balls)",
+   "prep": "batch — 15 min, 6 servings",
+   "prepMinutes": 15,
+   "attribution": "\"No-Bake Carrot Cake Energy Balls\", The Paleo Diet athlete recipes https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "sourceUrl": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://thepaleodiet.com/recipes/paleo-recipes-for-athletes/",
+     "title": "Paleo Recipes for Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/d8282c2b8dc0ecbdfc92df439e27ee5ebd732c5f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-036",
+   "name": "Homemade fig bars",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 8,
+   "ingredients": "dried figs 20g, whole-wheat flour 12g, honey 1 tsp, water (makes 8)",
+   "prep": "batch — 30 min, 8 servings",
+   "prepMinutes": 30,
+   "attribution": "fig bars as a long-standing cycling snack in Cyclist.co.uk \"eat like a pro\" https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro; fig bars pre-workout via batwood14 on TrainerRoad https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/6",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+     "title": "Best food for cycling: How to eat like a pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/86d3808dc3e234e882dc82aa946a98e3f8c9727c.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/6",
+     "title": "Your favorite snacks",
+     "ok": true,
+     "textFile": ".cache/source-pages/c919e99bd61017857433d34b36648f30f42f762a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-037",
+   "name": "Single superhero muffin (snack portion)",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 12,
+   "ingredients": "almond flour 20g, rolled oats 10g, grated carrot 2 tbsp, egg 1/4, melted butter 8g, maple syrup 2 tsp, raisins 1 tsp, cinnamon, baking soda (makes 12)",
+   "prep": "batch — 40 min, 12 servings",
+   "prepMinutes": 40,
+   "attribution": "Shalane Flanagan & Elyse Kopecky, Run Fast. Eat Slow. — reprinted at https://www.dinneralovestory.com/shalane-flanagans-superhero-muffins/ and https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/",
+   "sourceUrl": "https://www.dinneralovestory.com/shalane-flanagans-superhero-muffins/",
+   "cachedPages": [
+    {
+     "url": "https://www.dinneralovestory.com/shalane-flanagans-superhero-muffins/",
+     "title": "Shalane Flanagan's Superhero Muffins · Dinner: A Love Story",
+     "ok": true,
+     "textFile": ".cache/source-pages/5f132c3585986978a7868f37b70ef01ae4c077e5.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://run.outsideonline.com/nutrition-and-health/recipes/shalane-flanagans-superhero-muffin-recipe/",
+     "title": "Shalane Flanagan’s “Superhero” Muffin Recipe",
+     "ok": true,
+     "textFile": ".cache/source-pages/bc7506d285a937293c3fdf96e2f64e13298fa670.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-038",
+   "name": "Nancy Clark's peanut butter chocolate chip muffins",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 12,
+   "ingredients": "whole-wheat flour 15g, peanut butter 1 tbsp, mashed banana 1/12, egg 1/6, honey 1 tsp, dark chocolate chips 1 tsp, baking soda (makes 12)",
+   "prep": "batch — 30 min, 12 servings",
+   "prepMinutes": 30,
+   "attribution": "Nancy Clark's Sports Nutrition Guidebook https://us.humankinetics.com/products/nancy-clarks-sports-nutrition-guidebook-6th-edition",
+   "sourceUrl": "https://us.humankinetics.com/products/nancy-clarks-sports-nutrition-guidebook-6th-edition",
+   "cachedPages": [
+    {
+     "url": "https://us.humankinetics.com/products/nancy-clarks-sports-nutrition-guidebook-6th-edition",
+     "title": "Nancy Clark's Sports Nutrition Guidebook-6th Edition",
+     "ok": true,
+     "textFile": ".cache/source-pages/f2321320c3389b7883a04c254460ad1591e0cd99.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-039",
+   "name": "Egg-free pumpkin spice muffins",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 12,
+   "ingredients": "certified GF oat flour or GF flour 17g, pumpkin purée 20g, flax egg 1/6, maple syrup 8g, oat milk 1 tsp, baking soda, pumpkin spice (makes 12)",
+   "prep": "batch — 30 min, 12 servings",
+   "prepMinutes": 30,
+   "attribution": "standard flax-egg technique from egg-allergy baking blogs; pumpkin-muffin format from runtothefinish.com GF runner meal plan; commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-040",
+   "name": "Chocolate chip oat cookies",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 6,
+   "ingredients": "rolled oats 60g, whole-wheat flour 40g, coconut oil 2 tbsp, maple syrup 2 tbsp, dark chocolate chips 30g (makes 12; 2 per serving)",
+   "prep": "batch — 30 min, 6 servings",
+   "prepMinutes": 30,
+   "attribution": "reported snack of pro triathlete Tamara Jewett, triathlonmagazine.ca \"What vegetarian pro triathlete Tamara Jewett eats in a day\"",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "S-041",
+   "name": "Paleo chocolate chip cookies",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 6,
+   "ingredients": "almond flour 17g, coconut oil 5g, honey 7g, dark chocolate chips 7g, egg 1/12 (makes 12; 2 per serving)",
+   "prep": "batch — 25 min, 6 servings",
+   "prepMinutes": 25,
+   "attribution": "Amanda Brooks, RunToTheFinish gluten-free meal plan for runners (\"Paleo Chocolate Chip Cookies\") https://www.runtothefinish.com/",
+   "sourceUrl": "https://www.runtothefinish.com/",
+   "cachedPages": [
+    {
+     "url": "https://www.runtothefinish.com/",
+     "title": "RunToTheFinish.com",
+     "ok": true,
+     "textFile": ".cache/source-pages/a15d363cc7d387457ba7daa3875d60dfc1a67015.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-042",
+   "name": "Sweet potato & black bean hand pies",
+   "mealType": "snack",
+   "cuisine": "mexican",
+   "servings": 8,
+   "ingredients": "whole-wheat pie dough 50g, mashed sweet potato 60g, black beans 30g, cumin, salt (makes 8)",
+   "prep": "batch — 45 min, 8 servings",
+   "prepMinutes": 45,
+   "attribution": "Feed Zone Cookbook \"two-bite pies\" chapter, Allen Lim & Biju Thomas https://feedzonecookbook.com/",
+   "sourceUrl": "https://feedzonecookbook.com/",
+   "cachedPages": [
+    {
+     "url": "https://feedzonecookbook.com/",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-043",
+   "name": "Salted boiled potatoes",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "baby potatoes 300g boiled, salt 1/2 tsp, olive oil 1 tsp",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "ultramarathoner Tara Dower's potato habit, Washington Post https://www.washingtonpost.com/food/2025/05/06/potatoes-endurance-athletes-nutrition-ultramarathoners/",
+   "sourceUrl": "https://www.washingtonpost.com/food/2025/05/06/potatoes-endurance-athletes-nutrition-ultramarathoners/",
+   "cachedPages": [
+    {
+     "url": "https://www.washingtonpost.com/food/2025/05/06/potatoes-endurance-athletes-nutrition-ultramarathoners/",
+     "title": "Powered by potatoes: Endurance athletes are chasing speed with spuds",
+     "ok": true,
+     "textFile": ".cache/source-pages/36b19c88bdc792985a22b3e83d8050fa03c81540.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-044",
+   "name": "Baked sweet potato with cinnamon",
+   "mealType": "snack",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "sweet potato 1 medium, cinnamon 1/2 tsp, coconut oil 1 tsp",
+   "prep": "batch — 45 min, 4–5 servings",
+   "prepMinutes": 45,
+   "attribution": "Primal Endurance's sweet-potato \"add carbs back\" guidance https://www.marksdailyapple.com/7-habits-of-highly-successful-primal-endurance-athletes/; recurs across rest-day nutrition guides",
+   "sourceUrl": "https://www.marksdailyapple.com/7-habits-of-highly-successful-primal-endurance-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://www.marksdailyapple.com/7-habits-of-highly-successful-primal-endurance-athletes/",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-045",
+   "name": "Roasted chickpeas with paprika",
+   "mealType": "snack",
+   "cuisine": "mediterranean",
+   "servings": 4,
+   "ingredients": "cooked chickpeas 150g, olive oil 1 tsp, smoked paprika 1/2 tsp, salt",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "willball12 on TrainerRoad https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/5 — built into a snack rotation while managing weight; smnutritionrd.com allergy-friendly list",
+   "sourceUrl": "https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/5",
+   "cachedPages": [
+    {
+     "url": "https://www.trainerroad.com/forum/t/your-favorite-snacks/7464/5",
+     "title": "Your favorite snacks",
+     "ok": true,
+     "textFile": ".cache/source-pages/340191577934c6450708c5d8b4cd496d0a229745.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "S-048",
+   "name": "Hummus & roasted sweet potato wrap",
+   "mealType": "snack",
+   "cuisine": "mediterranean",
+   "servings": 4,
+   "ingredients": "small tortilla 1, hummus 40g, roasted sweet potato 100g, spinach handful",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "cited as a 3:1 carb:protein recovery option, ROUVY https://rouvy.com/blog/snack-for-triathlon",
+   "sourceUrl": "https://rouvy.com/blog/snack-for-triathlon",
+   "cachedPages": [
+    {
+     "url": "https://rouvy.com/blog/snack-for-triathlon",
+     "title": "Forget Energy Bars—These Snacks Are Changing the Game for Triathletes | ROUVY",
+     "ok": true,
+     "textFile": ".cache/source-pages/2b3bd8a43a4220ca465a8a3a5af28b2006af40cb.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

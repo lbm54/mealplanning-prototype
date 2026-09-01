@@ -1,0 +1,1547 @@
+{
+ "batch": "A-10",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AL-347",
+   "name": "Rice, frijoles & patacones",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other",
+   "components": [
+    "white rice, cooked (200 g)",
+    "frijoles (stewed pinto beans, component) (200 g)",
+    "patacones (twice-fried green plantain) (120 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, frijoles (stewed pinto beans, component) 200 g, patacones (twice-fried green plantain) 120 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-348",
+   "name": "Casado — rice, black beans, plantain & grilled chicken",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other + protein + veg",
+   "components": [
+    "white rice, cooked (200 g)",
+    "black beans, stewed (150 g)",
+    "fried sweet plantain (100 g)",
+    "grilled chicken breast (150 g)",
+    "side salad (80 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, black beans, stewed 150 g, fried sweet plantain 100 g, grilled chicken breast 150 g, side salad 80 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-349",
+   "name": "Casado — rice, black beans, plantain & grilled fish",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other + protein",
+   "components": [
+    "white rice, cooked (200 g)",
+    "black beans, stewed (150 g)",
+    "fried sweet plantain (100 g)",
+    "grilled white fish (150 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, black beans, stewed 150 g, fried sweet plantain 100 g, grilled white fish 150 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-350",
+   "name": "Rice, pinto beans & queso fresco",
+   "mealType": "lunch",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "white rice, cooked (200 g)",
+    "pinto beans, stewed (180 g)",
+    "queso fresco, crumbled (50 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, pinto beans, stewed 180 g, queso fresco, crumbled 50 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-351",
+   "name": "Rice, chorizo & fried plantain",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other",
+   "components": [
+    "white rice, cooked (200 g)",
+    "chorizo, grilled (100 g)",
+    "fried sweet plantain (100 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, chorizo, grilled 100 g, fried sweet plantain 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-352",
+   "name": "Rice, black beans, fried egg & tajada",
+   "mealType": "lunch",
+   "pattern": "starch + protein + protein + other",
+   "components": [
+    "white rice, cooked (200 g)",
+    "black beans, stewed (180 g)",
+    "fried egg (1 egg)",
+    "tajada (fried ripe plantain slices) (100 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, black beans, stewed 180 g, fried egg 1 egg, tajada (fried ripe plantain slices) 100 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-353",
+   "name": "Menu del día — grilled protein, rice & patacones",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other + veg",
+   "components": [
+    "white rice, cooked (200 g)",
+    "grilled beef or chicken (component) (150 g)",
+    "patacones (fried green plantain) (100 g)",
+    "side salad (80 g)"
+   ],
+   "ingredients": "white rice, cooked 200 g, grilled beef or chicken (component) 150 g, patacones (fried green plantain) 100 g, side salad 80 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-354",
+   "name": "Corn tortillas, refried beans & pico de gallo",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "corn tortillas (3 pieces)",
+    "refried beans (component) (200 g)",
+    "pico de gallo (tomato, onion, cilantro, lime) (80 g)"
+   ],
+   "ingredients": "corn tortillas 3 pieces, refried beans (component) 200 g, pico de gallo (tomato, onion, cilantro, lime) 80 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-355",
+   "name": "Pita, hummus, grilled chicken & salad",
+   "mealType": "lunch",
+   "pattern": "bread + sauce + protein + veg",
+   "components": [
+    "pita bread (1 large)",
+    "hummus (component) (100 g)",
+    "grilled chicken breast (150 g)",
+    "chopped salad (tomato, cucumber, onion) (120 g)"
+   ],
+   "ingredients": "pita bread 1 large, hummus (component) 100 g, grilled chicken breast 150 g, chopped salad (tomato, cucumber, onion) 120 g",
+   "prep": "10 min (hummus made ahead)"
+  },
+  {
+   "id": "AL-356",
+   "name": "Flatbread, labneh, olives & cucumber",
+   "mealType": "lunch",
+   "pattern": "bread + dairy + other + veg",
+   "components": [
+    "flatbread (1 piece)",
+    "labneh (strained yogurt, component) (100 g)",
+    "olives (40 g)",
+    "cucumber, sliced (1 small)"
+   ],
+   "ingredients": "flatbread 1 piece, labneh (strained yogurt, component) 100 g, olives 40 g, cucumber, sliced 1 small",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-357",
+   "name": "Pita, falafel & tahini with tomato-cucumber salad",
+   "mealType": "lunch",
+   "pattern": "bread + protein + sauce + veg",
+   "components": [
+    "pita bread (1 large)",
+    "falafel (component) (4 pieces)",
+    "tahini sauce (component) (2 tbsp)",
+    "tomato-cucumber salad (120 g)"
+   ],
+   "ingredients": "pita bread 1 large, falafel (component) 4 pieces, tahini sauce (component) 2 tbsp, tomato-cucumber salad 120 g",
+   "prep": "10 min (falafel made ahead)"
+  },
+  {
+   "id": "AL-358",
+   "name": "Grilled lamb kofta, rice pilaf & yogurt-cucumber salad",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "grilled lamb kofta (150 g)",
+    "rice pilaf, plain (200 g)",
+    "yogurt-cucumber salad (cacik/tzatziki-style) (100 g)"
+   ],
+   "ingredients": "grilled lamb kofta 150 g, rice pilaf, plain 200 g, yogurt-cucumber salad (cacik/tzatziki-style) 100 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AL-359",
+   "name": "Grilled kofta wrap with tahini & pickled turnip",
+   "mealType": "lunch",
+   "pattern": "starch + protein + sauce + veg",
+   "components": [
+    "flatbread wrap (1 large)",
+    "grilled beef or lamb kofta (component) (150 g)",
+    "tahini sauce (component) (1.5 tbsp)",
+    "pickled turnip (pink) (30 g)"
+   ],
+   "ingredients": "flatbread wrap 1 large, grilled beef or lamb kofta (component) 150 g, tahini sauce (component) 1.5 tbsp, pickled turnip (pink) 30 g",
+   "prep": "15 min (kofta made ahead)"
+  },
+  {
+   "id": "AL-360",
+   "name": "Grilled halloumi, pita & Greek salad",
+   "mealType": "lunch",
+   "pattern": "bread + dairy + veg",
+   "components": [
+    "pita bread (1 piece)",
+    "halloumi, grilled (120 g)",
+    "Greek salad (tomato, cucumber, olive, feta) (150 g)"
+   ],
+   "ingredients": "pita bread 1 piece, halloumi, grilled 120 g, Greek salad (tomato, cucumber, olive, feta) 150 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-361",
+   "name": "Lentil soup with pita & olive oil",
+   "mealType": "lunch",
+   "pattern": "protein + starch + fat",
+   "components": [
+    "lentil soup (component) (350 ml)",
+    "pita bread (1 piece)",
+    "olive oil, drizzled (1 tbsp)"
+   ],
+   "ingredients": "lentil soup (component) 350 ml, pita bread 1 piece, olive oil, drizzled 1 tbsp",
+   "prep": "5 min (soup made ahead)"
+  },
+  {
+   "id": "AL-362",
+   "name": "Shakshuka (component) with pita",
+   "mealType": "lunch",
+   "pattern": "protein + starch",
+   "components": [
+    "shakshuka (eggs poached in tomato-pepper sauce, component) (2 eggs' worth)",
+    "pita bread (1 piece)"
+   ],
+   "ingredients": "shakshuka (eggs poached in tomato-pepper sauce, component) 2 eggs' worth, pita bread 1 piece",
+   "prep": "5 min (sauce made ahead)"
+  },
+  {
+   "id": "AL-363",
+   "name": "Chickpea salad, feta & pita",
+   "mealType": "lunch",
+   "pattern": "protein + dairy + veg + starch",
+   "components": [
+    "chickpeas, cooked (180 g)",
+    "feta, crumbled (50 g)",
+    "chopped salad (tomato, cucumber, parsley) (100 g)",
+    "pita bread (1 piece)"
+   ],
+   "ingredients": "chickpeas, cooked 180 g, feta, crumbled 50 g, chopped salad (tomato, cucumber, parsley) 100 g, pita bread 1 piece",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-364",
+   "name": "Chicken shawarma-style wrap with pickles & garlic sauce",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "flatbread wrap (1 large)",
+    "shawarma-style grilled chicken (component) (150 g)",
+    "pickles (30 g)",
+    "garlic sauce (toum, component) (1 tbsp)"
+   ],
+   "ingredients": "flatbread wrap 1 large, shawarma-style grilled chicken (component) 150 g, pickles 30 g, garlic sauce (toum, component) 1 tbsp",
+   "prep": "10 min (chicken made ahead)"
+  },
+  {
+   "id": "AL-365",
+   "name": "Rye crispbread, pickled herring & boiled egg",
+   "mealType": "lunch",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "rye crispbread (knekkebrød) (3 pieces)",
+    "pickled herring (100 g)",
+    "boiled egg (1 egg)"
+   ],
+   "ingredients": "rye crispbread (knekkebrød) 3 pieces, pickled herring 100 g, boiled egg 1 egg",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-366",
+   "name": "Rye bread, brunost (brown cheese) & jam",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + other",
+   "components": [
+    "rye bread (2 slices)",
+    "brunost (Norwegian brown cheese) (40 g)",
+    "strawberry or raspberry jam (1 tbsp)"
+   ],
+   "ingredients": "rye bread 2 slices, brunost (Norwegian brown cheese) 40 g, strawberry or raspberry jam 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-367",
+   "name": "Rye crispbread with cod roe paste, egg & butter",
+   "mealType": "lunch",
+   "pattern": "starch + protein + protein + fat",
+   "components": [
+    "rye crispbread (3 pieces)",
+    "creamed cod roe (kaviar), spread (3 tbsp)",
+    "hard-boiled egg, sliced (1 egg)",
+    "butter (1 tsp)"
+   ],
+   "ingredients": "rye crispbread 3 pieces, creamed cod roe (kaviar), spread 3 tbsp, hard-boiled egg, sliced 1 egg, butter 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-368",
+   "name": "Rye bread, smoked salmon & cucumber",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "rye bread (2 slices)",
+    "smoked salmon (100 g)",
+    "cucumber, sliced (1/2 cucumber)"
+   ],
+   "ingredients": "rye bread 2 slices, smoked salmon 100 g, cucumber, sliced 1/2 cucumber",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-369",
+   "name": "Rye bread, ham & pickles",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "rye bread (2 slices)",
+    "ham, sliced (80 g)",
+    "pickles (30 g)"
+   ],
+   "ingredients": "rye bread 2 slices, ham, sliced 80 g, pickles 30 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-370",
+   "name": "Rye crispbread, herring, boiled potato & dill",
+   "mealType": "lunch",
+   "pattern": "starch + protein + starch + other",
+   "components": [
+    "rye crispbread (2 pieces)",
+    "pickled herring (100 g)",
+    "boiled new potatoes (150 g)",
+    "fresh dill, chopped (1 tsp)"
+   ],
+   "ingredients": "rye crispbread 2 pieces, pickled herring 100 g, boiled new potatoes 150 g, fresh dill, chopped 1 tsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-371",
+   "name": "Kefir, rye bread & hard cheese",
+   "mealType": "lunch",
+   "pattern": "drink + starch + dairy",
+   "components": [
+    "kefir (250 ml)",
+    "rye bread (2 slices)",
+    "hard cheese, sliced (50 g)"
+   ],
+   "ingredients": "kefir 250 ml, rye bread 2 slices, hard cheese, sliced 50 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-372",
+   "name": "Rye bread, boiled egg & pickled cucumber",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "rye bread (2 slices)",
+    "hard-boiled egg, sliced (2 eggs)",
+    "pickled cucumber (50 g)"
+   ],
+   "ingredients": "rye bread 2 slices, hard-boiled egg, sliced 2 eggs, pickled cucumber 50 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-373",
+   "name": "Plain pasta, olive oil & parmesan",
+   "mealType": "lunch",
+   "pattern": "starch + fat + dairy",
+   "components": [
+    "pasta, plain, cooked (250 g)",
+    "extra virgin olive oil (1-2 tbsp)",
+    "parmesan, grated (30 g)"
+   ],
+   "ingredients": "pasta, plain, cooked 250 g, extra virgin olive oil 1-2 tbsp, parmesan, grated 30 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-374",
+   "name": "Pasta, olive oil, parmesan & grilled chicken",
+   "mealType": "lunch",
+   "pattern": "starch + fat + dairy + protein",
+   "components": [
+    "pasta, plain, cooked (250 g)",
+    "extra virgin olive oil (1 tbsp)",
+    "parmesan, grated (25 g)",
+    "grilled chicken breast (150 g)"
+   ],
+   "ingredients": "pasta, plain, cooked 250 g, extra virgin olive oil 1 tbsp, parmesan, grated 25 g, grilled chicken breast 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-375",
+   "name": "White rice, olive oil & parmesan",
+   "mealType": "lunch",
+   "pattern": "starch + fat + dairy",
+   "components": [
+    "white rice, cooked (250 g)",
+    "extra virgin olive oil (1 tbsp)",
+    "parmesan, grated (25 g)"
+   ],
+   "ingredients": "white rice, cooked 250 g, extra virgin olive oil 1 tbsp, parmesan, grated 25 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-376",
+   "name": "Serrano ham, baguette, olive oil & tomato",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + fat",
+   "components": [
+    "baguette (1/2 loaf (~100 g))",
+    "serrano ham (60 g)",
+    "tomato, sliced (1 medium)",
+    "olive oil, drizzled (1 tbsp)"
+   ],
+   "ingredients": "baguette 1/2 loaf (~100 g), serrano ham 60 g, tomato, sliced 1 medium, olive oil, drizzled 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-377",
+   "name": "Pasta, olive oil, parmesan & prosciutto",
+   "mealType": "lunch",
+   "pattern": "starch + fat + dairy + protein",
+   "components": [
+    "pasta, plain, cooked (250 g)",
+    "extra virgin olive oil (1 tbsp)",
+    "parmesan, grated (20 g)",
+    "prosciutto, sliced (60 g)"
+   ],
+   "ingredients": "pasta, plain, cooked 250 g, extra virgin olive oil 1 tbsp, parmesan, grated 20 g, prosciutto, sliced 60 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-378",
+   "name": "Boiled potatoes, olive oil & parmesan",
+   "mealType": "lunch",
+   "pattern": "starch + fat + dairy",
+   "components": [
+    "boiled potatoes (300 g)",
+    "extra virgin olive oil (1 tbsp)",
+    "parmesan, grated (20 g)"
+   ],
+   "ingredients": "boiled potatoes 300 g, extra virgin olive oil 1 tbsp, parmesan, grated 20 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-379",
+   "name": "Couscous, olive oil, parmesan & grilled chicken",
+   "mealType": "lunch",
+   "pattern": "starch + fat + dairy + protein",
+   "components": [
+    "couscous, plain, cooked (200 g)",
+    "extra virgin olive oil (1 tbsp)",
+    "parmesan, grated (20 g)",
+    "grilled chicken breast (150 g)"
+   ],
+   "ingredients": "couscous, plain, cooked 200 g, extra virgin olive oil 1 tbsp, parmesan, grated 20 g, grilled chicken breast 150 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-380",
+   "name": "Oatmeal, olive oil-free rice cake & parmesan snack plate",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + protein",
+   "components": [
+    "cooked oats, plain (80 g dry)",
+    "parmesan, shaved (20 g)",
+    "grilled chicken strips (100 g)"
+   ],
+   "ingredients": "cooked oats, plain 80 g dry, parmesan, shaved 20 g, grilled chicken strips 100 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-381",
+   "name": "White rice, grilled chicken, teriyaki sauce & carrots",
+   "mealType": "lunch",
+   "pattern": "starch + protein + sauce + veg",
+   "components": [
+    "white rice, cooked (350 g)",
+    "grilled chicken breast (150 g)",
+    "teriyaki sauce (component) (2 tbsp)",
+    "steamed carrots (80 g)"
+   ],
+   "ingredients": "white rice, cooked 350 g, grilled chicken breast 150 g, teriyaki sauce (component) 2 tbsp, steamed carrots 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-382",
+   "name": "White rice with grilled chicken & cooked carrots",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg + starch",
+   "components": [
+    "white rice, cooked (300 g)",
+    "grilled chicken breast (150 g)",
+    "cooked carrots (100 g)",
+    "white bread, side (1 slice)"
+   ],
+   "ingredients": "white rice, cooked 300 g, grilled chicken breast 150 g, cooked carrots 100 g, white bread, side 1 slice",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-383",
+   "name": "Large rice & chicken bowl",
+   "mealType": "lunch",
+   "pattern": "starch + protein",
+   "components": [
+    "white rice, cooked (350 g)",
+    "chicken, plain cooked, cubed (150 g)"
+   ],
+   "ingredients": "white rice, cooked 350 g, chicken, plain cooked, cubed 150 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-384",
+   "name": "Plain pasta with tomato sauce & orange juice",
+   "mealType": "lunch",
+   "pattern": "starch + sauce + drink",
+   "components": [
+    "pasta, plain, cooked (280 g dry-weight cooked)",
+    "tomato sauce (component) (150 ml)",
+    "orange juice (500 ml)"
+   ],
+   "ingredients": "pasta, plain, cooked 280 g dry-weight cooked, tomato sauce (component) 150 ml, orange juice 500 ml",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-385",
+   "name": "Turkey sandwich with pretzels",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other",
+   "components": [
+    "white bread (2 slices)",
+    "turkey breast, sliced (100 g)",
+    "pretzels (1 small bag (~30 g))"
+   ],
+   "ingredients": "white bread 2 slices, turkey breast, sliced 100 g, pretzels 1 small bag (~30 g)",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-386",
+   "name": "Tuna sandwich with chips",
+   "mealType": "lunch",
+   "pattern": "starch + protein + other",
+   "components": [
+    "white bread (2 slices)",
+    "tuna salad (component) (120 g)",
+    "potato chips (1 small bag (~30 g))"
+   ],
+   "ingredients": "white bread 2 slices, tuna salad (component) 120 g, potato chips 1 small bag (~30 g)",
+   "prep": "5 min"
+  },
+  {
+   "id": "AL-387",
+   "name": "Hotel-room oatmeal with banana",
+   "mealType": "lunch",
+   "pattern": "starch + fruit",
+   "components": [
+    "rolled oats, made with hot water (80 g dry)",
+    "banana, sliced (1 medium)"
+   ],
+   "ingredients": "rolled oats, made with hot water 80 g dry, banana, sliced 1 medium",
+   "prep": "5 min (packed oats + hot water only)"
+  },
+  {
+   "id": "AL-388",
+   "name": "Rice cakes with peanut butter (Feed Zone style)",
+   "mealType": "lunch",
+   "pattern": "starch + fat",
+   "components": [
+    "rice cakes (savoury baked rice, component) (2 squares (~200 g))",
+    "peanut butter, spread (1 tbsp)"
+   ],
+   "ingredients": "rice cakes (savoury baked rice, component) 2 squares (~200 g), peanut butter, spread 1 tbsp",
+   "prep": "5 min (rice cakes made ahead)"
+  },
+  {
+   "id": "AL-389",
+   "name": "Trail mix, whole-grain crackers & fruit",
+   "mealType": "lunch",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "whole-grain crackers (6 crackers)",
+    "mixed nuts (trail mix) (40 g)",
+    "apple (1 medium)"
+   ],
+   "ingredients": "whole-grain crackers 6 crackers, mixed nuts (trail mix) 40 g, apple 1 medium",
+   "prep": "0 min (pack-and-go)"
+  },
+  {
+   "id": "AL-390",
+   "name": "Freezer bean burrito & banana",
+   "mealType": "lunch",
+   "pattern": "starch + fruit",
+   "components": [
+    "bean and rice burrito, frozen and reheated (component) (1 large)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "bean and rice burrito, frozen and reheated (component) 1 large, banana 1 medium",
+   "prep": "3 min (microwave)"
+  },
+  {
+   "id": "AL-391",
+   "name": "Plain bagel with jam & banana",
+   "mealType": "lunch",
+   "pattern": "starch + other + fruit",
+   "components": [
+    "plain bagel (1 large)",
+    "jam (1 tbsp)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "plain bagel 1 large, jam 1 tbsp, banana 1 medium",
+   "prep": "2 min"
+  },
+  {
+   "id": "AL-392",
+   "name": "White pasta with parmesan & banana",
+   "mealType": "lunch",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "pasta, plain, cooked (250 g)",
+    "parmesan, grated (20 g)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "pasta, plain, cooked 250 g, parmesan, grated 20 g, banana 1 medium",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-393",
+   "name": "Marathon pasta-fest plate — plain spaghetti & tomato sauce",
+   "mealType": "lunch",
+   "pattern": "starch + sauce + starch",
+   "components": [
+    "spaghetti, plain, cooked (300 g)",
+    "tomato sauce (component) (150 ml)",
+    "bread roll (1 piece)"
+   ],
+   "ingredients": "spaghetti, plain, cooked 300 g, tomato sauce (component) 150 ml, bread roll 1 piece",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-394",
+   "name": "Grilled chicken, white rice & steamed vegetables (taper-week plate)",
+   "mealType": "lunch",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "grilled chicken breast (150 g)",
+    "white rice, cooked (300 g)",
+    "steamed mixed vegetables, small portion (80 g)"
+   ],
+   "ingredients": "grilled chicken breast 150 g, white rice, cooked 300 g, steamed mixed vegetables, small portion 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-395",
+   "name": "Sports-dietitian carb-load lunch — jasmine rice, chicken & orange segments",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fruit",
+   "components": [
+    "jasmine rice, cooked (300 g)",
+    "grilled chicken breast (130 g)",
+    "orange, segmented (1 medium)"
+   ],
+   "ingredients": "jasmine rice, cooked 300 g, grilled chicken breast 130 g, orange, segmented 1 medium",
+   "prep": "15 min"
+  },
+  {
+   "id": "AL-396",
+   "name": "Sanford-style carb-load lunch — white rice, turkey & applesauce",
+   "mealType": "lunch",
+   "pattern": "starch + protein + fruit",
+   "components": [
+    "white rice, cooked (300 g)",
+    "turkey breast, sliced (120 g)",
+    "applesauce (1 cup (~250 g))"
+   ],
+   "ingredients": "white rice, cooked 300 g, turkey breast, sliced 120 g, applesauce 1 cup (~250 g)",
+   "prep": "10 min"
+  },
+  {
+   "id": "AL-397",
+   "name": "Packed rice & egg lunch box for race travel",
+   "mealType": "lunch",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "white rice, cooked & packed cold (250 g)",
+    "hard-boiled egg (2 eggs)",
+    "cherry tomatoes (6 pieces)"
+   ],
+   "ingredients": "white rice, cooked & packed cold 250 g, hard-boiled egg 2 eggs, cherry tomatoes 6 pieces",
+   "prep": "10 min (packable, no refrigeration needed for a few hours)"
+  },
+  {
+   "id": "AL-398",
+   "name": "White rice, banana & honey toast (pre-long-session plate)",
+   "mealType": "lunch",
+   "pattern": "starch + fruit + other",
+   "components": [
+    "white rice, cooked (250 g)",
+    "banana (1 medium)",
+    "white toast with honey (1 slice)"
+   ],
+   "ingredients": "white rice, cooked 250 g, banana 1 medium, white toast with honey 1 slice",
+   "prep": "5 min"
+  },
+  {
+   "id": "AS-001",
+   "name": "Banana with peanut butter",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter",
+   "components": [
+    "banana (1 medium)",
+    "peanut butter (1.5 tbsp)"
+   ],
+   "ingredients": "banana 1 medium, peanut butter 1.5 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-002",
+   "name": "Whole-grain toast with almond butter and banana",
+   "mealType": "snack",
+   "pattern": "bread + nut butter + fruit",
+   "components": [
+    "wholegrain toast (1 slice)",
+    "almond butter (1 tbsp)",
+    "banana (1/2)"
+   ],
+   "ingredients": "wholegrain toast 1 slice, almond butter 1 tbsp, banana 1/2",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-003",
+   "name": "Apple slices with almond butter",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter",
+   "components": [
+    "apple (1 medium, sliced)",
+    "almond butter (1.5 tbsp)"
+   ],
+   "ingredients": "apple 1 medium, sliced, almond butter 1.5 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-004",
+   "name": "Pear with sunflower seed butter",
+   "mealType": "snack",
+   "pattern": "fruit + seed butter",
+   "components": [
+    "pear (1 medium, sliced)",
+    "sunflower seed butter (1.5 tbsp)"
+   ],
+   "ingredients": "pear 1 medium, sliced, sunflower seed butter 1.5 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-005",
+   "name": "Nut butter packet with banana",
+   "mealType": "snack",
+   "pattern": "nut butter + fruit",
+   "components": [
+    "almond butter (1 single-serve packet)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "almond butter 1 single-serve packet, banana 1 medium",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-006",
+   "name": "Sweet potato toast with almond butter and apple",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + fruit",
+   "components": [
+    "sweet potato toast (1 slice)",
+    "almond butter (1 tbsp)",
+    "apple (1/2, sliced)"
+   ],
+   "ingredients": "sweet potato toast 1 slice, almond butter 1 tbsp, apple 1/2, sliced",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-007",
+   "name": "Dates stuffed with peanut butter",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter",
+   "components": [
+    "dates (2-3, pitted)",
+    "peanut butter (1 tsp per date)"
+   ],
+   "ingredients": "dates 2-3, pitted, peanut butter 1 tsp per date",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-008",
+   "name": "Rice cakes with tuna",
+   "mealType": "snack",
+   "pattern": "starch + protein",
+   "components": [
+    "rice cakes (2)",
+    "tuna (1 small pouch, ~90g)"
+   ],
+   "ingredients": "rice cakes 2, tuna 1 small pouch, ~90g",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-009",
+   "name": "Rice cakes with turkey breast",
+   "mealType": "snack",
+   "pattern": "starch + protein",
+   "components": [
+    "rice cakes (2)",
+    "turkey breast (60g, sliced)"
+   ],
+   "ingredients": "rice cakes 2, turkey breast 60g, sliced",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-010",
+   "name": "Rice cakes with hummus",
+   "mealType": "snack",
+   "pattern": "starch + dip",
+   "components": [
+    "rice cakes (2)",
+    "hummus (3 tbsp)"
+   ],
+   "ingredients": "rice cakes 2, hummus 3 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-011",
+   "name": "Rice cakes with ricotta and sliced fruit",
+   "mealType": "snack",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rice cakes (2)",
+    "ricotta cheese (3 tbsp)",
+    "strawberries (1/2 cup, sliced)"
+   ],
+   "ingredients": "rice cakes 2, ricotta cheese 3 tbsp, strawberries 1/2 cup, sliced",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-012",
+   "name": "Rice cakes with peanut butter and honey",
+   "mealType": "snack",
+   "pattern": "starch + nut butter + sweetener",
+   "components": [
+    "rice cakes (2)",
+    "peanut butter (1.5 tbsp)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "rice cakes 2, peanut butter 1.5 tbsp, honey 1 tsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-013",
+   "name": "Rice cakes with honey",
+   "mealType": "snack",
+   "pattern": "starch + sweetener",
+   "components": [
+    "rice cakes (2)",
+    "honey (1.5 tsp)"
+   ],
+   "ingredients": "rice cakes 2, honey 1.5 tsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-014",
+   "name": "Bagel with jam",
+   "mealType": "snack",
+   "pattern": "bread + spread",
+   "components": [
+    "bagel (1 medium)",
+    "jam (1.5 tbsp)"
+   ],
+   "ingredients": "bagel 1 medium, jam 1.5 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-015",
+   "name": "Half English muffin with honey",
+   "mealType": "snack",
+   "pattern": "bread + sweetener",
+   "components": [
+    "english muffin (1/2)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "english muffin 1/2, honey 1 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-016",
+   "name": "Bagel with deli turkey, mustard and grapes",
+   "mealType": "snack",
+   "pattern": "bread + protein + fruit",
+   "components": [
+    "bagel (1 medium)",
+    "turkey breast (2 slices)",
+    "mustard (1 tsp)",
+    "grapes (30, ~1 cup)"
+   ],
+   "ingredients": "bagel 1 medium, turkey breast 2 slices, mustard 1 tsp, grapes 30, ~1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-017",
+   "name": "Toast with avocado",
+   "mealType": "snack",
+   "pattern": "bread + fat",
+   "components": [
+    "wholegrain toast (1 slice)",
+    "avocado (1/4, mashed)"
+   ],
+   "ingredients": "wholegrain toast 1 slice, avocado 1/4, mashed",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-018",
+   "name": "Whole grain toast with smoked salmon",
+   "mealType": "snack",
+   "pattern": "bread + protein",
+   "components": [
+    "wholegrain toast (1 slice)",
+    "smoked salmon (40g)"
+   ],
+   "ingredients": "wholegrain toast 1 slice, smoked salmon 40g",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-019",
+   "name": "Oatcakes with cottage cheese and blueberries",
+   "mealType": "snack",
+   "pattern": "bread + dairy + fruit",
+   "components": [
+    "wholegrain toast (1 slice, sub. for oatcakes)",
+    "cottage cheese (1 cup)",
+    "blueberries (1 cup)"
+   ],
+   "ingredients": "wholegrain toast 1 slice, sub. for oatcakes, cottage cheese 1 cup, blueberries 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-020",
+   "name": "Greek yogurt with berries and honey",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + sweetener",
+   "components": [
+    "greek yogurt (3/4 cup)",
+    "mixed berries (1/2 cup)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "greek yogurt 3/4 cup, mixed berries 1/2 cup, honey 1 tsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-021",
+   "name": "Greek yogurt parfait with seasonal fruit and granola",
+   "mealType": "snack",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "greek yogurt (1 cup)",
+    "granola (1/3 cup)",
+    "mango (1/2 cup, diced)"
+   ],
+   "ingredients": "greek yogurt 1 cup, granola 1/3 cup, mango 1/2 cup, diced",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-022",
+   "name": "Clementine with yogurt and granola",
+   "mealType": "snack",
+   "pattern": "fruit + dairy + starch",
+   "components": [
+    "clementine (1)",
+    "greek yogurt (3/4 cup)",
+    "granola (1/4 cup)"
+   ],
+   "ingredients": "clementine 1, greek yogurt 3/4 cup, granola 1/4 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-023",
+   "name": "Oatmeal with nut milk, berries and chia seeds",
+   "mealType": "snack",
+   "pattern": "grain + fruit + seed",
+   "components": [
+    "rolled oats (1/2 cup dry)",
+    "almond milk (3/4 cup)",
+    "mixed berries (1/2 cup)",
+    "chia seeds (1 tbsp)"
+   ],
+   "ingredients": "rolled oats 1/2 cup dry, almond milk 3/4 cup, mixed berries 1/2 cup, chia seeds 1 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-024",
+   "name": "Açaí bowl with granola and banana",
+   "mealType": "snack",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "greek yogurt (1 cup, sub. açaí base)",
+    "granola (1/3 cup)",
+    "banana (1/2, sliced)"
+   ],
+   "ingredients": "greek yogurt 1 cup, sub. açaí base, granola 1/3 cup, banana 1/2, sliced",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-025",
+   "name": "Cottage cheese with orange",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "cottage cheese (1/2 cup)",
+    "orange (1 medium)"
+   ],
+   "ingredients": "cottage cheese 1/2 cup, orange 1 medium",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-026",
+   "name": "Cottage cheese with berries and almonds",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + nuts",
+   "components": [
+    "cottage cheese (3/4 cup)",
+    "mixed berries (1/2 cup)",
+    "almonds (10)"
+   ],
+   "ingredients": "cottage cheese 3/4 cup, mixed berries 1/2 cup, almonds 10",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-027",
+   "name": "Cottage cheese dip with apple slices",
+   "mealType": "snack",
+   "pattern": "dairy + fruit",
+   "components": [
+    "cottage cheese (1/2 cup, blended)",
+    "apple (1 medium, sliced)"
+   ],
+   "ingredients": "cottage cheese 1/2 cup, blended, apple 1 medium, sliced",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-028",
+   "name": "Cottage cheese with pineapple and whole-grain crackers",
+   "mealType": "snack",
+   "pattern": "dairy + fruit + starch",
+   "components": [
+    "cottage cheese (3/4 cup)",
+    "pineapple (1/2 cup)",
+    "whole-grain crackers (6)"
+   ],
+   "ingredients": "cottage cheese 3/4 cup, pineapple 1/2 cup, whole-grain crackers 6",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-029",
+   "name": "Apple with cheddar",
+   "mealType": "snack",
+   "pattern": "fruit + cheese",
+   "components": [
+    "apple (1 medium, sliced)",
+    "cheddar cheese (30g)"
+   ],
+   "ingredients": "apple 1 medium, sliced, cheddar cheese 30g",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-030",
+   "name": "Grapes with mozzarella",
+   "mealType": "snack",
+   "pattern": "fruit + cheese",
+   "components": [
+    "grapes (1 cup)",
+    "mozzarella (30g)"
+   ],
+   "ingredients": "grapes 1 cup, mozzarella 30g",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-031",
+   "name": "String cheese with fresh fruit",
+   "mealType": "snack",
+   "pattern": "cheese + fruit",
+   "components": [
+    "string cheese (1 stick)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "string cheese 1 stick, grapes 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-032",
+   "name": "String cheese with dried fruit",
+   "mealType": "snack",
+   "pattern": "cheese + fruit",
+   "components": [
+    "string cheese (1 stick)",
+    "dried apricots (6 halves)"
+   ],
+   "ingredients": "string cheese 1 stick, dried apricots 6 halves",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-033",
+   "name": "String cheese with whole-grain crackers",
+   "mealType": "snack",
+   "pattern": "cheese + starch",
+   "components": [
+    "string cheese (1 stick)",
+    "whole-grain crackers (6)"
+   ],
+   "ingredients": "string cheese 1 stick, whole-grain crackers 6",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-034",
+   "name": "Whole-grain crackers with cheese",
+   "mealType": "snack",
+   "pattern": "starch + cheese",
+   "components": [
+    "whole-grain crackers (8)",
+    "cheddar cheese (40g)"
+   ],
+   "ingredients": "whole-grain crackers 8, cheddar cheese 40g",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-035",
+   "name": "Crackers with peanut butter",
+   "mealType": "snack",
+   "pattern": "starch + nut butter",
+   "components": [
+    "whole-grain crackers (6)",
+    "peanut butter (2 tbsp)"
+   ],
+   "ingredients": "whole-grain crackers 6, peanut butter 2 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-036",
+   "name": "Whole-grain crackers with turkey breast",
+   "mealType": "snack",
+   "pattern": "starch + protein",
+   "components": [
+    "whole-grain crackers (6)",
+    "turkey breast (50g)"
+   ],
+   "ingredients": "whole-grain crackers 6, turkey breast 50g",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-037",
+   "name": "Hard-boiled egg with whole-grain crackers and cherry tomatoes",
+   "mealType": "snack",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "hard-boiled egg (2)",
+    "whole-grain crackers (6)",
+    "cherry tomatoes (1/2 cup)"
+   ],
+   "ingredients": "hard-boiled egg 2, whole-grain crackers 6, cherry tomatoes 1/2 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-038",
+   "name": "Trail mix with dark chocolate",
+   "mealType": "snack",
+   "pattern": "nuts + dried fruit + treat",
+   "components": [
+    "mixed nuts (1/4 cup)",
+    "raisins (2 tbsp)",
+    "dark chocolate chips (1 tbsp)"
+   ],
+   "ingredients": "mixed nuts 1/4 cup, raisins 2 tbsp, dark chocolate chips 1 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-039",
+   "name": "High-protein trail mix (edamame, pumpkin seeds, popcorn, pretzels)",
+   "mealType": "snack",
+   "pattern": "legume + seed + grain + starch",
+   "components": [
+    "edamame (2 tbsp roasted)",
+    "pumpkin seeds (2 tbsp)",
+    "popcorn (1 cup air-popped)",
+    "pretzels (1/4 cup)"
+   ],
+   "ingredients": "edamame 2 tbsp roasted, pumpkin seeds 2 tbsp, popcorn 1 cup air-popped, pretzels 1/4 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-040",
+   "name": "Nut and seed mix with electrolyte salt",
+   "mealType": "snack",
+   "pattern": "nuts + seeds + dried fruit",
+   "components": [
+    "mixed nuts (1/4 cup)",
+    "pumpkin seeds (2 tbsp)",
+    "dried apricots (4)"
+   ],
+   "ingredients": "mixed nuts 1/4 cup, pumpkin seeds 2 tbsp, dried apricots 4",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-041",
+   "name": "Charcuterie-style pack: ham, Swiss cheese, crackers, hummus, grapes and edamame",
+   "mealType": "snack",
+   "pattern": "protein + cheese + starch + dip + fruit",
+   "components": [
+    "deli ham (2 slices)",
+    "swiss cheese (30g)",
+    "whole-grain crackers (6)",
+    "hummus (2 tbsp)",
+    "grapes (1/2 cup)",
+    "edamame (2 tbsp, dried)"
+   ],
+   "ingredients": "deli ham 2 slices, swiss cheese 30g, whole-grain crackers 6, hummus 2 tbsp, grapes 1/2 cup, edamame 2 tbsp, dried",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-042",
+   "name": "Popcorn with nutritional yeast",
+   "mealType": "snack",
+   "pattern": "grain + seasoning",
+   "components": [
+    "popcorn (3 cups air-popped)",
+    "nutritional yeast (2 tbsp)"
+   ],
+   "ingredients": "popcorn 3 cups air-popped, nutritional yeast 2 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-043",
+   "name": "Roasted edamame with fruit",
+   "mealType": "snack",
+   "pattern": "legume + fruit",
+   "components": [
+    "edamame (1/2 cup roasted)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "edamame 1/2 cup roasted, grapes 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-044",
+   "name": "Chocolate milk with banana",
+   "mealType": "snack",
+   "pattern": "drink + fruit",
+   "components": [
+    "chocolate milk (350ml)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "chocolate milk 350ml, banana 1 medium",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-045",
+   "name": "Chocolate milk with pretzels",
+   "mealType": "snack",
+   "pattern": "drink + starch",
+   "components": [
+    "chocolate milk (350ml)",
+    "pretzels (1/2 cup)"
+   ],
+   "ingredients": "chocolate milk 350ml, pretzels 1/2 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-046",
+   "name": "Pretzels with peanut butter",
+   "mealType": "snack",
+   "pattern": "starch + nut butter",
+   "components": [
+    "pretzels (1 cup)",
+    "peanut butter (2 tbsp)"
+   ],
+   "ingredients": "pretzels 1 cup, peanut butter 2 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-047",
+   "name": "Pretzels with almond butter",
+   "mealType": "snack",
+   "pattern": "starch + nut butter",
+   "components": [
+    "pretzels (1 cup)",
+    "almond butter (2 tbsp)"
+   ],
+   "ingredients": "pretzels 1 cup, almond butter 2 tbsp",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-048",
+   "name": "Salted pretzel nuggets for long rides",
+   "mealType": "snack",
+   "pattern": "starch (single)",
+   "components": [
+    "pretzels (10 nuggets)"
+   ],
+   "ingredients": "pretzels 10 nuggets",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-049",
+   "name": "Pretzels with jerky",
+   "mealType": "snack",
+   "pattern": "starch + protein",
+   "components": [
+    "pretzels (1/2 cup)",
+    "beef jerky (30g)"
+   ],
+   "ingredients": "pretzels 1/2 cup, beef jerky 30g",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-050",
+   "name": "Dates with almonds",
+   "mealType": "snack",
+   "pattern": "fruit + nuts",
+   "components": [
+    "dates (3)",
+    "almonds (10)"
+   ],
+   "ingredients": "dates 3, almonds 10",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-051",
+   "name": "Dates blended into a protein shake",
+   "mealType": "snack",
+   "pattern": "fruit + protein + drink",
+   "components": [
+    "dates (3)",
+    "plant protein powder (1 scoop)",
+    "whole milk (1 cup)"
+   ],
+   "ingredients": "dates 3, plant protein powder 1 scoop, whole milk 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-052",
+   "name": "Dates stuffed with almond butter and sea salt",
+   "mealType": "snack",
+   "pattern": "fruit + nut butter",
+   "components": [
+    "dates (3, pitted)",
+    "almond butter (1 tsp per date)"
+   ],
+   "ingredients": "dates 3, pitted, almond butter 1 tsp per date",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-053",
+   "name": "Low-fibre cereal with milk",
+   "mealType": "snack",
+   "pattern": "grain + dairy",
+   "components": [
+    "low-fibre cereal (1 cup)",
+    "whole milk (3/4 cup)"
+   ],
+   "ingredients": "low-fibre cereal 1 cup, whole milk 3/4 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-054",
+   "name": "Bran flakes with milk and berries",
+   "mealType": "snack",
+   "pattern": "grain + dairy + fruit",
+   "components": [
+    "bran flakes (1 cup)",
+    "whole milk (3/4 cup)",
+    "blueberries (1/2 cup)"
+   ],
+   "ingredients": "bran flakes 1 cup, whole milk 3/4 cup, blueberries 1/2 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-055",
+   "name": "Cereal with soy milk",
+   "mealType": "snack",
+   "pattern": "grain + dairy-free milk",
+   "components": [
+    "low-fibre cereal (1 cup)",
+    "soy yogurt (3/4 cup, sub. soy milk)"
+   ],
+   "ingredients": "low-fibre cereal 1 cup, soy yogurt 3/4 cup, sub. soy milk",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-056",
+   "name": "Hard-boiled eggs with fruit",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "hard-boiled egg (2)",
+    "apple (1 medium)"
+   ],
+   "ingredients": "hard-boiled egg 2, apple 1 medium",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-057",
+   "name": "Hard-boiled eggs with whole-wheat English muffin",
+   "mealType": "snack",
+   "pattern": "protein + starch",
+   "components": [
+    "hard-boiled egg (2)",
+    "english muffin (1)"
+   ],
+   "ingredients": "hard-boiled egg 2, english muffin 1",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-058",
+   "name": "Hard-boiled eggs with avocado toast",
+   "mealType": "snack",
+   "pattern": "protein + starch + fat",
+   "components": [
+    "hard-boiled egg (2)",
+    "wholegrain toast (1 slice)",
+    "avocado (1/4)"
+   ],
+   "ingredients": "hard-boiled egg 2, wholegrain toast 1 slice, avocado 1/4",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-059",
+   "name": "Eggs with toast slice",
+   "mealType": "snack",
+   "pattern": "protein + starch",
+   "components": [
+    "hard-boiled egg (2)",
+    "white toast (1 slice)"
+   ],
+   "ingredients": "hard-boiled egg 2, white toast 1 slice",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-060",
+   "name": "Protein shake with banana",
+   "mealType": "snack",
+   "pattern": "protein + drink + fruit",
+   "components": [
+    "whey protein powder (1 scoop)",
+    "whole milk (1 cup)",
+    "banana (1 medium)"
+   ],
+   "ingredients": "whey protein powder 1 scoop, whole milk 1 cup, banana 1 medium",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-061",
+   "name": "Chocolate protein smoothie with cherries and banana",
+   "mealType": "snack",
+   "pattern": "protein + drink + fruit",
+   "components": [
+    "whey protein powder (1 scoop, chocolate)",
+    "whole milk (1 cup)",
+    "cherries (1/2 cup, frozen)",
+    "banana (1/2)"
+   ],
+   "ingredients": "whey protein powder 1 scoop, chocolate, whole milk 1 cup, cherries 1/2 cup, frozen, banana 1/2",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-062",
+   "name": "Smoothie with protein powder, banana and oats",
+   "mealType": "snack",
+   "pattern": "protein + fruit + grain + drink",
+   "components": [
+    "plant protein powder (1 scoop)",
+    "banana (1 medium)",
+    "rolled oats (1/4 cup)",
+    "whole milk (1 cup)"
+   ],
+   "ingredients": "plant protein powder 1 scoop, banana 1 medium, rolled oats 1/4 cup, whole milk 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-063",
+   "name": "Chocolate protein smoothie with almond butter and banana",
+   "mealType": "snack",
+   "pattern": "protein + fruit + fat + drink",
+   "components": [
+    "whey protein powder (1 scoop, chocolate)",
+    "banana (1 medium)",
+    "almond butter (1 tbsp)",
+    "whole milk (1 cup)"
+   ],
+   "ingredients": "whey protein powder 1 scoop, chocolate, banana 1 medium, almond butter 1 tbsp, whole milk 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-064",
+   "name": "Spinach and banana protein smoothie",
+   "mealType": "snack",
+   "pattern": "veg + fruit + protein + drink",
+   "components": [
+    "spinach (1 cup)",
+    "banana (1 medium)",
+    "plant protein powder (1 scoop)",
+    "whole milk (1 cup)"
+   ],
+   "ingredients": "spinach 1 cup, banana 1 medium, plant protein powder 1 scoop, whole milk 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-065",
+   "name": "Protein shake with Clif bar",
+   "mealType": "snack",
+   "pattern": "protein + drink",
+   "components": [
+    "whey protein powder (1 scoop)",
+    "whole milk (1 cup)"
+   ],
+   "ingredients": "whey protein powder 1 scoop, whole milk 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-066",
+   "name": "Turkey with grapes",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "turkey breast (60g, sliced)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "turkey breast 60g, sliced, grapes 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-067",
+   "name": "Turkey with cherries",
+   "mealType": "snack",
+   "pattern": "protein + fruit",
+   "components": [
+    "turkey breast (60g, sliced)",
+    "cherries (1 cup)"
+   ],
+   "ingredients": "turkey breast 60g, sliced, cherries 1 cup",
+   "prep": "0-2 min"
+  },
+  {
+   "id": "AS-068",
+   "name": "Turkey with pretzels",
+   "mealType": "snack",
+   "pattern": "protein + starch",
+   "components": [
+    "turkey breast (60g, sliced)",
+    "pretzels (1/2 cup)"
+   ],
+   "ingredients": "turkey breast 60g, sliced, pretzels 1/2 cup",
+   "prep": "0-2 min"
+  }
+ ]
+}

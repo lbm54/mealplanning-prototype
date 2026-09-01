@@ -1,0 +1,1253 @@
+{
+ "batch": "A-14",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "D-090",
+   "name": "Eggs, cheese & fried potatoes",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "eggs (3)",
+    "potatoes (250g diced and fried)",
+    "cheddar (30g)",
+    "spinach (100g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "eggs 3, potatoes 250g diced and fried, cheddar 30g, spinach 100g, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "D-091",
+   "name": "Brown rice with fried eggs & sriracha",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "brown rice (90g dry)",
+    "eggs (3 fried)",
+    "sriracha (1 tbsp)",
+    "scallions",
+    "oil (1 tsp)"
+   ],
+   "ingredients": "brown rice 90g dry, eggs 3 fried, sriracha 1 tbsp, scallions, oil 1 tsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "D-099",
+   "name": "Microwave rice, tinned tuna & sweetcorn (hotel-room dinner)",
+   "mealType": "dinner",
+   "pattern": null,
+   "components": [
+    "microwave white rice pouch (250g)",
+    "tinned tuna (1 can (~120g drained))",
+    "sweetcorn (80g)",
+    "olive oil sachet",
+    "salt"
+   ],
+   "ingredients": "microwave white rice pouch 250g, tinned tuna 1 can (~120g drained), sweetcorn 80g, olive oil sachet, salt",
+   "prep": "3 min, microwave"
+  },
+  {
+   "id": "L-005",
+   "name": "Chicken, white rice & steamed veg with a banana-milk shake",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "chicken breast (150g)",
+    "white rice (200g cooked)",
+    "steamed mixed veg (1 cup)",
+    "side shake: banana (1)",
+    "milk (300ml)",
+    "whey (1 scoop)"
+   ],
+   "ingredients": "chicken breast 150g, white rice 200g cooked, steamed mixed veg 1 cup, side shake: banana 1, milk 300ml, whey 1 scoop",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-015",
+   "name": "Rice, tofu, veg & seeds bowl",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "white or brown rice (250g cooked)",
+    "tofu (120g)",
+    "mixed vegetables (1.5 cups)",
+    "pumpkin seeds (1 tbsp)",
+    "hemp seeds (1 tbsp)",
+    "tamari (1 tbsp)"
+   ],
+   "ingredients": "white or brown rice 250g cooked, tofu 120g, mixed vegetables 1.5 cups, pumpkin seeds 1 tbsp, hemp seeds 1 tbsp, tamari 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "L-028",
+   "name": "Tandoori chicken, chickpea-lentil mix, peas & yogurt",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "chicken breast (150g marinated in tandoori paste)",
+    "pre-cooked chickpea and lentil mix (1 cup)",
+    "peas (1/2 cup)",
+    "spinach (1 cup)",
+    "plain yogurt (1/2 cup)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "chicken breast 150g marinated in tandoori paste, pre-cooked chickpea and lentil mix 1 cup, peas 1/2 cup, spinach 1 cup, plain yogurt 1/2 cup, grapes 1 cup",
+   "prep": "batch — marinate and cook chicken Sunday, 15 min assembly"
+  },
+  {
+   "id": "L-033",
+   "name": "Rice, beans & bread post-long-run plate",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "white rice (150g cooked)",
+    "cooked beans (100g)",
+    "white bread (2 slices)",
+    "small ugali (100g)",
+    "sweet chai (1 cup)"
+   ],
+   "ingredients": "white rice 150g cooked, cooked beans 100g, white bread 2 slices, small ugali 100g, sweet chai 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "L-034",
+   "name": "Pasta with tomato sauce & parmesan",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "spaghetti or penne (100g dry)",
+    "olive oil (1 tbsp)",
+    "garlic (1 clove)",
+    "canned tomatoes (1 cup)",
+    "parmesan (2 tbsp)",
+    "basil"
+   ],
+   "ingredients": "spaghetti or penne 100g dry, olive oil 1 tbsp, garlic 1 clove, canned tomatoes 1 cup, parmesan 2 tbsp, basil",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-035",
+   "name": "Pasta al tonno",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "pasta (120g dry)",
+    "canned tuna in olive oil (120g)",
+    "cherry tomatoes (1 cup)",
+    "olive oil (1 tbsp)",
+    "garlic",
+    "parsley"
+   ],
+   "ingredients": "pasta 120g dry, canned tuna in olive oil 120g, cherry tomatoes 1 cup, olive oil 1 tbsp, garlic, parsley",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-039",
+   "name": "Pasta with pesto, chicken & sun-dried tomato",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "fusilli (100g dry)",
+    "grilled chicken (120g)",
+    "basil pesto (2 tbsp)",
+    "sun-dried tomato (4)",
+    "parmesan (1 tbsp)",
+    "mixed veg (1 cup)"
+   ],
+   "ingredients": "fusilli 100g dry, grilled chicken 120g, basil pesto 2 tbsp, sun-dried tomato 4, parmesan 1 tbsp, mixed veg 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-042",
+   "name": "Plain white pasta with olive oil & salt",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "white pasta (120g dry)",
+    "olive oil (1 tbsp)",
+    "salt",
+    "black pepper"
+   ],
+   "ingredients": "white pasta 120g dry, olive oil 1 tbsp, salt, black pepper",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-049",
+   "name": "Jacket potato with baked beans",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "baking potato (300g)",
+    "baked beans (1 can (400g))",
+    "olive oil (1 tsp)",
+    "side salad"
+   ],
+   "ingredients": "baking potato 300g, baked beans 1 can (400g), olive oil 1 tsp, side salad",
+   "prep": "10 min microwave"
+  },
+  {
+   "id": "L-062",
+   "name": "Salmon & avocado greens bowl",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "leftover salmon (150g)",
+    "mixed greens (2 cups)",
+    "avocado (1/2)",
+    "walnuts (20g)",
+    "olive oil (1 tbsp)",
+    "lemon"
+   ],
+   "ingredients": "leftover salmon 150g, mixed greens 2 cups, avocado 1/2, walnuts 20g, olive oil 1 tbsp, lemon",
+   "prep": "5 min"
+  },
+  {
+   "id": "L-065",
+   "name": "Eggs & chicken breast with greens",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "eggs (4 fried)",
+    "chicken breast (150g grilled)",
+    "mixed greens (2 cups)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "eggs 4 fried, chicken breast 150g grilled, mixed greens 2 cups, olive oil 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-066",
+   "name": "Tuna salad lettuce wraps",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "canned tuna (2 cans (170g))",
+    "mayo (2 tbsp)",
+    "celery (1 stalk diced)",
+    "lemon",
+    "romaine or butter lettuce leaves (4)"
+   ],
+   "ingredients": "canned tuna 2 cans (170g), mayo 2 tbsp, celery 1 stalk diced, lemon, romaine or butter lettuce leaves 4",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-067",
+   "name": "Turkey & avocado lettuce wraps",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "sliced turkey breast (150g)",
+    "large lettuce leaves (6)",
+    "avocado (1/2)",
+    "cucumber",
+    "mustard"
+   ],
+   "ingredients": "sliced turkey breast 150g, large lettuce leaves 6, avocado 1/2, cucumber, mustard",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-068",
+   "name": "Curried chicken salad lettuce cups",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "shredded chicken (150g)",
+    "coconut yogurt (2 tbsp)",
+    "curry powder (1 tsp)",
+    "raisins (2 tbsp)",
+    "celery (1 stalk)",
+    "lettuce cups (4)"
+   ],
+   "ingredients": "shredded chicken 150g, coconut yogurt 2 tbsp, curry powder 1 tsp, raisins 2 tbsp, celery 1 stalk, lettuce cups 4",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-078",
+   "name": "Corn tortilla tacos with chicken, avocado & salsa",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "corn tortillas (3 (100% corn))",
+    "grilled chicken (150g)",
+    "avocado (1/2)",
+    "salsa (3 tbsp)",
+    "shredded cabbage (50g)",
+    "lime"
+   ],
+   "ingredients": "corn tortillas 3 (100% corn), grilled chicken 150g, avocado 1/2, salsa 3 tbsp, shredded cabbage 50g, lime",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-081",
+   "name": "Canned black beans & sweetcorn bowl",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "canned black beans (1 can rinsed)",
+    "canned sweetcorn (1 can)",
+    "olive oil (1 tsp)",
+    "lime",
+    "chili powder",
+    "corn tortillas (2)"
+   ],
+   "ingredients": "canned black beans 1 can rinsed, canned sweetcorn 1 can, olive oil 1 tsp, lime, chili powder, corn tortillas 2",
+   "prep": "5 min"
+  },
+  {
+   "id": "L-084",
+   "name": "Peanut butter & banana sandwich",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "whole-grain bread (2 slices (or a multigrain bagel))",
+    "peanut butter (2 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "whole-grain bread 2 slices (or a multigrain bagel), peanut butter 2 tbsp, banana 1",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-085",
+   "name": "Turkey & salad sandwich",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "whole-grain bread (2 slices or sub roll)",
+    "sliced turkey or ham (100g)",
+    "lettuce",
+    "tomato",
+    "mustard",
+    "pretzels or fruit on the side"
+   ],
+   "ingredients": "whole-grain bread 2 slices or sub roll, sliced turkey or ham 100g, lettuce, tomato, mustard, pretzels or fruit on the side",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-086",
+   "name": "Egg salad sandwich",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "hard-boiled eggs (3)",
+    "whole-grain bread (2 slices)",
+    "mayo (1 tbsp)",
+    "mustard",
+    "lettuce",
+    "fruit on the side"
+   ],
+   "ingredients": "hard-boiled eggs 3, whole-grain bread 2 slices, mayo 1 tbsp, mustard, lettuce, fruit on the side",
+   "prep": "5 min"
+  },
+  {
+   "id": "L-087",
+   "name": "Hummus & veg wrap",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "whole-wheat tortilla (1)",
+    "hummus (4 tbsp)",
+    "shredded carrot (1/2 cup)",
+    "cucumber",
+    "spinach",
+    "avocado (1/4)"
+   ],
+   "ingredients": "whole-wheat tortilla 1, hummus 4 tbsp, shredded carrot 1/2 cup, cucumber, spinach, avocado 1/4",
+   "prep": "5 min"
+  },
+  {
+   "id": "L-089",
+   "name": "Rotisserie chicken, kale & cranberry wrap",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "whole-wheat tortilla (1 large)",
+    "rotisserie chicken (120g shredded)",
+    "kale (1 cup massaged)",
+    "dried cranberries (2 tbsp)",
+    "olive oil (1 tsp)",
+    "lemon"
+   ],
+   "ingredients": "whole-wheat tortilla 1 large, rotisserie chicken 120g shredded, kale 1 cup massaged, dried cranberries 2 tbsp, olive oil 1 tsp, lemon",
+   "prep": "10 min"
+  },
+  {
+   "id": "L-090",
+   "name": "Caprese sandwich",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "whole-grain bread (2 slices or ciabatta)",
+    "fresh mozzarella (60g)",
+    "tomato (1)",
+    "basil",
+    "olive oil (1 tsp)",
+    "balsamic"
+   ],
+   "ingredients": "whole-grain bread 2 slices or ciabatta, fresh mozzarella 60g, tomato 1, basil, olive oil 1 tsp, balsamic",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-092",
+   "name": "Cottage cheese, crackers, fruit & almonds",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "cottage cheese (1 cup)",
+    "whole-grain crackers (10)",
+    "apple or grapes (1 cup)",
+    "almonds (15)"
+   ],
+   "ingredients": "cottage cheese 1 cup, whole-grain crackers 10, apple or grapes 1 cup, almonds 15",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-096",
+   "name": "Pita, hummus, nuts & dried fruit",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "whole-wheat pita (1)",
+    "hummus (3 tbsp)",
+    "mixed nuts (20g)",
+    "apple (1)",
+    "dried apricots (4)"
+   ],
+   "ingredients": "whole-wheat pita 1, hummus 3 tbsp, mixed nuts 20g, apple 1, dried apricots 4",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-097",
+   "name": "Canned salmon, crackers & apple",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "canned wild salmon (1 tin)",
+    "whole-grain crackers (10)",
+    "apple (1)",
+    "olive oil sachet"
+   ],
+   "ingredients": "canned wild salmon 1 tin, whole-grain crackers 10, apple 1, olive oil sachet",
+   "prep": "no-cook"
+  },
+  {
+   "id": "L-098",
+   "name": "Rice, almond butter & bread travel plate",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "white rice (250g cooked (travel rice cooker))",
+    "almond butter (2 tbsp)",
+    "bread (2 slices)",
+    "banana (1)"
+   ],
+   "ingredients": "white rice 250g cooked (travel rice cooker), almond butter 2 tbsp, bread 2 slices, banana 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "L-100",
+   "name": "White rice, banana & jam toast",
+   "mealType": "lunch",
+   "pattern": null,
+   "components": [
+    "white rice (250g cooked)",
+    "banana (1)",
+    "white bread (2 slices)",
+    "jam (2 tbsp)",
+    "salt pinch"
+   ],
+   "ingredients": "white rice 250g cooked, banana 1, white bread 2 slices, jam 2 tbsp, salt pinch",
+   "prep": "15 min"
+  },
+  {
+   "id": "S-001",
+   "name": "Banana with almond butter",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "banana (1 medium)",
+    "almond butter (2 tbsp)"
+   ],
+   "ingredients": "banana 1 medium, almond butter 2 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-002",
+   "name": "Apple with peanut butter",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "apple (1)",
+    "peanut butter (1.5 tbsp)"
+   ],
+   "ingredients": "apple 1, peanut butter 1.5 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-003",
+   "name": "Toast with honey",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "white or sourdough bread (2 slices)",
+    "honey (2 tbsp)"
+   ],
+   "ingredients": "white or sourdough bread 2 slices, honey 2 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-004",
+   "name": "Toast with peanut butter, banana & coffee",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "bread (2 slices)",
+    "peanut butter (1.5 tbsp)",
+    "banana (1)",
+    "coffee (1 cup)"
+   ],
+   "ingredients": "bread 2 slices, peanut butter 1.5 tbsp, banana 1, coffee 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-005",
+   "name": "White bread with chocolate hazelnut spread",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "white bread (2 slices)",
+    "chocolate hazelnut spread (2 tbsp)"
+   ],
+   "ingredients": "white bread 2 slices, chocolate hazelnut spread 2 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-006",
+   "name": "Half bagel with honey & banana",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "white bagel (1/2)",
+    "honey (1 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "white bagel 1/2, honey 1 tbsp, banana 1",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-007",
+   "name": "Rice cakes with jam",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "plain rice cakes (3)",
+    "strawberry jam (2 tbsp)"
+   ],
+   "ingredients": "plain rice cakes 3, strawberry jam 2 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-008",
+   "name": "White bread with jam",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "white bread (2 slices)",
+    "strawberry jam (3 tbsp)"
+   ],
+   "ingredients": "white bread 2 slices, strawberry jam 3 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-009",
+   "name": "Salted pretzels",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "mini pretzels (60g)"
+   ],
+   "ingredients": "mini pretzels 60g",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-010",
+   "name": "Glass of fruit juice",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "100% apple or orange juice (300ml)"
+   ],
+   "ingredients": "100% apple or orange juice 300ml",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-011",
+   "name": "Plain rice crackers",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "plain salted rice crackers (40g)"
+   ],
+   "ingredients": "plain salted rice crackers 40g",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-012",
+   "name": "Applesauce pouch",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "unsweetened applesauce pouch (2 x 113g)"
+   ],
+   "ingredients": "unsweetened applesauce pouch 2 x 113g",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-013",
+   "name": "Dried mango",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "dried mango (50g)"
+   ],
+   "ingredients": "dried mango 50g",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-014",
+   "name": "Medjool dates",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "Medjool dates (4)"
+   ],
+   "ingredients": "Medjool dates 4",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-015",
+   "name": "Soy latte with a banana",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "soy milk (250ml)",
+    "espresso (1 shot)",
+    "banana (1)"
+   ],
+   "ingredients": "soy milk 250ml, espresso 1 shot, banana 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-016",
+   "name": "Pretzels with hummus",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "mini pretzels (40g)",
+    "hummus (40g)"
+   ],
+   "ingredients": "mini pretzels 40g, hummus 40g",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-017",
+   "name": "Cereal bowl with milk & banana",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "whole-grain or oat cereal (60g)",
+    "milk (200ml)",
+    "banana (1/2)"
+   ],
+   "ingredients": "whole-grain or oat cereal 60g, milk 200ml, banana 1/2",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-018",
+   "name": "Cornflakes with honey after a big ride",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "cornflakes (120g)",
+    "milk (250ml)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "cornflakes 120g, milk 250ml, honey 1 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-019",
+   "name": "PB&J sandwich, quartered",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "white bread (2 slices)",
+    "peanut butter (2 tbsp)",
+    "jam (1 tbsp)"
+   ],
+   "ingredients": "white bread 2 slices, peanut butter 2 tbsp, jam 1 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-020",
+   "name": "Ham & cheese roll, quartered",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "small baguette or white roll (1)",
+    "sliced ham (40g)",
+    "cheese (20g)",
+    "butter (1 tsp)"
+   ],
+   "ingredients": "small baguette or white roll 1, sliced ham 40g, cheese 20g, butter 1 tsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-021",
+   "name": "Rice cakes with peanut butter & banana",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "plain rice cakes (2)",
+    "peanut butter (1.5 tbsp)",
+    "banana (1/2)"
+   ],
+   "ingredients": "plain rice cakes 2, peanut butter 1.5 tbsp, banana 1/2",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-034",
+   "name": "Date & hazelnut brownie squares",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "dates (35g)",
+    "hazelnuts (17g)",
+    "cocoa powder (1 tsp)",
+    "orange juice splash",
+    "salt pinch — blended and pressed"
+   ],
+   "ingredients": "dates 35g, hazelnuts 17g, cocoa powder 1 tsp, orange juice splash, salt pinch — blended and pressed (makes 12)",
+   "prep": "batch — 15 min, 12 servings"
+  },
+  {
+   "id": "S-046",
+   "name": "Veg sticks with hummus",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "carrot and cucumber sticks (150g)",
+    "hummus (60g)"
+   ],
+   "ingredients": "carrot and cucumber sticks 150g, hummus 60g",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-047",
+   "name": "Hummus, pita & apple",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "hummus (60g)",
+    "whole-wheat pita (1)",
+    "apple (1)"
+   ],
+   "ingredients": "hummus 60g, whole-wheat pita 1, apple 1",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-050",
+   "name": "Black bean nachos with avocado",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "corn tortilla chips (60g)",
+    "black beans (100g)",
+    "salsa (3 tbsp)",
+    "avocado (1/2)",
+    "dairy-free cheese (30g)"
+   ],
+   "ingredients": "corn tortilla chips 60g, black beans 100g, salsa 3 tbsp, avocado 1/2, dairy-free cheese 30g",
+   "prep": "15 min"
+  },
+  {
+   "id": "S-051",
+   "name": "Edamame with sea salt",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "frozen edamame in pod (150g)",
+    "sea salt",
+    "lime wedge"
+   ],
+   "ingredients": "frozen edamame in pod 150g, sea salt, lime wedge",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-054",
+   "name": "Millet porridge, Kaptagat 5pm style",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "millet flour (40g)",
+    "water (300ml)",
+    "sugar (1 tbsp)"
+   ],
+   "ingredients": "millet flour 40g, water 300ml, sugar 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-055",
+   "name": "Fermented milk (mursik or kefir)",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "mursik or plain kefir (250ml)"
+   ],
+   "ingredients": "mursik or plain kefir 250ml",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-057",
+   "name": "Agua de panela with lime",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "panela (30g dissolved in water 500ml)",
+    "lime juice (1 tbsp)",
+    "salt pinch"
+   ],
+   "ingredients": "panela 30g dissolved in water 500ml, lime juice 1 tbsp, salt pinch",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-060",
+   "name": "Fig, prosciutto & rocket flatbread",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "whole-grain flatbread (1)",
+    "prosciutto (40g)",
+    "fresh figs (2)",
+    "rocket handful",
+    "balsamic drizzle"
+   ],
+   "ingredients": "whole-grain flatbread 1, prosciutto 40g, fresh figs 2, rocket handful, balsamic drizzle",
+   "prep": "15 min"
+  },
+  {
+   "id": "S-061",
+   "name": "Cucumber, tomato & feta cups",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "cucumber (100g)",
+    "cherry tomatoes (100g)",
+    "feta (30g)",
+    "olive oil (1 tsp)",
+    "oregano"
+   ],
+   "ingredients": "cucumber 100g, cherry tomatoes 100g, feta 30g, olive oil 1 tsp, oregano",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-063",
+   "name": "Second breakfast: eggs, avocado & toast",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "whole-grain toast (2 slices)",
+    "avocado (1/2)",
+    "poached or boiled eggs (2)",
+    "chilli flakes"
+   ],
+   "ingredients": "whole-grain toast 2 slices, avocado 1/2, poached or boiled eggs 2, chilli flakes",
+   "prep": "15 min"
+  },
+  {
+   "id": "S-064",
+   "name": "Hard-boiled eggs with salt",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "eggs (2)",
+    "salt"
+   ],
+   "ingredients": "eggs 2, salt",
+   "prep": "batch — 15 min, 4–5 servings"
+  },
+  {
+   "id": "S-065",
+   "name": "Eggs, aged cheese & grapes",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "hard-boiled eggs (2)",
+    "aged cheddar or Swiss (30g)",
+    "grapes (80g)"
+   ],
+   "ingredients": "hard-boiled eggs 2, aged cheddar or Swiss 30g, grapes 80g",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-067",
+   "name": "Cheese stick & apple",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "string cheese (1 stick)",
+    "apple (1)"
+   ],
+   "ingredients": "string cheese 1 stick, apple 1",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-068",
+   "name": "Turkey & cheese roll-ups",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "sliced turkey breast (100g)",
+    "sliced cheese (40g)",
+    "mustard"
+   ],
+   "ingredients": "sliced turkey breast 100g, sliced cheese 40g, mustard",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-069",
+   "name": "Smoked salmon & cream cheese cucumber roll-ups",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "smoked salmon (80g)",
+    "cream cheese (2 tbsp)",
+    "cucumber ribbons (1/2 cucumber)",
+    "capers"
+   ],
+   "ingredients": "smoked salmon 80g, cream cheese 2 tbsp, cucumber ribbons 1/2 cucumber, capers",
+   "prep": "15 min"
+  },
+  {
+   "id": "S-070",
+   "name": "Avocado with sea salt & lime",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "avocado (1/2)",
+    "sea salt pinch",
+    "lime squeeze"
+   ],
+   "ingredients": "avocado 1/2, sea salt pinch, lime squeeze",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-071",
+   "name": "Macadamia nuts, berries & cream",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "macadamia nuts (30g)",
+    "mixed berries (80g)",
+    "double cream (2 tbsp)"
+   ],
+   "ingredients": "macadamia nuts 30g, mixed berries 80g, double cream 2 tbsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-072",
+   "name": "Bone broth with shredded chicken",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "bone broth (500ml)",
+    "shredded rotisserie chicken (100g)",
+    "salt"
+   ],
+   "ingredients": "bone broth 500ml, shredded rotisserie chicken 100g, salt",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-074",
+   "name": "Jerky, dried mango & rice cakes",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "plain beef jerky (40g)",
+    "dried mango (40g)",
+    "plain rice cakes (2)"
+   ],
+   "ingredients": "plain beef jerky 40g, dried mango 40g, plain rice cakes 2",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-075",
+   "name": "Rice crackers, turkey & cucumber",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "plain rice crackers (8)",
+    "sliced turkey breast (80g)",
+    "cucumber slices (1/2 cucumber)",
+    "yellow mustard"
+   ],
+   "ingredients": "plain rice crackers 8, sliced turkey breast 80g, cucumber slices 1/2 cucumber, yellow mustard",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-076",
+   "name": "Tuna pouch, crackers & pickles",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "flavoured tuna pouch (85g)",
+    "crackers (8)",
+    "pickle spears (2)"
+   ],
+   "ingredients": "flavoured tuna pouch 85g, crackers 8, pickle spears 2",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-077",
+   "name": "Trail mix, nuts & seeds",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "mixed nuts (almonds",
+    "cashews",
+    "peanuts) (40g)",
+    "sunflower and pumpkin seeds (20g)"
+   ],
+   "ingredients": "mixed nuts (almonds, cashews, peanuts) 40g, sunflower and pumpkin seeds 20g",
+   "prep": "batch — 5 min, 4–5 servings"
+  },
+  {
+   "id": "S-078",
+   "name": "Seed & dried fruit mix, nut-free",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "pumpkin seeds (30g)",
+    "sunflower seeds (20g)",
+    "dried cranberries (30g)",
+    "dried apricots (30g)"
+   ],
+   "ingredients": "pumpkin seeds 30g, sunflower seeds 20g, dried cranberries 30g, dried apricots 30g",
+   "prep": "batch — 5 min, 4–5 servings"
+  },
+  {
+   "id": "S-079",
+   "name": "Salted air-popped popcorn",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "air-popped popcorn (30g)",
+    "salt",
+    "olive oil spray"
+   ],
+   "ingredients": "air-popped popcorn 30g, salt, olive oil spray",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-081",
+   "name": "Kiwi fruit before bed",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "kiwi fruit (2)"
+   ],
+   "ingredients": "kiwi fruit 2",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-082",
+   "name": "Frozen grapes",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "seedless grapes (150g)",
+    "frozen"
+   ],
+   "ingredients": "seedless grapes 150g, frozen",
+   "prep": "batch — 5 min, 4–5 servings"
+  },
+  {
+   "id": "S-083",
+   "name": "Chocolate milk",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "low-fat chocolate milk (500ml)"
+   ],
+   "ingredients": "low-fat chocolate milk 500ml",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-085",
+   "name": "Greek yogurt with peanut butter & banana",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "Greek yogurt (200g)",
+    "peanut butter (1 tbsp)",
+    "banana (1)",
+    "honey drizzle"
+   ],
+   "ingredients": "Greek yogurt 200g, peanut butter 1 tbsp, banana 1, honey drizzle",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-088",
+   "name": "Cottage cheese & pineapple",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "cottage cheese (200g)",
+    "pineapple chunks (150g)"
+   ],
+   "ingredients": "cottage cheese 200g, pineapple chunks 150g",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-089",
+   "name": "Cottage cheese with peanut butter & honey, pre-bed",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "cottage cheese (200g)",
+    "peanut butter (1 tbsp)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "cottage cheese 200g, peanut butter 1 tbsp, honey 1 tsp",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-090",
+   "name": "Cottage cheese, cucumber & tomato with olive oil",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "cottage cheese (200g)",
+    "cucumber (1/2)",
+    "cherry tomatoes (100g)",
+    "olive oil (1 tsp)",
+    "black pepper",
+    "pumpkin seeds (1 tbsp)"
+   ],
+   "ingredients": "cottage cheese 200g, cucumber 1/2, cherry tomatoes 100g, olive oil 1 tsp, black pepper, pumpkin seeds 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-091",
+   "name": "Casein shake before bed",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "casein protein powder (30g)",
+    "milk or water (300ml)"
+   ],
+   "ingredients": "casein protein powder 30g, milk or water 300ml",
+   "prep": "no-cook"
+  },
+  {
+   "id": "S-092",
+   "name": "Heavy-cream protein shake",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "whey or collagen protein (1 scoop)",
+    "double cream (60ml)",
+    "water and ice",
+    "cocoa powder (1 tsp)"
+   ],
+   "ingredients": "whey or collagen protein 1 scoop, double cream 60ml, water and ice, cocoa powder 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-093",
+   "name": "Banana, milk & protein powder recovery smoothie",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "banana (1)",
+    "milk (300ml)",
+    "whey protein (1 scoop)",
+    "frozen berries (80g)",
+    "spinach handful"
+   ],
+   "ingredients": "banana 1, milk 300ml, whey protein 1 scoop, frozen berries 80g, spinach handful",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-094",
+   "name": "Almond butter, banana & date smoothie",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "almond milk (300ml)",
+    "almond butter (1 tbsp)",
+    "banana (1)",
+    "dates (2)",
+    "plant protein (1 scoop)"
+   ],
+   "ingredients": "almond milk 300ml, almond butter 1 tbsp, banana 1, dates 2, plant protein 1 scoop",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-095",
+   "name": "Wild blueberry & coconut milk recovery smoothie",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "frozen wild blueberries (1 cup)",
+    "banana (1/2)",
+    "coconut milk (1 cup)",
+    "vanilla whey (1 scoop)"
+   ],
+   "ingredients": "frozen wild blueberries 1 cup, banana 1/2, coconut milk 1 cup, vanilla whey 1 scoop",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-096",
+   "name": "Strawberry, banana & lactose-free milk smoothie",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "firm banana (1)",
+    "strawberries (100g)",
+    "lactose-free milk (200ml)",
+    "ice"
+   ],
+   "ingredients": "firm banana 1, strawberries 100g, lactose-free milk 200ml, ice",
+   "prep": "5 min"
+  },
+  {
+   "id": "S-099",
+   "name": "White bean dip with veg sticks",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "cannellini beans (150g blended with olive oil 1 tbsp)",
+    "lemon juice",
+    "garlic",
+    "salt; carrot",
+    "cucumber and pepper sticks (150g)"
+   ],
+   "ingredients": "cannellini beans 150g blended with olive oil 1 tbsp, lemon juice, garlic, salt; carrot, cucumber and pepper sticks 150g (makes 4)",
+   "prep": "batch — 10 min, 4 servings"
+  },
+  {
+   "id": "S-100",
+   "name": "Fruit & cheese plate",
+   "mealType": "snack",
+   "pattern": null,
+   "components": [
+    "grapes (100g)",
+    "cheddar (30g)",
+    "whole-grain crackers (4)"
+   ],
+   "ingredients": "grapes 100g, cheddar 30g, whole-grain crackers 4",
+   "prep": "no-cook"
+  }
+ ]
+}

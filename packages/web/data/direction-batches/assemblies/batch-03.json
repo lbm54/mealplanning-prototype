@@ -1,0 +1,1592 @@
+{
+ "batch": "A-03",
+ "kind": "assembly",
+ "meals": [
+  {
+   "id": "AB-241",
+   "name": "Lactose-free yogurt & spinach smoothie",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit + fruit + veg",
+   "components": [
+    "lactose-free plain yogurt (1 cup)",
+    "banana (1)",
+    "blueberries (1/2 cup)",
+    "spinach (1 cup)"
+   ],
+   "ingredients": "lactose-free plain yogurt 1 cup, banana 1, blueberries 1/2 cup, spinach 1 cup",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-242",
+   "name": "Coconut yogurt with GF seed granola & mango",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "coconut yogurt (250 g)",
+    "certified gluten-free seed-based granola (50 g)",
+    "mango, diced (120 g)",
+    "chia seeds (1 tbsp)"
+   ],
+   "ingredients": "coconut yogurt 250 g, certified gluten-free seed-based granola 50 g, mango, diced 120 g, chia seeds 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-243",
+   "name": "Quinoa porridge with berries, banana & maple syrup",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + fruit + sweetener",
+   "components": [
+    "quinoa, cooked (80 g dry)",
+    "banana (1)",
+    "mixed berries (80 g)",
+    "maple syrup (1 tbsp)"
+   ],
+   "ingredients": "quinoa, cooked 80 g dry, banana 1, mixed berries 80 g, maple syrup 1 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AB-244",
+   "name": "Buckwheat porridge with honey & berries",
+   "mealType": "breakfast",
+   "pattern": "starch + sweetener + fruit",
+   "components": [
+    "buckwheat groats, cooked (80 g dry)",
+    "honey (1 tbsp)",
+    "mixed berries (80 g)"
+   ],
+   "ingredients": "buckwheat groats, cooked 80 g dry, honey 1 tbsp, mixed berries 80 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-245",
+   "name": "Rice porridge (congee) with tofu & scallion",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + veg + sauce",
+   "components": [
+    "white rice, cooked to porridge (200 g)",
+    "firm tofu, cubed (100 g)",
+    "scallion, sliced (1)",
+    "tamari (1 tsp)"
+   ],
+   "ingredients": "white rice, cooked to porridge 200 g, firm tofu, cubed 100 g, scallion, sliced 1, tamari 1 tsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-246",
+   "name": "Roasted chickpeas with dried apricots",
+   "mealType": "breakfast",
+   "pattern": "protein + fruit",
+   "components": [
+    "roasted chickpeas (1/2 cup)",
+    "dried apricots (4)"
+   ],
+   "ingredients": "roasted chickpeas 1/2 cup, dried apricots 4",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-247",
+   "name": "Beef jerky with dried fruit",
+   "mealType": "breakfast",
+   "pattern": "protein + fruit",
+   "components": [
+    "beef jerky (40 g)",
+    "dried fruit mix (1/4 cup)"
+   ],
+   "ingredients": "beef jerky 40 g, dried fruit mix 1/4 cup",
+   "prep": "0 min"
+  },
+  {
+   "id": "AB-248",
+   "name": "Sweet potato with almond butter & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "sweet potato, baked (300 g)",
+    "almond butter (1.5 tbsp)",
+    "banana (1)",
+    "cinnamon (1/2 tsp)"
+   ],
+   "ingredients": "sweet potato, baked 300 g, almond butter 1.5 tbsp, banana 1, cinnamon 1/2 tsp",
+   "prep": "8 min (microwave)"
+  },
+  {
+   "id": "AB-249",
+   "name": "Sweet potato topped with sunflower seed butter, nut-free",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "sweet potato, baked (300 g)",
+    "sunflower seed butter (1.5 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "sweet potato, baked 300 g, sunflower seed butter 1.5 tbsp, banana 1",
+   "prep": "8 min (microwave)"
+  },
+  {
+   "id": "AB-250",
+   "name": "Fruit with sunflower seed butter, pre-workout",
+   "mealType": "breakfast",
+   "pattern": "fruit + fat",
+   "components": [
+    "apple or banana (1)",
+    "sunflower seed butter (1.5 tbsp)"
+   ],
+   "ingredients": "apple or banana 1, sunflower seed butter 1.5 tbsp",
+   "prep": "1 min"
+  },
+  {
+   "id": "AB-251",
+   "name": "Baked sweet potato, egg whites & olive oil, egg-yolk-free",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "baked sweet potato (200 g)",
+    "egg whites, cooked (4)",
+    "olive oil (1 tsp)"
+   ],
+   "ingredients": "baked sweet potato 200 g, egg whites, cooked 4, olive oil 1 tsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-252",
+   "name": "Turkey breast, avocado & spinach plate",
+   "mealType": "breakfast",
+   "pattern": "protein + fat + veg",
+   "components": [
+    "sliced turkey breast (100 g)",
+    "avocado (1)",
+    "baby spinach (2 cups)"
+   ],
+   "ingredients": "sliced turkey breast 100 g, avocado 1, baby spinach 2 cups",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-253",
+   "name": "Bacon, avocado & tomato plate",
+   "mealType": "breakfast",
+   "pattern": "protein + fat + veg",
+   "components": [
+    "bacon (3 rashers)",
+    "avocado (1/2)",
+    "tomato, sliced (1)"
+   ],
+   "ingredients": "bacon 3 rashers, avocado 1/2, tomato, sliced 1",
+   "prep": "8 min"
+  },
+  {
+   "id": "AB-254",
+   "name": "Cottage cheese with pineapple & juice, gluten-free",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit + drink",
+   "components": [
+    "cottage cheese (200 g)",
+    "pineapple chunks (150 g)",
+    "100% fruit juice (150 ml)"
+   ],
+   "ingredients": "cottage cheese 200 g, pineapple chunks 150 g, 100% fruit juice 150 ml",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-255",
+   "name": "Trail mix with GF cereal, seeds & dried fruit",
+   "mealType": "breakfast",
+   "pattern": "fat + fruit + starch",
+   "components": [
+    "pumpkin & sunflower seeds (1/4 cup)",
+    "dried fruit (1/4 cup)",
+    "certified gluten-free breakfast cereal (1/2 cup)"
+   ],
+   "ingredients": "pumpkin & sunflower seeds 1/4 cup, dried fruit 1/4 cup, certified gluten-free breakfast cereal 1/2 cup",
+   "prep": "1 min"
+  },
+  {
+   "id": "AB-256",
+   "name": "Gluten-free hard-boiled eggs with fig bars & grapes",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "hard-boiled eggs (2)",
+    "gluten-free fig bars (2)",
+    "grapes (1 cup)"
+   ],
+   "ingredients": "hard-boiled eggs 2, gluten-free fig bars 2, grapes 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-257",
+   "name": "Ugali, managu & chai",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + drink",
+   "components": [
+    "ugali (maize porridge) (300 g)",
+    "managu (African nightshade greens) (100 g)",
+    "chai (milk tea) (250 ml)"
+   ],
+   "ingredients": "ugali (maize porridge) 300 g, managu (African nightshade greens) 100 g, chai (milk tea) 250 ml",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-258",
+   "name": "Mandazi, banana, boiled egg & milky chai",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + protein + drink",
+   "components": [
+    "mandazi (fried dough) (2 pieces)",
+    "banana (1 medium)",
+    "boiled egg (1)",
+    "chai (milk tea) (250 ml)"
+   ],
+   "ingredients": "mandazi (fried dough) 2 pieces, banana 1 medium, boiled egg 1, chai (milk tea) 250 ml",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-259",
+   "name": "White bread & milky chai",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "white bread, sliced (4 slices)",
+    "chai (milk tea) (2-3 cups)"
+   ],
+   "ingredients": "white bread, sliced 4 slices, chai (milk tea) 2-3 cups",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-260",
+   "name": "Porridge, bread & fruit with chai",
+   "mealType": "breakfast",
+   "pattern": "starch + starch + fruit + drink",
+   "components": [
+    "maize or millet porridge (1 bowl)",
+    "bread (1-2 slices)",
+    "banana or orange (1)",
+    "chai (milk tea) (1 cup)"
+   ],
+   "ingredients": "maize or millet porridge 1 bowl, bread 1-2 slices, banana or orange 1, chai (milk tea) 1 cup",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-261",
+   "name": "Chapati & chai",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "chapati (wheat flatbread) (2 pieces)",
+    "chai (milk tea) (1 cup)"
+   ],
+   "ingredients": "chapati (wheat flatbread) 2 pieces, chai (milk tea) 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-262",
+   "name": "Mursik, ugali & beans",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + protein",
+   "components": [
+    "mursik (fermented milk) (250 ml)",
+    "ugali (maize porridge) (250 g)",
+    "beans (100 g)"
+   ],
+   "ingredients": "mursik (fermented milk) 250 ml, ugali (maize porridge) 250 g, beans 100 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-263",
+   "name": "Sweet potato, banana & chai",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + drink",
+   "components": [
+    "sweet potato, boiled (200 g)",
+    "banana (1)",
+    "chai (milk tea) (1 cup)"
+   ],
+   "ingredients": "sweet potato, boiled 200 g, banana 1, chai (milk tea) 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-264",
+   "name": "Genfo (barley porridge) with spiced butter & berbere",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + sauce",
+   "components": [
+    "genfo (roasted barley/wheat porridge) (300 g)",
+    "niter kibbeh (spiced butter) (1 tbsp)",
+    "berbere spice (1 tsp)"
+   ],
+   "ingredients": "genfo (roasted barley/wheat porridge) 300 g, niter kibbeh (spiced butter) 1 tbsp, berbere spice 1 tsp",
+   "prep": "25 min"
+  },
+  {
+   "id": "AB-265",
+   "name": "Injera with scrambled egg (fit-fit)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "injera (teff flatbread), torn (150 g)",
+    "scrambled egg (2 eggs)",
+    "berbere-spiced oil (1 tsp)"
+   ],
+   "ingredients": "injera (teff flatbread), torn 150 g, scrambled egg 2 eggs, berbere-spiced oil 1 tsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-266",
+   "name": "Teff porridge & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + other",
+   "components": [
+    "teff porridge (250 g)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "teff porridge 250 g, honey 1 tbsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-267",
+   "name": "Bread, boiled egg & milky chai",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + drink",
+   "components": [
+    "white bread (2 slices)",
+    "boiled egg (1)",
+    "chai (milk tea) (1 cup)"
+   ],
+   "ingredients": "white bread 2 slices, boiled egg 1, chai (milk tea) 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-268",
+   "name": "Boiled egg, banana & chai",
+   "mealType": "breakfast",
+   "pattern": "protein + fruit + drink",
+   "components": [
+    "boiled egg (1)",
+    "banana (1)",
+    "chai (milk tea) (1 cup)"
+   ],
+   "ingredients": "boiled egg 1, banana 1, chai (milk tea) 1 cup",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-269",
+   "name": "Rice, miso soup, natto & egg",
+   "mealType": "breakfast",
+   "pattern": "starch + other + protein",
+   "components": [
+    "steamed rice (200 g)",
+    "miso soup (200 ml)",
+    "natto (50 g)",
+    "raw egg (1)"
+   ],
+   "ingredients": "steamed rice 200 g, miso soup 200 ml, natto 50 g, raw egg 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-270",
+   "name": "Natto gohan (natto over rice) with soy sauce & scallions",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + sauce + veg",
+   "components": [
+    "steamed rice (200 g)",
+    "natto (50 g)",
+    "soy sauce (1 tsp)",
+    "scallions, chopped (1 tbsp)"
+   ],
+   "ingredients": "steamed rice 200 g, natto 50 g, soy sauce 1 tsp, scallions, chopped 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-271",
+   "name": "Rice, grilled salmon & pickles",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "steamed rice (200 g)",
+    "grilled salmon (100 g)",
+    "tsukemono (pickled vegetables) (50 g)"
+   ],
+   "ingredients": "steamed rice 200 g, grilled salmon 100 g, tsukemono (pickled vegetables) 50 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-272",
+   "name": "Onsen tamago, natto & rice",
+   "mealType": "breakfast",
+   "pattern": "protein + protein + starch",
+   "components": [
+    "onsen tamago (soft-cooked egg) (1)",
+    "natto (50 g)",
+    "steamed rice (200 g)"
+   ],
+   "ingredients": "onsen tamago (soft-cooked egg) 1, natto 50 g, steamed rice 200 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-273",
+   "name": "Rice, nori & umeboshi",
+   "mealType": "breakfast",
+   "pattern": "starch + other + other",
+   "components": [
+    "steamed rice (200 g)",
+    "nori sheet (1)",
+    "umeboshi (pickled plum) (1)"
+   ],
+   "ingredients": "steamed rice 200 g, nori sheet 1, umeboshi (pickled plum) 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-274",
+   "name": "Okayu (rice porridge) with egg",
+   "mealType": "breakfast",
+   "pattern": "starch + protein",
+   "components": [
+    "okayu (rice porridge) (300 g)",
+    "egg (1)"
+   ],
+   "ingredients": "okayu (rice porridge) 300 g, egg 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-275",
+   "name": "Rice, dried fish & miso soup",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + other",
+   "components": [
+    "steamed rice (200 g)",
+    "himono (dried grilled fish) (80 g)",
+    "miso soup (200 ml)"
+   ],
+   "ingredients": "steamed rice 200 g, himono (dried grilled fish) 80 g, miso soup 200 ml",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-276",
+   "name": "Tamago kake gohan (raw egg over rice) with soy sauce",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "steamed rice (200 g)",
+    "raw egg (1)",
+    "soy sauce (1 tsp)"
+   ],
+   "ingredients": "steamed rice 200 g, raw egg 1, soy sauce 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-277",
+   "name": "Rice, natto, kimchi & pickles",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + veg + veg",
+   "components": [
+    "steamed rice (200 g)",
+    "natto (50 g)",
+    "kimchi (50 g)",
+    "pickles (30 g)"
+   ],
+   "ingredients": "steamed rice 200 g, natto 50 g, kimchi 50 g, pickles 30 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-278",
+   "name": "Arepa, scrambled eggs & queso fresco",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + dairy",
+   "components": [
+    "arepa (corn cake) (1)",
+    "scrambled eggs (2)",
+    "queso fresco (30 g)"
+   ],
+   "ingredients": "arepa (corn cake) 1, scrambled eggs 2, queso fresco 30 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-279",
+   "name": "Calentado (rice, beans & egg) with arepa & avocado",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein + starch + fat",
+   "components": [
+    "white rice (100 g)",
+    "beans (100 g)",
+    "egg (1)",
+    "arepa (1)",
+    "avocado (50 g)"
+   ],
+   "ingredients": "white rice 100 g, beans 100 g, egg 1, arepa 1, avocado 50 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-280",
+   "name": "Calentado with chorizo, rice, beans & arepa",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein + starch",
+   "components": [
+    "white rice (100 g)",
+    "beans (100 g)",
+    "chorizo (80 g)",
+    "arepa (1)"
+   ],
+   "ingredients": "white rice 100 g, beans 100 g, chorizo 80 g, arepa 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-281",
+   "name": "Patacones (fried green plantain) with cheese & eggs",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + protein",
+   "components": [
+    "patacones (fried green plantain) (100 g)",
+    "queso fresco (30 g)",
+    "fried egg (1)"
+   ],
+   "ingredients": "patacones (fried green plantain) 100 g, queso fresco 30 g, fried egg 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-282",
+   "name": "Tortilla, refried beans, eggs & avocado",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein + fat",
+   "components": [
+    "corn tortillas (2)",
+    "refried beans (100 g)",
+    "scrambled eggs (2)",
+    "avocado (50 g)"
+   ],
+   "ingredients": "corn tortillas 2, refried beans 100 g, scrambled eggs 2, avocado 50 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-283",
+   "name": "Arepa with butter & queso fresco",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + dairy",
+   "components": [
+    "arepa (1)",
+    "butter (1 tsp)",
+    "queso fresco (30 g)"
+   ],
+   "ingredients": "arepa 1, butter 1 tsp, queso fresco 30 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-284",
+   "name": "Pan de bono & coffee",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "pan de bono (cheese bread) (1)",
+    "tinto (black coffee) (1 cup)"
+   ],
+   "ingredients": "pan de bono (cheese bread) 1, tinto (black coffee) 1 cup",
+   "prep": "5 min (bought)"
+  },
+  {
+   "id": "AB-285",
+   "name": "Plantain, black beans & eggs",
+   "mealType": "breakfast",
+   "pattern": "fruit + protein + protein",
+   "components": [
+    "fried sweet plantain (100 g)",
+    "black beans (100 g)",
+    "fried egg (1)"
+   ],
+   "ingredients": "fried sweet plantain 100 g, black beans 100 g, fried egg 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-286",
+   "name": "Tortilla with beans & avocado (light travel breakfast)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + fat",
+   "components": [
+    "flour tortilla (1)",
+    "refried beans (80 g)",
+    "avocado (50 g)"
+   ],
+   "ingredients": "flour tortilla 1, refried beans 80 g, avocado 50 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-287",
+   "name": "Labneh, pita, cucumber & tomato",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + veg + veg",
+   "components": [
+    "labneh (100 g)",
+    "pita bread (1)",
+    "cucumber, sliced (50 g)",
+    "tomato, sliced (50 g)"
+   ],
+   "ingredients": "labneh 100 g, pita bread 1, cucumber, sliced 50 g, tomato, sliced 50 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-288",
+   "name": "Labneh, olive oil, za'atar & pita",
+   "mealType": "breakfast",
+   "pattern": "dairy + fat + sauce + starch",
+   "components": [
+    "labneh (100 g)",
+    "olive oil (1 tbsp)",
+    "za'atar (1 tsp)",
+    "pita bread (1)"
+   ],
+   "ingredients": "labneh 100 g, olive oil 1 tbsp, za'atar 1 tsp, pita bread 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-289",
+   "name": "Feta, olives, cucumber, tomato & boiled egg with bread",
+   "mealType": "breakfast",
+   "pattern": "dairy + fat + veg + veg + protein + starch",
+   "components": [
+    "feta cheese (40 g)",
+    "olives (30 g)",
+    "cucumber, sliced (50 g)",
+    "tomato, sliced (50 g)",
+    "boiled egg (1)",
+    "bread (1 slice)"
+   ],
+   "ingredients": "feta cheese 40 g, olives 30 g, cucumber, sliced 50 g, tomato, sliced 50 g, boiled egg 1, bread 1 slice",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-290",
+   "name": "Çılbır (poached eggs over garlicky yogurt) with bread",
+   "mealType": "breakfast",
+   "pattern": "protein + dairy + starch + fat",
+   "components": [
+    "poached eggs (2)",
+    "garlic yogurt (100 g)",
+    "bread (1 slice)",
+    "chili butter (1 tsp)"
+   ],
+   "ingredients": "poached eggs 2, garlic yogurt 100 g, bread 1 slice, chili butter 1 tsp",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-291",
+   "name": "Hummus, pita, cucumber & tomato",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + veg + veg",
+   "components": [
+    "hummus (100 g)",
+    "pita bread (1)",
+    "cucumber, sliced (50 g)",
+    "tomato, sliced (50 g)"
+   ],
+   "ingredients": "hummus 100 g, pita bread 1, cucumber, sliced 50 g, tomato, sliced 50 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-292",
+   "name": "Israeli breakfast spread — egg, chopped salad, cheese & bread",
+   "mealType": "breakfast",
+   "pattern": "protein + veg + dairy + starch",
+   "components": [
+    "boiled egg (1)",
+    "Israeli chopped salad (cucumber, tomato) (100 g)",
+    "white cheese (40 g)",
+    "bread roll (1)"
+   ],
+   "ingredients": "boiled egg 1, Israeli chopped salad (cucumber, tomato) 100 g, white cheese 40 g, bread roll 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-293",
+   "name": "Labneh, honey & walnuts with pita",
+   "mealType": "breakfast",
+   "pattern": "dairy + other + fat + starch",
+   "components": [
+    "labneh (100 g)",
+    "honey (1 tbsp)",
+    "walnuts (20 g)",
+    "pita bread (1)"
+   ],
+   "ingredients": "labneh 100 g, honey 1 tbsp, walnuts 20 g, pita bread 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-294",
+   "name": "Boiled egg, olives, tomato & bread",
+   "mealType": "breakfast",
+   "pattern": "protein + fat + veg + starch",
+   "components": [
+    "boiled egg (1)",
+    "olives (30 g)",
+    "tomato, sliced (50 g)",
+    "bread (1 slice)"
+   ],
+   "ingredients": "boiled egg 1, olives 30 g, tomato, sliced 50 g, bread 1 slice",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-295",
+   "name": "Halloumi, cucumber, tomato & pita",
+   "mealType": "breakfast",
+   "pattern": "dairy + veg + veg + starch",
+   "components": [
+    "fried halloumi (60 g)",
+    "cucumber, sliced (50 g)",
+    "tomato, sliced (50 g)",
+    "pita bread (1)"
+   ],
+   "ingredients": "fried halloumi 60 g, cucumber, sliced 50 g, tomato, sliced 50 g, pita bread 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-296",
+   "name": "Turkish-style breakfast: white cheese, olives, cucumber, tomato & simit",
+   "mealType": "breakfast",
+   "pattern": "dairy + fat + veg + veg + starch",
+   "components": [
+    "beyaz peynir (white cheese) (40 g)",
+    "olives (30 g)",
+    "cucumber, sliced (50 g)",
+    "tomato, sliced (50 g)",
+    "simit (sesame bread ring) (1)"
+   ],
+   "ingredients": "beyaz peynir (white cheese) 40 g, olives 30 g, cucumber, sliced 50 g, tomato, sliced 50 g, simit (sesame bread ring) 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-297",
+   "name": "Labneh & cucumber wrap (light pre-session version)",
+   "mealType": "breakfast",
+   "pattern": "dairy + veg + starch",
+   "components": [
+    "labneh (60 g)",
+    "cucumber, sliced (30 g)",
+    "pita bread (1/2)"
+   ],
+   "ingredients": "labneh 60 g, cucumber, sliced 30 g, pita bread 1/2",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-298",
+   "name": "Rye bread, skyr & berries",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rye bread (rúgbrauð) (1 slice)",
+    "skyr (150 g)",
+    "mixed berries (80 g)"
+   ],
+   "ingredients": "rye bread (rúgbrauð) 1 slice, skyr 150 g, mixed berries 80 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-299",
+   "name": "Overnight rye & skyr bowl with berries & seeds",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + dairy + fruit + fat",
+   "components": [
+    "rye flakes (60 g)",
+    "milk (150 ml)",
+    "skyr (100 g)",
+    "mixed berries (80 g)",
+    "mixed seeds (1 tbsp)"
+   ],
+   "ingredients": "rye flakes 60 g, milk 150 ml, skyr 100 g, mixed berries 80 g, mixed seeds 1 tbsp",
+   "prep": "5 min (prep the night before)"
+  },
+  {
+   "id": "AB-300",
+   "name": "Rye crispbread, cheese & cucumber",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + veg",
+   "components": [
+    "rye crispbread (2 pieces)",
+    "cheese (30 g)",
+    "cucumber, sliced (50 g)"
+   ],
+   "ingredients": "rye crispbread 2 pieces, cheese 30 g, cucumber, sliced 50 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-301",
+   "name": "Skyr, granola & berries",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "skyr (200 g)",
+    "granola (40 g)",
+    "mixed berries (80 g)"
+   ],
+   "ingredients": "skyr 200 g, granola 40 g, mixed berries 80 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-302",
+   "name": "Rye bread, smoked salmon & egg",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "rye bread (1 slice)",
+    "smoked salmon (60 g)",
+    "boiled egg (1)"
+   ],
+   "ingredients": "rye bread 1 slice, smoked salmon 60 g, boiled egg 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-303",
+   "name": "Filmjölk (Nordic soured milk) with muesli & berries",
+   "mealType": "breakfast",
+   "pattern": "dairy + starch + fruit",
+   "components": [
+    "filmjölk (cultured milk) (200 ml)",
+    "muesli (50 g)",
+    "mixed berries (80 g)"
+   ],
+   "ingredients": "filmjölk (cultured milk) 200 ml, muesli 50 g, mixed berries 80 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-304",
+   "name": "Oats, skyr & lingonberry jam",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rolled oats (50 g)",
+    "skyr (150 g)",
+    "lingonberry jam (1 tbsp)"
+   ],
+   "ingredients": "rolled oats 50 g, skyr 150 g, lingonberry jam 1 tbsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-305",
+   "name": "Idli with sambar & coconut chutney",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + sauce",
+   "components": [
+    "idli (4 pieces)",
+    "sambar (lentil-vegetable stew) (150 ml)",
+    "coconut chutney (30 g)"
+   ],
+   "ingredients": "idli 4 pieces, sambar (lentil-vegetable stew) 150 ml, coconut chutney 30 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-306",
+   "name": "Poha with peanuts",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + other",
+   "components": [
+    "poha (flattened rice) (200 g)",
+    "roasted peanuts (20 g)",
+    "lemon (1 wedge)"
+   ],
+   "ingredients": "poha (flattened rice) 200 g, roasted peanuts 20 g, lemon 1 wedge",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-307",
+   "name": "Upma with vegetables & coconut chutney",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + sauce",
+   "components": [
+    "upma (semolina) (200 g)",
+    "mixed vegetables (50 g)",
+    "coconut chutney (30 g)"
+   ],
+   "ingredients": "upma (semolina) 200 g, mixed vegetables 50 g, coconut chutney 30 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-308",
+   "name": "Curd (plain yogurt) with banana",
+   "mealType": "breakfast",
+   "pattern": "dairy + fruit",
+   "components": [
+    "curd (dahi) (200 g)",
+    "banana (1)"
+   ],
+   "ingredients": "curd (dahi) 200 g, banana 1",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-309",
+   "name": "Boiled potato, white rice & bananas (unfamiliar-location race breakfast)",
+   "mealType": "breakfast",
+   "pattern": "starch + starch + fruit",
+   "components": [
+    "boiled potato (150 g)",
+    "white rice (150 g)",
+    "banana (1)"
+   ],
+   "ingredients": "boiled potato 150 g, white rice 150 g, banana 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-310",
+   "name": "Idli with peanut chutney & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + sauce + fruit",
+   "components": [
+    "idli (3 pieces)",
+    "peanut chutney (30 g)",
+    "banana (1)"
+   ],
+   "ingredients": "idli 3 pieces, peanut chutney 30 g, banana 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-311",
+   "name": "Bread with peanut butter & banana (Indian race-day adaptation)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "bread (2 slices)",
+    "peanut butter (1 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "bread 2 slices, peanut butter 1 tbsp, banana 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-312",
+   "name": "Banana with plain yogurt",
+   "mealType": "breakfast",
+   "pattern": "fruit + dairy",
+   "components": [
+    "banana (1)",
+    "plain yogurt (150 g)"
+   ],
+   "ingredients": "banana 1, plain yogurt 150 g",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-313",
+   "name": "Roti with curd",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy",
+   "components": [
+    "roti (whole wheat flatbread) (2 pieces)",
+    "curd (dahi) (150 g)"
+   ],
+   "ingredients": "roti (whole wheat flatbread) 2 pieces, curd (dahi) 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-314",
+   "name": "Poha with curd",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy",
+   "components": [
+    "poha (flattened rice) (150 g)",
+    "curd (dahi) (150 g)"
+   ],
+   "ingredients": "poha (flattened rice) 150 g, curd (dahi) 150 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-315",
+   "name": "Congee with egg & scallions",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "rice congee (300 g)",
+    "soft egg (1)",
+    "scallions, chopped (1 tbsp)"
+   ],
+   "ingredients": "rice congee 300 g, soft egg 1, scallions, chopped 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-316",
+   "name": "Congee with preserved duck egg & pork",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "rice congee (300 g)",
+    "preserved (century) duck egg (1)",
+    "pork mince (100 g)"
+   ],
+   "ingredients": "rice congee 300 g, preserved (century) duck egg 1, pork mince 100 g",
+   "prep": "40 min"
+  },
+  {
+   "id": "AB-317",
+   "name": "Youtiao with soy milk",
+   "mealType": "breakfast",
+   "pattern": "starch + drink",
+   "components": [
+    "youtiao (fried dough stick) (1)",
+    "soy milk (300 ml)"
+   ],
+   "ingredients": "youtiao (fried dough stick) 1, soy milk 300 ml",
+   "prep": "5 min (bought)"
+  },
+  {
+   "id": "AB-318",
+   "name": "Soy milk, youtiao & egg",
+   "mealType": "breakfast",
+   "pattern": "drink + starch + protein",
+   "components": [
+    "soy milk (300 ml)",
+    "youtiao (fried dough stick) (1)",
+    "boiled egg (1)"
+   ],
+   "ingredients": "soy milk 300 ml, youtiao (fried dough stick) 1, boiled egg 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-319",
+   "name": "Rice congee with pickles",
+   "mealType": "breakfast",
+   "pattern": "starch + veg",
+   "components": [
+    "rice congee (300 g)",
+    "Chinese pickles (40 g)"
+   ],
+   "ingredients": "rice congee 300 g, Chinese pickles 40 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-320",
+   "name": "Congee with century egg & shredded pork",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "rice congee (300 g)",
+    "century egg (1)",
+    "shredded pork (60 g)"
+   ],
+   "ingredients": "rice congee 300 g, century egg 1, shredded pork 60 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-321",
+   "name": "Soy milk & steamed bun (mantou)",
+   "mealType": "breakfast",
+   "pattern": "drink + starch",
+   "components": [
+    "soy milk (300 ml)",
+    "mantou (steamed bun) (1)"
+   ],
+   "ingredients": "soy milk 300 ml, mantou (steamed bun) 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-322",
+   "name": "Tapsilog — tapa, garlic rice & fried egg",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + protein",
+   "components": [
+    "beef tapa (marinated beef) (120 g)",
+    "sinangag (garlic fried rice) (200 g)",
+    "fried egg (1)"
+   ],
+   "ingredients": "beef tapa (marinated beef) 120 g, sinangag (garlic fried rice) 200 g, fried egg 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-325",
+   "name": "Garlic rice, fried egg & dried fish (danggit)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + protein",
+   "components": [
+    "sinangag (garlic fried rice) (200 g)",
+    "fried egg (1)",
+    "danggit (dried fish) (60 g)"
+   ],
+   "ingredients": "sinangag (garlic fried rice) 200 g, fried egg 1, danggit (dried fish) 60 g",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-326",
+   "name": "Spamsilog — Spam, garlic rice & fried egg",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + protein",
+   "components": [
+    "Spam (canned meat), fried (80 g)",
+    "sinangag (garlic fried rice) (200 g)",
+    "fried egg (1)"
+   ],
+   "ingredients": "Spam (canned meat), fried 80 g, sinangag (garlic fried rice) 200 g, fried egg 1",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-327",
+   "name": "Garlic rice with fried egg & tomato",
+   "mealType": "breakfast",
+   "pattern": "starch + protein + veg",
+   "components": [
+    "sinangag (garlic fried rice) (200 g)",
+    "fried egg (1)",
+    "tomato, sliced (50 g)"
+   ],
+   "ingredients": "sinangag (garlic fried rice) 200 g, fried egg 1, tomato, sliced 50 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-328",
+   "name": "Longganisa, garlic rice, egg & atchara (pickled papaya)",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + protein + veg",
+   "components": [
+    "longganisa (100 g)",
+    "sinangag (garlic fried rice) (200 g)",
+    "fried egg (1)",
+    "atchara (pickled papaya) (30 g)"
+   ],
+   "ingredients": "longganisa 100 g, sinangag (garlic fried rice) 200 g, fried egg 1, atchara (pickled papaya) 30 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-329",
+   "name": "Gukbap (rice soup) with kimchi",
+   "mealType": "breakfast",
+   "pattern": "other + starch + veg",
+   "components": [
+    "beef broth soup (300 ml)",
+    "rice (150 g)",
+    "kimchi (50 g)"
+   ],
+   "ingredients": "beef broth soup 300 ml, rice 150 g, kimchi 50 g",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-330",
+   "name": "Rice, kimchi & vegetables with tea",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + veg + drink",
+   "components": [
+    "rice (200 g)",
+    "kimchi (50 g)",
+    "sautéed vegetables (80 g)",
+    "tea (1 cup)"
+   ],
+   "ingredients": "rice 200 g, kimchi 50 g, sautéed vegetables 80 g, tea 1 cup",
+   "prep": "15 min"
+  },
+  {
+   "id": "AB-331",
+   "name": "Soybean sprout soup with rice (kongnamul-gukbap)",
+   "mealType": "breakfast",
+   "pattern": "other + starch + protein",
+   "components": [
+    "kongnamul-gukbap (soybean sprout soup) (300 ml)",
+    "rice (150 g)",
+    "egg (optional) (1)"
+   ],
+   "ingredients": "kongnamul-gukbap (soybean sprout soup) 300 ml, rice 150 g, egg (optional) 1",
+   "prep": "25 min"
+  },
+  {
+   "id": "AB-333",
+   "name": "Overnight oats with berries",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "rolled oats (60 g)",
+    "milk (150 ml)",
+    "mixed berries (80 g)"
+   ],
+   "ingredients": "rolled oats 60 g, milk 150 ml, mixed berries 80 g",
+   "prep": "5 min (prep the night before)"
+  },
+  {
+   "id": "AB-334",
+   "name": "Rice with soy yoghurt (race-day)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy",
+   "components": [
+    "cooked rice (200 g)",
+    "soy yoghurt (150 g)"
+   ],
+   "ingredients": "cooked rice 200 g, soy yoghurt 150 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-335",
+   "name": "Soy porridge with overnight oats",
+   "mealType": "breakfast",
+   "pattern": "starch + starch",
+   "components": [
+    "soy milk porridge (250 g)",
+    "overnight oats (60 g)"
+   ],
+   "ingredients": "soy milk porridge 250 g, overnight oats 60 g",
+   "prep": "10 min (prep the night before)"
+  },
+  {
+   "id": "AB-336",
+   "name": "Porridge with banana & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + other",
+   "components": [
+    "porridge oats (60 g)",
+    "banana (1)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "porridge oats 60 g, banana 1, honey 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-337",
+   "name": "Pan con tomate with jamón",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + fat + protein",
+   "components": [
+    "rustic bread (2 slices)",
+    "tomato, grated (1)",
+    "olive oil (1 tbsp)",
+    "jamón serrano (40 g)"
+   ],
+   "ingredients": "rustic bread 2 slices, tomato, grated 1, olive oil 1 tbsp, jamón serrano 40 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-338",
+   "name": "Pan con tomate (plain)",
+   "mealType": "breakfast",
+   "pattern": "starch + veg + fat + other",
+   "components": [
+    "rustic bread (2 slices)",
+    "tomato, grated (80 g)",
+    "olive oil (1 tbsp)",
+    "garlic, rubbed (1 clove)"
+   ],
+   "ingredients": "rustic bread 2 slices, tomato, grated 80 g, olive oil 1 tbsp, garlic, rubbed 1 clove",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-339",
+   "name": "Bread, cheese & ham (continental hotel breakfast)",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + protein",
+   "components": [
+    "baguette or roll (1)",
+    "sliced cheese (30 g)",
+    "sliced ham (40 g)"
+   ],
+   "ingredients": "baguette or roll 1, sliced cheese 30 g, sliced ham 40 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-340",
+   "name": "Muesli, yogurt & berries",
+   "mealType": "breakfast",
+   "pattern": "starch + dairy + fruit",
+   "components": [
+    "muesli (50 g)",
+    "yogurt (150 g)",
+    "mixed berries (80 g)"
+   ],
+   "ingredients": "muesli 50 g, yogurt 150 g, mixed berries 80 g",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-341",
+   "name": "Omelette, bread & fruit (buffet breakfast)",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "plain omelette (2 eggs)",
+    "bread (1 slice)",
+    "fresh fruit (100 g)"
+   ],
+   "ingredients": "plain omelette 2 eggs, bread 1 slice, fresh fruit 100 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-342",
+   "name": "Oatmeal with banana & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit + other",
+   "components": [
+    "oatmeal (60 g)",
+    "banana (1)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "oatmeal 60 g, banana 1, honey 1 tbsp",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-343",
+   "name": "Bagel with peanut butter, banana & honey",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit + other",
+   "components": [
+    "bagel (1)",
+    "peanut butter (1 tbsp)",
+    "banana, sliced (1)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "bagel 1, peanut butter 1 tbsp, banana, sliced 1, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-344",
+   "name": "White toast with jam & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + other + fruit",
+   "components": [
+    "white toast (2 slices)",
+    "jam (1 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "white toast 2 slices, jam 1 tbsp, banana 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-345",
+   "name": "Bagel with peanut butter",
+   "mealType": "breakfast",
+   "pattern": "starch + fat",
+   "components": [
+    "bagel (1)",
+    "peanut butter (1.5 tbsp)"
+   ],
+   "ingredients": "bagel 1, peanut butter 1.5 tbsp",
+   "prep": "3 min"
+  },
+  {
+   "id": "AB-346",
+   "name": "Instant oatmeal with brown sugar & hard-boiled egg",
+   "mealType": "breakfast",
+   "pattern": "starch + other + protein",
+   "components": [
+    "instant oatmeal (60 g)",
+    "brown sugar (1 tbsp)",
+    "hard-boiled egg (1)"
+   ],
+   "ingredients": "instant oatmeal 60 g, brown sugar 1 tbsp, hard-boiled egg 1",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-347",
+   "name": "Toast with maple syrup & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + other + fruit",
+   "components": [
+    "toast (2 slices)",
+    "maple syrup (1 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "toast 2 slices, maple syrup 1 tbsp, banana 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-348",
+   "name": "Cereal with peanut butter, applesauce & banana",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit + fruit",
+   "components": [
+    "cornflakes cereal (60 g)",
+    "peanut butter (1 tbsp)",
+    "applesauce (100 g)",
+    "banana (1-2)"
+   ],
+   "ingredients": "cornflakes cereal 60 g, peanut butter 1 tbsp, applesauce 100 g, banana 1-2",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-349",
+   "name": "Oatmeal with maple syrup & a meal-replacement drink",
+   "mealType": "breakfast",
+   "pattern": "starch + other + drink",
+   "components": [
+    "oatmeal (60 g)",
+    "maple syrup (1 tbsp)",
+    "meal-replacement drink (e.g. Ensure) (1 serving)"
+   ],
+   "ingredients": "oatmeal 60 g, maple syrup 1 tbsp, meal-replacement drink (e.g. Ensure) 1 serving",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-350",
+   "name": "Banana, peanut butter & honey on bread",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit + other",
+   "components": [
+    "bread (2 slices)",
+    "peanut butter (1 tbsp)",
+    "banana (1)",
+    "honey (1 tsp)"
+   ],
+   "ingredients": "bread 2 slices, peanut butter 1 tbsp, banana 1, honey 1 tsp",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-351",
+   "name": "Leftover pasta with meat sauce (unconventional race-morning)",
+   "mealType": "breakfast",
+   "pattern": "starch + protein",
+   "components": [
+    "cooked pasta (200 g)",
+    "meat sauce (150 g)"
+   ],
+   "ingredients": "cooked pasta 200 g, meat sauce 150 g",
+   "prep": "5 min (reheat)"
+  },
+  {
+   "id": "AB-352",
+   "name": "Hotel buffet: plain omelette, oats & fresh fruit",
+   "mealType": "breakfast",
+   "pattern": "protein + starch + fruit",
+   "components": [
+    "plain omelette (2 eggs)",
+    "plain oatmeal (60 g)",
+    "fresh fruit (100 g)"
+   ],
+   "ingredients": "plain omelette 2 eggs, plain oatmeal 60 g, fresh fruit 100 g",
+   "prep": "10 min"
+  },
+  {
+   "id": "AB-353",
+   "name": "Boiled potato, white rice, bread & banana (unfamiliar-location safe plate)",
+   "mealType": "breakfast",
+   "pattern": "starch + starch + starch + fruit",
+   "components": [
+    "boiled potato (100 g)",
+    "white rice (100 g)",
+    "bread (1 slice)",
+    "banana (1)"
+   ],
+   "ingredients": "boiled potato 100 g, white rice 100 g, bread 1 slice, banana 1",
+   "prep": "20 min"
+  },
+  {
+   "id": "AB-354",
+   "name": "Half bagel with banana (90-minute pre-start snack)",
+   "mealType": "breakfast",
+   "pattern": "starch + fruit",
+   "components": [
+    "bagel (1/2)",
+    "banana (1)"
+   ],
+   "ingredients": "bagel 1/2, banana 1",
+   "prep": "2 min"
+  },
+  {
+   "id": "AB-355",
+   "name": "Toast with peanut butter & banana (rehearsed long-run breakfast)",
+   "mealType": "breakfast",
+   "pattern": "starch + fat + fruit",
+   "components": [
+    "toast (2 slices)",
+    "peanut butter (1 tbsp)",
+    "banana (1)"
+   ],
+   "ingredients": "toast 2 slices, peanut butter 1 tbsp, banana 1",
+   "prep": "5 min"
+  },
+  {
+   "id": "AB-356",
+   "name": "Rice cakes with honey (carb-load, low-fibre)",
+   "mealType": "breakfast",
+   "pattern": "starch + other",
+   "components": [
+    "rice cakes (3 pieces)",
+    "honey (1 tbsp)"
+   ],
+   "ingredients": "rice cakes 3 pieces, honey 1 tbsp",
+   "prep": "2 min"
+  },
+  {
+   "id": "AD-001",
+   "name": "Salmon, quinoa, asparagus & spinach salad",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "salmon fillet (180 g)",
+    "quinoa, cooked (200 g)",
+    "asparagus, steamed (120 g)",
+    "spinach salad (60 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "salmon fillet 180 g, quinoa, cooked 200 g, asparagus, steamed 120 g, spinach salad 60 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-002",
+   "name": "Tofu, quinoa, asparagus & spinach salad",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "firm tofu, pan-seared (200 g)",
+    "quinoa, cooked (200 g)",
+    "asparagus, steamed (120 g)",
+    "spinach salad (60 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "firm tofu, pan-seared 200 g, quinoa, cooked 200 g, asparagus, steamed 120 g, spinach salad 60 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-003",
+   "name": "Steak, quinoa, asparagus & spinach salad",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat",
+   "components": [
+    "steak, grilled (180 g)",
+    "quinoa, cooked (200 g)",
+    "asparagus, steamed (120 g)",
+    "spinach salad (60 g)",
+    "olive oil (1 tbsp)"
+   ],
+   "ingredients": "steak, grilled 180 g, quinoa, cooked 200 g, asparagus, steamed 120 g, spinach salad 60 g, olive oil 1 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-004",
+   "name": "Steak, rice & black bean bowl with guacamole",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg + fat + sauce",
+   "components": [
+    "steak, sliced (180 g)",
+    "white rice, cooked (250 g)",
+    "black beans (120 g)",
+    "guacamole (2 tbsp)",
+    "salsa (2 tbsp)"
+   ],
+   "ingredients": "steak, sliced 180 g, white rice, cooked 250 g, black beans 120 g, guacamole 2 tbsp, salsa 2 tbsp",
+   "prep": "20 min"
+  },
+  {
+   "id": "AD-005",
+   "name": "Rotisserie chicken taco salad",
+   "mealType": "dinner",
+   "pattern": "protein + veg + starch + dairy + sauce",
+   "components": [
+    "rotisserie chicken, shredded (180 g)",
+    "romaine lettuce (150 g)",
+    "corn tortilla strips (30 g)",
+    "cheese, shredded (30 g)",
+    "salsa (3 tbsp)"
+   ],
+   "ingredients": "rotisserie chicken, shredded 180 g, romaine lettuce 150 g, corn tortilla strips 30 g, cheese, shredded 30 g, salsa 3 tbsp",
+   "prep": "12 min"
+  },
+  {
+   "id": "AD-006",
+   "name": "Beef, sweet potato & broccoli",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "beef, pan-seared (180 g)",
+    "sweet potato, roasted (220 g)",
+    "broccoli, steamed (120 g)"
+   ],
+   "ingredients": "beef, pan-seared 180 g, sweet potato, roasted 220 g, broccoli, steamed 120 g",
+   "prep": "25 min"
+  },
+  {
+   "id": "AD-007",
+   "name": "Chicken, brown rice & green beans",
+   "mealType": "dinner",
+   "pattern": "protein + starch + veg",
+   "components": [
+    "chicken breast, grilled (180 g)",
+    "brown rice, cooked (220 g)",
+    "green beans, sauteed (120 g)"
+   ],
+   "ingredients": "chicken breast, grilled 180 g, brown rice, cooked 220 g, green beans, sauteed 120 g",
+   "prep": "25 min"
+  }
+ ]
+}

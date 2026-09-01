@@ -1,0 +1,320 @@
+{
+ "batch": "R-05",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "D-010",
+   "name": "Lemon-honey chicken thighs with roasted new potatoes",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "chicken thighs 200g, new potatoes 250g, lemon 1, honey 1 tsp, rosemary, olive oil 1 tbsp, parsley",
+   "prep": "30 min",
+   "prepMinutes": 30,
+   "attribution": "reported pro-cyclist team dinner — Cyclist.co.uk \"How to eat like a pro\" https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/best-food-for-cycling-how-to-eat-like-a-pro",
+     "title": "Best food for cycling: How to eat like a pro",
+     "ok": true,
+     "textFile": ".cache/source-pages/86d3808dc3e234e882dc82aa946a98e3f8c9727c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-012",
+   "name": "Chicken & sweet potato hash with peppers",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken breast 170g diced, sweet potato 250g diced, onion ½, red pepper 1, olive oil 1 tbsp, smoked paprika 1 tsp (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "Bob Seebohar-style Metabolic Efficiency Recipe Book, 2:1 carb:protein post-long-session recovery dish https://www.enrgperformance.com/metabolic-efficiency-training",
+   "sourceUrl": "https://www.enrgperformance.com/metabolic-efficiency-training",
+   "cachedPages": [
+    {
+     "url": "https://www.enrgperformance.com/metabolic-efficiency-training",
+     "title": "Metabolic Efficiency Training™️",
+     "ok": true,
+     "textFile": ".cache/source-pages/9530c55bb416349009521e54198b46cfc131e0eb.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-013",
+   "name": "Tandoori chicken, brown rice & mixed veg with yogurt",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "tandoori-marinated chicken 170g, brown rice 90g dry, mixed vegetables 150g, plain yogurt 100g, strawberries 100g (makes 4)",
+   "prep": "batch — marinate ahead, 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Megan Powell — Sundried \"What I Eat In A Day\" post-second-session dinner https://www.sundried.com/blogs/nutrition/what-i-eat-in-a-day-by-megan-powell-triathlete",
+   "sourceUrl": "https://www.sundried.com/blogs/nutrition/what-i-eat-in-a-day-by-megan-powell-triathlete",
+   "cachedPages": [
+    {
+     "url": "https://www.sundried.com/blogs/nutrition/what-i-eat-in-a-day-by-megan-powell-triathlete",
+     "title": "What I Eat In A Day – Megan Powell Triathlete - Sundried",
+     "ok": true,
+     "textFile": ".cache/source-pages/cf9672f3e1cfa42f032b197a6666e1946782751c.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-015",
+   "name": "Broccoli, rice & ground beef with enchilada sauce",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 16,
+   "ingredients": "lean ground beef 130g, rice 100g cooked (≈200g cooked for athlete portion), frozen broccoli 100g, enchilada sauce 2 tbsp (makes 16)",
+   "prep": "batch — 45 min, 16 servings, ~$2 each",
+   "prepMinutes": 45,
+   "attribution": "u/kurisutarou, r/MealPrepSunday \"16 meals for $2/serving\" (429 pts) — prepping for an Olympic-distance triathlon https://old.reddit.com/r/MealPrepSunday/",
+   "sourceUrl": "https://old.reddit.com/r/MealPrepSunday/",
+   "cachedPages": [
+    {
+     "url": "https://old.reddit.com/r/MealPrepSunday/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/deb8274d94e7385503148578237dc82ca44fa2a9.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-016",
+   "name": "Potatoes or pasta, chicken breast & mixed veg with olive oil",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "potatoes 350g boiled (or pasta 120g dry), chicken breast 170g, mixed vegetables 150g, olive oil 1 tbsp, parmesan 20g optional",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "Kristian Blummenfelt's stated \"long carbohydrate\" base — oats, rice, potatoes, pasta rotated meal to meal — Nutri.it https://nutri.it.com/what-diet-does-kristian-blummenfelt-follow ; VO2 Master \"The Norwegian Method\" https://vo2master.com/blog/the-norwegian-method-s02-s06/",
+   "sourceUrl": "https://nutri.it.com/what-diet-does-kristian-blummenfelt-follow",
+   "cachedPages": [
+    {
+     "url": "https://nutri.it.com/what-diet-does-kristian-blummenfelt-follow",
+     "title": null,
+     "ok": false,
+     "textFile": null,
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://vo2master.com/blog/the-norwegian-method-s02-s06/",
+     "title": "The Norwegian Method: Kristian Blummenfelt and Gustav Iden Talk About Life as Pro Triathletes Episode 6 - VO2 Master",
+     "ok": true,
+     "textFile": ".cache/source-pages/313a7de5dc8444d6e4c03793e80462c1022c079d.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-017",
+   "name": "Grilled white fish, boiled new potatoes & sautéed greens",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "white fish fillet 180g, new potatoes 250g, spinach or chard 150g, olive oil 1 tbsp, lemon ½",
+   "prep": "25 min",
+   "prepMinutes": 25,
+   "attribution": "Hannah Grant's nightly WorldTour team dinner pattern — Triathlete.com profile of Eat. Race. Win. https://www.triathlete.com/nutrition/traveling-chef-hannah-grant-dishes-on-tour-de-france-in-new-series/ ; The Grand Tour Cookbook",
+   "sourceUrl": "https://www.triathlete.com/nutrition/traveling-chef-hannah-grant-dishes-on-tour-de-france-in-new-series/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/traveling-chef-hannah-grant-dishes-on-tour-de-france-in-new-series/",
+     "title": "Traveling Chef Hannah Grant Dishes on Tour de France in New Series",
+     "ok": true,
+     "textFile": ".cache/source-pages/9100f3adcfb3c21ae365470d997a47e592dad30b.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-018",
+   "name": "Chicken, celeriac & mango casserole over rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken thigh 170g, celeriac 150g, mango 80g, chopped tomatoes 200g, red pepper ½, apple juice 50ml, crème fraîche 1 tbsp, chilli, rice 90g dry (makes 4)",
+   "prep": "batch — 40 min, 4 servings",
+   "prepMinutes": 40,
+   "attribution": "Henrik Orre, Team Sky chef — Cyclist.co.uk \"Team Sky recipes for cycling success\" https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+   "sourceUrl": "https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+   "cachedPages": [
+    {
+     "url": "https://www.cyclist.co.uk/in-depth/865/team-sky-recipes-for-cycling-success",
+     "title": "Team Sky Recipes for cycling success",
+     "ok": true,
+     "textFile": ".cache/source-pages/0f0cdb295d10107e137b9bda530aeec6ce24bb7a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-019",
+   "name": "Baked cod, white rice & green beans",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "cod fillet 200g, white rice 90g dry, green beans 150g, lemon 1, olive oil 1 tbsp",
+   "prep": "25 min",
+   "prepMinutes": 25,
+   "attribution": "commonly recommended low-residue race-week fish dinner in sports-dietitian guidance (Nancy Clark-style) https://nancyclarkrd.com/ ; STYRKR \"What to eat the night before a race\"",
+   "sourceUrl": "https://nancyclarkrd.com/",
+   "cachedPages": [
+    {
+     "url": "https://nancyclarkrd.com/",
+     "title": "Nancy Clark RD – Sports Nutritionist & Author",
+     "ok": true,
+     "textFile": ".cache/source-pages/c9e1559f3ab4b7dba44eb46c9104020d6b7b2a35.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-020",
+   "name": "Fiskekaker (fish cakes) with boiled potatoes & carrots",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "Norwegian fish cakes 3 (~200g), boiled potatoes 300g, carrots 150g, butter 1 tbsp (makes 4)",
+   "prep": "batch — fish cakes freeze, potatoes 20 min",
+   "prepMinutes": 20,
+   "attribution": "staple Norwegian family dinner, consistent with the whole-food \"normal food\" fuelling reported for the Blummenfelt/Iden camp — Triathlete.com https://www.triathlete.com/culture/news/why-kristian-blummenfelt-counts-calories/",
+   "sourceUrl": "https://www.triathlete.com/culture/news/why-kristian-blummenfelt-counts-calories/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/culture/news/why-kristian-blummenfelt-counts-calories/",
+     "title": "Why Kristian Blummenfelt Counts Calories",
+     "ok": true,
+     "textFile": ".cache/source-pages/994b558b97b43f8cebaf92087635b56938ca1023.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-021",
+   "name": "Rice, black beans, farofa & grilled chicken thigh (arroz com feijão)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "white rice 90g dry, black beans 150g cooked with broth, farofa 2 tbsp, chicken thigh 150g, tomato-onion salad (makes 4)",
+   "prep": "batch — rice and beans Sunday, chicken grilled fresh, 4 servings",
+   "prepMinutes": null,
+   "attribution": "Brazil's everyday national plate, eaten daily by its endurance athletes — widely documented dietary pattern (no single athlete quote)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-022",
+   "name": "Ugali with sukuma wiki & beef stew",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "maize flour 150g dry, sukuma wiki or collard greens 200g, beef stew meat 130g, onion 1, tomato 1, oil 1 tsp (makes 4)",
+   "prep": "batch — stew ahead, ugali fresh 15 min, 4 servings",
+   "prepMinutes": 15,
+   "attribution": "reported nightly dinner for Eliud Kipchoge and Kaptagat/Iten camp runners — Olympics.com https://www.olympics.com/en/news/what-olympic-marathon-hero-eliud-kipchoge-eats ; traininkenya.com https://www.traininkenya.com/2018/08/08/diet-of-kenyan-runners/",
+   "sourceUrl": "https://www.olympics.com/en/news/what-olympic-marathon-hero-eliud-kipchoge-eats",
+   "cachedPages": [
+    {
+     "url": "https://www.olympics.com/en/news/what-olympic-marathon-hero-eliud-kipchoge-eats",
+     "title": "A champion's diet: What marathon legend Eliud Kipchoge eats",
+     "ok": true,
+     "textFile": ".cache/source-pages/629647230f769454207e832c4136d705dec35c68.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.traininkenya.com/2018/08/08/diet-of-kenyan-runners/",
+     "title": "The Diet of Kenyan Runners in Iten | Kenya Experience",
+     "ok": true,
+     "textFile": ".cache/source-pages/51178fea2c290cd0625391b0b00e667b7390cc4b.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-024",
+   "name": "Injera with shiro wot (spiced chickpea stew)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "injera (100% teff) 150g, chickpea/shiro flour 60g, onion 1, garlic 2 cloves, berbere 1 tbsp, oil 1 tbsp (makes 4)",
+   "prep": "batch — shiro keeps 4 days, injera store-bought, 4 servings",
+   "prepMinutes": null,
+   "attribution": "staple of Ethiopian distance-running culture (Bekele/Gebrselassie-era camps) — commonly reported, ingredients per https://en.wikipedia.org/wiki/Injera",
+   "sourceUrl": "https://en.wikipedia.org/wiki/Injera",
+   "cachedPages": [
+    {
+     "url": "https://en.wikipedia.org/wiki/Injera",
+     "title": "Injera - Wikipedia",
+     "ok": true,
+     "textFile": ".cache/source-pages/94023844b21fb9f89d85f8c8f42747e755bbb234.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-025",
+   "name": "Grilled salmon, rice, miso soup & pickles",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "salmon fillet 150g, white rice 90g dry, miso paste 1 tbsp, tofu 50g, wakame, pickled vegetables small side",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "classic Japanese athlete recovery dinner — Metropolis Japan https://metropolisjapan.com/japanese-superfoods-for-peak-performance/ ; Marukome athlete-nutrition guide https://mag.marukome.co.jp/20230511/17723/",
+   "sourceUrl": "https://metropolisjapan.com/japanese-superfoods-for-peak-performance/",
+   "cachedPages": [
+    {
+     "url": "https://metropolisjapan.com/japanese-superfoods-for-peak-performance/",
+     "title": "Japanese Superfoods for Peak Performance | Metropolis Japan",
+     "ok": true,
+     "textFile": ".cache/source-pages/432893d47e5613f1aab56c0693633ec11feb30a9.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://mag.marukome.co.jp/20230511/17723/",
+     "title": "Athlete Diet: Expert Tips for Peak Performance - Marukome",
+     "ok": true,
+     "textFile": ".cache/source-pages/3f759c31115df43e0df1126172deab9862349769.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-026",
+   "name": "Onigiri with umeboshi & miso soup",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "cooked white rice 300g, umeboshi 2, nori 2 sheets, miso paste 1 tbsp, kombu dashi 300ml, tofu 50g, salt",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "traditional pre-race carb-load of Japanese ekiden/marathon runners in place of pasta — freeradical.me https://freeradical.me/2013/09/19/onigiri-recipe-runners-alternative-energy-gels/ ; Scott Jurek's onigiri recipe, Eat & Run http://www.scottjurek.com/eat",
+   "sourceUrl": "https://freeradical.me/2013/09/19/onigiri-recipe-runners-alternative-energy-gels/",
+   "cachedPages": [
+    {
+     "url": "https://freeradical.me/2013/09/19/onigiri-recipe-runners-alternative-energy-gels/",
+     "title": "Onigiri Recipe for Runners - An Alternative to Energy Gels - freeradical.me",
+     "ok": true,
+     "textFile": ".cache/source-pages/9eefff399d3802ccaeaf4bf7c39966ff71a08f24.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "http://www.scottjurek.com/eat",
+     "title": "Eat — Scott Jurek",
+     "ok": true,
+     "textFile": ".cache/source-pages/d918127e4594ce3a5b67bb464a3c5db5cdbfb6e1.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

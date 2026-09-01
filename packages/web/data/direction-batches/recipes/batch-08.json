@@ -1,0 +1,228 @@
+{
+ "batch": "R-08",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "D-062",
+   "name": "Tofu & vegetable stir-fry, no rice (rest-day)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "firm tofu 250g, mixed stir-fry vegetables 300g, soy sauce 2 tbsp, garlic, ginger, oil 1 tbsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Amy Kilpin's rest-day dinner — Sundried \"What I Eat In A Day\"",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-063",
+   "name": "Turkey chilli with quinoa",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "ground turkey 130g, quinoa 50g dry, kidney beans 100g, chopped tomatoes 150g, onion ¼, bell pepper ½, chilli powder and cumin (makes 6)",
+   "prep": "batch — 45 min, 6 servings, freezes well",
+   "prepMinutes": 45,
+   "attribution": "Nancy Clark's Sports Nutrition Guidebook https://us.humankinetics.com/products/nancy-clarks-sports-nutrition-guidebook-6th-edition ; The Pretty Bee top-9-free plan (bean-based turkey chilli)",
+   "sourceUrl": "https://us.humankinetics.com/products/nancy-clarks-sports-nutrition-guidebook-6th-edition",
+   "cachedPages": [
+    {
+     "url": "https://us.humankinetics.com/products/nancy-clarks-sports-nutrition-guidebook-6th-edition",
+     "title": "Nancy Clark's Sports Nutrition Guidebook-6th Edition",
+     "ok": true,
+     "textFile": ".cache/source-pages/f2321320c3389b7883a04c254460ad1591e0cd99.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-064",
+   "name": "Beef chilli con carne with rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "ground beef 130g, kidney beans 130g, chopped tomatoes 130g, onion ⅓, chilli powder 1 tsp, cumin, rice 90g dry (makes 6)",
+   "prep": "batch — slow cooker or 40 min stovetop, 6 servings, freezes 3 months",
+   "prepMinutes": 40,
+   "attribution": "widely reported athlete batch-cooking staple (\"tastes better with time\") across meal-prep blogs and r/triathlon \"what I eat\" threads",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-065",
+   "name": "Minnesota winter chilli (vegan, two-bean)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "kidney beans 130g, black beans 130g, chopped tomatoes 130g, corn 50g, bell pepper ⅓, onion ⅓, chilli powder 1 tsp (makes 6)",
+   "prep": "batch — slow cooker or 40 min stovetop, 6 servings, freezes well",
+   "prepMinutes": 40,
+   "attribution": "Scott Jurek's \"Minnesota Winter Chili\", Eat & Run http://www.scottjurek.com/eat ; runtothefinish.com GF meal plan (\"Hearty Veggie Chili\")",
+   "sourceUrl": "http://www.scottjurek.com/eat",
+   "cachedPages": [
+    {
+     "url": "http://www.scottjurek.com/eat",
+     "title": "Eat — Scott Jurek",
+     "ok": true,
+     "textFile": ".cache/source-pages/d918127e4594ce3a5b67bb464a3c5db5cdbfb6e1.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-066",
+   "name": "Slow-cooker chicken & white bean chilli with rice",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "chicken breast 130g, white beans 100g, green chillies 30g, chicken stock 120ml, cumin 1 tsp, onion ¼, rice 75g dry (makes 6)",
+   "prep": "batch — slow cooker 6–8 h, 6 servings",
+   "prepMinutes": null,
+   "attribution": "runtothefinish.com gluten-free meal plan for runners (\"Spicy White Bean Chicken Chili\"); commonly reported slow-cooker athlete staple",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-067",
+   "name": "Paleo beef & sweet potato chilli (no beans)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "ground beef 170g, sweet potato 150g diced, chopped tomatoes 200g, bell pepper ½, chilli powder 1 tsp, cumin (makes 4)",
+   "prep": "batch — slow cooker or 40 min, 4–6 servings",
+   "prepMinutes": 40,
+   "attribution": "commonly reported paleo-athlete batch staple (r/paleo; Cordain & Friel \"Paleo Diet for Athletes\" no-legume framing) https://www.trainingpeaks.com/blog/a-quick-guide-to-the-paleo-diet-for-athletes/",
+   "sourceUrl": "https://www.trainingpeaks.com/blog/a-quick-guide-to-the-paleo-diet-for-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://www.trainingpeaks.com/blog/a-quick-guide-to-the-paleo-diet-for-athletes/",
+     "title": "A Quick Guide to the Paleo Diet for Athletes",
+     "ok": true,
+     "textFile": ".cache/source-pages/0e564b6f9dd65598e5ab9cc11443b7cc3527ce24.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-068",
+   "name": "Slow-cooker beef stew with potatoes & carrots",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "beef chuck 150g, potatoes 200g, carrots 100g, onion ¼, beef stock 200ml, thyme (makes 6)",
+   "prep": "batch — slow cooker 6–8 h, 6 servings, freezes well",
+   "prepMinutes": null,
+   "attribution": "commonly reported cold-weather batch-cooking staple across triathlete/runner meal-prep threads (r/paleo pot-roast norm)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-069",
+   "name": "Chicken tortilla soup",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "chicken breast 130g, black beans 80g, corn 60g, chopped tomatoes 150g, chicken stock 250ml, corn tortilla strips 30g, lime (makes 6)",
+   "prep": "batch — 30 min, 6 servings, freezes well",
+   "prepMinutes": 30,
+   "attribution": "commonly reported athlete-household soup staple, aligned with sports-dietitian \"soup as batch dinner\" guidance",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-070",
+   "name": "Minestrone with cannellini beans & small pasta",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 6,
+   "ingredients": "cannellini beans 130g, small pasta 60g dry, carrot, celery and courgette 150g, chopped tomatoes 130g, vegetable stock 250ml, olive oil 1 tbsp (makes 6)",
+   "prep": "batch — 35 min, 6 servings, freezes well",
+   "prepMinutes": 35,
+   "attribution": "commonly reported Mediterranean-style batch soup in endurance-nutrition guidance",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-071",
+   "name": "Chicken & rice-noodle soup (low-residue)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "chicken breast 150g shredded, rice noodles 100g dry, chicken broth 500ml, carrot 50g, scallion greens, ginger (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "commonly reported gut-friendly race-week dinner combining a rice-noodle GF staple with the low-FODMAP soup pattern (Frontiers FODMAP-athlete research context); r/Ultramarathon cold-weather recovery staple",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-073",
+   "name": "Almost-instant miso ramen with tofu (plant-based)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "ramen noodles 100g, firm tofu 120g, miso paste 1 tbsp, bok choy 80g, mushrooms 60g, scallion, soy sauce 1 tsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "\"Almost Instant Ramen\" — The No Meat Athlete Cookbook, \"Fuel & Recovery\" section, nomeatathlete.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-074",
+   "name": "Lentil & vegetable shepherd's pie (dairy-free mash)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "green lentils 150g cooked, carrot, peas and onion 150g, tomato paste 1 tbsp, potatoes 250g, oat milk 40ml, olive oil 1 tbsp (makes 4)",
+   "prep": "batch — 45 min, 4–5 servings, freezes well",
+   "prepMinutes": 45,
+   "attribution": "standard vegan-athlete comfort staple, cross-referenced in FARE-adjacent allergen-free recipe roundups; commonly reported",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-075",
+   "name": "Lentil & vegetable stew (rest-day, fibre-forward)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "brown lentils 200g cooked, mixed vegetables 250g (carrot, celery, courgette, kale), chopped tomatoes 150g, vegetable stock 200ml, olive oil 1 tbsp (makes 4)",
+   "prep": "batch — 35 min, 4 servings",
+   "prepMinutes": 35,
+   "attribution": "u/Ultragirl50, r/Ultramarathon \"What do you eat day-to-day?\" (plant-based) https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+   "sourceUrl": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+   "cachedPages": [
+    {
+     "url": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/e1048d3d2abe28e20a596c110352b701286dd64a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-076",
+   "name": "Homemade margherita pizza",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "pizza dough 250g, passata 100g, mozzarella 120g, basil, olive oil 1 tsp",
+   "prep": "30 min (store dough)",
+   "prepMinutes": 30,
+   "attribution": "Patrick Lange (vegetarian Ironman world champion) \"eats a lot of pizza and pasta to make sure he gets enough carbs\" — CNN; Gustav Iden's \"normal food\" approach, vo2master.com https://vo2master.com/blog/the-norwegian-method-s02-s06/",
+   "sourceUrl": "https://vo2master.com/blog/the-norwegian-method-s02-s06/",
+   "cachedPages": [
+    {
+     "url": "https://vo2master.com/blog/the-norwegian-method-s02-s06/",
+     "title": "The Norwegian Method: Kristian Blummenfelt and Gustav Iden Talk About Life as Pro Triathletes Episode 6 - VO2 Master",
+     "ok": true,
+     "textFile": ".cache/source-pages/313a7de5dc8444d6e4c03793e80462c1022c079d.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  }
+ ]
+}

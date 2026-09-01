@@ -1,0 +1,287 @@
+{
+ "batch": "R-10",
+ "kind": "recipe",
+ "meals": [
+  {
+   "id": "D-095",
+   "name": "Sheet-pan tofu, sweet potato & broccoli",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "firm tofu 200g cubed, sweet potato 200g, broccoli 150g, bell pepper 1, olive oil 1 tbsp, tamari 1 tbsp, garlic powder (makes 4)",
+   "prep": "batch — 30 min, one tray, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "\"sheet pan meals with veggies and tofu\" — The No Meat Athlete Cookbook, nomeatathlete.com",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-096",
+   "name": "Salmon fish cakes with red cabbage & apple slaw",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "salmon 100g, egg ½, flour 1 tbsp, spring onion, ginger, lime zest; slaw: red cabbage 80g, apple ¼, red pepper ¼, mint, pistachios 6g, honey, olive oil 1 tsp; boiled potatoes 250g (makes 4)",
+   "prep": "batch — 35 min, 4 servings, fish cakes freeze",
+   "prepMinutes": 35,
+   "attribution": "Hannah Grant, Tour de France team chef — BikeRadar \"Fuel like Tour de France riders\" https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+   "sourceUrl": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+   "cachedPages": [
+    {
+     "url": "https://www.bikeradar.com/advice/nutrition/tour-de-france-recipes",
+     "title": "Fuel like Tour de France riders with these recipes from a pro cycling chef | BikeRadar",
+     "ok": true,
+     "textFile": ".cache/source-pages/1ea55f2d969b077513c61e8ba284946321d14621.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "D-097",
+   "name": "Miso salmon with soba noodles & bok choy",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "salmon fillet 170g, white miso 1 tbsp, soba noodles 120g dry, bok choy 150g, scallions",
+   "prep": "25 min",
+   "prepMinutes": 25,
+   "attribution": "commonly reported Japanese-style recovery dinner in endurance-nutrition content pairing omega-3 fish with buckwheat noodles",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-098",
+   "name": "Oven-baked fish & chips",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "white fish fillet 200g, breadcrumbs 50g, potatoes 350g cut and baked, olive oil 1 tbsp, peas 100g, lemon",
+   "prep": "35 min",
+   "prepMinutes": 35,
+   "attribution": "commonly reported British/Irish endurance-athlete comfort dinner (220triathlon/tri247 readership staple)",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "D-100",
+   "name": "Baked white fish with peeled mashed potato (race-eve)",
+   "mealType": "dinner",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "cod or haddock fillet 200g, potatoes 350g peeled and mashed, butter 1 tbsp, salt, well-cooked carrots 80g",
+   "prep": "25 min",
+   "prepMinutes": 25,
+   "attribution": "STYRKR \"What to eat the night before a race\" https://styrkr.com/en-us/blogs/training-and-nutrition-hub/what-to-eat-the-night-before-a-race ; marathonhandbook.com pre-marathon guidance (\"peeled potatoes digest quickly\")",
+   "sourceUrl": "https://styrkr.com/en-us/blogs/training-and-nutrition-hub/what-to-eat-the-night-before-a-race",
+   "cachedPages": [
+    {
+     "url": "https://styrkr.com/en-us/blogs/training-and-nutrition-hub/what-to-eat-the-night-before-a-race",
+     "title": "What to eat the night before a race: from 5k to the marathon",
+     "ok": true,
+     "textFile": ".cache/source-pages/2cdbb84c19af4fa4017d8410cb03573ade02b45f.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-001",
+   "name": "Chicken, jasmine rice & broccoli with teriyaki",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "chicken breast 150g grilled, jasmine rice 200g cooked, broccoli 150g steamed, teriyaki sauce 2 tbsp, sesame seeds 1 tsp (makes 4)",
+   "prep": "batch — 30 min, 4–5 servings",
+   "prepMinutes": 30,
+   "attribution": "The Kitchn \"A Triathlete's Sunday Meal Prep Routine\" (https://www.thekitchn.com/a-triathletes-sunday-meal-prep-routine-235207); Triathlete.com meal-prep guide (https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/); u/ahm911 marathon meal prep, r/MealPrepSunday (https://old.reddit.com/r/MealPrepSunday/)",
+   "sourceUrl": "https://www.thekitchn.com/a-triathletes-sunday-meal-prep-routine-235207",
+   "cachedPages": [
+    {
+     "url": "https://www.thekitchn.com/a-triathletes-sunday-meal-prep-routine-235207",
+     "title": "A Triathlete’s Sunday Meal Prep Routine",
+     "ok": true,
+     "textFile": ".cache/source-pages/25af9dea3bb7f17560394321750d70579fe835bc.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+     "title": "The Busy Triathlete's Guide to Meal Prepping",
+     "ok": true,
+     "textFile": ".cache/source-pages/150ccae32d31343383a7f964eef43d433c0a04b7.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://old.reddit.com/r/MealPrepSunday/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/deb8274d94e7385503148578237dc82ca44fa2a9.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-002",
+   "name": "Chicken, brown rice, roasted veg & avocado",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "chicken breast 150g, brown rice 180g cooked, roasted mixed veg 150g, avocado 1/2, olive oil 1 tbsp, lemon (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Fuelin coached-athlete meal template (https://fuelin.com/articles/race-ready-your-nutrition-playbook-for-endurance-success); Meghann Featherstun RD \"Build-a-Bowl\" (https://featherstonenutrition.com/build-a-bowl-lemon-dijon-vinaigrette/); trigirl.co.uk GF/DF recovery-meal list",
+   "sourceUrl": "https://fuelin.com/articles/race-ready-your-nutrition-playbook-for-endurance-success",
+   "cachedPages": [
+    {
+     "url": "https://fuelin.com/articles/race-ready-your-nutrition-playbook-for-endurance-success",
+     "title": "Fuelin",
+     "ok": true,
+     "textFile": ".cache/source-pages/d65e22691c87f03f026a3f46faab901e0585e4b9.txt",
+     "schemaRecipeNames": []
+    },
+    {
+     "url": "https://featherstonenutrition.com/build-a-bowl-lemon-dijon-vinaigrette/",
+     "title": "Build-a-Bowl + Lemon Dijon Vinaigrette — Featherstone Nutrition",
+     "ok": true,
+     "textFile": ".cache/source-pages/a399e22613128040b3d4b0462c3e444390101491.txt",
+     "schemaRecipeNames": [
+      "Build-a-Bowl + Lemon Dijon Vinaigrette",
+      "Build-a-Bowl + Lemon Dijon Vinaigrette"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L-003",
+   "name": "Rotisserie chicken, rice, slaw & edamame with tamari-hoisin",
+   "mealType": "lunch",
+   "cuisine": "american",
+   "servings": 4,
+   "ingredients": "rotisserie chicken 150g shredded, microwave rice 200g cooked, coleslaw mix 1.5 cups, edamame 1/2 cup, cucumber, green onion, tamari 2 tbsp, hoisin 1 tbsp, chili crunch 1 tsp (makes 4)",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "Meghann Featherstun RD, \"Runner Rotisserie Chicken Salad — 15-minute meal\" (https://featherstonenutrition.com/runner-rotisserie-chicken-salad-15-minute-meal/)",
+   "sourceUrl": "https://featherstonenutrition.com/runner-rotisserie-chicken-salad-15-minute-meal/",
+   "cachedPages": [
+    {
+     "url": "https://featherstonenutrition.com/runner-rotisserie-chicken-salad-15-minute-meal/",
+     "title": "Runner Rotisserie Chicken Salad - 15 minute meal — Featherstone Nutrition",
+     "ok": true,
+     "textFile": ".cache/source-pages/bf5cbb3301f60ceb31980a8f437d72a87b456813.txt",
+     "schemaRecipeNames": [
+      "Runner Rotisserie Chicken Salad",
+      "Runner Rotisserie Chicken Salad"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "L-004",
+   "name": "White rice, grilled chicken & steamed carrots",
+   "mealType": "lunch",
+   "cuisine": "general",
+   "servings": 1,
+   "ingredients": "white rice 200g cooked, chicken breast 150g grilled, carrots 1 cup peeled and well-cooked, olive oil 1 tsp, salt",
+   "prep": "20 min",
+   "prepMinutes": 20,
+   "attribution": "TriWorldHub \"Race Week Meal Plan for Endurance Athletes\" (https://triworldhub.com/race-week-meal-plan-for-endurance-athletes/)",
+   "sourceUrl": "https://triworldhub.com/race-week-meal-plan-for-endurance-athletes/",
+   "cachedPages": [
+    {
+     "url": "https://triworldhub.com/race-week-meal-plan-for-endurance-athletes/",
+     "title": "Race Week Meal Plan for Endurance Athletes - TriWorldHub",
+     "ok": true,
+     "textFile": ".cache/source-pages/3d12fa5f5f8bcb113307baf77c329e23e1b59592.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-006",
+   "name": "Chicken, rice & black bean burrito bowl",
+   "mealType": "lunch",
+   "cuisine": "mexican",
+   "servings": 5,
+   "ingredients": "white rice 200g cooked, black beans 1 cup, grilled chicken 120g, salsa 3 tbsp, sweetcorn 1/2 cup, guacamole 2 tbsp, lime (makes 5)",
+   "prep": "batch — 30 min, 5 servings",
+   "prepMinutes": 30,
+   "attribution": "Triathlete.com meal-prep guide (https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/); runtothefinish.com GF runner meal plan; \"burrito after the group ride\" pattern commonly reported on Slowtwitch / r/triathlon",
+   "sourceUrl": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+     "title": "The Busy Triathlete's Guide to Meal Prepping",
+     "ok": true,
+     "textFile": ".cache/source-pages/150ccae32d31343383a7f964eef43d433c0a04b7.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-007",
+   "name": "Salmon, brown rice & roasted veg",
+   "mealType": "lunch",
+   "cuisine": "general",
+   "servings": 4,
+   "ingredients": "salmon fillet 150g baked, brown rice 180g cooked, roasted courgette/pepper/carrot 150g, olive oil 1 tbsp, lemon (makes 4)",
+   "prep": "batch — 30 min, 4 servings",
+   "prepMinutes": 30,
+   "attribution": "Triathlete.com \"The Busy Triathlete's Guide to Meal Prepping\" (https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/)",
+   "sourceUrl": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+   "cachedPages": [
+    {
+     "url": "https://www.triathlete.com/nutrition/the-busy-triathletes-guide-to-meal-prepping/",
+     "title": "The Busy Triathlete's Guide to Meal Prepping",
+     "ok": true,
+     "textFile": ".cache/source-pages/150ccae32d31343383a7f964eef43d433c0a04b7.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-008",
+   "name": "Miso-glazed salmon, white rice & pickled cucumber",
+   "mealType": "lunch",
+   "cuisine": "japanese",
+   "servings": 4,
+   "ingredients": "salmon fillet 150g, miso 1 tbsp, mirin 1 tbsp, tamari 1 tbsp, white rice 180g cooked, cucumber quick-pickled in rice vinegar, steamed greens (makes 4)",
+   "prep": "batch — 25 min, 4 servings",
+   "prepMinutes": 25,
+   "attribution": "commonly reported Japanese-style batch lunch; salmon teriyaki rice bowl from u/Prudent_Exercise_471 (40–60 mpw runner), r/Ultramarathon \"What do you eat day-to-day?\" (https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/)",
+   "sourceUrl": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+   "cachedPages": [
+    {
+     "url": "https://old.reddit.com/r/Ultramarathon/comments/1hyuqzz/",
+     "title": "Welcome to Reddit",
+     "ok": true,
+     "textFile": ".cache/source-pages/e1048d3d2abe28e20a596c110352b701286dd64a.txt",
+     "schemaRecipeNames": []
+    }
+   ]
+  },
+  {
+   "id": "L-009",
+   "name": "Poke bowl — tuna, sushi rice, edamame & avocado",
+   "mealType": "lunch",
+   "cuisine": "japanese",
+   "servings": 1,
+   "ingredients": "sushi rice 200g cooked, sashimi-grade tuna 120g cubed (or cooked salmon), edamame 1/2 cup, avocado 1/2, cucumber, tamari 1 tbsp, sesame seeds 1 tsp",
+   "prep": "15 min",
+   "prepMinutes": 15,
+   "attribution": "poke/chirashi widely reported as a warm-weather and carb-load lunch among coastal triathletes and runners (community-reported, r/triathlon \"what I eat race week\")",
+   "sourceUrl": null,
+   "cachedPages": []
+  },
+  {
+   "id": "L-010",
+   "name": "California rolls, miso soup & edamame",
+   "mealType": "lunch",
+   "cuisine": "japanese",
+   "servings": 1,
+   "ingredients": "California rolls 8 pieces (store-bought), miso soup 1 cup, edamame 1/2 cup, tamari 1 tbsp",
+   "prep": "no-cook",
+   "prepMinutes": 0,
+   "attribution": "sushi widely reported as a grab lunch among triathletes in urban training hubs (community-reported); supermarket sushi is a common pre-afternoon-session choice",
+   "sourceUrl": null,
+   "cachedPages": []
+  }
+ ]
+}
