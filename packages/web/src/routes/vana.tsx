@@ -8,7 +8,8 @@ import { DefaultChatTransport, type UIMessage } from "ai";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { getSessionUser } from "./-server/food";
-import { qk, postAction, getConversation, createConversation, type ActionResult } from "@/lib/vana/client";
+import { qk, postAction, getConversation, createConversation, VANA_TRANSPORT, type ActionResult } from "@/lib/vana/client";
+import { useNdjsonChat } from "@/lib/vana/use-ndjson-chat";
 import type { ConversationKind, MealPlan, MealRef, MealType, PlanMeal, VanaPart } from "@/lib/vana/contracts";
 import { VanaPartRenderer } from "@/components/vana/widgets";
 import { PlanBar, MealSheet, ConfirmedCard, ReviewSheet } from "@/components/vana/planbar";
@@ -114,7 +115,9 @@ function ChatView({ conversationId, kind, initial, say, onConversationId }: { co
       return res;
     },
   }), [kind, onConversationId]);
-  const { messages, sendMessage, status, error } = useChat({ id: chatKey.current, messages: initial, transport });
+  // VITE_VANA_TRANSPORT=ndjson swaps the AI SDK stream for the app's NDJSON envelope; a build-time constant, so the hook choice never changes across renders.
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { messages, sendMessage, status, error } = VANA_TRANSPORT === "ndjson" ? useNdjsonChat({ initial, kind, conversationId, onConversationId }) : useChat({ id: chatKey.current, messages: initial, transport });
   const [text, setText] = useState("");
   const [picked, setPicked] = useState<Record<string, string>>({});
   const [pending, setPending] = useState<Set<string>>(new Set());

@@ -47,6 +47,34 @@ export async function getConversation(id: string, kind: ConversationKind = "meal
 export async function createConversation(kind: ConversationKind = "meal_planning"): Promise<{ id: string; kind: ConversationKind; messages: UIMessage[] }> {
   const res = await fetch("/api/vana/conversations", { method: "POST", credentials: "include", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind }) }); if (!res.ok) throw new Error(`new conversation failed (${res.status})`); return res.json();
 }
+// ---- NDJSON transport (POST /api/vana/chat-ndjson) — the envelope the Flutter app parses; the web client uses it behind VITE_VANA_TRANSPORT=ndjson.
+export type NdjsonLine =
+  | { type: "text"; delta: string }
+  | { type: "ui"; part: VanaPart }
+  | { type: "status"; tool: string }
+  | { type: "done"; usage: { input_tokens: number | null; output_tokens: number | null } }
+  | { type: "error"; message: string };
+export interface NdjsonChatRequest { message?: string; conversation_id?: string | null; kind: ConversationKind; timezone?: string; opener?: boolean; anchor_date?: string }
+/** Streams one turn. `onLine` fires per parsed line, in order; resolves with the ids from the response headers once the stream ends.
+ *  Throws on 401/429/5xx before the first byte (429 carries retryAfterSeconds). */
+export async function streamChatNdjson(req: NdjsonChatRequest, onLine: (l: NdjsonLine) => void, signal?: AbortSignal): Promise<{ conversationId: string | null; kind: ConversationKind }> {
+  const res = await fetch("/api/vana/chat-ndjson", { method: "POST", credentials: "include", headers: { "content-type": "application/json" }, body: JSON.stringify({ timezone: Intl.DateTimeFormat().resolvedOptions().timeZone, ...req }), signal });
+  if (res.status === 429) { const j = (await res.json().catch(() => ({}))) as { retry_after_seconds?: number }; const err = new Error(`Vana needs a moment — try again in ${j.retry_after_seconds ?? 10}s`) as Error & { retryAfterSeconds?: number }; err.retryAfterSeconds = j.retry_after_seconds; throw err; }
+  if (!res.ok || !res.body) throw new Error(`chat failed (${res.status}) ${await res.text().catch(() => "")}`);
+  const conversationId = res.headers.get("x-conversation-id");
+  const kind = (res.headers.get("x-vana-kind") === "general" ? "general" : "meal_planning") as ConversationKind;
+  const reader = res.body.getReader(); const dec = new TextDecoder(); let buf = "";
+  const emit = (raw: string) => { const t = raw.trim(); if (!t) return; try { onLine(JSON.parse(t) as NdjsonLine); } catch { /* a torn line is dropped, never fatal */ } };
+  for (;;) {
+    const { value, done } = await reader.read(); if (done) break;
+    buf += dec.decode(value, { stream: true });
+    let i: number; while ((i = buf.indexOf("\n")) >= 0) { emit(buf.slice(0, i)); buf = buf.slice(i + 1); }
+  }
+  emit(buf);
+  return { conversationId, kind };
+}
+export const VANA_TRANSPORT: "ai-sdk" | "ndjson" = import.meta.env.VITE_VANA_TRANSPORT === "ndjson" ? "ndjson" : "ai-sdk";
+
 export const todayIso = () => new Date().toLocaleDateString("en-CA");
 export const shiftIso = (iso: string, n: number) => { const d = new Date(iso + "T12:00:00"); d.setDate(d.getDate() + n); return d.toLocaleDateString("en-CA"); };
 export const fmtDay = (iso: string) => new Date(iso + "T12:00:00").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });

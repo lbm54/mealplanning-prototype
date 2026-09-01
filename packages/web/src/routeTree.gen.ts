@@ -27,6 +27,7 @@ import { Route as FoodMealsIdRouteImport } from './routes/food.meals_.$id'
 import { Route as FoodCookIdRouteImport } from './routes/food.cook_.$id'
 import { Route as ApiVanaHomeRouteImport } from './routes/api.vana.home'
 import { Route as ApiVanaConversationsRouteImport } from './routes/api.vana.conversations'
+import { Route as ApiVanaChatNdjsonRouteImport } from './routes/api.vana.chat-ndjson'
 import { Route as ApiVanaChatRouteImport } from './routes/api.vana.chat'
 import { Route as ApiVanaActionRouteImport } from './routes/api.vana.action'
 
@@ -120,6 +121,11 @@ const ApiVanaConversationsRoute = ApiVanaConversationsRouteImport.update({
   path: '/api/vana/conversations',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiVanaChatNdjsonRoute = ApiVanaChatNdjsonRouteImport.update({
+  id: '/api/vana/chat-ndjson',
+  path: '/api/vana/chat-ndjson',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiVanaChatRoute = ApiVanaChatRouteImport.update({
   id: '/api/vana/chat',
   path: '/api/vana/chat',
@@ -146,6 +152,7 @@ export interface FileRoutesByFullPath {
   '/food/': typeof FoodIndexRoute
   '/api/vana/action': typeof ApiVanaActionRoute
   '/api/vana/chat': typeof ApiVanaChatRoute
+  '/api/vana/chat-ndjson': typeof ApiVanaChatNdjsonRoute
   '/api/vana/conversations': typeof ApiVanaConversationsRoute
   '/api/vana/home': typeof ApiVanaHomeRoute
   '/food/cook/$id': typeof FoodCookIdRoute
@@ -167,6 +174,7 @@ export interface FileRoutesByTo {
   '/food': typeof FoodIndexRoute
   '/api/vana/action': typeof ApiVanaActionRoute
   '/api/vana/chat': typeof ApiVanaChatRoute
+  '/api/vana/chat-ndjson': typeof ApiVanaChatNdjsonRoute
   '/api/vana/conversations': typeof ApiVanaConversationsRoute
   '/api/vana/home': typeof ApiVanaHomeRoute
   '/food/cook/$id': typeof FoodCookIdRoute
@@ -190,6 +198,7 @@ export interface FileRoutesById {
   '/food/': typeof FoodIndexRoute
   '/api/vana/action': typeof ApiVanaActionRoute
   '/api/vana/chat': typeof ApiVanaChatRoute
+  '/api/vana/chat-ndjson': typeof ApiVanaChatNdjsonRoute
   '/api/vana/conversations': typeof ApiVanaConversationsRoute
   '/api/vana/home': typeof ApiVanaHomeRoute
   '/food/cook_/$id': typeof FoodCookIdRoute
@@ -214,6 +223,7 @@ export interface FileRouteTypes {
     | '/food/'
     | '/api/vana/action'
     | '/api/vana/chat'
+    | '/api/vana/chat-ndjson'
     | '/api/vana/conversations'
     | '/api/vana/home'
     | '/food/cook/$id'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/food'
     | '/api/vana/action'
     | '/api/vana/chat'
+    | '/api/vana/chat-ndjson'
     | '/api/vana/conversations'
     | '/api/vana/home'
     | '/food/cook/$id'
@@ -257,6 +268,7 @@ export interface FileRouteTypes {
     | '/food/'
     | '/api/vana/action'
     | '/api/vana/chat'
+    | '/api/vana/chat-ndjson'
     | '/api/vana/conversations'
     | '/api/vana/home'
     | '/food/cook_/$id'
@@ -276,6 +288,7 @@ export interface RootRouteChildren {
   VanaConversationsRoute: typeof VanaConversationsRoute
   ApiVanaActionRoute: typeof ApiVanaActionRoute
   ApiVanaChatRoute: typeof ApiVanaChatRoute
+  ApiVanaChatNdjsonRoute: typeof ApiVanaChatNdjsonRoute
   ApiVanaConversationsRoute: typeof ApiVanaConversationsRoute
   ApiVanaHomeRoute: typeof ApiVanaHomeRoute
 }
@@ -408,6 +421,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiVanaConversationsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/vana/chat-ndjson': {
+      id: '/api/vana/chat-ndjson'
+      path: '/api/vana/chat-ndjson'
+      fullPath: '/api/vana/chat-ndjson'
+      preLoaderRoute: typeof ApiVanaChatNdjsonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/vana/chat': {
       id: '/api/vana/chat'
       path: '/api/vana/chat'
@@ -460,6 +480,7 @@ const rootRouteChildren: RootRouteChildren = {
   VanaConversationsRoute: VanaConversationsRoute,
   ApiVanaActionRoute: ApiVanaActionRoute,
   ApiVanaChatRoute: ApiVanaChatRoute,
+  ApiVanaChatNdjsonRoute: ApiVanaChatNdjsonRoute,
   ApiVanaConversationsRoute: ApiVanaConversationsRoute,
   ApiVanaHomeRoute: ApiVanaHomeRoute,
 }

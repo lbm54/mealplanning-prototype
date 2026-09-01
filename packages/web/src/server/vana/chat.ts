@@ -1,6 +1,6 @@
 /** POST /api/vana/chat orchestration: auth → rate limit → context → streamText(tools by kind) → persist (vana_*) → log.
  *  Cost posture: Haiku by default, ≤6 steps, ≤400 output tokens, ~250-token context block, compact tool outputs. */
-import { streamText, convertToModelMessages, stepCountIs, generateText, type UIMessage } from "ai";
+import { streamText, convertToModelMessages, stepCountIs, generateText, type UIMessage, type StreamTextResult, type ToolSet } from "ai";
 import { chatModel, CHAT_MODEL, dbAny } from "./env";
 import { buildAthleteContext, contextBlock } from "./context";
 import { makeVanaTools, dayGuidance } from "./tools";
@@ -97,13 +97,17 @@ const system = (kind: ConversationKind, ctx: AthleteContext) => kind === "genera
   : `${promptFor(kind)}\n--- CONTEXT (today ${new Date().toISOString().slice(0, 10)}) ---\n${contextBlock(ctx)}`;
 
 // ---------------------------------------------------------------- chat
-export async function vanaChat(userId: string, messages: UIMessage[], conversationId?: string | null, kindHint?: ConversationKind): Promise<Response> {
+export interface ChatOpts { anchorDate?: string }
+type ChatStart = { ok: true; convId: string; kind: ConversationKind; opener: boolean; result: StreamTextResult<ToolSet, never> } | { ok: false; status: 429; retryAfterSeconds: number };
+/** Everything both transports share: rate limit → context → conversation → tools → user-row persist → streamText with the onFinish
+ *  persistence + call log. The caller only decides how to serialize the stream (AI SDK UI stream or NDJSON). */
+async function startChat(userId: string, messages: UIMessage[], conversationId?: string | null, kindHint?: ConversationKind, opts: ChatOpts = {}): Promise<ChatStart> {
   const rl = await checkRateLimit(userId, "vana.chat");
-  if (!rl.allowed) return Response.json({ error: "rate_limited", retryAfterSeconds: rl.retryAfterSeconds }, { status: 429 });
+  if (!rl.allowed) return { ok: false, status: 429, retryAfterSeconds: rl.retryAfterSeconds ?? 10 };
   const opener = messages.length === 0 && (kindHint ?? "meal_planning") !== "general";
   const last = [...messages].reverse().find((m) => m.role === "user");
   const lastText = last ? textOf(last) : "";
-  const [ctx, conv] = await Promise.all([buildAthleteContext(userId, lastText || undefined), ensureConversation(userId, conversationId, kindHint ?? "meal_planning")]);
+  const [ctx, conv] = await Promise.all([buildAthleteContext(userId, lastText || undefined, opts.anchorDate), ensureConversation(userId, conversationId, kindHint ?? "meal_planning")]);
   const convId = conv.id; const kind = conv.kind;
   // Planning writes land on this conversation's own draft; the context's PLAN line describes that draft, not the Plan tab's plan.
   const scope = kind === "meal_planning" ? { conversationId: convId } : null;
@@ -129,8 +133,62 @@ export async function vanaChat(userId: string, messages: UIMessage[], conversati
       await logCall({ userId, conversationId: convId, functionName: opener ? `vana.opener.${kind}` : `vana.chat.${kind}`, model: CHAT_MODEL, inputTokens: u?.inputTokens, outputTokens: u?.outputTokens });
     },
   });
-  return result.toUIMessageStreamResponse({ headers: { "x-vana-conversation": convId, "x-vana-kind": kind } });
+  return { ok: true, convId, kind, opener, result: result as unknown as StreamTextResult<ToolSet, never> };
 }
+const chatHeaders = (convId: string, kind: ConversationKind) => ({ "x-conversation-id": convId, "x-vana-conversation": convId, "x-vana-kind": kind });
+
+/** POST /api/vana/chat — AI SDK UI message stream (useChat + DefaultChatTransport). The client sends the whole UIMessage[] history. */
+export async function vanaChat(userId: string, messages: UIMessage[], conversationId?: string | null, kindHint?: ConversationKind): Promise<Response> {
+  const run = await startChat(userId, messages, conversationId, kindHint);
+  if (!run.ok) return Response.json({ error: "rate_limited", retryAfterSeconds: run.retryAfterSeconds, retry_after_seconds: run.retryAfterSeconds }, { status: 429 });
+  return run.result.toUIMessageStreamResponse({ headers: chatHeaders(run.convId, run.kind) });
+}
+
+/** POST /api/vana/chat-ndjson — the wire protocol the Flutter app speaks (docs/implement_mealplanning/02-contract.md §5).
+ *  Request { message?, conversation_id?, kind, timezone?, opener?, anchor_date? }; the server owns the history (vana_messages).
+ *  Lines: text{delta} · ui{part} · status{tool} · done{usage} · error{message}. Persistence is identical to /api/vana/chat (same onFinish). */
+export interface NdjsonChatBody { message?: string; conversation_id?: string | null; kind?: ConversationKind | string; timezone?: string; opener?: boolean; anchor_date?: string }
+export type NdjsonLine =
+  | { type: "text"; delta: string }
+  | { type: "ui"; part: VanaPart }
+  | { type: "status"; tool: string }
+  | { type: "done"; usage: { input_tokens: number | null; output_tokens: number | null } }
+  | { type: "error"; message: string };
+export async function vanaChatNdjson(userId: string, body: NdjsonChatBody): Promise<Response> {
+  const kind: ConversationKind = body.kind === "general" ? "general" : "meal_planning";
+  const message = (body.message ?? "").trim();
+  const anchorDate = body.anchor_date ?? (body.timezone ? localDate(body.timezone) : undefined);
+  // History comes from the server: an existing conversation's rows + the new user turn. `opener` (or no message on a planning
+  // conversation) means "write Vana's first turn" — the same empty-messages path the AI SDK endpoint uses.
+  let messages: UIMessage[] = [];
+  if (!body.opener) {
+    if (body.conversation_id) messages = (await conversationMessages(userId, body.conversation_id)).messages;
+    if (message) messages.push({ id: `u-${Date.now()}`, role: "user", parts: [{ type: "text", text: message }] });
+  }
+  if (!messages.length && kind === "general" && !body.opener) return Response.json({ error: "message_required" }, { status: 400 });
+  const run = await startChat(userId, messages, body.conversation_id ?? null, kind, { anchorDate });
+  if (!run.ok) return Response.json({ error: "rate_limited", retry_after_seconds: run.retryAfterSeconds, retryAfterSeconds: run.retryAfterSeconds }, { status: 429 });
+  const enc = new TextEncoder();
+  const line = (l: NdjsonLine) => enc.encode(JSON.stringify(l) + "\n");
+  const stream = new ReadableStream<Uint8Array>({
+    async start(controller) {
+      try {
+        for await (const part of run.result.fullStream) {
+          if (part.type === "text-delta") controller.enqueue(line({ type: "text", delta: part.text }));
+          else if (part.type === "tool-input-start") controller.enqueue(line({ type: "status", tool: part.toolName }));
+          else if (part.type === "tool-result") { const out = (part as { output?: unknown }).output; if (out && typeof out === "object" && "kind" in (out as object)) controller.enqueue(line({ type: "ui", part: out as VanaPart })); }
+          else if (part.type === "error") controller.enqueue(line({ type: "error", message: errorMessage(part.error) }));
+          else if (part.type === "finish") controller.enqueue(line({ type: "done", usage: { input_tokens: part.totalUsage?.inputTokens ?? null, output_tokens: part.totalUsage?.outputTokens ?? null } }));
+        }
+      } catch (e) { controller.enqueue(line({ type: "error", message: errorMessage(e) })); }
+      controller.close();
+    },
+  });
+  return new Response(stream, { headers: { "content-type": "application/x-ndjson; charset=utf-8", "cache-control": "no-cache", ...chatHeaders(run.convId, run.kind) } });
+}
+const errorMessage = (e: unknown) => (e instanceof Error ? e.message : typeof e === "string" ? e : "Vana hit an error");
+/** YYYY-MM-DD in the athlete's timezone (falls back to UTC on a bad IANA name). */
+function localDate(tz: string): string { try { return new Date().toLocaleDateString("en-CA", { timeZone: tz }); } catch { return new Date().toISOString().slice(0, 10); } }
 
 /** Non-streaming opener for a brand-new conversation (used by POST /api/vana/conversations). */
 export async function generateOpener(userId: string, convId: string, kind: ConversationKind = "meal_planning"): Promise<UIMessage[]> {
